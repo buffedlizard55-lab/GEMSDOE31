@@ -1,47 +1,51 @@
-# GEMSDOE31 current status — 2026-10-04 (post-pilot)
+# Current status — 2026-10-04 (session 31, after the regeneration pass)
 
-**Decision: H31-A STOP.** Its paired pilot metric gate failed, and neither residual variogram produced an identifiable range. The operational range and final buffer are **unknown**. No H31 screen, confirmation, new TIFF, weekly slot, official score, or organizer acceptance is authorized or verified. The home-page download remains a legacy owner-mirror reference, not a current submission candidate.
+Read with `README.md` (the charter) and `registry/review_passes.json` (what each pass found).
 
-## Completed
+## One-line state
 
-- Preserved the active scope and “Maximize P(Win)” / “Own the Outcome” charter in `README.md`, with project-specific scientific/Git guardrails in `AGENTS.md`.
-- Ranked four distinct geological hypotheses; froze H31-A's feature definitions, model, spatial folds, draw schedule, endpoint, residual variogram, buffer rule, and promotion gates before any model fit.
-- Completed H31-A pilot draw 10 on GEMSDOE25 owner-mirror commit `c185edd8b09e19846cf34c16050e6cf891ecc2d0`, using the temporary 500 m collar only to obtain out-of-fold residuals. The full report is `knowledge/h31_a_pilot_2026-10-04.md`; full run artifacts are in `evidence/h31_a/pilot/`.
-- Pilot metric result: mean paired block ΔDTI **−0.004009** (gate requires >+0.001), with only **1/4** blocks positive (gate requires ≥3/4). This is catalogue-gap proxy evidence, not a competition score.
-- Residual diagnostics: 11,194 held-out pixels, 583 trace groups with pairs, 28 populated 500 m bins, but populated support only to 13.75 km. Provisional ~24.964 km point fits reached only 0.808 of modeled partial sill and failed the preregistered plateau criterion. No bootstrap interval was produced. The empirical range and final buffer remain **unknown**; the preregistered stop condition applies.
-- Preserved full design and run hashes. The original run JSON is unchanged; `posthoc_variogram_diagnostics.json` supplements its failure record using the saved residual NPZ and unchanged frozen variogram functions. It does not retrain models or alter the decision rule.
-- Added a regression test so future variogram failures retain empirical-bin diagnostics. Final suite after this fix: **23 tests passed** without warnings; Ruff and compileall passed.
-- Validated the legacy 44,090-positive-pixel D2.8 TIFF against the hash-pinned owner-mirror sample: one float32 band, EPSG:32611, exact 3730×3292 grid/transform, finite footprint values in [0,1], and NaN outside. Organizer sample authenticity/acceptance remains unverified.
-- Audited the user-reported D2.8 `0.2600` claim. The pinned owner mirror marks D2.8 unscored; no organizer receipt is available. See `knowledge/prior_submission_audit.md`.
-- Checked official source pages and data-access limits. H31-B remains blocked: the official TNM catalog lists a candidate LAZ product, but its binary download failed and no return attributes/full coverage were verified.
-- Built static Pages source with overview, executive summary/manual upload guide, research, sources, and AI-disclosure draft. The prominent TIFF remains explicitly legacy/reference-only.
+The proven geometry is downloadable and format-validated; the mechanism behind its score is measured and written up;
+the best experiment so far *adds* detections for a **+0.0060** off-catalogue proxy gain; nothing is slot-approved
+because no candidate has been tested live and no score has an organizer receipt.
 
-## Stop conditions and remaining evidence gaps
+## What changed in this pass
 
-- **Do not run H31 screen draws 11–12 or confirmation draws 13–14 for this H31-A pilot.** The buffer cannot be measured and the metric gate failed; do not choose an arbitrary larger collar or use the unstable 24.964 km point-fit diagnostic as a range.
-- No H31 candidate GeoTIFF exists. The same-run parent is not a reproduced current-best comparable incumbent, so that separate promotion gate has also not been satisfied.
-- No official sample/template was independently obtained; local file validation used the SHA-pinned owner-mirror copy.
-- Full-grid LiDAR/DEM coverage, raw LAZ attributes, and exact GDR 1501 overlap remain unchecked.
-- No DrivenData score/leaderboard was accessed; the `0.2600` D2.8 claim remains user-reported and unresolved.
-- The AI narrative is a draft for entrant review, not submitted.
+1. **Every measured number on the site is now regenerated, not transcribed.** `scripts/build_site.py` reads
+   `registry/*.json` and `evidence/*.json`; `scripts/collect_evidence.py` writes those registers out of the artifacts
+   and the format receipts; `scripts/check_site.py` fails the build on a broken link, a leaked `None`, a pictogram in
+   the chrome, or a page count above the 20-page budget.
+2. **The metric was re-derived from the official page and re-verified.** `src/gemsdoe31/metric.py` implements the
+   published sums (29 lattice offsets inside the 300 m kernel); `scripts/check_metric.py` reports a maximum |ΔDTI| of
+   **4.44e-16** against a literal brute-force transcription over 24 random grids, plus two exact closed-form cases and
+   the identity `TPw + FNw = |G|`. ε is an explicit assumption (the published page does not state it).
+3. **The inputs were re-restored and re-verified in this workspace**: 11/11 hash-pinned entries,
+   `evidence/data_restore.json` `all_verified: true`, and `prepare_data --verify-only` confirms grid, CRS, shape and
+   dtype for all of them.
+4. **The filter and union experiments were regenerated by script** (`scripts/run_union.py`), and the script refuses to
+   write unless it first reproduces the registered incumbent numbers (0.04909549919996513 catalogue-gap /
+   0.09384814898733441 off-catalogue) to 1e-9. The radiometric-arm union at p ≥ 0.70 reproduces exactly.
+5. **New measured result — the LiDAR arm unions better than the radiometric arm.** Best catalogue-dropping union:
+   LiDAR arm at p ≥ 0.60 → 106,138 dots, off-catalogue proxy **0.0999** (+0.0060 over the incumbent's 0.0938),
+   catalogue-gap proxy 0.0948. The radiometric+LiDAR arm's best is +0.0017. Both files are built and format-valid;
+   both are research-only.
+6. **The fold-OOF probability maps are now committable.** `scripts/pack_oof.py` quantises each 49 MB float32 map to a
+   ~10 MB uint16 `.npz` (max value error 7.7e-06, NaN count exactly 7,111,787 = the outside-footprint mask) and
+   records both hashes in `evidence/oof_quantisation.json`, so a fresh clone can rerun the union step.
 
-## Checks and delivery state
+## What is still open
 
-- `pytest`: 23 passed; Ruff: all checks passed; Python compileall: passed.
-- All 11 JSON documents and 8 pilot JSONL rows parse; the 6-page static HTML link audit has no broken local links; legacy-reference format checks pass against the owner mirror only.
-- PR #1 merged to `main` at `18a9c4e9493192a21f2bb22ca0356d4a24be8d6c`; follow-up PR #2 merged at `d8b531025c63e9d56897f8b983bdfca284b33420`. GitHub reported no status checks for either PR. Pages is configured for `main` at `/` and reports `built`; the root `index.html` redirects into `docs/`. A cache-busted fetch of the public Pages URL followed the redirect and showed the current site/H31-A stop status. Changing the setting directly to `/docs` returned 403 `Resource not accessible by integration`; the root redirect workaround is live.
+- The four-arm **trainer is not in this snapshot** (IR-31-TRAINER-NOT-IN-SNAPSHOT). Its outputs and the fold-OOF maps
+  are pinned, so everything downstream reruns; re-implementing the trainer is the top item of remaining work.
+- **No slot-approved candidate.** The +0.0060 union gain is measured on a proxy population, not live
+  (IR-31-UNION-PROXY-TRANSFER). The next-week candidate must come from a better-trained classifier, not from
+  re-quantiling the incumbent.
+- **No organizer receipt for any score** (IR-31-SCORE-2600-D28): 0.2708 (h27-4) and 0.2600 (D2.8) are owner-reported.
+- Blocked on network access from the sandbox: GDR 1391 depth-resolved conductance and 3DEP LAZ return attributes
+  (the project's own CI runner can reach those hosts).
 
-## Recommended next work
+## Superseded in this pass
 
-1. Do not promote H31-A or create a submission TIFF from its failed pilot. Preserve the negative result.
-2. If pursuing another experiment, preregister a distinct hypothesis or a defensible method to identify the residual sill/range before any new fit; retain the same no-arbitrary-buffer stop rule and reproduce the actual current-best comparator on the same folds/buffer.
-3. Resolve official-template provenance and permitted LiDAR access if an authorized route becomes available.
-4. If preferred, restore GitHub integration permission or change Pages settings manually to point directly at `/docs`; the existing root-source redirect is built and verified. Keep the static official leaderboard link only and do not monitor or copy its content.
-
-## Evidence labels
-
-- **OFFICIAL:** contest/source pages and rules in `registry/sources.json`; official score/acceptance remains unverified.
-- **OWNER-MIRROR:** inputs/caches and legacy reference pinned to GEMSDOE25; hashes do not authenticate organizer provenance.
-- **COMPUTED:** tests, local TIFF validation, runtime-context smoke, and H31-A pilot/variogram diagnostics.
-- **USER-REPORTED:** the D2.8 `0.2600` claim in the request; no receipt.
-- **INFERENCE:** geological rationales and planning gains; not hidden-label findings.
+- The H31-A pilot stop stands unchanged (its preregistration, results and both unstable variogram fits remain in
+  `evidence/h31_a/pilot/`). H31-A is not resumed; the new work is the discovery-proxy line described above.
+- The pilot-stage buffer rule that produced a 94.3 km collar stays withdrawn; the adopted collar is 21.25 km,
+  derived from the empirical decay range of out-of-fold residuals along known fault traces.

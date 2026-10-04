@@ -1,0 +1,43 @@
+{
+ "schema_version": 1,
+ "generated_utc": "2026-10-04",
+ "purpose": "keep the fold-OOF maps in the repository in an auditable, quantised form",
+ "records": [
+  {
+   "raw": "evidence/oof/oof_B_19_plus_lidar.npy",
+   "raw_bytes": 49116768,
+   "raw_sha256": "26491cc4835dfa5d2cfd3a0261b9f956bface24374f753e6280bf7f477349186",
+   "packed": "evidence/oof/oof_B_19_plus_lidar_u16.npz",
+   "packed_bytes": 9902742,
+   "packed_sha256": "c0ea76d4b9e92af234f5a5f60c4d60a69bd4bb653084b81b0706527646bcf9f6",
+   "shape": [
+    3730,
+    3292
+   ],
+   "nan_cells_outside_footprint": 7111787,
+   "finite_cells": 5167373,
+   "max_abs_quantisation_error": 7.659065429654888e-06,
+   "mean_abs_quantisation_error": 3.8125749818763914e-06,
+   "max_value": 0.9156471490859985,
+   "decoder": "probability = probability_u16 / 65535.0; cells with raw NaN are outside the footprint"
+  },
+  {
+   "raw": "evidence/oof/oof_D_19_plus_lidar_radiometric.npy",
+   "raw_bytes": 49116768,
+   "raw_sha256": "b52541ffca88cfd24a62d604921db677e8761301d5f6cbb038e76e9aed886123",
+   "packed": "evidence/oof/oof_D_19_plus_lidar_radiometric_u16.npz",
+   "packed_bytes": 9993078,
+   "packed_sha256": "df25e26df4e1d1018eb38d7317705b5a5fae67785123c396a3577967861ab7c3",
+   "shape": [
+    3730,
+    3292
+   ],
+   "nan_cells_outside_footprint": 7111787,
+   "finite_cells": 5167373,
+   "max_abs_quantisation_error": 7.65931372548323e-06,
+   "mean_abs_quantisation_error": 3.815193391066556e-06,
+   "max_value": 0.9460649490356445,
+   "decoder": "probability = probability_u16 / 65535.0; cells with raw NaN are outside the footprint"
+  }
+ ]
+}

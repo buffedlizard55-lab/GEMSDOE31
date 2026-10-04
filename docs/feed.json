@@ -1,0 +1,111 @@
+{
+ "schema_version": 1,
+ "project": "GEMSDOE31",
+ "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
+ "current_download": {
+  "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
+  "tif": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+  "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+  "positive_pixels": 40199,
+  "positive_pixels_on_public_catalogue": 0,
+  "format_validated": true,
+  "measured": null,
+  "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
+  "slot_approved": false
+ },
+ "research_candidate": {
+  "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
+  "tif": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif",
+  "sha256": "a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23",
+  "positive_pixels": 106138,
+  "off_catalogue_proxy_DTI": 0.09985654750452583,
+  "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
+  "delta": 0.006008398517191579,
+  "slot_approved": false
+ },
+ "buffer": {
+  "derived_buffer_km": 21.25,
+  "empirical_decay_range_km": 21.25,
+  "rule": "buffer = max(empirical lag at 95 % of the peak semivariance, median fitted practical range over spherical/exponential/gaussian). The maximum fitted range and the bootstrap 95th percentile are reported as a sensitivity band, not used as the buffer, because they can exceed the populated lag support.",
+  "source": "evidence/buffer_derivation.json"
+ },
+ "proxy_scores": {
+  "incumbent_off_catalogue": 0.09384814898733425,
+  "incumbent_catalogue_gap": 0.04909549919996504,
+  "baseline_arm_off_catalogue": 0.0515978683707771,
+  "best_arm_off_catalogue": 0.06289056072017701,
+  "best_union_off_catalogue": 0.09560727109224337
+ },
+ "sources": [
+  {
+   "id": "dd-gems-overview",
+   "class": "OFFICIAL",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/",
+   "accessed_utc": null
+  },
+  {
+   "id": "dd-gems-problem",
+   "class": "OFFICIAL",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "tg-repo",
+   "class": "OWNER-MIRROR",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "3dep",
+   "class": "OFFICIAL",
+   "url": "https://www.usgs.gov/3d-elevation-program/about-3dep-products-services",
+   "accessed_utc": null
+  },
+  {
+   "id": "sgmc",
+   "class": "OFFICIAL",
+   "url": "https://mrdata.usgs.gov/geology/state/",
+   "accessed_utc": null
+  },
+  {
+   "id": "geodawn",
+   "class": "OFFICIAL",
+   "url": "https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7",
+   "accessed_utc": null
+  },
+  {
+   "id": "gdr-1391",
+   "class": "OFFICIAL",
+   "url": "https://gdr.openei.org/submissions/1391",
+   "accessed_utc": null
+  },
+  {
+   "id": "roberts-2017",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1111/ecog.02881",
+   "accessed_utc": null
+  },
+  {
+   "id": "valavi-2019",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1111/2041-210X.13107",
+   "accessed_utc": null
+  },
+  {
+   "id": "dd-leaderboard-link",
+   "class": "OFFICIAL",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+   "accessed_utc": null
+  }
+ ],
+ "automation": {
+  "rebuild": "python scripts/build_site.py",
+  "rule": "pages and this feed are regenerated from registry/ and evidence/ on every push; no manual editing",
+  "not_automated": "leaderboard reads, score entry and file uploads remain manual by competition terms"
+ },
+ "open_items": [
+  "no organizer receipt for any score on this site",
+  "no candidate has beaten the incumbent on the off-catalogue proxy by a margin worth a weekly slot",
+  "external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated"
+ ]
+}

@@ -38,12 +38,24 @@ def validate_submission(
     template_path: str | Path,
     *,
     require_competition_grid: bool = True,
+    convention: str = "nan-outside",
 ) -> dict[str, Any]:
     """Validate one float32 GeoTIFF against the organizer's sample grid and footprint.
 
-    Hard checks: template validity, one band, float32, exact CRS/shape/transform match, all footprint values
-    finite and within `[0,1]`, no infinity anywhere, and every out-of-footprint cell NaN. No alternative zero
-    collar is accepted, because the official format says outside data must be null/NaN.
+    Hard checks: template validity, one band, float32, exact CRS/shape/transform match, and every footprint
+    value finite and within ``[0,1]``. No silent clipping is ever accepted.
+
+    ``convention`` selects the outside-footprint rule that is enforced:
+
+    * ``"nan-outside"`` (default) — the official wording ("data outside the bounds is null or nan"): every
+      cell outside the footprint must be ``NaN``, and the NaN mask must equal the template's.
+    * ``"all-finite"`` — the defensive fallback used if a portal evaluates the whole array rather than the
+      masked footprint: every cell finite and in ``[0,1]``, zeros outside the footprint. The two NaN checks
+      are recorded but marked non-hard under this convention, and an ``allfinite_values_in_0_1`` check is
+      enforced instead.
+
+    The returned receipt always states which convention was applied, and
+    ``organizer_acceptance_verified`` is always ``False``: local validation is not organizer acceptance.
     """
     submission_path = Path(submission_path)
     template_path = Path(template_path)
@@ -137,14 +149,32 @@ def validate_submission(
         checks["no_infinite_pixels"] = _check(
             "no_infinite_pixels", not np.isinf(values).any(), f"{int(np.isinf(values).sum()):,} infinite values"
         )
-        checks["outside_footprint_nan"] = _check(
-            "outside_footprint_nan", bool(np.isnan(outside).all()),
-            f"{int(np.isnan(outside).sum()):,}/{outside.size:,} outside pixels are NaN; finite outside pixels are forbidden",
-        )
-        checks["nan_mask_matches_template"] = _check(
-            "nan_mask_matches_template", bool(np.array_equal(np.isnan(values), ~footprint)),
-            "NaN cells exactly match the template's outside-footprint mask",
-        )
+        if convention == "all-finite":
+            checks["outside_footprint_nan"] = _check(
+                "outside_footprint_nan", True,
+                f"not required under the all-finite convention; {int(np.isnan(outside).sum()):,} outside "
+                f"pixels are NaN", hard=False,
+            )
+            checks["nan_mask_matches_template"] = _check(
+                "nan_mask_matches_template", True,
+                "not required under the all-finite convention", hard=False,
+            )
+            finite_everywhere = bool(np.isfinite(values).all())
+            in_range = bool(values.min() >= 0.0 and values.max() <= 1.0)
+            checks["allfinite_values_in_0_1"] = _check(
+                "allfinite_values_in_0_1", finite_everywhere and in_range,
+                f"finite={finite_everywhere}; min={float(np.nanmin(values))}; max={float(np.nanmax(values))}",
+            )
+        else:
+            checks["outside_footprint_nan"] = _check(
+                "outside_footprint_nan", bool(np.isnan(outside).all()),
+                f"{int(np.isnan(outside).sum()):,}/{outside.size:,} outside pixels are NaN; finite outside "
+                f"pixels are forbidden",
+            )
+            checks["nan_mask_matches_template"] = _check(
+                "nan_mask_matches_template", bool(np.array_equal(np.isnan(values), ~footprint)),
+                "NaN cells exactly match the template's outside-footprint mask",
+            )
         if require_competition_grid:
             checks["output_epsg_32611"] = _check(
                 "output_epsg_32611", crs is not None and crs.to_epsg() == EXPECTED_CRS_EPSG,

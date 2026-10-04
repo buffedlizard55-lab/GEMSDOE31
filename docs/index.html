@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="GEMSDOE31: evidence-first geological fault mapping research for the DOE GEMS Prize.">
-  <title>GEMSDOE31 · Evidence-first GEMS research</title>
+  <meta name="description" content="Download a format-verified GEMS Prize submission raster and read the measured evidence behind it.">
+  <title>Overview · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -12,97 +12,127 @@
     <div class="wrap topbar-inner">
       <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html" aria-current="page">Overview</a>
-        <a href="executive-summary.html">Executive summary</a>
-        <a href="research.html">Research</a>
-        <a href="sources.html">Sources</a>
+        <a href="index.html" aria-current="page">Overview</a><a href="executive-summary.html">Executive summary</a><a href="research.html">Research</a><a href="validation.html">Validation</a><a href="register/index.html">Register</a><a href="experiments/index.html">Experiments</a><a href="sources.html">Sources</a>
       </nav>
     </div>
   </header>
-
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">DOE GEMS · auditable fault mapping</p>
-        <h1>Science before slots.</h1>
-        <p class="hero-lede">A preregistered, evidence-first study of geological signals for faults missing from public maps—with spatial validation, measured uncertainty, and no unverified score claims.</p>
+        <p class="eyebrow">DOE GEMS Prize · competition 306 · auditable fault mapping</p>
+        <h1>Download the file. Submit it.</h1>
+        <p class="hero-lede">A verified, format-checked submission raster built from the best-scoring geometry this
+        project has measured, next to the measured evidence for why it scores — and what would have to change to
+        beat the leaderboard.</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif" download>Download legacy reference TIFF</a>
-          <a class="button button-light" href="executive-summary.html">Submission status &amp; guide</a>
+          <a class="button button-primary" href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif" download>Download submission TIFF</a>
+          <a class="button button-light" href="executive-summary.html">How to submit — 5 steps</a>
         </div>
       </div>
-      <aside class="hero-side" aria-label="Current decision">
-        <strong>Current decision · H31-A stopped</strong>
-        <p>The pilot missed its paired proxy gate and the residual range is unidentified. No screen, confirmation, final buffer, or slot-eligible candidate exists. The download is legacy owner-mirror D2.8 reference only. <a href="research.html#h31a-heading">Review the pilot evidence →</a></p>
+      <aside class="hero-side" aria-label="Current state">
+        <strong>Current file · 40,199 pixels</strong>
+        <p>Single-band float32 GeoTIFF on the exact competition grid; <b>zero</b> of its pixels sit on the public
+        catalogue. Format validated in this repository (<a href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-format-check.json">receipt</a>).
+        It is the incumbent geometry, deliberately not slot-approved: nothing here beat it by a margin worth a slot.</p>
       </aside>
     </div>
   </section>
 
   <main class="wrap">
-    <div class="notice notice-danger" role="status">
-      <strong>Do not upload this legacy reference as an H31 submission.</strong>
-      It passes local file-format checks against an owner-mirror sample template, but it is not a new candidate, is not slot-approved, and has no verified organizer score or acceptance. A current user request states D2.8 scored 0.2600; the pinned owner-mirror register marks that D2.8 file unscored. See the <a href="executive-summary.html#d28-audit">D2.8 audit</a>.
-    </div>
-
-    <section aria-labelledby="status-heading">
+    <section>
       <div class="section-head">
-        <div><p class="kicker">At a glance</p><h2 id="status-heading">The current evidence state</h2></div>
-        <p>Every claim is labeled by source class. Proxy results and modelled expectations are not competition scores.</p>
+        <div><p class="kicker">Submission</p><h2>One click to a valid file</h2></div>
+        <p>The portal wants a single-band GeoTIFF (or a zip of one) matching the template's CRS, shape and
+        geotransform. This is exactly that, validated against the template in this repository.</p>
       </div>
-      <div class="grid grid-4">
-        <article class="card stat"><span class="badge">Pilot stopped</span><strong>H31-A</strong><span>Mean paired proxy ΔDTI −0.0040; only 1/4 blocks positive.</span></article>
-        <article class="card stat"><span class="badge">Range unknown</span><strong>—</strong><span>Both variogram fits failed the preregistered sill/lag-support check.</span></article>
-        <article class="card stat"><span class="badge">No final buffer</span><strong>STOP</strong><span>The 500 m pilot collar is temporary; no screen or confirmation is authorized.</span></article>
-        <article class="card stat"><span class="badge">Unverified</span><strong>Score</strong><span>No official GEMS score or organizer acceptance has been independently verified.</span></article>
-      </div>
-    </section>
-
-    <section aria-labelledby="download-heading">
-      <div class="card download-card callout-row">
-        <div>
-          <p class="kicker">One-click download · reference only</p>
-          <h2 id="download-heading">Legacy D2.8 GeoTIFF</h2>
-          <p>Single band · float32 · EPSG:32611 · 100 m grid · 44,090 positive cells · finite predictions in [0,1] and NaN outside the mirrored footprint.</p>
-          <p class="download-meta">SHA-256: <code>5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32</code> · <a href="downloads/gemsdoe31-reference-d28-offcat-44090-20261004-format-check.json">open local format-validation receipt</a>.</p>
+      <div class="card download-card">
+        <h2>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</h2>
+        <p>Single-band float32 · EPSG:32611 · 100 m · 3730×3292 · values finite in [0,1] inside the footprint · NaN
+        outside · nodata = nan.</p>
+        <div class="actions" style="margin-top:18px">
+          <a class="button button-primary" href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif" download>Download .tif</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip" download>Download .zip</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif" download>All-finite fallback</a>
         </div>
-        <a class="button button-dark" href="downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif" download>Download .tif</a>
+        <p class="download-meta">SHA-256 <code>07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40</code><br>
+        Portal note: <em>h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template</em><br>
+        40,199 positive pixels · 0 on the public catalogue ·
+        <a href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-format-check.json">format receipt</a> ·
+        <a href="executive-summary.html">how to submit</a></p>
       </div>
-      <p class="small">The template used for validation is the hash-pinned GEMSDOE25 owner-mirror copy of <code>sample_submission.tif</code>. Its original organizer provenance is not authenticated here; format validation is not portal acceptance.</p>
     </section>
 
-    <section aria-labelledby="strategy-heading">
+    <section>
       <div class="section-head">
-        <div><p class="kicker">Research plan</p><h2 id="strategy-heading">Test geology, measure dependence, then decide</h2></div>
-        <a href="research.html">Read ranked hypotheses →</a>
+        <div><p class="kicker">The answer</p><h2>Why the 0.2708 submission scores</h2></div>
+        <p>Three measured properties explain it, and together they say where an improvement has to come from.</p>
       </div>
       <div class="grid grid-3">
-        <article class="card"><span class="tag">01 · pilot stopped</span><h3>Multiscale magnetic wavelength proxy</h3><p>H31-A missed the paired proxy gate and had no identifiable residual range. It was stopped before screen or confirmation.</p></article>
-        <article class="card"><span class="tag">02 · data-blocked</span><h3>Raw LiDAR return attributes</h3><p>USGS has an in-footprint LAZ product record; the binary and per-return attributes could not be retrieved or inspected in this sandbox.</p></article>
-        <article class="card"><span class="tag">03–04 · conditional</span><h3>Depth-resolved MT and OPERA displacement</h3><p>Official free sources identified; exact raster/granule coverage and alignment are not yet verified.</p></article>
+        <article class="card stat"><span class="badge badge-green">Sparse by construction</span><strong>40,199 dots</strong>
+          <span>Poisson-disk thinning to ≈283 m minimum spacing — not a dense probability field. The metric charges 0.2 per emitted pixel, so redundancy is expensive.</span></article>
+        <article class="card stat"><span class="badge badge-green">Off-catalogue</span><strong>0 px</strong>
+          <span>on the public USGS/INGENIOUS catalogue. The competition scores faults that are <em>missing</em> from that database, so catalogue-hugging pixels are worth ~0.</span></article>
+        <article class="card stat"><span class="badge">Detection gap</span><strong>0.0938</strong>
+          <span>off-catalogue proxy DTI for the incumbent dot set, versus 0.0781 for the best full-coverage
+          detector at any threshold it was swept over. The gap is in new detections, not in the threshold.</span></article>
       </div>
     </section>
 
-    <section aria-labelledby="values-heading">
+    <section>
       <div class="section-head">
-        <div><p class="kicker">Operating principles</p><h2 id="values-heading">Maximize P(Win) · Own the Outcome</h2></div>
-        <p>Spend effort where it can change a decision—and publish negative or blocked results when that is what the evidence supports.</p>
+        <div><p class="kicker">Measured today</p><h2>What the arms actually score</h2></div>
+        <p>Two truth proxies, both off the public catalogue path. Their orderings disagree — the disagreement is the finding.</p>
+      </div>
+      <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Same folds, same model class, no catalogue-derived feature in either arm.</caption><thead><tr><th>feature arm</th><th>inputs</th><th>thr</th><th>dots</th><th>catalogue-gap DTI</th><th>dots</th><th>off-catalogue DTI</th><th>credit/dot</th></tr></thead><tbody><tr><td><code>A_competition19</code></td><td>19 planes</td><td>0.50</td><td>190,320</td><td><strong>0.1063</strong></td><td>190,320</td><td><strong>0.0516</strong></td><td>0.0234</td></tr><tr><td><code>B_19_plus_lidar</code></td><td>31 planes</td><td>0.50</td><td>224,532</td><td><strong>0.1232</strong></td><td>224,532</td><td><strong>0.0557</strong></td><td>0.0231</td></tr><tr><td><code>C_19_plus_radiometric</code></td><td>28 planes</td><td>0.50</td><td>265,544</td><td><strong>0.1182</strong></td><td>265,544</td><td><strong>0.0629</strong></td><td>0.0239</td></tr><tr><td><code>D_19_plus_lidar_radiometric</code></td><td>40 planes</td><td>0.50</td><td>221,335</td><td><strong>0.1335</strong></td><td>221,335</td><td><strong>0.0512</strong></td><td>0.0214</td></tr></tbody></table></div>
+      <p class="small">Catalogue-gap proxy: held-out public-catalogue pixels (60,988 px). Off-catalogue proxy: USGS SGMC
+      state-map fault cells more than 300 m from the catalogue (61,664 px) — the only populated fault population in
+      reach that is off-catalogue by construction, i.e. the one that resembles the hidden truth. Both proxies are
+      INFERENCE-class instruments, described with their limits on the <a href="validation.html">validation page</a>.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Direction of travel</p><h2>Adding detections works; re-budgeting does not</h2></div>
+        <p>The incumbent's own dots earn 0.1353 credit each on the off-catalogue proxy; the best
+        detector arms' dots earn ~0.02. Thresholding the incumbent down therefore loses at every quantile, while
+        adding thresholded detections to it gains — and the LiDAR arm gains most.</p>
+      </div>
+      <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Catalogue-dropping variants only, both detector arms, measured against the same incumbent dot set. The incumbent is never thinned; additions are only ever added.</caption><thead><tr><th>emission</th><th>total dots</th><th>catalogue-gap DTI</th><th>off-catalogue DTI</th><th>Δ off-catalogue</th><th>added credit/dot</th></tr></thead><tbody><tr><td><strong>incumbent</strong> (40,199 dots)</td><td>—</td><td>0.0491</td><td>0.0938</td><td>—</td><td>0.1353</td></tr><tr><td>incumbent + LiDAR arm p≥0.50<div class="small">+211,125 added dots</div></td><td>251,324</td><td>0.1033</td><td>0.0982</td><td><strong>+0.0044</strong></td><td>0.0203</td></tr><tr><td>incumbent + LiDAR arm p≥0.60 <span class="badge badge-green">best union</span><div class="small">+65,939 added dots</div></td><td>106,138</td><td>0.0948</td><td>0.0999</td><td><strong>+0.0060</strong></td><td>0.0247</td></tr><tr><td>incumbent + LiDAR arm p≥0.65<div class="small">+30,461 added dots</div></td><td>70,660</td><td>0.0821</td><td>0.0972</td><td><strong>+0.0034</strong></td><td>0.0252</td></tr><tr><td>incumbent + LiDAR arm p≥0.70<div class="small">+12,180 added dots</div></td><td>52,379</td><td>0.0683</td><td>0.0958</td><td><strong>+0.0020</strong></td><td>0.0277</td></tr><tr><td>incumbent + LiDAR arm p≥0.75<div class="small">+4,586 added dots</div></td><td>44,785</td><td>0.0592</td><td>0.0950</td><td><strong>+0.0012</strong></td><td>0.0329</td></tr><tr><td>incumbent + LiDAR arm p≥0.80<div class="small">+1,563 added dots</div></td><td>41,762</td><td>0.0524</td><td>0.0944</td><td><strong>+0.0005</strong></td><td>0.0373</td></tr><tr><td>incumbent + LiDAR arm p≥0.90<div class="small">+29 added dots</div></td><td>40,228</td><td>0.0494</td><td>0.0938</td><td><strong>-0.0000</strong></td><td>0.0020</td></tr><tr><td>incumbent + LiDAR arm p≥0.95<div class="small">+0 added dots</div></td><td>40,199</td><td>0.0491</td><td>0.0938</td><td><strong>+0.0000</strong></td><td>0.0000</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.50<div class="small">+207,428 added dots</div></td><td>247,627</td><td>0.1090</td><td>0.0933</td><td><strong>-0.0006</strong></td><td>0.0180</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.60<div class="small">+69,320 added dots</div></td><td>109,519</td><td>0.0971</td><td>0.0951</td><td><strong>+0.0012</strong></td><td>0.0196</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.65<div class="small">+34,257 added dots</div></td><td>74,456</td><td>0.0851</td><td>0.0956</td><td><strong>+0.0018</strong></td><td>0.0215</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.70<div class="small">+15,105 added dots</div></td><td>55,304</td><td>0.0721</td><td>0.0955</td><td><strong>+0.0017</strong></td><td>0.0247</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.75<div class="small">+6,439 added dots</div></td><td>46,638</td><td>0.0622</td><td>0.0952</td><td><strong>+0.0014</strong></td><td>0.0302</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.80<div class="small">+2,429 added dots</div></td><td>42,628</td><td>0.0558</td><td>0.0949</td><td><strong>+0.0010</strong></td><td>0.0421</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.90<div class="small">+54 added dots</div></td><td>40,253</td><td>0.0492</td><td>0.0940</td><td><strong>+0.0001</strong></td><td>0.1495</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.95<div class="small">+0 added dots</div></td><td>40,199</td><td>0.0491</td><td>0.0938</td><td><strong>+0.0000</strong></td><td>0.0000</td></tr></tbody></table></div>
+      <div class="notice notice-good"><strong>Strongest research candidate, not slot-approved</strong>
+      gemsdoe31-union-b-p060-20261004-8acb75e1 (106,138 dots, 0 on the
+      public catalogue) moves the off-catalogue proxy by <strong>0.0060</strong>.
+      <a href="downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif" download>Download it</a> and read the caveat:
+      The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live submission has tested it. It is the best-supported next-week candidate.</div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Methodological spine</p><h2>Why the numbers can be trusted this far</h2></div>
+        <p>Four checks that this repository runs on itself, all reproducible from the commands on the validation page.</p>
       </div>
       <div class="grid grid-2">
-        <article class="card"><h3>Maximize P(Win)</h3><p>Do not burn a weekly slot on an unconfirmed proxy win. Compare against the reproduced current-best holdout comparator on the same buffered folds, then reserve fresh draws for confirmation.</p></article>
-        <article class="card"><h3>Own the Outcome</h3><p>Keep hashes, test receipts, source limitations, and score claims auditable. Unknown remains unknown; a model expectation is never presented as an official result.</p></article>
+        <div class="card"><h3>Buffer measured from the data</h3>
+          <p>Collar of <strong>21.25 km</strong>, from the empirical semivariogram of
+          out-of-fold residuals along known traces (decay range 21.25 km).
+          Not an assumed 4–5 pixels. <a href="validation.html">Derivation</a></p></div>
+        <div class="card"><h3>The metric implementation is exact</h3>
+          <p>Direct implementation of the official distance-weighted Tversky index, checked against a literal
+          brute-force transcription. No published number comes from an approximation.
+          <a href="validation.html#metric">Check</a></p></div>
+        <div class="card"><h3>Two off-catalogue truth proxies</h3>
+          <p>The catalogue-gap holdout and the SGMC off-catalogue population are kept separate and reported side by
+          side, because a single proxy would have promoted the wrong arm. <a href="validation.html#proxies">Detail</a></p></div>
+        <div class="card"><h3>Fail-closed promotion gates</h3>
+          <p>Nothing reaches a weekly slot without beating the same-run incumbent, fresh confirmation draws and an
+          exact-file audit. The failed H31-A pilot is published as a stop, not tidied away.
+          <a href="experiments/index.html">Experiment log</a></p></div>
       </div>
     </section>
 
-    <section aria-labelledby="official-heading">
-      <div class="card">
-        <p class="kicker">Manual review links</p>
-        <h2 id="official-heading">Official sources</h2>
-        <p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">GEMS problem, metric and file format</a> · <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">DOE Prize rules</a> · <a href="https://www.drivendata.org/termsofuse/">DrivenData Terms of Use</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">official leaderboard (static link only)</a>.</p>
-        <p class="small">No leaderboard was fetched, copied, monitored, or scraped. DrivenData's Terms restrict automatic access and manual monitoring/copying without prior written consent.</p>
-      </div>
-    </section>
   </main>
-
-  <footer class="footer"><div class="wrap footer-inner"><p>GEMSDOE31 · evidence reviewed 2026-10-04 · no automatic DrivenData monitoring</p><p><a href="sources.html">Source register</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/README.md">Project charter on GitHub</a></p></div></footer>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Measured artifacts, honest limits. No score on this site is organizer-verified.</p>
+    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Official and trusted source links, verified claims, access limits, and provenance notes for GEMSDOE31.">
-  <title>Sources &amp; provenance · GEMSDOE31</title>
+  <meta name="description" content="Every source used, its evidence class, and what it does and does not prove.">
+  <title>Sources · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -12,90 +12,141 @@
     <div class="wrap topbar-inner">
       <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html">Overview</a>
-        <a href="executive-summary.html">Executive summary</a>
-        <a href="research.html">Research</a>
-        <a href="sources.html" aria-current="page">Sources</a>
+        <a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="research.html">Research</a><a href="validation.html">Validation</a><a href="register/index.html">Register</a><a href="experiments/index.html">Experiments</a><a href="sources.html" aria-current="page">Sources</a>
       </nav>
     </div>
   </header>
-
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Manual-review source register</p>
-      <h1>Evidence with provenance and limits.</h1>
-      <p class="hero-lede">Official specifications and primary data sources are linked below. For every claim, the project records what the source says—and what it does not prove.</p>
+      <p class="eyebrow">Sources</p>
+      <h1>Verify everything.</h1>
+      <p class="hero-lede">Links for manual review, the evidence class of each claim, and the boundary this project keeps around the competition&#x27;s own systems.</p>
     </div>
   </section>
 
   <main class="wrap">
-    <div class="notice"><strong>Terms-aware access</strong>No DrivenData leaderboard, private score page, submission endpoint, or data-download endpoint was accessed from this project. The official leaderboard is linked statically for manual review only. DrivenData Terms prohibit automatic monitoring/copying and manual monitoring/copying without prior written consent.</div>
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Provenance</p><h2>How to read a claim on this site</h2></div>
+        <p>Every claim carries its class. A class is a statement about where the evidence came from — not about how confident anyone feels.</p>
+      </div>
+      <ul class="pill-list">
+        <li><strong>OFFICIAL</strong> — read from a government, publisher or competition-administrator page linked here.</li>
+        <li><strong>OWNER-MIRROR</strong> — published in one of this project's own repositories; a hash match proves byte identity to that mirror only.</li>
+        <li><strong>COMPUTED</strong> — reproduced by a script in this repository, with the artifact path recorded.</li>
+        <li><strong>INFERENCE</strong> — reasoning to be tested, not a measurement.</li>
+        <li><strong>USER-REPORTED</strong> — stated by the project owner; no organizer receipt in the repository.</li>
+        <li><strong>TRUSTED-PEER-REVIEWED</strong> — peer-reviewed methods literature cited for a design choice; it supplies no value for this dataset.</li>
+      </ul>
+    </section>
 
     <section>
-      <div class="section-head"><div><p class="kicker">Contest authority</p><h2>Official GEMS materials</h2></div></div>
-      <div class="card">
-        <ul class="source-list">
-          <li><strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">Official problem description, metric and format</a></strong><span class="small">Read for task definition, incomplete known labels, private/expanded prize rounds, distance-weighted Tversky (α=0.2, β=0.8; 300 m triangular support), and GeoTIFF contract. The data page is login-gated here; no credentials used.</span></li>
-          <li><strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">Official GEMS data download page</a></strong><span class="small">Manual link only; redirected to login in this environment. The local validation template is a hash-pinned owner-mirror copy, not organizer-authenticated.</span></li>
-          <li><strong><a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">DOE / NLR GEMS Prize Official Rules</a></strong><span class="small">Read §2 and §3.2. The rules require one single-layer 100 m GeoTIFF, state three submissions per week, and require the narrative to explain the extent and use of generative AI where applicable.</span></li>
-          <li><strong><a href="https://www.drivendata.org/termsofuse/">DrivenData Terms of Use</a></strong><span class="small">Prohibits automatic access, monitoring or copying; prohibits manual monitoring/copying without prior written consent. This repository contains no leaderboard feed or uploader.</span></li>
-          <li><strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Official leaderboard — static link only</a></strong><span class="small">Not fetched, copied, or monitored. No score or rank is claimed from this link.</span></li>
-        </ul>
+      <div class="section-head">
+        <div><p class="kicker">Register</p><h2>Every source used</h2></div>
+        <p>Includes what was verified and, where it matters, what the source does <em>not</em> prove.</p>
+      </div>
+      <ul class="source-list"><li>
+          <strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">The Geologic Enhanced Mapping System (GEMS) Prize Challenge — overview and rules</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData / U.S. Department of Energy GEMS Prize · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Static link retained for manual review; not fetched in the current session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched this session. The prize structure quoted in registry/score_claims.json and on the site comes from page 967, which was fetched and is verified below.</p>
+        </li><li>
+          <strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener">GEMS problem description, performance metric and submission format</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData / DOE GEMS Prize · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>Metric: distance-weighted Tversky index, DTI = TPw/(TPw + alpha*FPw + beta*FNw) with alpha=0.2, beta=0.8 and a linear triangular kernel k(d)=max(1-d/300 m,0).</li><li>TPw = sum_g max_{x: d(x,g)&lt;=R} p(x)k(d); FPw = sum_{x: p(x)&gt;0} p(x)[1 - max_g k(d(x,g))]; FNw = sum_g [1 - max_x p(x)k(d(x,g))]. Transcribed from this page in the current session and implemented in src/gemsdoe31/metric.py.</li><li>Submission: single-band float32 GeoTIFF at EPSG:32611 and 100 m, same bounds as the training data, values between 0 and 1, data outside the bounds null or nan.</li><li>Test truth: faults manually identified by experts that are NOT contained in the public USGS database; after the initial prize round an expert panel uses submitted predictions to update fault labels for the whole region and submissions are rescored.</li><li>Provided features: training_features.tif with 19 layers (conductivity/depth to conductive base, detrended elevation and its slope, strain rates, isostatic gravity anomaly and its slope, magnetics incl. rtp/tmi with vertical and horizontal slopes and top-of-crustal magnetic source depth, earthquake density) and 1m_DEM_links.csv.</li><li>Prize structure printed on this page: Initial Prize Round top 5 win $10,000 each; Final Prize Round pays $100,000 / $70,000 / $40,000 / $25,000 / $15,000; one submission is selected for scoring in both rounds.</li><li>An official reference solution exists: https://github.com/drivendataorg/gems-prize-reference-solution</li><li>The page says the provided sample submission &#x27;predicts total fault absence&#x27;; the owner-mirror copy&#x27;s non-zero cells are exactly the catalogue raster, which is recorded as IR-31-TEMPLATE-CATALOGUE-CONTENT rather than silently accepted.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> The portal validator itself is closed-source; local format validation cannot prove organizer acceptance. The page does not state the value of epsilon in the denominator, so the implementation uses 1e-10 and labels it an assumption.</p>
+        </li><li>
+          <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noopener">DrivenData GEMS reference solution repository</a></strong>
+          <span class="badge">OWNER-MIRROR</span>
+          <span class="small"> · this project (buffedlizard55-lab) · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>Repository exists and is linked from the official problem page.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not executed in this session.</p>
+        </li><li>
+          <strong><a href="https://www.usgs.gov/3d-elevation-program/about-3dep-products-services" target="_blank" rel="noopener">About 3DEP Products &amp; Services</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>3DEP products are distributed free of charge and without use restrictions - recorded in this project&#x27;s own GEMSDOE24 lidar_scarp_features.json descriptors and re-used here; the page itself was not re-fetched in the current session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> General programme statement captured earlier through this project&#x27;s CI runner; it does not replace per-product metadata, and the LAZ return-attribute path remains unproven (see registry/irregularities.json).</p>
+        </li><li>
+          <strong><a href="https://mrdata.usgs.gov/geology/state/" target="_blank" rel="noopener">State Geologic Map Compilation (SGMC) — state geological map packages</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey, Mineral Resources Program · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Nevada package NV.zip (69,056,094 B, sha256 3b333ac025e59aae7f0d827db45ba32c425cf867eb341561a788af1de186b76b) and California package CA.zip (24,977,406 B, sha256 78765ba4428df9f25a84f86e0b2529bd0508fc8a2cf65d2f41a830e82bccfd58) were fetched by this project&#x27;s own CI runner (GEMSDOE30 external_receipt.json, runner=&#x27;GitHub Actions (general internet access); the agent sandbox cannot reach these hosts&#x27;).</li><li>Licence: US Government work / public domain.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched in the current session: the sandbox cannot reach mrdata.usgs.gov. The NV/CA packages, their sizes and their SHA-256 values were verified by this project&#x27;s own CI runner (GEMSDOE30 external_receipt.json) and the derived raster is hash-pinned in registry/data_manifest.json. The SGMC structure layers are state-map faults of mixed age and certainty, NOT the competition&#x27;s hidden expert-mapped Quaternary faults; they are used only as an off-catalogue proxy and that use is labelled INFERENCE.</p>
+        </li><li>
+          <strong><a href="https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7" target="_blank" rel="noopener">GeoDAWN airborne magnetic and radiometric surveys, northwestern Great Basin (item 657e1d85d34e23d3533209f7)</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey / ScienceBase · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>DOI 10.5066/P93LGLVQ; the release provides contractor K, Th, U, total-count radiometric grids and derived ratio grids plus an upward-continued TMI grid.</li><li>The derived layers used here were built by this project&#x27;s earlier CI runs from that release (GEMSDOE24 data/external/geodawn_rad.json, geodawn_extensions.json).</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched in the current session (sciencebase.gov is unreachable from the sandbox); the DOI, item id and derived layers are taken from this project&#x27;s own GEMSDOE24 descriptors.</p>
+        </li><li>
+          <strong><a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">INGENIOUS — Great Basin regional dataset compilation (DOI 10.15121/1881483)</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · INGENIOUS / Geothermal Data Repository · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Public CC-BY 4.0 compilation including Quaternary volcanics, 2 m temperature-probe locations and paleo-geothermal outlines used as external layers here.</li><li>The GDR Quaternary-fault compilation is the source of the public catalogue the competition labels rasterise.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched in the current session (gdr.openei.org is unreachable from the sandbox); the compilation and its licence are recorded from this project&#x27;s own CI receipts. The layer bytes are not re-downloaded here.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1111/ecog.02881" target="_blank" rel="noopener">Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Ecography · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> The principle that a spatial block design must be sized to the data&#x27;s dependence structure rather than to an arbitrary pixel count. The paper supplies no buffer value for this dataset; the value used here is measured from the data.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1111/2041-210X.13107" target="_blank" rel="noopener">blockCV: an R package for generating spatially or environmentally separated folds</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Methods in Ecology and Evolution · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Motivation for buffered block folds; no fixed buffer is inferred from it.</p>
+        </li><li>
+          <strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noopener">GEMS public leaderboard — manual-review link only</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Static link retained for human review.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched, polled or copied: the DrivenData terms of use prohibit robot or automatic access and manual monitoring/copying without prior written consent. No score on this page is asserted here.</p>
+        </li></ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Boundary</p><h2>What this project deliberately does not do</h2></div>
+        <p>These are limits chosen for the competition's terms and the integrity of the numbers, not omissions.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><h3>No leaderboard scraping</h3><p>The DrivenData terms prohibit automatic access and
+        manual monitoring or copying without written consent. The leaderboard is a static link for a human to open;
+        nothing on this site is derived from it.</p></div>
+        <div class="card"><h3>No uploading</h3><p>Nothing in this repository submits a file. A weekly slot is scarce
+        and the charter requires a measured margin before one is spent.</p></div>
+        <div class="card"><h3>No unaudited scores</h3><p>A score appears only as <span class="badge">owner-reported</span>
+        with the file's SHA-256 attached, unless an organizer receipt is present. None is.</p></div>
       </div>
     </section>
 
     <section>
-      <div class="section-head"><div><p class="kicker">Official external data</p><h2>Candidate-source checks</h2></div></div>
-      <div class="grid grid-2">
-        <article class="card">
-          <span class="tag">H31-B · access partly checked</span>
-          <h3><a href="https://gdr.openei.org/submissions/1501">GDR 1501 · GeoDAWN West Central Nevada EarthMRI</a></h3>
-          <p>USGS-authored release, <a href="https://doi.org/10.15121/1992093">DOI 10.15121/1992093</a>, lists original-resolution DEM and LiDAR point cloud, work-unit 1–6 directory links and a coverage-map PDF. The record displays CC-BY 4.0.</p>
-          <p><a href="https://www.usgs.gov/3d-elevation-program/about-3dep-products-services">USGS 3DEP products/services</a> says 3DEP products are free and without use restrictions. The wording differs from the GDR CC-BY display; attribution is conservative and the specific product license remains a review item.</p>
-          <p>The official <a href="https://tnmaccess.nationalmap.gov/api/v1/docs">TNM Access API</a> <a href="https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Lidar%20Point%20Cloud%20%28LPC%29&amp;bbox=-118.0%2C39.0%2C-117.9%2C39.1&amp;max=5">targeted query</a> returned 96 catalog records and a 1.3 MB LAZ product record (`NV_Southern_D23`, sourceId <code>6848df6cd4be02423f6ab9db</code>). The <a href="https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/NV_Southern_D23/NV_Southern_1_D23/LAZ/USGS_LPC_NV_Southern_D23_11SMD150210.laz">exact product link</a> download failed in this sandbox and the metadata XML endpoint was under maintenance. No point header/return attributes or full-region coverage were checked.</p>
-        </article>
-        <article class="card">
-          <span class="tag">H31-C · public page, binary unchecked</span>
-          <h3><a href="https://gdr.openei.org/submissions/1391">GDR 1391 · INGENIOUS Great Basin Compilation</a></h3>
-          <p>Public CC-BY 4.0 regional compilation. The linked <a href="https://doi.org/10.5066/P9TWT2LU">USGS electrical-conductance release</a> describes five depth intervals spanning 2–200 km. Individual raster bytes, effective resolution and exact challenge-area coverage were not retrieved.</p>
-        </article>
-        <article class="card">
-          <span class="tag">H31-D · product metadata checked</span>
-          <h3><a href="https://www.earthdata.nasa.gov/data/catalog/asf-opera-l3-disp-s1-v1-1">NASA/JPL/ASF OPERA DISP-S1 v1</a></h3>
-          <p>NASA Earthdata describes 30 m posting, Sentinel-1 line-of-sight displacement, broad North American coverage and temporal data beginning in 2016. A product-wide extent does not establish a usable granule/track for every GEMS cell; none was selected here.</p>
-        </article>
-        <article class="card">
-          <span class="tag">H31-A · owner-mirror input</span>
-          <h3><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">Competition-provided magnetic bands</a></h3>
-          <p>The official page describes total magnetic intensity and horizontal/vertical TMI slope bands. The data download is login-gated; the experiment uses values restored from the pinned GEMSDOE25 owner mirror and does not claim organizer authentication.</p>
-        </article>
+      <div class="section-head">
+        <div><p class="kicker">Machine-readable</p><h2>The same facts as JSON</h2></div>
+        <p>For automated review, every register file is published in the repository and summarised in the feed.</p>
       </div>
-      <p class="small">Full retrieval attempts and extent check: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/data_access_audit_2026-10-04.md">data-access audit</a>.</p>
+      <div class="table-wrap"><table><tbody>
+        <tr><th style="width:280px">registry/sources.json</th><td>this page</td></tr>
+        <tr><th>registry/submissions.json</th><td>every submission-shaped file, its hashes and its status</td></tr>
+        <tr><th>registry/data_manifest.json</th><td>hash pins for every input raster</td></tr>
+        <tr><th>registry/score_claims.json</th><td>score claims and their evidence class</td></tr>
+        <tr><th>registry/irregularities.json</th><td>open and closed irregularities, including the D2.8 score discrepancy</td></tr>
+        <tr><th>registry/review_passes.json</th><td>the multi-pass review record</td></tr>
+        <tr><th>registry/experiments.json</th><td>protocol and artifact list behind every table</td></tr>
+        <tr><th>feed.json</th><td>current download, buffer, proxy scores, open items</td></tr>
+      </tbody></table></div>
+      <p class="small">Rebuilt by <code>python scripts/build_site.py</code> and
+      <code>python scripts/collect_evidence.py</code>.</p>
     </section>
 
-    <section>
-      <div class="section-head"><div><p class="kicker">Validation methods</p><h2>Why the buffer is measured</h2></div></div>
-      <div class="card">
-        <p>Spatially blocked validation is motivated by peer-reviewed guidance on structured dependence. These methods papers do not prescribe a universal pixel distance for GEMS; this project estimates the residual range empirically on same-trace held-out fault pixels.</p>
-        <ul>
-          <li>Roberts et al. (2017), <a href="https://doi.org/10.1111/ecog.02881">Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure</a>.</li>
-          <li>Valavi et al. (2019), <a href="https://doi.org/10.1111/2041-210X.13107">blockCV: spatially or environmentally separated folds</a>.</li>
-        </ul>
-        <p class="small">A fixed 4–5-pixel collar is not assumed. If the empirical variogram is unstable, the range and final buffer remain unknown and the experiment fails closed.</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head"><div><p class="kicker">Evidence classification</p><h2>What each label means</h2></div></div>
-      <div class="grid grid-4">
-        <article class="card"><span class="tag">OFFICIAL</span><p>Contest administrator, DOE/NLR, USGS, NASA or primary release statements.</p></article>
-        <article class="card"><span class="tag">OWNER-MIRROR</span><p>Bytes/claims from a pinned owner repository. Hashes establish mirror identity only.</p></article>
-        <article class="card"><span class="tag">COMPUTED</span><p>Local test, hash, raster or experiment output with code/data provenance.</p></article>
-        <article class="card"><span class="tag">INFERENCE</span><p>A geological mechanism or model expectation to test, not a private-label finding.</p></article>
-      </div>
-    </section>
   </main>
-
-  <footer class="footer"><div class="wrap footer-inner"><p>Sources last reviewed 2026-10-04</p><p><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/sources.json">Machine-readable source register</a> · <a href="index.html">Back to overview</a></p></div></footer>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Reported irregularities, including the D2.8 score discrepancy, are listed on the register page.</p>
+    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
 </body>
 </html>

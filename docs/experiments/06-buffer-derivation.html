@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How far can training pixels leak into a holdout and still leave an honest comparison?">
+  <title>Experiment 06 · Residual semivariogram → holdout buffer · GEMSDOE31</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../index.html">Overview</a><a href="../executive-summary.html">Executive summary</a><a href="../research.html">Research</a><a href="../validation.html">Validation</a><a href="../register/index.html">Register</a><a href="../experiments/index.html" aria-current="page">Experiments</a><a href="../sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Experiment 06 · measured</p>
+      <h1>Residual semivariogram → holdout buffer</h1>
+      <p class="hero-lede">Measured: autocorrelation decays to 5 % of peak at 21.25 km, so the collar is 21.25 km — not the 4–5 pixels assumed in earlier work.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Experiment 06</p><h2>Residual semivariogram → holdout buffer</h2></div>
+        <p>How far can training pixels leak into a holdout and still leave an honest comparison?</p>
+      </div>
+      <div class="notice notice-good"><strong>Measured</strong>Measured: autocorrelation decays to 5 % of peak at 21.25 km, so the collar is 21.25 km — not the 4–5 pixels assumed in earlier work.</div>
+      <div class="content"><p>Out-of-fold residuals along known traces were pooled within components and binned at 500 m. Three variogram models were fitted with a component bootstrap; the decision rule (max of empirical decay range and median fitted practical range) was fixed before the numbers were read.</p></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Artifact</p><h2>Measured values, as written by the script</h2></div>
+        <p>Source file: <code>evidence/buffer_derivation.json</code> — rendered here directly from the JSON, not transcribed.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>field</th><th>value</th></tr></thead><tbody><tr><td><code>schema_version</code></td><td>1</td></tr><tr><td><code>method</code></td><td>Matheron residual semivariogram, pairs restricted to the same 8-connected fault component</td></tr><tr><td><code>inputs</code></td><td><code>{&quot;oof&quot;: &quot;evidence/oof/oof_D_19_plus_lidar_radiometric.npy&quot;, &quot;labels&quot;: &quot;data/labels.tif&quot;, &quot;residual&quot;: &quot;e = 1 - p at held-out catalogue pixels&quot;}</code></td></tr><tr><td><code>support</code></td><td><code>{&quot;residual_pixels&quot;: 60988, &quot;components&quot;: 3199, &quot;bin_m&quot;: 500.0, &quot;max_lag_m&quot;: 60000.0, &quot;min_pairs&quot;: 20}</code></td></tr><tr><td><code>empirical</code></td><td><code>{&quot;bin_centres_m&quot;: [250.0, 750.0, 1250.0, 1750.0, 2250.0, 2750.0, 3250.0, 3750.0, 4250.0, 4750.0, 5250.0, 5750.0, 6250.0, 6750.0, 7250.0, 7750.0, 8250.0, 8750.0, 9250.0, 9750.0, 10250.0, 10750.0, 11250.0, 11750.0, 12250.0, 12750.0, 13250.0, 13750.0, 14250.0, 14750.0, 15250.0, 15750.0, 16250.0, 16750.0, 17250.0, 17750.0,…</code></td></tr><tr><td><code>fits</code></td><td><code>{&quot;spherical&quot;: {&quot;nugget&quot;: 0.0030386899416909993, &quot;partial_sill&quot;: 0.02763380317326083, &quot;total_sill&quot;: 0.03067249311495183, &quot;range_m&quot;: 12965.086988622621, &quot;practical_range_m&quot;: 12965.086988622621, &quot;weighted_rmse&quot;: 0.0023979571938879994, &quot;r_squared&quot;: 0.33699878395869576, &quot;bins_used&quot;: 54, &quot;max_lag_m&quot;: 26750.0, &quot;sill_fraction_…</code></td></tr><tr><td><code>bootstrap</code></td><td><code>{&quot;spherical&quot;: {&quot;draws&quot;: 200, &quot;median_m&quot;: 9415.947188087728, &quot;p05_m&quot;: 3374.819648544901, &quot;p95_m&quot;: 22405.166101129853, &quot;max_m&quot;: 499999.4149382476}, &quot;exponential&quot;: {&quot;draws&quot;: 200, &quot;median_m&quot;: 18284.20456934948, &quot;p05_m&quot;: 4255.977315710512, &quot;p95_m&quot;: 94322.78035221007, &quot;max_m&quot;: 499288.7122589984}, &quot;gaussian&quot;: {&quot;draws&quot;: 200, &quot;…</code></td></tr><tr><td><code>decision</code></td><td><code>{&quot;buffer_m&quot;: 21250.0, &quot;buffer_km&quot;: 21.25, &quot;empirical_decay_range_m&quot;: 21250.0, &quot;empirical_peak_lag_m&quot;: 20750.0, &quot;empirical_peak_gamma&quot;: 0.06631002394226024, &quot;model_practical_ranges_m&quot;: {&quot;spherical&quot;: 12965.086988622621, &quot;exponential&quot;: 30557.910587334427, &quot;gaussian&quot;: 6736.654562390093}, &quot;model_practical_range_median_m&quot;: 1…</code></td></tr><tr><td><code>provenance</code></td><td><code>{&quot;claim_class&quot;: &quot;COMPUTED (owner-mirror inputs; not organizer-authenticated)&quot;, &quot;references&quot;: [&quot;Roberts et al. 2017, Ecography, doi:10.1111/ecog.02881 (spatial blocking must match the data&#x27;s dependence structure; no universal pixel buffer is given there)&quot;, &quot;Valavi et al. 2019, Methods in Ecology and Evolution, doi:10.11…</code></td></tr></tbody></table></div>
+      <p class="small">Full artifact:
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/buffer_derivation.json" target="_blank" rel="noopener">view in the repository</a>.</p>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Artifact: evidence/buffer_derivation.json. Generated by scripts/build_site.py.</p>
+    <p><a href="../feed.html">Live feed</a> · <a href="../ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
+</body>
+</html>

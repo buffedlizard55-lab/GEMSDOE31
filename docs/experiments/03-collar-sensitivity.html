@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Is the LiDAR arm&#x27;s advantage an artefact of short-range leakage from the training region?">
+  <title>Experiment 03 · Collar sensitivity of the blocked protocol · GEMSDOE31</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../index.html">Overview</a><a href="../executive-summary.html">Executive summary</a><a href="../research.html">Research</a><a href="../validation.html">Validation</a><a href="../register/index.html">Register</a><a href="../experiments/index.html" aria-current="page">Experiments</a><a href="../sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Experiment 03 · measured</p>
+      <h1>Collar sensitivity of the blocked protocol</h1>
+      <p class="hero-lede">Measured, no: proxy scores are flat from a 0 km to a 30 km collar, so the conclusion is stable under the measured 21.25 km range. It does not license smaller collars used elsewhere.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Experiment 03</p><h2>Collar sensitivity of the blocked protocol</h2></div>
+        <p>Is the LiDAR arm&#x27;s advantage an artefact of short-range leakage from the training region?</p>
+      </div>
+      <div class="notice notice-good"><strong>Measured</strong>Measured, no: proxy scores are flat from a 0 km to a 30 km collar, so the conclusion is stable under the measured 21.25 km range. It does not license smaller collars used elsewhere.</div>
+      <div class="content"><p>The same paired comparison was recomputed while deleting every evaluation cell within b km of the training region, for b in 0…30 km.</p></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Artifact</p><h2>Measured values, as written by the script</h2></div>
+        <p>Source file: <code>evidence/collar_sweep.json</code> — rendered here directly from the JSON, not transcribed.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>row</th></tr></thead><tbody><tr><td><code>{&quot;collar_km&quot;: 0.0, &quot;A_competition19&quot;: {&quot;dots&quot;: 462087, &quot;cat_DTI&quot;: 0.1219370899182914, &quot;ff_DTI&quot;: 0.06886163061052258, &quot;cat_truth&quot;: 60988, &quot;ff_truth&quot;: 61664}, &quot;B_19_plus_lidar&quot;: {&quot;dots&quot;: 499448, &quot;cat_DTI&quot;: 0.12692786250385435, &quot;ff_DTI&quot;: 0.07050723122231614, &quot;cat_truth&quot;: 60988, &quot;ff_truth&quot;: 61664}, &quot;D_19_plus_lidar_radiometric&quot;: {&quot;dots&quot;: 493829, &quot;cat_DTI&quot;: 0.1355249682277299, &quot;ff_DTI&quot;: 0.0643690163699</code></td></tr><tr><td><code>{&quot;collar_km&quot;: 0.5, &quot;A_competition19&quot;: {&quot;dots&quot;: 460821, &quot;cat_DTI&quot;: 0.1218943359199726, &quot;ff_DTI&quot;: 0.06897458568371774, &quot;cat_truth&quot;: 60854, &quot;ff_truth&quot;: 61539}, &quot;B_19_plus_lidar&quot;: {&quot;dots&quot;: 498290, &quot;cat_DTI&quot;: 0.12702470280740738, &quot;ff_DTI&quot;: 0.070576272240348, &quot;cat_truth&quot;: 60854, &quot;ff_truth&quot;: 61539}, &quot;D_19_plus_lidar_radiometric&quot;: {&quot;dots&quot;: 492374, &quot;cat_DTI&quot;: 0.13564956187562757, &quot;ff_DTI&quot;: 0.06441120023284</code></td></tr><tr><td><code>{&quot;collar_km&quot;: 1.0, &quot;A_competition19&quot;: {&quot;dots&quot;: 459447, &quot;cat_DTI&quot;: 0.12187486295652501, &quot;ff_DTI&quot;: 0.06905721412983053, &quot;cat_truth&quot;: 60709, &quot;ff_truth&quot;: 61364}, &quot;B_19_plus_lidar&quot;: {&quot;dots&quot;: 497085, &quot;cat_DTI&quot;: 0.12716560778385244, &quot;ff_DTI&quot;: 0.07070045246669897, &quot;cat_truth&quot;: 60709, &quot;ff_truth&quot;: 61364}, &quot;D_19_plus_lidar_radiometric&quot;: {&quot;dots&quot;: 490702, &quot;cat_DTI&quot;: 0.1357502104632681, &quot;ff_DTI&quot;: 0.064449043454</code></td></tr><tr><td><code>{&quot;collar_km&quot;: 2.0, &quot;A_competition19&quot;: {&quot;dots&quot;: 456389, &quot;cat_DTI&quot;: 0.12189632518059594, &quot;ff_DTI&quot;: 0.06900811363097452, &quot;cat_truth&quot;: 60482, &quot;ff_truth&quot;: 61090}, &quot;B_19_plus_lidar&quot;: {&quot;dots&quot;: 494169, &quot;cat_DTI&quot;: 0.12729696430451834, &quot;ff_DTI&quot;: 0.07057055011285783, &quot;cat_truth&quot;: 60482, &quot;ff_truth&quot;: 61090}, &quot;D_19_plus_lidar_radiometric&quot;: {&quot;dots&quot;: 487532, &quot;cat_DTI&quot;: 0.13594018279681028, &quot;ff_DTI&quot;: 0.06419664702</code></td></tr><tr><td><code>{&quot;collar_km&quot;: 5.0, &quot;A_competition19&quot;: {&quot;dots&quot;: 446772, &quot;cat_DTI&quot;: 0.12180977423701765, &quot;ff_DTI&quot;: 0.06934240194061443, &quot;cat_truth&quot;: 59618, &quot;ff_truth&quot;: 60605}, &quot;B_19_plus_lidar&quot;: {&quot;dots&quot;: 486035, &quot;cat_DTI&quot;: 0.1272743150544261, &quot;ff_DTI&quot;: 0.07068611533961083, &quot;cat_truth&quot;: 59618, &quot;ff_truth&quot;: 60605}, &quot;D_19_plus_lidar_radiometric&quot;: {&quot;dots&quot;: 479685, &quot;cat_DTI&quot;: 0.13618304537438455, &quot;ff_DTI&quot;: 0.064133736835</code></td></tr><tr><td><code>{&quot;collar_km&quot;: 10.0, &quot;A_competition19&quot;: {&quot;dots&quot;: 437628, &quot;cat_DTI&quot;: 0.12075261835613943, &quot;ff_DTI&quot;: 0.06981143642931033, &quot;cat_truth&quot;: 58046, &quot;ff_truth&quot;: 59350}, &quot;B_19_plus_lidar&quot;: {&quot;dots&quot;: 475917, &quot;cat_DTI&quot;: 0.12773614850253784, &quot;ff_DTI&quot;: 0.07079052326473102, &quot;cat_truth&quot;: 58046, &quot;ff_truth&quot;: 59350}, &quot;D_19_plus_lidar_radiometric&quot;: {&quot;dots&quot;: 469505, &quot;cat_DTI&quot;: 0.13633532464772732, &quot;ff_DTI&quot;: 0.0640461526</code></td></tr><tr><td><code>{&quot;collar_km&quot;: 21.25, &quot;A_competition19&quot;: {&quot;dots&quot;: 411726, &quot;cat_DTI&quot;: 0.12113999143201316, &quot;ff_DTI&quot;: 0.07151366091579842, &quot;cat_truth&quot;: 53849, &quot;ff_truth&quot;: 52375}, &quot;B_19_plus_lidar&quot;: {&quot;dots&quot;: 447276, &quot;cat_DTI&quot;: 0.1287715651411763, &quot;ff_DTI&quot;: 0.07142910966575135, &quot;cat_truth&quot;: 53849, &quot;ff_truth&quot;: 52375}, &quot;D_19_plus_lidar_radiometric&quot;: {&quot;dots&quot;: 440407, &quot;cat_DTI&quot;: 0.13837815472115694, &quot;ff_DTI&quot;: 0.0641349316</code></td></tr><tr><td><code>{&quot;collar_km&quot;: 30.0, &quot;A_competition19&quot;: {&quot;dots&quot;: 367786, &quot;cat_DTI&quot;: 0.11959401629948752, &quot;ff_DTI&quot;: 0.06743384798100523, &quot;cat_truth&quot;: 49731, &quot;ff_truth&quot;: 46845}, &quot;B_19_plus_lidar&quot;: {&quot;dots&quot;: 410257, &quot;cat_DTI&quot;: 0.12916021839354203, &quot;ff_DTI&quot;: 0.06998297606768505, &quot;cat_truth&quot;: 49731, &quot;ff_truth&quot;: 46845}, &quot;D_19_plus_lidar_radiometric&quot;: {&quot;dots&quot;: 408800, &quot;cat_DTI&quot;: 0.1389275620395945, &quot;ff_DTI&quot;: 0.06230437581</code></td></tr></tbody></table></div>
+      <p class="small">Full artifact:
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/collar_sweep.json" target="_blank" rel="noopener">view in the repository</a>.</p>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Artifact: evidence/collar_sweep.json. Generated by scripts/build_site.py.</p>
+    <p><a href="../feed.html">Live feed</a> · <a href="../ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
+</body>
+</html>

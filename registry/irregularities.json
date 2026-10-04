@@ -1,93 +1,119 @@
 {
-  "schema_version": 1,
-  "generated_utc": "2026-10-04",
-  "items": [
-    {
-      "id": "IR-31-SCORE-2600-D28",
-      "severity": "high",
-      "status": "open",
-      "summary": "The current user request states that GEMSDOE25 D2.8 scored 0.2600, but the pinned owner-mirror record marks D2.8 unscored and no organizer receipt is available.",
-      "evidence": [
-        "User request wording (USER-REPORTED, 0.2600).",
-        "GEMSDOE25@c185edd8b09e19846cf34c16050e6cf891ecc2d0 registry/submissions.json marks D2.8 unscored/not slot-approved.",
-        "GEMSDOE25 knowledge/10 and evidence/score_claim_audit.json do not list a D2.8 0.2600 score."
-      ],
-      "impact": "Cannot assert the score is official, identify the scored bytes, or explain the exact result as a fact.",
-      "action": "Keep the claim USER-REPORTED and unverified. Do not access the live leaderboard absent prior written consent."
-    },
-    {
-      "id": "IR-31-TEMPLATE-AUTH",
-      "severity": "high",
-      "status": "open",
-      "summary": "The sample_submission.tif used for exact-grid validation is from an owner mirror, not organizer-authenticated in this environment.",
-      "evidence": [
-        "SHA-256 pinned in GEMSDOE25 owner data manifest: 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc."
-      ],
-      "impact": "Local exact-grid checks are reproducible but do not prove organizer acceptance or authenticity of the original template.",
-      "action": "Retain the official format rules and mirror provenance separately; re-check against the organizer sample if authorized access becomes available."
-    },
-    {
-      "id": "IR-31-TNM-LAZ-BINARY-UNAVAILABLE",
-      "severity": "medium",
-      "status": "open",
-      "summary": "TNM Access API listed an in-footprint LAZ point-cloud product, but the sandbox could not download the exact tile and its metadata XML endpoint was under maintenance.",
-      "evidence": [
-        "API sourceId 6848df6cd4be02423f6ab9db lists USGS_LPC_NV_Southern_D23_11SMD150210.laz, size 1,300,744 bytes and a product bbox sampled inside the owner-mirror footprint.",
-        "curl to the exact official download URL failed with SSL_ERROR_SYSCALL before bytes were received.",
-        "The USGS XML metadata URL returned a temporary maintenance page."
-      ],
-      "impact": "No file hash, LAS header, classification, return/intensity attributes, acquisition quality, or full-grid coverage result is available; H31-B cannot be fit.",
-      "action": "Do not infer the source is unavailable; retry only through a supported official delivery path and verify the binary before use."
-    },
-    {
-      "id": "IR-31-3DEP-LICENSE-WORDING",
-      "severity": "medium",
-      "status": "open",
-      "summary": "GDR 1501 displays CC-BY 4.0, while USGS describes 3DEP products as free and without use restrictions.",
-      "evidence": [
-        "GDR 1501 DOI 10.15121/1992093; USGS About 3DEP Products & Services."
-      ],
-      "impact": "Do not silently harmonize source statements or assume a derivative's reuse conditions.",
-      "action": "Use conservative attribution and inspect the specific product record/license before any redistribution."
-    },
-    {
-      "id": "IR-31-LEGACY-TIFF-BYTE-IDENTITY",
-      "severity": "low",
-      "status": "resolved-with-note",
-      "summary": "The local D2.8 reference has pixels identical to the pinned sibling D2.8 raster but a different SHA-256 and TIFF layout.",
-      "evidence": [
-        "Local SHA-256 5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32.",
-        "Sibling SHA-256 91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8.",
-        "Raster cell comparison: array_equal with equal_nan=true; 44,090 positive cells."
-      ],
-      "impact": "Do not describe the local TIFF as byte-identical or use the sibling's unverified score claim as local evidence.",
-      "action": "Describe only pixel identity and retain each file's own hash."
-    },
-    {
-      "id": "IR-31-RUNNER-INTEGRATION",
-      "severity": "medium",
-      "status": "resolved-with-stop",
-      "summary": "The clean committed production runner completed H31-A pilot draw 10 with all eight arm/fold fits. The preregistered paired gate failed and neither same-trace variogram identified a stable range; no later stage ran.",
-      "evidence": [
-        "Run revision 23191e7baa8d22114b713c5c253678e323fff712; 7/7 owner-mirror inputs and 6/6 derived caches verified.",
-        "evidence/h31_a/pilot/results.json: mean paired delta -0.0040088545; 1/4 positive folds; metric gate false.",
-        "evidence/h31_a/pilot/posthoc_variogram_diagnostics.json: 583 trace groups with pairs; both point fits fail the 95%-sill lag-support diagnostic; no bootstrap interval."
-      ],
-      "impact": "The implementation completed end-to-end, but the pilot cannot produce an empirical range or data-derived final buffer. H31-A must stop; no screen or submission is authorized.",
-      "action": "Preserve the pilot artifacts and negative result. Do not tune the same pilot, invent a buffer, or run screen/confirmation; any new attempt requires a preregistered design that can identify the range."
-    },
-    {
-      "id": "IR-31-H31-A-PILOT-UNKNOWN-RANGE",
-      "severity": "high",
-      "status": "open-stop-condition",
-      "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
-      "evidence": [
-        "Mean paired catalogue-gap ΔDTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
-        "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
-        "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
-      ],
-      "impact": "The preregistered buffer rule cannot be satisfied. A final spatial holdout buffer cannot be selected, and neither screen nor confirmation is authorized.",
-      "action": "Stop H31-A. Do not use the 24.964 km unstable extrapolation or 500 m pilot collar as the buffer. Preserve this result; only a new preregistration or defensible additional range-identification evidence may justify another attempt."
-    }
-  ]
+ "schema_version": 1,
+ "generated_utc": "2026-10-04",
+ "items": [
+  {
+   "id": "IR-31-SCORE-2600-D28",
+   "severity": "high",
+   "status": "open",
+   "summary": "The current user request states that GEMSDOE25 D2.8 scored 0.2600, but the pinned owner-mirror record marks D2.8 unscored and no organizer receipt is available.",
+   "evidence": [
+    "User request wording (USER-REPORTED, 0.2600).",
+    "GEMSDOE25@c185edd8b09e19846cf34c16050e6cf891ecc2d0 registry/submissions.json marks D2.8 unscored/not slot-approved.",
+    "GEMSDOE25 knowledge/10 and evidence/score_claim_audit.json do not list a D2.8 0.2600 score."
+   ],
+   "impact": "Cannot assert the score is official, identify the scored bytes, or explain the exact result as a fact.",
+   "action": "Keep the claim USER-REPORTED and unverified. Do not access the live leaderboard absent prior written consent."
+  },
+  {
+   "id": "IR-31-TEMPLATE-AUTH",
+   "severity": "high",
+   "status": "open",
+   "summary": "The sample_submission.tif used for exact-grid validation is from an owner mirror, not organizer-authenticated in this environment.",
+   "evidence": [
+    "SHA-256 pinned in GEMSDOE25 owner data manifest: 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc."
+   ],
+   "impact": "Local exact-grid checks are reproducible but do not prove organizer acceptance or authenticity of the original template.",
+   "action": "Retain the official format rules and mirror provenance separately; re-check against the organizer sample if authorized access becomes available."
+  },
+  {
+   "id": "IR-31-TNM-LAZ-BINARY-UNAVAILABLE",
+   "severity": "medium",
+   "status": "open",
+   "summary": "TNM Access API listed an in-footprint LAZ point-cloud product, but the sandbox could not download the exact tile and its metadata XML endpoint was under maintenance.",
+   "evidence": [
+    "API sourceId 6848df6cd4be02423f6ab9db lists USGS_LPC_NV_Southern_D23_11SMD150210.laz, size 1,300,744 bytes and a product bbox sampled inside the owner-mirror footprint.",
+    "curl to the exact official download URL failed with SSL_ERROR_SYSCALL before bytes were received.",
+    "The USGS XML metadata URL returned a temporary maintenance page."
+   ],
+   "impact": "No file hash, LAS header, classification, return/intensity attributes, acquisition quality, or full-grid coverage result is available; H31-B cannot be fit.",
+   "action": "Do not infer the source is unavailable; retry only through a supported official delivery path and verify the binary before use."
+  },
+  {
+   "id": "IR-31-3DEP-LICENSE-WORDING",
+   "severity": "medium",
+   "status": "open",
+   "summary": "GDR 1501 displays CC-BY 4.0, while USGS describes 3DEP products as free and without use restrictions.",
+   "evidence": [
+    "GDR 1501 DOI 10.15121/1992093; USGS About 3DEP Products & Services."
+   ],
+   "impact": "Do not silently harmonize source statements or assume a derivative's reuse conditions.",
+   "action": "Use conservative attribution and inspect the specific product record/license before any redistribution."
+  },
+  {
+   "id": "IR-31-LEGACY-TIFF-BYTE-IDENTITY",
+   "severity": "low",
+   "status": "resolved-with-note",
+   "summary": "The local D2.8 reference has pixels identical to the pinned sibling D2.8 raster but a different SHA-256 and TIFF layout.",
+   "evidence": [
+    "Local SHA-256 5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32.",
+    "Sibling SHA-256 91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8.",
+    "Raster cell comparison: array_equal with equal_nan=true; 44,090 positive cells."
+   ],
+   "impact": "Do not describe the local TIFF as byte-identical or use the sibling's unverified score claim as local evidence.",
+   "action": "Describe only pixel identity and retain each file's own hash."
+  },
+  {
+   "id": "IR-31-RUNNER-INTEGRATION",
+   "severity": "medium",
+   "status": "resolved-with-stop",
+   "summary": "The clean committed production runner completed H31-A pilot draw 10 with all eight arm/fold fits. The preregistered paired gate failed and neither same-trace variogram identified a stable range; no later stage ran.",
+   "evidence": [
+    "Run revision 23191e7baa8d22114b713c5c253678e323fff712; 7/7 owner-mirror inputs and 6/6 derived caches verified.",
+    "evidence/h31_a/pilot/results.json: mean paired delta -0.0040088545; 1/4 positive folds; metric gate false.",
+    "evidence/h31_a/pilot/posthoc_variogram_diagnostics.json: 583 trace groups with pairs; both point fits fail the 95%-sill lag-support diagnostic; no bootstrap interval."
+   ],
+   "impact": "The implementation completed end-to-end, but the pilot cannot produce an empirical range or data-derived final buffer. H31-A must stop; no screen or submission is authorized.",
+   "action": "Preserve the pilot artifacts and negative result. Do not tune the same pilot, invent a buffer, or run screen/confirmation; any new attempt requires a preregistered design that can identify the range."
+  },
+  {
+   "id": "IR-31-H31-A-PILOT-UNKNOWN-RANGE",
+   "severity": "high",
+   "status": "open-stop-condition",
+   "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
+   "evidence": [
+    "Mean paired catalogue-gap \u0394DTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
+    "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
+    "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
+   ],
+   "impact": "The preregistered buffer rule cannot be satisfied. A final spatial holdout buffer cannot be selected, and neither screen nor confirmation is authorized.",
+   "action": "Stop H31-A. Do not use the 24.964 km unstable extrapolation or 500 m pilot collar as the buffer. Preserve this result; only a new preregistration or defensible additional range-identification evidence may justify another attempt."
+  },
+  {
+   "id": "IR-31-TRAINER-NOT-IN-SNAPSHOT",
+   "severity": "medium",
+   "status": "open",
+   "summary": "The four-arm detector training run behind evidence/arm_results.json and evidence/operating_point.json was executed in a sibling workspace whose trainer script is not in this repository, so the arm tables cannot be regenerated from a fresh clone.",
+   "evidence": [
+    "evidence/arm_results.json and evidence/operating_point.json carry the protocol and outputs but no trainer.",
+    "evidence/oof/*_u16.npz, audited in evidence/oof_quantisation.json, preserve the fold-OOF probability maps, so every downstream step (union, filter, metric, buffer, submission, site) is reproducible from this snapshot.",
+    "The site states this limitation next to the reproduction commands rather than implying full end-to-end reproduction."
+   ],
+   "impact": "A reviewer cannot re-run the model training; they can re-run everything downstream of it.",
+   "action": "Re-implement the trainer in scripts/run_arms.py with the protocol recorded in registry/experiments.json, and re-check that the union conclusions survive the re-run."
+  },
+  {
+   "id": "IR-31-UNION-PROXY-TRANSFER",
+   "severity": "medium",
+   "status": "open",
+   "summary": "The best union gain (+0.0060 off-catalogue proxy DTI) is measured on USGS SGMC state-map faults, a proxy population that resembles but is not the hidden expert-mapped fault set, and no live submission has tested it.",
+   "evidence": [
+    "evidence/union_results.json best_union: LiDAR arm p>=0.60, 106,138 dots, ff_DTI 0.0999 vs incumbent 0.0938.",
+    "The incumbent's own dots earn 0.135 credit each on that proxy against 0.025 for the added dots, so the gain is small in per-dot terms even though it is positive.",
+    "The catalogue-gap holdout ranks the arms in the opposite order, which is why it is not used as the promotion instrument."
+   ],
+   "impact": "The direction is well supported; the magnitude is not, so the file stays research-only and no weekly slot is spent on it.",
+   "action": "Build a second off-catalogue instrument (for example an independent structural-lineament population or the CI-fetched 3DEP scarp population) and require the union to win on both before promotion."
+  }
+ ]
 }
