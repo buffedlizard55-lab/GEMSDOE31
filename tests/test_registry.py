@@ -17,6 +17,17 @@ def test_registry_and_receipt_json_are_valid_and_claim_statuses_fail_closed():
     d28_claim = next(item for item in score_claims["claims"] if item["id"] == "user-stated-gemsdoe25-d28-0.2600-20261004")
     assert d28_claim["evidence_class"] == "USER-REPORTED"
     assert d28_claim["organizer_verification"].startswith("not verified")
+    assert score_claims["official_score_receipts"] == []
+
+    h27_user = next(item for item in score_claims["claims"] if item["id"] == "user-reported-gemsdoe28-h27-4-0.2708-20261003")
+    h27_owner = next(item for item in score_claims["claims"] if item["id"] == "owner-mirror-gemsdoe28-h27-4-unscored-8acb75e1f2cc")
+    high_claim = next(item for item in score_claims["claims"] if item["id"] == "user-reported-public-leader-0.3195-20261003")
+    d28_owner = next(item for item in score_claims["claims"] if item["id"] == "owner-reported-gemsdoe28-d28-0.2600")
+    assert h27_user["evidence_class"] == "USER-REPORTED"
+    assert h27_owner["evidence_class"] == "OWNER-MIRROR" and h27_owner["reported_dti"] is None
+    assert high_claim["evidence_class"] == "USER-REPORTED"
+    assert d28_owner["evidence_class"] == "OWNER-MIRROR" and d28_owner["reported_dti"] == 0.2600
+    assert score_claims["user_supplied_historical_score_list"]["evidence_class"] == "USER-REPORTED"
 
     submissions = records["submissions.json"]
     assert submissions["current_slot_candidate"] is None

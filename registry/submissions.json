@@ -31,9 +31,11 @@
     }
   ],
   "proposed_future_submission_metadata": {
-    "status": "reserved example only; not attached to or uploaded with any current GeoTIFF",
-    "name": "GEMSDOE31-H31A-MAG-20261004-v01",
-    "optional_comment": "H31-A candidate; submit only after buffered holdout, fresh confirmation, incumbent win, and file audit.",
+    "status": "historical example only; H31-A is stopped, so this name/comment are not assigned to any candidate and must not be reused",
+    "name": null,
+    "optional_comment": null,
+    "previous_example_name": "GEMSDOE31-H31A-MAG-20261004-v01",
+    "previous_example_comment": "H31-A candidate; submit only after buffered holdout, fresh confirmation, incumbent win, and file audit.",
     "max_comment_characters": 120,
     "slot_approved": false
   },

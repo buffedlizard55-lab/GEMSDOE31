@@ -93,13 +93,84 @@
         }
       ],
       "delivery_state": "PR #1 merged at 18a9c4e9493192a21f2bb22ca0356d4a24be8d6c and PR #2 at d8b531025c63e9d56897f8b983bdfca284b33420; root-source Pages build is built and the root redirect to docs/ is verified; direct /docs settings change returned 403"
+    },
+    {
+      "id": "pass-4-score-prior-art-and-source-implementation-2026-10-03",
+      "status": "complete-for-reviewed-artifacts",
+      "scope": [
+        "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
+        "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
+        "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective ΔDTI planning brackets, cost, and source-access limits",
+        "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
+      ],
+      "verification": {
+        "pytest": "25 passed",
+        "ruff": "all checks passed",
+        "compileall": "passed for src/, scripts/, and tests/",
+        "json": "all 11 checked JSON documents and all 8 pilot JSONL rows parse",
+        "html": "7 pages (root and docs) have no broken local links or fragments",
+        "claims_and_artifact": "score classes preserve USER-REPORTED / OWNER-MIRROR distinctions; official_score_receipts is empty; legacy TIFF SHA-256 matches 5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32"
+      },
+      "open_gates": [
+        "H27-4 0.2708 remains a user claim and directly conflicts with GEMSDOE28 owner-page UNSCORED status; D2.8 0.2600 remains user/owner-reported against GEMSDOE25 UNSCORED; no organizer receipt ties a value to exact bytes",
+        "four hypotheses are desk-only; no source product was assembled into a raster and no model/holdout was fit",
+        "runtime competition inputs/cache are absent; H31-A range and final buffer remain unknown; no candidate TIFF or slot is approved"
+      ]
+    },
+    {
+      "id": "pass-5-independent-assumption-and-link-review-2026-10-03",
+      "status": "complete-with-blockers-preserved",
+      "checks": [
+        "rechecked the H27-4 filename/hash/status against GEMSDOE28 owner records and separated its catalogue-gap proxy deltas from competition DTI",
+        "rechecked D2.8 0.2600 against both the pinned GEMSDOE25 registry and GEMSDOE28 owner page; retained attribution conflict and empty organizer receipt list",
+        "reviewed official ComCat, CMR ASTER, Water Data, NGMDB, and Water Data migration links; approximate-bbox catalog hits were not represented as full coverage or a viable feature",
+        "checked site local links/fragments, score classification assertions, branch guard tests, legacy hash, no-candidate labels, and manual-upload status"
+      ],
+      "findings_fixed": [
+        "updated stale runner/instruction branch from arena/01a104a9-gemsdoe31 to active fixed branch arena/01a1050e-gemsdoe31",
+        "retired H31-A sample submission name/comment because no current candidate exists",
+        "linked the official USGS notice that decommissions the old /nwis/gwlevels/ endpoint",
+        "updated the current test count from the historical 23 to the latest 25"
+      ],
+      "remaining_risks": [
+        "GEMSDOE28 Pages deployment identity was not proven byte-identical to its repository HEAD; its records remain OWNER-MIRROR, not organizer evidence",
+        "ComCat count and sample, ASTER catalog granule, Water Data sample, and reachable NGMDB viewer do not establish exact-area coverage, licensing, or holdout utility",
+        "no live DrivenData leaderboard, private score page, or submission interface was accessed; no monitoring/feed/upload was implemented"
+      ]
+    },
+    {
+      "id": "pass-6-whole-charter-and-delivery-crosscheck-2026-10-03",
+      "status": "complete-with-open-gates",
+      "criteria": [
+        {
+          "criterion": "fault-mapping target, Maximize P(Win), Own the Outcome, README startup brief and source/evidence labels",
+          "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
+        },
+        {
+          "criterion": "3–5 distinct ranked hypotheses and official-source/access checks",
+          "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
+        },
+        {
+          "criterion": "manual upload guidance, unique name/comment, and prominent TIFF",
+          "status": "manual guidance retained; no current name/comment assigned; download explicitly legacy/reference-only, not a candidate"
+        },
+        {
+          "criterion": "measured buffer, holdout, current-best comparison, confirmation, exact-file validation, slot approval",
+          "status": "H31-A remains STOP; operational range unknown; no new holdout, candidate, confirmation, or slot approval; hard gates remain fail-closed"
+        },
+        {
+          "criterion": "AI narrative, three cumulative reviews, and delivery record",
+          "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to the historical project passes; this change set is not yet on a PR"
+        }
+      ],
+      "delivery_state": "No new candidate, submission, official score, deployment, PR, or merge is claimed. Prior PR #1/#2 are historical merged changes; this review remains local and uncommitted pending final GitHub eligibility checks."
     }
   ],
   "remaining_work": [
-    "if desired, obtain Pages write permission or manually set the Pages source to /docs; the existing root-source redirect is already built and verified",
-    "do not run H31-A screen or confirmation; any new scientific attempt requires a new preregistered design or defensible range-identification evidence",
-    "reproduce and beat the actual current-best comparable holdout system on the same measured buffer before any future candidate TIFF or weekly slot",
-    "resolve official sample-template provenance and permitted LiDAR access if an authorized route becomes available",
-    "retain the static official leaderboard link only, and keep AI disclosure as an entrant-reviewed draft"
+    "do not run H31-A screen/confirmation or create a candidate TIFF; no measured operational buffer exists",
+    "select/preregister a new hypothesis only after product-level coverage/access/license and feature-quality checks, then establish an empirical buffer and identical-fold incumbent comparison",
+    "resolve official-template provenance and permitted runtime/LiDAR/ASTER access if an authorized route becomes available",
+    "keep official leaderboard access manual and static unless prior written permission changes; preserve unverified score classifications",
+    "if GitHub permits, publish this reviewed work from arena/01a1050e-gemsdoe31 and report the exact PR/check/merge status"
   ]
 }
