@@ -166,7 +166,8 @@ def best_union(union: dict) -> dict:
     """Best catalogue-dropping union: recorded in the artifact, recomputed from the rows if absent."""
     if union.get("best_union"):
         return union["best_union"]
-    candidates = [row for row in union.get("unions", []) if row.get("drop_catalogue_pixels")]
+    candidates = [row for row in union.get("unions", [])
+                  if row.get("drop_catalogue_pixels") and row["added"] >= 1000]
     if not candidates:
         return {}
     best = max(candidates, key=lambda row: row["ff_DTI"])
@@ -180,7 +181,8 @@ def union_table(union: dict) -> str:
     incumbent = union.get("incumbent", {})
     rows = [[f"<strong>incumbent</strong> ({fmt(incumbent.get('dots'), 0)} dots)", "—",
              fmt(incumbent.get("cat_DTI")), fmt(incumbent.get("ff_DTI")), "—", fmt(incumbent.get("ff_credit_per_dot"))]]
-    candidates = [row for row in union.get("unions", []) if row.get("drop_catalogue_pixels")]
+    candidates = [row for row in union.get("unions", [])
+                  if row.get("drop_catalogue_pixels") and row["added"] >= 1000]
     best = max(candidates, key=lambda row: row["ff_DTI"]) if candidates else None
     for row in candidates:
         marker = ' <span class="badge badge-green">best union</span>' if row is best else ""
@@ -192,8 +194,9 @@ def union_table(union: dict) -> str:
                      fmt(row["added_ff_credit_per_dot"])])
     return table(["emission", "total dots", "catalogue-gap DTI", "off-catalogue DTI", "Δ off-catalogue",
                   "added credit/dot"],
-                 rows, "Catalogue-dropping variants only, both detector arms, measured against the same incumbent "
-                       "dot set. The incumbent is never thinned; additions are only ever added.")
+                 rows, "Catalogue-dropping variants only, both detector arms, thresholds that actually add at "
+                       "least 1,000 dots; the full sweep including the near-empty high thresholds is in "
+                       "evidence/union_results.json. The incumbent is never thinned; additions are only ever added.")
 
 
 def variogram_table(buffer_derivation: dict) -> str:
