@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-04",
+  "evidence_class": "OWNER-MIRROR plus local COMPUTED checks",
+  "warning": "Hashes establish byte identity to the pinned owner-published GEMSDOE25 mirror only. They do not authenticate organizer provenance, submission acceptance, or score.",
+  "sibling": {
+    "repository": "https://github.com/buffedlizard55-lab/GEMSDOE25",
+    "revision": "c185edd8b09e19846cf34c16050e6cf891ecc2d0",
+    "clean_worktree": true,
+    "cache_hash_manifest_sha256": "95ece61d1cc12a446eaa9ff3ca32775fd2842901a7d33d094836341d95994d6f",
+    "data_manifest_sha256": "5a0f9b95efd7a8e77f2e0a3162fda235f8dd0253cef187165ad7c0c003321c66",
+    "verified_inputs": {
+      "training_features.tif": {
+        "bytes": 418912844,
+        "sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5"
+      },
+      "labels.tif": {
+        "bytes": 425830,
+        "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093"
+      },
+      "sample_submission.tif": {
+        "bytes": 1599597,
+        "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+      },
+      "external/lidar_scarp_features_u8.tif": {
+        "bytes": 36943606,
+        "sha256": "d580bb8bdcdb941e32fefb8b38044bc5bf04e199bf2e83498c3576e6fc465568"
+      },
+      "external/geodawn_rad_u8.tif": {
+        "bytes": 26612970,
+        "sha256": "c22420f75999030d7cc65c9e31e50d232ea6158423bca051613a18a8b20ba682"
+      },
+      "external/geodawn_extensions_u8.tif": {
+        "bytes": 27132925,
+        "sha256": "a35a9c6d2a14786f4dab85481ee59769213072f5dab5b2535ea82ae4d9bb7d9b"
+      },
+      "external/gdr_wellspring_in_footprint.csv": {
+        "bytes": 2146771,
+        "sha256": "122718e65bdf55aab0ee12ad20d80062f0deb1de957225a61ad880dd5dc196ea"
+      }
+    },
+    "verified_derived_caches": {
+      "static_ABCD.npy": {
+        "bytes": 1322847616,
+        "sha256": "fe584a12ed3e1ed7d26b272c49f6da0bbe16e072d98f6b1694938d858305b084"
+      },
+      "static_ABCD.npy.names.json": {
+        "bytes": 893,
+        "sha256": "60d48fb99c0c032e5c33a774298112104c9e1cdd15482ac58cddefc948fb85de"
+      },
+      "addons.npy": {
+        "bytes": 103347588,
+        "sha256": "ad31ff14a804b6956efa13b8c3caf6b322d6942b0f57911050ba243ac92e57bc"
+      },
+      "addons.npy.names.json": {
+        "bytes": 51,
+        "sha256": "b1562d7d1f5e57de2002f67038d6b1b4668e3ae10354fac648722f6d33db7f27"
+      },
+      "bands/_footprint.npy": {
+        "bytes": 12279288,
+        "sha256": "c446094771775c00802862e9ec58846fd1b278b4e608303e68811a2404dfd246"
+      },
+      "bands/_labels.npy": {
+        "bytes": 12279288,
+        "sha256": "d77fa88ad58d0a268b736b3c1d6a8939fd237d5955369944bd2b299194b2555d"
+      }
+    }
+  },
+  "sample_template": {
+    "class": "OWNER-MIRROR",
+    "path": "/tmp/gemsdoe25-full/data/sample_submission.tif",
+    "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "bytes": 1599597,
+    "grid": {
+      "crs": "EPSG:32611",
+      "shape_rows_cols": [3730, 3292],
+      "transform": [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0],
+      "bounds": [243350.0, 4135550.0, 572550.0, 4508550.0],
+      "band_count": 1,
+      "dtype": "float32",
+      "finite_footprint_pixels": 5167373,
+      "outside_pixels": 7111787
+    },
+    "authenticity_limit": "This template is integrity-pinned to an owner mirror; it is not independently authenticated as the organizer's original sample file."
+  },
+  "legacy_reference": {
+    "class": "OWNER-MIRROR",
+    "path": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif",
+    "bytes": 1573188,
+    "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+    "positive_pixels_inside_template": 44090,
+    "pixel_equal_to_sibling_d28": true,
+    "sibling_d28_sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+    "byte_equal_to_sibling_d28": false,
+    "score_status": "unscored in the pinned owner-mirror registry; user request separately states 0.2600, which remains unverified",
+    "format_receipt": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-format-check.json",
+    "format_validation": "All hard local checks pass against the pinned owner-mirror template: one float32 band, EPSG:32611, exact 3730x3292 shape and 100 m transform/bounds, finite footprint values [0,1], no infinities, NaNs exactly outside the footprint. Organizer acceptance is not verified."
+  },
+  "runtime_smoke_no_model_fit": {
+    "status": "completed",
+    "verified_raw_inputs": 7,
+    "verified_derived_caches": 6,
+    "footprint": {
+      "shape": [3730, 3292],
+      "finite_pixels": 5167373
+    },
+    "holdout_collar_px": 5,
+    "base_feature_columns": 55,
+    "candidate_feature_columns": 57,
+    "h31_columns": [64, 65],
+    "h31_feature_diagnostics": {
+      "input_valid_pixels": 5165852,
+      "footprint_pixels": 5167373,
+      "invalid_footprint_pixels": 3061,
+      "eps_by_sigma": {
+        "1": 0.01994119771214026,
+        "3": 0.010448663175462825
+      },
+      "edge_q99_by_sigma": {
+        "1": 13.988481136886708,
+        "3": 11.174620268088342
+      },
+      "length_bounds_px": [0.5, 30.0],
+      "output_ranges": {
+        "H31_mag_local_length": [0.8661917448043823, 3.4339871406555176],
+        "H31_mag_scale_edge": [0.0, 1.0]
+      }
+    },
+    "interpretation": "Verified context construction and pinned mirror/hash checks only; no model fit, holdout score, residual range, or buffer estimate was produced."
+  }
+}

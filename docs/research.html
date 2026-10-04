@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ranked geological hypotheses and preregistered spatial validation for GEMSDOE31.">
+  <title>Research plan · GEMSDOE31</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="executive-summary.html">Executive summary</a>
+        <a href="research.html" aria-current="page">Research</a>
+        <a href="sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Hypotheses · preregistration · validation</p>
+      <h1>Rank ideas by evidence and testability.</h1>
+      <p class="hero-lede">Four distinct geological candidates were compared against prior repository work. H31-A is selected for a controlled test because it uses existing bands and can be evaluated now—not because it is presumed to improve the score.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="notice notice-good"><strong>Preregistration status</strong>H31-A's feature definitions, model, folds, draws, DTI endpoint, residual variogram, buffer rule and promotion gate were frozen before any H31 model fit. Expected gains below are planning brackets only—not measured effects or leaderboard forecasts.</div>
+
+    <section aria-labelledby="hypotheses-heading">
+      <div class="section-head">
+        <div><p class="kicker">Ranked candidates</p><h2 id="hypotheses-heading">Geological hypotheses</h2></div>
+        <p>Rank reflects value-for-effort and probability of a clean test. Every gain range is uncertain; zero or negative is plausible.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Rank / status</th><th>Layers &amp; physical signature</th><th>Why unmapped faults?</th><th>Novelty vs prior work</th><th>Planning ΔDTI / cost / access</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-green">1 · selected</span><br><strong>H31-A</strong><br>Multiscale magnetic local-wavelength discontinuity</td>
+              <td>Supplied <code>tmi_hg</code> and <code>tmi_vg</code>. Build analytic-signal amplitude and a scale-normalized local characteristic-length proxy at σ=1 and 3 cells, then a cross-scale edge response.</td>
+              <td>Basement/contact offsets can change magnetic response wavelength and edge geometry without a mapped surface scarp. Cross-scale persistence may suppress single-scale noise.</td>
+              <td>Not another amplitude, tilt, or single-ridge feature. Tests local characteristic wavelength and its transition across two fixed scales; no catalogue geometry enters static feature creation.</td>
+              <td>+0.000 to +0.006, low confidence; ~1 day. Existing hash-pinned bands only. Mirror provenance, not organizer-authenticated input.</td>
+            </tr>
+            <tr>
+              <td><span class="badge">2 · blocked</span><br><strong>H31-B</strong><br>Raw LiDAR return attributes</td>
+              <td>USGS 3DEP/GeoDAWN LAZ return density, intensity quantiles and cross-scarp contrasts aggregated to the 100 m grid.</td>
+              <td>Near-surface material, roughness or cover changes can mark a subtle damage zone when a bare-earth scarp edge is weak; vegetation, roads, mines and acquisition geometry are confounders.</td>
+              <td>Prior work uses derived DEM/scarp descriptors; it does not test raw per-return point-cloud attributes.</td>
+              <td>+0.001 to +0.015, very uncertain; 3–5 days after data access. TNM API lists one in-footprint tile record, but the LAZ binary/header/attributes and full-grid overlap remain unverified.</td>
+            </tr>
+            <tr>
+              <td><span class="badge">3 · conditional</span><br><strong>H31-C</strong><br>Depth-resolved MT conductance continuity</td>
+              <td>Five published magnetotelluric conductance depth ranges across 2–200 km; test cross-depth persistence of gradients/lineaments.</td>
+              <td>A fault or fluid pathway may connect deep conductive anomalies without a mapped surface trace; MT resolution and non-uniqueness may overwhelm a 100 m target.</td>
+              <td>Tests depth-stack coherence, not just supplied surface conductivity or conductive-base depth.</td>
+              <td>0 to +0.008, low confidence; 2–4 days after retrieval. Public GDR source checked; individual rasters, resolution and exact GEMS coverage not verified.</td>
+            </tr>
+            <tr>
+              <td><span class="badge">4 · not viable this sprint</span><br><strong>H31-D</strong><br>OPERA Sentinel-1 displacement-gradient corridors</td>
+              <td>NASA/JPL/ASF OPERA DISP-S1 line-of-sight displacement time series, 30 m posting; quality-filter by track and season.</td>
+              <td>Active creep/differential deformation may reveal a missing strand. Inactive or blind faults may be invisible; decorrelation, atmosphere, groundwater and mining can mimic signal.</td>
+              <td>Different from static scalar strain/seismicity bands: it uses interferometric displacement time series and track-consistency.</td>
+              <td>0 to +0.005, low confidence; 1–3 weeks. Official product record checked; no GEMS-area granules or access/quality selection verified.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">Novelty review covered prior magnetic/gravity gradients and ridges, DEM/scarp features, strain/seismicity, radiometric/thermal/geochemical features, catalogue geometry, sparse emission, strike compatibility, cross-scarp contrast, gravity–magnetic conjunctions, tips/relay bridges and scarp persistence. H30 relay × scarp failed fresh confirmation and is stopped. Full candidate rationale is in the <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-04_h31_hypotheses_preregistration.md">preregistration</a>.</p>
+    </section>
+
+    <section aria-labelledby="h31a-heading">
+      <div class="section-head">
+        <div><p class="kicker">Frozen experiment</p><h2 id="h31a-heading">H31-A: what is being tested</h2></div>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Two feature columns, no labels in feature creation</h3>
+          <p>Use the pinned owner-mirror values of <code>tmi_hg</code> and <code>tmi_vg</code>. The local characteristic length is a wavelength/scale proxy—not a physical depth estimate. Smooth at σ=1 and 3 grid cells, calculate the length response, then create:</p>
+          <ul class="pill-list"><li><code>H31_mag_local_length</code></li><li><code>H31_mag_scale_edge</code></li></ul>
+          <p>Invalid derivative cells are nearest-filled only during filtering, then re-masked. Normalization uses unlabeled values in the footprint.</p>
+        </article>
+        <article class="card">
+          <h3>Same-run paired comparison</h3>
+          <p>Base features: BDE plus fixed X1–X3 add-ons (same-run H19-5 parent comparator). Candidate: same columns plus the two H31-A features. Same folds/draws, negative samples, HistGradientBoosting model, emission and DTI.</p>
+          <p>Use four contiguous quadrants, whole connected known-fault components hidden at a fixed 20% proxy rate, and the exact official 300 m distance-weighted Tversky endpoint. This is a catalogue-gap proxy, not private truth.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="buffer-heading">
+      <div class="section-head">
+        <div><p class="kicker">No arbitrary pixel collar</p><h2 id="buffer-heading">How the final buffer will be measured</h2></div>
+      </div>
+      <div class="grid grid-3">
+        <article class="card"><span class="tag">Pilot only</span><h3>Draw 10 · temporary 500 m collar</h3><p>The pilot collar obtains held-out residuals only. It is not described as an empirical range and is never the final setting by default.</p></article>
+        <article class="card"><span class="tag">Fit dependence</span><h3>Same-trace residual variogram</h3><p>Compute Matheron semivariance of <code>y − p</code> only on hidden known-fault pixels; pair within the same 8-connected component, fold and draw. 500 m bins to 50 km; at least 20 pairs per bin and 30 trace groups; 200 component-bootstrap replicates.</p></article>
+        <article class="card"><span class="tag">Use uncertainty</span><h3>Largest upper range wins</h3><p>Final buffer is the 100 m-rounded-up maximum upper 95% practical-range bound across base and H31-A, with a 300 m metric-support floor. If a stable sill/range cannot be identified, buffer is unknown and the experiment stops.</p></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="gate-heading">
+      <div class="card">
+        <p class="kicker">Promotion gate</p>
+        <h2 id="gate-heading">A screen pass is not enough</h2>
+        <ul>
+          <li>Screen draws 11–12: paired mean DTI gain strictly above +0.001; candidate better in at least 3/4 blocks; worst block no worse than −0.010; mean catalogue-hug increase no more than +0.10; stable final buffer.</li>
+          <li>Re-fit variograms on final-screen residuals. If the upper range exceeds the applied buffer, enlarge and rerun the registered screen, up to the preregistered limit.</li>
+          <li>Fresh confirmation draws 13–14 use the same exact frozen buffer and must pass the same metric/buffer checks. Confirmation failure stops the candidate.</li>
+          <li>Before any weekly slot: reproduce the current comparable incumbent on the same folds/buffer, beat it, pass fresh confirmation, and pass exact-file validation. No such result exists yet.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="notice"><strong>Data-access boundary for H31-B</strong>USGS TNM Access lists a LAZ tile record in the owner-mirror footprint at 49/49 sampled locations. The sandbox could not retrieve the exact tile; its return fields and the complete study-area coverage are not verified. H31-B is not testable yet. Details: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/data_access_audit_2026-10-04.md">data-access audit</a>.</div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-inner"><p>Planning ranges are not results. No leaderboard accessed.</p><p><a href="sources.html">Official sources</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-04_h31_hypotheses_preregistration.md">Full preregistration</a></p></div></footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-04",
+  "policy": "No claim is an OFFICIAL score unless backed by an organizer receipt. This project did not access the DrivenData leaderboard, result page, or submission interface. OWNER-MIRROR values are records in a pinned project repository, not organizer verification.",
+  "official_score_receipts": [],
+  "claims": [
+    {
+      "id": "user-stated-gemsdoe25-d28-0.2600-20261004",
+      "artifact": "GEMSDOE25 D2.8",
+      "reported_dti": 0.2600,
+      "reported_dti_text": "0.2600",
+      "claim_source": "current user request; no receipt or file-to-score identifier supplied in repository",
+      "evidence_class": "USER-REPORTED",
+      "owner_mirror_record": "At GEMSDOE25 commit c185edd8b09e19846cf34c16050e6cf891ecc2d0, registry/submissions.json marks D2.8 unscored/not slot-approved; knowledge/10 says no reported D2.8 score in the local ledger.",
+      "organizer_verification": "not verified; no DrivenData material accessed",
+      "status": "unverified; discrepancy with pinned owner-mirror record; attribution to exact raster unresolved",
+      "analysis": "The owner-mirror first-order emission model estimates about 0.2553 with a 0.2500–0.2613 sensitivity band under unverified score anchors and assumed geometry. That band is not a statistical confidence interval and does not validate this 0.2600 claim."
+    },
+    {
+      "id": "owner-mirror-gemsdoe25-d1-5-0.2477",
+      "artifact": "H19-5 D1.5 dotted raster",
+      "reported_dti": 0.2477,
+      "claim_source": "pinned owner-mirror evidence/score_claim_audit.json and sibling artifact ledger",
+      "evidence_class": "OWNER-MIRROR",
+      "organizer_verification": "not verified; no organizer receipt or page accessed",
+      "local_identity": "sibling audit labels it dot_thin(H19-5, 1.5); 60,069 positive pixels",
+      "status": "unverified owner-reported claim"
+    },
+    {
+      "id": "owner-mirror-gemsdoe25-h19-5-0.1922",
+      "artifact": "H19-5 parent raster",
+      "reported_dti": 0.1922,
+      "claim_source": "pinned owner-mirror evidence/score_claim_audit.json and sibling artifact ledger",
+      "evidence_class": "OWNER-MIRROR",
+      "organizer_verification": "not verified; no organizer receipt or page accessed",
+      "local_identity": "121,131 positive pixels in the sibling raster audit",
+      "status": "unverified owner-reported claim"
+    },
+    {
+      "id": "owner-mirror-gemsdoe25-d28-unscored-c185edd",
+      "artifact": "H19-5 D2.8 alternate raster",
+      "reported_dti": null,
+      "claim_source": "pinned GEMSDOE25 registry/submissions.json and knowledge/10 at commit c185edd8b09e19846cf34c16050e6cf891ecc2d0",
+      "evidence_class": "OWNER-MIRROR",
+      "organizer_verification": "not applicable: sibling explicitly marks it unscored",
+      "local_identity": "44,090 positive pixels; deterministic thinning; owner registry says unscored/not slot-approved",
+      "status": "unscored in pinned owner-mirror record; not a score claim"
+    }
+  ],
+  "safe_next_step": "If an organizer-generated 0.2600 receipt exists, add non-sensitive receipt metadata manually. Do not access or monitor leaderboard material absent prior written consent."
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GEMSDOE31: evidence-first geological fault mapping research for the DOE GEMS Prize.">
+  <title>GEMSDOE31 · Evidence-first GEMS research</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Overview</a>
+        <a href="executive-summary.html">Executive summary</a>
+        <a href="research.html">Research</a>
+        <a href="sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">DOE GEMS · auditable fault mapping</p>
+        <h1>Science before slots.</h1>
+        <p class="hero-lede">A preregistered, evidence-first study of geological signals for faults missing from public maps—with spatial validation, measured uncertainty, and no unverified score claims.</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif" download>Download legacy reference TIFF</a>
+          <a class="button button-light" href="executive-summary.html">Submission status &amp; guide</a>
+        </div>
+      </div>
+      <aside class="hero-side" aria-label="Current decision">
+        <strong>Current decision · no new submission approved</strong>
+        <p>The download is a legacy owner-mirror D2.8 reference for inspection only. H31 has no fitted result, no data-derived final buffer, and no slot-eligible candidate.</p>
+      </aside>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="notice notice-danger" role="status">
+      <strong>Do not upload this legacy reference as an H31 submission.</strong>
+      It passes local file-format checks against an owner-mirror sample template, but it is not a new candidate, is not slot-approved, and has no verified organizer score or acceptance. A current user request states D2.8 scored 0.2600; the pinned owner-mirror register marks that D2.8 file unscored. See the <a href="executive-summary.html#d28-audit">D2.8 audit</a>.
+    </div>
+
+    <section aria-labelledby="status-heading">
+      <div class="section-head">
+        <div><p class="kicker">At a glance</p><h2 id="status-heading">The current evidence state</h2></div>
+        <p>Every claim is labeled by source class. Proxy results and modelled expectations are not competition scores.</p>
+      </div>
+      <div class="grid grid-4">
+        <article class="card stat"><span class="badge">Preregistered</span><strong>H31-A</strong><span>Two magnetic-scale features; design frozen before the first model fit.</span></article>
+        <article class="card stat"><span class="badge">Not fitted</span><strong>—</strong><span>No H31 model result or production residual variogram is available yet.</span></article>
+        <article class="card stat"><span class="badge">Unknown</span><strong>Buffer</strong><span>No final holdout buffer until the same-trace residual range is measured.</span></article>
+        <article class="card stat"><span class="badge">Unverified</span><strong>Score</strong><span>No official GEMS score or organizer acceptance has been independently verified.</span></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="download-heading">
+      <div class="card download-card callout-row">
+        <div>
+          <p class="kicker">One-click download · reference only</p>
+          <h2 id="download-heading">Legacy D2.8 GeoTIFF</h2>
+          <p>Single band · float32 · EPSG:32611 · 100 m grid · 44,090 positive cells · finite predictions in [0,1] and NaN outside the mirrored footprint.</p>
+          <p class="download-meta">SHA-256: <code>5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32</code> · <a href="downloads/gemsdoe31-reference-d28-offcat-44090-20261004-format-check.json">open local format-validation receipt</a>.</p>
+        </div>
+        <a class="button button-dark" href="downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif" download>Download .tif</a>
+      </div>
+      <p class="small">The template used for validation is the hash-pinned GEMSDOE25 owner-mirror copy of <code>sample_submission.tif</code>. Its original organizer provenance is not authenticated here; format validation is not portal acceptance.</p>
+    </section>
+
+    <section aria-labelledby="strategy-heading">
+      <div class="section-head">
+        <div><p class="kicker">Research plan</p><h2 id="strategy-heading">Test geology, measure dependence, then decide</h2></div>
+        <a href="research.html">Read ranked hypotheses →</a>
+      </div>
+      <div class="grid grid-3">
+        <article class="card"><span class="tag">01 · selected to test</span><h3>Multiscale magnetic wavelength proxy</h3><p>Uses supplied horizontal and vertical magnetic-gradient bands. It is a scale/wavelength index, not a literal source-depth inversion.</p></article>
+        <article class="card"><span class="tag">02 · data-blocked</span><h3>Raw LiDAR return attributes</h3><p>USGS has an in-footprint LAZ product record; the binary and per-return attributes could not be retrieved or inspected in this sandbox.</p></article>
+        <article class="card"><span class="tag">03–04 · conditional</span><h3>Depth-resolved MT and OPERA displacement</h3><p>Official free sources identified; exact raster/granule coverage and alignment are not yet verified.</p></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="values-heading">
+      <div class="section-head">
+        <div><p class="kicker">Operating principles</p><h2 id="values-heading">Maximize P(Win) · Own the Outcome</h2></div>
+        <p>Spend effort where it can change a decision—and publish negative or blocked results when that is what the evidence supports.</p>
+      </div>
+      <div class="grid grid-2">
+        <article class="card"><h3>Maximize P(Win)</h3><p>Do not burn a weekly slot on an unconfirmed proxy win. Compare against the reproduced current-best holdout comparator on the same buffered folds, then reserve fresh draws for confirmation.</p></article>
+        <article class="card"><h3>Own the Outcome</h3><p>Keep hashes, test receipts, source limitations, and score claims auditable. Unknown remains unknown; a model expectation is never presented as an official result.</p></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="official-heading">
+      <div class="card">
+        <p class="kicker">Manual review links</p>
+        <h2 id="official-heading">Official sources</h2>
+        <p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">GEMS problem, metric and file format</a> · <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">DOE Prize rules</a> · <a href="https://www.drivendata.org/termsofuse/">DrivenData Terms of Use</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">official leaderboard (static link only)</a>.</p>
+        <p class="small">No leaderboard was fetched, copied, monitored, or scraped. DrivenData's Terms restrict automatic access and manual monitoring/copying without prior written consent.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-inner"><p>GEMSDOE31 · evidence reviewed 2026-10-04 · no automatic DrivenData monitoring</p><p><a href="sources.html">Source register</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/README.md">Project charter on GitHub</a></p></div></footer>
+</body>
+</html>
