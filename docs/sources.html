@@ -46,29 +46,125 @@
         <p>Includes what was verified and, where it matters, what the source does <em>not</em> prove.</p>
       </div>
       <ul class="source-list"><li>
+          <strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener">The Geologic Enhanced Mapping System (GEMS) Prize Challenge — problem description</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData / DOE GEMS Prize · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>Metric: distance-weighted Tversky index, DTI = TPw/(TPw + alpha*FPw + beta*FNw) with alpha=0.2, beta=0.8 and a linear triangular kernel k(d)=max(1-d/300 m,0).</li><li>TPw = sum_g max_{x: d(x,g)&lt;=R} p(x)k(d); FPw = sum_{x: p(x)&gt;0} p(x)[1 - max_g k(d(x,g))]; FNw = sum_g [1 - max_x p(x)k(d(x,g))]. Transcribed from this page in the current session and implemented in src/gemsdoe31/metric.py.</li><li>Submission: single-band float32 GeoTIFF at EPSG:32611 and 100 m, same bounds as the training data, values between 0 and 1, data outside the bounds null or nan.</li><li>Test truth: faults manually identified by experts that are NOT contained in the public USGS database; after the initial prize round an expert panel uses submitted predictions to update fault labels for the whole region and submissions are rescored.</li><li>Provided features: training_features.tif with 19 layers (conductivity/depth to conductive base, detrended elevation and its slope, strain rates, isostatic gravity anomaly and its slope, magnetics incl. rtp/tmi with vertical and horizontal slopes and top-of-crustal magnetic source depth, earthquake density) and 1m_DEM_links.csv.</li><li>Prize structure printed on this page: Initial Prize Round top 5 win $10,000 each; Final Prize Round pays $100,000 / $70,000 / $40,000 / $25,000 / $15,000; one submission is selected for scoring in both rounds.</li><li>An official reference solution exists: https://github.com/drivendataorg/gems-prize-reference-solution</li><li>The page says the provided sample submission &#x27;predicts total fault absence&#x27;; the owner-mirror copy&#x27;s non-zero cells are exactly the catalogue raster, which is recorded as IR-31-TEMPLATE-CATALOGUE-CONTENT rather than silently accepted.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Public/private leaderboard values were not accessed. The official data-download tab redirects to login in this environment.</p>
+        </li><li>
+          <strong><a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf" target="_blank" rel="noopener">Geologic Enhanced Mapping System (GEMS) Prize Official Rules</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · Department of Energy / National Laboratory of the Rockies · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>A valid entry uses a single GeoTIFF with a single raster layer at 100 m over the GeoDAWN study area.</li><li>The rules refer competitors to the competition website for format details and state three submissions per week.</li><li>Generative-AI use is allowed but must be disclosed in the narrative, including its extent and how it contributed to submission elements.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> The competition interface was not used; submission/upload was not attempted. The user remains responsible for accurate authorship and results statements.</p>
+        </li><li>
+          <strong><a href="https://www.drivendata.org/termsofuse/" target="_blank" rel="noopener">Terms of Use</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>The terms prohibit using robots, spiders, or other automatic means to access the website for any purpose, including monitoring or copying.</li><li>The terms prohibit manual monitoring/copying without prior written consent.</li></ul>
+          
+        </li><li>
+          <strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank" rel="noopener">GEMS competition data download page</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData / DOE GEMS Prize · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Training inputs and original organizer sample template are not independently available in this environment. The local sample TIFF is from a hash-pinned owner mirror.</p>
+        </li><li>
+          <strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noopener">GEMS public leaderboard — static manual-review link</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData / DOE GEMS Prize · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Static link retained for human review.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> No score or rank is asserted from this page. Follow DrivenData Terms of Use; no monitoring/copying without prior written consent.</p>
+        </li><li>
+          <strong><a href="https://gdr.openei.org/submissions/1501" target="_blank" rel="noopener">GeoDAWN West Central Nevada EarthMRI Data, DOI 10.15121/1992093</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · USGS National Geospatial Program / Geothermal Data Repository · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>The record lists OPR and LiDAR point cloud data and links to a coverage-map PDF and work-unit 1–6 source directories.</li><li>The GDR page displays a CC-BY 4.0 license.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> The page&#x27;s map and directory listings do not establish exact tile overlap with the entire GEMS footprint or point-field consistency.</p>
+        </li><li>
+          <strong><a href="https://www.usgs.gov/3d-elevation-program/about-3dep-products-services" target="_blank" rel="noopener">About 3DEP Products &amp; Services</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>3DEP products are distributed free of charge and without use restrictions - recorded in this project&#x27;s own GEMSDOE24 lidar_scarp_features.json descriptors and re-used here; the page itself was not re-fetched in the current session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> This general program statement does not replace checking a product&#x27;s metadata or any separately distributed derivative&#x27;s license.</p>
+        </li><li>
+          <strong><a href="https://tnmaccess.nationalmap.gov/api/v1/docs" target="_blank" rel="noopener">TNM Access API documentation</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey / The National Map · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>The API exposes individual staged products and searchable dataset/product catalogs.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> API catalog response is not a retrieved product binary or point-cloud header.</p>
+        </li><li>
+          <strong><a href="https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Lidar%20Point%20Cloud%20%28LPC%29&amp;bbox=-118.0%2C39.0%2C-117.9%2C39.1&amp;max=5" target="_blank" rel="noopener">TNM Access API sample LPC query and NV_Southern_D23 tile record</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey / The National Map · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> The sandbox LAZ download failed before transfer (SSL_ERROR_SYSCALL); the XML metadata URL reported maintenance. The product bbox is inside the owner-mirror footprint at 49/49 sampled locations, not a complete coverage overlay.</p>
+        </li><li>
+          <strong><a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">INGENIOUS — Great Basin Regional Dataset Compilation, DOI 10.15121/1881483</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · INGENIOUS / Geothermal Data Repository · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>Public CC-BY 4.0 compilation including Quaternary volcanics, 2 m temperature-probe locations and paleo-geothermal outlines used as external layers here.</li><li>The GDR Quaternary-fault compilation is the source of the public catalogue the competition labels rasterise.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Individual raster bytes, effective spatial resolution, and exact GEMS-footprint coverage were not retrieved or checked.</p>
+        </li><li>
+          <strong><a href="https://www.earthdata.nasa.gov/data/catalog/asf-opera-l3-disp-s1-v1-1" target="_blank" rel="noopener">OPERA Surface Displacement from Sentinel-1 validated product, version 1</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · NASA / ASF DAAC / JPL OPERA · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>The product reports 30 m spatial posting and line-of-sight displacement from Sentinel-1 interferometric time-series analysis.</li><li>The collection has broad North American coverage and temporal extent beginning 2016-07-01; the page also describes the Sentinel data as 2016–2025.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> A product-wide extent does not prove a usable granule/track for every GEMS cell; no granule selection or access test was run.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1111/ecog.02881" target="_blank" rel="noopener">Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Ecography · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Motivation for spatially blocked validation; this paper does not supply a universal pixel buffer for this dataset.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1111/2041-210X.13107" target="_blank" rel="noopener">blockCV: An R package for generating spatially or environmentally separated folds for k-fold cross-validation of species distribution models</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Methods in Ecology and Evolution · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Motivation for separated spatial folds; no fixed 4–5 pixel buffer is inferred.</p>
+        </li><li>
+          <strong><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/" target="_blank" rel="noopener">GEMSDOE28 public research page and H27-4 artifact status</a></strong>
+          <span class="badge">OWNER-MIRROR</span>
+          <span class="small"> · GEMSDOE28 project owner · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>The owner page labels the listed H27-4 artifact UNSCORED and reports catalogue-gap holdout gains, not a competition score.</li><li>The page lists H27-4 filename gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif, SHA-256 ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73, and 40,199 positive cells.</li><li>The page describes the D2.8 base as owner-reported 0.2600; this conflicts with the pinned GEMSDOE25 registry that marks its D2.8 file unscored.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Owner-maintained site, not an organizer receipt. Page deployment identity was not proven to equal the repository HEAD; the TIFF was not downloaded or independently audited in this checkout.</p>
+        </li><li>
+          <strong><a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noopener">USGS FDSN Event Web Service / ComCat moment-tensor query</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>The official API documentation supports custom event queries and count requests.</li><li>A broad approximate-envelope query returned 618 event records with a moment-tensor product; an inspected event record lists focal-mechanism and moment-tensor product types.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> The query rectangle is an approximate envelope, not the exact competition footprint. Count and one inspected record do not verify spatial distribution, solution quality, independent station coverage, data license for every product component, or holdout utility. No model was fit.</p>
+        </li><li>
+          <strong><a href="https://cmr.earthdata.nasa.gov/search/collections.json?short_name=AST_07&amp;version=004&amp;page_size=5" target="_blank" rel="noopener">ASTER L2 Surface Reflectance VNIR and SWIR V004 (AST_07.004)</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · NASA LP DAAC / NASA CMR · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>NASA CMR describes AST_07.004 as ASTER VNIR/SWIR surface reflectance with 15 m VNIR and 30 m SWIR posting.</li><li>The approximate-bbox preflight returned at least one pre-2008 granule whose reported polygon intersects the broad query rectangle; linked SWIR assets use lp-prod-protected URLs.</li><li>CMR metadata notes ASTER SWIR detector failure on 2009-01-12 and warns about earlier anomaly periods.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> No ASTER binary was downloaded, no Earthdata-authenticated access was available or tested, and one matching granule is not full-footprint coverage. The approximate rectangle is not the exact GEMS polygon.</p>
+        </li><li>
+          <strong><a href="https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements?f=json" target="_blank" rel="noopener">Modernized Water Data OGC API — field measurements</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey Water Data for the Nation · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>The official collection schema includes groundwater field measurement parameter codes, values, dates, units, vertical datum, and approval status.</li><li>A broad approximate-bbox API request returned groundwater-level field-measurement records, including an approved steel-tape reading at a location within the query rectangle.</li><li>USGS&#x27;s 2025 API transition notice states the legacy /nwis/gwlevels/ endpoint is decommissioned; the modern Water Data API is the current route.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> The 10-row sample is not a total count, full-footprint coverage analysis, repeated-well audit, or common-datum check. The query uses an approximate rectangle. No features were written to the repository or used in a model.</p>
+        </li><li>
+          <strong><a href="https://ngmdb.usgs.gov/mapview/" target="_blank" rel="noopener">National Geologic Map Database MapView</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey / National Cooperative Geologic Mapping Program · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>The official MapView page is reachable and exposes a map-viewer interface for USGS/AASG map products.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> No specific surficial-geology product, map scale, digital polygon download, exact GEMS-area coverage, or license was verified; it is only a source lead.</p>
+        </li><li>
           <strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">The Geologic Enhanced Mapping System (GEMS) Prize Challenge — overview and rules</a></strong>
           <span class="badge badge-green">OFFICIAL</span>
           <span class="small"> · DrivenData / U.S. Department of Energy GEMS Prize · not fetched this session</span>
           <ul class="small" style="margin:8px 0 0"><li>Static link retained for manual review; not fetched in the current session.</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched this session. The prize structure quoted in registry/score_claims.json and on the site comes from page 967, which was fetched and is verified below.</p>
         </li><li>
-          <strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener">GEMS problem description, performance metric and submission format</a></strong>
-          <span class="badge badge-green">OFFICIAL</span>
-          <span class="small"> · DrivenData / DOE GEMS Prize · 2026-10-04</span>
-          <ul class="small" style="margin:8px 0 0"><li>Metric: distance-weighted Tversky index, DTI = TPw/(TPw + alpha*FPw + beta*FNw) with alpha=0.2, beta=0.8 and a linear triangular kernel k(d)=max(1-d/300 m,0).</li><li>TPw = sum_g max_{x: d(x,g)&lt;=R} p(x)k(d); FPw = sum_{x: p(x)&gt;0} p(x)[1 - max_g k(d(x,g))]; FNw = sum_g [1 - max_x p(x)k(d(x,g))]. Transcribed from this page in the current session and implemented in src/gemsdoe31/metric.py.</li><li>Submission: single-band float32 GeoTIFF at EPSG:32611 and 100 m, same bounds as the training data, values between 0 and 1, data outside the bounds null or nan.</li><li>Test truth: faults manually identified by experts that are NOT contained in the public USGS database; after the initial prize round an expert panel uses submitted predictions to update fault labels for the whole region and submissions are rescored.</li><li>Provided features: training_features.tif with 19 layers (conductivity/depth to conductive base, detrended elevation and its slope, strain rates, isostatic gravity anomaly and its slope, magnetics incl. rtp/tmi with vertical and horizontal slopes and top-of-crustal magnetic source depth, earthquake density) and 1m_DEM_links.csv.</li><li>Prize structure printed on this page: Initial Prize Round top 5 win $10,000 each; Final Prize Round pays $100,000 / $70,000 / $40,000 / $25,000 / $15,000; one submission is selected for scoring in both rounds.</li><li>An official reference solution exists: https://github.com/drivendataorg/gems-prize-reference-solution</li><li>The page says the provided sample submission &#x27;predicts total fault absence&#x27;; the owner-mirror copy&#x27;s non-zero cells are exactly the catalogue raster, which is recorded as IR-31-TEMPLATE-CATALOGUE-CONTENT rather than silently accepted.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> The portal validator itself is closed-source; local format validation cannot prove organizer acceptance. The page does not state the value of epsilon in the denominator, so the implementation uses 1e-10 and labels it an assumption.</p>
-        </li><li>
           <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noopener">DrivenData GEMS reference solution repository</a></strong>
           <span class="badge">OWNER-MIRROR</span>
           <span class="small"> · this project (buffedlizard55-lab) · 2026-10-04</span>
           <ul class="small" style="margin:8px 0 0"><li>Repository exists and is linked from the official problem page.</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not executed in this session.</p>
-        </li><li>
-          <strong><a href="https://www.usgs.gov/3d-elevation-program/about-3dep-products-services" target="_blank" rel="noopener">About 3DEP Products &amp; Services</a></strong>
-          <span class="badge badge-green">OFFICIAL</span>
-          <span class="small"> · U.S. Geological Survey · not fetched this session</span>
-          <ul class="small" style="margin:8px 0 0"><li>3DEP products are distributed free of charge and without use restrictions - recorded in this project&#x27;s own GEMSDOE24 lidar_scarp_features.json descriptors and re-used here; the page itself was not re-fetched in the current session.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> General programme statement captured earlier through this project&#x27;s CI runner; it does not replace per-product metadata, and the LAZ return-attribute path remains unproven (see registry/irregularities.json).</p>
         </li><li>
           <strong><a href="https://mrdata.usgs.gov/geology/state/" target="_blank" rel="noopener">State Geologic Map Compilation (SGMC) — state geological map packages</a></strong>
           <span class="badge badge-green">OFFICIAL</span>
@@ -81,30 +177,6 @@
           <span class="small"> · U.S. Geological Survey / ScienceBase · not fetched this session</span>
           <ul class="small" style="margin:8px 0 0"><li>DOI 10.5066/P93LGLVQ; the release provides contractor K, Th, U, total-count radiometric grids and derived ratio grids plus an upward-continued TMI grid.</li><li>The derived layers used here were built by this project&#x27;s earlier CI runs from that release (GEMSDOE24 data/external/geodawn_rad.json, geodawn_extensions.json).</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched in the current session (sciencebase.gov is unreachable from the sandbox); the DOI, item id and derived layers are taken from this project&#x27;s own GEMSDOE24 descriptors.</p>
-        </li><li>
-          <strong><a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">INGENIOUS — Great Basin regional dataset compilation (DOI 10.15121/1881483)</a></strong>
-          <span class="badge badge-green">OFFICIAL</span>
-          <span class="small"> · INGENIOUS / Geothermal Data Repository · not fetched this session</span>
-          <ul class="small" style="margin:8px 0 0"><li>Public CC-BY 4.0 compilation including Quaternary volcanics, 2 m temperature-probe locations and paleo-geothermal outlines used as external layers here.</li><li>The GDR Quaternary-fault compilation is the source of the public catalogue the competition labels rasterise.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched in the current session (gdr.openei.org is unreachable from the sandbox); the compilation and its licence are recorded from this project&#x27;s own CI receipts. The layer bytes are not re-downloaded here.</p>
-        </li><li>
-          <strong><a href="https://doi.org/10.1111/ecog.02881" target="_blank" rel="noopener">Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure</a></strong>
-          <span class="badge">TRUSTED-PEER-REVIEWED</span>
-          <span class="small"> · Ecography · not fetched this session</span>
-          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> The principle that a spatial block design must be sized to the data&#x27;s dependence structure rather than to an arbitrary pixel count. The paper supplies no buffer value for this dataset; the value used here is measured from the data.</p>
-        </li><li>
-          <strong><a href="https://doi.org/10.1111/2041-210X.13107" target="_blank" rel="noopener">blockCV: an R package for generating spatially or environmentally separated folds</a></strong>
-          <span class="badge">TRUSTED-PEER-REVIEWED</span>
-          <span class="small"> · Methods in Ecology and Evolution · not fetched this session</span>
-          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Motivation for buffered block folds; no fixed buffer is inferred from it.</p>
-        </li><li>
-          <strong><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noopener">GEMS public leaderboard — manual-review link only</a></strong>
-          <span class="badge badge-green">OFFICIAL</span>
-          <span class="small"> · DrivenData · not fetched this session</span>
-          <ul class="small" style="margin:8px 0 0"><li>Static link retained for human review.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched, polled or copied: the DrivenData terms of use prohibit robot or automatic access and manual monitoring/copying without prior written consent. No score on this page is asserted here.</p>
         </li></ul>
     </section>
 

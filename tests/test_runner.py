@@ -2,6 +2,7 @@ from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 from gemsdoe31.variogram import VariogramFitError
 
@@ -16,6 +17,28 @@ SPEC.loader.exec_module(RUNNER)
 class _EmpiricalStub:
     def as_dict(self):
         return {"n_residuals": 4, "pair_counts": [6, 3]}
+
+
+def test_runner_accepts_the_fixed_arena_session_branch(monkeypatch):
+    outputs = {
+        ("status", "--porcelain"): "",
+        ("branch", "--show-current"): RUNNER.EXPECTED_BRANCH,
+        ("rev-parse", "HEAD"): "deadbeef",
+    }
+    monkeypatch.setattr(RUNNER, "git_output", lambda *args: outputs[args])
+
+    assert RUNNER.require_clean_worktree() == "deadbeef"
+
+
+def test_runner_rejects_any_other_branch(monkeypatch):
+    outputs = {
+        ("status", "--porcelain"): "",
+        ("branch", "--show-current"): "main",
+    }
+    monkeypatch.setattr(RUNNER, "git_output", lambda *args: outputs[args])
+
+    with pytest.raises(SystemExit, match="wrong working branch"):
+        RUNNER.require_clean_worktree()
 
 
 def test_unstable_variogram_result_retains_empirical_diagnostics(monkeypatch):

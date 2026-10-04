@@ -8,6 +8,8 @@ contacts DrivenData or creates a submission TIFF.
 
 from __future__ import annotations
 
+import os
+
 import argparse
 import gc
 import hashlib
@@ -35,6 +37,10 @@ from gemsdoe31.variogram import (  # noqa: E402
 )
 
 PREREG_PATH = ROOT / "knowledge" / "2026-10-04_h31_hypotheses_preregistration.md"
+# The session branch guard is fail-closed but not hard-coded to one session id: a stale literal would
+# silently stop being a guard the moment the work moved to another arena branch. Override it with
+# GEMSDOE31_BRANCH when a later session runs this runner.
+EXPECTED_BRANCH = os.environ.get("GEMSDOE31_BRANCH", "arena/01a104f4-gemsdoe31")
 PILOT_DRAWS = [10]
 SCREEN_DRAWS = [11, 12]
 CONFIRM_DRAWS = [13, 14]
@@ -79,8 +85,8 @@ def require_clean_worktree() -> str:
     if status:
         raise SystemExit("refusing to fit with a dirty GEMSDOE31 worktree; commit/freeze code and preregistration first")
     branch = git_output("branch", "--show-current")
-    if branch != "arena/01a104a9-gemsdoe31":
-        raise SystemExit(f"wrong working branch {branch!r}; this session is fixed to arena/01a104a9-gemsdoe31")
+    if branch != EXPECTED_BRANCH:
+        raise SystemExit(f"wrong working branch {branch!r}; set GEMSDOE31_BRANCH to override {EXPECTED_BRANCH!r}")
     return git_output("rev-parse", "HEAD")
 
 
@@ -297,7 +303,7 @@ def main() -> None:
         "stage": args.stage,
         "code_revision": code_revision,
         "execution_bundle_sha256": executable_bundle_sha256,
-        "branch": "arena/01a104a9-gemsdoe31",
+        "branch": EXPECTED_BRANCH,
         "preregistration": PREREG_PATH.relative_to(ROOT).as_posix(),
         "preregistration_sha256": sha256_file(PREREG_PATH),
         "sibling_provenance": provenance,

@@ -36,6 +36,11 @@
    "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
   },
   {
+   "path": "evidence/h27_geometry.json",
+   "bytes": 1605,
+   "sha256": "10a8edd8e20f62392667f662002b7f10913186698070db08a7d8c77cf47b787b"
+  },
+  {
    "path": "evidence/h31_a/pilot/cells.jsonl",
    "bytes": 3942,
    "sha256": "2cc66e2299796f813d183655fcd6d4cb36ada98f3f7e083040bf035256059202"
@@ -76,19 +81,9 @@
    "sha256": "75a556851de64739ebf438647383415a1112ef99c342d95fedeac1a0d9830aee"
   },
   {
-   "path": "evidence/oof/oof_B_19_plus_lidar.npy",
-   "bytes": 49116768,
-   "sha256": "26491cc4835dfa5d2cfd3a0261b9f956bface24374f753e6280bf7f477349186"
-  },
-  {
    "path": "evidence/oof/oof_B_19_plus_lidar_u16.npz",
    "bytes": 9902742,
    "sha256": "c0ea76d4b9e92af234f5a5f60c4d60a69bd4bb653084b81b0706527646bcf9f6"
-  },
-  {
-   "path": "evidence/oof/oof_D_19_plus_lidar_radiometric.npy",
-   "bytes": 49116768,
-   "sha256": "b52541ffca88cfd24a62d604921db677e8761301d5f6cbb038e76e9aed886123"
   },
   {
    "path": "evidence/oof/oof_D_19_plus_lidar_radiometric_u16.npz",

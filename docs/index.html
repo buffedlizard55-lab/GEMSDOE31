@@ -68,8 +68,10 @@
         <p>Three measured properties explain it, and together they say where an improvement has to come from.</p>
       </div>
       <div class="grid grid-3">
-        <article class="card stat"><span class="badge badge-green">Sparse by construction</span><strong>40,199 dots</strong>
-          <span>Poisson-disk thinning to ≈283 m minimum spacing — not a dense probability field. The metric charges 0.2 per emitted pixel, so redundancy is expensive.</span></article>
+        <article class="card stat"><span class="badge badge-green">Verified prune</span><strong>40,199 dots</strong>
+          <span>Removing every D2.8 cell within 100 m of the catalogue reproduces this file bit for bit
+          (3,891 cells pruned);
+          spacing is 283 m minimum, 300 m median. The metric charges 0.2 per emitted pixel, so redundancy is expensive.</span></article>
         <article class="card stat"><span class="badge badge-green">Off-catalogue</span><strong>0 px</strong>
           <span>on the public USGS/INGENIOUS catalogue. The competition scores faults that are <em>missing</em> from that database, so catalogue-hugging pixels are worth ~0.</span></article>
         <article class="card stat"><span class="badge">Detection gap</span><strong>0.0938</strong>

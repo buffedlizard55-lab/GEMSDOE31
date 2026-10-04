@@ -301,8 +301,10 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
         <p>Three measured properties explain it, and together they say where an improvement has to come from.</p>
       </div>
       <div class="grid grid-3">
-        <article class="card stat"><span class="badge badge-green">Sparse by construction</span><strong>{fmt(primary['positive_pixels'], 0)} dots</strong>
-          <span>Poisson-disk thinning to ≈283 m minimum spacing — not a dense probability field. The metric charges 0.2 per emitted pixel, so redundancy is expensive.</span></article>
+        <article class="card stat"><span class="badge badge-green">Verified prune</span><strong>{fmt(primary['positive_pixels'], 0)} dots</strong>
+          <span>Removing every D2.8 cell within 100 m of the catalogue reproduces this file bit for bit
+          ({fmt((load('evidence/h27_geometry.json', {}).get('counts') or {}).get('d28_cells_removed_from_base'), 0)} cells pruned);
+          spacing is 283 m minimum, 300 m median. The metric charges 0.2 per emitted pixel, so redundancy is expensive.</span></article>
         <article class="card stat"><span class="badge badge-green">Off-catalogue</span><strong>0 px</strong>
           <span>on the public USGS/INGENIOUS catalogue. The competition scores faults that are <em>missing</em> from that database, so catalogue-hugging pixels are worth ~0.</span></article>
         <article class="card stat"><span class="badge">Detection gap</span><strong>{fmt(inc.get('ff_DTI'))}</strong>
@@ -466,8 +468,9 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
         <tr><th style="width:220px">What it is</th><td>A freshly written, re-validated raster carrying the best-scoring
         geometry this project has measured ({fmt(primary['positive_pixels'], 0)} pixels, none on the public catalogue).</td></tr>
         <tr><th>Owner-reported score</th><td>0.2708 for the underlying GEMSDOE28 artifact, as reported by the project
-        owner. No organizer receipt exists in this repository, so every reference to it here is labelled
-        <span class="badge">owner-reported</span>.</td></tr>
+        owner. No organizer receipt exists in this repository, and the owner's own page lists the artifact as
+        <strong>unscored</strong>, so every reference to it here is labelled
+        <span class="badge">owner-reported</span> (<code>registry/score_claims.json</code>).</td></tr>
         <tr><th>Is it slot-approved?</th><td>No. It is the incumbent. Nothing measured here beat it by a margin worth
         a weekly slot, and the charter forbids spending a slot on an unvalidated idea.</td></tr>
         <tr><th>Format status</th><td><span class="badge badge-green">locally validated</span> against the grid
@@ -488,6 +491,9 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
 
 def build_research(sub: dict, buf: dict, union: dict) -> str:
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
+    geom = load("evidence/h27_geometry.json", {"prune_test": {}, "counts": {},
+                                               "nearest_neighbour_spacing_m": {},
+                                               "distance_to_catalogue_m_for_retained_cells": {}})
     inc = union.get("incumbent", {})
     credit = inc.get("ff_TPw", 0) / inc["dots"] if inc.get("dots") else None
     body = f"""    <section>
@@ -497,20 +503,31 @@ def build_research(sub: dict, buf: dict, union: dict) -> str:
       </div>
       <div class="content">
         <p>The official metric is a distance-weighted Tversky index with α = 0.2, β = 0.8 and a triangular kernel of
-        radius 300 m. To first order the denominator charges <strong>0.2 for every emitted pixel</strong>, while a
-        truth pixel is credited once. A submission that emits {fmt(primary['positive_pixels'], 0)} isolated dots at
-        ≈283 m spacing therefore pays a small price per dot and still reaches almost every truth pixel within the
-        kernel's radius. Thinning to that spacing was the whole trick.</p>
-        <p>Three properties, all measured:</p>
+        radius 300 m, so the denominator charges <strong>0.2 for every emitted pixel</strong> while a truth pixel is
+        credited once. A dotted emission therefore pays little per dot and still reaches almost every truth pixel
+        within the kernel radius. <code>scripts/verify_h27_geometry.py</code> tests the two published rasters and the
+        catalogue against each other (<code>evidence/h27_geometry.json</code>), and the geometry that produced the
+        score is now a measurement rather than a description:</p>
         <ul>
-          <li><strong>Sparse spacing.</strong> ≈283 m minimum separation — near the 300 m kernel radius, so adjacent
-          dots overlap in credit without double-paying the denominator.</li>
-          <li><strong>Zero catalogue overlap.</strong> None of the {fmt(primary['positive_pixels'], 0)} pixels sits on
-          the public USGS/INGENIOUS catalogue, and the competition explicitly scores faults <em>absent</em> from that
-          catalogue.</li>
-          <li><strong>High credit per dot.</strong> On this repository's off-catalogue proxy the incumbent dot set earns
+          <li><strong>It is the D2.8 emission minus its catalogue-flank dots.</strong> Removing every D2.8 cell within
+          100 m of the public catalogue leaves exactly {fmt(geom['prune_test']['pruned_cells'], 0)} cells, and that set
+          equals the {fmt(primary['positive_pixels'], 0)}-cell file <strong>bit for bit</strong> — a
+          {fmt(geom['counts']['d28_cells_removed_from_base'], 0)}-cell prune that the owner page describes and this
+          repository now confirms.</li>
+          <li><strong>Nothing left sits on the catalogue.</strong>
+          {fmt(geom['counts']['best_known_cells_within_100m_of_catalogue'], 0)} of the retained cells are within
+          100 m of it; retained cells sit a median of
+          {fmt(geom['distance_to_catalogue_m_for_retained_cells']['median'], 0)} m away.</li>
+          <li><strong>It is dotted, not a field.</strong> Nearest-neighbour spacing is
+          {fmt(geom['nearest_neighbour_spacing_m']['min'], 0)} m minimum / median
+          {fmt(geom['nearest_neighbour_spacing_m']['median'], 0)} m — at the 300 m kernel radius, so neighbouring dots
+          share credit without double-paying the denominator.</li>
+          <li><strong>High credit per dot.</strong> On this repository's off-catalogue proxy the same dot set earns
           {fmt(credit)} credit per emitted pixel, versus 0.02–0.05 for every thresholded detector tested here.</li>
         </ul>
+        <p class="small">Caveat kept in view: the owner page lists this artifact as <em>unscored</em>, so the 0.2708
+        attribution rests on the owner's report, not on an organizer receipt
+        (<code>registry/score_claims.json</code>).</p>
       </div>
     </section>
 
@@ -1058,6 +1075,10 @@ def build_register(data: dict, sources_doc: dict, buf: dict) -> str:
         7–40× smaller than the measured range.</li>
         <li><strong>Refuted:</strong> the catalogue-gap holdout as a promotion instrument — its ranking is
         anti-correlated with the off-catalogue proxy.</li>
+        <li><strong>Superseded:</strong> a separate <code>score-audit</code> page that used to sit alongside this one.
+        Its claims and the H27-4 unscored record are folded into the score table above, and the long-form record stays
+        at <a href="{REPO}/blob/main/knowledge/score_and_prior_art_review_2026-10-03.md">knowledge/score_and_prior_art_review_2026-10-03.md</a>.
+        The site is held to a 20-page budget, so a redundant page is merged rather than accumulated.</li>
       </ul>
     </section>
 

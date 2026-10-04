@@ -32,20 +32,31 @@
       </div>
       <div class="content">
         <p>The official metric is a distance-weighted Tversky index with α = 0.2, β = 0.8 and a triangular kernel of
-        radius 300 m. To first order the denominator charges <strong>0.2 for every emitted pixel</strong>, while a
-        truth pixel is credited once. A submission that emits 40,199 isolated dots at
-        ≈283 m spacing therefore pays a small price per dot and still reaches almost every truth pixel within the
-        kernel's radius. Thinning to that spacing was the whole trick.</p>
-        <p>Three properties, all measured:</p>
+        radius 300 m, so the denominator charges <strong>0.2 for every emitted pixel</strong> while a truth pixel is
+        credited once. A dotted emission therefore pays little per dot and still reaches almost every truth pixel
+        within the kernel radius. <code>scripts/verify_h27_geometry.py</code> tests the two published rasters and the
+        catalogue against each other (<code>evidence/h27_geometry.json</code>), and the geometry that produced the
+        score is now a measurement rather than a description:</p>
         <ul>
-          <li><strong>Sparse spacing.</strong> ≈283 m minimum separation — near the 300 m kernel radius, so adjacent
-          dots overlap in credit without double-paying the denominator.</li>
-          <li><strong>Zero catalogue overlap.</strong> None of the 40,199 pixels sits on
-          the public USGS/INGENIOUS catalogue, and the competition explicitly scores faults <em>absent</em> from that
-          catalogue.</li>
-          <li><strong>High credit per dot.</strong> On this repository's off-catalogue proxy the incumbent dot set earns
+          <li><strong>It is the D2.8 emission minus its catalogue-flank dots.</strong> Removing every D2.8 cell within
+          100 m of the public catalogue leaves exactly 40,199 cells, and that set
+          equals the 40,199-cell file <strong>bit for bit</strong> — a
+          3,891-cell prune that the owner page describes and this
+          repository now confirms.</li>
+          <li><strong>Nothing left sits on the catalogue.</strong>
+          0 of the retained cells are within
+          100 m of it; retained cells sit a median of
+          1,769 m away.</li>
+          <li><strong>It is dotted, not a field.</strong> Nearest-neighbour spacing is
+          283 m minimum / median
+          300 m — at the 300 m kernel radius, so neighbouring dots
+          share credit without double-paying the denominator.</li>
+          <li><strong>High credit per dot.</strong> On this repository's off-catalogue proxy the same dot set earns
           0.1353 credit per emitted pixel, versus 0.02–0.05 for every thresholded detector tested here.</li>
         </ul>
+        <p class="small">Caveat kept in view: the owner page lists this artifact as <em>unscored</em>, so the 0.2708
+        attribution rests on the owner's report, not on an organizer receipt
+        (<code>registry/score_claims.json</code>).</p>
       </div>
     </section>
 

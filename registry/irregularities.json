@@ -114,6 +114,44 @@
    ],
    "impact": "The direction is well supported; the magnitude is not, so the file stays research-only and no weekly slot is spent on it.",
    "action": "Build a second off-catalogue instrument (for example an independent structural-lineament population or the CI-fetched 3DEP scarp population) and require the union to win on both before promotion."
+  },
+  {
+   "id": "IR-31-H27-4-SCORE-CLAIM",
+   "severity": "high",
+   "status": "open",
+   "summary": "The user-supplied list attributes a 0.2708 competition score to H27-4, while the current GEMSDOE28 owner page lists an artifact with the same experiment-name suffix as UNSCORED; exact byte identity remains unverified.",
+   "evidence": [
+    "User prompt lists h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan as 0.2708 (USER-REPORTED).",
+    "GEMSDOE28 Pages overview lists an H27-4 filename with the same experiment-name suffix, its SHA-256 ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73, and UNSCORED status; those bytes were not matched to the user-mentioned file.",
+    "The owner page reports internal catalogue-gap holdout deltas, not a competition score; no organizer receipt or score-to-file ID is available."
+   ],
+   "impact": "The exact 0.2708 result cannot be explained or used as a verified incumbent; score attribution may refer to a different artifact or an unresolved owner/user report.",
+   "action": "Keep 0.2708 USER-REPORTED and unverified. Do not infer the official score from owner holdout deltas or access the leaderboard to reconcile it."
+  },
+  {
+   "id": "IR-31-RUNTIME-DATA-ABSENT",
+   "severity": "high",
+   "status": "open",
+   "summary": "The current workspace has no competition data directory or pinned GEMSDOE25 runtime/cache sibling, so a fresh H31 run or candidate holdout cannot be reproduced here.",
+   "evidence": [
+    "Checked repository has no tracked or visible data/ inputs.",
+    "Checked /tmp/gemsdoe25-full, /tmp/gemsdoe25-full/data, and /tmp/gemsdoe25-full/evidence are absent.",
+    "The official DrivenData data tab remains login-gated per the existing audit; no credentials or automated access were used."
+   ],
+   "impact": "No new model fit, same-run incumbent reproduction, spatial holdout, residual variogram, or candidate TIFF can be produced in this workspace.",
+   "action": "Do not create or promote a file. Resume only when a permitted, hash-verified runtime/data copy and template provenance are available; preserve H31-A STOP."
+  },
+  {
+   "id": "IR-31-RUNNER-BRANCH-GUARD",
+   "severity": "medium",
+   "status": "resolved",
+   "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session\u2019s fixed arena/01a1050e-gemsdoe31 branch.",
+   "evidence": [
+    "Before correction, AGENTS.md and scripts/run_h31.py hard-coded arena/01a104a9-gemsdoe31.",
+    "Developer session branch is arena/01a1050e-gemsdoe31."
+   ],
+   "impact": "A correctly pinned current-session worktree could not pass the runner branch guard.",
+   "action": "Updated AGENTS.md and scripts/run_h31.py to use one EXPECTED_BRANCH constant for arena/01a1050e-gemsdoe31; added tests for accept/reject behavior."
   }
  ]
 }

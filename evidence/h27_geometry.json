@@ -1,0 +1,41 @@
+{
+ "schema_version": 1,
+ "generated_utc": "2026-10-04",
+ "claim_class": "COMPUTED from the two published rasters and the catalogue raster",
+ "files": {
+  "best_known": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+  "d28_base": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif"
+ },
+ "owner_page_sha256_for_the_best_known_file": "ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73",
+ "owner_page_sha256_note": "the owner page publishes this SHA-256; it was not byte-matched here because the raw.githubusercontent host is unreachable from the sandbox",
+ "counts": {
+  "best_known_cells": 40199,
+  "d28_base_cells": 44090,
+  "catalogue_cells": 60988,
+  "best_known_cells_within_100m_of_catalogue": 0,
+  "d28_cells_within_100m_of_catalogue": 3891,
+  "d28_cells_removed_from_base": 3891,
+  "cells_in_both": 40199,
+  "cells_only_in_best_known": 0,
+  "cells_only_in_d28": 3891
+ },
+ "prune_test": {
+  "rule": "remove every D2.8 cell within 100 m (one cell) of the public catalogue",
+  "reproduces_best_known_exactly": true,
+  "pruned_cells": 40199
+ },
+ "nearest_neighbour_spacing_m": {
+  "min": 282.842712474619,
+  "p05": 282.842712474619,
+  "median": 300.0,
+  "mean": 368.00770024087103,
+  "p95": 700.0,
+  "note": "100 m cells; 300 m is the metric's triangular-kernel support, so a dotted emission at this spacing still reaches almost every truth pixel while paying 0.2 of the denominator per dot"
+ },
+ "distance_to_catalogue_m_for_retained_cells": {
+  "median": 1769.1806012954132,
+  "p05": 200.0,
+  "p95": 8062.567775525858,
+  "within_200m": 2545
+ }
+}
