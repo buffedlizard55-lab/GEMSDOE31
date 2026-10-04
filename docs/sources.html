@@ -15,6 +15,7 @@
         <a href="index.html">Overview</a>
         <a href="executive-summary.html">Executive summary</a>
         <a href="research.html">Research</a>
+        <a href="score-audit.html">Score audit</a>
         <a href="sources.html" aria-current="page">Sources</a>
       </nav>
     </div>
@@ -71,6 +72,33 @@
         </article>
       </div>
       <p class="small">Full retrieval attempts and extent check: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/data_access_audit_2026-10-04.md">data-access audit</a>.</p>
+    </section>
+
+    <section aria-labelledby="new-preflight-heading">
+      <div class="section-head"><div><p class="kicker">New-hypothesis source preflight</p><h2 id="new-preflight-heading">Catalog access is not coverage proof</h2></div></div>
+      <div class="grid grid-2">
+        <article class="card">
+          <span class="tag">Top desk hypothesis · not fitted</span>
+          <h3><a href="https://earthquake.usgs.gov/fdsnws/event/1/">USGS ComCat moment tensors</a></h3>
+          <p>A broad approximate-box query returned 618 magnitude ≥2.5 events with moment-tensor products. This confirms a reachable official API and some candidate observations, not exact GEMS-footprint coverage, mechanism quality, or a holdout gain.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Access partly checked · binary unavailable</span>
+          <h3><a href="https://cmr.earthdata.nasa.gov/search/collections.json?short_name=AST_07&amp;version=004&amp;page_size=5">NASA ASTER AST_07.004</a></h3>
+          <p>CMR lists an intersecting pre-2008 granule in a broad query. SWIR assets are under protected URLs; no Earthdata-authenticated download, binary audit, or full-area coverage check was completed.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Access partly checked · sparse/quality risk</span>
+          <h3><a href="https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements?f=json">USGS Water Data field measurements</a></h3>
+          <p>The current OGC API returned groundwater-level observations in a broad rectangle. The old <code>/nwis/gwlevels/</code> route has been decommissioned per the <a href="https://waterdata.usgs.gov/blog/api-decom-fall-2025/#gwlevels">USGS transition notice</a>. Well density, repeated measurements, common vertical datum, and exact footprint overlap remain unverified.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Source lead only · not viability-cleared</span>
+          <h3><a href="https://ngmdb.usgs.gov/mapview/">USGS National Geologic Map Database MapView</a></h3>
+          <p>The official map viewer is reachable; no specific surficial-geology polygons, map scale, full coverage, or redistribution terms were checked.</p>
+        </article>
+      </div>
+      <p class="small">None of these preflights validates a feature, model, spatial holdout, or submission candidate. See the <a href="score-audit.html">score and hypothesis audit</a> for the exact query bounds and limits.</p>
     </section>
 
     <section>

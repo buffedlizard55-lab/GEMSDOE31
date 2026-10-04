@@ -5,7 +5,7 @@
 
 ## Executive finding
 
-The active request describes a GEMSDOE25 D2.8 result of **0.2600**. That figure is recorded here as a user-reported claim because it appears in the request, but it is **not present in the pinned GEMSDOE25 score-claim audit or D2.8 artifact record**. At commit `c185edd8b09e19846cf34c16050e6cf891ecc2d0`, the owner-mirror `registry/submissions.json` marks D2.8 `unscored; not slot-approved`; the related score-audit says no D2.8 score was reported. The mirror calls its separate H19-5 D1.5 result **0.2477**, also unverified. No organizer receipt links 0.2600 to the D2.8 file. **Therefore this audit cannot assert why the exact 0.2600 was awarded, or even that the score belongs to this raster.** Do not resolve the discrepancy by checking the live leaderboard; the Terms of Use prohibit automated monitoring/copying and manual monitoring/copying without prior written consent.
+The user request and the public GEMSDOE28 owner page both report a D2.8 value of **0.2600**, but that value is **not present in the pinned GEMSDOE25 score-claim audit or D2.8 artifact record**. At commit `c185edd8b09e19846cf34c16050e6cf891ecc2d0`, the owner-mirror `registry/submissions.json` marks D2.8 `unscored; not slot-approved`; the related score-audit says no D2.8 score was reported. The later [GEMSDOE28 page](https://buffedlizard55-lab.github.io/GEMSDOE28/) calls the D2.8 base owner-reported 0.2600, but is not an organizer record. The mirror calls its separate H19-5 D1.5 result **0.2477**, also unverified. No organizer receipt links 0.2600 to the D2.8 bytes. **Therefore 0.2600 is USER-REPORTED and OWNER-MIRROR, not OFFICIAL; this audit cannot assert why it was awarded or that the score belongs to this exact raster.** Do not resolve the discrepancy by checking the live leaderboard; the Terms of Use prohibit automated monitoring/copying and manual monitoring/copying without prior written consent.
 
 ## What the D2.8 raster is locally
 
@@ -34,7 +34,7 @@ The spatially blocked H28 holdout is not a confirmation of D2.8's live score: it
 
 | Claim | Evidence class | What is actually verified | Status |
 |---|---|---|---|
-| D2.8 scored 0.2600 | USER-REPORTED (from the current request) | No organizer receipt or D2.8 score row in the pinned mirror was found; live board intentionally not accessed | **Unverified; file-to-score attribution unresolved** |
+| D2.8 scored 0.2600 | USER-REPORTED + OWNER-MIRROR | User request and GEMSDOE28 owner page report 0.2600; pinned GEMSDOE25 registry marks the D2.8 file unscored; no organizer receipt | **Unverified; file-to-score attribution unresolved** |
 | H19-5 scored 0.1922 | OWNER-MIRROR / user-owner claim | The sibling's score-audit labels it unverified; local parent raster exists in the owner's registry | **Unverified** |
 | H19-5 D1.5 scored 0.2477 | OWNER-MIRROR / user-owner claim | The sibling's audit labels it unverified; local raster is pixel-identifiable as D1.5 thinning | **Unverified** |
 | D2.8 has 44,090 positives and is a deterministic H19-5 thinning | COMPUTED against OWNER-MIRROR rasters | Local D2.8 reference is pixel-identical to the sibling D2.8 raster; see artifact hashes/format receipt | **Verified locally, not organizer-authenticated** |

@@ -15,6 +15,7 @@
         <a href="index.html">Overview</a>
         <a href="executive-summary.html" aria-current="page">Executive summary</a>
         <a href="research.html">Research</a>
+        <a href="score-audit.html">Score audit</a>
         <a href="sources.html">Sources</a>
       </nav>
     </div>
@@ -56,8 +57,8 @@
         <article class="card">
           <span class="tag">USER-REPORTED · unverified</span>
           <h3>0.2600 appears in the request, not an organizer receipt</h3>
-          <p>The current request states that GEMSDOE25 D2.8 scored 0.2600. The pinned public owner-mirror repository instead marks its D2.8 file <em>unscored</em>; its score-claim audit contains no D2.8 0.2600 row. No DrivenData score page or receipt was accessed.</p>
-          <p><strong>Conclusion:</strong> the figure and the identity of the file that allegedly received it remain unresolved. We cannot honestly explain that exact score as a verified fact.</p>
+          <p>The current request and the later GEMSDOE28 owner page report D2.8 at 0.2600, but the pinned GEMSDOE25 registry marks its D2.8 artifact <em>unscored</em>. There is no organizer receipt tying 0.2600 to exact raster bytes. No DrivenData leaderboard or score page was accessed.</p>
+          <p><strong>Conclusion:</strong> 0.2600 is USER-REPORTED / OWNER-MIRROR, not an official verified score; the figure and file attribution remain unresolved. See the <a href="score-audit.html">H27-4 and supplied-score review</a>.</p>
         </article>
         <article class="card">
           <span class="tag">COMPUTED · local mirror geometry</span>
@@ -71,6 +72,17 @@
         <p>One first-order owner-mirror model predicts about <strong>0.2553</strong> for D2.8 with a <strong>0.2500–0.2613 sensitivity band</strong> under assumed geometry and two unverified score anchors. The band is not a statistical confidence interval. A separate owner package summary gives a conditional estimate around 0.251. The difference and the failed H28 proxy gate reinforce that these are assumption-sensitive model outputs, not official competition scores.</p>
         <p class="small">Full details and exact provenance: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/prior_submission_audit.md">prior-submission audit</a> and <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/score_claims.json">score-claim registry</a>.</p>
       </div>
+    </section>
+
+    <section aria-labelledby="h27-heading">
+      <div class="section-head">
+        <div><p class="kicker">New score discrepancy · no receipt verified</p><h2 id="h27-heading">H27-4 0.2708 is unverified</h2></div>
+      </div>
+      <div class="notice notice-danger" role="note">
+        The user-supplied score list attributes 0.2708 to an H27-4 D2.8 artifact. The linked GEMSDOE28 owner page lists an H27-4 artifact with the same experiment-name suffix as <strong>UNSCORED</strong> and reports catalogue-gap holdout gains (+0.00177 and +0.00176). The listed owner-page bytes were not independently matched to the user-mentioned file; exact identity and score attribution remain unresolved. The holdout gains are not competition scores.
+        <a href="score-audit.html">Read the full audit, limitations, and next-hypothesis screen →</a>
+      </div>
+      <p class="small">The same owner page lists newer H36-1/H38-1 research artifacts. Their local holdout results and score projections do not constitute verified leaderboard results. The user's 0.3195 target remains user-reported; no leaderboard data feed is provided.</p>
     </section>
 
     <section aria-labelledby="format-heading">
@@ -99,9 +111,8 @@
         <div><p class="kicker">Reserved metadata · future candidate only</p><h2 id="name-heading">Unique name and optional comment</h2></div>
       </div>
       <div class="card">
-        <p><strong>Proposed name:</strong> <code>GEMSDOE31-H31A-MAG-20261004-v01</code></p>
-        <p><strong>Proposed comment:</strong> <code>H31-A candidate; submit only after buffered holdout, fresh confirmation, incumbent win, and file audit.</code></p>
-        <p class="small">These are reserved examples only. They are not assigned to the legacy reference, and no upload is authorized. Use them only if a future exact artifact has passed all gates; otherwise record a new unique version and truthful note.</p>
+        <p><strong>No current submission name or comment is assigned.</strong> The previous H31-A example (<code>GEMSDOE31-H31A-MAG-20261004-v01</code>) is retired because H31-A stopped.</p>
+        <p class="small">The example is not attached to the legacy reference and must not be reused. Create a fresh unique name and truthful optional note only after a future exact artifact passes the measured-buffer holdout, fresh confirmation, incumbent comparison, and file audit. No upload is authorized now.</p>
       </div>
     </section>
 

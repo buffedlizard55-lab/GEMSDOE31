@@ -35,6 +35,7 @@ from gemsdoe31.variogram import (  # noqa: E402
 )
 
 PREREG_PATH = ROOT / "knowledge" / "2026-10-04_h31_hypotheses_preregistration.md"
+EXPECTED_BRANCH = "arena/01a1050e-gemsdoe31"
 PILOT_DRAWS = [10]
 SCREEN_DRAWS = [11, 12]
 CONFIRM_DRAWS = [13, 14]
@@ -79,8 +80,8 @@ def require_clean_worktree() -> str:
     if status:
         raise SystemExit("refusing to fit with a dirty GEMSDOE31 worktree; commit/freeze code and preregistration first")
     branch = git_output("branch", "--show-current")
-    if branch != "arena/01a104a9-gemsdoe31":
-        raise SystemExit(f"wrong working branch {branch!r}; this session is fixed to arena/01a104a9-gemsdoe31")
+    if branch != EXPECTED_BRANCH:
+        raise SystemExit(f"wrong working branch {branch!r}; this session is fixed to {EXPECTED_BRANCH}")
     return git_output("rev-parse", "HEAD")
 
 
@@ -297,7 +298,7 @@ def main() -> None:
         "stage": args.stage,
         "code_revision": code_revision,
         "execution_bundle_sha256": executable_bundle_sha256,
-        "branch": "arena/01a104a9-gemsdoe31",
+        "branch": EXPECTED_BRANCH,
         "preregistration": PREREG_PATH.relative_to(ROOT).as_posix(),
         "preregistration_sha256": sha256_file(PREREG_PATH),
         "sibling_provenance": provenance,

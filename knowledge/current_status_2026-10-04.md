@@ -12,9 +12,18 @@
 - Preserved full design and run hashes. The original run JSON is unchanged; `posthoc_variogram_diagnostics.json` supplements its failure record using the saved residual NPZ and unchanged frozen variogram functions. It does not retrain models or alter the decision rule.
 - Added a regression test so future variogram failures retain empirical-bin diagnostics. Final suite after this fix: **23 tests passed** without warnings; Ruff and compileall passed.
 - Validated the legacy 44,090-positive-pixel D2.8 TIFF against the hash-pinned owner-mirror sample: one float32 band, EPSG:32611, exact 3730×3292 grid/transform, finite footprint values in [0,1], and NaN outside. Organizer sample authenticity/acceptance remains unverified.
-- Audited the user-reported D2.8 `0.2600` claim. The pinned owner mirror marks D2.8 unscored; no organizer receipt is available. See `knowledge/prior_submission_audit.md`.
+- Audited the D2.8 `0.2600` claim. GEMSDOE25 marks its D2.8 file unscored, while the later GEMSDOE28 page calls 0.2600 owner-reported; no organizer receipt is available. The subsequent H27-4 `0.2708` user claim conflicts with GEMSDOE28's UNSCORED status. See `knowledge/prior_submission_audit.md` and `knowledge/score_and_prior_art_review_2026-10-03.md`.
 - Checked official source pages and data-access limits. H31-B remains blocked: the official TNM catalog lists a candidate LAZ product, but its binary download failed and no return attributes/full coverage were verified.
 - Built static Pages source with overview, executive summary/manual upload guide, research, sources, and AI-disclosure draft. The prominent TIFF remains explicitly legacy/reference-only.
+
+## Review addendum — score claim, prior art, and next hypotheses (2026-10-03 PDT / 2026-10-04 UTC)
+
+- Read the user-supplied score history and inspected the public GEMSDOE28 owner page/repository at source HEAD `33cc5942220f1440531d7184889c5c6f5d2f0a3e`. The page labels H27-4 `UNSCORED`, while the request attributes 0.2708 to it. The page publishes local catalogue-gap gains (+0.00177 and +0.00176 on its own seed sets); these are not competition scores and were not independently rerun here. See [`knowledge/score_and_prior_art_review_2026-10-03.md`](score_and_prior_art_review_2026-10-03.md).
+- The GEMSDOE28 page calls D2.8 `0.2600` owner-reported; the pinned GEMSDOE25 register marks its D2.8 artifact unscored. Both remain OWNER-MIRROR/USER-REPORTED claims with unresolved exact file attribution. The user-reported 0.3195 public-best value was not checked against the official leaderboard.
+- Added a four-item desk shortlist—USGS ComCat focal-mechanism geometry, ASTER spectral alteration, age-conditioned fan scarps, and groundwater-head compartments—with layers, physics, prior-art boundary, planning ΔDTI ranges/cost, and source preflight limits. The ComCat API returned 618 moment-tensor records in a broad approximate envelope; ASTER CMR found at least one matching granule; USGS Water Data returned sample groundwater records. These are access leads only: **no candidate was fitted or holdout-validated**.
+- Confirmed the current workspace lacks `data/` competition inputs and `/tmp/gemsdoe25-full`; the top candidate cannot be reproduced here. The H31-A range remains unknown, so no arbitrary buffer, new TIFF, or weekly slot was substituted.
+- Fixed a branch guard defect: the instructions and runner hard-coded the prior session's `arena/01a104a9-gemsdoe31`; the active session uses `arena/01a1050e-gemsdoe31`. The runner now uses one `EXPECTED_BRANCH` constant and tests both acceptance and rejection paths.
+- Added a site score-audit page and source links. The one-click TIFF remains explicitly legacy/reference-only. No automatic leaderboard feed or upload was added.
 
 ## Stop conditions and remaining evidence gaps
 
@@ -22,26 +31,28 @@
 - No H31 candidate GeoTIFF exists. The same-run parent is not a reproduced current-best comparable incumbent, so that separate promotion gate has also not been satisfied.
 - No official sample/template was independently obtained; local file validation used the SHA-pinned owner-mirror copy.
 - Full-grid LiDAR/DEM coverage, raw LAZ attributes, and exact GDR 1501 overlap remain unchecked.
-- No DrivenData score/leaderboard was accessed; the `0.2600` D2.8 claim remains user-reported and unresolved.
+- No official DrivenData leaderboard page, private score page, or submission interface was accessed. The `0.2600` D2.8 and `0.2708` H27-4 claims remain USER-REPORTED/OWNER-MIRROR and unresolved against the relevant owner registries/pages.
 - The AI narrative is a draft for entrant review, not submitted.
 
 ## Checks and delivery state
 
-- `pytest`: 23 passed; Ruff: all checks passed; Python compileall: passed.
-- All 11 JSON documents and 8 pilot JSONL rows parse; the 6-page static HTML link audit has no broken local links; legacy-reference format checks pass against the owner mirror only.
+- Earlier H31-A post-pilot suite: 23 passed. Latest review suite: **25 passed**; Ruff: all checks passed; Python compileall: passed.
+- All 11 checked JSON documents and 8 pilot JSONL rows parse; the latest 7-page HTML local-link/fragment audit has no broken references; score-claim classifications and the legacy TIFF SHA-256 were rechecked. The local legacy-format receipt remains a check against the owner mirror only.
+- Added three cumulative reviews for this extension (implementation/source verification, independent assumption/link review, whole-charter cross-check) as passes 4–6 in `registry/review_passes.json`; earlier passes 1–3 remain historical.
 - PR #1 merged to `main` at `18a9c4e9493192a21f2bb22ca0356d4a24be8d6c`; follow-up PR #2 merged at `d8b531025c63e9d56897f8b983bdfca284b33420`. GitHub reported no status checks for either PR. Pages is configured for `main` at `/` and reports `built`; the root `index.html` redirects into `docs/`. A cache-busted fetch of the public Pages URL followed the redirect and showed the current site/H31-A stop status. Changing the setting directly to `/docs` returned 403 `Resource not accessible by integration`; the root redirect workaround is live.
+- This review extension was committed as `3cd7fbf` on `arena/01a1050e-gemsdoe31`, pushed only to that branch, and opened as [PR #4](https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4). At the 2026-10-04 audit snapshot it was OPEN/MERGEABLE, with no GitHub status checks or review decision reported. This record does not claim a merge or new Pages deployment; consult the linked PR for any later state.
 
 ## Recommended next work
 
 1. Do not promote H31-A or create a submission TIFF from its failed pilot. Preserve the negative result.
-2. If pursuing another experiment, preregister a distinct hypothesis or a defensible method to identify the residual sill/range before any new fit; retain the same no-arbitrary-buffer stop rule and reproduce the actual current-best comparator on the same folds/buffer.
-3. Resolve official-template provenance and permitted LiDAR access if an authorized route becomes available.
-4. If preferred, restore GitHub integration permission or change Pages settings manually to point directly at `/docs`; the existing root-source redirect is built and verified. Keep the static official leaderboard link only and do not monitor or copy its content.
+2. The four new desk hypotheses are not preregistered or fitted. Select one only after product-level coverage/access, licensing, layer quality, and causal-confounder checks; separately define a defensible residual-range/buffer method before any new spatial holdout. Never use an arbitrary buffer.
+3. Reproduce the actual current-best comparator on identical folds and buffer, then require a paired holdout win, fresh confirmation, and exact-file validation before considering a slot.
+4. Resolve official-template provenance, authorized runtime/data access, and permitted LiDAR/ASTER inputs if a documented route becomes available. Keep the static official leaderboard link only; do not monitor or copy its content.
 
 ## Evidence labels
 
 - **OFFICIAL:** contest/source pages and rules in `registry/sources.json`; official score/acceptance remains unverified.
-- **OWNER-MIRROR:** inputs/caches and legacy reference pinned to GEMSDOE25; hashes do not authenticate organizer provenance.
+- **OWNER-MIRROR:** inputs/caches and legacy reference pinned to GEMSDOE25, plus the later GEMSDOE28 owner-page reports/status; hashes/pages do not authenticate organizer provenance.
 - **COMPUTED:** tests, local TIFF validation, runtime-context smoke, and H31-A pilot/variogram diagnostics.
-- **USER-REPORTED:** the D2.8 `0.2600` claim in the request; no receipt.
-- **INFERENCE:** geological rationales and planning gains; not hidden-label findings.
+- **USER-REPORTED:** supplied D2.8 `0.2600`, H27-4 `0.2708`, and claimed high `0.3195`; none has an organizer receipt here.
+- **INFERENCE:** geological rationales and subjective ΔDTI planning ranges; not hidden-label findings, measured candidate results, or score forecasts.

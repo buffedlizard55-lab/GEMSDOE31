@@ -1,20 +1,62 @@
 {
   "schema_version": 1,
   "generated_utc": "2026-10-04",
-  "policy": "No claim is an OFFICIAL score unless backed by an organizer receipt. This project did not access the DrivenData leaderboard, result page, or submission interface. OWNER-MIRROR values are records in a pinned project repository, not organizer verification.",
+  "policy": "No claim is an OFFICIAL score unless backed by an organizer receipt. The agent did not access the DrivenData leaderboard, private score page, or submission interface. User-supplied values and owner-mirror claims are stored separately and are not treated as verification. No leaderboard table/feed is maintained.",
   "official_score_receipts": [],
   "claims": [
     {
       "id": "user-stated-gemsdoe25-d28-0.2600-20261004",
       "artifact": "GEMSDOE25 D2.8",
-      "reported_dti": 0.2600,
+      "reported_dti": 0.26,
       "reported_dti_text": "0.2600",
-      "claim_source": "current user request; no receipt or file-to-score identifier supplied in repository",
+      "claim_source": "user request; no organizer receipt or exact score-to-file identifier supplied",
       "evidence_class": "USER-REPORTED",
-      "owner_mirror_record": "At GEMSDOE25 commit c185edd8b09e19846cf34c16050e6cf891ecc2d0, registry/submissions.json marks D2.8 unscored/not slot-approved; knowledge/10 says no reported D2.8 score in the local ledger.",
-      "organizer_verification": "not verified; no DrivenData material accessed",
-      "status": "unverified; discrepancy with pinned owner-mirror record; attribution to exact raster unresolved",
-      "analysis": "The owner-mirror first-order emission model estimates about 0.2553 with a 0.2500–0.2613 sensitivity band under unverified score anchors and assumed geometry. That band is not a statistical confidence interval and does not validate this 0.2600 claim."
+      "owner_mirror_record": "Pinned GEMSDOE25 commit c185edd8b09e19846cf34c16050e6cf891ecc2d0 marks its D2.8 artifact unscored/not slot-approved. The later GEMSDOE28 owner page separately describes D2.8 as owner-reported 0.2600.",
+      "organizer_verification": "not verified; no official leaderboard, result page, or submission receipt accessed",
+      "status": "unverified; conflicts with the pinned GEMSDOE25 registry; exact file-to-score attribution unresolved",
+      "analysis": "A prior owner-mirror conditional estimate around 0.2553 used unverified score anchors and assumed fault geometry. It is not a statistical interval or score verification."
+    },
+    {
+      "id": "owner-reported-gemsdoe28-d28-0.2600",
+      "artifact": "GEMSDOE28 D2.8 base / H19-5 dotted raster",
+      "reported_dti": 0.26,
+      "claim_source": "GEMSDOE28 owner page, repository head 33cc5942220f1440531d7184889c5c6f5d2f0a3e",
+      "evidence_class": "OWNER-MIRROR",
+      "organizer_verification": "not verified; the page is not an organizer receipt",
+      "status": "owner-reported; discrepancy with the pinned GEMSDOE25 registry remains open",
+      "limits": "The Pages deployment was not proven to correspond byte-for-byte to the repository HEAD; no original submission ID or organizer receipt was provided."
+    },
+    {
+      "id": "user-reported-gemsdoe28-h27-4-0.2708-20261003",
+      "artifact": "GEMSDOE28 H27-4 solo 1-pixel catalogue-flank prune on D2.8",
+      "reported_dti": 0.2708,
+      "reported_dti_text": "0.2708",
+      "claim_source": "user request; no organizer receipt or exact score-to-file identifier supplied",
+      "evidence_class": "USER-REPORTED",
+      "organizer_verification": "not verified; official leaderboard and submission interface not accessed",
+      "owner_mirror_record": "The current GEMSDOE28 owner page lists an H27-4 artifact with the same experiment-name suffix as UNSCORED and reports catalogue-gap holdout gains; its published TIFF bytes were not matched to the user-mentioned file.",
+      "status": "unverified; direct discrepancy with owner-mirror page; exact score attribution unresolved"
+    },
+    {
+      "id": "owner-mirror-gemsdoe28-h27-4-unscored-8acb75e1f2cc",
+      "artifact": "gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+      "reported_dti": null,
+      "claim_source": "GEMSDOE28 Pages overview; source repository head 33cc5942220f1440531d7184889c5c6f5d2f0a3e",
+      "evidence_class": "OWNER-MIRROR",
+      "organizer_verification": "not applicable; the owner page itself labels this artifact UNSCORED",
+      "local_identity": "Owner page lists SHA-256 ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73 and 40,199 positive cells; artifact bytes were not downloaded in this checkout.",
+      "owner_proxy_results": "The owner page reports +0.00177 on seeds 180-189 and +0.00176 on fresh seeds 235-239 across 4/4 spatial folds; these are not competition scores and were not independently rerun here.",
+      "status": "unscored in the owner page; user-supplied 0.2708 attribution remains unresolved"
+    },
+    {
+      "id": "user-reported-public-leader-0.3195-20261003",
+      "artifact": "Public GEMS leaderboard high, as described in user prompt",
+      "reported_dti": 0.3195,
+      "reported_dti_text": "0.3195",
+      "claim_source": "user request; no team/file/receipt supplied",
+      "evidence_class": "USER-REPORTED",
+      "organizer_verification": "not verified; official leaderboard not accessed",
+      "status": "unverified target claim; not a private-round result or predictor of final awards"
     },
     {
       "id": "owner-mirror-gemsdoe25-d1-5-0.2477",
@@ -44,8 +86,14 @@
       "evidence_class": "OWNER-MIRROR",
       "organizer_verification": "not applicable: sibling explicitly marks it unscored",
       "local_identity": "44,090 positive pixels; deterministic thinning; owner registry says unscored/not slot-approved",
-      "status": "unscored in pinned owner-mirror record; not a score claim"
+      "status": "unscored in the pinned GEMSDOE25 owner-mirror record; later GEMSDOE28 0.2600 owner claim is a separate unresolved report"
     }
   ],
-  "safe_next_step": "If an organizer-generated 0.2600 receipt exists, add non-sensitive receipt metadata manually. Do not access or monitor leaderboard material absent prior written consent."
+  "safe_next_step": "Do not resolve discrepancies by accessing or monitoring DrivenData leaderboard material absent prior written permission. Preserve user-supplied claims as USER-REPORTED and owner-site claims as OWNER-MIRROR until an authorized organizer-generated receipt and exact artifact identity are available.",
+  "user_supplied_historical_score_list": {
+    "evidence_class": "USER-REPORTED",
+    "source": "user prompt",
+    "verification": "individual entries were not independently authenticated in this review",
+    "handling": "context only; do not treat any listed historical value as an official organizer score absent an authorized receipt"
+  }
 }
