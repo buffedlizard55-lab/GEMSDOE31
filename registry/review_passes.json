@@ -16,7 +16,7 @@
         "ruff": "all checks passed",
         "compileall": "passed for src/, scripts/, and tests/",
         "json_documents": "all 11 repository JSON documents parse; all 8 pilot cells.jsonl rows parse",
-        "html_local_links": "5 static pages checked; final content audit recorded before PR",
+        "html_local_links": "6 static pages checked; no broken local links",
         "legacy_tiff": "local hard format checks pass against the pinned owner-mirror template only; organizer acceptance remains false",
         "production_context": "7/7 owner-mirror inputs and 6/6 caches verified; 3730x3292 footprint and 55/57 feature columns built",
         "h31_a_pilot": "8 arm/fold fits completed on clean code revision 23191e7; mean paired delta -0.0040088545; metric gate false; both residual ranges unknown; no screen or confirmation"
@@ -85,21 +85,21 @@
         },
         {
           "criterion": "multiple review passes and remaining-work recommendations",
-          "status": "three passes recorded; PR, merge, Pages deployment, official-template provenance and any future candidate remain open"
+          "status": "three passes recorded; PR #1 merged; root-source Pages redirect added but live content verification and direct /docs configuration remain open"
         },
         {
           "criterion": "truthful AI-use narrative",
           "status": "draft updated to reflect the pilot and its negative result; entrant review required; not submitted"
         }
       ],
-      "delivery_state": "initial frozen implementation committed as 23191e7 on arena/01a104a9-gemsdoe31; post-pilot report/site/registry updates and all final checks are complete but not yet committed; PR and merge not yet created"
+      "delivery_state": "PR #1 merged to main at 18a9c4e9493192a21f2bb22ca0356d4a24be8d6c; follow-up branch content includes a root redirect to docs/ because the GitHub Pages source update to /docs was denied with 403; direct live-page content verification remains open"
     }
   ],
   "remaining_work": [
-    "commit and push the completed post-pilot evidence/report/site/registry update on the fixed Arena branch, then create the requested PR to main",
+    "verify the root-source GitHub Pages build follows the repository root redirect to docs/; direct /docs configuration would require Pages write permission or manual settings change",
     "do not run H31-A screen or confirmation; any new scientific attempt requires a new preregistered design or defensible range-identification evidence",
     "reproduce and beat the actual current-best comparable holdout system on the same measured buffer before any future candidate TIFF or weekly slot",
-    "push only arena/01a104a9-gemsdoe31, open the requested PR to main, and merge it if checks and permissions permit",
-    "enable/verify GitHub Pages from docs/; retain static leaderboard link only, and keep AI disclosure as an entrant-reviewed draft"
+    "resolve official sample-template provenance and permitted LiDAR access if an authorized route becomes available",
+    "retain the static official leaderboard link only, and keep AI disclosure as an entrant-reviewed draft"
   ]
 }
