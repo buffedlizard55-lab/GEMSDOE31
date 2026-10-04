@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-04",
+  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
+  "passes": [
+    {
+      "id": "pass-1-implementation-and-verification",
+      "status": "complete-for-current-artifacts",
+      "scope": [
+        "frozen H31-A design, two magnetic-scale features, pinned sibling runtime/cache verification, paired four-block pilot, same-trace residual variogram, bootstrap range rule and stop gate",
+        "strict GeoTIFF CRS/grid/shape/transform/dtype/value/NaN checks and out-of-range regression protection",
+        "ranked geological hypotheses, official/primary source access audit, prior-score audit, registries, site, and manual upload guide"
+      ],
+      "verification": {
+        "pytest": "23 passed in the final post-pilot check, without warnings",
+        "ruff": "all checks passed",
+        "compileall": "passed for src/, scripts/, and tests/",
+        "json_documents": "all 11 repository JSON documents parse; all 8 pilot cells.jsonl rows parse",
+        "html_local_links": "5 static pages checked; final content audit recorded before PR",
+        "legacy_tiff": "local hard format checks pass against the pinned owner-mirror template only; organizer acceptance remains false",
+        "production_context": "7/7 owner-mirror inputs and 6/6 caches verified; 3730x3292 footprint and 55/57 feature columns built",
+        "h31_a_pilot": "8 arm/fold fits completed on clean code revision 23191e7; mean paired delta -0.0040088545; metric gate false; both residual ranges unknown; no screen or confirmation"
+      },
+      "open_scientific_gates": [
+        "H31-A is stopped: the paired pilot metric gate failed and both point fits failed the observed-lag sill-support criterion",
+        "no operational residual range, bootstrap confidence interval, or data-derived final buffer exists",
+        "the current-best comparable incumbent has not been reproduced on the same folds/buffer; no slot is eligible",
+        "H31-B LAZ binary, point-return attributes, and full-footprint overlap remain unavailable"
+      ]
+    },
+    {
+      "id": "pass-2-independent-bug-assumption-leakage-review",
+      "status": "complete-for-current-code-and-pilot",
+      "checks": [
+        "confirmed H31 feature construction uses no fault labels and re-masks invalid cells after filtering",
+        "confirmed model arms share folds, draws, training samples, test rows, and emission; residual pairs are restricted to the same fold/draw/8-connected trace component",
+        "confirmed pilot collar is labeled temporary, an unstable/unknown range fails closed, and no screen or submission can be authorized by a pilot win",
+        "confirmed final file validator checks range before any clipping/serialization and regression tests reject values outside [0,1]",
+        "reviewed source classifications, local links, legacy-download labels, AI draft, score claim, and static-only official leaderboard link"
+      ],
+      "findings_fixed": [
+        "replaced deprecated Rasterio from_origin test setup with explicit Affine transforms; checks run without warnings",
+        "fixed a malformed score_claims.json key found by recursive validation and added automated registry/evidence assertions",
+        "added tests for the virtual stacked feature array and the preregistered maximum-three data-derived buffer retry chain",
+        "bound pilot/screen/confirmation stages to the same preregistration hash, executable-code/dependency digest, and Python/package environment digest",
+        "the original pilot variogram record retained the instability reason but omitted empirical bins on exceptions; added a regression test and a post-hoc diagnostic JSON regenerated only from the saved OOF residuals, with no classifier refit or gate change"
+      ],
+      "remaining_risks": [
+        "the fitted ~24.964 km point diagnostic is unstable extrapolation and must not be used as a buffer; no component-bootstrap interval exists",
+        "official sample-template provenance and the user-reported D2.8 0.2600 score remain unresolved",
+        "no official score, organizer acceptance, upload, leaderboard inspection, or current-best incumbent comparison has occurred"
+      ]
+    },
+    {
+      "id": "pass-3-whole-request-crosscheck",
+      "status": "complete-with-open-gates",
+      "criteria": [
+        {
+          "criterion": "README charter, Maximize P(Win), Own the Outcome, source classes, and status-first site",
+          "status": "implemented; README states the charter is a consolidated restatement, not a verbatim reconstruction"
+        },
+        {
+          "criterion": "prominent GeoTIFF download, executive summary, unique reserved name/comment, and exact manual upload instructions",
+          "status": "site complete; prominent TIFF is expressly legacy/reference-only because no H31 candidate exists"
+        },
+        {
+          "criterion": "official-grid/value validation and out-of-range regression protection",
+          "status": "implemented and locally tested against owner-mirror sample; organizer authenticity/acceptance unverified"
+        },
+        {
+          "criterion": "prior-score analysis with official/user/owner distinctions",
+          "status": "audit complete; D2.8 0.2600 remains USER-REPORTED and unresolved"
+        },
+        {
+          "criterion": "rank 3-5 geological hypotheses with rationale, novelty, uncertain gain, effort, provenance and validation",
+          "status": "four hypotheses documented; external data access blockers explicit"
+        },
+        {
+          "criterion": "empirical same-trace residual range and no arbitrary final buffer",
+          "status": "method frozen and pilot attempted; operational range unknown, H31-A stopped, no buffer substituted"
+        },
+        {
+          "criterion": "same-run/current-best comparison, fresh confirmation, exact-file, and official promotion gates",
+          "status": "fail-closed policy documented; H31-A metric failed; current-best comparison and confirmation not run; no slot approval"
+        },
+        {
+          "criterion": "multiple review passes and remaining-work recommendations",
+          "status": "three passes recorded; PR, merge, Pages deployment, official-template provenance and any future candidate remain open"
+        },
+        {
+          "criterion": "truthful AI-use narrative",
+          "status": "draft updated to reflect the pilot and its negative result; entrant review required; not submitted"
+        }
+      ],
+      "delivery_state": "initial frozen implementation committed as 23191e7 on arena/01a104a9-gemsdoe31; post-pilot report/site/registry updates and all final checks are complete but not yet committed; PR and merge not yet created"
+    }
+  ],
+  "remaining_work": [
+    "commit and push the completed post-pilot evidence/report/site/registry update on the fixed Arena branch, then create the requested PR to main",
+    "do not run H31-A screen or confirmation; any new scientific attempt requires a new preregistered design or defensible range-identification evidence",
+    "reproduce and beat the actual current-best comparable holdout system on the same measured buffer before any future candidate TIFF or weekly slot",
+    "push only arena/01a104a9-gemsdoe31, open the requested PR to main, and merge it if checks and permissions permit",
+    "enable/verify GitHub Pages from docs/; retain static leaderboard link only, and keep AI disclosure as an entrant-reviewed draft"
+  ]
+}

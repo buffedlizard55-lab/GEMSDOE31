@@ -1,0 +1,319 @@
+{
+  "branch": "arena/01a104a9-gemsdoe31",
+  "code_revision": "23191e7baa8d22114b713c5c253678e323fff712",
+  "draws": [
+    10
+  ],
+  "emission": {
+    "binary_dti_prediction": true,
+    "poisson_dot_spacing_px": 2.4,
+    "ridge_nms_sigma_px": 1.0,
+    "top_k_fraction_of_eroded_scoring_domain": 0.035,
+    "visible_fault_pixels_removed": true
+  },
+  "environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.2",
+    "rasterio": "1.4.4",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1"
+  },
+  "environment_sha256": "2e406e610154e5e71a362a295817e5c74e17742941f1fee86bde1d3f6e261f4a",
+  "execution_bundle_sha256": "3b459f9a909e515ca2025e84c832311b24cabfc34361433fb36d39b684d6cb28",
+  "feature_arms": {
+    "base": "BDE plus fixed X1-X3 add-ons (same-run H19-5 parent comparator)",
+    "base_column_indices": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    "candidate_column_indices": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      64,
+      65
+    ],
+    "h31_candidate": "base plus H31_mag_local_length and H31_mag_scale_edge"
+  },
+  "feature_diagnostics": {
+    "edge_q99_by_sigma": {
+      "1": 13.988392550656139,
+      "3": 11.174367368885205
+    },
+    "eps_by_sigma": {
+      "1": 0.01994809891017444,
+      "3": 0.010449562776118675
+    },
+    "footprint_pixels": 5167373,
+    "input_valid_pixels": 5166472,
+    "invalid_footprint_pixels": 3060,
+    "length_bounds_px": [
+      0.5,
+      30.0
+    ],
+    "output_ranges": {
+      "H31_mag_local_length": [
+        0.8661911487579346,
+        3.4339871406555176
+      ],
+      "H31_mag_scale_edge": [
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "folds": [
+    "NW",
+    "NE",
+    "SW",
+    "SE"
+  ],
+  "holdout": {
+    "buffer_iteration": null,
+    "buffer_m": 500,
+    "buffer_px": 5,
+    "component_connectivity": 8,
+    "hide_fraction": 0.2,
+    "minimum_pilot_buffer_m": null,
+    "previous_screen_results": null,
+    "scoring_domain_erosion_px": 12,
+    "seed_formulas": "pinned GEMSDOE25 Holdout.draw and Cell negative sampler",
+    "type": "four contiguous quadrant catalogue-gap hide-and-recover"
+  },
+  "hypothesis_id": "H31-A",
+  "model": {
+    "class": "sklearn.ensemble.HistGradientBoostingClassifier",
+    "model_seed": "draw id; same fold/draw training sample for both arms",
+    "negative_sample_count_max": 300000,
+    "parameters": {
+      "class_weight": {
+        "0": 1,
+        "1": 5
+      },
+      "early_stopping": false,
+      "l2_regularization": 1.0,
+      "learning_rate": 0.12,
+      "max_iter": 100,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50
+    }
+  },
+  "notes": [
+    "Catalogue-gap proxy only; not hidden competition truth or leaderboard evidence.",
+    "Pilot collar is temporary and is never described as the empirical range.",
+    "No submission raster is created by this experiment runner."
+  ],
+  "preregistration": "knowledge/2026-10-04_h31_hypotheses_preregistration.md",
+  "preregistration_sha256": "90270912b1ff3e533ca54ace5c8ed8d2ec00924f8f8036be6dd77819fad8cd3b",
+  "residual_variogram": {
+    "bin_width_m": 500.0,
+    "bootstrap_replicates": 200,
+    "bootstrap_seed": 20261004,
+    "cell_size_m": 100.0,
+    "estimator": "Matheron 0.5 * (e_i - e_j)^2",
+    "max_lag_m": 50000.0,
+    "min_pairs_per_bin": 20,
+    "pairs": "same fold, draw, and 8-connected fault component",
+    "residual": "e = y - p on held-out hidden catalogue fault pixels only"
+  },
+  "sibling_provenance": {
+    "cache_hash_manifest_sha256": "95ece61d1cc12a446eaa9ff3ca32775fd2842901a7d33d094836341d95994d6f",
+    "data_manifest_sha256": "5a0f9b95efd7a8e77f2e0a3162fda235f8dd0253cef187165ad7c0c003321c66",
+    "feature_build": {
+      "edge_q99_by_sigma": {
+        "1": 13.988392550656139,
+        "3": 11.174367368885205
+      },
+      "eps_by_sigma": {
+        "1": 0.01994809891017444,
+        "3": 0.010449562776118675
+      },
+      "footprint_pixels": 5167373,
+      "input_valid_pixels": 5166472,
+      "invalid_footprint_pixels": 3060,
+      "length_bounds_px": [
+        0.5,
+        30.0
+      ],
+      "output_ranges": {
+        "H31_mag_local_length": [
+          0.8661911487579346,
+          3.4339871406555176
+        ],
+        "H31_mag_scale_edge": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "numpy": "2.4.6",
+    "rasterio": "1.4.4",
+    "scikit_learn": "1.9.1",
+    "scipy": "1.17.1",
+    "sibling_clean_worktree": true,
+    "sibling_repository": "https://github.com/buffedlizard55-lab/GEMSDOE25",
+    "sibling_revision": "c185edd8b09e19846cf34c16050e6cf891ecc2d0",
+    "verified_cache_hashes": {
+      "addons.npy": {
+        "bytes": 103347588,
+        "sha256": "ad31ff14a804b6956efa13b8c3caf6b322d6942b0f57911050ba243ac92e57bc"
+      },
+      "addons.npy.names.json": {
+        "bytes": 51,
+        "sha256": "b1562d7d1f5e57de2002f67038d6b1b4668e3ae10354fac648722f6d33db7f27"
+      },
+      "bands/_footprint.npy": {
+        "bytes": 12279288,
+        "sha256": "c446094771775c00802862e9ec58846fd1b278b4e608303e68811a2404dfd246"
+      },
+      "bands/_labels.npy": {
+        "bytes": 12279288,
+        "sha256": "d77fa88ad58d0a268b736b3c1d6a8939fd237d5955369944bd2b299194b2555d"
+      },
+      "static_ABCD.npy": {
+        "bytes": 1322847616,
+        "sha256": "fe584a12ed3e1ed7d26b272c49f6da0bbe16e072d98f6b1694938d858305b084"
+      },
+      "static_ABCD.npy.names.json": {
+        "bytes": 893,
+        "sha256": "60d48fb99c0c032e5c33a774298112104c9e1cdd15482ac58cddefc948fb85de"
+      }
+    },
+    "verified_input_hashes": {
+      "external/gdr_wellspring_in_footprint.csv": {
+        "bytes": 2146771,
+        "sha256": "122718e65bdf55aab0ee12ad20d80062f0deb1de957225a61ad880dd5dc196ea"
+      },
+      "external/geodawn_extensions_u8.tif": {
+        "bytes": 27132925,
+        "sha256": "a35a9c6d2a14786f4dab85481ee59769213072f5dab5b2535ea82ae4d9bb7d9b"
+      },
+      "external/geodawn_rad_u8.tif": {
+        "bytes": 26612970,
+        "sha256": "c22420f75999030d7cc65c9e31e50d232ea6158423bca051613a18a8b20ba682"
+      },
+      "external/lidar_scarp_features_u8.tif": {
+        "bytes": 36943606,
+        "sha256": "d580bb8bdcdb941e32fefb8b38044bc5bf04e199bf2e83498c3576e6fc465568"
+      },
+      "labels.tif": {
+        "bytes": 425830,
+        "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093"
+      },
+      "sample_submission.tif": {
+        "bytes": 1599597,
+        "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+      },
+      "training_features.tif": {
+        "bytes": 418912844,
+        "sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5"
+      }
+    }
+  },
+  "stage": "pilot"
+}

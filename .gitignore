@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Large / regenerable inputs and derived caches (do not commit competition mirrors)
+data/*
+!data/.gitkeep
+work/
+*.partial
+*.assembling

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Current GEMS submission status, D2.8 score-claim audit, GeoTIFF checks, and manual upload guide.">
+  <title>Executive summary · GEMSDOE31</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="executive-summary.html" aria-current="page">Executive summary</a>
+        <a href="research.html">Research</a>
+        <a href="sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Decision brief · 2026-10-04</p>
+      <h1>No H31 submission is approved yet.</h1>
+      <p class="hero-lede">The preregistered H31-A pilot completed, but missed its paired metric gate and did not identify a stable residual range. There is no screen, confirmation, final buffer, or eligible candidate. The prominent TIFF below is a legacy reference, not a candidate to upload.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="notice notice-danger" role="alert">
+      <strong>Do not upload the D2.8 reference as a new H31 entry.</strong>
+      The file is included for transparent inspection and format-validation demonstration. It is not slot-approved, its score is not verified, and it is not the output of the current H31 experiment.
+    </div>
+
+    <section>
+      <div class="card download-card callout-row">
+        <div>
+          <p class="kicker">Legacy reference · format-only receipt</p>
+          <h2>gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif</h2>
+          <p>44,090 positive binary pixels; one float32 band; finite footprint values in [0,1]; NaN exactly outside the pinned owner-mirror template footprint.</p>
+          <p class="download-meta"><strong>SHA-256:</strong> <code>5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32</code><br>
+            <a href="downloads/gemsdoe31-reference-d28-offcat-44090-20261004-format-check.json">View machine-readable format receipt</a></p>
+        </div>
+        <a class="button button-dark" href="downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif" download>Download legacy .tif</a>
+      </div>
+      <p class="small">The receipt compares against `GEMSDOE25@c185edd8b09e19846cf34c16050e6cf891ecc2d0:data/sample_submission.tif` (SHA-256 `2176d08e…`). This is an owner-mirror sample, not an organizer-authenticated original. Local format validity does not prove portal acceptance.</p>
+    </section>
+
+    <section id="d28-audit" aria-labelledby="d28-heading">
+      <div class="section-head">
+        <div><p class="kicker">Prior-submission audit</p><h2 id="d28-heading">What is known about D2.8—and the 0.2600 claim</h2></div>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <span class="tag">USER-REPORTED · unverified</span>
+          <h3>0.2600 appears in the request, not an organizer receipt</h3>
+          <p>The current request states that GEMSDOE25 D2.8 scored 0.2600. The pinned public owner-mirror repository instead marks its D2.8 file <em>unscored</em>; its score-claim audit contains no D2.8 0.2600 row. No DrivenData score page or receipt was accessed.</p>
+          <p><strong>Conclusion:</strong> the figure and the identity of the file that allegedly received it remain unresolved. We cannot honestly explain that exact score as a verified fact.</p>
+        </article>
+        <article class="card">
+          <span class="tag">COMPUTED · local mirror geometry</span>
+          <h3>D2.8 is sparse emission, not a new trained model</h3>
+          <p>The local raster contains 44,090 positive cells and is pixel-identical (not byte-identical) to the pinned sibling D2.8 artifact. That owner record describes deterministic thinning of H19-5. The parent has 121,131 positives; the owner-reported D1.5 variant has 60,069.</p>
+          <p>Under the official 300 m triangular kernel, thinning can remove redundant predictions and reduce false-positive mass, but it can also remove unique fault coverage. The tradeoff depends on hidden truth, which the raster cannot reveal.</p>
+        </article>
+      </div>
+      <div class="card" style="margin-top:18px">
+        <h3>Conditional model, not a score</h3>
+        <p>One first-order owner-mirror model predicts about <strong>0.2553</strong> for D2.8 with a <strong>0.2500–0.2613 sensitivity band</strong> under assumed geometry and two unverified score anchors. The band is not a statistical confidence interval. A separate owner package summary gives a conditional estimate around 0.251. The difference and the failed H28 proxy gate reinforce that these are assumption-sensitive model outputs, not official competition scores.</p>
+        <p class="small">Full details and exact provenance: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/prior_submission_audit.md">prior-submission audit</a> and <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/score_claims.json">score-claim registry</a>.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="format-heading">
+      <div class="section-head">
+        <div><p class="kicker">File contract</p><h2 id="format-heading">Local format checks on the legacy reference</h2></div>
+        <p>Organizer specifications are sourced from the official problem page. The check itself used the hash-pinned owner-mirror template.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Requirement</th><th>Official specification</th><th>Local reference result</th></tr></thead>
+          <tbody>
+            <tr><td>Coordinate system</td><td>EPSG:32611</td><td><span class="badge badge-green">PASS</span> exact template CRS</td></tr>
+            <tr><td>Resolution / transform</td><td>100 m; same bounds as training/template</td><td><span class="badge badge-green">PASS</span> transform (100, 0, 243350, 0, −100, 4508550)</td></tr>
+            <tr><td>Shape / layer</td><td>Same grid; one raster layer</td><td><span class="badge badge-green">PASS</span> 3730 × 3292; one band</td></tr>
+            <tr><td>Data type / footprint values</td><td>float32; confidence/probability values in [0,1]</td><td><span class="badge badge-green">PASS</span> finite inside; min 0.0, max 1.0</td></tr>
+            <tr><td>Outside footprint</td><td>null/NaN</td><td><span class="badge badge-green">PASS</span> all 7,111,787 outside cells NaN</td></tr>
+            <tr><td>Organizer acceptance</td><td>Must be established through the contest submission process</td><td><span class="badge badge-red">NOT VERIFIED</span> no upload attempted</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">The test suite explicitly rejects NaN/Inf inside the footprint, values below 0 or above 1, wrong CRS, shape or geotransform, and finite outside-footprint values. It never silently clips predictions.</p>
+    </section>
+
+    <section aria-labelledby="name-heading">
+      <div class="section-head">
+        <div><p class="kicker">Reserved metadata · future candidate only</p><h2 id="name-heading">Unique name and optional comment</h2></div>
+      </div>
+      <div class="card">
+        <p><strong>Proposed name:</strong> <code>GEMSDOE31-H31A-MAG-20261004-v01</code></p>
+        <p><strong>Proposed comment:</strong> <code>H31-A candidate; submit only after buffered holdout, fresh confirmation, incumbent win, and file audit.</code></p>
+        <p class="small">These are reserved examples only. They are not assigned to the legacy reference, and no upload is authorized. Use them only if a future exact artifact has passed all gates; otherwise record a new unique version and truthful note.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="steps-heading">
+      <div class="section-head">
+        <div><p class="kicker">Manual workflow only</p><h2 id="steps-heading">How to submit on DrivenData—if a candidate becomes eligible</h2></div>
+      </div>
+      <ol class="content">
+        <li><strong>Do not upload now.</strong> Wait until the candidate beats both the same-run parent and the reproduced current-best spatial-holdout comparator on the same empirically buffered folds, passes fresh confirmation at a buffer at least as large as the fitted upper residual range, and passes the final exact-file check.</li>
+        <li>Use the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">official GEMS competition page</a> and sign in manually. This project does not store credentials, access the portal, or automate uploads.</li>
+        <li>On the competition's current manual submission interface, select the one single-band 100 m GeoTIFF candidate for the full study area. Follow the interface's current field labels; they can change and have not been tested from this repository.</li>
+        <li>Enter the unique submission name and truthful optional comment. Include the generative-AI-use narrative required by §3.2 of the <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">official rules</a>. Review the <a href="ai-disclosure.html">draft AI disclosure</a> and correct it to describe the actual final entry.</li>
+        <li>Submit manually and retain the organizer's confirmation/receipt. Do not infer acceptance from a successful local validator. Any score/rank remains unverified here unless an organizer receipt is manually recorded.</li>
+      </ol>
+      <div class="notice" role="note"><strong>No score feed is provided.</strong> The DrivenData Terms of Use prohibit automated monitoring/copying and manual monitoring/copying without prior written consent. The site has a static official leaderboard link only; it does not fetch or mirror its contents.</div>
+    </section>
+
+    <section aria-labelledby="next-heading">
+      <div class="card">
+        <p class="kicker">Next scientific gate</p>
+        <h2 id="next-heading">H31-A pilot result: stop before screen</h2>
+        <p>Draw 10 ran with a temporary 500 m collar solely to obtain out-of-fold residuals. Mean paired catalogue-gap ΔDTI was −0.004009 and only 1/4 blocks were positive, so the paired metric gate failed. Both residual variograms also failed the preregistered sill/lag-support criterion; the operational range and final buffer are unknown. Do not run screen draws 11–12 or confirmation draws 13–14 under this result. Read the <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/h31_a_pilot_2026-10-04.md">full pilot report</a>.</p>
+        <p><a class="button button-dark" href="research.html">Review hypotheses and preregistration</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-inner"><p>GEMSDOE31 · format receipt is local evidence only</p><p><a href="sources.html">Trusted sources</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/README.md">Project charter</a></p></div></footer>
+</body>
+</html>

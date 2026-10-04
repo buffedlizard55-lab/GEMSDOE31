@@ -1,1 +1,74 @@
-# GEMSDOE31
+# GEMSDOE31 — auditable GEMS fault-mapping research
+
+> **Current decision: H31-A is stopped; no new submission is approved.** Its pilot missed the paired proxy gate and neither residual variogram identified a stable range, so the final buffer is unknown. The visible GeoTIFF is a legacy owner-mirror reference for inspection only. It passes local format checks against the pinned owner-mirror sample template, but is not organizer-authenticated, not an H31 candidate, and not approved for a weekly slot. No official score has been independently verified.
+
+## Start here
+
+- **GitHub Pages site source:** [`docs/index.html`](docs/index.html) (download button, status and project links).
+- **Submission executive summary and manual upload guide:** [`docs/executive-summary.html`](docs/executive-summary.html).
+- **Research hypotheses and current H31-A design:** [`docs/research.html`](docs/research.html) and the full [H31 preregistration](knowledge/2026-10-04_h31_hypotheses_preregistration.md).
+- **Official and trusted source register:** [`docs/sources.html`](docs/sources.html) / [`registry/sources.json`](registry/sources.json).
+- **Prior-submission forensic audit:** [`knowledge/prior_submission_audit.md`](knowledge/prior_submission_audit.md).
+- **Data provenance and file-validation receipts:** [`registry/data_provenance.json`](registry/data_provenance.json) and [`registry/submissions.json`](registry/submissions.json).
+- **Current outcome/status:** [`knowledge/current_status_2026-10-04.md`](knowledge/current_status_2026-10-04.md).
+
+### Prominent download — legacy reference only
+
+[**Download the format-checked legacy D2.8 reference GeoTIFF**](docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif) · [validation receipt](docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-format-check.json) · SHA-256 `5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32`.
+
+This single-band float32 file contains 44,090 binary positive pixels and is pixel-identical (not byte-identical) to a D2.8 raster in the pinned GEMSDOE25 owner mirror. It is **not** a new submission, not an H31 result, and not slot-approved. The request's 0.2600 D2.8 score is unresolved: it is absent from the pinned owner-mirror score record, which labels D2.8 unscored. Do not treat the reference download or local format receipt as proof of an official score or upload acceptance.
+
+## Standing project charter — full active scope
+
+The charter below preserves the complete active scope and acceptance criteria from the project request as a faithful consolidated restatement. It is the recurring project prompt: reread this section, the active preregistration, and the current outcome/status record before each substantive continuation. (It is not represented as a verbatim quote where the session handoff condensed the original wording.)
+
+### Objective and decision principles
+
+Build a scientifically rigorous, reproducible and auditable GEMS Prize project that **maximizes the probability of a valid, high-performing submission** and **owns the outcome**. Arena core values **“Maximize P(Win)”** and **“Own the Outcome”** mean prioritizing evidence and genuine geological signal over optimistic claims, reporting failed tests plainly, and spending a weekly slot only when the candidate has passed the registered gates.
+
+The task is to predict geological faults—not geothermal favorability, vents, or merely the public known-fault inventory. Treat competition truth as incomplete and potentially inaccurate. Distinguish official sources, owner/user-reported claims, computed evidence, and inference at every point. Provide source links and flag irregularities; do not invent results or imply that a proxy score is a competition score.
+
+### Scientific hypotheses and validation
+
+1. Review earlier submissions, code, hypotheses, and outcomes before proposing new work. Do not relabel H26–H30 experiments as new evidence.
+2. Nominate **3–5 genuinely distinct geological hypotheses**. For each, document input layers, physical signature, why it could reveal faults missing from existing maps, what is novel relative to this repository, uncertain expected spatial-holdout DTI gain, implementation cost, data provenance/access, and validation status. Rank candidates before implementation.
+3. Preregister the selected candidate's features, model, folds, draws/seeds, metric, analysis, buffer rule, and promotion gate before fitting. Compare it to a comparable same-run incumbent on a spatially blocked holdout. A screen pass alone is not sufficient; use fresh confirmation draws without tuning on them.
+4. Derive the spatial collar empirically from out-of-fold residual semivariograms along known fault traces. Report the fitted range and uncertainty, and use at least the upper fitted range. Do not assume a generic 4–5-pixel buffer; if the range is not identifiable, report it as unknown and stop.
+5. Do not use a weekly submission slot unless the candidate beats the current comparable spatial-holdout best, passes fresh confirmation, and passes the exact-file audit. A proxy DTI or modelled expectation is never a leaderboard score.
+6. If data needed for a candidate cannot be accessed, identify and check a free official source, record what coverage/metadata/binaries were actually verified, and describe the blocker rather than inventing evidence.
+
+### Submission artifact, site, and user instructions
+
+1. Build a clean GitHub Pages site with a prominent, easy-to-find single-band GeoTIFF download and a clear executive-summary subpage. Make the current artifact's status unmistakable; never label an unconfirmed legacy file as the active submission.
+2. For any candidate GeoTIFF, verify the organizer's CRS, grid, dimensions, geotransform/bounds, single-band float32 type, and valid footprint. All footprint predictions must be finite and in `[0,1]`; values outside the footprint must be null/NaN as the official page specifies. No silent clipping or zero-filling. Include a regression test that catches the previous “Predicted values must be in range [0, 1]” class of error.
+3. Include a unique submission name, a concise optional comment, and exact manual instructions for uploading on DrivenData. Clearly mark reserved metadata versus an actual submitted file. Explain that AI use must be disclosed in the narrative as required by the official rules.
+4. Explain the prior GEMSDOE25/D2.8 score history and why it may have scored as it did, while separating user/owner-reported leaderboard claims from organizer receipts. The current 0.2600 D2.8 claim is unresolved against the pinned owner-mirror record; see the prior-submission audit.
+
+### Source, access, and integrity rules
+
+- Use official or primary sources for contest rules, data specifications, and third-party products. Preserve them in `registry/sources.json` with retrieval date, verified claims, and limits.
+- DrivenData Terms of Use prohibit robot/spider/automatic access “for any purpose, including monitoring or copying” and prohibit manual monitoring/copying without prior written consent. Do **not** build a leaderboard scraper, periodic feed, or automatic submission. A static official leaderboard link for manual review is acceptable.
+- Owner-mirror hashes prove byte identity to that mirror only; they do not prove organizer authenticity, acceptance, or score.
+- Do not commit large competition inputs, LAZ files, or regenerable caches. Keep provenance hashes and only the small evidence artifacts required for audit.
+
+### Review, reporting, and delivery
+
+Perform cumulative review passes: (1) implement and verify against sources and preregistration; (2) inspect and fix bugs, assumptions, leakage and edge cases; (3) re-check the full result against this charter and report remaining limits. Record each pass in `registry/review_passes.json`. Keep the site and README current, flag irregularities, and make the remaining work clear. Prepare a pull request and merge it to `main` if repository permissions and checks allow; report a PR, merge, deployment, official score, or organizer acceptance only when there is a verifiable status/receipt.
+
+## Current verified state
+
+- H31-A's two-feature magnetic-scale design was frozen before fitting. Pilot draw 10 then failed its paired DTI screen and produced no stable same-trace residual range; **H31-A is stopped, the final buffer is unknown, and no further screen/confirmation is authorized**. See the [pilot report](knowledge/h31_a_pilot_2026-10-04.md) and its saved residual/variogram artifacts under `evidence/h31_a/pilot/`. H31-B has an official TNM Access API tile record within sampled owner-mirror footprint locations, but the LAZ binary download failed; no return attributes were inspected.
+- **23 tests pass**; Ruff, compileall, JSON syntax checks, and static-page local-link checks pass. A production runtime-context smoke and the registered pilot both used the pinned sibling. Pilot metrics are local catalogue-gap proxy results, **not** competition scores; its unstable ~24.964 km point-fit diagnostic is not an operational range. There is no data-derived final buffer, H31 confirmation, slot-eligible candidate, or new submission.
+- The owner-mirror sample template has CRS EPSG:32611, shape 3730×3292, 100 m transform, and 5,167,373 finite footprint cells. The legacy reference passes local exact-grid/range checks against that template. The original organizer template and organizer acceptance are not independently verified here.
+- No official competition score is verified. No DrivenData leaderboard material was accessed or copied.
+
+## Reproducibility and code
+
+Python 3.11; pinned versions are in [`requirements.txt`](requirements.txt). Run checks with:
+
+```bash
+python -m pytest -q
+ruff check .
+```
+
+The H31 runner is intentionally fail-closed: it requires the fixed Arena branch, a clean worktree, the pinned clean GEMSDOE25 sibling checkout, hash-matching mirror inputs/caches, and an empty output directory. It never contacts DrivenData and never writes a submission GeoTIFF. See [`AGENTS.md`](AGENTS.md) for ongoing scientific and execution guardrails.

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gemsdoe31"
+version = "0.1.0"
+description = "Auditable geological fault-mapping experiments and submission checks for DOE GEMS"
+requires-python = ">=3.11"
+dependencies = [
+  "affine>=3,<4",
+  "numpy>=2.4,<3",
+  "scipy>=1.17,<2",
+  "rasterio>=1.4.4,<2",
+  "scikit-learn>=1.9,<2",
+  "pandas>=3,<4",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=9,<10", "ruff>=0.16,<1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+extend-exclude = ["data", "docs/downloads", "evidence"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

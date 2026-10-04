@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-04",
+  "warning": "This repository has no new H31 competition submission. The only downloadable GeoTIFF is a legacy owner-mirror reference, format-checked locally against an owner-mirror template. Local format validation is not organizer acceptance and no score is independently verified.",
+  "current_slot_candidate": null,
+  "files": [
+    {
+      "id": "legacy-reference-d28-44090",
+      "role": "legacy audit reference",
+      "file": "gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif",
+      "path": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif",
+      "bytes": 1573188,
+      "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+      "positive_pixels_inside_template": 44090,
+      "format_ok_against_owner_mirror_template": true,
+      "organizer_acceptance_verified": false,
+      "score_claims": [
+        "user-stated-gemsdoe25-d28-0.2600-20261004",
+        "owner-mirror-d28-unscored-c185edd"
+      ],
+      "status": "format-valid against owner-mirror template; legacy; unscored in pinned owner mirror; not an H31 candidate; not slot-approved",
+      "pixel_identity": {
+        "sibling_file": "GEMSDOE25@c185edd8b09e19846cf34c16050e6cf891ecc2d0:docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+        "pixel_equal": true,
+        "byte_equal": false,
+        "sibling_sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8"
+      },
+      "format_receipt": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-format-check.json",
+      "template_provenance": "GEMSDOE25 owner-mirror data/sample_submission.tif, SHA-256 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+      "note": "Reference only. Do not upload as the new H31 submission or infer organizer acceptance from the local validator."
+    }
+  ],
+  "proposed_future_submission_metadata": {
+    "status": "reserved example only; not attached to or uploaded with any current GeoTIFF",
+    "name": "GEMSDOE31-H31A-MAG-20261004-v01",
+    "optional_comment": "H31-A candidate; submit only after buffered holdout, fresh confirmation, incumbent win, and file audit.",
+    "max_comment_characters": 120,
+    "slot_approved": false
+  },
+  "h31_a_pilot": {
+    "status": "stopped; no candidate TIFF, slot, screen, or confirmation",
+    "outcome_report": "knowledge/h31_a_pilot_2026-10-04.md",
+    "mean_paired_delta_dti": -0.004008854500829412,
+    "positive_folds": 1,
+    "metric_gate_passed": false,
+    "operational_variogram_range_m": null,
+    "final_buffer_m": null,
+    "candidate_tiff_created": false,
+    "slot_approved": false,
+    "note": "Local catalogue-gap proxy only. Do not describe as an official score or submission result."
+  }
+}

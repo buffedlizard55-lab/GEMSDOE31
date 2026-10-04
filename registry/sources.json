@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-04",
+  "policy": "Source claims are classified OFFICIAL, OWNER-MIRROR, COMPUTED, or INFERENCE. No DrivenData leaderboard content was fetched, copied, monitored, or scraped. The official leaderboard URL is a static manual-review link only.",
+  "sources": [
+    {
+      "id": "dd-gems-problem-format-metric",
+      "class": "OFFICIAL",
+      "publisher": "DrivenData / DOE GEMS Prize",
+      "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge — problem description",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+      "accessed_utc": "2026-10-04",
+      "sections_read": ["problem description", "competition structure", "datasets", "provided features", "performance metric", "submission format"],
+      "claims_verified": [
+        "The target is fault presence with incomplete and potentially inaccurate public known-fault labels; new faults are expert-identified.",
+        "Initial private test labels and final expanded labels are distinct scoring rounds; the selected submission is reused.",
+        "The metric is distance-weighted Tversky with alpha=0.2, beta=0.8, and a triangular kernel with 300 m support.",
+        "Submission: one float32 GeoTIFF layer, EPSG:32611, 100 m resolution, matching bounds; values in [0,1]; outside the bounds null or NaN."
+      ],
+      "limits": "Public/private leaderboard values were not accessed. The official data-download tab redirects to login in this environment."
+    },
+    {
+      "id": "doe-gems-official-rules",
+      "class": "OFFICIAL",
+      "publisher": "Department of Energy / National Laboratory of the Rockies",
+      "title": "Geologic Enhanced Mapping System (GEMS) Prize Official Rules",
+      "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+      "accessed_utc": "2026-10-04",
+      "sections_read": ["2 Background", "3 Submission", "3.1 How To Enter", "3.2 Process Overview"],
+      "claims_verified": [
+        "A valid entry uses a single GeoTIFF with a single raster layer at 100 m over the GeoDAWN study area.",
+        "The rules refer competitors to the competition website for format details and state three submissions per week.",
+        "Generative-AI use is allowed but must be disclosed in the narrative, including its extent and how it contributed to submission elements."
+      ],
+      "limits": "The competition interface was not used; submission/upload was not attempted. The user remains responsible for accurate authorship and results statements."
+    },
+    {
+      "id": "drivendata-terms",
+      "class": "OFFICIAL",
+      "publisher": "DrivenData",
+      "title": "Terms of Use",
+      "url": "https://www.drivendata.org/termsofuse/",
+      "accessed_utc": "2026-10-04",
+      "sections_read": ["acceptable use", "robots/manual monitoring restrictions"],
+      "claims_verified": [
+        "The terms prohibit using robots, spiders, or other automatic means to access the website for any purpose, including monitoring or copying.",
+        "The terms prohibit manual monitoring/copying without prior written consent."
+      ],
+      "project_action": "No leaderboard/feed scraper, scheduled monitor, copied leaderboard table, or automatic submission was created. Only a static official leaderboard link is provided for manual review."
+    },
+    {
+      "id": "dd-gems-data-tab",
+      "class": "OFFICIAL",
+      "publisher": "DrivenData / DOE GEMS Prize",
+      "title": "GEMS competition data download page",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/data/",
+      "accessed_utc": "2026-10-04",
+      "status": "login-gated; not accessed with credentials",
+      "limits": "Training inputs and original organizer sample template are not independently available in this environment. The local sample TIFF is from a hash-pinned owner mirror."
+    },
+    {
+      "id": "dd-gems-leaderboard-static-link",
+      "class": "OFFICIAL",
+      "publisher": "DrivenData / DOE GEMS Prize",
+      "title": "GEMS public leaderboard — static manual-review link",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+      "accessed_utc": null,
+      "status": "not fetched or monitored; static link only",
+      "limits": "No score or rank is asserted from this page. Follow DrivenData Terms of Use; no monitoring/copying without prior written consent."
+    },
+    {
+      "id": "gdr-1501-geodawn-lidar",
+      "class": "OFFICIAL",
+      "publisher": "USGS National Geospatial Program / Geothermal Data Repository",
+      "title": "GeoDAWN West Central Nevada EarthMRI Data, DOI 10.15121/1992093",
+      "url": "https://gdr.openei.org/submissions/1501",
+      "accessed_utc": "2026-10-04",
+      "claims_verified": [
+        "The record lists OPR and LiDAR point cloud data and links to a coverage-map PDF and work-unit 1–6 source directories.",
+        "The GDR page displays a CC-BY 4.0 license."
+      ],
+      "limits": "The page's map and directory listings do not establish exact tile overlap with the entire GEMS footprint or point-field consistency."
+    },
+    {
+      "id": "usgs-3dep-products",
+      "class": "OFFICIAL",
+      "publisher": "U.S. Geological Survey",
+      "title": "About 3DEP Products & Services",
+      "url": "https://www.usgs.gov/3d-elevation-program/about-3dep-products-services",
+      "accessed_utc": "2026-10-04",
+      "claims_verified": [
+        "3DEP products available through The National Map include lidar point clouds and DEMs at multiple resolutions.",
+        "USGS states 3DEP products are free and without use restrictions."
+      ],
+      "limits": "This general program statement does not replace checking a product's metadata or any separately distributed derivative's license."
+    },
+    {
+      "id": "tnm-access-api-docs",
+      "class": "OFFICIAL",
+      "publisher": "U.S. Geological Survey / The National Map",
+      "title": "TNM Access API documentation",
+      "url": "https://tnmaccess.nationalmap.gov/api/v1/docs",
+      "accessed_utc": "2026-10-04",
+      "claims_verified": ["The API exposes individual staged products and searchable dataset/product catalogs."],
+      "limits": "API catalog response is not a retrieved product binary or point-cloud header."
+    },
+    {
+      "id": "tnm-lpc-sample-record",
+      "class": "OFFICIAL",
+      "publisher": "U.S. Geological Survey / The National Map",
+      "title": "TNM Access API sample LPC query and NV_Southern_D23 tile record",
+      "url": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Lidar%20Point%20Cloud%20%28LPC%29&bbox=-118.0%2C39.0%2C-117.9%2C39.1&max=5",
+      "accessed_utc": "2026-10-04",
+      "record": {
+        "source_id": "6848df6cd4be02423f6ab9db",
+        "title": "USGS Lidar Point Cloud NV_Southern_D23 11SMD150210",
+        "format": "LAZ",
+        "size_bytes_listed": 1300744,
+        "publication_date": "2025-06-07",
+        "last_updated": "2025-06-10",
+        "bbox_wgs84": [-117.9718300924, 39.0411991411, -117.9706228616, 39.0430308974],
+        "download_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/NV_Southern_D23/NV_Southern_1_D23/LAZ/USGS_LPC_NV_Southern_D23_11SMD150210.laz",
+        "metadata_url": "https://thor-f5.er.usgs.gov/ngtoc/metadata/waf/elevation/lidar_point_cloud/laz/NV_Southern_1_D23/USGS_LPC_NV_Southern_D23_11SMD150210.xml"
+      },
+      "limits": "The sandbox LAZ download failed before transfer (SSL_ERROR_SYSCALL); the XML metadata URL reported maintenance. The product bbox is inside the owner-mirror footprint at 49/49 sampled locations, not a complete coverage overlay."
+    },
+    {
+      "id": "gdr-1391-ingenious",
+      "class": "OFFICIAL",
+      "publisher": "INGENIOUS / Geothermal Data Repository",
+      "title": "INGENIOUS — Great Basin Regional Dataset Compilation, DOI 10.15121/1881483",
+      "url": "https://gdr.openei.org/submissions/1391",
+      "accessed_utc": "2026-10-04",
+      "claims_verified": [
+        "The public CC-BY 4.0 compilation includes magnetotelluric/electrical-conductance maps and multiple other geoscience themes.",
+        "The listed conductance release describes five depth ranges spanning 2 to 200 km."
+      ],
+      "limits": "Individual raster bytes, effective spatial resolution, and exact GEMS-footprint coverage were not retrieved or checked."
+    },
+    {
+      "id": "nasa-opera-disp-s1",
+      "class": "OFFICIAL",
+      "publisher": "NASA / ASF DAAC / JPL OPERA",
+      "title": "OPERA Surface Displacement from Sentinel-1 validated product, version 1",
+      "url": "https://www.earthdata.nasa.gov/data/catalog/asf-opera-l3-disp-s1-v1-1",
+      "accessed_utc": "2026-10-04",
+      "claims_verified": [
+        "The product reports 30 m spatial posting and line-of-sight displacement from Sentinel-1 interferometric time-series analysis.",
+        "The collection has broad North American coverage and temporal extent beginning 2016-07-01; the page also describes the Sentinel data as 2016–2025."
+      ],
+      "limits": "A product-wide extent does not prove a usable granule/track for every GEMS cell; no granule selection or access test was run."
+    },
+    {
+      "id": "spatial-cv-roberts-2017",
+      "class": "TRUSTED-PEER-REVIEWED",
+      "publisher": "Ecography",
+      "title": "Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure",
+      "url": "https://doi.org/10.1111/ecog.02881",
+      "accessed_utc": null,
+      "used_for": "Motivation for spatially blocked validation; this paper does not supply a universal pixel buffer for this dataset."
+    },
+    {
+      "id": "blockcv-valavi-2019",
+      "class": "TRUSTED-PEER-REVIEWED",
+      "publisher": "Methods in Ecology and Evolution",
+      "title": "blockCV: An R package for generating spatially or environmentally separated folds for k-fold cross-validation of species distribution models",
+      "url": "https://doi.org/10.1111/2041-210X.13107",
+      "accessed_utc": null,
+      "used_for": "Motivation for separated spatial folds; no fixed 4–5 pixel buffer is inferred."
+    }
+  ]
+}

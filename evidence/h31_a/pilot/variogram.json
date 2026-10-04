@@ -1,0 +1,19 @@
+{
+  "bin_width_m": 500.0,
+  "buffer_m_applied": 500,
+  "cell_size_m": 100.0,
+  "fits": {
+    "base": {
+      "error": "VariogramFitError: point fit is unstable: observed lag support does not reach 95% of the fitted partial sill",
+      "stable": false
+    },
+    "h31_candidate": {
+      "error": "VariogramFitError: point fit is unstable: observed lag support does not reach 95% of the fitted partial sill",
+      "stable": false
+    }
+  },
+  "max_lag_m": 50000.0,
+  "recommended_buffer_m": null,
+  "residual_rows": 11194,
+  "stage": "pilot"
+}
