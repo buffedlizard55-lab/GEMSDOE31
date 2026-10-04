@@ -20,7 +20,9 @@
       "severity": "high",
       "status": "open",
       "summary": "The sample_submission.tif used for exact-grid validation is from an owner mirror, not organizer-authenticated in this environment.",
-      "evidence": ["SHA-256 pinned in GEMSDOE25 owner data manifest: 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc."],
+      "evidence": [
+        "SHA-256 pinned in GEMSDOE25 owner data manifest: 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc."
+      ],
       "impact": "Local exact-grid checks are reproducible but do not prove organizer acceptance or authenticity of the original template.",
       "action": "Retain the official format rules and mirror provenance separately; re-check against the organizer sample if authorized access becomes available."
     },
@@ -42,7 +44,9 @@
       "severity": "medium",
       "status": "open",
       "summary": "GDR 1501 displays CC-BY 4.0, while USGS describes 3DEP products as free and without use restrictions.",
-      "evidence": ["GDR 1501 DOI 10.15121/1992093; USGS About 3DEP Products & Services."],
+      "evidence": [
+        "GDR 1501 DOI 10.15121/1992093; USGS About 3DEP Products & Services."
+      ],
       "impact": "Do not silently harmonize source statements or assume a derivative's reuse conditions.",
       "action": "Use conservative attribution and inspect the specific product record/license before any redistribution."
     },
@@ -62,11 +66,28 @@
     {
       "id": "IR-31-RUNNER-INTEGRATION",
       "severity": "medium",
-      "status": "pending",
-      "summary": "Production context construction and hash verification passed a direct no-fit smoke, but the complete runner has not yet run against the clean committed code revision.",
-      "evidence": ["7/7 owner-mirror inputs and 6/6 derived caches verified; 3730×3292 footprint and 55/57 columns constructed; no model fit."],
-      "impact": "Runner staging, actual fold-cell construction, and production variogram behavior remain unverified until the registered pilot executes.",
-      "action": "Freeze/commit code and preregistration on the fixed Arena branch, then execute pilot draw 10 only."
+      "status": "resolved-with-stop",
+      "summary": "The clean committed production runner completed H31-A pilot draw 10 with all eight arm/fold fits. The preregistered paired gate failed and neither same-trace variogram identified a stable range; no later stage ran.",
+      "evidence": [
+        "Run revision 23191e7baa8d22114b713c5c253678e323fff712; 7/7 owner-mirror inputs and 6/6 derived caches verified.",
+        "evidence/h31_a/pilot/results.json: mean paired delta -0.0040088545; 1/4 positive folds; metric gate false.",
+        "evidence/h31_a/pilot/posthoc_variogram_diagnostics.json: 583 trace groups with pairs; both point fits fail the 95%-sill lag-support diagnostic; no bootstrap interval."
+      ],
+      "impact": "The implementation completed end-to-end, but the pilot cannot produce an empirical range or data-derived final buffer. H31-A must stop; no screen or submission is authorized.",
+      "action": "Preserve the pilot artifacts and negative result. Do not tune the same pilot, invent a buffer, or run screen/confirmation; any new attempt requires a preregistered design that can identify the range."
+    },
+    {
+      "id": "IR-31-H31-A-PILOT-UNKNOWN-RANGE",
+      "severity": "high",
+      "status": "open-stop-condition",
+      "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
+      "evidence": [
+        "Mean paired catalogue-gap ΔDTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
+        "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
+        "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
+      ],
+      "impact": "The preregistered buffer rule cannot be satisfied. A final spatial holdout buffer cannot be selected, and neither screen nor confirmation is authorized.",
+      "action": "Stop H31-A. Do not use the 24.964 km unstable extrapolation or 500 m pilot collar as the buffer. Preserve this result; only a new preregistration or defensible additional range-identification evidence may justify another attempt."
     }
   ]
 }

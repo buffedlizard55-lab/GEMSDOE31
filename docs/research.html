@@ -24,12 +24,12 @@
     <div class="wrap">
       <p class="eyebrow">Hypotheses · preregistration · validation</p>
       <h1>Rank ideas by evidence and testability.</h1>
-      <p class="hero-lede">Four distinct geological candidates were compared against prior repository work. H31-A is selected for a controlled test because it uses existing bands and can be evaluated now—not because it is presumed to improve the score.</p>
+      <p class="hero-lede">Four distinct geological candidates were compared against prior repository work. H31-A was selected for a controlled test using existing bands; its pilot failed and was stopped before screen or confirmation.</p>
     </div>
   </section>
 
   <main class="wrap">
-    <div class="notice notice-good"><strong>Preregistration status</strong>H31-A's feature definitions, model, folds, draws, DTI endpoint, residual variogram, buffer rule and promotion gate were frozen before any H31 model fit. Expected gains below are planning brackets only—not measured effects or leaderboard forecasts.</div>
+    <div class="notice notice-danger"><strong>H31-A pilot stopped</strong>The protocol was frozen before fitting. Pilot draw 10 missed its paired metric gate (mean ΔDTI −0.004009; 1/4 blocks positive), and neither residual variogram identified a stable range. The final buffer is unknown; do not proceed to screen or confirmation. The expected-gain figures in the table remain pre-fit planning brackets, not measured effects or leaderboard forecasts. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/h31_a_pilot_2026-10-04.md">Read the pilot report</a>.</div>
 
     <section aria-labelledby="hypotheses-heading">
       <div class="section-head">
@@ -41,7 +41,7 @@
           <thead><tr><th>Rank / status</th><th>Layers &amp; physical signature</th><th>Why unmapped faults?</th><th>Novelty vs prior work</th><th>Planning ΔDTI / cost / access</th></tr></thead>
           <tbody>
             <tr>
-              <td><span class="badge badge-green">1 · selected</span><br><strong>H31-A</strong><br>Multiscale magnetic local-wavelength discontinuity</td>
+              <td><span class="badge badge-red">1 · tested, stopped</span><br><strong>H31-A</strong><br>Multiscale magnetic local-wavelength discontinuity</td>
               <td>Supplied <code>tmi_hg</code> and <code>tmi_vg</code>. Build analytic-signal amplitude and a scale-normalized local characteristic-length proxy at σ=1 and 3 cells, then a cross-scale edge response.</td>
               <td>Basement/contact offsets can change magnetic response wavelength and edge geometry without a mapped surface scarp. Cross-scale persistence may suppress single-scale noise.</td>
               <td>Not another amplitude, tilt, or single-ridge feature. Tests local characteristic wavelength and its transition across two fixed scales; no catalogue geometry enters static feature creation.</td>
@@ -76,7 +76,7 @@
 
     <section aria-labelledby="h31a-heading">
       <div class="section-head">
-        <div><p class="kicker">Frozen experiment</p><h2 id="h31a-heading">H31-A: what is being tested</h2></div>
+        <div><p class="kicker">Frozen experiment · pilot outcome</p><h2 id="h31a-heading">H31-A: design and paired pilot result</h2></div>
       </div>
       <div class="grid grid-2">
         <article class="card">
@@ -91,16 +91,32 @@
           <p>Use four contiguous quadrants, whole connected known-fault components hidden at a fixed 20% proxy rate, and the exact official 300 m distance-weighted Tversky endpoint. This is a catalogue-gap proxy, not private truth.</p>
         </article>
       </div>
+      <div class="card" style="margin-top:18px">
+        <h3>Computed catalogue-gap pilot · not a competition score</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Block</th><th>Base DTI</th><th>H31-A DTI</th><th>ΔDTI</th></tr></thead>
+            <tbody>
+              <tr><td>NW</td><td>0.163511</td><td>0.154660</td><td>−0.008852</td></tr>
+              <tr><td>NE</td><td>0.154680</td><td>0.150361</td><td>−0.004319</td></tr>
+              <tr><td>SW</td><td>0.126483</td><td>0.119793</td><td>−0.006690</td></tr>
+              <tr><td>SE</td><td>0.177123</td><td>0.180948</td><td>+0.003825</td></tr>
+              <tr><th>Mean paired block delta</th><td colspan="2"></td><th>−0.004009</th></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Only 1/4 blocks were positive, below the preregistered 3/4 requirement, and mean ΔDTI missed the >+0.001 threshold. Both metric and residual-range evidence block promotion. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/h31_a_pilot_2026-10-04.md">Full results and uncertainty report</a>.</p>
+      </div>
     </section>
 
     <section aria-labelledby="buffer-heading">
       <div class="section-head">
-        <div><p class="kicker">No arbitrary pixel collar</p><h2 id="buffer-heading">How the final buffer will be measured</h2></div>
+        <div><p class="kicker">No arbitrary pixel collar</p><h2 id="buffer-heading">Why the final buffer remains unknown</h2></div>
       </div>
       <div class="grid grid-3">
-        <article class="card"><span class="tag">Pilot only</span><h3>Draw 10 · temporary 500 m collar</h3><p>The pilot collar obtains held-out residuals only. It is not described as an empirical range and is never the final setting by default.</p></article>
-        <article class="card"><span class="tag">Fit dependence</span><h3>Same-trace residual variogram</h3><p>Compute Matheron semivariance of <code>y − p</code> only on hidden known-fault pixels; pair within the same 8-connected component, fold and draw. 500 m bins to 50 km; at least 20 pairs per bin and 30 trace groups; 200 component-bootstrap replicates.</p></article>
-        <article class="card"><span class="tag">Use uncertainty</span><h3>Largest upper range wins</h3><p>Final buffer is the 100 m-rounded-up maximum upper 95% practical-range bound across base and H31-A, with a 300 m metric-support floor. If a stable sill/range cannot be identified, buffer is unknown and the experiment stops.</p></article>
+        <article class="card"><span class="tag">Pilot completed</span><h3>Draw 10 · temporary 500 m collar</h3><p>The 500 m collar generated held-out residuals only. It is not an empirical range and must never be reused as the final buffer.</p></article>
+        <article class="card"><span class="tag">Fit attempted</span><h3>Same-trace residual variogram</h3><p>Each arm had 583 trace groups with pairs and 28 populated 500 m bins, but observed support ended at 13.75 km. The fit reached only 0.808 of the fitted partial sill; the stability rule requires 0.95.</p></article>
+        <article class="card"><span class="tag">Stop · range unknown</span><h3>No final buffer</h3><p>The unstable ~24.964 km point-fit diagnostic is unsupported extrapolation; no bootstrap interval was produced. Operational range and final buffer are unknown. H31-A stops.</p></article>
       </div>
     </section>
 
@@ -112,7 +128,7 @@
           <li>Screen draws 11–12: paired mean DTI gain strictly above +0.001; candidate better in at least 3/4 blocks; worst block no worse than −0.010; mean catalogue-hug increase no more than +0.10; stable final buffer.</li>
           <li>Re-fit variograms on final-screen residuals. If the upper range exceeds the applied buffer, enlarge and rerun the registered screen, up to the preregistered limit.</li>
           <li>Fresh confirmation draws 13–14 use the same exact frozen buffer and must pass the same metric/buffer checks. Confirmation failure stops the candidate.</li>
-          <li>Before any weekly slot: reproduce the current comparable incumbent on the same folds/buffer, beat it, pass fresh confirmation, and pass exact-file validation. No such result exists yet.</li>
+          <li>H31-A is stopped before any weekly-slot gate. A future candidate would still need to reproduce and beat the actual current-best comparator on the same folds/buffer, pass fresh confirmation, and pass exact-file validation; none of those promotion gates is satisfied.</li>
         </ul>
       </div>
     </section>

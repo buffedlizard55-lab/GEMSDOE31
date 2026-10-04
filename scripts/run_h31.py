@@ -191,6 +191,7 @@ def _residual_rows(cell, context, probability: np.ndarray) -> tuple[np.ndarray, 
 
 def _fit_variogram_arm(arrays: dict[str, np.ndarray], arm: str) -> dict[str, Any]:
     residual_key = "base_residual" if arm == "base" else "h31_candidate_residual"
+    empirical = None
     try:
         empirical = empirical_semivariogram(
             arrays["rows"],
@@ -217,7 +218,10 @@ def _fit_variogram_arm(arrays: dict[str, np.ndarray], arm: str) -> dict[str, Any
         fitted["empirical"] = empirical.as_dict()
         return fitted
     except (ValueError, VariogramFitError) as exc:
-        return {"stable": False, "error": f"{type(exc).__name__}: {exc}"}
+        result = {"stable": False, "error": f"{type(exc).__name__}: {exc}"}
+        if empirical is not None:
+            result["empirical"] = empirical.as_dict()
+        return result
 
 
 def _environment() -> dict[str, str]:

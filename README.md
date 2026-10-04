@@ -1,6 +1,6 @@
 # GEMSDOE31 — auditable GEMS fault-mapping research
 
-> **Current decision: no new H31 submission is approved.** The visible GeoTIFF is a legacy owner-mirror reference for inspection only. It passes local format checks against the pinned owner-mirror sample template, but is not organizer-authenticated, not a new H31 result, and not approved for a weekly submission slot. No official score has been independently verified.
+> **Current decision: H31-A is stopped; no new submission is approved.** Its pilot missed the paired proxy gate and neither residual variogram identified a stable range, so the final buffer is unknown. The visible GeoTIFF is a legacy owner-mirror reference for inspection only. It passes local format checks against the pinned owner-mirror sample template, but is not organizer-authenticated, not an H31 candidate, and not approved for a weekly slot. No official score has been independently verified.
 
 ## Start here
 
@@ -57,8 +57,8 @@ Perform cumulative review passes: (1) implement and verify against sources and p
 
 ## Current verified state
 
-- H31-A is preregistered as a two-feature magnetic-scale proxy using `tmi_hg` and `tmi_vg`; the design is frozen before its first model fit. H31-B has an official TNM Access API tile record within sampled locations of the owner-mirror footprint, but the LAZ binary download failed in this sandbox; no return attributes were inspected. See [data-access audit](knowledge/data_access_audit_2026-10-04.md).
-- **22 tests pass**; Ruff, compileall, JSON syntax checks, and static-page local-link checks pass. Test/lint, runner status, and later pilot results are tracked in the status file. Variogram tests use synthetic arrays; a production runtime-context smoke has verified the pinned sibling caches and feature-stack construction. **No production H31 model result, fitted variogram range, data-derived final buffer, H31 confirmation, or new submission is implied by those checks.**
+- H31-A's two-feature magnetic-scale design was frozen before fitting. Pilot draw 10 then failed its paired DTI screen and produced no stable same-trace residual range; **H31-A is stopped, the final buffer is unknown, and no further screen/confirmation is authorized**. See the [pilot report](knowledge/h31_a_pilot_2026-10-04.md) and its saved residual/variogram artifacts under `evidence/h31_a/pilot/`. H31-B has an official TNM Access API tile record within sampled owner-mirror footprint locations, but the LAZ binary download failed; no return attributes were inspected.
+- **23 tests pass**; Ruff, compileall, JSON syntax checks, and static-page local-link checks pass. A production runtime-context smoke and the registered pilot both used the pinned sibling. Pilot metrics are local catalogue-gap proxy results, **not** competition scores; its unstable ~24.964 km point-fit diagnostic is not an operational range. There is no data-derived final buffer, H31 confirmation, slot-eligible candidate, or new submission.
 - The owner-mirror sample template has CRS EPSG:32611, shape 3730×3292, 100 m transform, and 5,167,373 finite footprint cells. The legacy reference passes local exact-grid/range checks against that template. The original organizer template and organizer acceptance are not independently verified here.
 - No official competition score is verified. No DrivenData leaderboard material was accessed or copied.
 

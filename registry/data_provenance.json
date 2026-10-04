@@ -73,9 +73,24 @@
     "bytes": 1599597,
     "grid": {
       "crs": "EPSG:32611",
-      "shape_rows_cols": [3730, 3292],
-      "transform": [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0],
-      "bounds": [243350.0, 4135550.0, 572550.0, 4508550.0],
+      "shape_rows_cols": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "bounds": [
+        243350.0,
+        4135550.0,
+        572550.0,
+        4508550.0
+      ],
       "band_count": 1,
       "dtype": "float32",
       "finite_footprint_pixels": 5167373,
@@ -101,13 +116,19 @@
     "verified_raw_inputs": 7,
     "verified_derived_caches": 6,
     "footprint": {
-      "shape": [3730, 3292],
+      "shape": [
+        3730,
+        3292
+      ],
       "finite_pixels": 5167373
     },
     "holdout_collar_px": 5,
     "base_feature_columns": 55,
     "candidate_feature_columns": 57,
-    "h31_columns": [64, 65],
+    "h31_columns": [
+      64,
+      65
+    ],
     "h31_feature_diagnostics": {
       "input_valid_pixels": 5165852,
       "footprint_pixels": 5167373,
@@ -120,12 +141,122 @@
         "1": 13.988481136886708,
         "3": 11.174620268088342
       },
-      "length_bounds_px": [0.5, 30.0],
+      "length_bounds_px": [
+        0.5,
+        30.0
+      ],
       "output_ranges": {
-        "H31_mag_local_length": [0.8661917448043823, 3.4339871406555176],
-        "H31_mag_scale_edge": [0.0, 1.0]
+        "H31_mag_local_length": [
+          0.8661917448043823,
+          3.4339871406555176
+        ],
+        "H31_mag_scale_edge": [
+          0.0,
+          1.0
+        ]
       }
     },
     "interpretation": "Verified context construction and pinned mirror/hash checks only; no model fit, holdout score, residual range, or buffer estimate was produced."
+  },
+  "h31_a_pilot": {
+    "evidence_class": "COMPUTED catalogue-gap proxy using OWNER-MIRROR data; not an official score",
+    "status": "completed; paired metric gate failed; both residual variograms unstable; H31-A stopped",
+    "code_revision": "23191e7baa8d22114b713c5c253678e323fff712",
+    "preregistration_sha256": "90270912b1ff3e533ca54ace5c8ed8d2ec00924f8f8036be6dd77819fad8cd3b",
+    "execution_bundle_sha256": "3b459f9a909e515ca2025e84c832311b24cabfc34361433fb36d39b684d6cb28",
+    "environment_sha256": "2e406e610154e5e71a362a295817e5c74e17742941f1fee86bde1d3f6e261f4a",
+    "stage": {
+      "draws": [
+        10
+      ],
+      "folds": [
+        "NW",
+        "NE",
+        "SW",
+        "SE"
+      ],
+      "temporary_pilot_buffer_m": 500,
+      "runtime_s": 224.1509780883789,
+      "cell_rows": 8
+    },
+    "metrics": {
+      "mean_paired_delta_dti_over_four_spatial_blocks": -0.004008854500829412,
+      "positive_folds": 1,
+      "positive_folds_required": 3,
+      "mean_gain_required_strictly_greater_than": 0.001,
+      "worst_fold_delta_dti": -0.008851690809491997,
+      "mean_hug_share_delta": 0.0006663209418504411,
+      "pooled_dti_base": 0.15340690225909884,
+      "pooled_dti_candidate": 0.14958705653782245,
+      "metric_gate_passed": false,
+      "interpretation": "local catalogue-gap holdout proxy; not a GEMS competition score"
+    },
+    "residual_variogram": {
+      "residual_pixels_per_arm": 11194,
+      "trace_groups_seen": 625,
+      "trace_groups_with_pairs": 583,
+      "pairs_per_arm": 210287,
+      "populated_bins_per_arm": 28,
+      "bin_width_m": 500,
+      "max_lag_m": 50000,
+      "furthest_populated_bin_center_m": 13750,
+      "unstable_point_fit_practical_range_95_sill_m": {
+        "base": 24964.43561294931,
+        "h31_candidate": 24964.43561294992
+      },
+      "model_sill_fraction_at_furthest_populated_lag": {
+        "base": 0.8079500913792537,
+        "h31_candidate": 0.8079500913792459
+      },
+      "weighted_r_squared": {
+        "base": 0.8734959713140377,
+        "h31_candidate": 0.8740446794738315
+      },
+      "instability_reason": "observed lag support does not reach 95% of the fitted partial sill",
+      "bootstrap_confidence_interval_m": null,
+      "operational_range_m": null,
+      "final_buffer_m": null,
+      "decision": "UNKNOWN; do not use the unstable point-fit extrapolation or the 500 m pilot collar as the final buffer"
+    },
+    "promotion": {
+      "screen_authorized": false,
+      "confirmation_authorized": false,
+      "current_best_comparator_reproduced": false,
+      "candidate_tiff_created": false,
+      "weekly_slot_approved": false
+    },
+    "posthoc_diagnostic": "Empirical bins and unstable point-fit details were recomputed from the saved OOF residual NPZ using the same frozen variogram functions; no classifier retraining or tuning.",
+    "artifacts": {
+      "design.json": {
+        "path": "evidence/h31_a/pilot/design.json",
+        "bytes": 7635,
+        "sha256": "50c70baa76e8db6dabeaeb91dbf37850b9f72769185b8f6834f19b9f3963e62e"
+      },
+      "results.json": {
+        "path": "evidence/h31_a/pilot/results.json",
+        "bytes": 4429,
+        "sha256": "f8fd80a3b96865b9c919cb2100756f8464dec100159f135a4a52c1bb112080d5"
+      },
+      "cells.jsonl": {
+        "path": "evidence/h31_a/pilot/cells.jsonl",
+        "bytes": 3942,
+        "sha256": "2cc66e2299796f813d183655fcd6d4cb36ada98f3f7e083040bf035256059202"
+      },
+      "oof_residuals.npz": {
+        "path": "evidence/h31_a/pilot/oof_residuals.npz",
+        "bytes": 101761,
+        "sha256": "9f0181ab5559f3df06d362c772bb63f670b65d0e4faeb304e7e7d9f06399a502"
+      },
+      "variogram.json": {
+        "path": "evidence/h31_a/pilot/variogram.json",
+        "bytes": 545,
+        "sha256": "64f66b055149ed7b77f557bb777454849333368b404f68761ab6a0dc2c1e1473"
+      },
+      "posthoc_variogram_diagnostics.json": {
+        "path": "evidence/h31_a/pilot/posthoc_variogram_diagnostics.json",
+        "bytes": 20032,
+        "sha256": "589f75e9895ae60be381391b8ca748d5803ebbb1d997c41185c819e2bb59a8ae"
+      }
+    }
   }
 }

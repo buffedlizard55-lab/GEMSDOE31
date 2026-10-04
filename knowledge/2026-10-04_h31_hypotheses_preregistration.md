@@ -1,6 +1,8 @@
 # GEMSDOE31 · H31 candidate register and preregistration — 2026-10-04
 
-**Status:** the H31-A experiment design was frozen before any H31 feature construction/model fit. A 2026-10-04 source-access addendum updates H31-B feasibility before the first H31 fit; it does not alter the H31-A features, folds, model, metric, draws, variogram or promotion gate. No H31 model has been fit. This is a prospective design, not a result. Expected gains below are planning ranges for a catalogue-gap proxy only; they are not measured effects, confidence intervals, or leaderboard-score forecasts.
+**Protocol freeze:** the H31-A experiment design below was frozen before any H31 feature construction/model fit. The pilot used the pre-fit bytes identified by SHA-256 `90270912b1ff3e533ca54ace5c8ed8d2ec00924f8f8036be6dd77819fad8cd3b` at code revision `23191e7baa8d22114b713c5c253678e323fff712`. A later H31-B source-access addendum did not alter H31-A's features, folds, model, metric, draws, variogram or promotion gate.
+
+**Post-fit status (2026-10-04): H31-A pilot draw 10 failed the paired metric gate and neither residual variogram identified a stable range; the operational range and final buffer are unknown, so H31-A is stopped.** See [`knowledge/h31_a_pilot_2026-10-04.md`](h31_a_pilot_2026-10-04.md) and the retained run artifacts. The protocol below remains the historical design, not a result. Expected gains in the hypothesis table are pre-fit planning ranges only; they are not measured effects, confidence intervals, or leaderboard-score forecasts.
 
 ## Decision target and evidence classes
 

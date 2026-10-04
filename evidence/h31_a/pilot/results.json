@@ -1,0 +1,132 @@
+{
+  "buffer_iteration": null,
+  "buffer_m": 500,
+  "buffer_stable": false,
+  "code_revision": "23191e7baa8d22114b713c5c253678e323fff712",
+  "confirmation_gate_passed": null,
+  "draws": [
+    10
+  ],
+  "environment_sha256": "2e406e610154e5e71a362a295817e5c74e17742941f1fee86bde1d3f6e261f4a",
+  "execution_bundle_sha256": "3b459f9a909e515ca2025e84c832311b24cabfc34361433fb36d39b684d6cb28",
+  "metrics": {
+    "cell_rows": 8,
+    "interpretation": "pooled DTI is descriptive across folds/draws; the preregistered gate uses paired fold-mean DTI, not a proxy competition score",
+    "mean_hug_share_delta": 0.0006663209418504411,
+    "mean_paired_delta_dti_over_four_spatial_blocks": -0.004008854500829412,
+    "metric_gate_passed": false,
+    "per_fold": [
+      {
+        "base_by_draw": {
+          "10": 0.16351122839171997
+        },
+        "base_mean_dti": 0.16351122839171997,
+        "base_mean_hug_share": 0.06334102268358324,
+        "candidate_by_draw": {
+          "10": 0.15465953758222797
+        },
+        "candidate_mean_dti": 0.15465953758222797,
+        "candidate_mean_hug_share": 0.06618070209092652,
+        "fold": 0,
+        "fold_name": "NW",
+        "hug_share_delta": 0.002839679407343282,
+        "paired_delta_dti": -0.008851690809491997
+      },
+      {
+        "base_by_draw": {
+          "10": 0.15468011091035044
+        },
+        "base_mean_dti": 0.15468011091035044,
+        "base_mean_hug_share": 0.08178939034045922,
+        "candidate_by_draw": {
+          "10": 0.1503613657309432
+        },
+        "candidate_mean_dti": 0.1503613657309432,
+        "candidate_mean_hug_share": 0.0852078531118353,
+        "fold": 1,
+        "fold_name": "NE",
+        "hug_share_delta": 0.003418462771376085,
+        "paired_delta_dti": -0.004318745179407252
+      },
+      {
+        "base_by_draw": {
+          "10": 0.12648265009047832
+        },
+        "base_mean_dti": 0.12648265009047832,
+        "base_mean_hug_share": 0.0633398761890382,
+        "candidate_by_draw": {
+          "10": 0.11979266002285827
+        },
+        "candidate_mean_dti": 0.11979266002285827,
+        "candidate_mean_hug_share": 0.056017705868884986,
+        "fold": 2,
+        "fold_name": "SW",
+        "hug_share_delta": -0.007322170320153219,
+        "paired_delta_dti": -0.006689990067620055
+      },
+      {
+        "base_by_draw": {
+          "10": 0.17712260816827763
+        },
+        "base_mean_dti": 0.17712260816827763,
+        "base_mean_hug_share": 0.06846552717495678,
+        "candidate_by_draw": {
+          "10": 0.18094761622147928
+        },
+        "candidate_mean_dti": 0.18094761622147928,
+        "candidate_mean_hug_share": 0.0721948390837924,
+        "fold": 3,
+        "fold_name": "SE",
+        "hug_share_delta": 0.003729311908835617,
+        "paired_delta_dti": 0.003825008053201656
+      }
+    ],
+    "pooled_sufficient_statistics_across_cells": {
+      "base": {
+        "fn": 8339.699497938967,
+        "fp": 45400.08013964177,
+        "n_truth": 11194,
+        "pooled_dti": 0.15340690225909884,
+        "tp": 2854.300502061033
+      },
+      "h31_candidate": {
+        "fn": 8419.410703905714,
+        "fp": 45191.03422056953,
+        "n_truth": 11194,
+        "pooled_dti": 0.14958705653782245,
+        "tp": 2774.5892960942856
+      }
+    },
+    "positive_folds": 1,
+    "thresholds": {
+      "mean_gain_strictly_greater_than": 0.001,
+      "mean_hug_share_delta_at_most": 0.1,
+      "positive_spatial_blocks_at_least": 3,
+      "worst_fold_delta_at_least": -0.01
+    },
+    "worst_fold_delta_dti": -0.008851690809491997
+  },
+  "minimum_required_buffer_m": null,
+  "next_buffer_m": null,
+  "pilot_dir": null,
+  "preregistration_sha256": "90270912b1ff3e533ca54ace5c8ed8d2ec00924f8f8036be6dd77819fad8cd3b",
+  "previous_screen_results": null,
+  "residual_file": {
+    "bytes": 101761,
+    "path": "oof_residuals.npz",
+    "sha256": "9f0181ab5559f3df06d362c772bb63f670b65d0e4faeb304e7e7d9f06399a502"
+  },
+  "runtime_s": 224.1509780883789,
+  "screen_gate_passed": false,
+  "screen_results_path": null,
+  "slot_decision": "not approved: owner-mirror proxy only; separate exact-file and official provenance gates remain",
+  "slot_eligible": false,
+  "stage": "pilot",
+  "variogram_errors": {
+    "base": "missing or unstable fit",
+    "h31_candidate": "missing or unstable fit"
+  },
+  "variogram_recommended_buffer_m": null,
+  "variogram_upper_range_m_by_arm": {},
+  "variograms_stable": false
+}
