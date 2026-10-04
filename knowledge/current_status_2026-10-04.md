@@ -40,6 +40,7 @@
 - All 11 checked JSON documents and 8 pilot JSONL rows parse; the latest 7-page HTML local-link/fragment audit has no broken references; score-claim classifications and the legacy TIFF SHA-256 were rechecked. The local legacy-format receipt remains a check against the owner mirror only.
 - Added three cumulative reviews for this extension (implementation/source verification, independent assumption/link review, whole-charter cross-check) as passes 4–6 in `registry/review_passes.json`; earlier passes 1–3 remain historical.
 - PR #1 merged to `main` at `18a9c4e9493192a21f2bb22ca0356d4a24be8d6c`; follow-up PR #2 merged at `d8b531025c63e9d56897f8b983bdfca284b33420`. GitHub reported no status checks for either PR. Pages is configured for `main` at `/` and reports `built`; the root `index.html` redirects into `docs/`. A cache-busted fetch of the public Pages URL followed the redirect and showed the current site/H31-A stop status. Changing the setting directly to `/docs` returned 403 `Resource not accessible by integration`; the root redirect workaround is live.
+- This review extension was committed as `3cd7fbf` on `arena/01a1050e-gemsdoe31`, pushed only to that branch, and opened as [PR #4](https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4). At the 2026-10-04 audit snapshot it was OPEN/MERGEABLE, with no GitHub status checks or review decision reported. This record does not claim a merge or new Pages deployment; consult the linked PR for any later state.
 
 ## Recommended next work
 

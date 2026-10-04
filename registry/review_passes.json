@@ -160,10 +160,10 @@
         },
         {
           "criterion": "AI narrative, three cumulative reviews, and delivery record",
-          "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to the historical project passes; this change set is not yet on a PR"
+          "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1–3; PR #4 opened from the fixed branch."
         }
       ],
-      "delivery_state": "No new candidate, submission, official score, deployment, PR, or merge is claimed. Prior PR #1/#2 are historical merged changes; this review remains local and uncommitted pending final GitHub eligibility checks."
+      "delivery_state": "Commit 3cd7fbf was pushed only to arena/01a1050e-gemsdoe31 and opened as https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4. At the 2026-10-04 audit snapshot GitHub reported OPEN/MERGEABLE, no status checks, and no review decision. Consult the PR for later merge/deployment state; this record does not assert one."
     }
   ],
   "remaining_work": [

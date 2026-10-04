@@ -71,6 +71,7 @@ Perform cumulative review passes: (1) implement and verify against sources and p
 - The owner-mirror sample template has CRS EPSG:32611, shape 3730×3292, 100 m transform, and 5,167,373 finite footprint cells. The legacy reference passes local exact-grid/range checks against that template. The original organizer template and organizer acceptance are not independently verified here.
 - No official DrivenData leaderboard page, private score page, or submission interface was accessed. User-supplied scores and owner-mirror claims are classified and audited; no automatic leaderboard feed or submission tool exists. The H27-4 `0.2708` claim conflicts with the GEMSDOE28 page's `UNSCORED` status; the D2.8 `0.2600` value conflicts with the pinned GEMSDOE25 registry but is called owner-reported on GEMSDOE28.
 - This checkout currently has no `data/` competition inputs and no `/tmp/gemsdoe25-full` sibling/cache tree. The H31 runner cannot be rerun from this workspace until a permitted, hash-verified data/runtime copy is available.
+- The score/prior-art review is commit `3cd7fbf` on `arena/01a1050e-gemsdoe31`, submitted as [PR #4](https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4). At the last audit snapshot it was open and mergeable, with no GitHub checks reported; consult the PR for current merge state. No new Pages deployment was verified for this change.
 
 ## Reproducibility and code
 
