@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Measured buffer derivation, collar sensitivity, metric exactness and the two off-catalogue truth proxies.">
+  <title>Validation · GEMSDOE31</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="research.html">Research</a><a href="validation.html" aria-current="page">Validation</a><a href="register/index.html">Register</a><a href="experiments/index.html">Experiments</a><a href="sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Validation</p>
+      <h1>Measured, not assumed.</h1>
+      <p class="hero-lede">The buffer comes from the data, the metric is verified against brute force, and the two truth proxies are reported together with their limits.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Buffer</p><h2>A collar measured from the data</h2></div>
+        <p>An under-buffered holdout leaks training pixels from the same fault structure and overstates generalisation to a genuinely unmapped fault.</p>
+      </div>
+      <div class="content">
+        <p>Out-of-fold residuals <code>e = 1 − p</code> were taken at every held-out catalogue pixel — 60,988 pixels in
+        3,199 8-connected components — and pairs were restricted to the <strong>same</strong> component, so the curve is
+        a within-trace dependence estimate. Matheron semivariance in 500 m bins, minimum 20 pairs per bin.</p>
+      </div>
+      <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">500 m bins, minimum 20 pairs per bin; pairs restricted to the same fault component.</caption><thead><tr><th>lag (km)</th><th>semivariance γ</th><th>pairs</th></tr></thead><tbody><tr><td>0.25</td><td>0.00353</td><td>237,730</td></tr><tr><td>2.25</td><td>0.01003</td><td>105,664</td></tr><tr><td>4.25</td><td>0.01502</td><td>49,482</td></tr><tr><td>6.25</td><td>0.02129</td><td>26,518</td></tr><tr><td>8.25</td><td>0.02578</td><td>17,304</td></tr><tr><td>10.25</td><td>0.02586</td><td>11,347</td></tr><tr><td>12.25</td><td>0.02964</td><td>7,804</td></tr><tr><td>14.25</td><td>0.03108</td><td>4,382</td></tr><tr><td>16.25</td><td>0.03888</td><td>2,650</td></tr><tr><td>18.25</td><td>0.04970</td><td>1,573</td></tr><tr><td>20.25</td><td>0.06008</td><td>884</td></tr><tr><td>22.25</td><td>0.06142</td><td>574</td></tr><tr><td>24.25</td><td>0.03956</td><td>295</td></tr><tr><td>26.25</td><td>0.02288</td><td>94</td></tr></tbody></table></div>
+      <p class="small">The curve rises to a peak of 0.06631 at
+      20.75 km and then falls: the residual correlation has a finite length.
+      The distance at which γ first reaches 95 % of that peak — where autocorrelation has decayed to ≈5 % — is the
+      empirical decay range.</p>
+      <h3>Fits and the pre-declared decision rule</h3>
+      <div class="table-wrap"><table><thead><tr><th>model</th><th>nugget</th><th>partial sill</th><th>fitted range (km)</th><th>practical range (km)</th><th>R²</th><th>extrapolates beyond support?</th></tr></thead><tbody><tr><td>spherical</td><td>0.00304</td><td>0.02763</td><td>12.97</td><td>12.97</td><td>0.337</td><td>no</td></tr><tr><td>exponential</td><td>0.00279</td><td>0.03887</td><td>30.60</td><td>30.56</td><td>0.550</td><td>yes</td></tr><tr><td>gaussian</td><td>0.00415</td><td>0.01973</td><td>6.74</td><td>6.74</td><td>-0.103</td><td>no</td></tr></tbody></table></div>
+      <div class="notice"><strong>Rule, fixed before the numbers were seen</strong>buffer = max(empirical lag at 95 % of the peak semivariance, median fitted practical range over spherical/exponential/gaussian). The maximum fitted range and the bootstrap 95th percentile are reported as a sensitivity band, not used as the buffer, because they can exceed the populated lag support.
+      The exponential fit is reported but excluded: it extrapolates past the populated lag support, and using it would
+      make the collar arbitrary again — the exact failure this rule exists to prevent.</div>
+      <div class="table-wrap"><table><thead><tr><th>quantity</th><th>value</th></tr></thead><tbody><tr><td>Empirical decay range (γ first reaches 95 % of peak)</td><td><strong>21,250 m</strong></td></tr><tr><td>Peak lag / peak γ</td><td>20,750 m / 0.06631</td></tr><tr><td>Median fitted practical range</td><td>12,965 m</td></tr><tr><td>Largest fitted range (reported, not adopted)</td><td>30,558 m</td></tr><tr><td>Populated lag support</td><td>26,750 m</td></tr><tr><td><strong>Buffer adopted for every holdout comparison</strong></td><td><strong>21,250 m ≈ 21.25 km (212 px)</strong></td></tr><tr><td>Sensitivity band across models</td><td>2,347 – 30,558 m</td></tr><tr><td>Component-bootstrap 5th–95th percentile</td><td>2,347 – 94,323 m</td></tr></tbody></table></div>
+      <p class="small">The pilot-stage rule that produced a 94.3 km collar was withdrawn: it came from an exponential
+      bootstrap 95th percentile of — m against a
+      26,750 m lag support. It is recorded on the
+      <a href="register/index.html">register</a> as a withdrawn claim and is not used anywhere on this site.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Control</p><h2>Collar sensitivity of the blocked protocol</h2></div>
+        <p>Leakage-contaminated comparisons collapse as the collar grows. This one does not.</p>
+      </div>
+      <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Each row deletes every evaluation cell within the collar of the training region, then rescores.</caption><thead><tr><th>collar (km)</th><th>A cat / off-cat</th><th>B cat / off-cat</th><th>D cat / off-cat</th></tr></thead><tbody><tr><td>0.00</td><td>0.1219 / 0.0689</td><td>0.1269 / 0.0705</td><td>0.1355 / 0.0644</td></tr><tr><td>0.50</td><td>0.1219 / 0.0690</td><td>0.1270 / 0.0706</td><td>0.1356 / 0.0644</td></tr><tr><td>1.00</td><td>0.1219 / 0.0691</td><td>0.1272 / 0.0707</td><td>0.1358 / 0.0644</td></tr><tr><td>2.00</td><td>0.1219 / 0.0690</td><td>0.1273 / 0.0706</td><td>0.1359 / 0.0642</td></tr><tr><td>5.00</td><td>0.1218 / 0.0693</td><td>0.1273 / 0.0707</td><td>0.1362 / 0.0641</td></tr><tr><td>10.00</td><td>0.1208 / 0.0698</td><td>0.1277 / 0.0708</td><td>0.1363 / 0.0640</td></tr><tr><td>21.25</td><td>0.1211 / 0.0715</td><td>0.1288 / 0.0714</td><td>0.1384 / 0.0641</td></tr><tr><td>30.00</td><td>0.1196 / 0.0674</td><td>0.1292 / 0.0700</td><td>0.1389 / 0.0623</td></tr></tbody></table></div>
+      <p class="small">Interpretation, stated conservatively: the quadrant protocol (≈150–190 km blocks) is insensitive
+      to the collar between 0 and 30 km, so the LiDAR arm's advantage is not a short-range leakage artefact. It does
+      <strong>not</strong> license the small collars used elsewhere: those are component-level holdouts whose
+      geography is one to two orders of magnitude smaller than the measured range.</p>
+    </section>
+
+    <section id="metric">
+      <div class="section-head">
+        <div><p class="kicker">Metric</p><h2>The implementation is exact</h2></div>
+        <p>Every score on this site comes from a direct implementation of the official formula, not an approximation.</p>
+      </div>
+      <div class="content">
+        <p><code>src/gemsdoe31/metric.py</code> implements the definition directly — the 29 lattice offsets whose
+        Euclidean distance is inside the 300 m kernel, plus a Euclidean distance transform for the false-positive
+        term — and is checked against <code>metric.brute_force</code>, a literal per-pixel transcription of the
+        published sums, on 24 random grids and two exact hand-computed cases:
+        <strong>maximum absolute DTI difference 4.441e-16</strong> (<code>scripts/check_metric.py</code>,
+        <code>evidence/metric_check.json</code>). The same check asserts the definitional identity
+        <code>TPw + FNw = |G|</code> on every grid, which is the invariant that catches sign and kernel errors.
+        The published worked example is not reproduced here because its two example rasters are only available as
+        pictures on the competition page.</p>
+      </div>
+      <div class="table-wrap"><table><tbody>
+        <tr><th style="width:220px">Kernel</th><td>k(d) = max(1 − d/300 m, 0), Euclidean distance, 100 m cells</td></tr>
+        <tr><th>α / β</th><td>0.2 false-positive weight, 0.8 false-negative weight</td></tr>
+        <tr><th>Verification</th><td>max |DTI_fast − DTI_brute| = 4.441e-16 over 24 random grids, plus two exact closed-form cases (scripts/check_metric.py)</td></tr>
+        <tr><th>Kernel offsets inside 300 m at 100 m cells</th><td>29 (the radius-3 disk: (±3,0) counts, (±3,±1) does not)</td></tr>
+        <tr><th>ε</th><td>1e-10 — The published page does not state epsilon. A tiny positive epsilon is used so an all-zero submission scores 0 rather than dividing by zero.</td></tr>
+        <tr><th>Grid</th><td>3730 × 3292, EPSG:32611, 100 m, Affine(100, 0, 243350, 0, −100, 4508550)</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section id="proxies">
+      <div class="section-head">
+        <div><p class="kicker">Truth proxies</p><h2>Two off-catalogue instruments, reported side by side</h2></div>
+        <p>The competition's truth is a set of expert-mapped faults missing from the public database. No local population is that, so two proxies are used and their disagreement is published rather than hidden.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card"><h3>Catalogue-gap holdout</h3>
+          <p>Held-out public-catalogue pixels: 60,988 px in four spatial blocks, with the measured buffer applied
+          during training exclusion. Rewards finding mapped faults; does <em>not</em> resemble the hidden truth.
+          <span class="badge badge-red">not usable as a selector</span></p></div>
+        <div class="card"><h3>Off-catalogue discovery proxy</h3>
+          <p>USGS State Geologic Map Compilation structure layers rasterised to this grid: 82,151 fault cells, of which
+          <strong>61,664 lie more than 300 m from the competition catalogue</strong>. The only populated fault population
+          in reach that is off-catalogue by construction. <span class="badge badge-green">selection instrument</span></p>
+          <p class="small">Limit, stated plainly: SGMC faults are state-map faults of mixed age and certainty, not the
+          experts' newly mapped Quaternary faults. A proxy can rank arms wrongly, which is why the arm ordering was
+          checked at every threshold and both proxies are always printed.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Protocol</p><h2>Fixed protocol for every measured comparison</h2></div>
+        <p>Nothing about the folds, the buffer, the model class or the excluded features changed between arms.</p>
+      </div>
+      <div class="table-wrap"><table><tbody>
+        <tr><th style="width:190px">Folds</th><td>four equal spatial blocks (NW/NE/SW/SE) of the 3730x3292 competition grid</td></tr>
+        <tr><th>Buffer</th><td>measured from residual autocorrelation, see evidence/buffer_derivation.json; the adopted collar is read from that file rather than restated here</td></tr>
+        <tr><th>Model</th><td>HistGradientBoostingClassifier (200 trees, lr 0.08, 31 leaves) trained per fold on all catalogue pixels of the other three blocks plus 90,000 background samples</td></tr>
+        <tr><th>Excluded features</th><td>no catalogue-distance or SGMC-derived feature is used, so neither the catalogue-gap nor the off-catalogue evaluation is circular</td></tr>
+        <tr><th>Metric</th><td>official distance-weighted Tversky index, alpha=0.2, beta=0.8, R=300 m triangular kernel, verified against a literal transcription of the published sums (scripts/check_metric.py, evidence/metric_check.json)</td></tr>
+      </tbody></table></div>
+      <h3>Reproduce every number</h3>
+      <pre>git clone https://github.com/buffedlizard55-lab/GEMSDOE31.git &amp;&amp; cd GEMSDOE31
+python -m pip install -r requirements.txt
+bash scripts/download_competition_data.sh      # restore + SHA-256 verify the 11 hash-pinned inputs
+python scripts/prepare_data.py --verify-only   # grid/hash re-check; add no flag to build features.f32
+python scripts/check_metric.py                 # metric vs brute force -&gt; evidence/metric_check.json
+python scripts/derive_buffer.py                # semivariogram -&gt; evidence/buffer_derivation.json
+python scripts/run_union.py                    # filtering + union tables -&gt; evidence/union_results.json
+python scripts/collect_evidence.py             # hash the artifacts, rebuild registry/*.json
+python scripts/build_submission.py --dots &lt;tif&gt; --name &lt;unique-name&gt;
+python scripts/build_site.py                   # regenerate this site from the registers</pre>
+      <p class="small">Nothing on this site is typed in by hand: <code>scripts/build_site.py</code> reads the JSON in
+      <code>registry/</code> and <code>evidence/</code>, and <code>scripts/collect_evidence.py</code> writes those JSON
+      files from the artifacts on disk. One step is <em>not</em> yet reproducible from this snapshot: the training runs
+      behind <code>evidence/arm_results.json</code> and <code>evidence/operating_point.json</code> (four arms × four
+      folds) were executed in a sibling workspace whose trainer is not in this repository. Their outputs and protocol
+      are pinned here, the fold-OOF probability maps they produced are committed in quantised form
+      (<code>evidence/oof/*_u16.npz</code>, audited in <code>evidence/oof_quantisation.json</code>), and every
+      downstream step — union, filter, metric, buffer, submission, site — reruns from those artifacts.
+      Re-implementing the trainer is the top item of remaining work.</p>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Reproduce with: scripts/derive_buffer.py, scripts/check_metric.py, scripts/build_site.py.</p>
+    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
+</body>
+</html>

@@ -19,12 +19,15 @@ def main() -> int:
     parser.add_argument("submission", type=Path, help="single-band prediction .tif")
     parser.add_argument("--template", type=Path, required=True, help="official sample_submission.tif or owner-mirror copy")
     parser.add_argument("--allow-synthetic-template", action="store_true", help="skip fixed production-grid constants (tests only)")
+    parser.add_argument("--convention", choices=("nan-outside", "all-finite"), default="nan-outside",
+                        help="outside-footprint rule to enforce (default: the official nan-outside rule)")
     parser.add_argument("--json-out", type=Path, default=None, help="optional path for a machine-readable receipt")
     args = parser.parse_args()
     result = validate_submission(
         args.submission,
         args.template,
         require_competition_grid=not args.allow_synthetic_template,
+        convention=args.convention,
     )
     text = json.dumps(result, indent=2, sort_keys=True, allow_nan=False)
     print(text)

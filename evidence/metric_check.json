@@ -1,0 +1,252 @@
+{
+ "schema_version": 1,
+ "generated_utc": "2026-10-04",
+ "implementation": "src/gemsdoe31/metric.py",
+ "definition_source": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+ "kernel_offsets_in_support": 29,
+ "alpha": 0.2,
+ "beta": 0.8,
+ "radius_m": 300.0,
+ "epsilon_assumption": 1e-10,
+ "epsilon_note": "The published page does not state epsilon. A tiny positive epsilon is used so an all-zero submission scores 0 rather than dividing by zero.",
+ "grids_compared": 24,
+ "max_abs_dti_delta_vs_brute_force": 4.440892098500626e-16,
+ "identity_tpw_plus_fnw_equals_truth": "holds to < 1e-9 on every grid",
+ "exact_cases": [
+  {
+   "description": "3-cell line, prediction == truth",
+   "TPw": 3.0,
+   "FPw": 0.0,
+   "FNw": 0.0,
+   "DTI": 0.9999999999666667,
+   "DTI_closed_form": 1.0
+  },
+  {
+   "description": "one truth pixel, one predicted pixel 200 m away (no overlap)",
+   "TPw": 0.33333333333333337,
+   "FPw": 0.6666666666666666,
+   "FNw": 0.6666666666666666,
+   "DTI": 0.33333333330000003,
+   "DTI_closed_form": 0.3333333333333333,
+   "DTI_brute_force": 0.33333333330000003
+  }
+ ],
+ "rows": [
+  {
+   "grid": 0,
+   "size": 22,
+   "truth_pixels": 38,
+   "DTI_fast": 0.43856268564406287,
+   "DTI_brute": 0.4385626856440628,
+   "abs_delta": 5.551115123125783e-17,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 1,
+   "size": 14,
+   "truth_pixels": 22,
+   "DTI_fast": 0.42662795199981973,
+   "DTI_brute": 0.42662795199981973,
+   "abs_delta": 0.0,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 2,
+   "size": 26,
+   "truth_pixels": 106,
+   "DTI_fast": 0.5039253654772696,
+   "DTI_brute": 0.5039253654772696,
+   "abs_delta": 0.0,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 3,
+   "size": 22,
+   "truth_pixels": 120,
+   "DTI_fast": 0.5801757470470245,
+   "DTI_brute": 0.5801757470470242,
+   "abs_delta": 2.220446049250313e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 4,
+   "size": 20,
+   "truth_pixels": 85,
+   "DTI_fast": 0.5155832094661561,
+   "DTI_brute": 0.5155832094661562,
+   "abs_delta": 1.1102230246251565e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 5,
+   "size": 27,
+   "truth_pixels": 54,
+   "DTI_fast": 0.4083036069859827,
+   "DTI_brute": 0.40830360698598256,
+   "abs_delta": 1.6653345369377348e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 6,
+   "size": 30,
+   "truth_pixels": 142,
+   "DTI_fast": 0.5237882174230698,
+   "DTI_brute": 0.5237882174230694,
+   "abs_delta": 4.440892098500626e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 7,
+   "size": 28,
+   "truth_pixels": 85,
+   "DTI_fast": 0.4401234977659983,
+   "DTI_brute": 0.44012349776599835,
+   "abs_delta": 5.551115123125783e-17,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 8,
+   "size": 21,
+   "truth_pixels": 58,
+   "DTI_fast": 0.5287971684207392,
+   "DTI_brute": 0.5287971684207393,
+   "abs_delta": 1.1102230246251565e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 9,
+   "size": 30,
+   "truth_pixels": 63,
+   "DTI_fast": 0.37125914407167154,
+   "DTI_brute": 0.3712591440716716,
+   "abs_delta": 5.551115123125783e-17,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 10,
+   "size": 31,
+   "truth_pixels": 65,
+   "DTI_fast": 0.38974452092023726,
+   "DTI_brute": 0.38974452092023715,
+   "abs_delta": 1.1102230246251565e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 11,
+   "size": 28,
+   "truth_pixels": 45,
+   "DTI_fast": 0.37000177918485894,
+   "DTI_brute": 0.37000177918485894,
+   "abs_delta": 0.0,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 12,
+   "size": 33,
+   "truth_pixels": 204,
+   "DTI_fast": 0.552095464959817,
+   "DTI_brute": 0.552095464959817,
+   "abs_delta": 0.0,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 13,
+   "size": 25,
+   "truth_pixels": 116,
+   "DTI_fast": 0.5341583924117367,
+   "DTI_brute": 0.5341583924117368,
+   "abs_delta": 1.1102230246251565e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 14,
+   "size": 31,
+   "truth_pixels": 117,
+   "DTI_fast": 0.5019727443722732,
+   "DTI_brute": 0.5019727443722733,
+   "abs_delta": 1.1102230246251565e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 15,
+   "size": 31,
+   "truth_pixels": 126,
+   "DTI_fast": 0.513454925941411,
+   "DTI_brute": 0.5134549259414107,
+   "abs_delta": 2.220446049250313e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 16,
+   "size": 14,
+   "truth_pixels": 45,
+   "DTI_fast": 0.5533320184011937,
+   "DTI_brute": 0.5533320184011938,
+   "abs_delta": 1.1102230246251565e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 17,
+   "size": 22,
+   "truth_pixels": 42,
+   "DTI_fast": 0.45117191270716883,
+   "DTI_brute": 0.45117191270716883,
+   "abs_delta": 0.0,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 18,
+   "size": 32,
+   "truth_pixels": 134,
+   "DTI_fast": 0.5110701199675818,
+   "DTI_brute": 0.5110701199675818,
+   "abs_delta": 0.0,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 19,
+   "size": 22,
+   "truth_pixels": 23,
+   "DTI_fast": 0.3333456531032832,
+   "DTI_brute": 0.33334565310328323,
+   "abs_delta": 5.551115123125783e-17,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 20,
+   "size": 15,
+   "truth_pixels": 21,
+   "DTI_fast": 0.4332954662817378,
+   "DTI_brute": 0.4332954662817377,
+   "abs_delta": 1.1102230246251565e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 21,
+   "size": 17,
+   "truth_pixels": 36,
+   "DTI_fast": 0.4944101916837518,
+   "DTI_brute": 0.4944101916837518,
+   "abs_delta": 0.0,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 22,
+   "size": 31,
+   "truth_pixels": 189,
+   "DTI_fast": 0.5396618927068318,
+   "DTI_brute": 0.539661892706832,
+   "abs_delta": 1.1102230246251565e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  },
+  {
+   "grid": 23,
+   "size": 26,
+   "truth_pixels": 156,
+   "DTI_fast": 0.5625663265328347,
+   "DTI_brute": 0.5625663265328346,
+   "abs_delta": 1.1102230246251565e-16,
+   "tp_plus_fn_minus_truth": 0.0
+  }
+ ]
+}

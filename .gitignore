@@ -13,3 +13,7 @@ data/*
 work/
 *.partial
 *.assembling
+
+# Raw (unquantised) fold-OOF maps are replaced in Git by evidence/oof/*_u16.npz, audited in
+# evidence/oof_quantisation.json; regenerate the raw form with the arm trainer when it lands.
+evidence/oof/*.npy

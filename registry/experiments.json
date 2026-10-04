@@ -1,0 +1,114 @@
+{
+ "schema_version": 1,
+ "generated_utc": "2026-10-04",
+ "protocol": {
+  "folds": "four equal spatial blocks (NW/NE/SW/SE) of the 3730x3292 competition grid",
+  "buffer": "measured from residual autocorrelation, see evidence/buffer_derivation.json; the adopted collar is read from that file rather than restated here",
+  "model": "HistGradientBoostingClassifier (200 trees, lr 0.08, 31 leaves) trained per fold on all catalogue pixels of the other three blocks plus 90,000 background samples",
+  "excluded_features": "no catalogue-distance or SGMC-derived feature is used, so neither the catalogue-gap nor the off-catalogue evaluation is circular",
+  "truth_proxies": {
+   "catalogue_gap": "held-out public catalogue pixels (60,988 px)",
+   "off_catalogue": "USGS SGMC state-map fault cells more than 300 m from the public catalogue (61,664 px) - the only populated fault population in reach that is off-catalogue by construction, i.e. the population the competition scores"
+  },
+  "metric": "official distance-weighted Tversky index, alpha=0.2, beta=0.8, R=300 m triangular kernel, verified against a literal transcription of the published sums (scripts/check_metric.py, evidence/metric_check.json)",
+  "claim_class": "COMPUTED on owner-mirror inputs; not organizer-authenticated and not a live score"
+ },
+ "legacy_cache_copied": {},
+ "artifacts": [
+  {
+   "path": "evidence/arm_results.json",
+   "bytes": 3289,
+   "sha256": "1268489161208eb5fcd38302985b2b43daeb44f93a3b6634982e60e507f7e68d"
+  },
+  {
+   "path": "evidence/buffer_derivation.json",
+   "bytes": 8831,
+   "sha256": "d919e5029339a5797c7342e19fd46aaed1bafdf5ff6d75f36bf156d119d0466a"
+  },
+  {
+   "path": "evidence/collar_sweep.json",
+   "bytes": 4139,
+   "sha256": "422e6dd594db85c7b72b013806b57721311e447ee1fee6ff8d4fb23e4a1b84fe"
+  },
+  {
+   "path": "evidence/data_restore.json",
+   "bytes": 5835,
+   "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
+  },
+  {
+   "path": "evidence/h27_geometry.json",
+   "bytes": 1605,
+   "sha256": "10a8edd8e20f62392667f662002b7f10913186698070db08a7d8c77cf47b787b"
+  },
+  {
+   "path": "evidence/h31_a/pilot/cells.jsonl",
+   "bytes": 3942,
+   "sha256": "2cc66e2299796f813d183655fcd6d4cb36ada98f3f7e083040bf035256059202"
+  },
+  {
+   "path": "evidence/h31_a/pilot/design.json",
+   "bytes": 7635,
+   "sha256": "50c70baa76e8db6dabeaeb91dbf37850b9f72769185b8f6834f19b9f3963e62e"
+  },
+  {
+   "path": "evidence/h31_a/pilot/oof_residuals.npz",
+   "bytes": 101761,
+   "sha256": "9f0181ab5559f3df06d362c772bb63f670b65d0e4faeb304e7e7d9f06399a502"
+  },
+  {
+   "path": "evidence/h31_a/pilot/posthoc_variogram_diagnostics.json",
+   "bytes": 20032,
+   "sha256": "589f75e9895ae60be381391b8ca748d5803ebbb1d997c41185c819e2bb59a8ae"
+  },
+  {
+   "path": "evidence/h31_a/pilot/results.json",
+   "bytes": 4429,
+   "sha256": "f8fd80a3b96865b9c919cb2100756f8464dec100159f135a4a52c1bb112080d5"
+  },
+  {
+   "path": "evidence/h31_a/pilot/variogram.json",
+   "bytes": 545,
+   "sha256": "64f66b055149ed7b77f557bb777454849333368b404f68761ab6a0dc2c1e1473"
+  },
+  {
+   "path": "evidence/incumbent_filter_results.json",
+   "bytes": 3512,
+   "sha256": "8450fc3dac29319e8a103c438477287a29582e11799ea68e6423126bb33b029a"
+  },
+  {
+   "path": "evidence/metric_check.json",
+   "bytes": 5940,
+   "sha256": "75a556851de64739ebf438647383415a1112ef99c342d95fedeac1a0d9830aee"
+  },
+  {
+   "path": "evidence/oof/oof_B_19_plus_lidar_u16.npz",
+   "bytes": 9902742,
+   "sha256": "c0ea76d4b9e92af234f5a5f60c4d60a69bd4bb653084b81b0706527646bcf9f6"
+  },
+  {
+   "path": "evidence/oof/oof_D_19_plus_lidar_radiometric_u16.npz",
+   "bytes": 9993078,
+   "sha256": "df25e26df4e1d1018eb38d7317705b5a5fae67785123c396a3577967861ab7c3"
+  },
+  {
+   "path": "evidence/oof_quantisation.json",
+   "bytes": 1594,
+   "sha256": "e74dca9a49e9f88b16e0429c04088c147f0727f1bf36225dea72bbe50335524d"
+  },
+  {
+   "path": "evidence/oof_residuals.npz",
+   "bytes": 111561,
+   "sha256": "18dee0c22a8bc8df40c4d8c8432e3a2b66908597f637edadc6cd740ea019d89c"
+  },
+  {
+   "path": "evidence/operating_point.json",
+   "bytes": 12723,
+   "sha256": "013d71048e3800b8d4a32adf765d5a50df50269fe834b1dadbcab8a5f6e2f596"
+  },
+  {
+   "path": "evidence/union_results.json",
+   "bytes": 18831,
+   "sha256": "c9706f0ed0b4764566204eb87d556b66d84550047be6ea65a50c71f5f8a85a2e"
+  }
+ ]
+}

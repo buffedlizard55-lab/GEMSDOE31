@@ -1,0 +1,194 @@
+[
+ {
+  "collar_km": 0.0,
+  "A_competition19": {
+   "dots": 462087,
+   "cat_DTI": 0.1219370899182914,
+   "ff_DTI": 0.06886163061052258,
+   "cat_truth": 60988,
+   "ff_truth": 61664
+  },
+  "B_19_plus_lidar": {
+   "dots": 499448,
+   "cat_DTI": 0.12692786250385435,
+   "ff_DTI": 0.07050723122231614,
+   "cat_truth": 60988,
+   "ff_truth": 61664
+  },
+  "D_19_plus_lidar_radiometric": {
+   "dots": 493829,
+   "cat_DTI": 0.1355249682277299,
+   "ff_DTI": 0.06436901636996126,
+   "cat_truth": 60988,
+   "ff_truth": 61664
+  }
+ },
+ {
+  "collar_km": 0.5,
+  "A_competition19": {
+   "dots": 460821,
+   "cat_DTI": 0.1218943359199726,
+   "ff_DTI": 0.06897458568371774,
+   "cat_truth": 60854,
+   "ff_truth": 61539
+  },
+  "B_19_plus_lidar": {
+   "dots": 498290,
+   "cat_DTI": 0.12702470280740738,
+   "ff_DTI": 0.070576272240348,
+   "cat_truth": 60854,
+   "ff_truth": 61539
+  },
+  "D_19_plus_lidar_radiometric": {
+   "dots": 492374,
+   "cat_DTI": 0.13564956187562757,
+   "ff_DTI": 0.06441120023284544,
+   "cat_truth": 60854,
+   "ff_truth": 61539
+  }
+ },
+ {
+  "collar_km": 1.0,
+  "A_competition19": {
+   "dots": 459447,
+   "cat_DTI": 0.12187486295652501,
+   "ff_DTI": 0.06905721412983053,
+   "cat_truth": 60709,
+   "ff_truth": 61364
+  },
+  "B_19_plus_lidar": {
+   "dots": 497085,
+   "cat_DTI": 0.12716560778385244,
+   "ff_DTI": 0.07070045246669897,
+   "cat_truth": 60709,
+   "ff_truth": 61364
+  },
+  "D_19_plus_lidar_radiometric": {
+   "dots": 490702,
+   "cat_DTI": 0.1357502104632681,
+   "ff_DTI": 0.0644490434541087,
+   "cat_truth": 60709,
+   "ff_truth": 61364
+  }
+ },
+ {
+  "collar_km": 2.0,
+  "A_competition19": {
+   "dots": 456389,
+   "cat_DTI": 0.12189632518059594,
+   "ff_DTI": 0.06900811363097452,
+   "cat_truth": 60482,
+   "ff_truth": 61090
+  },
+  "B_19_plus_lidar": {
+   "dots": 494169,
+   "cat_DTI": 0.12729696430451834,
+   "ff_DTI": 0.07057055011285783,
+   "cat_truth": 60482,
+   "ff_truth": 61090
+  },
+  "D_19_plus_lidar_radiometric": {
+   "dots": 487532,
+   "cat_DTI": 0.13594018279681028,
+   "ff_DTI": 0.06419664702175869,
+   "cat_truth": 60482,
+   "ff_truth": 61090
+  }
+ },
+ {
+  "collar_km": 5.0,
+  "A_competition19": {
+   "dots": 446772,
+   "cat_DTI": 0.12180977423701765,
+   "ff_DTI": 0.06934240194061443,
+   "cat_truth": 59618,
+   "ff_truth": 60605
+  },
+  "B_19_plus_lidar": {
+   "dots": 486035,
+   "cat_DTI": 0.1272743150544261,
+   "ff_DTI": 0.07068611533961083,
+   "cat_truth": 59618,
+   "ff_truth": 60605
+  },
+  "D_19_plus_lidar_radiometric": {
+   "dots": 479685,
+   "cat_DTI": 0.13618304537438455,
+   "ff_DTI": 0.06413373683509498,
+   "cat_truth": 59618,
+   "ff_truth": 60605
+  }
+ },
+ {
+  "collar_km": 10.0,
+  "A_competition19": {
+   "dots": 437628,
+   "cat_DTI": 0.12075261835613943,
+   "ff_DTI": 0.06981143642931033,
+   "cat_truth": 58046,
+   "ff_truth": 59350
+  },
+  "B_19_plus_lidar": {
+   "dots": 475917,
+   "cat_DTI": 0.12773614850253784,
+   "ff_DTI": 0.07079052326473102,
+   "cat_truth": 58046,
+   "ff_truth": 59350
+  },
+  "D_19_plus_lidar_radiometric": {
+   "dots": 469505,
+   "cat_DTI": 0.13633532464772732,
+   "ff_DTI": 0.06404615269661727,
+   "cat_truth": 58046,
+   "ff_truth": 59350
+  }
+ },
+ {
+  "collar_km": 21.25,
+  "A_competition19": {
+   "dots": 411726,
+   "cat_DTI": 0.12113999143201316,
+   "ff_DTI": 0.07151366091579842,
+   "cat_truth": 53849,
+   "ff_truth": 52375
+  },
+  "B_19_plus_lidar": {
+   "dots": 447276,
+   "cat_DTI": 0.1287715651411763,
+   "ff_DTI": 0.07142910966575135,
+   "cat_truth": 53849,
+   "ff_truth": 52375
+  },
+  "D_19_plus_lidar_radiometric": {
+   "dots": 440407,
+   "cat_DTI": 0.13837815472115694,
+   "ff_DTI": 0.0641349316230919,
+   "cat_truth": 53849,
+   "ff_truth": 52375
+  }
+ },
+ {
+  "collar_km": 30.0,
+  "A_competition19": {
+   "dots": 367786,
+   "cat_DTI": 0.11959401629948752,
+   "ff_DTI": 0.06743384798100523,
+   "cat_truth": 49731,
+   "ff_truth": 46845
+  },
+  "B_19_plus_lidar": {
+   "dots": 410257,
+   "cat_DTI": 0.12916021839354203,
+   "ff_DTI": 0.06998297606768505,
+   "cat_truth": 49731,
+   "ff_truth": 46845
+  },
+  "D_19_plus_lidar_radiometric": {
+   "dots": 408800,
+   "cat_DTI": 0.1389275620395945,
+   "ff_DTI": 0.06230437581497928,
+   "cat_truth": 49731,
+   "ff_truth": 46845
+  }
+ }
+]

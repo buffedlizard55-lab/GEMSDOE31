@@ -1,0 +1,120 @@
+{
+ "schema_version": 1,
+ "generated_utc": "2026-10-04",
+ "claim_class": "COMPUTED on owner-mirror inputs with the official metric",
+ "question": "Is the incumbent dot set a subset of what the fold-OOF detector likes?",
+ "incumbent": {
+  "dots": 40199,
+  "cat_DTI": 0.04909549919996504,
+  "cat_TPw": 2804.2809071260563,
+  "ff_DTI": 0.09384814898733425,
+  "ff_TPw": 5440.668009944882,
+  "ff_credit_per_dot": 0.13534336699780797
+ },
+ "rows": [
+  {
+   "arm": "B_19_plus_lidar",
+   "quantile": 0.1,
+   "cutoff_probability": 0.09196306765079498,
+   "dots": 36179,
+   "cat_DTI": 0.047015436274450706,
+   "cat_TPw": 2646.923229199308,
+   "ff_DTI": 0.08099082756327391,
+   "ff_TPw": 4622.585781583645,
+   "cat_delta": -0.0020800629255143324,
+   "ff_delta": -0.012857321424060333,
+   "ff_credit_per_dot": 0.12776986046003608
+  },
+  {
+   "arm": "B_19_plus_lidar",
+   "quantile": 0.25,
+   "cutoff_probability": 0.16396582126617432,
+   "dots": 30149,
+   "cat_DTI": 0.042642232654964425,
+   "cat_TPw": 2347.997588848211,
+   "ff_DTI": 0.06698476742571778,
+   "ff_TPw": 3735.718216127003,
+   "cat_delta": -0.006453266545000613,
+   "ff_delta": -0.026863381561616467,
+   "ff_credit_per_dot": 0.12390852818093478
+  },
+  {
+   "arm": "B_19_plus_lidar",
+   "quantile": 0.5,
+   "cutoff_probability": 0.2710154950618744,
+   "dots": 20100,
+   "cat_DTI": 0.03208366248188427,
+   "cat_TPw": 1700.0406761513302,
+   "ff_DTI": 0.04529667387788735,
+   "ff_TPw": 2428.569053702752,
+   "cat_delta": -0.01701183671808077,
+   "ff_delta": -0.0485514751094469,
+   "ff_credit_per_dot": 0.12082433102998767
+  },
+  {
+   "arm": "B_19_plus_lidar",
+   "quantile": 0.75,
+   "cutoff_probability": 0.4093995690345764,
+   "dots": 10050,
+   "cat_DTI": 0.018979530741993694,
+   "cat_TPw": 966.1140151434345,
+   "ff_DTI": 0.021067899549388012,
+   "ff_TPw": 1084.0855887446528,
+   "cat_delta": -0.030115968457971345,
+   "ff_delta": -0.07278024943794624,
+   "ff_credit_per_dot": 0.10786921281041321
+  },
+  {
+   "arm": "D_19_plus_lidar_radiometric",
+   "quantile": 0.1,
+   "cutoff_probability": 0.08238651603460312,
+   "dots": 36179,
+   "cat_DTI": 0.047424039522435894,
+   "cat_TPw": 2670.033129216383,
+   "ff_DTI": 0.08202203967180102,
+   "ff_TPw": 4681.952930575495,
+   "cat_delta": -0.001671459677529144,
+   "ff_delta": -0.011826109315533226,
+   "ff_credit_per_dot": 0.12941078887132024
+  },
+  {
+   "arm": "D_19_plus_lidar_radiometric",
+   "quantile": 0.25,
+   "cutoff_probability": 0.15526054799556732,
+   "dots": 30150,
+   "cat_DTI": 0.04245859005539462,
+   "cat_TPw": 2337.8555465189893,
+   "ff_DTI": 0.06591522974869242,
+   "ff_TPw": 3675.699736790932,
+   "cat_delta": -0.0066369091445704215,
+   "ff_delta": -0.02793291923864183,
+   "ff_credit_per_dot": 0.12191375578079376
+  },
+  {
+   "arm": "D_19_plus_lidar_radiometric",
+   "quantile": 0.5,
+   "cutoff_probability": 0.269764244556427,
+   "dots": 20100,
+   "cat_DTI": 0.03240584056099745,
+   "cat_TPw": 1717.145359435016,
+   "ff_DTI": 0.04245619525729462,
+   "ff_TPw": 2275.5318845526563,
+   "cat_delta": -0.01668965863896759,
+   "ff_delta": -0.05139195373003963,
+   "ff_credit_per_dot": 0.11321054152003265
+  },
+  {
+   "arm": "D_19_plus_lidar_radiometric",
+   "quantile": 0.75,
+   "cutoff_probability": 0.4139772653579712,
+   "dots": 10051,
+   "cat_DTI": 0.019525405287481944,
+   "cat_TPw": 993.9513230644501,
+   "ff_DTI": 0.02246996609256512,
+   "ff_TPw": 1156.436252516361,
+   "cat_delta": -0.029570093912483095,
+   "ff_delta": -0.07137818289476913,
+   "ff_credit_per_dot": 0.11505683539114128
+  }
+ ]
+}

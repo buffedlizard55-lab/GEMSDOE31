@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Does adding high-probability off-catalogue detections to the incumbent improve the off-catalogue proxy?">
+  <title>Experiment 05 · Addition arm: incumbent plus off-catalogue detections · GEMSDOE31</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../index.html">Overview</a><a href="../executive-summary.html">Executive summary</a><a href="../research.html">Research</a><a href="../validation.html">Validation</a><a href="../register/index.html">Register</a><a href="../experiments/index.html" aria-current="page">Experiments</a><a href="../sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Experiment 05 · measured, weak positive</p>
+      <h1>Addition arm: incumbent plus off-catalogue detections</h1>
+      <p class="hero-lede">Weakly positive. The best union adds 15,105 dots for +0.0017 on the proxy — the right sign, but within the owner&#x27;s observed ±0.003 live noise, so it is a research candidate and not slot-approved.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Experiment 05</p><h2>Addition arm: incumbent plus off-catalogue detections</h2></div>
+        <p>Does adding high-probability off-catalogue detections to the incumbent improve the off-catalogue proxy?</p>
+      </div>
+      <div class="notice"><strong>Measured, weak positive</strong>Weakly positive. The best union adds 15,105 dots for +0.0017 on the proxy — the right sign, but within the owner&#x27;s observed ±0.003 live noise, so it is a research candidate and not slot-approved.</div>
+      <div class="content"><p>The incumbent was unioned with cells where the fold-D detector probability exceeded a threshold and the cell was not on the public catalogue, at thresholds from 0.5 to 0.95. Adding pixels is directly invertible, unlike subtracting them: the surface is flat away from the incumbent, so each added dot&#x27;s contribution is measurable.</p></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Artifact</p><h2>Measured values, as written by the script</h2></div>
+        <p>Source file: <code>evidence/union_results.json</code> — rendered here directly from the JSON, not transcribed.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>field</th><th>value</th></tr></thead><tbody><tr><td><code>schema_version</code></td><td>1</td></tr><tr><td><code>generated_utc</code></td><td>2026-10-04</td></tr><tr><td><code>claim_class</code></td><td>COMPUTED on owner-mirror inputs with the official metric (evidence/metric_check.json)</td></tr><tr><td><code>incumbent_source</code></td><td>docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</td></tr><tr><td><code>incumbent</code></td><td><code>{&quot;dots&quot;: 40199, &quot;cat_DTI&quot;: 0.04909549919996504, &quot;cat_TPw&quot;: 2804.2809071260563, &quot;ff_DTI&quot;: 0.09384814898733425, &quot;ff_TPw&quot;: 5440.668009944882, &quot;ff_credit_per_dot&quot;: 0.13534336699780797}</code></td></tr><tr><td><code>oof_maps</code></td><td><code>{&quot;B_19_plus_lidar&quot;: &quot;evidence/oof/oof_B_19_plus_lidar_u16.npz&quot;, &quot;D_19_plus_lidar_radiometric&quot;: &quot;evidence/oof/oof_D_19_plus_lidar_radiometric_u16.npz&quot;}</code></td></tr><tr><td><code>truth_proxies</code></td><td><code>{&quot;catalogue_gap_pixels&quot;: 60988, &quot;off_catalogue_pixels&quot;: 61664, &quot;off_catalogue_definition&quot;: &quot;USGS SGMC state-map fault cells more than 300 m from the public catalogue&quot;}</code></td></tr><tr><td><code>unions</code></td><td><code>[{&quot;arm&quot;: &quot;B_19_plus_lidar&quot;, &quot;threshold&quot;: 0.5, &quot;drop_catalogue_pixels&quot;: false, &quot;added&quot;: 218849, &quot;dots&quot;: 259048, &quot;cat_DTI&quot;: 0.13395085052831907, &quot;cat_TPw&quot;: 13171.355140330288, &quot;ff_DTI&quot;: 0.0967366184512489, &quot;ff_TPw&quot;: 9717.99359315135, &quot;cat_delta&quot;: 0.08485535132835403, &quot;ff_delta&quot;: 0.0028884694639146474, &quot;added_cat_TPw&quot;: 11…</code></td></tr><tr><td><code>best_union</code></td><td><code>{&quot;arm&quot;: &quot;B_19_plus_lidar&quot;, &quot;threshold&quot;: 0.6, &quot;added&quot;: 65939, &quot;dots&quot;: 106138, &quot;cat_DTI&quot;: 0.09482862741978171, &quot;ff_DTI&quot;: 0.09985654750452583, &quot;delta&quot;: 0.006008398517191579, &quot;added_credit_per_dot&quot;: 0.024651922576187434}</code></td></tr></tbody></table></div>
+      <p class="small">Full artifact:
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/union_results.json" target="_blank" rel="noopener">view in the repository</a>.</p>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Artifact: evidence/union_results.json. Generated by scripts/build_site.py.</p>
+    <p><a href="../feed.html">Live feed</a> · <a href="../ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experiment log: arms, sweeps, buffer derivation, the stopped pilot and the format-error investigation.">
+  <title>Experiments · GEMSDOE31</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../index.html">Overview</a><a href="../executive-summary.html">Executive summary</a><a href="../research.html">Research</a><a href="../validation.html">Validation</a><a href="../register/index.html">Register</a><a href="../experiments/index.html" aria-current="page">Experiments</a><a href="../sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Experiments</p>
+      <h1>Measured, or stopped.</h1>
+      <p class="hero-lede">Eleven experiments with their artifacts, including the negative results and the one candidate that failed its own gate.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Experiment log</p><h2>11 experiments, including the failures</h2></div>
+        <p>Every page is generated from the artifact it describes; negative results and a stopped pilot stay in the log.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>experiment</th><th>status</th><th>question it answers</th></tr></thead><tbody><tr><td>01</td><td><a href="01-arms.html">Blocked-fold detector arms A–D</a></td><td><span class="badge badge-green">measured</span></td><td>Does adding LiDAR- and radiometric-derived channels to the 19 competition planes improve fault detection under spatial blocking?</td></tr><tr><td>02</td><td><a href="02-operating-points.html">Operating-point sweep</a></td><td><span class="badge badge-green">measured</span></td><td>Where on each arm&#x27;s probability scale should a submission threshold sit?</td></tr><tr><td>03</td><td><a href="03-collar-sensitivity.html">Collar sensitivity of the blocked protocol</a></td><td><span class="badge badge-green">measured</span></td><td>Is the LiDAR arm&#x27;s advantage an artefact of short-range leakage from the training region?</td></tr><tr><td>04</td><td><a href="04-incumbent-filter.html">Corroboration filtering of the incumbent (negative)</a></td><td><span class="badge badge-red">negative result</span></td><td>Can the incumbent dot set be improved by keeping only the dots this repository&#x27;s detector also likes?</td></tr><tr><td>05</td><td><a href="05-addition-arm.html">Addition arm: incumbent plus off-catalogue detections</a></td><td><span class="badge">measured, weak positive</span></td><td>Does adding high-probability off-catalogue detections to the incumbent improve the off-catalogue proxy?</td></tr><tr><td>06</td><td><a href="06-buffer-derivation.html">Residual semivariogram → holdout buffer</a></td><td><span class="badge badge-green">measured</span></td><td>How far can training pixels leak into a holdout and still leave an honest comparison?</td></tr><tr><td>07</td><td><a href="07-oof-maps.html">Out-of-fold probability maps</a></td><td><span class="badge badge-green">measured</span></td><td>What do the detectors&#x27; spatial error patterns look like once every cell is predicted by a model that never saw its block?</td></tr><tr><td>08</td><td><a href="08-h31a-pilot.html">H31-A pilot: multiscale magnetic local-wavelength discontinuity</a></td><td><span class="badge badge-red">stopped</span></td><td>Does a cross-scale magnetic local-wavelength feature find faults the catalogue misses?</td></tr><tr><td>09</td><td><a href="09-pilot-variogram.html">Pilot-stage variogram diagnostics and the withdrawn 94.3 km rule</a></td><td><span class="badge">diagnostic</span></td><td>Could the pilot&#x27;s own residuals identify a stable buffer range?</td></tr><tr><td>10</td><td><a href="10-submission-format.html">Submission format validation and the [0,1] error class</a></td><td><span class="badge badge-green">measured</span></td><td>Why did the portal reject a previously downloaded TIFF with “Predicted values must be in range [0, 1]”?</td></tr><tr><td>11</td><td><a href="11-score-claims.html">Score-claim audit and the D2.8 discrepancy</a></td><td><span class="badge">open irregularity</span></td><td>Which numbers in this project are receipts, which are reports, and which are derived?</td></tr></tbody></table></div>
+      <p class="small">Protocol, folds, buffer and the exactness of the metric are fixed across all of these and are
+      described once on the <a href="../validation.html">validation page</a>. Artifacts live in <code>evidence/</code>
+      and <code>registry/</code>; the machine-readable index is <code>registry/experiments.json</code>.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">How to read a result</p><h2>Three rules that govern every page here</h2></div>
+        <p>These are the conditions under which the numbers were produced, not preferences.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><h3>Proxies are not scores</h3><p>No proxy DTI on this site is a competition score. A proxy
+        can rank two arms; it cannot tell you what the leaderboard will say.</p></div>
+        <div class="card"><h3>Folds and buffer are fixed</h3><p>Four spatial blocks and a
+        21.25 km collar derived from the data.
+        Comparing a result measured under a different collar is not allowed.</p></div>
+        <div class="card"><h3>A gate failure stops work</h3><p>Experiment 8 was stopped by its own pre-declared gate.
+        Nothing was promoted from it, and no submission was built from it.</p></div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Artifacts pinned in evidence/ and registry/; every page generated by scripts/build_site.py.</p>
+    <p><a href="../feed.html">Live feed</a> · <a href="../ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
+</body>
+</html>

@@ -37,7 +37,7 @@ def test_runner_rejects_any_other_branch(monkeypatch):
     }
     monkeypatch.setattr(RUNNER, "git_output", lambda *args: outputs[args])
 
-    with pytest.raises(SystemExit, match="arena/01a1050e-gemsdoe31"):
+    with pytest.raises(SystemExit, match="wrong working branch"):
         RUNNER.require_clean_worktree()
 
 

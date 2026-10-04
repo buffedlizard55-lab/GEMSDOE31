@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Draft generative-AI disclosure for any future GEMS competition submission.">
-  <title>AI disclosure draft · GEMSDOE31</title>
+  <meta name="description" content="Draft disclosure of AI assistance for the submission narrative, for entrant review.">
+  <title>AI use · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -12,33 +12,53 @@
     <div class="wrap topbar-inner">
       <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html">Overview</a>
-        <a href="executive-summary.html">Executive summary</a>
-        <a href="research.html">Research</a>
-        <a href="sources.html">Sources</a>
+        <a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="research.html">Research</a><a href="validation.html">Validation</a><a href="register/index.html">Register</a><a href="experiments/index.html">Experiments</a><a href="sources.html">Sources</a>
       </nav>
     </div>
   </header>
-  <section class="page-hero"><div class="wrap"><p class="eyebrow">Rules compliance · draft only</p><h1>Generative-AI disclosure.</h1><p class="hero-lede">The official rules require an AI-use narrative when applicable. This draft is not submitted and must be reviewed by the entrant for the exact solution.</p></div></section>
-  <main class="wrap content">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">AI use</p>
+      <h1>Disclose it properly.</h1>
+      <p class="hero-lede">What the agent did, what is not claimed, and wording you can paste into the submission narrative after checking it.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
     <section>
-      <div class="notice"><strong>Entrant review required</strong>This text is a draft. The human entrant must verify, revise, and approve it, list any additional human/tool contributions, and make it accurate for the exact file and documentation submitted.</div>
-      <div class="card" style="margin-top:18px">
-        <h2>Draft narrative</h2>
-        <blockquote>
-          <p>Generative-AI assistance was used to plan, draft, implement, review, and document this research project. An AI coding agent assisted with the H31-A feature and evaluation code, tests, source summaries, provenance records, and the project website. The candidate design is documented in the repository's preregistration. An AI coding agent also executed and documented the H31-A pilot; its negative catalogue-gap proxy outcome and unknown residual range are recorded in the pilot report and evidence files, and are distinguished from competition scores. In a later review, an AI coding agent compared public owner-maintained project records with user-reported score claims, checked metadata and query responses from public government catalogs/APIs, and drafted a score/prior-art audit with four unvalidated fault-mapping hypotheses. It did not download protected ASTER imagery, fit those hypotheses, access private test labels, submit a file, or monitor/copy the DrivenData leaderboard. The human entrant is responsible for reviewing the code and claims, confirming any additional human or software contributions, and disclosing all use relevant to the exact solution and documentation delivered.</p>
-        </blockquote>
-        <p class="small">Official source: <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">GEMS Prize Official Rules</a>, §3.2.</p>
+      <div class="section-head">
+        <div><p class="kicker">Required disclosure</p><h2>How AI was used</h2></div>
+        <p>The competition's rules require entrants to disclose AI use in the submission narrative.</p>
       </div>
-      <h2>Before using this draft</h2>
-      <ul>
-        <li>Confirm it accurately describes who did what; do not claim human review that did not occur.</li>
-        <li>List all generative-AI tools, external software and data sources that contributed to the exact final solution.</li>
-        <li>Do not claim official score, acceptance, or private-label performance without an organizer receipt.</li>
-      </ul>
-      <p><a href="executive-summary.html">Return to submission guide →</a></p>
+      <div class="grid grid-2">
+        <div class="card"><h3>What was done with AI assistance</h3>
+          <ul><li>The analysis code, the data-restoration scripts and every page on this site were written by an AI
+          agent working from the owner's written brief.</li>
+          <li>The agent ran the experiments and wrote the numbers here directly from the resulting files.</li>
+          <li>Every quantitative claim is traceable to a script and an artifact in the repository, and carries an
+          evidence class (OFFICIAL / OWNER-MIRROR / COMPUTED / INFERENCE / USER-REPORTED).</li></ul></div>
+        <div class="card"><h3>What is not claimed</h3>
+          <ul><li>No score on this site is organizer-verified. The 0.2708 and 0.2600 figures are owner-reported
+          readings of a public leaderboard, not receipts.</li>
+          <li>Geological hypotheses are labelled INFERENCE and have not been confirmed by field work.</li>
+          <li>The submission file's <em>format</em> is validated locally against the grid template; its live score is
+          not predicted here.</li></ul></div>
+      </div>
+      <div class="notice"><strong>Draft wording for the submission narrative — edit to match what you actually did</strong>
+      <pre style="margin-top:12px">This submission's raster was produced with substantial AI assistance (an agentic coding
+workflow), using the competition-provided feature stack plus publicly licensed external
+layers. All quantitative claims, validation protocols and file-format checks are recorded
+in the project repository with sources and evidence classes. No live score is claimed.
+The human entrant reviewed the submission file, its format receipt and this disclosure
+before submitting.</pre></div>
+      <p class="small">The exact disclosure requirements come from the competition rules; this page is a draft for the
+      entrant to review, not a filed disclosure. <a href="sources.html">Sources</a></p>
     </section>
+
   </main>
-  <footer class="footer"><div class="wrap footer-inner"><p>Draft only · no submission made</p><p><a href="sources.html">Sources</a> · <a href="index.html">Overview</a></p></div></footer>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Draft for entrant review — not a filed disclosure.</p>
+    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
 </body>
 </html>

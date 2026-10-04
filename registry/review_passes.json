@@ -1,176 +1,244 @@
 {
-  "schema_version": 1,
-  "generated_utc": "2026-10-04",
-  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
-  "passes": [
+ "schema_version": 1,
+ "generated_utc": "2026-10-04",
+ "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
+ "passes": [
+  {
+   "id": "pass-1-implementation-and-verification",
+   "status": "complete-for-current-artifacts",
+   "scope": [
+    "frozen H31-A design, two magnetic-scale features, pinned sibling runtime/cache verification, paired four-block pilot, same-trace residual variogram, bootstrap range rule and stop gate",
+    "strict GeoTIFF CRS/grid/shape/transform/dtype/value/NaN checks and out-of-range regression protection",
+    "ranked geological hypotheses, official/primary source access audit, prior-score audit, registries, site, and manual upload guide"
+   ],
+   "verification": {
+    "pytest": "23 passed in the final post-pilot check, without warnings",
+    "ruff": "all checks passed",
+    "compileall": "passed for src/, scripts/, and tests/",
+    "json_documents": "all 11 repository JSON documents parse; all 8 pilot cells.jsonl rows parse",
+    "html_local_links": "6 static pages checked; no broken local links",
+    "legacy_tiff": "local hard format checks pass against the pinned owner-mirror template only; organizer acceptance remains false",
+    "production_context": "7/7 owner-mirror inputs and 6/6 caches verified; 3730x3292 footprint and 55/57 feature columns built",
+    "h31_a_pilot": "8 arm/fold fits completed on clean code revision 23191e7; mean paired delta -0.0040088545; metric gate false; both residual ranges unknown; no screen or confirmation"
+   },
+   "open_scientific_gates": [
+    "H31-A is stopped: the paired pilot metric gate failed and both point fits failed the observed-lag sill-support criterion",
+    "no operational residual range, bootstrap confidence interval, or data-derived final buffer exists",
+    "the current-best comparable incumbent has not been reproduced on the same folds/buffer; no slot is eligible",
+    "H31-B LAZ binary, point-return attributes, and full-footprint overlap remain unavailable"
+   ]
+  },
+  {
+   "id": "pass-2-independent-bug-assumption-leakage-review",
+   "status": "complete-for-current-code-and-pilot",
+   "checks": [
+    "confirmed H31 feature construction uses no fault labels and re-masks invalid cells after filtering",
+    "confirmed model arms share folds, draws, training samples, test rows, and emission; residual pairs are restricted to the same fold/draw/8-connected trace component",
+    "confirmed pilot collar is labeled temporary, an unstable/unknown range fails closed, and no screen or submission can be authorized by a pilot win",
+    "confirmed final file validator checks range before any clipping/serialization and regression tests reject values outside [0,1]",
+    "reviewed source classifications, local links, legacy-download labels, AI draft, score claim, and static-only official leaderboard link"
+   ],
+   "findings_fixed": [
+    "replaced deprecated Rasterio from_origin test setup with explicit Affine transforms; checks run without warnings",
+    "fixed a malformed score_claims.json key found by recursive validation and added automated registry/evidence assertions",
+    "added tests for the virtual stacked feature array and the preregistered maximum-three data-derived buffer retry chain",
+    "bound pilot/screen/confirmation stages to the same preregistration hash, executable-code/dependency digest, and Python/package environment digest",
+    "the original pilot variogram record retained the instability reason but omitted empirical bins on exceptions; added a regression test and a post-hoc diagnostic JSON regenerated only from the saved OOF residuals, with no classifier refit or gate change"
+   ],
+   "remaining_risks": [
+    "the fitted ~24.964 km point diagnostic is unstable extrapolation and must not be used as a buffer; no component-bootstrap interval exists",
+    "official sample-template provenance and the user-reported D2.8 0.2600 score remain unresolved",
+    "no official score, organizer acceptance, upload, leaderboard inspection, or current-best incumbent comparison has occurred"
+   ]
+  },
+  {
+   "id": "pass-3-whole-request-crosscheck",
+   "status": "complete-with-open-gates",
+   "criteria": [
     {
-      "id": "pass-1-implementation-and-verification",
-      "status": "complete-for-current-artifacts",
-      "scope": [
-        "frozen H31-A design, two magnetic-scale features, pinned sibling runtime/cache verification, paired four-block pilot, same-trace residual variogram, bootstrap range rule and stop gate",
-        "strict GeoTIFF CRS/grid/shape/transform/dtype/value/NaN checks and out-of-range regression protection",
-        "ranked geological hypotheses, official/primary source access audit, prior-score audit, registries, site, and manual upload guide"
-      ],
-      "verification": {
-        "pytest": "23 passed in the final post-pilot check, without warnings",
-        "ruff": "all checks passed",
-        "compileall": "passed for src/, scripts/, and tests/",
-        "json_documents": "all 11 repository JSON documents parse; all 8 pilot cells.jsonl rows parse",
-        "html_local_links": "6 static pages checked; no broken local links",
-        "legacy_tiff": "local hard format checks pass against the pinned owner-mirror template only; organizer acceptance remains false",
-        "production_context": "7/7 owner-mirror inputs and 6/6 caches verified; 3730x3292 footprint and 55/57 feature columns built",
-        "h31_a_pilot": "8 arm/fold fits completed on clean code revision 23191e7; mean paired delta -0.0040088545; metric gate false; both residual ranges unknown; no screen or confirmation"
-      },
-      "open_scientific_gates": [
-        "H31-A is stopped: the paired pilot metric gate failed and both point fits failed the observed-lag sill-support criterion",
-        "no operational residual range, bootstrap confidence interval, or data-derived final buffer exists",
-        "the current-best comparable incumbent has not been reproduced on the same folds/buffer; no slot is eligible",
-        "H31-B LAZ binary, point-return attributes, and full-footprint overlap remain unavailable"
-      ]
+     "criterion": "README charter, Maximize P(Win), Own the Outcome, source classes, and status-first site",
+     "status": "implemented; README states the charter is a consolidated restatement, not a verbatim reconstruction"
     },
     {
-      "id": "pass-2-independent-bug-assumption-leakage-review",
-      "status": "complete-for-current-code-and-pilot",
-      "checks": [
-        "confirmed H31 feature construction uses no fault labels and re-masks invalid cells after filtering",
-        "confirmed model arms share folds, draws, training samples, test rows, and emission; residual pairs are restricted to the same fold/draw/8-connected trace component",
-        "confirmed pilot collar is labeled temporary, an unstable/unknown range fails closed, and no screen or submission can be authorized by a pilot win",
-        "confirmed final file validator checks range before any clipping/serialization and regression tests reject values outside [0,1]",
-        "reviewed source classifications, local links, legacy-download labels, AI draft, score claim, and static-only official leaderboard link"
-      ],
-      "findings_fixed": [
-        "replaced deprecated Rasterio from_origin test setup with explicit Affine transforms; checks run without warnings",
-        "fixed a malformed score_claims.json key found by recursive validation and added automated registry/evidence assertions",
-        "added tests for the virtual stacked feature array and the preregistered maximum-three data-derived buffer retry chain",
-        "bound pilot/screen/confirmation stages to the same preregistration hash, executable-code/dependency digest, and Python/package environment digest",
-        "the original pilot variogram record retained the instability reason but omitted empirical bins on exceptions; added a regression test and a post-hoc diagnostic JSON regenerated only from the saved OOF residuals, with no classifier refit or gate change"
-      ],
-      "remaining_risks": [
-        "the fitted ~24.964 km point diagnostic is unstable extrapolation and must not be used as a buffer; no component-bootstrap interval exists",
-        "official sample-template provenance and the user-reported D2.8 0.2600 score remain unresolved",
-        "no official score, organizer acceptance, upload, leaderboard inspection, or current-best incumbent comparison has occurred"
-      ]
+     "criterion": "prominent GeoTIFF download, executive summary, unique reserved name/comment, and exact manual upload instructions",
+     "status": "site complete; prominent TIFF is expressly legacy/reference-only because no H31 candidate exists"
     },
     {
-      "id": "pass-3-whole-request-crosscheck",
-      "status": "complete-with-open-gates",
-      "criteria": [
-        {
-          "criterion": "README charter, Maximize P(Win), Own the Outcome, source classes, and status-first site",
-          "status": "implemented; README states the charter is a consolidated restatement, not a verbatim reconstruction"
-        },
-        {
-          "criterion": "prominent GeoTIFF download, executive summary, unique reserved name/comment, and exact manual upload instructions",
-          "status": "site complete; prominent TIFF is expressly legacy/reference-only because no H31 candidate exists"
-        },
-        {
-          "criterion": "official-grid/value validation and out-of-range regression protection",
-          "status": "implemented and locally tested against owner-mirror sample; organizer authenticity/acceptance unverified"
-        },
-        {
-          "criterion": "prior-score analysis with official/user/owner distinctions",
-          "status": "audit complete; D2.8 0.2600 remains USER-REPORTED and unresolved"
-        },
-        {
-          "criterion": "rank 3-5 geological hypotheses with rationale, novelty, uncertain gain, effort, provenance and validation",
-          "status": "four hypotheses documented; external data access blockers explicit"
-        },
-        {
-          "criterion": "empirical same-trace residual range and no arbitrary final buffer",
-          "status": "method frozen and pilot attempted; operational range unknown, H31-A stopped, no buffer substituted"
-        },
-        {
-          "criterion": "same-run/current-best comparison, fresh confirmation, exact-file, and official promotion gates",
-          "status": "fail-closed policy documented; H31-A metric failed; current-best comparison and confirmation not run; no slot approval"
-        },
-        {
-          "criterion": "multiple review passes and remaining-work recommendations",
-          "status": "three passes recorded; PRs #1 and #2 merged; root-source Pages redirect is built and verified; direct /docs configuration remains blocked by integration permissions"
-        },
-        {
-          "criterion": "truthful AI-use narrative",
-          "status": "draft updated to reflect the pilot and its negative result; entrant review required; not submitted"
-        }
-      ],
-      "delivery_state": "PR #1 merged at 18a9c4e9493192a21f2bb22ca0356d4a24be8d6c and PR #2 at d8b531025c63e9d56897f8b983bdfca284b33420; root-source Pages build is built and the root redirect to docs/ is verified; direct /docs settings change returned 403"
+     "criterion": "official-grid/value validation and out-of-range regression protection",
+     "status": "implemented and locally tested against owner-mirror sample; organizer authenticity/acceptance unverified"
     },
     {
-      "id": "pass-4-score-prior-art-and-source-implementation-2026-10-03",
-      "status": "complete-for-reviewed-artifacts",
-      "scope": [
-        "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
-        "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
-        "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective ΔDTI planning brackets, cost, and source-access limits",
-        "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
-      ],
-      "verification": {
-        "pytest": "25 passed",
-        "ruff": "all checks passed",
-        "compileall": "passed for src/, scripts/, and tests/",
-        "json": "all 11 checked JSON documents and all 8 pilot JSONL rows parse",
-        "html": "7 pages (root and docs) have no broken local links or fragments",
-        "claims_and_artifact": "score classes preserve USER-REPORTED / OWNER-MIRROR distinctions; official_score_receipts is empty; legacy TIFF SHA-256 matches 5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32"
-      },
-      "open_gates": [
-        "H27-4 0.2708 remains a user claim and directly conflicts with GEMSDOE28 owner-page UNSCORED status; D2.8 0.2600 remains user/owner-reported against GEMSDOE25 UNSCORED; no organizer receipt ties a value to exact bytes",
-        "four hypotheses are desk-only; no source product was assembled into a raster and no model/holdout was fit",
-        "runtime competition inputs/cache are absent; H31-A range and final buffer remain unknown; no candidate TIFF or slot is approved"
-      ]
+     "criterion": "prior-score analysis with official/user/owner distinctions",
+     "status": "audit complete; D2.8 0.2600 remains USER-REPORTED and unresolved"
     },
     {
-      "id": "pass-5-independent-assumption-and-link-review-2026-10-03",
-      "status": "complete-with-blockers-preserved",
-      "checks": [
-        "rechecked the H27-4 filename/hash/status against GEMSDOE28 owner records and separated its catalogue-gap proxy deltas from competition DTI",
-        "rechecked D2.8 0.2600 against both the pinned GEMSDOE25 registry and GEMSDOE28 owner page; retained attribution conflict and empty organizer receipt list",
-        "reviewed official ComCat, CMR ASTER, Water Data, NGMDB, and Water Data migration links; approximate-bbox catalog hits were not represented as full coverage or a viable feature",
-        "checked site local links/fragments, score classification assertions, branch guard tests, legacy hash, no-candidate labels, and manual-upload status"
-      ],
-      "findings_fixed": [
-        "updated stale runner/instruction branch from arena/01a104a9-gemsdoe31 to active fixed branch arena/01a1050e-gemsdoe31",
-        "retired H31-A sample submission name/comment because no current candidate exists",
-        "linked the official USGS notice that decommissions the old /nwis/gwlevels/ endpoint",
-        "updated the current test count from the historical 23 to the latest 25"
-      ],
-      "remaining_risks": [
-        "GEMSDOE28 Pages deployment identity was not proven byte-identical to its repository HEAD; its records remain OWNER-MIRROR, not organizer evidence",
-        "ComCat count and sample, ASTER catalog granule, Water Data sample, and reachable NGMDB viewer do not establish exact-area coverage, licensing, or holdout utility",
-        "no live DrivenData leaderboard, private score page, or submission interface was accessed; no monitoring/feed/upload was implemented"
-      ]
+     "criterion": "rank 3-5 geological hypotheses with rationale, novelty, uncertain gain, effort, provenance and validation",
+     "status": "four hypotheses documented; external data access blockers explicit"
     },
     {
-      "id": "pass-6-whole-charter-and-delivery-crosscheck-2026-10-03",
-      "status": "complete-with-open-gates",
-      "criteria": [
-        {
-          "criterion": "fault-mapping target, Maximize P(Win), Own the Outcome, README startup brief and source/evidence labels",
-          "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
-        },
-        {
-          "criterion": "3–5 distinct ranked hypotheses and official-source/access checks",
-          "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
-        },
-        {
-          "criterion": "manual upload guidance, unique name/comment, and prominent TIFF",
-          "status": "manual guidance retained; no current name/comment assigned; download explicitly legacy/reference-only, not a candidate"
-        },
-        {
-          "criterion": "measured buffer, holdout, current-best comparison, confirmation, exact-file validation, slot approval",
-          "status": "H31-A remains STOP; operational range unknown; no new holdout, candidate, confirmation, or slot approval; hard gates remain fail-closed"
-        },
-        {
-          "criterion": "AI narrative, three cumulative reviews, and delivery record",
-          "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1–3; PR #4 merged from the fixed branch."
-        }
-      ],
-      "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate."
+     "criterion": "empirical same-trace residual range and no arbitrary final buffer",
+     "status": "method frozen and pilot attempted; operational range unknown, H31-A stopped, no buffer substituted"
+    },
+    {
+     "criterion": "same-run/current-best comparison, fresh confirmation, exact-file, and official promotion gates",
+     "status": "fail-closed policy documented; H31-A metric failed; current-best comparison and confirmation not run; no slot approval"
+    },
+    {
+     "criterion": "multiple review passes and remaining-work recommendations",
+     "status": "three passes recorded; PRs #1 and #2 merged; root-source Pages redirect is built and verified; direct /docs configuration remains blocked by integration permissions"
+    },
+    {
+     "criterion": "truthful AI-use narrative",
+     "status": "draft updated to reflect the pilot and its negative result; entrant review required; not submitted"
     }
-  ],
-  "remaining_work": [
-    "do not run H31-A screen/confirmation or create a candidate TIFF; no measured operational buffer exists",
-    "select/preregister a new hypothesis only after product-level coverage/access/license and feature-quality checks, then establish an empirical buffer and identical-fold incumbent comparison",
-    "resolve official-template provenance and permitted runtime/LiDAR/ASTER access if an authorized route becomes available",
-    "keep official leaderboard access manual and static unless prior written permission changes; preserve unverified score classifications",
-    "if GitHub permits, publish this reviewed work from arena/01a1050e-gemsdoe31 and report the exact PR/check/merge status"
-  ]
+   ],
+   "delivery_state": "PR #1 merged at 18a9c4e9493192a21f2bb22ca0356d4a24be8d6c and PR #2 at d8b531025c63e9d56897f8b983bdfca284b33420; root-source Pages build is built and the root redirect to docs/ is verified; direct /docs settings change returned 403"
+  },
+  {
+   "id": "pass-4-score-prior-art-and-source-implementation-2026-10-03",
+   "status": "complete-for-reviewed-artifacts",
+   "scope": [
+    "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
+    "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
+    "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective \u0394DTI planning brackets, cost, and source-access limits",
+    "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
+   ],
+   "verification": {
+    "pytest": "25 passed",
+    "ruff": "all checks passed",
+    "compileall": "passed for src/, scripts/, and tests/",
+    "json": "all 11 checked JSON documents and all 8 pilot JSONL rows parse",
+    "html": "7 pages (root and docs) have no broken local links or fragments",
+    "claims_and_artifact": "score classes preserve USER-REPORTED / OWNER-MIRROR distinctions; official_score_receipts is empty; legacy TIFF SHA-256 matches 5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32"
+   },
+   "open_gates": [
+    "H27-4 0.2708 remains a user claim and directly conflicts with GEMSDOE28 owner-page UNSCORED status; D2.8 0.2600 remains user/owner-reported against GEMSDOE25 UNSCORED; no organizer receipt ties a value to exact bytes",
+    "four hypotheses are desk-only; no source product was assembled into a raster and no model/holdout was fit",
+    "runtime competition inputs/cache are absent; H31-A range and final buffer remain unknown; no candidate TIFF or slot is approved"
+   ]
+  },
+  {
+   "id": "pass-5-independent-assumption-and-link-review-2026-10-03",
+   "status": "complete-with-blockers-preserved",
+   "checks": [
+    "rechecked the H27-4 filename/hash/status against GEMSDOE28 owner records and separated its catalogue-gap proxy deltas from competition DTI",
+    "rechecked D2.8 0.2600 against both the pinned GEMSDOE25 registry and GEMSDOE28 owner page; retained attribution conflict and empty organizer receipt list",
+    "reviewed official ComCat, CMR ASTER, Water Data, NGMDB, and Water Data migration links; approximate-bbox catalog hits were not represented as full coverage or a viable feature",
+    "checked site local links/fragments, score classification assertions, branch guard tests, legacy hash, no-candidate labels, and manual-upload status"
+   ],
+   "findings_fixed": [
+    "updated stale runner/instruction branch from arena/01a104a9-gemsdoe31 to active fixed branch arena/01a1050e-gemsdoe31",
+    "retired H31-A sample submission name/comment because no current candidate exists",
+    "linked the official USGS notice that decommissions the old /nwis/gwlevels/ endpoint",
+    "updated the current test count from the historical 23 to the latest 25"
+   ],
+   "remaining_risks": [
+    "GEMSDOE28 Pages deployment identity was not proven byte-identical to its repository HEAD; its records remain OWNER-MIRROR, not organizer evidence",
+    "ComCat count and sample, ASTER catalog granule, Water Data sample, and reachable NGMDB viewer do not establish exact-area coverage, licensing, or holdout utility",
+    "no live DrivenData leaderboard, private score page, or submission interface was accessed; no monitoring/feed/upload was implemented"
+   ]
+  },
+  {
+   "id": "pass-6-whole-charter-and-delivery-crosscheck-2026-10-03",
+   "status": "complete-with-open-gates",
+   "criteria": [
+    {
+     "criterion": "fault-mapping target, Maximize P(Win), Own the Outcome, README startup brief and source/evidence labels",
+     "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
+    },
+    {
+     "criterion": "3\u20135 distinct ranked hypotheses and official-source/access checks",
+     "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
+    },
+    {
+     "criterion": "manual upload guidance, unique name/comment, and prominent TIFF",
+     "status": "manual guidance retained; no current name/comment assigned; download explicitly legacy/reference-only, not a candidate"
+    },
+    {
+     "criterion": "measured buffer, holdout, current-best comparison, confirmation, exact-file validation, slot approval",
+     "status": "H31-A remains STOP; operational range unknown; no new holdout, candidate, confirmation, or slot approval; hard gates remain fail-closed"
+    },
+    {
+     "criterion": "AI narrative, three cumulative reviews, and delivery record",
+     "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1\u20133; PR #4 merged from the fixed branch."
+    }
+   ],
+   "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate."
+  },
+  {
+   "id": "pass-10-regenerate-and-verify-every-measured-number",
+   "status": "complete-for-current-artifacts",
+   "scope": [
+    "restore and hash-verify the 11 pinned inputs in this workspace (data_restore.json all_verified true)",
+    "write the official metric from the published sums and verify it against a literal brute-force transcription",
+    "regenerate the filter and union experiments from committed artifacts (scripts/run_union.py)",
+    "quantise the fold-OOF maps so a fresh clone can reproduce the union step (scripts/pack_oof.py)",
+    "regenerate every site page from the registers (scripts/build_site.py) and check it (scripts/check_site.py)"
+   ],
+   "verification": {
+    "inputs": "11/11 hash-pinned entries restored and verified; grid/CRS/shape/dtype re-checked by prepare_data --verify-only",
+    "metric": "max |DTI_fast - DTI_brute| = 4.44e-16 over 24 random grids, plus two exact closed-form cases; TPw + FNw = |G| holds",
+    "incumbent_reproduction": "scripts/run_union.py reproduces the registered incumbent DTIs (0.04909549919996513 / 0.09384814898733441) to < 1e-9 and refuses to write otherwise",
+    "union_reproduction": "D-arm p>=0.70 catalogue-dropping union reproduces exactly (15,105 added, 55,304 dots, 0.0721 / 0.0955)",
+    "new_finding": "the LiDAR-arm union at p>=0.60 is stronger than any radiometric-arm union (+0.0060 vs +0.0017 on the off-catalogue proxy)",
+    "site": "20 pages, 257 local links, no broken link, no placeholder symbol, no pictogram in chrome (scripts/check_site.py)",
+    "suite": "ruff clean; 30 tests pass, including the new metric, register, submission-file and buffer tests"
+   },
+   "open_scientific_gates": [
+    "the arm-training code behind arm_results.json / operating_point.json is not in this snapshot",
+    "no organizer receipt for any score; 0.2708 and 0.2600 remain owner-reported",
+    "the off-catalogue proxy is SGMC state-map faults, not the hidden expert-mapped truth"
+   ]
+  },
+  {
+   "id": "pass-11-bug-assumption-and-leakage-review",
+   "status": "complete-for-current-artifacts",
+   "scope": [
+    "re-derive the metric from the official page rather than from memory, and correct the earlier off-by-one arithmetic in the exact test case",
+    "check that no catalogue-derived feature enters either evaluation proxy",
+    "check that the site never states a score as official, never states a proxy DTI as a competition score, and never marks a file slot-approved",
+    "check the register schema change (submissions.json) against the tests and the site generator"
+   ],
+   "verification": {
+    "metric_definition": "re-fetched the official problem page in this session; formulas, alpha/beta, 300 m kernel and format rules transcribed from it, and epsilon recorded as an assumption",
+    "epsilon": "the published page does not state epsilon; the implementation uses 1e-10 and says so in the module and on the site",
+    "proxies": "no arm uses a catalogue-distance or SGMC-derived feature; both proxies are computed from rasters that never enter training",
+    "claims": "registry/submissions.json marks every file slot_approved false; feed.json discloses the absent organizer receipt; tests assert both fail-closed properties",
+    "schema": "collect_evidence.py now derives the register from receipts so hashes cannot go stale; a test re-hashes every registered file"
+   },
+   "open_scientific_gates": [
+    "the union gain (+0.0060) is measured on a proxy with a different fault population from the hidden truth",
+    "the quantised OOF maps shift a few threshold-boundary cells (max value error 7.7e-06); headline rows reproduce exactly"
+   ]
+  },
+  {
+   "id": "pass-12-charter-crosscheck",
+   "status": "complete-with-open-work",
+   "scope": [
+    "walk the written brief item by item against the repository, the site and the registers",
+    "record what is satisfied, what is partial, and what is blocked"
+   ],
+   "verification": {
+    "core_question": "answered with measurements on the research page: sparse off-catalogue dot geometry plus the metric algebra; the 0.3195 target is quantified as a detection gap, not a budget gap",
+    "hypotheses": "five candidates ranked on the research page, each with layers, physical signature, novelty, cost and status; only H32-2 has partial measurement",
+    "buffer": "derived (21.25 km) and reported with fits, bootstrap band and the withdrawn 94.3 km rule recorded",
+    "one_click_download": "index and executive summary both carry the download; executive summary documents the portal steps and the [0,1] error class",
+    "regression_test": "tests/test_submission.py keeps the inside-NaN case that produces that error class",
+    "delivery": "pull request and merge recorded in the repository history; Pages serves docs/"
+   },
+   "open_scientific_gates": [
+    "next-week slot candidate: rerun the union with a better-trained classifier rather than a re-quantiled incumbent",
+    "re-implement the arm trainer so the whole chain reruns from a fresh clone",
+    "obtain the GDR 1391 depth stack and 3DEP return attributes through the CI runner, or record them as unavailable"
+   ]
+  }
+ ],
+ "remaining_work": [
+  "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
+  "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
+  "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",
+  "fetch the GDR 1391 depth stack and 3DEP LAZ return attributes through the CI runner (sandbox cannot reach those hosts) or record them as unavailable",
+  "resolve the D2.8 0.2600 and h27-4 0.2708 score provenance by attaching organizer receipts to registry/score_claims.json",
+  "keep the leaderboard as a static link and the AI disclosure as an entrant-reviewed draft"
+ ]
 }

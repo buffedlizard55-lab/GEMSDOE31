@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Current download, buffer, proxy scores and open items, rebuilt from the repository&#x27;s own evidence.">
+  <title>Live feed · GEMSDOE31</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="research.html">Research</a><a href="validation.html">Validation</a><a href="register/index.html">Register</a><a href="experiments/index.html">Experiments</a><a href="sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Live feed</p>
+      <h1>The state of the project, from the files.</h1>
+      <p class="hero-lede">Rebuilt on every push from registry/ and evidence/, published as HTML and as JSON.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Machine-readable</p><h2>Current state of the project</h2></div>
+        <p>Regenerated from the register and evidence files, so it cannot drift from the measurements. Also published as <a href="feed.json">feed.json</a>.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>field</th><th>value</th></tr></thead><tbody><tr><td>name</td><td><code>&quot;gemsdoe31-h27-4-solo-d28-20261004-8acb75e1&quot;</code></td></tr><tr><td>tif</td><td><code>&quot;docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif&quot;</code></td></tr><tr><td>sha256</td><td><code>&quot;07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40&quot;</code></td></tr><tr><td>positive_pixels</td><td><code>40199</code></td></tr><tr><td>positive_pixels_on_public_catalogue</td><td><code>0</code></td></tr><tr><td>format_validated</td><td><code>true</code></td></tr><tr><td>measured</td><td><code>null</code></td></tr><tr><td>score_status</td><td><code>&quot;owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository&quot;</code></td></tr><tr><td>slot_approved</td><td><code>false</code></td></tr><tr><td>name</td><td><code>&quot;gemsdoe31-union-b-p060-20261004-8acb75e1&quot;</code></td></tr><tr><td>tif</td><td><code>&quot;docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif&quot;</code></td></tr><tr><td>sha256</td><td><code>&quot;a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23&quot;</code></td></tr><tr><td>positive_pixels</td><td><code>106138</code></td></tr><tr><td>off_catalogue_proxy_DTI</td><td><code>0.09985654750452583</code></td></tr><tr><td>incumbent_off_catalogue_proxy_DTI</td><td><code>0.09384814898733425</code></td></tr><tr><td>delta</td><td><code>0.006008398517191579</code></td></tr><tr><td>slot_approved</td><td><code>false</code></td></tr><tr><td>derived_buffer_km</td><td><code>21.25</code></td></tr><tr><td>empirical_decay_range_km</td><td><code>21.25</code></td></tr><tr><td>rule</td><td><code>&quot;buffer = max(empirical lag at 95 % of the peak semivariance, median fitted practical range over spherical/exponential/gaussian). The maximum fitted range and the bootstrap 95th percentile are reported as a sensitivity band, not used as the buffer, because they can exceed the populated lag support.&quot;</code></td></tr><tr><td>source</td><td><code>&quot;evidence/buffer_derivation.json&quot;</code></td></tr><tr><td>incumbent_off_catalogue</td><td><code>0.09384814898733425</code></td></tr><tr><td>incumbent_catalogue_gap</td><td><code>0.04909549919996504</code></td></tr><tr><td>baseline_arm_off_catalogue</td><td><code>0.0515978683707771</code></td></tr><tr><td>best_arm_off_catalogue</td><td><code>0.06289056072017701</code></td></tr><tr><td>best_union_off_catalogue</td><td><code>0.09560727109224337</code></td></tr></tbody></table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Boundary</p><h2>Why the feed stops there</h2></div>
+        <p>Three things are deliberately not automated, each for a stated reason.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><h3>Leaderboard reads</h3><p>Automatic access and monitoring are prohibited without written
+        consent, so the leaderboard stays a link for a human. Scores enter the repository only as owner-reported
+        claims with the file's SHA-256 attached.</p></div>
+        <div class="card"><h3>Uploads</h3><p>Nothing here submits a file. A weekly slot is scarce and the charter
+        requires a measured margin first.</p></div>
+        <div class="card"><h3>Post-holdout tuning</h3><p>Arms are ranked on fixed folds with a fixed buffer, and the
+        promotion rule is written into the evidence file before the run.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Open items</p><h2>What is still owed</h2></div>
+        <p>Published so the next session starts from the same list rather than from memory.</p>
+      </div>
+      <div class="card"><ul><li>no organizer receipt for any score on this site</li><li>no candidate has beaten the incumbent on the off-catalogue proxy by a margin worth a weekly slot</li><li>external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated</li></ul></div>
+      <h3>Rebuild</h3>
+      <pre>python scripts/collect_evidence.py   # copy measured artifacts into evidence/ + registry/experiments.json
+python scripts/build_site.py          # regenerate every page and feed.json</pre>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Feed data: feed.json · rebuilt by scripts/build_site.py</p>
+    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
+</body>
+</html>

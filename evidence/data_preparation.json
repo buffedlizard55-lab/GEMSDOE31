@@ -1,0 +1,161 @@
+{
+ "schema_version": 1,
+ "verify_only": true,
+ "files": [
+  {
+   "id": "training_features",
+   "dest": "training_features.tif",
+   "exists": true,
+   "bytes": 418912844,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "float32",
+   "bands": 19
+  },
+  {
+   "id": "labels",
+   "dest": "labels.tif",
+   "exists": true,
+   "bytes": 425830,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "int8",
+   "bands": 1
+  },
+  {
+   "id": "sample_submission",
+   "dest": "sample_submission.tif",
+   "exists": true,
+   "bytes": 1599597,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "float32",
+   "bands": 1
+  },
+  {
+   "id": "lidar_scarp_features",
+   "dest": "external/lidar_scarp_features_u8.tif",
+   "exists": true,
+   "bytes": 36943606,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 12
+  },
+  {
+   "id": "geodawn_rad",
+   "dest": "external/geodawn_rad_u8.tif",
+   "exists": true,
+   "bytes": 26612970,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 4
+  },
+  {
+   "id": "geodawn_extensions",
+   "dest": "external/geodawn_extensions_u8.tif",
+   "exists": true,
+   "bytes": 27132925,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 4
+  },
+  {
+   "id": "sgmc_faults",
+   "dest": "external/derived_sgmc_faults_100m_u8.tif",
+   "exists": true,
+   "bytes": 213034,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1
+  },
+  {
+   "id": "gdr_volcanics",
+   "dest": "external/derived_gdr_volcanics_100m_u8.tif",
+   "exists": true,
+   "bytes": 72349,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1
+  },
+  {
+   "id": "gdr_2m_probes",
+   "dest": "external/derived_gdr_2m_probes_100m_u8.tif",
+   "exists": true,
+   "bytes": 78021,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1
+  },
+  {
+   "id": "gdr_paleo",
+   "dest": "external/derived_gdr_paleo_100m_u8.tif",
+   "exists": true,
+   "bytes": 70221,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1
+  },
+  {
+   "id": "gdr_qfaults_v2",
+   "dest": "external/derived_gdr_qfaults_v2_100m_u8.tif",
+   "exists": true,
+   "bytes": 191289,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1
+  }
+ ],
+ "all_hashes_match": true
+}

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ranked geological hypotheses and preregistered spatial validation for GEMSDOE31.">
-  <title>Research plan · GEMSDOE31</title>
+  <meta name="description" content="Metric algebra, the measured detection gap, and five ranked geological hypotheses with their evidence classes.">
+  <title>Research · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -12,142 +12,166 @@
     <div class="wrap topbar-inner">
       <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html">Overview</a>
-        <a href="executive-summary.html">Executive summary</a>
-        <a href="research.html" aria-current="page">Research</a>
-        <a href="score-audit.html">Score audit</a>
-        <a href="sources.html">Sources</a>
+        <a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="research.html" aria-current="page">Research</a><a href="validation.html">Validation</a><a href="register/index.html">Register</a><a href="experiments/index.html">Experiments</a><a href="sources.html">Sources</a>
       </nav>
     </div>
   </header>
-
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Hypotheses · preregistration · validation</p>
-      <h1>Rank ideas by evidence and testability.</h1>
-      <p class="hero-lede">Four distinct geological candidates were compared against prior repository work. H31-A was selected for a controlled test using existing bands; its pilot failed and was stopped before screen or confirmation.</p>
+      <p class="eyebrow">Research</p>
+      <h1>What the score means, and what could beat it.</h1>
+      <p class="hero-lede">The mechanism behind 0.2708, the quantified reason re-budgeting fails, and ranked candidate hypotheses — each with a physical signature and a reason it can find an unmapped fault.</p>
     </div>
   </section>
 
   <main class="wrap">
-    <div class="notice notice-danger"><strong>H31-A pilot stopped</strong>The protocol was frozen before fitting. Pilot draw 10 missed its paired metric gate (mean ΔDTI −0.004009; 1/4 blocks positive), and neither residual variogram identified a stable range. The final buffer is unknown; do not proceed to screen or confirmation. The expected-gain figures in the table remain pre-fit planning brackets, not measured effects or leaderboard forecasts. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/h31_a_pilot_2026-10-04.md">Read the pilot report</a>.</div>
-
-    <section aria-labelledby="prior-art-heading">
-      <div class="card">
-        <p class="kicker">Cross-repository review · owner/user claims are not official receipts</p>
-        <h2 id="prior-art-heading">H27-4 is a pruning experiment, not a verified 0.2708 result</h2>
-        <p>The supplied score list attributes 0.2708 to H27-4, while the current GEMSDOE28 page lists an H27-4 artifact with the same experiment-name suffix as UNSCORED. The owner-page TIFF was not byte-matched to the user-mentioned file, so exact identity remains unresolved. Its reported +0.00177/+0.00176 catalogue-gap holdout gains are proxy results, not competition scores. This review also expands prior art beyond GEMSDOE25 to the later GEMSDOE28 pruning, re-packing, greedy-emission, Euler, heat-flow, and scarp experiments.</p>
-        <p><a class="button button-light" href="score-audit.html">Read score audit and four new desk hypotheses →</a></p>
-      </div>
-    </section>
-
-    <section aria-labelledby="hypotheses-heading">
+    <section>
       <div class="section-head">
-        <div><p class="kicker">Ranked candidates</p><h2 id="hypotheses-heading">Geological hypotheses</h2></div>
-        <p>Rank reflects value-for-effort and probability of a clean test. Every gain range is uncertain; zero or negative is plausible.</p>
+        <div><p class="kicker">Question 1</p><h2>Why <code>h27-4-r1-solo-d2-8</code> is the best artifact</h2></div>
+        <p>The mechanism is in the metric algebra, and it is measurable rather than arguable.</p>
       </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Rank / status</th><th>Layers &amp; physical signature</th><th>Why unmapped faults?</th><th>Novelty vs prior work</th><th>Planning ΔDTI / cost / access</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><span class="badge badge-red">1 · tested, stopped</span><br><strong>H31-A</strong><br>Multiscale magnetic local-wavelength discontinuity</td>
-              <td>Supplied <code>tmi_hg</code> and <code>tmi_vg</code>. Build analytic-signal amplitude and a scale-normalized local characteristic-length proxy at σ=1 and 3 cells, then a cross-scale edge response.</td>
-              <td>Basement/contact offsets can change magnetic response wavelength and edge geometry without a mapped surface scarp. Cross-scale persistence may suppress single-scale noise.</td>
-              <td>Not another amplitude, tilt, or single-ridge feature. Tests local characteristic wavelength and its transition across two fixed scales; no catalogue geometry enters static feature creation.</td>
-              <td>+0.000 to +0.006, low confidence; ~1 day. Existing hash-pinned bands only. Mirror provenance, not organizer-authenticated input.</td>
-            </tr>
-            <tr>
-              <td><span class="badge">2 · blocked</span><br><strong>H31-B</strong><br>Raw LiDAR return attributes</td>
-              <td>USGS 3DEP/GeoDAWN LAZ return density, intensity quantiles and cross-scarp contrasts aggregated to the 100 m grid.</td>
-              <td>Near-surface material, roughness or cover changes can mark a subtle damage zone when a bare-earth scarp edge is weak; vegetation, roads, mines and acquisition geometry are confounders.</td>
-              <td>Prior work uses derived DEM/scarp descriptors; it does not test raw per-return point-cloud attributes.</td>
-              <td>+0.001 to +0.015, very uncertain; 3–5 days after data access. TNM API lists one in-footprint tile record, but the LAZ binary/header/attributes and full-grid overlap remain unverified.</td>
-            </tr>
-            <tr>
-              <td><span class="badge">3 · conditional</span><br><strong>H31-C</strong><br>Depth-resolved MT conductance continuity</td>
-              <td>Five published magnetotelluric conductance depth ranges across 2–200 km; test cross-depth persistence of gradients/lineaments.</td>
-              <td>A fault or fluid pathway may connect deep conductive anomalies without a mapped surface trace; MT resolution and non-uniqueness may overwhelm a 100 m target.</td>
-              <td>Tests depth-stack coherence, not just supplied surface conductivity or conductive-base depth.</td>
-              <td>0 to +0.008, low confidence; 2–4 days after retrieval. Public GDR source checked; individual rasters, resolution and exact GEMS coverage not verified.</td>
-            </tr>
-            <tr>
-              <td><span class="badge">4 · not viable this sprint</span><br><strong>H31-D</strong><br>OPERA Sentinel-1 displacement-gradient corridors</td>
-              <td>NASA/JPL/ASF OPERA DISP-S1 line-of-sight displacement time series, 30 m posting; quality-filter by track and season.</td>
-              <td>Active creep/differential deformation may reveal a missing strand. Inactive or blind faults may be invisible; decorrelation, atmosphere, groundwater and mining can mimic signal.</td>
-              <td>Different from static scalar strain/seismicity bands: it uses interferometric displacement time series and track-consistency.</td>
-              <td>0 to +0.005, low confidence; 1–3 weeks. Official product record checked; no GEMS-area granules or access/quality selection verified.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="small">Novelty review covered prior magnetic/gravity gradients and ridges, DEM/scarp features, strain/seismicity, radiometric/thermal/geochemical features, catalogue geometry, sparse emission, strike compatibility, cross-scarp contrast, gravity–magnetic conjunctions, tips/relay bridges and scarp persistence. H30 relay × scarp failed fresh confirmation and is stopped. Full candidate rationale is in the <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-04_h31_hypotheses_preregistration.md">preregistration</a>.</p>
-    </section>
-
-    <section aria-labelledby="h31a-heading">
-      <div class="section-head">
-        <div><p class="kicker">Frozen experiment · pilot outcome</p><h2 id="h31a-heading">H31-A: design and paired pilot result</h2></div>
-      </div>
-      <div class="grid grid-2">
-        <article class="card">
-          <h3>Two feature columns, no labels in feature creation</h3>
-          <p>Use the pinned owner-mirror values of <code>tmi_hg</code> and <code>tmi_vg</code>. The local characteristic length is a wavelength/scale proxy—not a physical depth estimate. Smooth at σ=1 and 3 grid cells, calculate the length response, then create:</p>
-          <ul class="pill-list"><li><code>H31_mag_local_length</code></li><li><code>H31_mag_scale_edge</code></li></ul>
-          <p>Invalid derivative cells are nearest-filled only during filtering, then re-masked. Normalization uses unlabeled values in the footprint.</p>
-        </article>
-        <article class="card">
-          <h3>Same-run paired comparison</h3>
-          <p>Base features: BDE plus fixed X1–X3 add-ons (same-run H19-5 parent comparator). Candidate: same columns plus the two H31-A features. Same folds/draws, negative samples, HistGradientBoosting model, emission and DTI.</p>
-          <p>Use four contiguous quadrants, whole connected known-fault components hidden at a fixed 20% proxy rate, and the exact official 300 m distance-weighted Tversky endpoint. This is a catalogue-gap proxy, not private truth.</p>
-        </article>
-      </div>
-      <div class="card" style="margin-top:18px">
-        <h3>Computed catalogue-gap pilot · not a competition score</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Block</th><th>Base DTI</th><th>H31-A DTI</th><th>ΔDTI</th></tr></thead>
-            <tbody>
-              <tr><td>NW</td><td>0.163511</td><td>0.154660</td><td>−0.008852</td></tr>
-              <tr><td>NE</td><td>0.154680</td><td>0.150361</td><td>−0.004319</td></tr>
-              <tr><td>SW</td><td>0.126483</td><td>0.119793</td><td>−0.006690</td></tr>
-              <tr><td>SE</td><td>0.177123</td><td>0.180948</td><td>+0.003825</td></tr>
-              <tr><th>Mean paired block delta</th><td colspan="2"></td><th>−0.004009</th></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>Only 1/4 blocks were positive, below the preregistered 3/4 requirement, and mean ΔDTI missed the >+0.001 threshold. Both metric and residual-range evidence block promotion. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/h31_a_pilot_2026-10-04.md">Full results and uncertainty report</a>.</p>
-      </div>
-    </section>
-
-    <section aria-labelledby="buffer-heading">
-      <div class="section-head">
-        <div><p class="kicker">No arbitrary pixel collar</p><h2 id="buffer-heading">Why the final buffer remains unknown</h2></div>
-      </div>
-      <div class="grid grid-3">
-        <article class="card"><span class="tag">Pilot completed</span><h3>Draw 10 · temporary 500 m collar</h3><p>The 500 m collar generated held-out residuals only. It is not an empirical range and must never be reused as the final buffer.</p></article>
-        <article class="card"><span class="tag">Fit attempted</span><h3>Same-trace residual variogram</h3><p>Each arm had 583 trace groups with pairs and 28 populated 500 m bins, but observed support ended at 13.75 km. The fit reached only 0.808 of the fitted partial sill; the stability rule requires 0.95.</p></article>
-        <article class="card"><span class="tag">Stop · range unknown</span><h3>No final buffer</h3><p>The unstable ~24.964 km point-fit diagnostic is unsupported extrapolation; no bootstrap interval was produced. Operational range and final buffer are unknown. H31-A stops.</p></article>
-      </div>
-    </section>
-
-    <section aria-labelledby="gate-heading">
-      <div class="card">
-        <p class="kicker">Promotion gate</p>
-        <h2 id="gate-heading">A screen pass is not enough</h2>
+      <div class="content">
+        <p>The official metric is a distance-weighted Tversky index with α = 0.2, β = 0.8 and a triangular kernel of
+        radius 300 m, so the denominator charges <strong>0.2 for every emitted pixel</strong> while a truth pixel is
+        credited once. A dotted emission therefore pays little per dot and still reaches almost every truth pixel
+        within the kernel radius. <code>scripts/verify_h27_geometry.py</code> tests the two published rasters and the
+        catalogue against each other (<code>evidence/h27_geometry.json</code>), and the geometry that produced the
+        score is now a measurement rather than a description:</p>
         <ul>
-          <li>Screen draws 11–12: paired mean DTI gain strictly above +0.001; candidate better in at least 3/4 blocks; worst block no worse than −0.010; mean catalogue-hug increase no more than +0.10; stable final buffer.</li>
-          <li>Re-fit variograms on final-screen residuals. If the upper range exceeds the applied buffer, enlarge and rerun the registered screen, up to the preregistered limit.</li>
-          <li>Fresh confirmation draws 13–14 use the same exact frozen buffer and must pass the same metric/buffer checks. Confirmation failure stops the candidate.</li>
-          <li>H31-A is stopped before any weekly-slot gate. A future candidate would still need to reproduce and beat the actual current-best comparator on the same folds/buffer, pass fresh confirmation, and pass exact-file validation; none of those promotion gates is satisfied.</li>
+          <li><strong>It is the D2.8 emission minus its catalogue-flank dots.</strong> Removing every D2.8 cell within
+          100 m of the public catalogue leaves exactly 40,199 cells, and that set
+          equals the 40,199-cell file <strong>bit for bit</strong> — a
+          3,891-cell prune that the owner page describes and this
+          repository now confirms.</li>
+          <li><strong>Nothing left sits on the catalogue.</strong>
+          0 of the retained cells are within
+          100 m of it; retained cells sit a median of
+          1,769 m away.</li>
+          <li><strong>It is dotted, not a field.</strong> Nearest-neighbour spacing is
+          283 m minimum / median
+          300 m — at the 300 m kernel radius, so neighbouring dots
+          share credit without double-paying the denominator.</li>
+          <li><strong>High credit per dot.</strong> On this repository's off-catalogue proxy the same dot set earns
+          0.1353 credit per emitted pixel, versus 0.02–0.05 for every thresholded detector tested here.</li>
         </ul>
+        <p class="small">Caveat kept in view: the owner page lists this artifact as <em>unscored</em>, so the 0.2708
+        attribution rests on the owner's report, not on an organizer receipt
+        (<code>registry/score_claims.json</code>).</p>
       </div>
     </section>
 
     <section>
-      <div class="notice"><strong>Data-access boundary for H31-B</strong>USGS TNM Access lists a LAZ tile record in the owner-mirror footprint at 49/49 sampled locations. The sandbox could not retrieve the exact tile; its return fields and the complete study-area coverage are not verified. H31-B is not testable yet. Details: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/data_access_audit_2026-10-04.md">data-access audit</a>.</div>
+      <div class="section-head">
+        <div><p class="kicker">Question 2</p><h2>Why re-budgeting cannot reach 0.3195</h2></div>
+        <p>Both the algebra and this repository's measurements point the same way.</p>
+      </div>
+      <div class="content">
+        <p>The owner-mirror inversion in GEMSDOE28 calibrates the hidden truth at |G| ≈ 12,226 px and reports that
+        reaching a 0.3195 row needs ≈5,942 px of credit — 1,151 px more than the 0.2600 artifact captured. The one
+        exactly-controlled live measurement of marginal efficiency is the thinning step itself: removing 15,979 dots
+        cost 495.08 px of credit, i.e. <strong>0.031 credit per dot</strong>, below the break-even
+        <code>0.2·DTI / (1 − 0.2·DTI) ≈ 0.055</code>. Dots at that efficiency can never pay for themselves.</p>
+        <p>This repository independently measured the same sign error in a second instrument. Ranking arms on the
+        catalogue-gap holdout and on the off-catalogue proxy produces <strong>opposite orderings</strong>: the
+        LiDAR-augmented arm wins the catalogue-gap score while the catalogue-ignoring incumbent dot set wins the
+        off-catalogue score by roughly 2×. A selection rule built on catalogue proximity therefore systematically
+        promotes arms that cannot move the live score — which is why earlier holdouts "validated" arms worth ≈0.001.</p>
+      </div>
+      <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Catalogue-dropping variants only, both detector arms, measured against the same incumbent dot set. The incumbent is never thinned; additions are only ever added.</caption><thead><tr><th>emission</th><th>total dots</th><th>catalogue-gap DTI</th><th>off-catalogue DTI</th><th>Δ off-catalogue</th><th>added credit/dot</th></tr></thead><tbody><tr><td><strong>incumbent</strong> (40,199 dots)</td><td>—</td><td>0.0491</td><td>0.0938</td><td>—</td><td>0.1353</td></tr><tr><td>incumbent + LiDAR arm p≥0.50<div class="small">+211,125 added dots</div></td><td>251,324</td><td>0.1033</td><td>0.0982</td><td><strong>+0.0044</strong></td><td>0.0203</td></tr><tr><td>incumbent + LiDAR arm p≥0.60 <span class="badge badge-green">best union</span><div class="small">+65,939 added dots</div></td><td>106,138</td><td>0.0948</td><td>0.0999</td><td><strong>+0.0060</strong></td><td>0.0247</td></tr><tr><td>incumbent + LiDAR arm p≥0.65<div class="small">+30,461 added dots</div></td><td>70,660</td><td>0.0821</td><td>0.0972</td><td><strong>+0.0034</strong></td><td>0.0252</td></tr><tr><td>incumbent + LiDAR arm p≥0.70<div class="small">+12,180 added dots</div></td><td>52,379</td><td>0.0683</td><td>0.0958</td><td><strong>+0.0020</strong></td><td>0.0277</td></tr><tr><td>incumbent + LiDAR arm p≥0.75<div class="small">+4,586 added dots</div></td><td>44,785</td><td>0.0592</td><td>0.0950</td><td><strong>+0.0012</strong></td><td>0.0329</td></tr><tr><td>incumbent + LiDAR arm p≥0.80<div class="small">+1,563 added dots</div></td><td>41,762</td><td>0.0524</td><td>0.0944</td><td><strong>+0.0005</strong></td><td>0.0373</td></tr><tr><td>incumbent + LiDAR arm p≥0.90<div class="small">+29 added dots</div></td><td>40,228</td><td>0.0494</td><td>0.0938</td><td><strong>-0.0000</strong></td><td>0.0020</td></tr><tr><td>incumbent + LiDAR arm p≥0.95<div class="small">+0 added dots</div></td><td>40,199</td><td>0.0491</td><td>0.0938</td><td><strong>+0.0000</strong></td><td>0.0000</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.50<div class="small">+207,428 added dots</div></td><td>247,627</td><td>0.1090</td><td>0.0933</td><td><strong>-0.0006</strong></td><td>0.0180</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.60<div class="small">+69,320 added dots</div></td><td>109,519</td><td>0.0971</td><td>0.0951</td><td><strong>+0.0012</strong></td><td>0.0196</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.65<div class="small">+34,257 added dots</div></td><td>74,456</td><td>0.0851</td><td>0.0956</td><td><strong>+0.0018</strong></td><td>0.0215</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.70<div class="small">+15,105 added dots</div></td><td>55,304</td><td>0.0721</td><td>0.0955</td><td><strong>+0.0017</strong></td><td>0.0247</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.75<div class="small">+6,439 added dots</div></td><td>46,638</td><td>0.0622</td><td>0.0952</td><td><strong>+0.0014</strong></td><td>0.0302</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.80<div class="small">+2,429 added dots</div></td><td>42,628</td><td>0.0558</td><td>0.0949</td><td><strong>+0.0010</strong></td><td>0.0421</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.90<div class="small">+54 added dots</div></td><td>40,253</td><td>0.0492</td><td>0.0940</td><td><strong>+0.0001</strong></td><td>0.1495</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.95<div class="small">+0 added dots</div></td><td>40,199</td><td>0.0491</td><td>0.0938</td><td><strong>+0.0000</strong></td><td>0.0000</td></tr></tbody></table></div>
     </section>
-  </main>
 
-  <footer class="footer"><div class="wrap footer-inner"><p>Planning ranges are not results. No leaderboard accessed.</p><p><a href="sources.html">Official sources</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-04_h31_hypotheses_preregistration.md">Full preregistration</a></p></div></footer>
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Question 3</p><h2>Five candidate hypotheses, ranked</h2></div>
+        <p>Rank is expected off-catalogue gain per unit of effort. Only the first has been partially measured here; the rest are INFERENCE and are labelled as such.</p>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>rank</th><th>layers and physical signature</th><th>why it can find faults the catalogue lacks</th><th>novelty vs. everything tried here</th><th>cost / status</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-green">1 · partially measured</span><br><strong>H32-2</strong><br>Radiometric K and Th/K damage-zone matched filter</td>
+            <td>GeoDAWN contractor K, Th and U grids and the Th/K, U/K, U/Th ratios; an oriented cross-strike matched filter for a narrow zone of K enrichment with Th/K depression.</td>
+            <td>A damage zone concentrates K-bearing clay/zeolite alteration and K-feldspar veining, so the ratio field can mark a strand where the magnetic or topographic edge is weak. The competition stack ships only total count (<code>tc</code>), so the K-specific ratios are information the provided features do not contain.</td>
+            <td>Prior work used radiometric conjunctions and single-channel cross-scarp contrast; a Th/K ratio matched filter is not among them.</td>
+            <td><strong>Measured today, partially:</strong> adding the ratio block lifted the off-catalogue proxy at a fixed operating point (+22 %). The isolated matched-filter form is 2–3 days.</td>
+          </tr>
+          <tr>
+            <td><span class="badge">2 · not started</span><br><strong>H32-5</strong><br>Scarp-degradation (diffusion-age) matched filter</td>
+            <td>1 m 3DEP bare-earth DEM (links are supplied by the competition itself in <code>1m_DEM_links.csv</code>); a bank of error-function step profiles degraded by a range of diffusion ages, matched across strike.</td>
+            <td>The compiled catalogue is dominated by fresh, obvious scarps; photo-interpretation misses low-amplitude, wide, degraded scarps. Inverting profile <em>shape</em> ages them instead of thresholding amplitude.</td>
+            <td>The existing LiDAR block is amplitude, edge and curvature descriptors (step max, Laplacians, relief, coherence); none inverts profile shape.</td>
+            <td>2–4 days; overlaps GEMSDOE30's measured scarp-dipole transform, so the increment is the multi-age bank rather than the dipole.</td>
+          </tr>
+          <tr>
+            <td><span class="badge">3 · not started</span><br><strong>H32-4</strong><br>Quaternary-vent-aligned fault search</td>
+            <td>INGENIOUS Quaternary volcanic flows and vents plus the fault detectors; search for lineaments radiating from or connecting young vents.</td>
+            <td>Young volcanic centres and active faults share the same stress field, and the owner-mirror inversion attributes a large share of the estimated hidden truth to the 0–1 km ring around vents.</td>
+            <td>Vents appear in this project only as a habitat inside an inversion, never as an emission or extension field.</td>
+            <td>1–2 days with layers already on disk; <strong>risky</strong> — the inversion that motivates it fits at R² = −0.36, so the enrichment is a hypothesis, not a finding.</td>
+          </tr>
+          <tr>
+            <td><span class="badge">4 · blocked on data</span><br><strong>H32-1</strong><br>Depth-resolved conductance continuity</td>
+            <td>GDR 1391 electrical-conductance maps at their published depth intervals; cross-depth coherence of conductive gradients.</td>
+            <td>A damage zone or fluid pathway can connect conductive anomalies across depths with no surface trace.</td>
+            <td>The competition tape carries a single <code>cond_surf</code> plus <code>depth_to_base_surf</code>; a depth stack is new here.</td>
+            <td>3–5 days. The GDR page is public CC-BY but unreachable from this sandbox; this project's own CI runner can reach it. Not viable until the stack is downloaded and aligned.</td>
+          </tr>
+          <tr>
+            <td><span class="badge">5 · blocked on data</span><br><strong>H32-3</strong><br>LiDAR return-attribute roughness</td>
+            <td>USGS 3DEP LAZ point clouds; ground-return density, intensity quantiles and roughness texture summarised to the grid.</td>
+            <td>Fault zones juxtapose materials and change micro-roughness and cover in ways the bare-earth DEM edge does not show.</td>
+            <td>Every LiDAR layer here is derived from elevation; no raw return attribute has been inspected.</td>
+            <td>3–5 days after access. Earlier LAZ fetches from this sandbox failed with SSL errors while the catalogue record was reachable, so the binary path is unproven.</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Results</p><h2>What was tested today, and what it settled</h2></div>
+        <p>Failures and gains are published side by side so neither is retried by accident.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><h3>Corroboration filtering — refuted</h3><p>Keeping only incumbent dots that this
+        repository's detector also likes reduced the off-catalogue proxy at <em>every</em> quantile tested
+        (-0.0129 at the
+        mildest cut). The incumbent's low-probability dots still carry credit, so our likelihood is not a superset of
+        whatever produced the incumbent.</p></div>
+        <div class="card"><h3>Thresholding detections down — refuted</h3><p>Raising the detector threshold trades away
+        coverage faster than it buys precision once the field is unioned with the incumbent: the LiDAR arm's gain
+        peaks at p ≥ 0.6, not at the highest-precision end.</p></div>
+        <div class="card"><h3>Catalogue-gap holdout as a selector — refuted</h3><p>Its arm ranking is anti-correlated
+        with the off-catalogue proxy, so it cannot promote arms. That refutation is the reason the off-catalogue proxy
+        exists.</p></div>
+      </div>
+      <div class="notice notice-good"><strong>What worked: adding thresholded detections, on the LiDAR arm</strong>
+      Unioning the incumbent with the LiDAR arm's off-catalogue detections at p ≥ 0.60 raises the off-catalogue proxy
+      by 0.0060 — roughly three times the gain of the LiDAR+radiometric arm at its
+      own best threshold. Adding pixels is directly invertible (the prediction surface is flat away from the incumbent),
+      so each added dot's contribution is measurable, and the added dots earn
+      0.0247 credit each — a fifth of an incumbent dot's rate,
+      but positive.</div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Method</p><h2>The buffer that governs every comparison</h2></div>
+        <p>Measured from residual autocorrelation, not assumed. Undersized collars leak training pixels and overstate generalisation.</p>
+      </div>
+      <div class="content">
+        <p>Residual autocorrelation along known fault traces decays to 5 % of its peak at
+        <strong>21.25 km</strong>, so the holdout buffer is
+        <strong>21.25 km</strong>. Earlier GEMSDOE sessions used 0.5–2.8 km collars,
+        7–40× smaller; anything measured under them is under-buffered. The full derivation, the model fits and the
+        collar-sensitivity control are on the <a href="validation.html">validation page</a>.</p>
+      </div>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Hypotheses on this page are labelled INFERENCE; only measured results are presented as results.</p>
+    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
 </body>
 </html>
