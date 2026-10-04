@@ -160,10 +160,10 @@
         },
         {
           "criterion": "AI narrative, three cumulative reviews, and delivery record",
-          "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1–3; PR #4 opened from the fixed branch."
+          "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1–3; PR #4 merged from the fixed branch."
         }
       ],
-      "delivery_state": "Commit 3cd7fbf was pushed only to arena/01a1050e-gemsdoe31 and opened as https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4. At the 2026-10-04 audit snapshot GitHub reported OPEN/MERGEABLE, no status checks, and no review decision. Consult the PR for later merge/deployment state; this record does not assert one."
+      "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate."
     }
   ],
   "remaining_work": [
