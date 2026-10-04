@@ -4,7 +4,7 @@
 
 ## Start here
 
-- **GitHub Pages site source:** [`docs/index.html`](docs/index.html) (download button, status and project links).
+- **GitHub Pages site:** [buffedlizard55-lab.github.io/GEMSDOE31](https://buffedlizard55-lab.github.io/GEMSDOE31/) (root entry redirects to [`docs/index.html`](docs/index.html); prominent legacy-reference download, status and project links).
 - **Submission executive summary and manual upload guide:** [`docs/executive-summary.html`](docs/executive-summary.html).
 - **Research hypotheses and current H31-A design:** [`docs/research.html`](docs/research.html) and the full [H31 preregistration](knowledge/2026-10-04_h31_hypotheses_preregistration.md).
 - **Official and trusted source register:** [`docs/sources.html`](docs/sources.html) / [`registry/sources.json`](registry/sources.json).
