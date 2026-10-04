@@ -29,14 +29,14 @@
 
 - `pytest`: 23 passed; Ruff: all checks passed; Python compileall: passed.
 - All 11 JSON documents and 8 pilot JSONL rows parse; the 6-page static HTML link audit has no broken local links; legacy-reference format checks pass against the owner mirror only.
-- PR #1 merged to `main` at merge commit `18a9c4e9493192a21f2bb22ca0356d4a24be8d6c` (2026-10-04 03:18 UTC); GitHub reported no status checks. Pages is configured for `main` at `/`; before the root entrypoint update, its API reported `built`. Updating the source to `/docs` returned 403 `Resource not accessible by integration`, so the repository root now redirects to `docs/`. The post-redirect build/content has not been independently fetched: direct sandbox HTTPS access failed with `SSL_ERROR_SYSCALL`.
+- PR #1 merged to `main` at `18a9c4e9493192a21f2bb22ca0356d4a24be8d6c`; follow-up PR #2 merged at `d8b531025c63e9d56897f8b983bdfca284b33420`. GitHub reported no status checks for either PR. Pages is configured for `main` at `/` and reports `built`; the root `index.html` redirects into `docs/`. A cache-busted fetch of the public Pages URL followed the redirect and showed the current site/H31-A stop status. Changing the setting directly to `/docs` returned 403 `Resource not accessible by integration`; the root redirect workaround is live.
 
 ## Recommended next work
 
 1. Do not promote H31-A or create a submission TIFF from its failed pilot. Preserve the negative result.
 2. If pursuing another experiment, preregister a distinct hypothesis or a defensible method to identify the residual sill/range before any new fit; retain the same no-arbitrary-buffer stop rule and reproduce the actual current-best comparator on the same folds/buffer.
 3. Resolve official-template provenance and permitted LiDAR access if an authorized route becomes available.
-4. Verify that the root-source Pages build follows the redirect to `docs/`; if direct `/docs` source configuration is needed, restore GitHub integration permission or change it manually. Keep the static official leaderboard link only and do not monitor or copy its content.
+4. If preferred, restore GitHub integration permission or change Pages settings manually to point directly at `/docs`; the existing root-source redirect is built and verified. Keep the static official leaderboard link only and do not monitor or copy its content.
 
 ## Evidence labels
 

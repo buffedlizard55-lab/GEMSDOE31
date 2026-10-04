@@ -85,18 +85,18 @@
         },
         {
           "criterion": "multiple review passes and remaining-work recommendations",
-          "status": "three passes recorded; PR #1 merged; root-source Pages redirect added but live content verification and direct /docs configuration remain open"
+          "status": "three passes recorded; PRs #1 and #2 merged; root-source Pages redirect is built and verified; direct /docs configuration remains blocked by integration permissions"
         },
         {
           "criterion": "truthful AI-use narrative",
           "status": "draft updated to reflect the pilot and its negative result; entrant review required; not submitted"
         }
       ],
-      "delivery_state": "PR #1 merged to main at 18a9c4e9493192a21f2bb22ca0356d4a24be8d6c; follow-up branch content includes a root redirect to docs/ because the GitHub Pages source update to /docs was denied with 403; direct live-page content verification remains open"
+      "delivery_state": "PR #1 merged at 18a9c4e9493192a21f2bb22ca0356d4a24be8d6c and PR #2 at d8b531025c63e9d56897f8b983bdfca284b33420; root-source Pages build is built and the root redirect to docs/ is verified; direct /docs settings change returned 403"
     }
   ],
   "remaining_work": [
-    "verify the root-source GitHub Pages build follows the repository root redirect to docs/; direct /docs configuration would require Pages write permission or manual settings change",
+    "if desired, obtain Pages write permission or manually set the Pages source to /docs; the existing root-source redirect is already built and verified",
     "do not run H31-A screen or confirmation; any new scientific attempt requires a new preregistered design or defensible range-identification evidence",
     "reproduce and beat the actual current-best comparable holdout system on the same measured buffer before any future candidate TIFF or weekly slot",
     "resolve official sample-template provenance and permitted LiDAR access if an authorized route becomes available",
