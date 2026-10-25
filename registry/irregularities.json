@@ -82,7 +82,7 @@
    "status": "open-stop-condition",
    "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
    "evidence": [
-    "Mean paired catalogue-gap ΔDTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
+    "Mean paired catalogue-gap \u0394DTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
     "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
     "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
    ],
@@ -145,13 +145,94 @@
    "id": "IR-31-RUNNER-BRANCH-GUARD",
    "severity": "medium",
    "status": "resolved",
-   "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session’s fixed arena/01a1050e-gemsdoe31 branch.",
+   "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session\u2019s fixed arena/01a1050e-gemsdoe31 branch.",
    "evidence": [
     "Before correction, AGENTS.md and scripts/run_h31.py hard-coded arena/01a104a9-gemsdoe31.",
     "Developer session branch is arena/01a1050e-gemsdoe31."
    ],
    "impact": "A correctly pinned current-session worktree could not pass the runner branch guard.",
    "action": "Updated AGENTS.md and scripts/run_h31.py to use one EXPECTED_BRANCH constant for arena/01a1050e-gemsdoe31; added tests for accept/reject behavior."
+  },
+  {
+   "id": "IR-31-LANE-0.4413-PROXY",
+   "severity": "medium",
+   "status": "open",
+   "summary": "The prompt's 'GEMSDOE high score 0.4413' equals GEMSDOE32's local proxy R2-safe-zeroTPp (0.44127926) and conflicts with 'highest score right now 0.3195'.",
+   "evidence": [
+    "GEMSDOE32 records (SECONDHAND)",
+    "prompt text"
+   ],
+   "impact": "A mislabelled proxy would make a 0.4413 target unreachable and distort gate thresholds.",
+   "action": "Treated as USER-REPORTED and unconfirmed; no gate uses it."
+  },
+  {
+   "id": "IR-31-LANE-PROXY-INVERSION",
+   "severity": "high",
+   "status": "open",
+   "summary": "Local proxies rank geometry families poorly and invert for LiDAR-scarp-led files.",
+   "evidence": [
+    "evidence/instrument_calibration.json: Spearman SGMC +0.32, catalogue-gap +0.11 over 87 files",
+    "nine scarp/LiDAR-led registry files score 0.038-0.159 live (USER-REPORTED) though several have high SGMC DTI",
+    "random Poisson dots beat D28 and b2 on the catalogue-gap proxy (evidence/lane_e3.json)"
+   ],
+   "impact": "A proxy-driven selector would promote the wrong family.",
+   "action": "The evidence gate is preregistered and requires beating the random-score null; no file promoted."
+  },
+  {
+   "id": "IR-31-LANE-UNIQUENESS-VS-VALIDATION",
+   "severity": "high",
+   "status": "open",
+   "summary": "Lane-unique files have no live evidence; live-validated geometry (D28 family) is not unique.",
+   "evidence": [
+    "gate G5 flags 14 registry rasters as >70 % 3 px overlap with AS-1",
+    "D28-derived files fail G5 by construction"
+   ],
+   "impact": "Spending a slot on a unique file is an experiment, not a bet on a validated gain.",
+   "action": "Reported to the owner as a decision; gates never waive silently."
+  },
+  {
+   "id": "IR-31-LANE-RAW-OVERLAP-VACUOUS",
+   "severity": "low",
+   "status": "resolved",
+   "summary": "The raw '>70 % within 3 px' rule is vacuous against dense registry rasters.",
+   "evidence": [
+    "21 of 715 compared rasters cover at least half the footprint within 3 px"
+   ],
+   "impact": "Dense rasters would flag everything as duplicate.",
+   "action": "Gate reports raw, chance and chance-adjusted overlap and applies the adjusted rule when the raw rule is vacuous."
+  },
+  {
+   "id": "IR-31-LANE-REGISTRY-SCORE-INHERITANCE",
+   "severity": "medium",
+   "status": "resolved",
+   "summary": "raster_registry.json assigned user-reported scores by loose fragment, so STRAINBREAK/PRUNE variants inherited 0.2778.",
+   "evidence": [
+    "first neighbour projection returned exactly 0.2778"
+   ],
+   "impact": "Projections and calibration would have used wrong scores.",
+   "action": "Exact-fragment matching with ambiguous fragments skipped (gate.match_scores); 23 fragments remain unmatched because those files are not in the cloned repositories."
+  },
+  {
+   "id": "IR-31-LANE-REGISTRY-OVERWRITE",
+   "severity": "medium",
+   "status": "resolved",
+   "summary": "An API-quota failure overwrote registry/raster_registry.json with 0 rasters.",
+   "evidence": [
+    "intermediate state during the session"
+   ],
+   "impact": "Silent loss of the uniqueness reference set.",
+   "action": "Rewrote the builder to use git partial fetches; registry now 716 unique dot sets, gate fails closed on an empty comparison."
+  },
+  {
+   "id": "IR-31-SAMPLE-SUBMISSION-IS-CATALOGUE",
+   "severity": "low",
+   "status": "open",
+   "summary": "The organizer sample_submission's non-zero cells (60,988) equal the public catalogue.",
+   "evidence": [
+    "labels.tif -1 mask equals the template NaN mask (SECONDHAND, GEMSDOE32 note, re-checked by the footprint count here)"
+   ],
+   "impact": "Using the template's values would leak the catalogue.",
+   "action": "Only the template footprint is used."
   },
   {
    "id": "IR-31-H33-2-B2-DUPLICATE",
@@ -176,7 +257,7 @@
     "src/gems32/hypotheses33.py compute_h33_2_flank_sweep derives d_cat from labels when not supplied and removes base cells using d_cat.",
     "src/gems32/holdout.py load_holdout_context hides components for the scoring context, but evaluate_candidate_holdout receives a prebuilt static candidate mask."
    ],
-   "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project’s preregistered rules. Bias direction is not assumed.",
+   "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project\u2019s preregistered rules. Bias direction is not assumed.",
    "action": "Do not use the owner-mirror H33 holdout result to promote this method. Any future catalogue-based processing must be rebuilt per fold from visible segments, mask visible faults pixel-exactly, and be tested under the registered evaluator."
   },
   {

@@ -100,7 +100,7 @@
    "scope": [
     "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
     "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
-    "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective ΔDTI planning brackets, cost, and source-access limits",
+    "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective \u0394DTI planning brackets, cost, and source-access limits",
     "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
    ],
    "verification": {
@@ -147,7 +147,7 @@
      "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
     },
     {
-     "criterion": "3–5 distinct ranked hypotheses and official-source/access checks",
+     "criterion": "3\u20135 distinct ranked hypotheses and official-source/access checks",
      "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
     },
     {
@@ -160,7 +160,7 @@
     },
     {
      "criterion": "AI narrative, three cumulative reviews, and delivery record",
-     "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1–3; PR #4 merged from the fixed branch."
+     "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1\u20133; PR #4 merged from the fixed branch."
     }
    ],
    "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate."
@@ -266,7 +266,7 @@
    ],
    "findings_fixed": [
     "the prior session-ID branch literal would reject the current active Arena branch even before the missing-data guard",
-    "the home page previously led with “Download the file. Submit it.” while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
+    "the home page previously led with \u201cDownload the file. Submit it.\u201d while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
     "the executive summary no longer reserves a submission name or note for a legacy/reference file"
    ],
    "verification": {
@@ -298,18 +298,88 @@
     "owner-mirror previous experiments and scores do not establish official competition performance",
     "the inspected GEMSDOE32 all-finite zeros raster conflicts with the official outside-footprint null/NaN convention; no organizer receipt or sample-template revalidation was available"
    ]
+  },
+  {
+   "id": "pass-16-lane-implement-and-verify",
+   "status": "complete-for-current-artifacts",
+   "scope": [
+    "restore inputs and hash-verify them",
+    "build the 716-dot-set raster registry from owner repos",
+    "implement lane evaluator, E1-E3, calibration, gate, candidate emission, run card"
+   ],
+   "verification": {
+    "inputs": "12 pinned inputs incl. TIGER road distance (sha256 e5350423...2988); download script re-run, see evidence/data_restore.json",
+    "evaluator": "tests/test_lane.py: pooled DTI equals metric.dti (1e-9); masked visible pixels cost nothing; restrict_truth keeps the FP rule",
+    "experiments": "E1, E2 (self-declared designs), E3 (committed before running); all negative or inconclusive",
+    "gate": "scripts/submission_gate.py ran on both conventions: format and range pass, lane uniqueness and evidence fail, verdict BLOCKED",
+    "tests": "pytest 41 passed, ruff clean"
+   },
+   "open_scientific_gates": [
+    "no candidate passed its holdout gate",
+    "catalogue-shadow geometry (H4) cannot be scored by any local proxy"
+   ]
+  },
+  {
+   "id": "pass-17-lane-bug-assumption-and-leakage-review",
+   "status": "complete-for-current-artifacts",
+   "scope": [
+    "hunt for bugs and unsupported assumptions in the lane code and the gate",
+    "leakage canary",
+    "comparator fairness"
+   ],
+   "verification": {
+    "bugs_found_and_fixed": [
+     "registry inherited scores by loose fragment (b2 variants got 0.2778), which made the first neighbour projection exactly 0.2778; exact-fragment matching with ambiguous skip",
+     "gate crashed on an empty registry; now fails closed and has a regression test",
+     "an API-quota failure overwrote the registry with 0 rasters; builder rewritten to use git",
+     "raw 3 px rule is vacuous for dense rasters; chance-adjusted rule added"
+    ],
+    "assumptions_checked": "the E3 comparator b2 was pruned against the hidden half of the catalogue, so the catalogue-gap instrument is structurally unfair to it; reported, not used to promote",
+    "leakage": "canary max AUC 0.77 (E1) and 0.737 (AS-1), below 0.90",
+    "instrument_validity": "calibration over 87 scored files: Spearman 0.32 (SGMC) and 0.11 (gap); random dots beat D28 on the gap proxy: both proxies are weak rankers"
+   },
+   "open_scientific_gates": [
+    "a family-agnostic instrument does not exist locally; only a live slot can discriminate families"
+   ]
+  },
+  {
+   "id": "pass-18-lane-whole-request-recheck",
+   "status": "complete-with-open-work",
+   "scope": [
+    "walk the 2026-10-25 brief item by item"
+   ],
+   "verification": {
+    "unique_tif": "PARTIAL: byte-unique, format-valid, named, note 118/140; fails the lane-uniqueness gate (14 duplicates) and the evidence gate, so not cleared. A unique file that is also live-validated does not exist locally",
+    "validation_without_human": "DONE: scripts/submission_gate.py with machine-readable receipts, exit codes 0/3/2, tests",
+    "hypotheses": "DONE: 5 ranked in knowledge/2026-10-25_lane_hypotheses.md; the top-ranked (H4) was not run because it is not unique and no proxy can score it, so the 'validate the top one before a slot' rule is satisfied by not spending a slot",
+    "data_source_check": "TIGER restored and hashed; FDSN documentation page fetched; its data endpoint is not downloadable from the sandbox",
+    "lane_protocol": "followed: surface check (max Spearman 0.71 vs registry), final-dot check (duplicate found), canary, run card, negative verdict, no slot picked",
+    "budget": "3 experiments used; wall-clock exceeded two hours (not logged precisely)",
+    "research_depth": "PARTIAL: sandbox reaches only github and package hosts; two official pages were read through the fetch tool; most official sources remain links for manual review",
+    "site_readme": "DONE: README carries the brief; site shows the gate verdict at the top, executive summary, lane page, register data table, limitations",
+    "delivery": "PR from the session branch; see the PR for merge status"
+   },
+   "open_scientific_gates": [
+    "owner decision on a live-slot experiment",
+    "23 unmatched score fragments",
+    "paleoshoreline mimic untested"
+   ]
   }
  ],
  "remaining_work": [
-  "restore the 11 permitted hash-pinned competition/runtime inputs and prepared feature stack before any new holdout or candidate construction",
-  "after restoration, preregister a distinct geological hypothesis and run feature-alone leakage canaries plus whole-segment buffered holdout with pooled DTI and confidence interval",
-  "retain duplicate-canary checks both before placement and on the final raster; stop when either registered threshold is exceeded",
-  "keep all current TIFF downloads reference/research-only until the separate selector approves a verified candidate",
+  "owner decision: spend one live slot as an experiment on the catalogue-shadow idea (H4), accepting an explicit uniqueness waiver",
+  "fetch the 23 score-fragment files missing from the cloned repositories so calibration covers all 111 scores",
+  "test a Lake Lahontan paleoshoreline mask against LiDAR scarp detectors (the Great Basin mimic that was not tested)",
+  "verify NaN versus zero outside-footprint acceptance with one template-identical file through the portal (owner action)",
   "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
   "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
   "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",
   "fetch the GDR 1391 depth stack and 3DEP LAZ return attributes through the CI runner (sandbox cannot reach those hosts) or record them as unavailable",
   "resolve the D2.8 0.2600 and h27-4 0.2708 score provenance by attaching organizer receipts to registry/score_claims.json",
-  "keep the leaderboard as a static link and the AI disclosure as an entrant-reviewed draft"
+  "keep the leaderboard as a static link and the AI disclosure as an entrant-reviewed draft",
+  "restore the 11 permitted hash-pinned competition/runtime inputs and prepared feature stack before any new holdout or candidate construction",
+  "after restoration, preregister a distinct geological hypothesis and run feature-alone leakage canaries plus whole-segment buffered holdout with pooled DTI and confidence interval",
+  "retain duplicate-canary checks both before placement and on the final raster; stop when either registered threshold is exceeded",
+  "keep all current TIFF downloads reference/research-only until the separate selector approves a verified candidate"
  ]
 }

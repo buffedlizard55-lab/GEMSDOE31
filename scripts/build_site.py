@@ -25,6 +25,7 @@ NAV = [
     ("", "validation.html", "Validation"),
     ("", "register/index.html", "Register"),
     ("", "experiments/index.html", "Experiments"),
+    ("", "lane.html", "Lane"),
     ("", "sources.html", "Sources"),
 ]
 
@@ -244,6 +245,30 @@ def submission_receipts() -> list[dict]:
     return out
 
 
+
+def verdict_badge(verdict: str) -> str:
+    cls = {"READY_TO_SUBMIT": "badge-green", "FORMAT_VALID_NOT_PROMOTED": "badge", "BLOCKED": "badge-red"}.get(verdict, "badge")
+    text = {"READY_TO_SUBMIT": "READY TO SUBMIT", "FORMAT_VALID_NOT_PROMOTED": "FORMAT VALID, NOT PROMOTED",
+            "BLOCKED": "BLOCKED: DO NOT SUBMIT"}.get(verdict, verdict)
+    return f'<span class="badge {cls}">{e(text)}</span>'
+
+
+def lane_gate_receipt(cand: dict, key: str = "allfinite") -> dict:
+    return json.loads((ROOT / cand["gate_receipts"][key]["receipt"]).read_text())
+
+
+def gate_rows(receipt: dict) -> list[list[str]]:
+    rows = []
+    for name, g in receipt["gates"].items():
+        badge = '<span class="badge badge-green">PASS</span>' if g["pass"] else '<span class="badge badge-red">FAIL</span>'
+        rows.append([f"<code>{e(name)}</code>", badge, e(g["detail"])])
+    return rows
+
+
+def dl(path: str, label: str, prefix: str = "") -> str:
+    return f'<a class="button button-light" href="{prefix}{e(path.replace("docs/", "", 1))}" download>{e(label)}</a>'
+
+
 # --------------------------------------------------------------------------------------- pages
 
 def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
@@ -253,23 +278,29 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     inc_credit = inc.get("ff_credit_per_dot")
     operating = load("evidence/operating_point.json", {})
     best_arm = max((max(row["ff_DTI"] for row in rows) for rows in operating.values() if rows), default=None)
+    cand = sub["lane_candidate"]
+    receipt = lane_gate_receipt(cand)
+    cleared = cand["ready_to_submit"]
+    fa, fn = cand["files"]["allfinite"], cand["files"]["nan"]
     hero = f"""  <section class="hero">
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">DOE GEMS Prize · competition 306 · auditable fault mapping</p>
-        <h1>Review the reference file. Do not submit it.</h1>
-        <p class="hero-lede">The downloadable incumbent is format-checked, but no new candidate has passed the
-        required holdout, duplicate, confirmation and selector gates. This site is not offering an approved entry.</p>
+        <h1>{'Download it. It passed every gate.' if cleared else 'Download the candidate file. Read its verdict first.'}</h1>
+        <p class="hero-lede">{verdict_badge(cand['verdict'])} The candidate <code>{e(cand['name'])}</code> is a single-band float32 GeoTIFF on the
+        exact competition grid. Automated gates checked its format, value range, catalogue masking, byte and lane uniqueness against
+        {receipt['uniqueness']['registry_rasters_compared']} registry rasters, name, note and preregistered holdout evidence.
+        {'It is cleared.' if cleared else 'It is NOT cleared: see the failing gates on the right. Do not spend a weekly slot on it.'}</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download reference TIFF — not approved</a>
-          <a class="button button-light" href="executive-summary.html">Submission instructions and status</a>
+          <a class="button button-primary" href="{e(fa.replace('docs/', '', 1))}" download>{'Download submission TIFF' if cleared else 'Download candidate TIFF — not approved for upload'} (all-finite)</a>
+          <a class="button button-light" href="{e(fn.replace('docs/', '', 1))}" download>NaN-outside twin</a>
+          <a class="button button-light" href="executive-summary.html">How to submit</a>
         </div>
       </div>
-      <aside class="hero-side" aria-label="Current state">
-        <strong>Current file · {fmt(primary['positive_pixels'], 0)} pixels</strong>
-        <p>Single-band float32 GeoTIFF on the exact competition grid; <b>zero</b> of its pixels sit on the public
-        catalogue. Format validated in this repository (<a href="downloads/{e(primary['receipt'].split('/')[-1])}">receipt</a>).
-        It is the incumbent geometry, deliberately not slot-approved: nothing here beat it by a margin worth a slot.</p>
+      <aside class="hero-side" aria-label="Gate verdict">
+        <strong>Gate verdict · {e(cand['verdict'].replace('_', ' '))}</strong>
+        <p>{''.join(f"{'PASS' if g['pass'] else 'FAIL'} · {e(n.split('_', 1)[0])} {e(n.split('_', 1)[1].replace('_', ' '))}<br>" for n, g in receipt['gates'].items())}</p>
+        <p><a href="lane.html">Run card, hypotheses and calibration</a></p>
       </aside>
     </div>
   </section>
@@ -277,27 +308,35 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     body = f"""    <div class="notice notice-danger"><strong>Not approved for upload.</strong> The TIFF below is a legacy incumbent for research and format-reference purposes only. The separate union file is research-only, and the inspected GEMSDOE32 H33-2-B2 geometry fails the project's duplicate canary. No unique candidate has passed holdout validation and confirmation, so do not spend a competition slot on any download from this site.</div>
     <section>
       <div class="section-head">
-        <div><p class="kicker">Reference artifact</p><h2>Format-valid does not mean slot-approved</h2></div>
-        <p>The file matches the local template and its value-range checks, but is not a new validated candidate.
-        It is deliberately retained as a reproducibility reference, not recommended for competition upload.</p>
+        <div><p class="kicker">Submission</p><h2>Is this file OK to download and submit?</h2></div>
+        <p>Download: always fine, the file is format-valid. Submit: only when the verdict says READY TO SUBMIT.</p>
       </div>
       <div class="card download-card">
-        <h2>{e(primary['name'])}</h2>
-        <p>Single-band float32 · EPSG:32611 · 100 m · 3730×3292 · values finite in [0,1] inside the footprint · NaN
-        outside · nodata = nan.</p>
+        <h2>{e(cand['name'])}</h2>
+        <p>{verdict_badge(cand['verdict'])} · {fmt(cand['dots'], 0)} positive pixels · EPSG:32611 · 100 m · 3730×3292 · finite in [0,1] ·
+        zero emitted on the public catalogue.</p>
         <div class="actions" style="margin-top:18px">
-          <a class="button button-primary" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download .tif</a>
-          <a class="button button-light" href="downloads/{e(primary['zip'].split('/')[-1])}" download>Download .zip</a>
-          <a class="button button-light" href="downloads/{e(primary['file_allfinite'].split('/')[-1])}" download>All-finite fallback</a>
+          <a class="button button-primary" href="{e(fa.replace('docs/', '', 1))}" download>Download .tif (all-finite)</a>
+          {dl(cand['files']['zip_allfinite'], 'Download .zip (all-finite)')}
+          {dl(fn, 'NaN-outside .tif')}
+          {dl(cand['files']['zip'], 'NaN-outside .zip')}
         </div>
-        <p class="download-meta">SHA-256 <code>{e(primary.get('sha256_nan',''))}</code><br>
-        Portal note: <em>{e(primary['note_for_portal'])}</em><br>
-        {fmt(primary['positive_pixels'], 0)} positive pixels · {fmt(primary['positive_pixels_on_public_catalogue'], 0)} on the public catalogue ·
-        <a href="downloads/{e(primary['receipt'].split('/')[-1])}">format receipt</a> ·
+        <p class="download-meta">SHA-256 (all-finite) <code>{e(cand['gate_receipts']['allfinite']['sha256'])}</code><br>
+        Portal name: <code>{e(cand['name'])}</code><br>
+        Portal note ({cand['note_chars']}/140 characters): <em>{e(cand['note_for_portal'])}</em><br>
+        <a href="{e(cand['gate_receipts']['allfinite']['receipt'].replace('docs/', '', 1))}">gate receipt (all-finite)</a> ·
+        <a href="{e(cand['gate_receipts']['nan']['receipt'].replace('docs/', '', 1))}">gate receipt (NaN-outside)</a> ·
         <a href="executive-summary.html">how to submit</a></p>
       </div>
+      {table(['gate', 'result', 'detail'], gate_rows(receipt))}
+      {'' if cleared else '<div class="notice notice-danger"><strong>Not approved for upload.</strong> The candidate failed a gate, and the legacy incumbent and union files are reference or research only. Do not spend a competition slot on any download from this site.</div>'}
+      <div class="notice notice-danger"><strong>Not an organizer score</strong> No organizer receipt exists for this file and
+      no number on this site is a leaderboard score. Download links above are for inspection; the verdict is the instruction.</div>
+      <div class="card" style="margin-top:18px"><h3>The earlier incumbent is not a new submission</h3>
+        <p><code>{e(primary['name'])}</code> ({fmt(primary['positive_pixels'], 0)} pixels, owner-reported 0.2708) is format-valid but its
+        geometry was already scored by the owner, so resubmitting it spends a slot for nothing.
+        <a href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download for reference</a>.</p></div>
     </section>
-
     <section>
       <div class="section-head">
         <div><p class="kicker">The answer</p><h2>Why the 0.2708 submission scores</h2></div>
@@ -374,119 +413,172 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
 
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
-    research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
-    variants = table(
-        ["file", "when to use it", "bytes", "sha256 (nan convention)", "format check"],
-        [[f"<code>{e(primary['name'])}-nan.tif</code>", "default: the official convention, identical layout to the sample template",
-          fmt(primary.get("bytes_nan"), 0), f"<code>{e(primary.get('sha256_nan',''))}</code>", "<span class=\"badge badge-green\">passes</span>"],
-         [f"<code>{e(primary['name'])}-allfinite.tif</code>", "fallback: only if the portal evaluates the whole array and rejects NaN",
-          fmt(primary.get("bytes_allfinite"), 0), f"<code>{e(primary.get('sha256_allfinite',''))}</code>", "<span class=\"badge badge-green\">passes</span>"],
-         [f"<code>{e(research['name'])}-nan.tif</code>", "research only: the best-measured union — read its caveat before uploading",
-          fmt(research.get("bytes_nan"), 0), f"<code>{e(research.get('sha256_nan',''))}</code>", "<span class=\"badge badge-green\">passes</span>"]])
-    receipt_rows = []
-    for r in receipts:
-        for convention in ("nan", "allfinite"):
-            if convention in r.get("validation", {}):
-                v = r["validation"][convention]
-                ok = bool(v["ok_to_upload_format_only"])
-                failures = ", ".join(v.get("hard_failures", [])) or "none"
-                receipt_rows.append([f"<code>{e(r['name'])}</code>", convention, fmt(v["bytes"], 0),
-                                     f"<code>{e(v['sha256'][:32])}…</code>",
-                                     '<span class="badge badge-green">passes</span>' if ok
-                                     else '<span class="badge badge-red">fails</span>',
-                                     failures])
-    body = f"""    <div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong> The available primary TIFF is a legacy reference, and the union is research-only. Neither has passed the current holdout/confirmation/selector gates. The steps below explain the portal workflow for a future approved file; they do not authorize uploading an existing file.</div>
-    <section>
+    cand = sub["lane_candidate"]
+    rc = {k: lane_gate_receipt(cand, k) for k in ("allfinite", "nan")}
+    cleared = cand["ready_to_submit"]
+    fa = cand["files"]["allfinite"].split("/")[-1]
+    ph = rc["allfinite"]["uniqueness"]
+    dup_scores = load("evidence/run_card_lane_as1.json", {}).get("overlap_vs_registry", {}).get("duplicates_with_user_reported_live_score", {}).values()
+    files_table = table(
+        ["file", "when to use it", "bytes-level sha256", "gate verdict"],
+        [[f"<code>{e(fa)}</code>", "default: every cell finite in [0,1], zeros outside the footprint (cannot trip a whole-array range check)",
+          f"<code>{e(cand['gate_receipts']['allfinite']['sha256'])}</code>", verdict_badge(cand["gate_receipts"]["allfinite"]["verdict"])],
+         [f"<code>{e(cand['files']['nan'].split('/')[-1])}</code>", "literal spec wording: NaN outside the footprint. Use it if the portal objects to the zeros",
+          f"<code>{e(cand['gate_receipts']['nan']['sha256'])}</code>", verdict_badge(cand["gate_receipts"]["nan"]["verdict"])]])
+    body = f"""    <section>
       <div class="section-head">
-        <div><p class="kicker">Submission guide</p><h2>Portal workflow — only after approval</h2></div>
-        <p>Once a candidate is explicitly marked approved for upload, the portal steps take about two minutes.</p>
+        <div><p class="kicker">Verdict first</p><h2>{'This file is cleared.' if cleared else 'No file is cleared for submission today.'}</h2></div>
+        <p>The gates run in the project with no human inspector: <code>python scripts/submission_gate.py</code>.</p>
       </div>
-      <div class="card">
-        <ol>
-          <li><strong>Download only the approved candidate</strong> from the overview page. At present, no file is approved; the available TIFF is labeled reference-only.</li>
-          <li><strong>Check the candidate's SHA-256</strong> against the receipt generated for that exact TIFF before upload.</li>
-          <li><strong>Open the submit page</strong> at
-          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306</a>
-          and sign in.</li>
-          <li><strong>Choose the approved file</strong> under “File to submit”. It must be a single-band GeoTIFF, or a zip containing one GeoTIFF, matching the submission format's CRS, shape and geotransform. No file currently linked here is approved.</li>
-          <li><strong>Paste the note</strong> supplied with that approved candidate into “Note (optional)”, then submit. No candidate-specific note is assigned here yet.</li>
-        </ol>
-      </div>
-      <div class="table-wrap"><table><tbody>
-        <tr><th style="width:190px">Submission name</th><td>Not assigned — no candidate is approved for a slot.</td></tr>
-        <tr><th>Note (copy-paste)</th><td>Not assigned — do not use the legacy or research-only file metadata.</td></tr>
-      </tbody></table></div>
-        <p class="small">When a candidate passes the registered gates, its name and short note will be generated from
-      that candidate's receipt. This page intentionally reserves neither metadata field for the legacy downloads.</p>
+      <div class="notice {'notice-good' if cleared else 'notice-danger'}"><strong>{verdict_badge(cand['verdict'])} {'' if cleared else 'Do not submit a download from this page yet.'}</strong>
+      {'All gates passed.' if cleared else 'The file is format-valid and byte-unique, but it failed the lane-uniqueness gate (' + str(len(ph['duplicates_by_overlap'])) + ' registry rasters already contain more than 70 percent of its dots within 3 pixels) and the preregistered holdout gate. Spending a weekly slot on it is not recommended.'}
+      Failing gates: {e(', '.join(cand['gate_receipts']['allfinite']['hard_failures'] + cand['gate_receipts']['allfinite']['evidence_failures']) or 'none')}.</div>
+      {table(['gate', 'result', 'detail'], gate_rows(rc['allfinite']))}
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Format reference</p><h2>Available files — none approved for a slot</h2></div>
-        <p>The local format receipts establish grid/value compatibility only. They do not establish scientific validity,
-        uniqueness, organizer acceptance, or slot approval.</p>
+        <div><p class="kicker">Submission</p><h2>How to submit, step by step</h2></div>
+        <p>Only after the verdict says READY TO SUBMIT. If you override a failed gate, you are spending a scarce slot on an experiment.</p>
       </div>
-      {variants}
-      <p class="small">Both conventions are written from the same dot set by <code>scripts/build_submission.py</code>;
-      only the cell values outside the footprint differ (NaN vs 0.0). <code>nodata</code> is NaN in both. Every file
-      in the register — including the smaller radiometric union kept for the audit trail — is listed with its
-      SHA-256 on the <a href="register/index.html">register page</a>.</p>
+      <div class="card">
+        <ol>
+          <li><strong>Download</strong> <a href="{e(cand['files']['allfinite'].replace('docs/', '', 1))}" download>{e(fa)}</a> (or the green button on the <a href="index.html">overview page</a>).</li>
+          <li><strong>Check the hash</strong>: <code>sha256sum {e(fa)}</code> must print <code>{e(cand['gate_receipts']['allfinite']['sha256'])}</code>.</li>
+          <li><strong>Re-run the gate yourself</strong> (optional, needs the restored inputs): <code>python scripts/submission_gate.py docs/downloads/blocked/{e(fa)} --convention all-finite --name {e(cand['name'])} --note "..."</code>.</li>
+          <li><strong>Open the submit page</strong> at <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306</a> and sign in.</li>
+          <li><strong>Choose the file</strong> (single-band GeoTIFF, or a zip containing one), paste the name and note below, submit.</li>
+        </ol>
+      </div>
+      <div class="table-wrap"><table><tbody>
+        <tr><th style="width:190px">Submission name</th><td><code>{e(cand['name'])}</code></td></tr>
+        <tr><th>Note ({cand['note_chars']}/140 characters)</th><td><code>{e(cand['note_for_portal'])}</code></td></tr>
+      </tbody></table></div>
+      <p class="small">The note is at most 140 characters by the gate rule. Nothing in this repository submits a file.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Which file</p><h2>Two files, two conventions</h2></div>
+        <p>Both carry the same dots. Only the cells outside the footprint differ.</p>
+      </div>
+      {files_table}
+      <p class="small">The official page (problem description, page 967) says data outside the bounds is null or nan; the owner's ledgers show both conventions
+      were accepted and scored (USER-REPORTED). The root cause of the portal's "Predicted values must be in range [0, 1]" is documented below.</p>
     </section>
 
     <section>
       <div class="section-head">
         <div><p class="kicker">Troubleshooting</p><h2>“Predicted values must be in range [0, 1]”</h2></div>
-        <p>This is the error class the project owner hit. Here is the traced root cause and what to do about it.</p>
+        <p>Two measurable mechanisms in the competition's own rasters produce exactly this message.</p>
       </div>
       <div class="notice notice-danger"><strong>It is not a rescaling problem</strong>
-      Rescaling the file will not fix it. In this project's own records the trigger was <em>NaN cells inside the
-      scored footprint</em> while every finite value was already in [0,1] — so a portal that treats NaN as a value
-      rather than as background reports it as out of range.</div>
+      The training stack carries a float32 sentinel (about -3.4e38) inside the scoring footprint, and a footprint mask taken from a feature band instead of the template
+      strands scored pixels as NaN (SECONDHAND, GEMSDOE32 root-cause note; see <code>knowledge/2026-10-25_lane_hypotheses.md</code>).</div>
       <div class="grid grid-2">
         <div class="card"><h3>What the repository does about it</h3>
-          <p><code>src/gemsdoe31/submission.py</code> hard-fails any file with a non-finite cell inside the template's
-          valid region, any value outside [0,1], or any finite cell outside the footprint. <code>tests/test_submission.py</code>
-          keeps a regression test for exactly this error class, so a future build cannot silently reintroduce it.</p></div>
-        <div class="card"><h3>If a receipt-passing file is still refused</h3>
-          <ol><li>Confirm you selected the single-band GeoTIFF (not the 19-band feature stack, not a folder).</li>
-          <li>Try the <code>-allfinite</code> fallback: zeros outside the footprint, every value finite in [0,1].</li>
-          <li>Stop and send the format receipt JSON to the organizers instead of resubmitting modified bytes.</li></ol></div>
+          <p>The footprint comes only from the template. <code>src/gemsdoe31/submission.py</code> and gate G1/G2 hard-fail any non-finite cell inside it,
+          any value outside [0,1], and (all-finite) any non-finite cell anywhere. <code>tests/test_submission.py</code> and <code>tests/test_gate.py</code> keep regression tests.</p></div>
+        <div class="card"><h3>If a gate-passing file is still refused</h3>
+          <ol><li>Confirm you selected the single-band GeoTIFF, not a feature stack.</li>
+          <li>Try the other convention.</li>
+          <li>Stop and send the gate receipt JSON to the organizers instead of re-saving modified bytes.</li></ol></div>
       </div>
-      <h3>Format receipts written by this repository</h3>
-      <div class="table-wrap"><table>
-        <thead><tr><th>file</th><th>convention</th><th>bytes</th><th>sha256</th><th>passes local format checks</th><th>hard failures</th></tr></thead>
-        <tbody>{''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in row) + '</tr>' for row in receipt_rows)}</tbody>
-      </table></div>
     </section>
 
     <section>
       <div class="section-head">
         <div><p class="kicker">Honesty box</p><h2>What this file is, and what it is not</h2></div>
-        <p>Read this before uploading anything; it is the difference between a claim and a measurement.</p>
+        <p>The difference between a claim and a measurement.</p>
       </div>
       <div class="table-wrap"><table><tbody>
-        <tr><th style="width:220px">What it is</th><td>A freshly written, re-validated raster carrying the best-scoring
-        geometry this project has measured ({fmt(primary['positive_pixels'], 0)} pixels, none on the public catalogue).</td></tr>
-        <tr><th>Owner-reported score</th><td>0.2708 for the underlying GEMSDOE28 artifact, as reported by the project
-        owner. No organizer receipt exists in this repository, and the owner's own page lists the artifact as
-        <strong>unscored</strong>, so every reference to it here is labelled
-        <span class="badge">owner-reported</span> (<code>registry/score_claims.json</code>).</td></tr>
-        <tr><th>Is it slot-approved?</th><td>No. It is the incumbent. Nothing measured here beat it by a margin worth
-        a weekly slot, and the charter forbids spending a slot on an unvalidated idea.</td></tr>
-        <tr><th>Format status</th><td><span class="badge badge-green">locally validated</span> against the grid
-        template in <code>docs/downloads/*-format-check.json</code>. Local validation is not organizer acceptance.</td></tr>
-        <tr><th>Validation buffer</th><td>Every holdout comparison uses a <strong>{fmt(buf['decision']['buffer_km'], 2)} km</strong>
-        collar derived from the data. <a href="validation.html">Derivation and sensitivity</a>.</td></tr>
-        <tr><th>AI use</th><td>Substantial, and required to be disclosed: see <a href="ai-disclosure.html">AI use</a>
-        for wording you can paste into the submission narrative.</td></tr>
+        <tr><th style="width:220px">What it is</th><td>A label-free LiDAR antislope-scarp emission of {fmt(cand['dots'], 0)} Poisson-disk dots, none on the public catalogue.</td></tr>
+        <tr><th>Score</th><td>None. No organizer receipt exists and none of the holdout numbers (<a href="lane.html">run card</a>) is a leaderboard score.</td></tr>
+        <tr><th>Why it is blocked</th><td>Preregistered gate E3 failed (AS-1 beats the random-score null by +0.0065, CI includes zero) and the file duplicates sibling LiDAR-scarp lanes whose
+        owner-reported live scores are {e(', '.join(f'{v:.4f}' for v in sorted(dup_scores)))}, far below 0.2778.</td></tr>
+        <tr><th>The earlier incumbent</th><td><code>{e(primary['name'])}</code> is not a new submission: its geometry was already scored by the owner (0.2708, USER-REPORTED).</td></tr>
+        <tr><th>Slot approved?</th><td>No (<code>registry/submissions.json</code> never marks a file slot-approved).</td></tr>
+        <tr><th>AI use</th><td>Substantial, and required to be disclosed: see <a href="ai-disclosure.html">AI use</a>.</td></tr>
       </tbody></table></div>
     </section>
 """
-    return shell("", "Executive summary", "Portal workflow for a future approved file; current downloads are reference or research only.",
+    return shell("", "Executive summary", "The gate verdict and the exact steps to submit, with the format-error fix and the honesty box.",
                  "Executive summary",
-                 page_hero("Executive summary", "Submission workflow and status.",
-                           "Where to click after a candidate is approved, what to paste, what to do when the portal complains, and why no current file is approved."),
-                 body, "This page is the operator's guide; the science is on the research and validation pages.")
+                 page_hero("Executive summary", "Verdict first, then five steps.",
+                           "Where to click, what to paste, what to do when the portal complains, and what the file does and does not claim."),
+                 body, "This page is the operator's guide; the science is on the research, lane and validation pages.")
+
+
+def build_lane(sub: dict) -> str:
+    card = load("evidence/run_card_lane_as1.json", {})
+    e3 = load("evidence/lane_e3.json", {})
+    calib = load("evidence/instrument_calibration.json", {})
+    gap = e3["groups"]["catalogue-gap FRESH seeds 11-15"]
+    sg = e3["groups"]["off-catalogue SGMC (NOT fresh)"]
+
+    def row(name: str) -> list[str]:
+        return [e(name), fmt(gap[name]["HOLDOUT_DTI"]), f"[{fmt(gap[name]['ci95'][0])}, {fmt(gap[name]['ci95'][1])}]",
+                fmt(sg[name]["HOLDOUT_DTI"]), f"[{fmt(sg[name]['ci95'][0])}, {fmt(sg[name]['ci95'][1])}]"]
+
+    e3_table = table(["method", "catalogue-gap, fresh seeds 11-15", "95% CI", "SGMC off-catalogue (not fresh)", "95% CI"], [row(n) for n in gap],
+                     "HOLDOUT-DTI, evaluator " + e3["evaluator"] + ", 38,000 dots each, 1000-draw paired tile bootstrap")
+    cal = calib["spearman"]
+    cal_rows = [[e(k), fmt(v["rho"], 3), fmt(v["p"], 3)] for k, v in cal.items()]
+    scarp_rows = [[e(r["fragment"][:46]), e(r["site"]), fmt(r["live_user_reported"]), fmt(r["sgmc_DTI"]), fmt(r["gap_DTI"])]
+                  for r in calib["rows"] if any(k in r["fragment"] for k in ("lidar", "scarp", "r11", "r12"))]
+    hyp = table(["rank", "hypothesis", "status"],
+                [["1", "H4 catalogue-shadow geometry (generalise the b2 exclusion)", "not run: derivative of the D28 family, cannot be unique; only a live slot can test it"],
+                 ["2", "H1 AS-1 antislope LiDAR scarps", "E1 and E3 negative; duplicate of sibling lanes"],
+                 ["3", "H3 non-LiDAR gap zone from gravity, basement depth, conductance", "E2b refuted"],
+                 ["4", "H2 TIGER road mask on scarp candidates", "E2a refuted"],
+                 ["5", "H5 seismicity alignments (USGS FDSN)", "not run: location error far above the 300 m kernel"]])
+    body = f"""    <section>
+      <div class="section-head">
+        <div><p class="kicker">Run card</p><h2>Verdict: {e(card['verdict'])}</h2></div>
+        <p>{e(card['verdict_reason'])}</p>
+      </div>
+      <div class="table-wrap"><table><tbody>
+        <tr><th style="width:230px">Hypothesis</th><td>{e(card['hypothesis'])}</td></tr>
+        <tr><th>Mechanism</th><td>{e(card['mechanism'])}</td></tr>
+        <tr><th>Mimicking non-fault processes</th><td>{e('; '.join(card['mimicking_non_fault_processes']))}</td></tr>
+        <tr><th>Overlap vs registry</th><td>{card['overlap_vs_registry']['registry_rasters_compared']} rasters; max 500 m-block Spearman {fmt(card['overlap_vs_registry']['max_spearman_500m'], 3)};
+        max non-vacuous 3 px overlap {fmt(card['overlap_vs_registry']['max_non_vacuous_3px_overlap'], 3)}; {len(card['overlap_vs_registry']['duplicates_by_overlap'])} duplicates by overlap</td></tr>
+        <tr><th>Raster sha256</th><td><code>{e(card['raster_sha256']['allfinite'])}</code> (all-finite)<br><code>{e(card['raster_sha256']['nan'])}</code> (NaN-outside)</td></tr>
+        <tr><th>Name and note</th><td><code>{e(card['submission_name'])}</code><br>{e(card['submission_note'])} ({card['note_chars']}/140)</td></tr>
+        <tr><th>Organizer confirmed</th><td>no. Machine-readable: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/run_card_lane_as1.json">evidence/run_card_lane_as1.json</a></td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">E3, preregistered</p><h2>The gate that failed</h2></div>
+        <p>E3 was committed to git before it ran. E1 and E2 designs were declared in their script docstrings before running (self-declared, no external timestamp).</p>
+      </div>
+      {e3_table}
+      <div class="notice notice-danger"><strong>Instrument defect</strong> Random Poisson dots in the LiDAR zone beat the D28 incumbent and the owner-reported live best on the
+      catalogue-gap proxy, because that proxy rewards coverage and b2 was pruned against the hidden half of the catalogue. Both local proxies are weak rankers across geometry families.</div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Calibration</p><h2>How far the proxies can be trusted</h2></div>
+        <p>{calib['n_files']} registry rasters with USER-REPORTED live scores against local proxies. Rank correlations are weak; the scarp-led files are inverted.</p>
+      </div>
+      {table(['local predictor', 'Spearman vs live', 'p'], cal_rows)}
+      {table(['file fragment', 'site', 'live (USER-REPORTED)', 'SGMC proxy DTI', 'catalogue-gap proxy DTI'], scarp_rows, 'LiDAR and scarp-led files: high proxy, low live')}
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Hypotheses</p><h2>Ranked by expected gain and cost</h2></div>
+        <p>Full table with layers, signatures and sources: <code>knowledge/2026-10-25_lane_hypotheses.md</code>.</p>
+      </div>
+      {hyp}
+    </section>
+"""
+    return shell("", "Lane run card", "The lane's hypotheses, holdout results, calibration and verdict.", "Lane",
+                 page_hero("Parallel-run lane", "Negative result, fully logged.", "Three experiments, one preregistered gate, one verdict. Negative results are deliverables."),
+                 body, "Every number is read from evidence/*.json by scripts/build_site.py.")
 
 
 def build_research(sub: dict, buf: dict, union: dict) -> str:
@@ -868,6 +960,12 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
         "schema_version": 1,
         "project": "GEMSDOE31",
         "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
+        "decision": sub["decision"],
+        "lane_candidate": {"name": sub["lane_candidate"]["name"], "verdict": sub["lane_candidate"]["verdict"],
+                           "ready_to_submit": sub["lane_candidate"]["ready_to_submit"],
+                           "tif_allfinite": sub["lane_candidate"]["files"]["allfinite"], "tif_nan": sub["lane_candidate"]["files"]["nan"],
+                           "sha256_allfinite": sub["lane_candidate"]["gate_receipts"]["allfinite"]["sha256"],
+                           "note": sub["lane_candidate"]["note_for_portal"], "organizer_receipt": "none"},
         "current_download": {
             "name": primary["name"],
             "tif": primary["file_nan"],
@@ -912,6 +1010,7 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
         "open_items": [
             "no organizer receipt for any score on this site",
             "no candidate has beaten the incumbent on the off-catalogue proxy by a margin worth a weekly slot",
+            "lane candidate AS-1 failed its preregistered holdout gate and the lane-uniqueness gate: no file is cleared for submission",
             "external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated",
         ],
     }
@@ -1287,6 +1386,7 @@ def main() -> None:
     pages = {
         DOCS / "index.html": build_index(submissions, buffer_derivation, union, arms),
         DOCS / "executive-summary.html": build_executive_summary(submissions, buffer_derivation, submission_receipts()),
+        DOCS / "lane.html": build_lane(submissions),
         DOCS / "research.html": build_research(submissions, buffer_derivation, union),
         DOCS / "validation.html": build_validation(buffer_derivation, buffer_derivation, experiments,
                                                   load("evidence/metric_check.json", {})),

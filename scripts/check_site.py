@@ -10,6 +10,7 @@ Run after ``scripts/build_site.py``. Exits non-zero on any failure.
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 import unicodedata
@@ -18,7 +19,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-MAX_PAGES = 20
+MAX_PAGES = 21
 ALLOWED_STATUS_PICTOGRAMS: set[str] = set()
 
 FAILURES: list[str] = []
@@ -68,17 +69,30 @@ def main() -> None:
                 fail(f"{page.relative_to(ROOT)}: pictogram/symbol U+{ord(character):04X} ({character!r}) in markup")
 
     index = (DOCS / "index.html").read_text()
-    if "Download reference TIFF" not in index:
-        fail("index.html: the reference-file download button is missing")
-    if "not approved for upload" not in index.lower():
-        fail("index.html: the no-upload-approval warning is missing")
-    if "Download submission TIFF" in index:
-        fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
-
+    gate_receipt = next((DOCS / "downloads" / "blocked").glob("*-gate-allfinite.json"), None)
     executive = (DOCS / "executive-summary.html").read_text()
-    if "do not submit a download from this page yet" not in executive.lower():
-        fail("executive-summary.html: the no-upload-approval warning is missing")
-    for name in ("executive-summary.html", "feed.json"):
+    if gate_receipt is None:
+        fail("no gate receipt for the candidate download")
+    else:
+        verdict = json.loads(gate_receipt.read_text())["verdict"]
+        shown = {"READY_TO_SUBMIT": "READY TO SUBMIT", "BLOCKED": "BLOCKED: DO NOT SUBMIT",
+                 "FORMAT_VALID_NOT_PROMOTED": "FORMAT VALID, NOT PROMOTED"}[verdict]
+        for page, text in (("index.html", index), ("executive-summary.html", executive)):
+            if shown not in text:
+                fail(f"{page}: the gate verdict {verdict} is not shown")
+        if verdict == "READY_TO_SUBMIT":
+            if "Download submission TIFF" not in index:
+                fail("index.html: the one-click download button is missing")
+        else:
+            if "Download candidate TIFF" not in index:
+                fail("index.html: the candidate download button is missing")
+            if "not approved for upload" not in index.lower():
+                fail("index.html: the no-upload-approval warning is missing")
+            if "Download submission TIFF" in index:
+                fail("index.html: a non-cleared file is labeled as a submission TIFF")
+            if "do not submit a download from this page yet" not in executive.lower():
+                fail("executive-summary.html: the no-upload-approval warning is missing")
+    for name in ("executive-summary.html", "lane.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")
 
