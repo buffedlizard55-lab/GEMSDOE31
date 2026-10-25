@@ -430,6 +430,30 @@
       "action": "Enforced pre-placement surface and final-dot duplicate canary (rho <= 0.90, 3-px overlap <= 70%) in src/gemsdoe31/submodular_emit.py."
     },
     {
+      "id": "IR-31-LIDAR-VALID-LEAKAGE-IN-LEGACY-ARM-D",
+      "severity": "medium",
+      "status": "closed",
+      "summary": "Prepared band index 30 (`valid`, 0/1 LiDAR survey coverage mask covering 75.37% of footprint) acted as a survey-footprint confounder in legacy Arm B/D training.",
+      "evidence": [
+        "src/gemsdoe31/hvdc.py",
+        "evidence/hvdc/leakage_canary.json"
+      ],
+      "impact": "Biased probability surface toward 3DEP acquisition block boundaries rather than range-front geology.",
+      "action": "Hard-blocked `valid`, `dist_cat_km`, and `dist_sgmc_km` via FORBIDDEN_PREPARED_BANDS in src/gemsdoe31/hvdc.py."
+    },
+    {
+      "id": "IR-31-GEMSDOE36-CONDUIT-ADDITION-BELOW-MARGINAL-COST",
+      "severity": "low",
+      "status": "closed",
+      "summary": "Byte comparison proves GEMSDOE36 (38,854 dots, 0.2750 USER-REPORTED) equals GEMSDOE32 H33-2-B2 (37,654 dots, 0.2778 USER-REPORTED) plus 1,200 conduit dots whose marginal credit fell below tau* = 0.0454.",
+      "evidence": [
+        "knowledge/2026-10-25_h31_hvdc_results_and_audit.md",
+        "evidence/hvdc/duplicate_canary_full.json"
+      ],
+      "impact": "Explains why adding unpruned low-marginal-credit dots degrades DTI denominator.",
+      "action": "Held H31-HVDC dot budget strictly at 37,654 and enforced B > 2 px collar exclusion."
+    },
+    {
       "id": "IR-31-H31B-PIEDMONT-STARVATION",
       "severity": "high",
       "status": "resolved-superseded-by-h31m-2026-10-25",

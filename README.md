@@ -7,20 +7,33 @@
 > No human sign-off can override that failure under the current protocol.
 >
 > **H31-M BStep-XMod-Submod (newly computed 2026-10-25 · branch `arena/ee48fe7a-gemsdoe31`):**
-> **OK TO DOWNLOAD FOR RESEARCH. NOT APPROVED FOR SUBMISSION (`verdict: "negative"` under literal 695-registry lattice STOP).**
-> [**Download H31-M Research GeoTIFF (`-nan.tif`)**](docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif) ·
-> [Single-TIFF `.zip`](docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.zip) ·
+> **OK TO DOWNLOAD FOR RESEARCH. NOT APPROVED FOR SUBMISSION (`verdict = negative` under literal 695-registry lattice STOP, `slot_approved = false`).**
+> [**Download H31-M Research .tif (`-nan.tif`)**](docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif) ·
+> [One-TIFF `.zip`](docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.zip) ·
 > [All-finite `.tif`](docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif) ·
 > [Format receipt](docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-format-check.json) ·
-> [H31-M JSON run card](evidence/h31m_run_card.json) ·
-> [Frozen preregistration](knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md).
+> [H31-M Run Card](evidence/h31m_run_card.json) ·
+> [Frozen Preregistration](knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md).
 > Passes local GeoTIFF format (`21/21` checks, `[0.0, 1.0]` inside footprint, `0` NaN inside), 48-feature leakage canary (`max AUC = 0.7740 <= 0.90`),
-> 12-submission comparator subset (`max |ρ| = 0.7204`, `max 3-px = 53.16%`, concurrent 2026-10-25 discrete lanes `<= 38.50%` — subset only, not broad uniqueness approval),
+> 13-submission comparator subset (`max |ρ| = 0.7204`, `max 3-px = 53.16%`, concurrent 2026-10-25 lanes `<= 51.59%` — subset only, not broad uniqueness approval),
 > `gemsdoe31-holdout-v1` hide-and-recover screen (`0.1350` vs `0.1135`, `4/4` folds) & fresh confirm (`0.1372` vs `0.1127`, `4/4` folds),
-> AND beats `GEMSDOE32 H33-2-B2` simultaneously on Piedmont Off-SGMC (`0.0641` vs `0.0586`, vs `H31-B` `0.0052`), 4-Block Off-SGMC (`0.1077` vs `0.0984`), and Full Off-SGMC (`0.1010` vs `0.0940`).
-> Held as research-only (`slot_approved = false`, `ok_to_submit = false`) because `99.6255%` (`37,513 / 37,654`) of dots fall within `3 px` of the registered spacing-5 lattice `r13-lattice-s5` in the 695-raster manifest and its `21.25 km` collar is inherited rather than candidate-estimated.
+> AND is the **first lane in GEMSDOE31 to beat `GEMSDOE32 H33-2-B2` simultaneously on Piedmont Off-SGMC (`0.0641` vs `0.0586`), 4-Block Off-SGMC (`0.1077` vs `0.0984`), and Full Off-SGMC (`0.1010` vs `0.0940`)** —
+> but triggers the unexempted 695-raster `r13-lattice-s5` STOP (`99.6255%` within `3 px`) and uses the inherited `21.25 km` collar.
 > SHA-256 (`-nan.tif`): `ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6`. Artifact Name: `GEMSDOE31-H31M-BStep-XMod-Submod-37654`.
 > Note (`102/140`): `H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641`.
+>
+> H31-HVDC-Submod300 (`EXP-3`, newly computed 2026-10-25) passed local GeoTIFF format validation (10/10 checks),
+> 55-feature single-feature leakage canary (`max AUC = 0.7606 <= 0.90`), blocked 21.25 km hide-and-recover confirmation
+> (`HOLDOUT-DTI 0.1247`, `95% CI [0.1128, 0.1381]` vs `0.0779` clean `ArmD`, `+60.0%`, `4/4` draws won; `OFFCAT-PROXY-DTI 0.0824`),
+> and 34-comparator discrete separation (`max |Spearman| = 0.1455`, `max forward 3-px overlap = 47.62%`),
+> **but triggers a literal STOP under the unexempted 695-raster shared registry** (`99.52%` within 3 px of `r13-lattice-s5`; `100%` within `GEMSDOE48` continuous field).
+> **OK TO DOWNLOAD FOR RESEARCH. NOT APPROVED FOR SUBMISSION (`verdict = negative`, `slot_approved = false`).**
+> [**Download H31-HVDC Research .tif (NaN-outside)**](docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif) ·
+> [One-TIFF .zip](docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.zip) ·
+> [All-finite .tif](docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif) ·
+> [Format & gate receipt](docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-format-check.json) ·
+> [HVDC Run Card](evidence/hvdc/run_card.json) ·
+> SHA-256 `2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2`.
 >
 > H31-E2 SCGP-Submod is preserved as historical negative research, not a new experiment in this session.
 > Its 22-comparator subset passed, but that subset excluded a registered lattice that triggers STOP.
@@ -292,6 +305,25 @@ files) from commit `1a22d755d5e2d2588c23c66a3ce6db9955cf5fa4`. The exact source 
 in this session. H31-B's original promote flag is **not** reproduced, endorsed or imported as selector approval here.
 Different truth populations/CI/buffer instruments cannot be ranked by headline DTI. No current file is approved.
 
+## 2026-10-25 H31-HVDC-Submod300 dual-specialist + 300 m CELF submodular audit
+
+Full preregistration and measured audit:
+[`knowledge/2026-10-25_h31_hvdc_preregistration.md`](knowledge/2026-10-25_h31_hvdc_preregistration.md) ·
+[`knowledge/2026-10-25_h31_hvdc_results_and_audit.md`](knowledge/2026-10-25_h31_hvdc_results_and_audit.md) ·
+[`evidence/hvdc/run_card.json`](evidence/hvdc/run_card.json) ·
+[`evidence/hvdc/hvdc_experiment_results.json`](evidence/hvdc/hvdc_experiment_results.json) ·
+[`evidence/hvdc/shared_registry_stop_audit.json`](evidence/hvdc/shared_registry_stop_audit.json).
+
+- **Mechanism (`H31-HVDC`):** Deconfounds the `24.63%` 3DEP LiDAR coverage gap (hard-blocking `valid`, `dist_cat_km`, and `dist_sgmc_km`) via a `100%`-footprint geophysical/radiometric/GDR-1391 specialist + `75.37%` multi-sensor specialist + fold-visible-only vent-to-tip & relay-ramp accommodation specialist, calibrated via exact Bayes case-control prior shift and discretized via vectorized Batch-Exact 300 m triangular-kernel CELF submodular maximum coverage (`37,654` binary `{0.0, 1.0}` dots at `d_cat > 2.0 px`).
+- **Blocked Hide-and-Recover `HOLDOUT-DTI` (`gemsdoe31-hide-recover-v1`, `21,250 m` collar, `48,169` withheld positives across 4 draws, `1,000`-rep 20 km bootstrap):**
+  - `EXP-1` (`ArmD-Clean-Poisson`): Screen `0.0733 [0.0623, 0.0857]`, Confirm `0.0826 [0.0682, 0.0994]`, Pooled-4 `0.0779 [0.0664, 0.0908]`, `OFFCAT-PROXY-DTI 0.0731`.
+  - `EXP-2` (`H31-HVDC-Physics-Poisson`): Screen `0.0782 [0.0669, 0.0896]`, Confirm `0.0860 [0.0730, 0.1004]`, Pooled-4 `0.0821 [0.0713, 0.0936]` (`+0.0042`, `4/4` draws), `OFFCAT-PROXY-DTI 0.0701`.
+  - **`EXP-3` (`H31-HVDC-Submod300`):** Screen **`0.1202 [0.1078, 0.1332]`**, Untuned Confirm **`0.1292 [0.1141, 0.1448]`**, Pooled-4 **`0.1247 [0.1128, 0.1381]`** (**`+0.0468` / `+60.0%`**, `4/4` draws and `4/4` spatial quadrants `Q0..Q3`), `OFFCAT-PROXY-DTI 0.0824` (`+12.7%` vs clean `ArmD`, `+61.0%` vs legacy `Arm D`).
+- **Canaries & Shared-Registry STOP:**
+  - Single-feature leakage (`55/55` features): **`PASS`** (`max AUC = 0.7606 <= 0.90`).
+  - Discrete 34-comparator subset (9 focus sites + 6 concurrent 2026-10-25 lanes): `max |Spearman| = 0.1455` (`0.0626` vs `GEMSDOE32` `H33`), `max forward 3-px overlap = 47.62%` (`36.89%` vs `GEMSDOE32` `H33`, `35.71%` vs `SCGP-Submod`, `18.47%` vs `MAGREST`) — subset only, not global uniqueness approval.
+  - Unexempted 695-raster shared registry (`r13-lattice-s5` / `GEMSDOE48` continuous field): `99.52%` (`37,472 / 37,654`) within 3 px of `r13-lattice-s5` (`|Spearman| = 0.000001`, zero copied signal) and `100%` within `GEMSDOE48` continuous field -> **`LITERAL STOP` (`verdict = negative`, `slot_approved = false`, research download only)**.
+
 ## H31-M Subsurface-Concordance & 29-Cell Submodular Campaign (2026-10-25)
 
 Frozen preregistration: [`knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md`](knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md) ·
@@ -299,26 +331,10 @@ Run card: [`evidence/h31m_run_card.json`](evidence/h31m_run_card.json) ·
 Full results: [`evidence/h31m_results.json`](evidence/h31m_results.json) ·
 3-pass review: [`knowledge/session_review_2026-10-25_h31m.md`](knowledge/session_review_2026-10-25_h31m.md).
 
-### Four ranked candidate geological hypotheses (frozen before fitting; only Rank 1 executed)
-
-| Rank | ID | Specific layers & physical transform | Why it catches unmapped faults & novelty vs prior GEMSDOE31 work | Named non-fault mimic & status |
-| ---: | --- | --- | --- | --- |
-| **1** | **H31-M** | `depth_to_base`, `iso_grav_anom`, `mag_anom_rtp`, `deep_cond_3k`, 1 m 3DEP LiDAR, GeoDAWN K/Th/U; Miller–Singh tilt-angle zero-contour + Blakely–Simpson bandpass RTP crest + subsurface–surface strike concordance + deconfounded dual-head Bayes OOF HGB + exact 29-cell submodular DTI (`B=2`, `37,654` dots) | Recovers buried range-front & intra-basin faults concealed beneath Quaternary alluvium (`37.2%` piedmont dots) without starving mountain bedrock faults (`IR-31-H31B-PIEDMONT-STARVATION` & `IR-31-LIDAR-COVERAGE-CONFOUND`). First lane in GEMSDOE31 to beat `GEMSDOE32 H33-2-B2` simultaneously across Piedmont Off-SGMC, 4-Block Off-SGMC, Full Off-SGMC, and 21.25 km holdout. | Buried paleo-erosional bedrock channels & welded-tuff margins · **Executed (`EXP-1..3`): 11/11 scientific/subset gates pass; held as research-only (`DO NOT SUBMIT`) by `r13-lattice-s5` 695-registry STOP & inherited 21.25 km collar** |
-| 2 | **H31-N** | `deep_cond_3k`, `deep_cond_10k`, `heat_flow`, `mag_anom_rtp`; log-MT vertical conductance ratio `log10(cond_3k / cond_10k)` + Curie-depth demagnetization trough | Captures crustal-scale ductile-to-brittle shear conduits lacking brittle Quaternary scarps; vertical MT log-conductance ratio untried here | Intrusive pluton aureoles & conductive playa-brine basins · Deferred (single-lane rule) |
-| 3 | **H31-P** | `hor_strain_rate`, `earthquakes`, `iso_grav_anom`; Kostrov strain-gradient filament × 5 km kernel seismicity density | Detects incipient transfer/accommodation zones (Walker Lane / Central Nevada Seismic Belt) crossing Quaternary basins | Mining/geothermal induced seismicity & GPS interpolation lobes · Deferred (single-lane rule) |
-| 4 | **H31-Q** | USGS 3DEP 1/3 arc-second (10 m) DEM + NHDPlus HR flowlines; Hack stream-length gradient index (`SL`) & tributary junction-angle anomaly | Detects blind range-front faults overprinted by Holocene sheetwash where 1 m LiDAR is absent (~65% of footprint) | Lithologic knickpoints across resistant carbonate/welded-tuff ledges · Deferred (external USGS S3 host outside sandbox allowlist) |
-
-### H31-M `EXP-1..3` summary (all figures `HOLDOUT-DTI` / local proxy, never competition scores)
-
-- **EXP-1 (48-Feature Leakage Canary & Single-Channel Screen):** `48/48` features `AUC <= 0.7740 <= 0.90` (`max_new_H31M_AUC = 0.6139`). Top label-free single-channel `gemsdoe31-holdout-v1` scores: `rtp_bandpass_crest 0.0722`, `surf_piedmont_ridge 0.0610`, `grav_tilt_zero 0.0470`, `xmod_strike_concordance 0.0454`.
-- **EXP-2 (`gemsdoe31-holdout-v1`, `58,625` withheld positives, `21,250 m` inherited collar, `400` block-bootstrap reps):**
-  - Screen (`seed=20261025`): `base_C1` `0.1135` -> `h31m_pois` `0.1177` -> **`h31m_submod` `0.1350`** (`95% CI [0.1163, 0.1566]`, paired Δ CI `[+0.0064, +0.0380]`, `4/4` folds won).
-  - Fresh confirm (`seed=20261026`): `base_C1` `0.1127` -> `h31m_pois` `0.1147` -> **`h31m_submod` `0.1372`** (`95% CI [0.1191, 0.1580]`, paired Δ CI `[+0.0107, +0.0392]`, `4/4` folds won).
-- **EXP-3 (Off-Catalogue Multi-Proxy & Registry Audit, `37,654` binary `1.0` dots, `37.2%` piedmont `slope <= 6°`):**
-  - **Full Off-SGMC (`61,664` px):** **`0.1010`** vs `GEMSDOE32 B=2` `0.0940` (`+7.4%`) and `H27-4` `0.0938`.
-  - **4-Block Collared Off-SGMC (`50,470` px):** **`0.1077`** (`95% CI [0.0902, 0.1336]`, `3/4` folds > `H33-2-B2`) vs `GEMSDOE32 B=2` `0.0984` (`+9.5%`).
-  - **Piedmont Off-SGMC (`slope <= 6°`, `11,573` px):** **`0.0641`** vs `GEMSDOE32 B=2` `0.0586` (`+9.4%`) and `H31-B` `0.0052` (`12.3x`).
-  - **12-Submission Subset vs Broad 695-Raster Registry:** Pre-placement surface `max |ρ| = 0.7204 <= 0.90`; 3-px dot overlap `<= 53.16%` across all 12 submission comparators (`40.25%` vs `H33-2-B2`, `33.57%` vs `H31-E2`, `32.77%` vs `H31-B`, `20.77%` vs `AS-1`, `18.13%` vs `MAGREST`, `0.00%` vs `TGJ31`), **SUBSET ONLY — NOT UNIQUENESS APPROVAL**; against registered spacing-5 lattice `r13-lattice-s5` (`206,895` dots), `37,513 / 37,654` (`99.6255%`) fall within `3 px`, triggering the binding unexempted `STOP` (`ok_to_download_for_research = true`, `ok_to_submit = false`, `slot_approved = false`).
+- **Ranked Hypotheses (frozen before fitting; only Rank 1 executed):** (1) **H31-M** Subsurface Fractional-Throw + Gravity Tilt-Zero + RTP Bandpass + Strike Concordance + Deconfounded Dual-Head Bayes OOF HGB + 29-Cell Submodular DTI (`executed`); (2) **H31-N** MT Log-Conductance Ratio + Curie Trough (`deferred`); (3) **H31-P** Kostrov Strain-Gradient × 5 km Seismicity Filament (`deferred`); (4) **H31-Q** 10 m 3DEP Hack SL & Junction-Angle Anomaly (`deferred`).
+- **EXP-1 (48-Feature Canary):** `48/48` features `AUC <= 0.7740 <= 0.90` (`max_new_H31M_AUC = 0.6139`).
+- **EXP-2 (`gemsdoe31-holdout-v1`, `58,625` withheld positives, `21.25 km` inherited collar):** Screen `0.1350` vs `0.1135` (`4/4` folds, Δ CI `[+0.0064, +0.0380]`); Fresh Confirm `0.1372` vs `0.1127` (`4/4` folds, Δ CI `[+0.0107, +0.0392]`).
+- **EXP-3 (`37,654` `B=2` binary dots, `37.2%` piedmont):** Full Off-SGMC **`0.1010`** vs `H33-2-B2` `0.0940` (`+7.4%`), 4-Block Off-SGMC **`0.1077`** vs `0.0984` (`+9.5%`), Piedmont Off-SGMC **`0.0641`** vs `0.0586` (`+9.4%`, vs `H31-B` `0.0052`). 13-submission subset `max |ρ| = 0.7204`, `max 3-px = 53.16%` (`51.59%` vs `HVDC`, `40.25%` vs `H33-2-B2`, `33.57%` vs `H31-E2`, `18.13%` vs `MAGREST`); held as research-only (`DO NOT SUBMIT`) by unexempted `r13-lattice-s5` (`99.6255%`) 695-raster STOP and inherited `21.25 km` collar.
 
 ## Complete owner prompt — reread at every session start
 

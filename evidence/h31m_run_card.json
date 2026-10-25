@@ -72,11 +72,11 @@
     },
     "passed_uniqueness_gate": true,
     "downloads_and_concurrent_subset": {
-      "comparators_checked": 12,
+      "comparators_checked": 13,
       "max_abs_surface_spearman_r": 0.7204,
       "max_abs_final_spearman_r": 0.0569,
       "max_dot_overlap_within_3px": 0.5316,
-      "max_dot_overlap_within_3px_concurrent_discrete_lanes": 0.385,
+      "max_dot_overlap_within_3px_concurrent_discrete_lanes": 0.5159,
       "subset_pass": true,
       "scope_note": "SUBSET ONLY \u2014 NOT UNIQUENESS APPROVAL under unexempted 695-raster manifest"
     },

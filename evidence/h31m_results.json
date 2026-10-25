@@ -1435,7 +1435,7 @@
     "max_within_3px_fraction": 0.53155,
     "max_binary_spearman": 0.05392,
     "broad_reconciliation_post_main_merge": {
-      "downloads_subset_comparators": 11,
+      "downloads_subset_comparators": 12,
       "downloads_subset": {
         "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif": {
           "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
@@ -1502,11 +1502,17 @@
           "dots": 106138,
           "final_spearman_r": 0.0569,
           "dot_overlap_within_3px": 0.5316
+        },
+        "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif": {
+          "sha256": "2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2",
+          "dots": 37654,
+          "final_spearman_r": 0.0352,
+          "dot_overlap_within_3px": 0.5159
         }
       },
       "max_abs_final_spearman_downloads_subset": 0.0569,
       "max_dot_overlap_within_3px_downloads_subset": 0.5316,
-      "max_dot_overlap_within_3px_concurrent_discrete_lanes": 0.385,
+      "max_dot_overlap_within_3px_concurrent_discrete_lanes": 0.5159,
       "counterexample_r13_lattice_s5": {
         "repo": "buffedlizard55-lab/GEMSDOE24",
         "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",

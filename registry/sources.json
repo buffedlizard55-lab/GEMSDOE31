@@ -489,6 +489,22 @@
     "Inspected commit aebe92f7c8a9 via GitHub API: README documents Prof. John Lipor's U-Net Monte Carlo CV reference workflow; unet-mc-cv-reference-solution.ipynb on main is 0 bytes."
    ],
    "limits": "Reference architecture note only; no pre-trained weights or scores included."
+  },
+  {
+   "id": "SRC-DRIVENDATA-GEMS-REFERENCE-REPO",
+   "class": "OFFICIAL",
+   "publisher": "DrivenData (drivendataorg)",
+   "title": "DrivenData GEMS Prize Reference Solution (Prof. John Lipor, PyTorch Monte Carlo U-Net CV baseline)",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-25",
+   "sections_read": [
+    "README.md",
+    "unet-mc-cv-reference-solution.ipynb"
+   ],
+   "claims_verified": [
+    "Official organizer Monte Carlo U-Net cross-validation baseline at commit aebe92f7c8a9"
+   ],
+   "limits": "Does not provide private competition test labels or leaderboard receipts."
   }
  ],
  "current_access_audit": "2026-10-25: only GitHub sources re-fetched; non-GitHub official links remain historically recorded, not fresh verification."

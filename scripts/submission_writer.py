@@ -24,7 +24,66 @@ sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_submission import footprint_mask, write_variants  # noqa: E402
-from gemsdoe31.submission import validate_submission  # noqa: E402
+from gemsdoe31.submission import sha256_file, validate_submission  # noqa: E402
+from scipy.ndimage import distance_transform_edt  # noqa: E402
+
+
+def write_validated_submission_variants(
+    dots: np.ndarray,
+    template_path: Path,
+    labels_path: Path,
+    out_dir: Path,
+    submission_name: str,
+    note: str,
+    receipt_path: Path | None = None,
+) -> dict:
+    """Write ``-nan.tif``, ``-allfinite.tif``, ``-nan.zip`` enforcing B>2 px collar & strict validation."""
+    if len(note) > 140:
+        raise ValueError(f"Submission note exceeds 140 characters ({len(note)}): {note!r}")
+    footprint = footprint_mask(template_path)
+    with rasterio.open(labels_path) as src:
+        catalogue = (src.read(1) == 1) & footprint
+    d_cat = distance_transform_edt(~catalogue)
+    clean_dots = np.asarray(dots, dtype=bool) & footprint & (d_cat > 2.0)
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    paths = write_variants(clean_dots, footprint, out_dir / submission_name, name=submission_name)
+    rep_nan = validate_submission(paths["nan"], template_path, convention="nan-outside")
+    rep_fin = validate_submission(paths["allfinite"], template_path, convention="all-finite")
+    if not rep_nan["ok_to_upload_format_only"] or not rep_fin["ok_to_upload_format_only"]:
+        raise RuntimeError(f"Validation failed: nan={rep_nan['hard_failures']} allfinite={rep_fin['hard_failures']}")
+
+    payload = {
+        "schema_version": 1,
+        "submission_name": submission_name,
+        "submission_note": note,
+        "submission_note_length": len(note),
+        "ok_to_download_and_submit": bool(rep_nan["ok_to_upload_format_only"] and rep_fin["ok_to_upload_format_only"]),
+        "primary_nan_variant": {
+            "path": str(paths["nan"]),
+            "zip_path": str(paths["zip"]),
+            "sha256": rep_nan["sha256"],
+            "zip_sha256": sha256_file(paths["zip"]),
+            "bytes": rep_nan["bytes"],
+            "zip_bytes": paths["zip"].stat().st_size,
+            "validator_output": rep_nan,
+        },
+        "fallback_allfinite_variant": {
+            "path": str(paths["allfinite"]),
+            "sha256": rep_fin["sha256"],
+            "bytes": rep_fin["bytes"],
+            "validator_output": rep_fin,
+        },
+        "collar_check": {
+            "emitted_dots": int(clean_dots.sum()),
+            "dots_on_catalogue_exact": int((clean_dots & catalogue).sum()),
+            "dots_within_200m_of_catalogue": int((clean_dots & (d_cat <= 2.0)).sum()),
+        },
+    }
+    if receipt_path is not None:
+        receipt_path.parent.mkdir(parents=True, exist_ok=True)
+        receipt_path.write_text(json.dumps(payload, indent=2) + "\n")
+    return payload
 
 
 def emit_and_validate_submission(
