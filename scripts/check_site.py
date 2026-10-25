@@ -88,10 +88,16 @@ def main() -> None:
         fail("index.html: the no-upload-approval warning is missing")
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
+    if "ARCHIVED HISTORICAL RUN" not in index or "DO NOT SUBMIT · BROAD-REGISTRY LITERAL STOP" not in index:
+        fail("index.html: archived H31-E2 TIFF is not clearly research-only after the broad-registry STOP")
+    if "Download archived research TIFF (DO NOT SUBMIT)" not in index:
+        fail("index.html: archived H31-E2 download button is not explicitly marked DO NOT SUBMIT")
 
     executive = (DOCS / "executive-summary.html").read_text()
-    if "do not submit a download from this page yet" not in executive.lower():
-        fail("executive-summary.html: the no-upload-approval warning is missing")
+    if "DO NOT SUBMIT any TIFF on this page" not in executive:
+        fail("executive-summary.html: explicit no-upload-approval warning is missing")
+    if "no human selector can waive a failed hard gate" not in executive:
+        fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
         if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in html_text:
             fail(f"{page_name}: H31-E2 SCGP-Submod candidate name missing")

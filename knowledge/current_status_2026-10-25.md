@@ -2,6 +2,14 @@
 
 Read the complete owner prompt at the end of README, AGENTS, [H31-E preregistration](2026-10-25_h31e_preregistration.md), the frozen MAGREST preregistration, this record and `registry/review_passes.json` before continuing.
 
+## Latest clean-runtime repo review (Arena continuation · 2026-10-25)
+
+- No new experiment, model fit, candidate TIFF, or submission slot was used. The literal broad-registry overlap STOP remains controlling; the existing MAGREST artifact is research-download-only and `ok_to_submit=false`.
+- Current-runtime verification: `verify_current_run.py --restore-small-inputs` reproduced the primary TIFF hash and negative decision. The pinned template/labels restore path provided only the small validation inputs and registry witness; the ignored full production data and feature cache are absent in this clean checkout. This differs from the historical all-input restoration receipt below and is not a permission to fit after STOP.
+- Checks: before restoring the two small validation inputs, 92 tests passed and 6 were skipped; after restore, the final suite passed 98 tests with 0 skips. Ruff and compileall passed; metric equivalence max absolute difference was 4.441e-16; generated site check passed (20 pages, 296 local links).
+- Corrected the agent instructions to state that `recheck_magrest.py` is only the original nine-download-tree repetition and requires the ignored MAGREST response cache; broad counterexample denial is rederived by `verify_current_run.py`. Corrected the README run command and evidence collector's ambiguous “best research candidate” console wording. Updated the generated site/README to mark historical H31-E2 as DO NOT SUBMIT after its broad-registry STOP and prevent a human-selector override from being implied.
+- Desk-only next hypotheses already preregistered (GRAVREST, RADREST, TERRREST) remain unfit and have unknown expected DTI gain. They are not authorized experiments in this closed lane. Review details: [`repo_review_2026-10-25_arena.md`](repo_review_2026-10-25_arena.md).
+
 ## Latest lane (H31-E2 SCGP-Submod · `gemsdoe31-scgp-submod-37654-20261025-fa735287`)
 
 - **Primary NaN-outside GeoTIFF:** `docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif` (`d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8`); all-finite fallback `88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6`; `37,654` off-catalogue binary dots (`31.5%` beyond `1.5 km`).

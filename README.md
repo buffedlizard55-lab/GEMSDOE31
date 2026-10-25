@@ -1,10 +1,10 @@
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
-> ### 2026-10-25 · H31-E2 SCGP-Submod Multi-Physics + 300 m Submodular Candidate (`gemsdoe31-scgp-submod-37654-20261025-fa735287`)
+> ### ARCHIVED · 2026-10-25 · H31-E2 SCGP-Submod (`gemsdoe31-scgp-submod-37654-20261025-fa735287`)
 >
-> - **PORTAL FORMAT, `[0, 1]` RANGE, NaN-MASK, LEAKAGE, 22-SUBMISSION UNIQUENESS, AND `21.3 km` CONFIRMATION VALIDATION: `PASS — OK TO DOWNLOAD` (`G1=PASS`, `G2=PASS`, `G3a=PASS`, `G4=PASS +29.3%`, `G5a Piedmont SGMC=PASS +13.0%`).**
-> - **WEEKLY-SLOT AUTO-SELECTOR (`slot_approved = false`, Run Card `verdict = "negative"`):** Automatic agent slot spending remains `false` due to strict pre-declared **`G5b`** all-elevation mountain SGMC (`0.0816` vs `0.0940` `H33-2-B2`; `+13.6%` vs `Baseline-D = 0.0718`) and the unexempted `57GEMSDOE` `r13-lattice-s5` 5×5 calibration-lattice rule (`100.0%` interior coverage within $\sqrt{8} = 2.83 \le 3\text{ px}$). Explicit human weekly-slot selector sign-off is required before spending a live DrivenData slot.
-> - [**Download H31-E2 Primary GeoTIFF (`-nan.tif`)**](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif) (`d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8`) ·
+> - **Historical narrow-scope checks passed, but final broad-registry review found a literal 100% 3-px overlap STOP. OK TO DOWNLOAD FOR RESEARCH ONLY. DO NOT SUBMIT.** The historical G1/G2/G3a/G4/G5a passes below do not override the unexempted 695-raster registry control or separate selector gates.
+> - **No submission slot is approved.** The strict predeclared **`G5b`** mountain SGMC gate (`0.0816` vs `0.0940` `H33-2-B2`) and unexempted `57GEMSDOE` `r13-lattice-s5` registry STOP remain. No human selector can waive a failed hard gate.
+> - [**Download archived H31-E2 research GeoTIFF (`-nan.tif`) — DO NOT SUBMIT**](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif) (`d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8`) ·
 >   [Single-TIFF ZIP](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.zip) ·
 >   [All-finite `[0, 1]` fallback (`-allfinite.tif`)](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif) (`88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6`) ·
 >   [Format receipt](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-format-check.json) ·
@@ -44,8 +44,9 @@ Read this README **including the complete normalized owner prompt at the end**, 
 [latest status](knowledge/current_status_2026-10-25.md),
 [MAGREST preregistration](knowledge/2026-10-25_magrest_preregistration.md),
 [latest outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.
-The earlier H31-A STOP remains historical. The old data-absence blocker is resolved: all eleven inputs
-and every template band-cache hash were restored/verified. Do not restart a stopped lane or add a fourth experiment.
+The earlier H31-A STOP remains historical. The prior session has receipts for all-eleven-input and template-cache restoration,
+but this clean runtime did not contain the full ignored production data/cache; only the small validation inputs and pinned
+registry witness were restored for this review. Do not restart a stopped lane or add a fourth experiment.
 
 **Arena core values for this project: Maximize P(Win) · Own the Outcome.**
 
@@ -59,7 +60,8 @@ and every template band-cache hash were restored/verified. Do not restart a stop
 | Inputs, score claims, irregularities, review passes | [register](docs/register/index.html) |
 | Historical experiment log (11 pages); current three-variant result | [archive](docs/experiments/index.html) · [MAGREST research](docs/research.html) |
 | Machine-readable state | [`feed.json`](docs/feed.json) · [`registry/`](registry/) · [`evidence/`](evidence/) |
-| Current repository review, blockers, and next actions | [review record](knowledge/repo_review_2026-10-25.md) |
+| Previous repository review | [2026-10-25 review](knowledge/repo_review_2026-10-25.md) |
+| Latest clean-runtime repository review, blockers, and next actions | [Arena review](knowledge/repo_review_2026-10-25_arena.md) |
 | Latest status / score audit | [Current status](knowledge/current_status_2026-10-25.md) · [MAGREST review](knowledge/session_review_2026-10-25_magrest.md) · [irregularity register](registry/irregularities.json) |
 | AI-use disclosure draft for the narrative | [ai-disclosure](docs/ai-disclosure.html) |
 
@@ -220,8 +222,11 @@ python -m venv .venv
 # Read-only scientific audit if the original ignored inputs/cache are needed:
 .venv/bin/python scripts/download_competition_data.py
 .venv/bin/python scripts/prepare_template_cache.py   # unchanged shared cache_bands; all 19 hashes must match
-.venv/bin/python scripts/recheck_magrest.py          # original nine-tree scope only; not broad approval
-.venv/bin/python scripts/audit_shared_registry_stop.py # audit frozen surfaces/supports; no fit or TIFF
+# Optional historical recheck only when the original ignored response cache exists.
+# It covers the original nine downloads trees, not the broad 695-raster registry.
+# Do not regenerate/re-fit responses after the literal STOP.
+.venv/bin/python scripts/recheck_magrest.py
+# The clean-checkout broad STOP verification is included in verify_current_run.py above.
 # run_magrest.py now refuses every stage because the broad registry STOP is recorded.
 ```
 
