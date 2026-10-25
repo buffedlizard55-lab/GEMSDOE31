@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "policy": "No claim is an OFFICIAL score unless backed by an organizer receipt. The agent did not access the DrivenData leaderboard, private score page, or submission interface. User-supplied values and owner-mirror claims are stored separately and are not treated as verification. No leaderboard table/feed is maintained. The register is regenerated with the site and every claim here is rendered on the register page with its evidence class.",
  "official_score_receipts": [],
  "claims": [
@@ -87,6 +87,72 @@
    "organizer_verification": "not applicable: sibling explicitly marks it unscored",
    "local_identity": "44,090 positive pixels; deterministic thinning; owner registry says unscored/not slot-approved",
    "status": "unscored in the pinned GEMSDOE25 owner-mirror record; later GEMSDOE28 0.2600 owner claim is a separate unresolved report"
+  },
+  {
+   "id": "user-reported-public-leader-0.4413-20261025",
+   "artifact": "External public GEMS leaderboard top anchor, as stated in user prompt",
+   "reported_dti": 0.4413,
+   "reported_dti_text": "0.4413",
+   "claim_source": "user prompt (2026-10-25); no organizer receipt or team artifact supplied",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; official leaderboard not accessed",
+   "status": "external target reference only; never claimed as a project measurement"
+  },
+  {
+   "id": "user-reported-gemsdoe32-h33-2-b2-0.2778-20261025",
+   "artifact": "buffedlizard55-lab/GEMSDOE32 gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif (37,654 px, sha256 c55bafc470054e82...)",
+   "reported_dti": 0.2778,
+   "reported_dti_text": "0.2778",
+   "claim_source": "user prompt (2026-10-25) and GEMSDOE36/GEMSDOE27 sibling manifests; no organizer receipt in repository",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt present",
+   "status": "highest USER-REPORTED score across audited GEMSDOE24..36 sibling sites; proven pixel-exact to D2.8 & (d_cat > 200 m)"
+  },
+  {
+   "id": "user-reported-gemsdoe36-anderson-0.2750-20261025",
+   "artifact": "buffedlizard55-lab/GEMSDOE36 gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif (38,854 px)",
+   "reported_dti": 0.275,
+   "claim_source": "user prompt (2026-10-25); no organizer receipt",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt present",
+   "status": "audited: 97.6% 3-px dot overlap with GEMSDOE32 H33-2-B2 (adds 1,200 far-field dots)"
+  },
+  {
+   "id": "user-reported-gemsdoe28-h36-1-0.2710-20261025",
+   "artifact": "buffedlizard55-lab/GEMSDOE28 gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif (37,660 px)",
+   "reported_dti": 0.271,
+   "claim_source": "user prompt (2026-10-25); no organizer receipt",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt present",
+   "status": "audited: 94.3% 3-px dot overlap with GEMSDOE32 H33-2-B2"
+  },
+  {
+   "id": "user-reported-gemsdoe33-h33d-0.2632-20261025",
+   "artifact": "buffedlizard55-lab/GEMSDOE33 GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif (41,865 px)",
+   "reported_dti": 0.2632,
+   "claim_source": "user prompt (2026-10-25); no organizer receipt",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt present",
+   "status": "audited: 90.0% 3-px dot overlap with GEMSDOE32 H33-2-B2"
+  },
+  {
+   "id": "user-reported-gemsdoe70-p8-0.2478-20261025",
+   "artifact": "buffedlizard55-lab/GEMSDOE70 gems70-p5-dual-submod300-oof38k-20261020.tif (38,000 px)",
+   "reported_dti": 0.2478,
+   "claim_source": "GEMSDOE70 parallel registry claim; no organizer receipt",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt present",
+   "status": "independent non-H19-5 baseline (24.0% overlap with H33-2-B2); illustrates pre-Quaternary SGMC upslope drift (SGMC_DTI=0.1260 vs live 0.2478)"
+  },
+  {
+   "id": "computed-gemsdoe31-h31e2-holdout-20261025",
+   "artifact": "gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif (37,654 px, sha256 d5ae3715c4ee7271...)",
+   "reported_dti": 0.1145,
+   "reported_dti_text": "HOLDOUT-DTI 0.1145 (95% CI 0.1071-0.1232, evaluator gemsdoe31-hide-v2.0, n=35599)",
+   "claim_source": "scripts/evaluate_holdout.py -> evidence/h31e/holdout_results.json",
+   "evidence_class": "COMPUTED",
+   "organizer_verification": "not submitted; local 21.3 km buffered whole-segment holdout measurement, never a live score projection",
+   "status": "beats same-fold Baseline-D-Poisson (0.0886) by +0.0259 (+29.3%); Piedmont SGMC proxy 0.1233 vs H33-2-B2 0.1091 (+13.0%)"
   }
  ],
  "safe_next_step": "Do not resolve discrepancies by accessing or monitoring DrivenData leaderboard material absent prior written permission. Preserve user-supplied claims as USER-REPORTED and owner-site claims as OWNER-MIRROR until an authorized organizer-generated receipt and exact artifact identity are available.",

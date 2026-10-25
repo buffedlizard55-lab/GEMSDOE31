@@ -59,6 +59,15 @@ PROTOCOL = {
 
 SUBMISSIONS = [
     {
+        "id": "candidate-h31e2-scgp-submod",
+        "name": "gemsdoe31-scgp-submod-37654-20261025-fa735287",
+        "role": "new unique GEMSDOE31 candidate - H31-E2 translation-invariant SCGP dual-expert + 300 m submodular (format, [0,1] range, leakage, uniqueness, and 21.3 km holdout validated)",
+        "provenance": "100% out-of-sample 21.3 km buffered 4-quadrant Dual-Expert HistGradientBoostingClassifier + unsupervised multi-physics cross-gradient/tilt/LiDAR ridge + strike-tip & 2-component relay continuation + 1D Hessian ridge sharpening + Minoux lazy-greedy 300 m submodular DTI allocator (scripts/evaluate_holdout.py)",
+        "note_for_portal": "GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287",
+        "slot_approved": False,
+        "why_not_slot_approved": "Passed G1 (format & [0,1] range), G2 (86-feature leakage canary max AUC 0.7624 <= 0.90), G3 (cross-site uniqueness max 3-px overlap 51.53% <= 70%), G4 (21.3 km buffered fresh confirmation HOLDOUT-DTI 0.1145 vs 0.0886, +29.3%), and G5a (Piedmont SGMC DTI 0.1233 vs H33-2-B2 0.1091, +13.0%). Held from automatic agent slot spending (slot_approved=false, Run Card verdict=negative) solely by strict fail-closed G5b all-elevation mountain SGMC sub-clause (0.0816 vs 0.0940) and separate human weekly-slot selector sign-off.",
+    },
+    {
         "id": "primary-h27-4-solo-d28",
         "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
         "role": "primary download - the best-scoring geometry this project has measured, re-emitted and "
@@ -192,6 +201,34 @@ def submissions_register() -> dict:
         if "measured" in entry:
             record["measured"] = entry["measured"]
         files.append(record)
+
+    h31e = ROOT / "evidence" / "h31e" / "holdout_results.json"
+    if h31e.is_file():
+        hdata = json.loads(h31e.read_text())
+        for record in files:
+            if record["id"] == "candidate-h31e2-scgp-submod":
+                conf = hdata["experiment_3_fresh_confirmation_draws_202_303"]
+                scr = hdata["experiment_1_and_2_screen_draw_101"]
+                prox = hdata["off_catalogue_discovery_proxies"]
+                record["measured"] = {
+                    "evaluator_version": hdata["evaluator_version"],
+                    "buffer_m": hdata["spatial_split"]["buffer_m"],
+                    "screen_holdout_dti": scr["h31e_scgp_submod"]["pooled_dti"],
+                    "screen_baseline_dti": scr["baseline_d_poisson"]["pooled_dti"],
+                    "screen_delta_dti": scr["paired_delta_dti"],
+                    "confirm_holdout_dti": conf["h31e_scgp_submod_pooled_dti"],
+                    "confirm_holdout_ci95": conf["h31e_scgp_submod_ci95"],
+                    "confirm_baseline_dti": conf["baseline_d_poisson_pooled_dti"],
+                    "confirm_delta_dti": conf["paired_delta_dti"],
+                    "confirm_delta_ci95": conf["paired_delta_ci95"],
+                    "piedmont_sgmc_proxy_DTI": prox["piedmont_sgmc_offcat_det_elev_le_50m"]["h31e_scgp_submod_dti"],
+                    "h33_piedmont_sgmc_proxy_DTI": prox["piedmont_sgmc_offcat_det_elev_le_50m"]["h33_2_b2_reference_dti"],
+                    "off_catalogue_proxy_DTI": prox["sgmc_offcat_gt_300m"]["h31e_scgp_submod_dti"],
+                    "incumbent_off_catalogue_proxy_DTI": prox["sgmc_offcat_gt_300m"]["h33_2_b2_reference_dti"],
+                    "delta": prox["piedmont_sgmc_offcat_det_elev_le_50m"]["h31e_scgp_submod_dti"]
+                    - prox["piedmont_sgmc_offcat_det_elev_le_50m"]["h33_2_b2_reference_dti"],
+                }
+                record["automated_gates"] = hdata["automated_gates"]
 
     union = ROOT / "evidence" / "union_results.json"
     if union.is_file():

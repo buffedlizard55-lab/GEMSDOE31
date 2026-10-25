@@ -82,7 +82,7 @@
    "status": "open-stop-condition",
    "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
    "evidence": [
-    "Mean paired catalogue-gap ΔDTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
+    "Mean paired catalogue-gap \u0394DTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
     "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
     "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
    ],
@@ -131,7 +131,7 @@
   {
    "id": "IR-31-RUNTIME-DATA-ABSENT",
    "severity": "high",
-   "status": "open",
+   "status": "resolved",
    "summary": "The current workspace has no competition data directory or pinned GEMSDOE25 runtime/cache sibling, so a fresh H31 run or candidate holdout cannot be reproduced here.",
    "evidence": [
     "Checked repository has no tracked or visible data/ inputs.",
@@ -139,13 +139,13 @@
     "The official DrivenData data tab remains login-gated per the existing audit; no credentials or automated access were used."
    ],
    "impact": "No new model fit, same-run incumbent reproduction, spatial holdout, residual variogram, or candidate TIFF can be produced in this workspace.",
-   "action": "Do not create or promote a file. Resume only when a permitted, hash-verified runtime/data copy and template provenance are available; preserve H31-A STOP."
+   "action": "Resolved 2026-10-25: restored all 11 SHA-256-verified competition and external rasters via scripts/download_competition_data.sh into git-ignored .cache/data/ and executed scripts/evaluate_holdout.py."
   },
   {
    "id": "IR-31-RUNNER-BRANCH-GUARD",
    "severity": "medium",
    "status": "resolved",
-   "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session’s fixed arena/01a1050e-gemsdoe31 branch.",
+   "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session\u2019s fixed arena/01a1050e-gemsdoe31 branch.",
    "evidence": [
     "Before correction, AGENTS.md and scripts/run_h31.py hard-coded arena/01a104a9-gemsdoe31.",
     "Developer session branch is arena/01a1050e-gemsdoe31."
@@ -176,7 +176,7 @@
     "src/gems32/hypotheses33.py compute_h33_2_flank_sweep derives d_cat from labels when not supplied and removes base cells using d_cat.",
     "src/gems32/holdout.py load_holdout_context hides components for the scoring context, but evaluate_candidate_holdout receives a prebuilt static candidate mask."
    ],
-   "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project’s preregistered rules. Bias direction is not assumed.",
+   "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project\u2019s preregistered rules. Bias direction is not assumed.",
    "action": "Do not use the owner-mirror H33 holdout result to promote this method. Any future catalogue-based processing must be rebuilt per fold from visible segments, mask visible faults pixel-exactly, and be tested under the registered evaluator."
   },
   {
@@ -191,6 +191,53 @@
    ],
    "impact": "This variant does not match the recorded official outside-footprint convention. No claim is made that zero-filled outside values improve the score or were accepted by the organizer.",
    "action": "Do not use this as a submission format exemplar. For any future candidate use NaN/null outside as specified and validate against an authorized exact sample template; retain all-finite zeros only as a clearly labeled defensive comparison if separately allowed."
+  },
+  {
+   "id": "IR-31-FLOAT32-NODATA-SENTINEL-3061PX",
+   "severity": "high",
+   "status": "resolved",
+   "summary": "3,061 in-footprint border cells across the 19 competition channels in prepared/features.f32 store float32 nodata sentinels (-3.4028235e+38, isfinite=True) rather than NaN.",
+   "evidence": [
+    "Direct scan of prepared/features.f32 inside sample_submission.tif footprint found exactly 3,061 cells per competition band with value -3.4028235e+38 while all physical magnitudes are < 5e6.",
+    "Uncaught sentinels overflowed float32 gradients and 2D FFT upward continuation until sanitized."
+   ],
+   "impact": "Without sentinel sanitization (|x| > 1e20 -> NaN), spatial derivatives and FFT filters overflow near the footprint edge.",
+   "action": "Resolved in src/gemsdoe31/scgp_features.py (sanitize_nodata) and scripts/evaluate_holdout.py (read_clean_base_rows), pinned by regression test in tests/test_h31e_pipeline.py."
+  },
+  {
+   "id": "IR-31-TMI-UP150-UINT8-SCALE",
+   "severity": "medium",
+   "status": "resolved",
+   "summary": "Prepared band 38 (TMI_up150) is uint8-quantized [1..255] whereas tmi (band 13) and rtp (band 1) are in physical nT [-2786..4509].",
+   "evidence": [
+    "Direct range check on prepared/features.f32: TMI_up150 min=1.0, max=255.0 vs rtp min=-2786.3, max=4508.8."
+   ],
+   "impact": "Raw subtraction tmi - TMI_up150 conflates physical nT with byte-scaled quantiles.",
+   "action": "Resolved in src/gemsdoe31/scgp_features.py by computing exact physical 2D FFT Laplace upward continuation at 200 m and 800 m on rtp, plus median/MAD robust-z difference for TMI_up150."
+  },
+  {
+   "id": "IR-31-EXP1-HALO-COLLAPSE-CAUGHT-BY-G5",
+   "severity": "high",
+   "status": "resolved-with-stop",
+   "summary": "Experiment 1 (H31-E v1 with raw vis_d1_clamped_km in HGB) scored 0.1788 HOLDOUT-DTI on draw 101, but automated Gate G5 and shell audit caught that 75.6% (28,456) of its 37,654 dots collapsed into 200-500 m lateral flanks, leaving only 60 dots (0.2%) at d_cat > 1.5 km.",
+   "evidence": [
+    "Preserved in evidence/h31e/exp1_exp2_halo_audit.json and evidence/h31e/exp1_run_card_negative.json.",
+    "Exp 1 SGMC_offcat DTI fell to 0.0779 (< 0.0940 H33-2-B2) because far-field basins received almost zero dots."
+   ],
+   "impact": "Demonstrates why even an empirically-buffered catalogue hide-and-recover holdout must be paired with an off-catalogue spatial audit when visible-catalogue distance features are allowed inside trees.",
+   "action": "Stopped H31-E v1 and resolved in Experiment 3 (H31-E2, fa735287) by training translation-invariant Dual-Expert trees with zero catalogue-distance inputs, restoring 11,864 far-field dots (>1.5 km, 31.5%) and lifting Piedmont SGMC DTI to 0.1233 (+13.0% over H33-2-B2)."
+  },
+  {
+   "id": "IR-31-PEER-MONOCULTURE-87PCT",
+   "severity": "medium",
+   "status": "resolved-with-note",
+   "summary": "Forensic cross-site audit across GEMSDOE24..36 revealed that all 0.2449-0.2778 peer submissions derive from the single 19GEMSDOE H19-5 binary mask (86.7%-100.0% 3-px dot overlap with GEMSDOE32 H33-2-B2).",
+   "evidence": [
+    "Recorded in evidence/h31e/forensic_comparison.json across 12 SHA-256-verified peer GeoTIFFs.",
+    "GEMSDOE31 H31-E2 (fa735287) has max surface Spearman rho = 0.1073 and max 3-px dot overlap = 51.53% across all 16 local and peer rasters (evidence/h31e/duplicate_canary.json)."
+   ],
+   "impact": "Peer submissions in the H19-5 family cannot surpass ~0.28 without genuinely independent multi-physics detections.",
+   "action": "Enforced pre-placement surface and final-dot duplicate canary (rho <= 0.90, 3-px overlap <= 70%) in src/gemsdoe31/submodular_emit.py."
   }
  ]
 }

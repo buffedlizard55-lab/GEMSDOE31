@@ -71,6 +71,41 @@
    "sha256": "64f66b055149ed7b77f557bb777454849333368b404f68761ab6a0dc2c1e1473"
   },
   {
+   "path": "evidence/h31e/duplicate_canary.json",
+   "bytes": 8043,
+   "sha256": "178f12c04c5772b8f9b4b03d397dd7689d684aa73fee1e932101609fd4ec5cdb"
+  },
+  {
+   "path": "evidence/h31e/exp1_exp2_halo_audit.json",
+   "bytes": 14766,
+   "sha256": "5ea3da5d5659836d267fad2db982c2a9160003e5843c783b025b62ca9752b50e"
+  },
+  {
+   "path": "evidence/h31e/exp1_run_card_negative.json",
+   "bytes": 3491,
+   "sha256": "61def92d871ce37872157b55fd2450372087dda15750658d1b66a492d853fd09"
+  },
+  {
+   "path": "evidence/h31e/forensic_comparison.json",
+   "bytes": 10195,
+   "sha256": "f7c54ac7ffff256fbd4c5153a1eab375b035097b88554168101b0fce74d82d68"
+  },
+  {
+   "path": "evidence/h31e/holdout_results.json",
+   "bytes": 14865,
+   "sha256": "e58b818fe7aa4d5952d930fa383cd3096df81f48b80f8d333b1af2ab457668da"
+  },
+  {
+   "path": "evidence/h31e/leakage_canary.json",
+   "bytes": 16172,
+   "sha256": "fde7bb24418b32bc570b2c146295964535fd4dd0540fade455c0513c681f8f3c"
+  },
+  {
+   "path": "evidence/h31e/run_card.json",
+   "bytes": 3488,
+   "sha256": "4b4b0b21375880e50fc0e8d3f6be77e848d943899dc0349e3adbfbd0b5f63eef"
+  },
+  {
    "path": "evidence/incumbent_filter_results.json",
    "bytes": 3512,
    "sha256": "8450fc3dac29319e8a103c438477287a29582e11799ea68e6423126bb33b029a"

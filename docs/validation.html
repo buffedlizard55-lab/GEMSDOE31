@@ -129,10 +129,11 @@ bash scripts/download_competition_data.sh      # restore + SHA-256 verify the 11
 python scripts/prepare_data.py --verify-only   # grid/hash re-check; add no flag to build features.f32
 python scripts/check_metric.py                 # metric vs brute force -&gt; evidence/metric_check.json
 python scripts/derive_buffer.py                # semivariogram -&gt; evidence/buffer_derivation.json
+python scripts/evaluate_holdout.py             # H31-E/E2 21.3 km holdout, canaries, unique GeoTIFF &amp; Run Card
 python scripts/run_union.py                    # filtering + union tables -&gt; evidence/union_results.json
 python scripts/collect_evidence.py             # hash the artifacts, rebuild registry/*.json
-python scripts/build_submission.py --dots &lt;tif&gt; --name &lt;unique-name&gt;
-python scripts/build_site.py                   # regenerate this site from the registers</pre>
+python scripts/build_site.py                   # regenerate this site from the registers
+python scripts/check_site.py                   # verify all 20 HTML pages, local links, and gates</pre>
       <p class="small">Nothing on this site is typed in by hand: <code>scripts/build_site.py</code> reads the JSON in
       <code>registry/</code> and <code>evidence/</code>, and <code>scripts/collect_evidence.py</code> writes those JSON
       files from the artifacts on disk. One step is <em>not</em> yet reproducible from this snapshot: the training runs

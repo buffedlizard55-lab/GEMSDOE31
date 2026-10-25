@@ -2,6 +2,52 @@
  "schema_version": 1,
  "project": "GEMSDOE31",
  "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
+ "h31e2_unique_candidate": {
+  "name": "gemsdoe31-scgp-submod-37654-20261025-fa735287",
+  "tif": "docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif",
+  "sha256_nan": "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8",
+  "sha256_allfinite": "88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6",
+  "positive_pixels": 37654,
+  "positive_pixels_on_public_catalogue": 0,
+  "portal_format_and_range_validated": true,
+  "measured": {
+   "evaluator_version": "gemsdoe31-hide-v2.0",
+   "buffer_m": 21300,
+   "screen_holdout_dti": 0.12736169638481507,
+   "screen_baseline_dti": 0.0921712554276685,
+   "screen_delta_dti": 0.03519044095714656,
+   "confirm_holdout_dti": 0.11452142520005439,
+   "confirm_holdout_ci95": [
+    0.10713381048595738,
+    0.12316674850225119
+   ],
+   "confirm_baseline_dti": 0.08859261760645709,
+   "confirm_delta_dti": 0.025928807593597294,
+   "confirm_delta_ci95": [
+    0.016658768796521624,
+    0.035513545849917894
+   ],
+   "piedmont_sgmc_proxy_DTI": 0.12330626713422095,
+   "h33_piedmont_sgmc_proxy_DTI": 0.10905112828813972,
+   "off_catalogue_proxy_DTI": 0.08162303908333594,
+   "incumbent_off_catalogue_proxy_DTI": 0.09396541728952698,
+   "delta": 0.014255138846081233
+  },
+  "automated_gates": {
+   "G1_format_and_range_0_1_pass": true,
+   "G2_leakage_canary_pass": true,
+   "G3_uniqueness_canary_pass": true,
+   "G4_buffered_holdout_screen_and_confirm_pass": true,
+   "G5_dual_offcatalogue_proxy_pass": false,
+   "all_automated_gates_passed": false,
+   "verdict": "negative",
+   "human_inspection_required_for_validation": false,
+   "weekly_slot_spent_by_agent": false
+  },
+  "run_card_verdict": "negative",
+  "slot_approved": false,
+  "score_status": "HOLDOUT-DTI 0.1145 (confirm) / 0.1274 (screen); no organizer receipt exists in this repository"
+ },
  "current_download": {
   "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
   "tif": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
@@ -168,6 +214,36 @@
    "class": "OFFICIAL",
    "url": "https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7",
    "accessed_utc": null
+  },
+  {
+   "id": "gallardo-meju-2003-cross-gradient",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1029/2003GL017370",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "miller-singh-1994-tilt-angle",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1016/0926-9851(94)90022-1",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "nemhauser-minoux-1978-lazy-submodular",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1007/BF01588971",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "gdr-1391-ingeniou-great-basin",
+   "class": "OFFICIAL",
+   "url": "https://gdr.openei.org/submissions/1391",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "dd-gems-reference-solution-repo",
+   "class": "OFFICIAL",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-25"
   }
  ],
  "automation": {

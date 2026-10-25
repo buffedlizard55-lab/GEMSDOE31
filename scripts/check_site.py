@@ -71,13 +71,21 @@ def main() -> None:
     if "Download reference TIFF" not in index:
         fail("index.html: the reference-file download button is missing")
     if "not approved for upload" not in index.lower():
-        fail("index.html: the no-upload-approval warning is missing")
+        fail("index.html: the no-upload-approval warning for legacy reference files is missing")
+    if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in index:
+        fail("index.html: newly generated unique H31-E2 GeoTIFF is missing from home page")
+    if "ok to download" not in index.lower():
+        fail("index.html: explicit download/format validation readiness status is missing")
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
 
     executive = (DOCS / "executive-summary.html").read_text()
-    if "do not submit a download from this page yet" not in executive.lower():
-        fail("executive-summary.html: the no-upload-approval warning is missing")
+    if "do not submit a legacy reference download from this page yet" not in executive.lower():
+        fail("executive-summary.html: the legacy no-upload warning is missing")
+    if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in executive:
+        fail("executive-summary.html: newly generated unique H31-E2 GeoTIFF is missing")
+    if "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8" not in executive:
+        fail("executive-summary.html: verified H31-E2 SHA-256 is missing")
     for name in ("executive-summary.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")

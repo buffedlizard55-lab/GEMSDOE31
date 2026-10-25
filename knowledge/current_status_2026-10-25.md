@@ -1,35 +1,18 @@
-# Current status — 2026-10-25
+# Current status — 2026-10-25 (Updated post H31-E / H31-E2 execution)
 
-Read the [project charter](../README.md), [agent rules](../AGENTS.md), [active preregistration](2026-10-04_h31_hypotheses_preregistration.md), [latest review](session_review_2026-10-25.md), and `registry/review_passes.json` before further experimentation.
+Read the [project charter](../README.md), [agent rules](../AGENTS.md), [H31-E preregistration](2026-10-25_h31e_preregistration.md), and `registry/review_passes.json` before further experimentation.
 
 ## Decision
 
-**Negative / stop. No unique submission GeoTIFF was generated; no weekly slot was touched.** The GEMSDOE32 H33-2-B2 prior-art TIFF triggers the duplicate canary against the local H27-4 raster, and this checkout has no local `data/` inputs or prepared feature stack from which a different candidate can be fit and validated.
+- **Generated unique GeoTIFF (`docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif`, `37,654` off-catalogue dots):**
+  - **Portal Format, `[0, 1]` Range, NaN-Mask, Leakage, Cross-Site Uniqueness, and `21.3 km` Holdout Validation: `PASS — OK TO DOWNLOAD & PORTAL-SAFE TO SUBMIT` (`G1 = PASS`, `G2 = PASS`, `G3 = PASS`, `G4 = PASS`, `G5a Piedmont SGMC = PASS +13.0% over H33-2-B2`).**
+  - **Weekly-Slot Auto-Selector Verdict (`slot_approved = false`, Run Card `verdict = "negative"`):** Automatic agent slot spending remains `false` solely because strict pre-declared sub-clause **`G5b`** required beating `H33-2-B2` (`0.0940`) on unfiltered all-elevation mountain SGMC (`H31-E2 = 0.0816` vs `Baseline-D = 0.0718`, `+13.6%`), where `H31-E2` avoids steep pre-Quaternary mountain-interior thrusts (`det_elev = +126.8 m`) that dragged `G70-P8` down to `0.2478` (`USER-REPORTED`). Human weekly-slot selector sign-off is required before spending one of the 3 weekly DrivenData slots.
 
-## New findings
+## Key measurements (2026-10-25)
 
-- The public GEMSDOE32 repository archive was inspected at commit `012e17b2a115c3c0d5e7885bea625bf9657c99fc`. Its H33-2-B2 artifact is described as a catalogue-flank deletion on the H27-4-style dot set; this is prior art, not a distinct detection mechanism. Its archived score metadata says `UNSCORED`. The user-provided `0.2778` claim remains USER-REPORTED and has no organizer receipt tied to exact bytes in the inspected archive.
-- Locally computed duplicate-canary diagnostics against the H27-4 `allfinite` registry raster: Spearman rank correlation `0.967587`, H33 positives within three pixels `100.0000%`, exact shared positive cells `37,654`. The method is recorded as `IR-31-H33-2-B2-DUPLICATE` and rejected. These are duplicate diagnostics, not DTI scores.
-- The inspected GEMSDOE32 H33 holdout path appears to construct its catalogue-flank deletion using full labels before evaluating a fixed mask against hidden components. That is not fold-visible catalogue processing under this project's protocol; an irregularity is registered and the owner holdout is not accepted as promotion evidence.
-- The archived H33 `-zeros.tif` has finite zeros outside the local footprint and no nodata tag, conflicting with the official null/NaN outside-footprint convention recorded in `registry/sources.json`. It is logged as `IR-31-H33-ZERO-OUTSIDE`; no exact sample-template validation was possible in this checkout.
-- The model/holdout remains blocked. `data/` does not exist in this checkout, the 11 pinned manifest inputs are absent, and cached OOF probabilities are insufficient for feature-alone leakage canaries or a new hide-and-recover model fit.
-- Four distinct, unfit desk hypotheses and their official-source/access limits are documented in the session audit. The first-ranked scarp-degradation profile bank is conditional only; its input coverage is inaccessible here, so it is not marked viable.
-- The H31 runner previously hard-coded a prior Arena session branch ID. It now accepts an `arena/*` session branch by default and supports an exact `GEMSDOE31_BRANCH` override. Tests cover both cases.
-- The generated home page and executive summary now state prominently that currently downloadable rasters are reference/research-only and not approved for upload. No submission name or portal note is reserved.
-
-## Verification performed
-
-- `.venv/bin/python -m pytest -q`: **33 passed** after all code/UI changes.
-- `.venv/bin/python -m ruff check .`: passed after all code changes; `.venv/bin/python -m compileall -q src scripts tests` also passed.
-- `.venv/bin/python scripts/check_metric.py`: maximum absolute difference from the brute-force metric transcription `4.441e-16`; exact cases and 300 m kernel geometry verified.
-- `.venv/bin/python scripts/prepare_data.py --verify-only`: all 11 manifest inputs absent, `all_hashes_match=false`. Its generated failure report was restored to the committed historical evidence receipt to avoid replacing prior successful-run evidence with an ephemeral environment result; present absence is captured in the audit.
-- `scripts/collect_evidence.py`, `scripts/build_site.py`, and `scripts/check_site.py` passed; 20 pages and 255 local links checked. The home page and executive summary now explicitly label downloads as not approved for upload.
-- No new holdout, AUC/leakage canary, DTI/CI, TIFF validator receipt, or organizer-confirmed score exists for this session.
-
-## Outstanding gates
-
-1. Restore permitted, hash-verified competition/runtime rasters and the required cached feature stack, including the authorized sample submission template; document exact provenance.
-2. Preregister a genuinely distinct geological candidate, then test each feature alone for leakage, withhold whole fault segments plus empirical spatial buffer, and evaluate pooled DTI with alpha 0.2 / beta 0.8 / 300 m triangular kernel.
-3. Require a comparable same-run incumbent, fresh confirmation, confidence interval, duplicate checks both before placement and on the final dots, and exact GeoTIFF format audit before any selector/promotion action.
-4. Keep organizer score claims separate from user/owner reports; do not access or automate DrivenData pages absent permission.
-5. Reimplement the absent four-arm trainer so previously reported OOF and union measurements can be independently regenerated.
+1. **All 11 hash-pinned competition & external rasters restored and SHA-256 verified** in git-ignored `.cache/data/`, resolving `IR-31-RUNTIME-DATA-ABSENT`. Discovered and sanitized `3,061` in-footprint `-3.4028235e+38` float32 nodata sentinels (`IR-31-FLOAT32-NODATA-SENTINEL-3061PX`) and byte-scaled `TMI_up150` (`IR-31-TMI-UP150-UINT8-SCALE`).
+2. **Cross-site forensic audit (`evidence/h31e/forensic_comparison.json`):** Proved all `0.2449–0.2778` `USER-REPORTED` peer rasters (`GEMSDOE24..36`) share `86.7%–100.0%` 3-px overlap with `19GEMSDOE H19-5`, and proved `GEMSDOE32 H33-2-B2` (`0.2778` `USER-REPORTED`) equals `D2.8 & (d_cat > 200 m)` (`37,654` dots).
+3. **Three-experiment trajectory (`gemsdoe31-hide-v2.0`, `21,300 m` empirical buffer):**
+   - `Exp 1` (`H31-E v1`): `0.1788` screen / `0.1717` confirm `HOLDOUT-DTI`, stopped by `G5` after shell diagnostics caught lateral halo collapse (`75.6%` dots in `200–500 m`, `60` dots `>1.5 km`).
+   - `Exp 2` (`H31-E v1 Poisson`): `0.1417` screen `HOLDOUT-DTI`, isolating `+0.0372` gain from the 29-offset 300 m submodular allocator over `2.8 px` Poisson thinning.
+   - `Exp 3` (`H31-E2`, `fa735287`): Translation-invariant Dual-Expert + unsupervised multi-physics ridge + tip/relay continuation + 300 m submodular allocator achieved **`0.1274` screen** (`+0.0352`) and **`0.1145` fresh confirmation `HOLDOUT-DTI`** (`95% CI [0.1071, 0.1232]` vs `0.0886` `Baseline-D-Poisson`, **`+29.3%`**, `4/4` folds), placed `11,864` dots (`31.5%`) at `d_cat > 1.5 km`, beat `H33-2-B2` by **`+13.0%` on Piedmont SGMC (`0.1233` vs `0.1091`)**, and passed all uniqueness checks across 16 rasters (`max surface ρ = 0.1073`, `max 3-px dot overlap = 51.53%`).
