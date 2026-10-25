@@ -36,6 +36,28 @@
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
+   "file": "docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
+   "name": "gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
+   "sha256": "7906d5744a8456f09cb17193f4a3f7169a893d3c5ccddcb75b1c28fdb68e662a",
+   "bytes": 158356,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.tif",
+   "name": "gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.tif",
+   "sha256": "258cd3683a084231e57a6a8cd92f619437e07a2c25cf1becdfdecb796e6b0043",
+   "bytes": 201618,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
    "file": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
    "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
    "sha256": "f9cd56a71550b42f00f3cd37a4bf1464c151a9a2ea0438afb8ceef95868351ab",

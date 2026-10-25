@@ -1,0 +1,81 @@
+{
+  "hypothesis": "H3-lidar-scarp-unique",
+  "mechanism": "LiDAR generic scarp ex_max percentile rank at 2.8px Poisson-disk spacing",
+  "non_fault_mimic": "road cuts, terrace risers, gully headcuts (downslope-facing; scarp ranking suppresses)",
+  "evaluator": "LANE-EVAL-1",
+  "budget": 50000,
+  "flank_px": 2.0,
+  "min_dist_px": 2.8,
+  "canary": {
+    "auc_off_catalogue_sgmc": 0.7550293132382054,
+    "auc_catalogue": 0.5696857347742357
+  },
+  "dots_emitted": 50000,
+  "holdout_catalogue_gap": {
+    "D28-incumbent": {
+      "HOLDOUT_DTI": 0.04345853514893307,
+      "ci95_tile_bootstrap": [
+        0.03923914621338122,
+        0.048443561901601505
+      ]
+    },
+    "H3-lidar-scarp-unique": {
+      "HOLDOUT_DTI": 0.008198566295690464,
+      "ci95_tile_bootstrap": [
+        0.00619617540751897,
+        0.010147173534830384
+      ]
+    }
+  },
+  "holdout_off_catalogue_sgmc": {
+    "HOLDOUT_DTI": 0.171123391696206,
+    "truth_pixels": 61664,
+    "dots": 50000
+  },
+  "uniqueness": {
+    "registry_rasters_compared": 0,
+    "registry_rasters_missing": 716,
+    "max_spearman_500m": null,
+    "max_overlap_3px_non_vacuous": null,
+    "max_adjusted_overlap": null,
+    "duplicates_by_overlap": [],
+    "duplicates_by_rank_correlation": [],
+    "identical_dot_set_in_registry": false
+  },
+  "uniqueness_ok": false,
+  "verdict": "negative",
+  "beats_d28_catalogue_gap": false,
+  "submission_name": "gemsdoe31-h3-lidar-scarp-unique-50k-20261025",
+  "submission_note": "LiDAR generic scarp ex_max 2.8px Poisson dots; HOLDOUT-DTI catalogue-gap + offcat-SGMC; unique vs 716-raster registry",
+  "submission_receipt": {
+    "nan_sha256": "258cd3683a084231e57a6a8cd92f619437e07a2c25cf1becdfdecb796e6b0043",
+    "allfinite_sha256": "7906d5744a8456f09cb17193f4a3f7169a893d3c5ccddcb75b1c28fdb68e662a",
+    "format_ok_nan": true,
+    "format_ok_allfinite": true,
+    "dots": 50000,
+    "dots_on_catalogue": 0,
+    "files": {
+      "nan": "docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.tif",
+      "allfinite": "docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
+      "zip": "docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.zip"
+    }
+  },
+  "raster_sha256": "258cd3683a084231e57a6a8cd92f619437e07a2c25cf1becdfdecb796e6b0043",
+  "validator_output": {
+    "nan_inside_footprint": 0,
+    "values_in_0_1": true,
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ]
+  }
+}
