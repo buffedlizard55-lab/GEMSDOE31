@@ -200,8 +200,9 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
         <div class="table-wrap"><table><thead><tr><th>Fixed arm</th><th>HOLDOUT-DTI [95% CI]</th><th>Withheld positive pixels</th></tr></thead><tbody>{score_rows}</tbody></table></div>
         <p>The primary concordant arm was fixed in advance, not selected as the best of three. It wins in 3/4 quadrants,
           but its paired CI crosses zero and its worst quadrant loses more than 0.010. Therefore the screen fails and no fresh confirmation is run.</p>
-        <p><strong>Secondary HOLDOUT-DTI / SGMC-PROXY:</strong> primary {score_text(proxy)}, {proxy['withheld_positive_pixels']:,} independent proxy positives,
-          same evaluator and bootstrap, held out from all fitting. These are state-map faults, not the private expert labels.
+        <p><strong>Secondary HOLDOUT-DTI / SGMC-PROXY:</strong> primary {score_text(proxy)}, {proxy['withheld_positive_pixels']:,} SGMC proxy positives,
+          same evaluator and bootstrap, held out from all fitting. Independence from the catalogue's mapping lineage is not established.
+          These are state-map faults, not the private expert labels.
           Its paired advantage also has a CI crossing zero. Do not interpret either instrument as a competition score.</p>
         <p class="small">Buffer: 21.3 km, rounded up from the historical 21.25 km residual-decay estimate.
           MAGREST's own residual range is unknown; the CI is conditional on these folds and the 20 km bootstrap blocks,
@@ -211,10 +212,10 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
         <p>No fourth experiment in this session. Literal registry-overlap STOP; negative results are deliverables.</p></div>
         <div class="content"><ol>
           <li>Resolve the protocol’s dense-control degeneracy without silently exempting the registered lattice. Within its interior, any new method’s dots pass within 3 pixels, so the literal rule blocks this lane regardless of geology. Only an explicitly revised future protocol could change that criterion.</li><li>Resolve magnetic-texture specificity. Synthetic checks show that undisplaced anisotropic fabric can also trigger a max-over-orientations detector. Do not label its response as measured fault slip.</li>
-          <li>Design a new preregistration for reciprocal, across-window displacement consistency and a lithologic-contact/flight-line null, without tuning the failed confirmation set.</li>
+          <li>Design a new preregistration for reciprocal, across-window displacement consistency and a lithologic-contact/flight-line null, reserving fresh confirmation data/draws and never tuning on them. No confirmation was run in this session.</li>
           <li>Rebuild the strong legacy comparator under the shared whole-component protocol; estimate the new method's dependence range before claiming it beats the current best.</li>
           <li>Require a positive paired lower confidence bound, fresh confirmation and an independent off-catalogue win before the separate selector considers a slot.</li>
-          <li>Keep raw inputs private/ignored and establish organizer-authenticated format/data provenance; attach exact-byte organizer receipts before recording live scores.</li>
+          <li>Keep raw inputs untracked/ignored and establish organizer-authenticated format/data provenance; attach exact-byte organizer receipts before recording live scores.</li>
         </ol></div>
         <p>Official references for manual review: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">problem/metric</a> ·
           <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">rules PDF</a> ·

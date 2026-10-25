@@ -212,6 +212,11 @@
    "sha256": "862d09c928eca7cc39d34a4d7804840c94cc4e48540270a7270e7eaa56e7713d"
   },
   {
+   "path": "evidence/magrest_delivery_release14_20261025.json",
+   "bytes": 3311,
+   "sha256": "fc5a7134b1075cf43359ebda3f1b231f0190f31d2d25bd18332ce63f2bac774f"
+  },
+  {
    "path": "evidence/magrest_registry_index.json",
    "bytes": 47875,
    "sha256": "cd643025a871c905f509bc18a80b5f0115e133090076b2ac748bc344d3717730"
