@@ -10,6 +10,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def content():
+    # This generator belongs to the archived TGJ31 release. Never replace the
+    # integrated current README with an older lane's status or owner prompt.
+    active = ROOT / "registry/current_run.json"
+    if active.exists():
+        current = json.loads(active.read_text())
+        archived = json.loads((ROOT / "evidence/tgj31/run_card.json").read_text())
+        if current.get("submission_name") != archived.get("submission_name"):
+            raise ValueError("Archived TGJ31 README generator cannot overwrite the active integrated README")
     card = json.loads((ROOT / "evidence/tgj31/run_card.json").read_text())
     decision = json.loads((ROOT / "evidence/tgj31/decision.json").read_text())
     s = card["holdout_dti"]

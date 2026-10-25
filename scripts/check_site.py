@@ -101,6 +101,16 @@ def main() -> None:
         if not (DOCS / name).exists():
             fail(f"{name} missing")
 
+    for page_name in ("index.html", "executive-summary.html", "research.html"):
+        html_text = (DOCS / page_name).read_text()
+        if 'id="scgp-submod"' in html_text:
+            if "RESEARCH DOWNLOAD ONLY" not in html_text or "DO NOT SUBMIT · REGISTRY STOP" not in html_text:
+                fail(f"{page_name}: H31-E2 research-only/registry STOP warning missing")
+            if "SUBSET ONLY — NOT UNIQUENESS APPROVAL" not in html_text:
+                fail(f"{page_name}: subset comparison incorrectly presented as broad uniqueness")
+            if "Portal Format" in html_text or "explicit human selector sign-off" in html_text:
+                fail(f"{page_name}: unsupported portal acceptance or human override wording")
+
     register = (ROOT / "registry" / "submissions.json").read_text()
     if '"slot_approved": true' in register:
         fail("a submission is marked slot-approved without a promotion gate record")

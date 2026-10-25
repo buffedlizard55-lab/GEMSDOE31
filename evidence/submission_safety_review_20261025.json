@@ -1,0 +1,21 @@
+{
+  "evidence_class": "COMPUTED",
+  "scope": "Read-only final-support audit of existing H31-E2 TIFF; no new surface, fit, placement or TIFF",
+  "file": "docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif",
+  "sha256": "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8",
+  "counterexample": {
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "cache_file": ".cache/registry-scope/registered-lattice.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif"
+  },
+  "positive_pixels": 37654,
+  "within_3px": 37641,
+  "overlap": 0.9996547511552557,
+  "threshold": 0.7,
+  "literal_registry_pass": false,
+  "surface_recomputed": false,
+  "ok_to_submit": false
+}
