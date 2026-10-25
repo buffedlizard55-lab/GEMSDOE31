@@ -10,6 +10,7 @@ Run after ``scripts/build_site.py``. Exits non-zero on any failure.
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 import unicodedata
@@ -74,9 +75,21 @@ def main() -> None:
         if not (DOCS / name).exists():
             fail(f"{name} missing")
 
-    register = (ROOT / "registry" / "submissions.json").read_text()
+    register_path = ROOT / "registry" / "submissions.json"
+    register = register_path.read_text()
     if '"slot_approved": true' in register:
         fail("a submission is marked slot-approved without a promotion gate record")
+    try:
+        registry_data = json.loads(register)
+        primary = next(item for item in registry_data["files"]
+                       if item["id"] == "primary-h31b-scarp-hessian-standalone")
+        zip_digest = primary.get("sha256_zip")
+        if not zip_digest or len(zip_digest) != 64:
+            fail("primary submission ZIP digest is missing or malformed in the registry")
+        elif zip_digest not in index:
+            fail("index.html does not display the registered primary submission ZIP digest")
+    except (KeyError, StopIteration, ValueError) as exc:
+        fail(f"cannot verify the primary submission ZIP digest: {exc}")
 
     feed = (DOCS / "feed.json").read_text()
     if "no organizer receipt" not in feed:

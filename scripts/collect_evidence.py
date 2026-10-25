@@ -231,6 +231,10 @@ def submissions_register() -> dict:
             record[f"organizer_acceptance_verified_{short}"] = validated.get("organizer_acceptance_verified", False)
         if "zip" in receipt.get("files", {}):
             record["zip"] = receipt["files"]["zip"]
+            zip_path = ROOT / record["zip"]
+            if zip_path.is_file():
+                record["sha256_zip"] = sha256(zip_path)
+                record["bytes_zip"] = zip_path.stat().st_size
         if "measured" in entry:
             record["measured"] = entry["measured"]
         files.append(record)

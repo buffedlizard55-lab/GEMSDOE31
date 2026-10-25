@@ -29,6 +29,7 @@
 | Experiment log (11 experiments, including H31-B campaign & stopped H31-A pilot) | [experiments](docs/experiments/index.html) · [`evidence/h31b_experiments.json`](evidence/h31b_experiments.json) |
 | Parallel-Run Protocol Run Card & Leakage Canary | [`evidence/run_card_2026-10-25.json`](evidence/run_card_2026-10-25.json) · [`evidence/leakage_canary.json`](evidence/leakage_canary.json) |
 | Machine-readable state | [`feed.json`](docs/feed.json) · [`registry/`](registry/) · [`evidence/`](evidence/) |
+| Current repository review, blockers, and next actions | [review record](knowledge/repo_review_2026-10-25.md) |
 | AI-use disclosure draft for the narrative | [ai-disclosure](docs/ai-disclosure.html) |
 
 GitHub Pages serves [`docs/`](docs/index.html); the root [`index.html`](index.html) redirects there.
