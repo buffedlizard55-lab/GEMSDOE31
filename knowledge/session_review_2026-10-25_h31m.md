@@ -2,13 +2,13 @@
 
 - **Branch:** `arena/ee48fe7a-gemsdoe31`
 - **Preregistration (frozen before any fit):** `knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md`
-- **Primary Promoted Unique Submission:** `docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif`
-  - **Unique Submission Name:** `GEMSDOE31-H31M-BStep-XMod-Submod-37654`
+- **Primary Unique Research Deliverable:** `docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif`
+  - **Artifact Name:** `GEMSDOE31-H31M-BStep-XMod-Submod-37654`
   - **Short Portal Note (102/140 chars):** `H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641`
   - **SHA-256 (`-nan.tif`):** `ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6`
   - **SHA-256 (`-allfinite.tif`):** `8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0`
   - **SHA-256 (`.zip`):** `c24ea5d55e0ae385c9d04848676159b6afe654be0f0e9dafd5c624f3ab17c624`
-  - **Run Card Verdict:** `promote` (`11/11` frozen preregistered gates `True`, `evidence/h31m_run_card.json`)
+  - **Run Card Verdict (post `origin/main` reconciliation):** `negative` (`RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT`: `11/11` scientific/format/leakage/12-submission-subset gates `True`, held by literal 695-raster `r13-lattice-s5` `99.6255%` overlap STOP + inherited `21.25 km` collar; `evidence/h31m_run_card.json`)
 
 ---
 
@@ -44,9 +44,10 @@
 
 ---
 
-## Pass 3 — Whole-Charter & Acceptance Criteria Cross-Check
+## Pass 3 — Whole-Charter, Concurrent `origin/main` Reconciliation & Acceptance Criteria Cross-Check
 
-- **Unique competition-valid `.tif` generated (never copied):** `gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif` (`182,571 B`, `37,654` dots, `40.25%` 3-px overlap vs `GEMSDOE32 H33-2-B2`, max `53.16%` across all 7 `GEMSDOE31` rasters).
+- **Unique competition-valid `.tif` generated (never copied):** `gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif` (`182,571 B`, `37,654` dots, `40.25%` 3-px overlap vs `GEMSDOE32 H33-2-B2`, `33.57%` vs `H31-E2 SCGP-Submod`, `32.77%` vs `H31-B`, `20.77%` vs `AS-1`, `18.13%` vs `MAGREST`, `0.00%` vs `TGJ31`, max `53.16%` across all 12 submission comparators).
+- **Reconciliation against concurrent `origin/main` (`0adf689`) 695-raster manifest:** Measured `99.6255%` (`37,513 / 37,654` dots) within `3 px` of registered spacing-5 lattice `r13-lattice-s5` (`206,895` positive pixels covering `99.87%` of Nevada within `3 px`). Under `origin/main`'s binding unexempted governance and own-method variogram requirement, `H31-M` is retained transparently as **RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT** (`verdict: "negative"`, `slot_approved: False`, `ok_to_submit: False`), with zero human sign-off override permitted.
 - **Prevented `"Predicted values must be in range [0, 1]"`:** Independent rasterio readback and `submission.py` 21/21 checks confirm `0` NaN inside footprint, values strictly `{0.0, 1.0}` inside footprint, `NaN` outside footprint (`0.0` outside in `-allfinite.tif` fallback), `EPSG:32611`, `3730x3292`, exact affine transform.
-- **Obvious readiness on `docs/index.html`, `docs/executive-summary.html`, and `README.md`:** All three lead immediately with `YES — VALIDATED & OK TO DOWNLOAD AND SUBMIT` for `H31-M`, one-click download links, unique submission name `GEMSDOE31-H31M-BStep-XMod-Submod-37654`, 102-char portal note, and explicit `DO NOT SUBMIT` warnings on superseded `H31-B` standalone and negative `H31-E`.
-- **Automated suite status:** `pytest` passes (`48 passed`), `ruff check .` clean, `check_metric.py` exact (`4.44e-16`), `collect_evidence.py` synchronized, `build_site.py` + `check_site.py` pass (`20` pages, `267` local links, `0` failures).
+- **Obvious readiness on `docs/index.html`, `docs/executive-summary.html`, and `README.md`:** All three display `H31-M BStep-XMod-Submod` prominently with unmistakable `RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)` badges, one-click download links, artifact name `GEMSDOE31-H31M-BStep-XMod-Submod-37654`, 102-char note, and full gate-by-gate disclosure alongside `H31-E2 SCGP-Submod` and `MAGREST`.
+- **Automated suite status:** Full GitHub Actions verification suite (`verify_current_run.py --restore-small-inputs`, `pytest -q`, `ruff check .`, `compileall`, `check_metric.py`, `collect_evidence.py`, `build_site.py`, `check_site.py`) passes cleanly.

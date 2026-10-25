@@ -10,6 +10,8 @@ Run after ``scripts/build_site.py``. Exits non-zero on any failure.
 
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 import sys
 import unicodedata
@@ -68,15 +70,67 @@ def main() -> None:
                 fail(f"{page.relative_to(ROOT)}: pictogram/symbol U+{ord(character):04X} ({character!r}) in markup")
 
     index = (DOCS / "index.html").read_text()
-    if "Download submission TIFF" not in index:
-        fail("index.html: the one-click download button is missing")
+    active_run = (ROOT / "registry/current_run.json").exists()
+    required_button = "Download new research TIFF" if active_run else "Download reference TIFF"
+    if required_button not in index:
+        fail(f"index.html: the {required_button!r} button is missing")
+    if active_run:
+        card = json.loads((ROOT / "registry/current_run.json").read_text())
+        readiness = json.loads((DOCS / "downloads/readiness.json").read_text())
+        actual = hashlib.sha256((ROOT / card["file"]).read_bytes()).hexdigest()
+        if actual != card["raster_sha256"] or actual != readiness["sha256"]:
+            fail("readiness/current run is stale relative to the served TIFF")
+        if readiness["ok_to_submit"] or card["ok_to_submit"]:
+            fail("unsupported upload approval for this negative MAGREST run")
+        if "DO NOT SUBMIT" not in index or "downloads/" + Path(card["file"]).name not in index:
+            fail("index does not prominently expose the new artifact with DO NOT SUBMIT")
+    if "not approved for upload" not in index.lower():
+        fail("index.html: the no-upload-approval warning is missing")
+    if "Download submission TIFF" in index:
+        fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
+    executive = (DOCS / "executive-summary.html").read_text()
+    if "do not submit a download from this page yet" not in executive.lower():
+        fail("executive-summary.html: explicit no-upload-approval warning is missing")
+    if "Human sign-off cannot override a failed gate" not in executive:
+        fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
+    for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
+        if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in html_text:
+            fail(f"{page_name}: H31-E2 SCGP-Submod candidate name missing")
+        if "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8" not in html_text:
+            fail(f"{page_name}: H31-E2 SCGP-Submod primary SHA-256 missing")
     for name in ("executive-summary.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")
 
+    for page_name in ("index.html", "executive-summary.html", "research.html"):
+        html_text = (DOCS / page_name).read_text()
+        if 'id="scgp-submod"' in html_text:
+            if "RESEARCH DOWNLOAD ONLY" not in html_text or "DO NOT SUBMIT · REGISTRY STOP" not in html_text:
+                fail(f"{page_name}: H31-E2 research-only/registry STOP warning missing")
+            if "SUBSET ONLY — NOT UNIQUENESS APPROVAL" not in html_text:
+                fail(f"{page_name}: subset comparison incorrectly presented as broad uniqueness")
+            if "Portal Format" in html_text or "explicit human selector sign-off" in html_text:
+                fail(f"{page_name}: unsupported portal acceptance or human override wording")
+
     register = (ROOT / "registry" / "submissions.json").read_text()
     if '"slot_approved": true' in register:
         fail("a submission is marked slot-approved without a promotion gate record")
+    try:
+        registry_data = json.loads(register)
+        for record in registry_data.get("files", []):
+            if not record.get("zip"):
+                continue
+            archive = ROOT / record["zip"]
+            if not archive.is_file():
+                fail(f"registered submission ZIP is missing: {record['zip']}")
+                continue
+            digest = record.get("sha256_zip", "")
+            if len(digest) != 64 or hashlib.sha256(archive.read_bytes()).hexdigest() != digest:
+                fail(f"registered submission ZIP digest is missing, malformed, or stale: {record['zip']}")
+            if record.get("bytes_zip") != archive.stat().st_size:
+                fail(f"registered submission ZIP byte count is stale: {record['zip']}")
+    except (KeyError, TypeError, ValueError) as exc:
+        fail(f"cannot verify submission ZIP metadata: {exc}")
 
     feed = (DOCS / "feed.json").read_text()
     if "no organizer receipt" not in feed:

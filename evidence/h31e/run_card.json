@@ -1,0 +1,87 @@
+{
+  "hypothesis": "H31-E (SCGP-Submod): Multi-physics Gallardo-Meju structural cross-gradient concordance + Laplace FFT upward-continuation magnetic attenuation + seam-free dual-expert 1m LiDAR scarp polarity & GeoDAWN/GDR-1391 paleo-sinter hydrothermal alteration + fold-safe 2-component relay/tip accommodation, allocated via 1D ridge-sharpened 300 m submodular DTI coverage.",
+  "mechanism": "Normal-fault offsets across concealed and wave-reworked Great Basin piedmont margins produce co-aligned horizontal gradients in isostatic gravity, conductive-base depth, and shallow RTP magnetics (1 - |sin(dtheta)| -> 1), asymmetric 1m LiDAR monoclinal scarp steps (|upface - downface|), and K/Th + paleo-sinter outflow anomalies in 200-2500 m en-echelon relay zones; Minoux lazy-greedy maximization of the exact 29-offset 300 m DTI kernel allocates 37,654 non-redundant off-catalogue dots.",
+  "named_non_fault_mimic": "Pleistocene Lake Lahontan wave-cut paleoshoreline terraces (~1200-1335 m contours) and unfaulted volcanic flow lobes / erosional fan gullies, mitigated via cross-gradient strike orthogonality (scgp_lahontan_mimic_score) and one-sided LiDAR face polarity.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "gemsdoe31-hide-v2.0",
+    "buffer_m": 21300,
+    "screen_draw_101": {
+      "dti": 0.127362,
+      "ci95": [
+        0.111689,
+        0.144212
+      ],
+      "withheld_positives": 17900,
+      "baseline_d_dti": 0.092171,
+      "paired_delta_dti": 0.03519,
+      "paired_delta_ci95": [
+        0.019816,
+        0.049343
+      ]
+    },
+    "fresh_confirmation_draws_202_303": {
+      "dti": 0.114521,
+      "ci95": [
+        0.107134,
+        0.123167
+      ],
+      "withheld_positives": 35599,
+      "baseline_d_dti": 0.088593,
+      "paired_delta_dti": 0.025929,
+      "paired_delta_ci95": [
+        0.016659,
+        0.035514
+      ]
+    }
+  },
+  "organizer_confirmed_score": null,
+  "leakage_canary": {
+    "features_tested": 86,
+    "max_single_feature_auc": 0.762414,
+    "threshold_auc": 0.9,
+    "passed": true
+  },
+  "correlation_overlap_vs_registry": {
+    "checked_rasters": 16,
+    "max_surface_spearman_rho": 0.107331,
+    "max_surface_topn_within_3px": 0.6104,
+    "max_final_dots_spearman_rho": 0.042103,
+    "max_final_dots_within_3px": 0.515297,
+    "duplicates_found": [],
+    "passed": true,
+    "concurrent_discrete_lanes_checked": 5,
+    "max_final_dots_within_3px_concurrent_discrete_lanes": 0.452435,
+    "shared_registry_57_calibration_lattice_overlap": 1.0,
+    "shared_registry_57_calibration_note": "5x5 uniform calibration lattice (r13-lattice-s5) covers 100% of Nevada interior within sqrt(8)=2.83<=3 px; all discrete fault-dot submissions across GEMSDOE24..36, 70, and concurrent GEMSDOE31 lanes have <=51.53% overlap."
+  },
+  "raster_sha256": {
+    "nan_outside_primary": "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8",
+    "allfinite_fallback": "88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6"
+  },
+  "validator_output": {
+    "no_nan_inside_footprint": true,
+    "values_in_0_1": true,
+    "crs_shape_transform_match": true,
+    "outside_footprint_nan_exact": true,
+    "allfinite_twin_valid": true,
+    "positive_dots": 37654,
+    "dots_on_public_catalogue": 0
+  },
+  "submission_name": "gemsdoe31-scgp-submod-37654-20261025-fa735287",
+  "submission_note": "GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287",
+  "submission_note_chars": 79,
+  "automated_gates": {
+    "G1_format_and_range_0_1_pass": true,
+    "G2_leakage_canary_pass": true,
+    "G3_uniqueness_canary_pass": true,
+    "G4_buffered_holdout_screen_and_confirm_pass": true,
+    "G5_dual_offcatalogue_proxy_pass": false,
+    "all_automated_gates_passed": false,
+    "verdict": "negative",
+    "human_inspection_required_for_validation": false,
+    "weekly_slot_spent_by_agent": false
+  },
+  "verdict": "negative",
+  "note": "GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287"
+}

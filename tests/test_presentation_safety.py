@@ -1,0 +1,37 @@
+"""Public wording must not turn a subset pass into protocol approval."""
+import importlib.util
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def load_script(name):
+    spec = importlib.util.spec_from_file_location(name, ROOT / 'scripts' / f'{name}.py')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_h31e_component_exposes_binding_stop_and_no_portal_acceptance():
+    rendered = load_script('current_site').scgp_download_and_gates()
+    assert 'DO NOT SUBMIT · REGISTRY STOP' in rendered
+    assert 'RESEARCH DOWNLOAD ONLY' in rendered
+    assert 'SUBSET ONLY — NOT UNIQUENESS APPROVAL' in rendered
+    assert 'Portal Format' not in rendered
+    assert 'Artifact Name (not uniqueness approval)' in rendered
+
+
+def test_archived_readme_generator_cannot_replace_active_release():
+    before = (ROOT / 'README.md').read_bytes()
+    with pytest.raises(ValueError, match='cannot overwrite'):
+        load_script('update_readme').content()
+    assert (ROOT / 'README.md').read_bytes() == before
+
+
+def test_readme_leads_with_binding_stop_before_standing_owner_prompt():
+    lead = (ROOT / 'README.md').read_text().split('## Read first every session')[0]
+    assert 'No current artifact is approved' in lead
+    assert 'No human sign-off can override' in lead
+    assert '22-SUBMISSION UNIQUENESS' not in lead

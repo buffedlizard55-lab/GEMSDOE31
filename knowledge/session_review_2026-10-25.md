@@ -1,3 +1,5 @@
+> **Historical earlier same-date H31/source audit.** Current data/output state is superseded by [MAGREST review](session_review_2026-10-25_magrest.md) and [latest status](current_status_2026-10-25.md). The data were subsequently restored and a new negative research TIFF generated; do not reuse the old missing-data statement as present status.
+
 # Session review — 2026-10-25
 
 **Decision: NEGATIVE / STOP. No new submission TIFF was generated.** The requested priority artifact is blocked twice: the H33-2-B2 geometry from the referenced GEMSDOE32 owner mirror fails this repository's pre-placement duplicate canary against the existing H27-4 registry raster, and this checkout contains none of the competition/runtime inputs needed to validate a different geological hypothesis. No weekly slot is recommended or used.

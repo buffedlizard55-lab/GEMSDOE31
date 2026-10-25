@@ -1,0 +1,156 @@
+{
+ "evidence_class": "HOLDOUT-DTI",
+ "evaluator_version": "gems57-pooled-hide-v2",
+ "alpha": 0.2,
+ "beta": 0.8,
+ "triangular_radius_m": 300.0,
+ "pooled": true,
+ "scores": {
+  "rtp": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.05539409625344122,
+   "ci95": [
+    0.048965039599649415,
+    0.0616768765764145
+   ],
+   "withheld_positive_pixels": 60988,
+   "tpw": 31165.64598631044,
+   "fpw": 2537966.066375397,
+   "fnw": 29822.35401368956
+  },
+  "gravity": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.052382534710648035,
+   "ci95": [
+    0.04646085698767563,
+    0.0581189777827836
+   ],
+   "withheld_positive_pixels": 60988,
+   "tpw": 28207.77738437057,
+   "fpw": 2420319.4564084765,
+   "fnw": 32780.222615629435
+  },
+  "jump_3": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.05885803379691312,
+   "ci95": [
+    0.0519894052504591,
+    0.06567831666704128
+   ],
+   "withheld_positive_pixels": 60988,
+   "tpw": 17169.91072617037,
+   "fpw": 1197464.9310815544,
+   "fnw": 43818.08927382962
+  },
+  "coupling_3": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.05692593431875571,
+   "ci95": [
+    0.05057116456922276,
+    0.0630859038153743
+   ],
+   "withheld_positive_pixels": 60988,
+   "tpw": 15263.967924609713,
+   "fpw": 1081470.672292783,
+   "fnw": 45724.03207539029
+  },
+  "jump_7": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.05721589161530226,
+   "ci95": [
+    0.050178143576397355,
+    0.06446044379817234
+   ],
+   "withheld_positive_pixels": 60988,
+   "tpw": 17482.983900343017,
+   "fpw": 1266373.4104782592,
+   "fnw": 43505.016099657
+  },
+  "coupling_7": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.0499617791867629,
+   "ci95": [
+    0.044416379866081705,
+    0.055674607540378424
+   ],
+   "withheld_positive_pixels": 60988,
+   "tpw": 9310.756076110742,
+   "fpw": 678525.1253468125,
+   "fnw": 51677.243923889255
+  }
+ },
+ "best_comparable_control": "jump_7",
+ "paired_differences": {
+  "rtp": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": 0.0034639375434718997,
+   "ci95": [
+    -0.0023001821621898635,
+    0.009506749751518275
+   ],
+   "withheld_positive_pixels": 60988
+  },
+  "gravity": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": 0.006475499086265088,
+   "ci95": [
+    0.0009326426920740192,
+    0.012239018035036936
+   ],
+   "withheld_positive_pixels": 60988
+  },
+  "coupling_3": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": 0.001932099478157416,
+   "ci95": [
+    -0.002564197181979394,
+    0.006296624722591337
+   ],
+   "withheld_positive_pixels": 60988
+  },
+  "jump_7": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": 0.0016421421816108644,
+   "ci95": [
+    6.363658472558903e-05,
+    0.0030712047224964447
+   ],
+   "withheld_positive_pixels": 60988
+  },
+  "coupling_7": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": 0.008896254610150221,
+   "ci95": [
+    0.004033768696976777,
+    0.01396422254953839
+   ],
+   "withheld_positive_pixels": 60988
+  }
+ },
+ "bootstrap": {
+  "method": "paired physical spatial-cluster percentile",
+  "clusters": 79,
+  "draws": 1000,
+  "seed": 20261025,
+  "confidence": 0.95,
+  "caveat": "Conditional on fitted folds, catalogue labels and fixed budgets; not a leaderboard interval."
+ },
+ "implementation_sha256": {
+  "evaluate_holdout.py": "ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a",
+  "holdout.py": "7a0a84176986190b527aa9c6a84216c2dab4b599f25b1143db5f420e85020ab1",
+  "metric.py": "4afe10cbaa229948520c75194b1ebc32676e72544f05582f0725092b097b4d7f",
+  "spatial.py": "fad7b09db9efc512247b9a176a7e7ce8631e287592b4e07902d0b9c38bed00f8"
+ },
+ "purpose": "Each input feature alone; diagnostic only, not six tuned candidate experiments"
+}

@@ -1433,7 +1433,91 @@
       }
     },
     "max_within_3px_fraction": 0.53155,
-    "max_binary_spearman": 0.05392
+    "max_binary_spearman": 0.05392,
+    "broad_reconciliation_post_main_merge": {
+      "downloads_subset_comparators": 11,
+      "downloads_subset": {
+        "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif": {
+          "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
+          "dots": 156,
+          "final_spearman_r": -0.0059,
+          "dot_overlap_within_3px": 0.0
+        },
+        "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.tif": {
+          "sha256": "5987d5051a76a8a28e8a31106936413d26ab8d8af143d6849c29827cf1d35597",
+          "dots": 55304,
+          "final_spearman_r": 0.0358,
+          "dot_overlap_within_3px": 0.4519
+        },
+        "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif": {
+          "sha256": "e84c5a252381294aa0f22aebd765f7b9fa0136c270617bac22d40f48cc7f5f0c",
+          "dots": 38000,
+          "final_spearman_r": 0.0031,
+          "dot_overlap_within_3px": 0.2077
+        },
+        "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif": {
+          "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+          "dots": 40199,
+          "final_spearman_r": 0.0224,
+          "dot_overlap_within_3px": 0.4146
+        },
+        "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif": {
+          "sha256": "6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c",
+          "dots": 37654,
+          "final_spearman_r": 0.0233,
+          "dot_overlap_within_3px": 0.409
+        },
+        "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif": {
+          "sha256": "ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb",
+          "dots": 37654,
+          "final_spearman_r": 0.0106,
+          "dot_overlap_within_3px": 0.3277
+        },
+        "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif": {
+          "sha256": "76d58f4a28ef6112a79c8d930ad2c3c87b1f6ba0c062a4780c1207a48b749722",
+          "dots": 40199,
+          "final_spearman_r": 0.0156,
+          "dot_overlap_within_3px": 0.385
+        },
+        "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif": {
+          "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3",
+          "dots": 37654,
+          "final_spearman_r": 0.0002,
+          "dot_overlap_within_3px": 0.1813
+        },
+        "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif": {
+          "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+          "dots": 44090,
+          "final_spearman_r": 0.0207,
+          "dot_overlap_within_3px": 0.4236
+        },
+        "docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif": {
+          "sha256": "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8",
+          "dots": 37654,
+          "final_spearman_r": 0.0307,
+          "dot_overlap_within_3px": 0.3357
+        },
+        "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif": {
+          "sha256": "a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23",
+          "dots": 106138,
+          "final_spearman_r": 0.0569,
+          "dot_overlap_within_3px": 0.5316
+        }
+      },
+      "max_abs_final_spearman_downloads_subset": 0.0569,
+      "max_dot_overlap_within_3px_downloads_subset": 0.5316,
+      "max_dot_overlap_within_3px_concurrent_discrete_lanes": 0.385,
+      "counterexample_r13_lattice_s5": {
+        "repo": "buffedlizard55-lab/GEMSDOE24",
+        "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "control_dots": 206895,
+        "final_spearman_r": 0.001845,
+        "within_3px": 37513,
+        "dot_overlap_within_3px": 0.996255,
+        "literal_broad_registry_stop": true
+      }
+    }
   },
   "format_check": {
     "schema_version": 1,
@@ -1756,8 +1840,15 @@
     "G3c_piedmont_off_sgmc_ge_h27_and_g32": true,
     "G4a_surface_spearman_le_0.90": true,
     "G4b_dots_within_3px_le_0.70_all_registry": true,
-    "G5_format_validator_21_of_21_pass": true
+    "G5_format_validator_21_of_21_pass": true,
+    "uniqueness_submission_subset_pass": true,
+    "literal_broad_695_registry_pass": false,
+    "own_method_variogram_estimated": false,
+    "ok_to_download_for_research": true,
+    "ok_to_submit": false,
+    "scientific_subset_all_11_pass": true
   },
-  "duplicate": false,
-  "verdict": "promote"
+  "duplicate": true,
+  "verdict": "negative",
+  "reconciliation_note": "H31-M passes all 11 preregistered scientific, leakage, format, and 12-submission-comparator gates (beating GEMSDOE32 H33-2-B2 simultaneously on gemsdoe31-holdout-v1 0.1350/0.1372, Full Off-SGMC 0.1010 vs 0.0940, 4-Block Off-SGMC 0.1077 vs 0.0984, and Piedmont Off-SGMC 0.0641 vs 0.0586, with <=53.16% 3px overlap across all submission comparators and <=38.50% across concurrent 2026-10-25 discrete lanes). Upon merging origin/main, reconciliation against the pinned 695-raster shared manifest counterexample (GEMSDOE24 r13-lattice-s5 spacing-5 calibration lattice covering 99.87% of Nevada within 3 px) measures 99.6255% (37,513/37,654) 3-px overlap; under origin/main binding governance (no density/calibration exemption + own-method variogram requirement), the already-generated research bytes are retained as RESEARCH DOWNLOAD ONLY / DO NOT SUBMIT (verdict=\"negative\", slot_approved=False)."
 }

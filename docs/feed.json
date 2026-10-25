@@ -1,76 +1,97 @@
 {
- "schema_version": 1,
+ "schema_version": 2,
  "project": "GEMSDOE31",
  "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
  "current_download": {
-  "name": "gemsdoe31-h31m-bstep-xmod-submod-20261025-37654",
-  "submission_name": "GEMSDOE31-H31M-BStep-XMod-Submod-37654",
-  "ok_to_download_and_submit": true,
-  "tif": "docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif",
-  "sha256": "ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6",
-  "positive_pixels": 37654,
-  "positive_pixels_on_public_catalogue": 0,
-  "format_validated": true,
-  "measured": {
-   "holdout_v1_screen_DTI": 0.135034,
-   "holdout_v1_screen_base_DTI": 0.113497,
-   "holdout_v1_screen_ci95": [
-    0.11633374663592005,
-    0.15656767027992866
-   ],
-   "holdout_v1_paired_delta_ci95": [
-    0.006385757169909022,
-    0.03802179406762765
-   ],
-   "holdout_v1_confirm_DTI": 0.137153,
-   "holdout_v1_confirm_base_DTI": 0.112705,
-   "holdout_v1_evaluator": "gemsdoe31-holdout-v1",
-   "holdout_v1_withheld_positives": 58625,
-   "off_catalogue_proxy_DTI": 0.100955,
-   "gemsdoe32_b2_off_catalogue_proxy_DTI": 0.093965,
-   "incumbent_off_catalogue_proxy_DTI": 0.093848,
-   "delta": 0.007107,
-   "holdout_4block_off_sgmc_DTI": 0.107742,
-   "holdout_4block_ci95": [
-    0.090155,
-    0.133628
-   ],
-   "piedmont_off_sgmc_DTI": 0.064106,
-   "gemsdoe32_b2_piedmont_off_sgmc_DTI": 0.058614,
-   "piedmont_dot_fraction": 0.37215,
-   "uniqueness_max_surface_spearman": 0.72037,
-   "uniqueness_max_dot_overlap_3px": 0.53155,
-   "uniqueness_dot_overlap_vs_gemsdoe32_b2": 0.40245,
-   "verdict": "promote"
-  },
-  "score_status": "HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld positives, screen=0.1350 [0.1163, 0.1566], confirm=0.1372 [0.1191, 0.1580], 4/4 folds > base) & HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 off-SGMC positives, mean=0.1077 [0.0902, 0.1336], piedmont off-SGMC DTI=0.0641 vs GEMSDOE32 B=2 0.0586; no organizer receipt)",
-  "slot_approved": false
- },
- "research_candidate": {
-  "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654",
-  "submission_name": "GEMSDOE31-H31B-Corroborated-B2-Hybrid-37654",
-  "ok_to_download_and_submit": true,
-  "tif": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif",
-  "sha256": "6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c",
-  "positive_pixels": 37654,
-  "off_catalogue_proxy_DTI": 0.120579,
-  "incumbent_off_catalogue_proxy_DTI": 0.09385,
-  "delta": 0.026729,
-  "slot_approved": false
- },
- "parallel_lane_h31e_negative": {
-  "name": "gemsdoe31-h31e-surfexpr-20261025-8817f551",
-  "tif": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif",
-  "sha256": "76d58f4a28ef6112a79c8d930ad2c3c87b1f6ba0c062a4780c1207a48b749722",
-  "positive_pixels": 40199,
+  "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
+  "tif": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+  "zip": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+  "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+  "note": "MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved",
   "verdict": "negative",
+  "ok_to_download_for_research": true,
   "ok_to_submit": false,
   "slot_approved": false,
-  "holdout_dti_screen": 0.13404828147016595,
-  "holdout_evaluator": "gemsdoe31-holdout-v1",
-  "withheld_positive_pixels": 58625,
-  "off_catalogue_proxy_DTI": 0.07116647227428345,
-  "note": "HOLDOUT-DTI/proxy are computed instruments, not competition scores; no organizer receipt"
+  "holdout_dti": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.052972044857535226,
+   "ci95": [
+    0.04131136300815562,
+    0.06532899139157548
+   ],
+   "withheld_positive_pixels": 2901,
+   "tpw": 222.69414398245058,
+   "fpw": 9193.274462229707,
+   "fnw": 2678.3058560175496
+  },
+  "paired_difference": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": 0.00467843602723389,
+   "ci95": [
+    -0.017864202465723577,
+    0.022933167391729445
+   ],
+   "withheld_positive_pixels": 2901
+  },
+  "registry": {
+   "scope": "Nine pinned docs/downloads trees PLUS one authentic counterexample from the shared 695-raster template registry. Nine-tree test passes; literal broad-registry gate FAILS. No exhaustive/global pass claimed.",
+   "comparable_files": 119,
+   "distinct_prediction_fields": 51,
+   "surface": {
+    "pass_": false,
+    "duplicate": true,
+    "max_abs_rho": 0.01014651673592438,
+    "max_overlap": 1.0,
+    "counterexample_rho": 0.00021244973679571678,
+    "counterexample_overlap": 1.0,
+    "exhaustive_broad_registry_scan": false
+   },
+   "final": {
+    "pass_": false,
+    "duplicate": true,
+    "max_abs_rho": 0.005421926334620311,
+    "max_overlap": 1.0,
+    "counterexample_rho": 0.0005267017210338992,
+    "counterexample_overlap": 1.0,
+    "exhaustive_broad_registry_scan": false
+   },
+   "global_uniqueness_proven": false,
+   "nine_site_download_scope_original": {
+    "scope": "ALL .tif files under docs/downloads/ (including research subdirectories) in the nine pinned repositories. No claim about private, unlinked, other paths, other sites, or later revisions.",
+    "surface": {
+     "pass_": true,
+     "duplicate": false,
+     "max_abs_rho": 0.01014651673592438,
+     "max_overlap": 0.3214532320603389
+    },
+    "final": {
+     "pass_": true,
+     "duplicate": false,
+     "max_abs_rho": 0.005421926334620311,
+     "max_overlap": 0.3256493334041536
+    }
+   },
+   "literal_rule_pass": false,
+   "scope_correction": "evidence/magrest/registry_scope_correction.json",
+   "calibration_density_exemption": false,
+   "nine_site_comparable_files": 118,
+   "nine_site_distinct_prediction_fields": 50,
+   "shared_manifest_registered_rasters": 695,
+   "additional_registered_controls_compared": 1,
+   "broader_scan_exhaustive": false
+  },
+  "failed_or_unknown_gates": [
+   "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.",
+   "paired spatial holdout screen failed",
+   "fresh confirmation not passed",
+   "own-method residual range not estimated",
+   "global current-best comparison unavailable on identical instrument",
+   "organizer-authenticated data/template provenance unverified",
+   "outside-footprint organizer convention unresolved",
+   "separate selector has not promoted this artifact; weekly cap not checked"
+  ]
  },
  "buffer": {
   "derived_buffer_km": 21.25,
@@ -253,16 +274,82 @@
    "class": "OFFICIAL",
    "url": "https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7",
    "accessed_utc": null
+  },
+  {
+   "id": "organizer-github-reference-20261025",
+   "class": "OFFICIAL",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "gallardo-meju-2003-cross-gradient",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1029/2003GL017370",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "miller-singh-1994-tilt-angle",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1016/0926-9851(94)90022-1",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "nemhauser-minoux-1978-lazy-submodular",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1007/BF01588971",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "gdr-1391-ingeniou-great-basin",
+   "class": "OFFICIAL",
+   "url": "https://gdr.openei.org/submissions/1391",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "dd-gems-reference-solution-repo",
+   "class": "OFFICIAL",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-25"
   }
  ],
  "automation": {
   "rebuild": "python scripts/build_site.py",
-  "rule": "pages and this feed are regenerated from registry/ and evidence/ on every push; no manual editing",
+  "rule": "Deterministic evidence/site build and integrity checks on push/PR. No leaderboard polling, automatic uploads or current-score feed.",
   "not_automated": "leaderboard reads, score entry and file uploads remain manual by competition terms"
  },
  "open_items": [
-  "no organizer receipt for any score on this site",
-  "H31-M passed all 11/11 local preregistered gates (verdict: promote); human entrant decides whether to spend a manual portal slot and attach any organizer receipt",
-  "external layers needing the CI runner (GDR 1391 MT depth stack, raw 1 m 3DEP DEM tiles) remain blocked in sandbox"
- ]
+  "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.",
+  "paired spatial holdout screen failed",
+  "fresh confirmation not passed",
+  "own-method residual range not estimated",
+  "global current-best comparison unavailable on identical instrument",
+  "organizer-authenticated data/template provenance unverified",
+  "outside-footprint organizer convention unresolved",
+  "separate selector has not promoted this artifact; weekly cap not checked",
+  "no organizer receipt for any claimed score"
+ ],
+ "historical_download": {
+  "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
+  "tif": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+  "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+  "positive_pixels": 40199,
+  "positive_pixels_on_public_catalogue": 0,
+  "format_validated": true,
+  "measured": null,
+  "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
+  "slot_approved": false
+ },
+ "historical_research_union": {
+  "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
+  "tif": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif",
+  "sha256": "a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23",
+  "positive_pixels": 106138,
+  "off_catalogue_proxy_DTI": 0.09985654750452583,
+  "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
+  "delta": 0.006008398517191579,
+  "slot_approved": false
+ },
+ "generated_utc": "2026-10-25T21:27:53.911211+00:00",
+ "source_access": "GitHub sources freshly retrieved; non-GitHub official references not re-fetched under host allowlist. No DrivenData contact.",
+ "proxy_scores_scope": "Historical 2026-10-04 instruments below lack comparable current masks/CI; never promotion evidence for MAGREST."
 }

@@ -61,6 +61,25 @@ def test_every_registered_file_exists_and_the_hash_matches_its_receipt():
             assert digest == record[f"sha256_{convention}"], f"{path.name} changed since its receipt was written"
 
 
+def test_registered_zip_hashes_match_and_each_archive_contains_exactly_one_geotiff():
+    import hashlib
+    from zipfile import ZipFile
+
+    submissions = json.loads((ROOT / "registry" / "submissions.json").read_text())
+    zipped = [record for record in submissions["files"] if record.get("zip")]
+    assert zipped, "the register must include the packaged submission archives"
+    for record in zipped:
+        path = ROOT / record["zip"]
+        assert path.is_file(), f"{record['zip']} listed in the register but missing from the repository"
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == record["sha256_zip"]
+        assert path.stat().st_size == record["bytes_zip"]
+        with ZipFile(path) as archive:
+            members = [name for name in archive.namelist() if not name.endswith("/")]
+            assert len(members) == 1
+            assert members[0].lower().endswith(".tif")
+            assert archive.testzip() is None
+
+
 def test_metric_module_reproduces_the_published_identity_and_exact_cases():
     import sys
 

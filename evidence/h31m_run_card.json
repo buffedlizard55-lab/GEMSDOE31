@@ -70,7 +70,27 @@
         "binary_spearman": 0.02043
       }
     },
-    "passed_uniqueness_gate": true
+    "passed_uniqueness_gate": true,
+    "downloads_and_concurrent_subset": {
+      "comparators_checked": 12,
+      "max_abs_surface_spearman_r": 0.7204,
+      "max_abs_final_spearman_r": 0.0569,
+      "max_dot_overlap_within_3px": 0.5316,
+      "max_dot_overlap_within_3px_concurrent_discrete_lanes": 0.385,
+      "subset_pass": true,
+      "scope_note": "SUBSET ONLY \u2014 NOT UNIQUENESS APPROVAL under unexempted 695-raster manifest"
+    },
+    "broad_695_registry_counterexample": {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "control_dots": 206895,
+      "final_spearman_r": 0.001845,
+      "within_3px": 37513,
+      "dot_overlap_within_3px": 0.996255,
+      "literal_broad_registry_stop": true
+    },
+    "literal_broad_registry_stop": true
   },
   "raster_sha256": {
     "nan_tif": "ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6",
@@ -87,7 +107,9 @@
     "hard_failures_allfinite": [],
     "positive_pixels": 37654,
     "dots_on_public_catalogue": 0,
-    "dots_within_200m_public_catalogue": 0
+    "dots_within_200m_public_catalogue": 0,
+    "ok_to_download_for_research": true,
+    "ok_to_submit": false
   },
   "gates": {
     "G1_canary_all_used_auc_le_0.90": true,
@@ -101,10 +123,21 @@
     "G3c_piedmont_off_sgmc_ge_h27_and_g32": true,
     "G4a_surface_spearman_le_0.90": true,
     "G4b_dots_within_3px_le_0.70_all_registry": true,
-    "G5_format_validator_21_of_21_pass": true
+    "G5_format_validator_21_of_21_pass": true,
+    "uniqueness_submission_subset_ok": true,
+    "uniqueness_dots_ok": false,
+    "literal_broad_695_registry_ok": false,
+    "own_method_variogram_estimated": false,
+    "scientific_efficacy_all_11_ok": true,
+    "slot_approved": false
   },
   "submission_name": "GEMSDOE31-H31M-BStep-XMod-Submod-37654",
   "note": "H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641",
   "note_length_chars": 102,
-  "verdict": "promote"
+  "verdict": "negative",
+  "failed_or_unresolved_protocol_gates": [
+    "Literal 695-raster shared-registry STOP: 99.6255% (37,513 / 37,654) of final H31-M dots fall within 3 px of registered spacing-5 calibration lattice r13-lattice-s5 (which covers 99.87% of the Nevada footprint within 3 px; no density/calibration exemption applied).",
+    "Spatial holdout 21.25 km collar is inherited from evidence/buffer_derivation.json; H31-M own-method residual semivariogram range not yet re-estimated.",
+    "Outside-footprint organizer convention (NaN vs all-finite) and live organizer receipt remain unverified."
+  ]
 }
