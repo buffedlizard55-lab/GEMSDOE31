@@ -19,5 +19,18 @@
   "Local tests do not authenticate organizer data, acceptance, score, cap or lane assignment.",
   "Literal registry rule universally blocks nonempty promotion; extended inventory incomplete.",
   "PR merge and site deployment require separate actual GitHub status."
- ]
+ ],
+ "post_integration_verification": {
+  "upstream_main": "4371416",
+  "preserved_upstream_prs": [
+   8,
+   9
+  ],
+  "pytest_passed": 67,
+  "ruff": "passed",
+  "site_pages": 20,
+  "site_local_links": 305,
+  "tiff_unchanged": true,
+  "outside_encoding_portal_convention": "unverified; local all-finite policy only"
+ }
 }

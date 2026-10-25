@@ -49,6 +49,8 @@ def make_decision(card: dict, holdout: dict, surface_audit: dict, final_audit: d
         "promotion_meaning": "Eligible for a separate selector only; never an automatic submission",
         "safe_to_download": True, "safe_to_submit": False, "slot_approved": False,
         "selector_authorization": None, "current_weekly_cap_verified": False,
+        "organizer_outside_encoding_verified": False,
+        "local_format_policy": "Unchanged shared writer: finite everywhere, explicit zero outside. Historical null/NaN convention is unresolved; local PASS is not portal conformity.",
         "submission_slots_used": 0, "organizer_confirmed_score": None,
         "reason": "Every missing or failed gate blocks submission; negative findings and a format pass are separate deliverables.",
     }

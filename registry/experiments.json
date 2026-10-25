@@ -51,8 +51,8 @@
   },
   {
    "path": "evidence/delivery_verification_20261025.json",
-   "bytes": 1055,
-   "sha256": "0e6527ece6a16a44ef81954de63000d44651d7535a518c783608e6c87edfa258"
+   "bytes": 1370,
+   "sha256": "a12a092d13bb7a84f895689be91b46fa0165d41e6d198118b1190acc44b9b3d7"
   },
   {
    "path": "evidence/h27_geometry.json",
@@ -151,8 +151,8 @@
   },
   {
    "path": "evidence/tgj31/decision.json",
-   "bytes": 1393,
-   "sha256": "93fcec4f813dba81dd599055963ccd91879c2692cb3c220efd794be9750f9c2e"
+   "bytes": 1617,
+   "sha256": "e7b7f31af99f5445eed7f3969665d36f22f76987c6e25fe64c1fe7e30797ee91"
   },
   {
    "path": "evidence/tgj31/feature_alone_holdout.json",

@@ -54,3 +54,9 @@ After the fixes, **66 tests passed**, lint passed, frozen TIFF/ZIP verification 
 ## Unresolved, deliberately fail-closed
 
 The owner's lane paragraph is missing; the sample is not organizer-authenticated; no current cap/selector authorization/receipt/private truth exists. The registry is incomplete and its full-support witness blocks every nonempty candidate. Public mapped-fault and SGMC proxy performance is not private leaderboard performance or vent discovery. Source-status checks flag upstream drift but do not re-audit changed science. These limitations are on the front page and in the run card, not hidden behind an inspection prerequisite.
+
+## Post-review integration cross-check — concurrent main PRs #8/#9
+
+The initial branch CI passed, but main advanced to `4371416` and PR #10 reported merge conflicts. Integrated that main revision on the attached Arena branch (no branch switch), preserving all additional irregularity/review records, the separate-checkout H33 audit and an archived copy of its earlier status. Adopted the upstream generic H31 Arena guard and its extra regression without reopening H31 or TGJ31. The current workspace's data-restored/new-TIFF state remains distinct from that historical checkout's missing-data/no-new-TIFF state.
+
+The upstream H33 zero-outside warning is retained. It highlights uncertainty between a historical official null/NaN description and the current explicitly requested shared all-finite writer. The site and derived decision now label format PASS as a declared **local** policy only; organizer outside-encoding conformity is unverified. The frozen new TIFF was not rewritten or retuned. After integration, **67 tests passed** and lint was clean; the new download hash and negative decision are unchanged. GitHub PR checks and publication still require actual status verification.

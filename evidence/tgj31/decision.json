@@ -41,6 +41,8 @@
  "slot_approved": false,
  "selector_authorization": null,
  "current_weekly_cap_verified": false,
+ "organizer_outside_encoding_verified": false,
+ "local_format_policy": "Unchanged shared writer: finite everywhere, explicit zero outside. Historical null/NaN convention is unresolved; local PASS is not portal conformity.",
  "submission_slots_used": 0,
  "organizer_confirmed_score": null,
  "reason": "Every missing or failed gate blocks submission; negative findings and a format pass are separate deliverables."

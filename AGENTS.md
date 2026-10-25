@@ -23,8 +23,8 @@ Before changing this repository, read the entire `README.md`, `knowledge/2026-10
 
 ## Execution / Git rules
 
-- Work only on the branch this session is attached to (`arena/94fc8374-gemsdoe31` at the time of writing);
-  never switch, create or push another branch.
+- Work only on the fixed Arena branch attached to the current session; never switch, create or push another branch.
+  The historical H31 generic Arena guard is not permission to leave the attached branch; TGJ31 remains frozen and closed.
 - Keep large input rasters and regenerable caches out of Git. Pin hashes and provenance in `registry/`.
 - Run the full local check set before any PR: `python -m pytest -q`, `python -m ruff check .`,
   `python scripts/check_metric.py`, `python scripts/collect_evidence.py`, `python scripts/build_site.py`,

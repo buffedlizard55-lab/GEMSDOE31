@@ -19,7 +19,7 @@ A **genuinely newly computed TIFF** exists. It was generated from RTP and gravit
 
 | Decision component | Automated outcome |
 |---|---|
-| Actual on-disk format | PASS — 1 float32 band, EPSG:32611, 3730×3292, exact transform, finite [0,1], zero outside footprint; ZIP contains one byte-identical TIFF |
+| Declared local on-disk format | PASS — 1 float32 band, EPSG:32611, 3730×3292, exact transform, finite [0,1], explicit zero outside; ZIP verified. Historical official null/NaN outside convention remains unverified; not portal conformity. |
 | Range regression | Reject invalid inputs, no silent clipping; two independent on-disk format checks |
 | Each-feature leakage canary | PASS; max symmetric AUC 0.571235, below 0.90; not proof of no leakage |
 | New content vs copied submission | Generated from raw features; TIFF SHA differs from all 1,005 restored prior hashes |
