@@ -1,0 +1,325 @@
+{
+  "generated_utc": "2026-10-25T00:00:00Z",
+  "footprint_pixels": 5167373,
+  "public_catalogue_pixels": 60988,
+  "sgmc_offcat_pixels": 61664,
+  "piedmont_sgmc_offcat_pixels": 23135,
+  "regime_medians": {
+    "public_catalogue_quat": {
+      "det_elev_m": -73.37,
+      "slope_deg": 5.56,
+      "depth_base_m": 321.61
+    },
+    "sgmc_offcat_all": {
+      "det_elev_m": 130.13,
+      "slope_deg": 13.5,
+      "depth_base_m": 89.58
+    },
+    "piedmont_sgmc_offcat": {
+      "det_elev_m": -72.24,
+      "slope_deg": 8.31,
+      "depth_base_m": 176.07
+    }
+  },
+  "rasters": [
+    {
+      "id": "g24_d15",
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+      "reported_score": 0.2477,
+      "score_claim_class": "USER-REPORTED",
+      "method": "H19-5 mask + d=1.5 Poisson (60,069d)",
+      "dots": 60069,
+      "nn_median_px": 2.236,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 8769,
+        "near_2_to_5": 7837,
+        "mid_5_to_15": 13697,
+        "far_gt_15": 29766
+      },
+      "overlap_3px_with_h33_2_b2": 0.8848,
+      "sgmc_offcat_dti": 0.0984,
+      "piedmont_sgmc_dti": 0.1053,
+      "median_det_elev_m": -26.0,
+      "median_slope_deg": 7.65,
+      "median_depth_base_m": 244.65
+    },
+    {
+      "id": "g25_d28",
+      "repo": "buffedlizard55-lab/GEMSDOE25",
+      "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+      "reported_score": 0.26,
+      "score_claim_class": "USER-REPORTED",
+      "method": "H19-5 mask + d=2.8 Poisson (44,090d)",
+      "dots": 44090,
+      "nn_median_px": 3.0,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 6436,
+        "near_2_to_5": 5637,
+        "mid_5_to_15": 10028,
+        "far_gt_15": 21989
+      },
+      "overlap_3px_with_h33_2_b2": 0.8817,
+      "sgmc_offcat_dti": 0.0927,
+      "piedmont_sgmc_dti": 0.1052,
+      "median_det_elev_m": -24.13,
+      "median_slope_deg": 7.66,
+      "median_depth_base_m": 243.83
+    },
+    {
+      "id": "g27_tv2_d15",
+      "repo": "buffedlizard55-lab/GEMSDOE27",
+      "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+      "reported_score": 0.2449,
+      "score_claim_class": "USER-REPORTED",
+      "method": "H19-5 mask + d=1.5 Poisson + topo gap (61,328d)",
+      "dots": 61328,
+      "nn_median_px": 2.236,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 8875,
+        "near_2_to_5": 8334,
+        "mid_5_to_15": 14324,
+        "far_gt_15": 29795
+      },
+      "overlap_3px_with_h33_2_b2": 0.8672,
+      "sgmc_offcat_dti": 0.0996,
+      "piedmont_sgmc_dti": 0.107,
+      "median_det_elev_m": -28.39,
+      "median_slope_deg": 7.58,
+      "median_depth_base_m": 247.51
+    },
+    {
+      "id": "g28_h27_4_r1",
+      "repo": "buffedlizard55-lab/GEMSDOE28",
+      "sha256": "ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73",
+      "reported_score": 0.2708,
+      "score_claim_class": "USER-REPORTED",
+      "method": "D2.8 & d_cat > 100 m (40,199d)",
+      "dots": 40199,
+      "nn_median_px": 3.0,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 2545,
+        "near_2_to_5": 5637,
+        "mid_5_to_15": 10028,
+        "far_gt_15": 21989
+      },
+      "overlap_3px_with_h33_2_b2": 0.9539,
+      "sgmc_offcat_dti": 0.0938,
+      "piedmont_sgmc_dti": 0.1079,
+      "median_det_elev_m": -20.18,
+      "median_slope_deg": 7.66,
+      "median_depth_base_m": 245.28
+    },
+    {
+      "id": "g28_h32_1",
+      "repo": "buffedlizard55-lab/GEMSDOE28",
+      "sha256": "04d31922f5c1ea4016984fc470ab2b0ff8e266c615792f0e86020da3b940d3ff",
+      "reported_score": 0.2649,
+      "score_claim_class": "USER-REPORTED",
+      "method": "H19-5 + Euler deconv (42,294d)",
+      "dots": 42294,
+      "nn_median_px": 3.0,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 4637,
+        "near_2_to_5": 5648,
+        "mid_5_to_15": 10020,
+        "far_gt_15": 21989
+      },
+      "overlap_3px_with_h33_2_b2": 0.9159,
+      "sgmc_offcat_dti": 0.0933,
+      "piedmont_sgmc_dti": 0.1065,
+      "median_det_elev_m": -22.33,
+      "median_slope_deg": 7.65,
+      "median_depth_base_m": 245.87
+    },
+    {
+      "id": "g28_h36_1",
+      "repo": "buffedlizard55-lab/GEMSDOE28",
+      "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+      "reported_score": 0.271,
+      "score_claim_class": "USER-REPORTED",
+      "method": "D2.8 pruned to 37,660d",
+      "dots": 37660,
+      "nn_median_px": 3.162,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 2353,
+        "near_2_to_5": 5199,
+        "mid_5_to_15": 9451,
+        "far_gt_15": 20657
+      },
+      "overlap_3px_with_h33_2_b2": 0.9547,
+      "sgmc_offcat_dti": 0.0919,
+      "piedmont_sgmc_dti": 0.1072,
+      "median_det_elev_m": -19.87,
+      "median_slope_deg": 7.64,
+      "median_depth_base_m": 246.17
+    },
+    {
+      "id": "g28_h38_1",
+      "repo": "buffedlizard55-lab/GEMSDOE28",
+      "sha256": "81d5b87bc8424f162a8f56aa9aac8fbe630c61646b9cac24d5ebbdc1b1951783",
+      "reported_score": 0.2707,
+      "score_claim_class": "USER-REPORTED",
+      "method": "H19-5 + HF Euler pruned (37,657d)",
+      "dots": 37860,
+      "nn_median_px": 3.162,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 2353,
+        "near_2_to_5": 5282,
+        "mid_5_to_15": 9548,
+        "far_gt_15": 20677
+      },
+      "overlap_3px_with_h33_2_b2": 0.9501,
+      "sgmc_offcat_dti": 0.0921,
+      "piedmont_sgmc_dti": 0.1075,
+      "median_det_elev_m": -20.18,
+      "median_slope_deg": 7.63,
+      "median_depth_base_m": 246.6
+    },
+    {
+      "id": "g30_d28",
+      "repo": "buffedlizard55-lab/GEMSDOE30",
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "reported_score": 0.26,
+      "score_claim_class": "USER-REPORTED",
+      "method": "H19-5 mask + d=2.8 Poisson (44,090d)",
+      "dots": 44090,
+      "nn_median_px": 3.0,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 6436,
+        "near_2_to_5": 5637,
+        "mid_5_to_15": 10028,
+        "far_gt_15": 21989
+      },
+      "overlap_3px_with_h33_2_b2": 0.8817,
+      "sgmc_offcat_dti": 0.0927,
+      "piedmont_sgmc_dti": 0.1052,
+      "median_det_elev_m": -24.13,
+      "median_slope_deg": 7.66,
+      "median_depth_base_m": 243.83
+    },
+    {
+      "id": "g32_h33_2_b2",
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "reported_score": 0.2778,
+      "score_claim_class": "USER-REPORTED",
+      "method": "D2.8 & d_cat > 200 m flank cut (37,654d)",
+      "dots": 37654,
+      "nn_median_px": 3.0,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 0,
+        "near_2_to_5": 5637,
+        "mid_5_to_15": 10028,
+        "far_gt_15": 21989
+      },
+      "overlap_3px_with_h33_2_b2": 1.0,
+      "sgmc_offcat_dti": 0.094,
+      "piedmont_sgmc_dti": 0.1091,
+      "median_det_elev_m": -19.74,
+      "median_slope_deg": 7.65,
+      "median_depth_base_m": 245.27
+    },
+    {
+      "id": "g33_h33d",
+      "repo": "buffedlizard55-lab/GEMSDOE33",
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "reported_score": 0.2632,
+      "score_claim_class": "USER-REPORTED",
+      "method": "H19-5 + analog re-rank (41,865d)",
+      "dots": 41865,
+      "nn_median_px": 3.162,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 3894,
+        "near_2_to_5": 5663,
+        "mid_5_to_15": 10157,
+        "far_gt_15": 22151
+      },
+      "overlap_3px_with_h33_2_b2": 0.9264,
+      "sgmc_offcat_dti": 0.0942,
+      "piedmont_sgmc_dti": 0.1075,
+      "median_det_elev_m": -21.87,
+      "median_slope_deg": 7.6,
+      "median_depth_base_m": 247.16
+    },
+    {
+      "id": "g36_anderson",
+      "repo": "buffedlizard55-lab/GEMSDOE36",
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "reported_score": 0.275,
+      "score_claim_class": "USER-REPORTED",
+      "method": "H33-2-B2 + 1,200 Anderson PINN dots (38,854d)",
+      "dots": 38854,
+      "nn_median_px": 3.0,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 0,
+        "near_2_to_5": 5824,
+        "mid_5_to_15": 10461,
+        "far_gt_15": 22569
+      },
+      "overlap_3px_with_h33_2_b2": 0.974,
+      "sgmc_offcat_dti": 0.0954,
+      "piedmont_sgmc_dti": 0.1095,
+      "median_det_elev_m": -17.49,
+      "median_slope_deg": 7.67,
+      "median_depth_base_m": 252.18
+    },
+    {
+      "id": "g70_p8_oof38k",
+      "repo": "buffedlizard55-lab/GEMSDOE70",
+      "sha256": "d0e41ce921afcf3af33b7d86d75f6a258653dfbb4d050e864babe643245f0ea8",
+      "reported_score": 0.2478,
+      "score_claim_class": "USER-REPORTED",
+      "method": "LOQO HGB on Quat+SGMC + d=2.8 (38,000d)",
+      "dots": 37654,
+      "nn_median_px": 2.236,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 0,
+        "near_2_to_5": 6980,
+        "mid_5_to_15": 10009,
+        "far_gt_15": 20665
+      },
+      "overlap_3px_with_h33_2_b2": 0.5484,
+      "sgmc_offcat_dti": 0.126,
+      "piedmont_sgmc_dti": 0.135,
+      "median_det_elev_m": 18.52,
+      "median_slope_deg": 11.62,
+      "median_depth_base_m": 195.59
+    },
+    {
+      "id": "gemsdoe31_h31e2_scgp_submod",
+      "repo": "buffedlizard55-lab/GEMSDOE31",
+      "sha256": "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8",
+      "reported_score": null,
+      "score_claim_class": "HOLDOUT-DTI 0.1145 (confirm) / 0.1274 (screen); NOT YET SUBMITTED",
+      "method": "H31-E2 Translation-Invariant SCGP Dual-Expert + Unsup Ridge + Tip/Relay + 300m Submod (37,654d)",
+      "dots": 37654,
+      "nn_median_px": 2.236,
+      "shells_px": {
+        "on_cat_0": 0,
+        "flank_0_to_2": 0,
+        "near_2_to_5": 9294,
+        "mid_5_to_15": 16494,
+        "far_gt_15": 11866
+      },
+      "overlap_3px_with_h33_2_b2": 0.413,
+      "sgmc_offcat_dti": 0.0816,
+      "piedmont_sgmc_dti": 0.1233,
+      "median_det_elev_m": -21.55,
+      "median_slope_deg": 8.19,
+      "median_depth_base_m": 211.51
+    }
+  ]
+}

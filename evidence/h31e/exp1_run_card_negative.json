@@ -1,0 +1,82 @@
+{
+  "hypothesis": "H31-E (SCGP-Submod): Multi-physics Gallardo-Meju structural cross-gradient concordance + Laplace FFT upward-continuation magnetic attenuation + seam-free dual-expert 1m LiDAR scarp polarity & GeoDAWN/GDR-1391 paleo-sinter hydrothermal alteration + fold-safe 2-component relay/tip accommodation, allocated via 1D ridge-sharpened 300 m submodular DTI coverage.",
+  "mechanism": "Normal-fault offsets across concealed and wave-reworked Great Basin piedmont margins produce co-aligned horizontal gradients in isostatic gravity, conductive-base depth, and shallow RTP magnetics (1 - |sin(dtheta)| -> 1), asymmetric 1m LiDAR monoclinal scarp steps (|upface - downface|), and K/Th + paleo-sinter outflow anomalies in 200-2500 m en-echelon relay zones; Minoux lazy-greedy maximization of the exact 29-offset 300 m DTI kernel allocates 37,654 non-redundant off-catalogue dots.",
+  "named_non_fault_mimic": "Pleistocene Lake Lahontan wave-cut paleoshoreline terraces (~1200-1335 m contours) and unfaulted volcanic flow lobes / erosional fan gullies, mitigated via cross-gradient strike orthogonality (scgp_lahontan_mimic_score) and one-sided LiDAR face polarity.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "gemsdoe31-hide-v2.0",
+    "buffer_m": 21300,
+    "screen_draw_101": {
+      "dti": 0.178804,
+      "ci95": [
+        0.168464,
+        0.189592
+      ],
+      "withheld_positives": 17900,
+      "baseline_d_dti": 0.092171,
+      "paired_delta_dti": 0.086633,
+      "paired_delta_ci95": [
+        0.068424,
+        0.104712
+      ]
+    },
+    "fresh_confirmation_draws_202_303": {
+      "dti": 0.171744,
+      "ci95": [
+        0.163417,
+        0.180333
+      ],
+      "withheld_positives": 35599,
+      "baseline_d_dti": 0.088593,
+      "paired_delta_dti": 0.083151,
+      "paired_delta_ci95": [
+        0.069962,
+        0.095483
+      ]
+    }
+  },
+  "organizer_confirmed_score": null,
+  "leakage_canary": {
+    "features_tested": 86,
+    "max_single_feature_auc": 0.762414,
+    "threshold_auc": 0.9,
+    "passed": true
+  },
+  "correlation_overlap_vs_registry": {
+    "checked_rasters": 16,
+    "max_surface_spearman_rho": 0.063088,
+    "max_surface_topn_within_3px": 0.487757,
+    "max_final_dots_spearman_rho": 0.020768,
+    "max_final_dots_within_3px": 0.386041,
+    "duplicates_found": [],
+    "passed": true
+  },
+  "raster_sha256": {
+    "nan_outside_primary": "97975a3647684bbefc7f6d4c63afec015675f5c94c8a81dcdf0ad394e4bf57ee",
+    "allfinite_fallback": "7225dbedeffd113568f792ef42015f5ddf847a9a2153ba600e4a7f9d4b2afb73"
+  },
+  "validator_output": {
+    "no_nan_inside_footprint": true,
+    "values_in_0_1": true,
+    "crs_shape_transform_match": true,
+    "outside_footprint_nan_exact": true,
+    "allfinite_twin_valid": true,
+    "positive_dots": 37654,
+    "dots_on_public_catalogue": 0
+  },
+  "submission_name": "gemsdoe31-scgp-submod-37654-20261025-ba65fa19",
+  "submission_note": "GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1717 vs 0.0886 | id ba65fa19",
+  "submission_note_chars": 79,
+  "automated_gates": {
+    "G1_format_and_range_0_1_pass": true,
+    "G2_leakage_canary_pass": true,
+    "G3_uniqueness_canary_pass": true,
+    "G4_buffered_holdout_screen_and_confirm_pass": true,
+    "G5_dual_offcatalogue_proxy_pass": false,
+    "all_automated_gates_passed": false,
+    "verdict": "negative",
+    "human_inspection_required_for_validation": false,
+    "weekly_slot_spent_by_agent": false
+  },
+  "verdict": "negative"
+}

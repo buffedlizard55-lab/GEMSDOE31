@@ -57,6 +57,8 @@ def validate_submission(
     The returned receipt always states which convention was applied, and
     ``organizer_acceptance_verified`` is always ``False``: local validation is not organizer acceptance.
     """
+    if convention not in {"nan-outside", "all-finite"}:
+        raise ValueError("unknown outside-footprint convention")
     submission_path = Path(submission_path)
     template_path = Path(template_path)
     if not submission_path.is_file():
@@ -164,6 +166,10 @@ def validate_submission(
             checks["allfinite_values_in_0_1"] = _check(
                 "allfinite_values_in_0_1", finite_everywhere and in_range,
                 f"finite={finite_everywhere}; min={float(np.nanmin(values))}; max={float(np.nanmax(values))}",
+            )
+            checks["outside_footprint_zero"] = _check(
+                "outside_footprint_zero", bool((outside == 0).all()),
+                f"{int(np.count_nonzero(outside)):,} nonzero values outside footprint",
             )
         else:
             checks["outside_footprint_nan"] = _check(

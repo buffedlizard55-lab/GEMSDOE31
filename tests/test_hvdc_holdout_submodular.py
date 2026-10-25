@@ -5,7 +5,7 @@ import numpy as np
 import rasterio
 from affine import Affine
 
-from gemsdoe31.holdout import (
+from gemsdoe31.hvdc_holdout import (
     additive_dti_pixel_maps,
     build_spatial_folds,
     check_registry_duplicate_canary,
@@ -174,5 +174,11 @@ def test_committed_hvdc_submission_and_experiment_evidence():
     assert exp3["duplicate_canary"]["passed"] is True
 
     receipt = json.loads((ROOT / "evidence/hvdc/submission_validation_receipt.json").read_text())
-    assert receipt["ok_to_download_and_submit"] is True
+    assert receipt["ok_to_download_for_research"] is True
+    assert receipt["ok_to_submit"] is False
     assert all(receipt["strict_checks"].values())
+    rc = json.loads((ROOT / "evidence/hvdc/run_card.json").read_text())
+    assert rc["verdict"] == "negative"
+    assert rc["slot_approved"] is False
+    assert rc["correlation_overlap_vs_registry"]["discrete_34_comparator_subset_passed"] is True
+    assert rc["correlation_overlap_vs_registry"]["shared_695_registry_literal_gate_pass"] is False

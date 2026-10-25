@@ -1,0 +1,906 @@
+{
+ "source_commit": "6b3ec4818eb65c0910de85e2d3dd24318514860d",
+ "scope": "Concurrent main records preserved verbatim as archived session evidence, NOT reproduced or approved by MAGREST; instruments differ. MAGREST literal registry STOP remains current.",
+ "records": {
+  "registry/irregularities.json": {
+   "schema_version": 1,
+   "generated_utc": "2026-10-04",
+   "items": [
+    {
+     "id": "IR-31-SCORE-2600-D28",
+     "severity": "high",
+     "status": "open",
+     "summary": "The current user request states that GEMSDOE25 D2.8 scored 0.2600, but the pinned owner-mirror record marks D2.8 unscored and no organizer receipt is available.",
+     "evidence": [
+      "User request wording (USER-REPORTED, 0.2600).",
+      "GEMSDOE25@c185edd8b09e19846cf34c16050e6cf891ecc2d0 registry/submissions.json marks D2.8 unscored/not slot-approved.",
+      "GEMSDOE25 knowledge/10 and evidence/score_claim_audit.json do not list a D2.8 0.2600 score."
+     ],
+     "impact": "Cannot assert the score is official, identify the scored bytes, or explain the exact result as a fact.",
+     "action": "Keep the claim USER-REPORTED and unverified. Do not access the live leaderboard absent prior written consent."
+    },
+    {
+     "id": "IR-31-TEMPLATE-AUTH",
+     "severity": "high",
+     "status": "open",
+     "summary": "The sample_submission.tif used for exact-grid validation is from an owner mirror, not organizer-authenticated in this environment.",
+     "evidence": [
+      "SHA-256 pinned in GEMSDOE25 owner data manifest: 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc."
+     ],
+     "impact": "Local exact-grid checks are reproducible but do not prove organizer acceptance or authenticity of the original template.",
+     "action": "Retain the official format rules and mirror provenance separately; re-check against the organizer sample if authorized access becomes available."
+    },
+    {
+     "id": "IR-31-TNM-LAZ-BINARY-UNAVAILABLE",
+     "severity": "medium",
+     "status": "open",
+     "summary": "TNM Access API listed an in-footprint LAZ point-cloud product, but the sandbox could not download the exact tile and its metadata XML endpoint was under maintenance.",
+     "evidence": [
+      "API sourceId 6848df6cd4be02423f6ab9db lists USGS_LPC_NV_Southern_D23_11SMD150210.laz, size 1,300,744 bytes and a product bbox sampled inside the owner-mirror footprint.",
+      "curl to the exact official download URL failed with SSL_ERROR_SYSCALL before bytes were received.",
+      "The USGS XML metadata URL returned a temporary maintenance page."
+     ],
+     "impact": "No file hash, LAS header, classification, return/intensity attributes, acquisition quality, or full-grid coverage result is available; H31-B cannot be fit.",
+     "action": "Do not infer the source is unavailable; retry only through a supported official delivery path and verify the binary before use."
+    },
+    {
+     "id": "IR-31-3DEP-LICENSE-WORDING",
+     "severity": "medium",
+     "status": "open",
+     "summary": "GDR 1501 displays CC-BY 4.0, while USGS describes 3DEP products as free and without use restrictions.",
+     "evidence": [
+      "GDR 1501 DOI 10.15121/1992093; USGS About 3DEP Products & Services."
+     ],
+     "impact": "Do not silently harmonize source statements or assume a derivative's reuse conditions.",
+     "action": "Use conservative attribution and inspect the specific product record/license before any redistribution."
+    },
+    {
+     "id": "IR-31-LEGACY-TIFF-BYTE-IDENTITY",
+     "severity": "low",
+     "status": "resolved-with-note",
+     "summary": "The local D2.8 reference has pixels identical to the pinned sibling D2.8 raster but a different SHA-256 and TIFF layout.",
+     "evidence": [
+      "Local SHA-256 5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32.",
+      "Sibling SHA-256 91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8.",
+      "Raster cell comparison: array_equal with equal_nan=true; 44,090 positive cells."
+     ],
+     "impact": "Do not describe the local TIFF as byte-identical or use the sibling's unverified score claim as local evidence.",
+     "action": "Describe only pixel identity and retain each file's own hash."
+    },
+    {
+     "id": "IR-31-RUNNER-INTEGRATION",
+     "severity": "medium",
+     "status": "resolved-with-stop",
+     "summary": "The clean committed production runner completed H31-A pilot draw 10 with all eight arm/fold fits. The preregistered paired gate failed and neither same-trace variogram identified a stable range; no later stage ran.",
+     "evidence": [
+      "Run revision 23191e7baa8d22114b713c5c253678e323fff712; 7/7 owner-mirror inputs and 6/6 derived caches verified.",
+      "evidence/h31_a/pilot/results.json: mean paired delta -0.0040088545; 1/4 positive folds; metric gate false.",
+      "evidence/h31_a/pilot/posthoc_variogram_diagnostics.json: 583 trace groups with pairs; both point fits fail the 95%-sill lag-support diagnostic; no bootstrap interval."
+     ],
+     "impact": "The implementation completed end-to-end, but the pilot cannot produce an empirical range or data-derived final buffer. H31-A must stop; no screen or submission is authorized.",
+     "action": "Preserve the pilot artifacts and negative result. Do not tune the same pilot, invent a buffer, or run screen/confirmation; any new attempt requires a preregistered design that can identify the range."
+    },
+    {
+     "id": "IR-31-H31-A-PILOT-UNKNOWN-RANGE",
+     "severity": "high",
+     "status": "open-stop-condition",
+     "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
+     "evidence": [
+      "Mean paired catalogue-gap \u0394DTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
+      "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
+      "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
+     ],
+     "impact": "The preregistered buffer rule cannot be satisfied. A final spatial holdout buffer cannot be selected, and neither screen nor confirmation is authorized.",
+     "action": "Stop H31-A. Do not use the 24.964 km unstable extrapolation or 500 m pilot collar as the buffer. Preserve this result; only a new preregistration or defensible additional range-identification evidence may justify another attempt."
+    },
+    {
+     "id": "IR-31-TRAINER-NOT-IN-SNAPSHOT",
+     "severity": "medium",
+     "status": "open",
+     "summary": "The four-arm detector training run behind evidence/arm_results.json and evidence/operating_point.json was executed in a sibling workspace whose trainer script is not in this repository, so the arm tables cannot be regenerated from a fresh clone.",
+     "evidence": [
+      "evidence/arm_results.json and evidence/operating_point.json carry the protocol and outputs but no trainer.",
+      "evidence/oof/*_u16.npz, audited in evidence/oof_quantisation.json, preserve the fold-OOF probability maps, so every downstream step (union, filter, metric, buffer, submission, site) is reproducible from this snapshot.",
+      "The site states this limitation next to the reproduction commands rather than implying full end-to-end reproduction."
+     ],
+     "impact": "A reviewer cannot re-run the model training; they can re-run everything downstream of it.",
+     "action": "Re-implement the trainer in scripts/run_arms.py with the protocol recorded in registry/experiments.json, and re-check that the union conclusions survive the re-run."
+    },
+    {
+     "id": "IR-31-UNION-PROXY-TRANSFER",
+     "severity": "medium",
+     "status": "open",
+     "summary": "The best union gain (+0.0060 off-catalogue proxy DTI) is measured on USGS SGMC state-map faults, a proxy population that resembles but is not the hidden expert-mapped fault set, and no live submission has tested it.",
+     "evidence": [
+      "evidence/union_results.json best_union: LiDAR arm p>=0.60, 106,138 dots, ff_DTI 0.0999 vs incumbent 0.0938.",
+      "The incumbent's own dots earn 0.135 credit each on that proxy against 0.025 for the added dots, so the gain is small in per-dot terms even though it is positive.",
+      "The catalogue-gap holdout ranks the arms in the opposite order, which is why it is not used as the promotion instrument."
+     ],
+     "impact": "The direction is well supported; the magnitude is not, so the file stays research-only and no weekly slot is spent on it.",
+     "action": "Build a second off-catalogue instrument (for example an independent structural-lineament population or the CI-fetched 3DEP scarp population) and require the union to win on both before promotion."
+    },
+    {
+     "id": "IR-31-H27-4-SCORE-CLAIM",
+     "severity": "high",
+     "status": "open",
+     "summary": "The user-supplied list attributes a 0.2708 competition score to H27-4, while the current GEMSDOE28 owner page lists an artifact with the same experiment-name suffix as UNSCORED; exact byte identity remains unverified.",
+     "evidence": [
+      "User prompt lists h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan as 0.2708 (USER-REPORTED).",
+      "GEMSDOE28 Pages overview lists an H27-4 filename with the same experiment-name suffix, its SHA-256 ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73, and UNSCORED status; those bytes were not matched to the user-mentioned file.",
+      "The owner page reports internal catalogue-gap holdout deltas, not a competition score; no organizer receipt or score-to-file ID is available."
+     ],
+     "impact": "The exact 0.2708 result cannot be explained or used as a verified incumbent; score attribution may refer to a different artifact or an unresolved owner/user report.",
+     "action": "Keep 0.2708 USER-REPORTED and unverified. Do not infer the official score from owner holdout deltas or access the leaderboard to reconcile it."
+    },
+    {
+     "id": "IR-31-RUNTIME-DATA-ABSENT",
+     "severity": "high",
+     "status": "open",
+     "summary": "The current workspace has no competition data directory or pinned GEMSDOE25 runtime/cache sibling, so a fresh H31 run or candidate holdout cannot be reproduced here.",
+     "evidence": [
+      "Checked repository has no tracked or visible data/ inputs.",
+      "Checked /tmp/gemsdoe25-full, /tmp/gemsdoe25-full/data, and /tmp/gemsdoe25-full/evidence are absent.",
+      "The official DrivenData data tab remains login-gated per the existing audit; no credentials or automated access were used."
+     ],
+     "impact": "No new model fit, same-run incumbent reproduction, spatial holdout, residual variogram, or candidate TIFF can be produced in this workspace.",
+     "action": "Do not create or promote a file. Resume only when a permitted, hash-verified runtime/data copy and template provenance are available; preserve H31-A STOP."
+    },
+    {
+     "id": "IR-31-RUNNER-BRANCH-GUARD",
+     "severity": "medium",
+     "status": "resolved",
+     "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session\u2019s fixed arena/01a1050e-gemsdoe31 branch.",
+     "evidence": [
+      "Before correction, AGENTS.md and scripts/run_h31.py hard-coded arena/01a104a9-gemsdoe31.",
+      "Developer session branch is arena/01a1050e-gemsdoe31."
+     ],
+     "impact": "A correctly pinned current-session worktree could not pass the runner branch guard.",
+     "action": "Updated AGENTS.md and scripts/run_h31.py to use one EXPECTED_BRANCH constant for arena/01a1050e-gemsdoe31; added tests for accept/reject behavior."
+    }
+   ]
+  },
+  "registry/score_claims.json": {
+   "schema_version": 1,
+   "generated_utc": "2026-10-04",
+   "policy": "No claim is an OFFICIAL score unless backed by an organizer receipt. The agent did not access the DrivenData leaderboard, private score page, or submission interface. User-supplied values and owner-mirror claims are stored separately and are not treated as verification. No leaderboard table/feed is maintained. The register is regenerated with the site and every claim here is rendered on the register page with its evidence class.",
+   "official_score_receipts": [],
+   "claims": [
+    {
+     "id": "user-stated-gemsdoe25-d28-0.2600-20261004",
+     "artifact": "GEMSDOE25 D2.8",
+     "reported_dti": 0.26,
+     "reported_dti_text": "0.2600",
+     "claim_source": "user request; no organizer receipt or exact score-to-file identifier supplied",
+     "evidence_class": "USER-REPORTED",
+     "owner_mirror_record": "Pinned GEMSDOE25 commit c185edd8b09e19846cf34c16050e6cf891ecc2d0 marks its D2.8 artifact unscored/not slot-approved. The later GEMSDOE28 owner page separately describes D2.8 as owner-reported 0.2600.",
+     "organizer_verification": "not verified; no official leaderboard, result page, or submission receipt accessed",
+     "status": "unverified; conflicts with the pinned GEMSDOE25 registry; exact file-to-score attribution unresolved",
+     "analysis": "A prior owner-mirror conditional estimate around 0.2553 used unverified score anchors and assumed fault geometry. It is not a statistical interval or score verification."
+    },
+    {
+     "id": "owner-reported-gemsdoe28-d28-0.2600",
+     "artifact": "GEMSDOE28 D2.8 base / H19-5 dotted raster",
+     "reported_dti": 0.26,
+     "claim_source": "GEMSDOE28 owner page, repository head 33cc5942220f1440531d7184889c5c6f5d2f0a3e",
+     "evidence_class": "OWNER-MIRROR",
+     "organizer_verification": "not verified; the page is not an organizer receipt",
+     "status": "owner-reported; discrepancy with the pinned GEMSDOE25 registry remains open",
+     "limits": "The Pages deployment was not proven to correspond byte-for-byte to the repository HEAD; no original submission ID or organizer receipt was provided."
+    },
+    {
+     "id": "user-reported-gemsdoe28-h27-4-0.2708-20261003",
+     "artifact": "GEMSDOE28 H27-4 solo 1-pixel catalogue-flank prune on D2.8",
+     "reported_dti": 0.2708,
+     "reported_dti_text": "0.2708",
+     "claim_source": "user request; no organizer receipt or exact score-to-file identifier supplied",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; official leaderboard and submission interface not accessed",
+     "owner_mirror_record": "The current GEMSDOE28 owner page lists an H27-4 artifact with the same experiment-name suffix as UNSCORED and reports catalogue-gap holdout gains; its published TIFF bytes were not matched to the user-mentioned file.",
+     "status": "unverified; direct discrepancy with owner-mirror page; exact score attribution unresolved"
+    },
+    {
+     "id": "owner-mirror-gemsdoe28-h27-4-unscored-8acb75e1f2cc",
+     "artifact": "gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+     "reported_dti": null,
+     "claim_source": "GEMSDOE28 Pages overview; source repository head 33cc5942220f1440531d7184889c5c6f5d2f0a3e",
+     "evidence_class": "OWNER-MIRROR",
+     "organizer_verification": "not applicable; the owner page itself labels this artifact UNSCORED",
+     "local_identity": "Owner page lists SHA-256 ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73 and 40,199 positive cells; artifact bytes were not downloaded in this checkout.",
+     "owner_proxy_results": "The owner page reports +0.00177 on seeds 180-189 and +0.00176 on fresh seeds 235-239 across 4/4 spatial folds; these are not competition scores and were not independently rerun here.",
+     "status": "unscored in the owner page; user-supplied 0.2708 attribution remains unresolved"
+    },
+    {
+     "id": "user-reported-public-leader-0.3195-20261003",
+     "artifact": "Public GEMS leaderboard high, as described in user prompt",
+     "reported_dti": 0.3195,
+     "reported_dti_text": "0.3195",
+     "claim_source": "user request; no team/file/receipt supplied",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; official leaderboard not accessed",
+     "status": "unverified target claim; not a private-round result or predictor of final awards"
+    },
+    {
+     "id": "owner-mirror-gemsdoe25-d1-5-0.2477",
+     "artifact": "H19-5 D1.5 dotted raster",
+     "reported_dti": 0.2477,
+     "claim_source": "pinned owner-mirror evidence/score_claim_audit.json and sibling artifact ledger",
+     "evidence_class": "OWNER-MIRROR",
+     "organizer_verification": "not verified; no organizer receipt or page accessed",
+     "local_identity": "sibling audit labels it dot_thin(H19-5, 1.5); 60,069 positive pixels",
+     "status": "unverified owner-reported claim"
+    },
+    {
+     "id": "owner-mirror-gemsdoe25-h19-5-0.1922",
+     "artifact": "H19-5 parent raster",
+     "reported_dti": 0.1922,
+     "claim_source": "pinned owner-mirror evidence/score_claim_audit.json and sibling artifact ledger",
+     "evidence_class": "OWNER-MIRROR",
+     "organizer_verification": "not verified; no organizer receipt or page accessed",
+     "local_identity": "121,131 positive pixels in the sibling raster audit",
+     "status": "unverified owner-reported claim"
+    },
+    {
+     "id": "owner-mirror-gemsdoe25-d28-unscored-c185edd",
+     "artifact": "H19-5 D2.8 alternate raster",
+     "reported_dti": null,
+     "claim_source": "pinned GEMSDOE25 registry/submissions.json and knowledge/10 at commit c185edd8b09e19846cf34c16050e6cf891ecc2d0",
+     "evidence_class": "OWNER-MIRROR",
+     "organizer_verification": "not applicable: sibling explicitly marks it unscored",
+     "local_identity": "44,090 positive pixels; deterministic thinning; owner registry says unscored/not slot-approved",
+     "status": "unscored in the pinned GEMSDOE25 owner-mirror record; later GEMSDOE28 0.2600 owner claim is a separate unresolved report"
+    },
+    {
+     "id": "user-reported-gemsdoe32-h33-2-b2-0.2778-20261025",
+     "artifact": "GEMSDOE32 h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif (37,654 dots, B=2 >200m catalogue-flank prune)",
+     "reported_dti": 0.2778,
+     "reported_dti_text": "0.2778",
+     "claim_source": "user request; sibling repository GEMSDOE32 docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif byte-verified in evidence/nine_site_forensic_audit.json",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+     "local_identity": "SHA-256 c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9; 37,654 positive pixels (0 on catalogue, 0 within 200 m of catalogue); deletes 2,545 dots in 100 m < d(catalogue) <= 200 m from H27-4 (40,199 dots)",
+     "status": "highest user-reported score among the 9 focus repositories; mechanism verified via paired comparison with GEMSDOE28 H36-1 (37,660 dots, 0.2710 USER-REPORTED)"
+    },
+    {
+     "id": "user-reported-gemsdoe36-anderson-pinn-0.2750-20261025",
+     "artifact": "GEMSDOE36 anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif (38,854 dots)",
+     "reported_dti": 0.275,
+     "reported_dti_text": "0.2750",
+     "claim_source": "user request; sibling repository GEMSDOE36 docs/downloads/ byte-verified in evidence/nine_site_forensic_audit.json",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+     "local_identity": "SHA-256 e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a; 38,854 positive pixels (GEMSDOE32 37,654 base + 1,200 GDR thermal/step-over dots)",
+     "status": "user-reported claim; -0.0028 below GEMSDOE32 0.2778 because the 1,200 added thermal halo dots earned ~0.0125 live TPw/dot (< 0.0556 break-even)"
+    },
+    {
+     "id": "user-reported-gemsdoe28-h36-1-0.2710-20261025",
+     "artifact": "GEMSDOE28 h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif (37,660 dots)",
+     "reported_dti": 0.271,
+     "reported_dti_text": "0.2710",
+     "claim_source": "user request; sibling repository GEMSDOE28 byte-verified in evidence/nine_site_forensic_audit.json",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+     "local_identity": "SHA-256 5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641; 37,660 positive pixels (2,353 in 100-200 m flank, 33,283 at d > 300 m)",
+     "status": "user-reported claim; natural-experiment pair with GEMSDOE32 H33-2-B2 (37,654 dots, 0.2778)"
+    },
+    {
+     "id": "user-reported-gemsdoe28-h38-1-0.2707-20261025",
+     "artifact": "GEMSDOE28 h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif (37,860 dots)",
+     "reported_dti": 0.2707,
+     "reported_dti_text": "0.2707",
+     "claim_source": "user request; sibling repository GEMSDOE28 byte-verified in evidence/nine_site_forensic_audit.json",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+     "local_identity": "SHA-256 81d5b87bc8424f162a8f56aa9aac8fbe630c61646b9cac24d5ebbdc1b1951783; 37,860 positive pixels (H36-1 + 200 heat-flow/Euler dots)",
+     "status": "user-reported claim"
+    },
+    {
+     "id": "user-reported-gemsdoe28-h32-1-0.2649-20261025",
+     "artifact": "GEMSDOE28 h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif (42,294 dots)",
+     "reported_dti": 0.2649,
+     "reported_dti_text": "0.2649",
+     "claim_source": "user request; sibling repository GEMSDOE28 byte-verified in evidence/nine_site_forensic_audit.json",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+     "local_identity": "SHA-256 04d31922f5c1ea4016984fc470ab2b0ff8e266c615792f0e86020da3b940d3ff; 42,294 positive pixels (1,542 in 0-100 m flank, 3,095 in 100-200 m flank)",
+     "status": "user-reported claim"
+    },
+    {
+     "id": "user-reported-gemsdoe33-h33d-0.2632-20261025",
+     "artifact": "GEMSDOE33 h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif (41,865 dots)",
+     "reported_dti": 0.2632,
+     "reported_dti_text": "0.2632",
+     "claim_source": "user request; sibling repository GEMSDOE33 byte-verified in evidence/nine_site_forensic_audit.json",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+     "local_identity": "SHA-256 87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757; 41,865 positive pixels (re-introduced 1,377 dots at d <= 100 m)",
+     "status": "user-reported claim"
+    },
+    {
+     "id": "user-reported-gemsdoe30-d28-0.2600-20261025",
+     "artifact": "GEMSDOE30 d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif (44,090 dots)",
+     "reported_dti": 0.26,
+     "reported_dti_text": "0.2600",
+     "claim_source": "user request; sibling repository GEMSDOE30 byte-verified in evidence/nine_site_forensic_audit.json",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+     "local_identity": "SHA-256 8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd; 44,090 positive pixels (pixel-identical to GEMSDOE25 D2.8)",
+     "status": "user-reported claim"
+    },
+    {
+     "id": "user-reported-gemsdoe27-tv2-0.2449-20261025",
+     "artifact": "GEMSDOE27 topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif (61,328 dots)",
+     "reported_dti": 0.2449,
+     "reported_dti_text": "0.2449",
+     "claim_source": "user request; sibling repository GEMSDOE27 byte-verified in evidence/nine_site_forensic_audit.json",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+     "local_identity": "SHA-256 33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d; 61,328 positive pixels (D1.5 + 1,259 topographic bridge dots)",
+     "status": "user-reported claim"
+    },
+    {
+     "id": "user-reported-public-leader-0.4413-20261025",
+     "artifact": "Public GEMS leaderboard #1 high, as described in user prompt",
+     "reported_dti": 0.4413,
+     "reported_dti_text": "0.4413",
+     "claim_source": "user request; no team/file/receipt supplied",
+     "evidence_class": "USER-REPORTED",
+     "organizer_verification": "not verified; official leaderboard not accessed",
+     "status": "unverified external leaderboard anchor"
+    }
+   ],
+   "safe_next_step": "Do not resolve discrepancies by accessing or monitoring DrivenData leaderboard material absent prior written permission. Preserve user-supplied claims as USER-REPORTED and owner-site claims as OWNER-MIRROR until an authorized organizer-generated receipt and exact artifact identity are available.",
+   "user_supplied_historical_score_list": {
+    "evidence_class": "USER-REPORTED",
+    "source": "user prompt",
+    "verification": "individual entries were not independently authenticated in this review",
+    "handling": "context only; do not treat any listed historical value as an official organizer score absent an authorized receipt"
+   }
+  },
+  "registry/submissions.json": {
+   "schema_version": 1,
+   "generated_utc": "2026-10-25",
+   "policy": "Every hash and pixel count below is copied out of the format-check receipt written by scripts/build_submission.py. Local validation is not organizer acceptance and no file here carries an organizer receipt.",
+   "current_recommended": {
+    "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654",
+    "submission_name": "GEMSDOE31-H31B-ScarpHessian-B2-37654",
+    "role": "PRIMARY UNIQUE SUBMISSION (YES \u2014 OK TO DOWNLOAD AND SUBMIT) - H31-B1..B4 Standalone Multi-Physics Scarp-Hessian-Alteration-Kostrov Constellation (37,654 dots, B=2 >200m catalogue exclusion, R=2.85px)",
+    "score_status": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1380, 95% CI [0.1169, 0.1683], 4/4 folds beating GEMSDOE32 B=2 0.0984 and incumbent h27-4 0.0981)",
+    "slot_approved": false,
+    "ok_to_download_and_submit": true,
+    "reason_not_slot_approved": "YES \u2014 OK TO DOWNLOAD AND SUBMIT: Unique GeoTIFF validated across all 21 format checks, passes the Parallel-Run Uniqueness Gate (r_s = 0.1143 <= 0.90; 3-px overlap = 35.94% <= 70%), and beats incumbent h27-4 and GEMSDOE32 B=2 in 4/4 spatially blocked holdout folds. (slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.)"
+   },
+   "best_research_candidate": {
+    "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654",
+    "submission_name": "GEMSDOE31-H31B-Corroborated-B2-Hybrid-37654",
+    "measured": {
+     "off_catalogue_proxy_DTI": 0.120579,
+     "incumbent_off_catalogue_proxy_DTI": 0.09385,
+     "delta": 0.026729,
+     "holdout_4block_off_sgmc_DTI": 0.12488,
+     "incumbent_holdout_4block_off_sgmc_DTI": 0.098125,
+     "holdout_4block_delta": 0.026755,
+     "holdout_4block_ci95": [
+      0.111602,
+      0.134397
+     ],
+     "folds_beating_gemsdoe32_b2": "4/4",
+     "uniqueness_max_surface_spearman": 0.11433,
+     "uniqueness_max_dot_overlap_3px": 0.66394
+    },
+    "slot_approved": false,
+    "ok_to_download_and_submit": true
+   },
+   "files": [
+    {
+     "id": "primary-h31b-scarp-hessian-standalone",
+     "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654",
+     "submission_name": "GEMSDOE31-H31B-ScarpHessian-B2-37654",
+     "ok_to_download_and_submit": true,
+     "role": "PRIMARY UNIQUE SUBMISSION (YES \u2014 OK TO DOWNLOAD AND SUBMIT) - H31-B1..B4 Standalone Multi-Physics Scarp-Hessian-Alteration-Kostrov Constellation (37,654 dots, B=2 >200m catalogue exclusion, R=2.85px)",
+     "provenance": "Generated in GEMSDOE31 by scripts/run_h31b_campaign.py from H31-B1 (3DEP 1 m LiDAR scarp curvature/step/relief), H31-B2 (shallow-basement & potential-field 2D Hessian crest), H31-B3 (GeoDAWN argillic K-leaching Th-K & U/K mobility), and H31-B4 (Kostrov strain-rate + microseismicity + 4-block fold-OOF likelihood), with 12 km survey-regime-invariant local standardization, B=2 (d(catalogue) > 200 m) exclusion, and R=2.85 px Poisson-disk emission.",
+     "note_for_portal": "H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(>200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (4/4 folds > 0.2778 base)",
+     "slot_approved": false,
+     "why_not_slot_approved": "YES \u2014 OK TO DOWNLOAD AND SUBMIT (format_ok=True, 21/21 GeoTIFF checks passed; uniqueness_ok=True, r_s=0.1143<=0.90, 3px_overlap=35.94%<=70%; 4-block HOLDOUT-DTI=0.1380 beating h27-4 0.0981 and GEMSDOE32 B=2 0.0984 in 4/4 folds). Note: slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.",
+     "positive_pixels": 37654,
+     "positive_pixels_on_public_catalogue": 0,
+     "format_status": "locally validated against the grid template; not organizer acceptance",
+     "receipt": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-format-check.json",
+     "file_nan": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif",
+     "bytes_nan": 185607,
+     "sha256_nan": "ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb",
+     "format_ok_nan": true,
+     "hard_failures_nan": [],
+     "organizer_acceptance_verified_nan": false,
+     "file_allfinite": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif",
+     "bytes_allfinite": 141273,
+     "sha256_allfinite": "b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41",
+     "format_ok_allfinite": true,
+     "hard_failures_allfinite": [],
+     "organizer_acceptance_verified_allfinite": false,
+     "zip": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.zip",
+     "measured": {
+      "off_catalogue_proxy_DTI": 0.139144,
+      "incumbent_off_catalogue_proxy_DTI": 0.09385,
+      "delta": 0.045294,
+      "holdout_4block_off_sgmc_DTI": 0.137964,
+      "incumbent_holdout_4block_off_sgmc_DTI": 0.098125,
+      "holdout_4block_delta": 0.039839,
+      "holdout_4block_ci95": [
+       0.116878,
+       0.16835
+      ],
+      "folds_beating_gemsdoe32_b2": "4/4",
+      "uniqueness_max_surface_spearman": 0.11433,
+      "uniqueness_max_dot_overlap_3px": 0.35938
+     }
+    },
+    {
+     "id": "companion-h31b-corroborated-b2-hybrid",
+     "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654",
+     "submission_name": "GEMSDOE31-H31B-Corroborated-B2-Hybrid-37654",
+     "ok_to_download_and_submit": true,
+     "role": "COMPANION UNIQUE HYBRID SUBMISSION (YES \u2014 OK TO DOWNLOAD AND SUBMIT) - Top 25,000 S_H31-corroborated B=2 core dots + 12,654 new far-field S_H31 ridge dots (37,654 dots total)",
+     "provenance": "Generated in GEMSDOE31 by scripts/run_h31b_campaign.py: retains the top 25,000 multi-physics-corroborated dots of the B=2 (>200 m from catalogue) constellation and replaces the 12,654 weakest uncorroborated dots (0.1125 TPw/dot) with 12,654 newly discovered far-field S_H31 ridge crests (>300 m from all registry rasters, 0.2759 TPw/dot).",
+     "note_for_portal": "H31-B Corroborated B=2(25k) + 12,654 new Scarp-Hessian far-field dots: 37,654 dots; 4-block HOLDOUT-DTI 0.1249 (4/4 folds > 0.2778 base)",
+     "slot_approved": false,
+     "why_not_slot_approved": "YES \u2014 OK TO DOWNLOAD AND SUBMIT (format_ok=True, 21/21 GeoTIFF checks passed; uniqueness_ok=True, r_s=0.1143<=0.90, 3px_overlap=66.39%<=70%; 4-block HOLDOUT-DTI=0.1249 beating h27-4 0.0981 and GEMSDOE32 B=2 0.0984 in 4/4 folds). Note: slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.",
+     "positive_pixels": 37654,
+     "positive_pixels_on_public_catalogue": 0,
+     "format_status": "locally validated against the grid template; not organizer acceptance",
+     "receipt": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-format-check.json",
+     "file_nan": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif",
+     "bytes_nan": 191692,
+     "sha256_nan": "6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c",
+     "format_ok_nan": true,
+     "hard_failures_nan": [],
+     "organizer_acceptance_verified_nan": false,
+     "file_allfinite": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
+     "bytes_allfinite": 147178,
+     "sha256_allfinite": "f9cd56a71550b42f00f3cd37a4bf1464c151a9a2ea0438afb8ceef95868351ab",
+     "format_ok_allfinite": true,
+     "hard_failures_allfinite": [],
+     "organizer_acceptance_verified_allfinite": false,
+     "zip": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.zip",
+     "measured": {
+      "off_catalogue_proxy_DTI": 0.120579,
+      "incumbent_off_catalogue_proxy_DTI": 0.09385,
+      "delta": 0.026729,
+      "holdout_4block_off_sgmc_DTI": 0.12488,
+      "incumbent_holdout_4block_off_sgmc_DTI": 0.098125,
+      "holdout_4block_delta": 0.026755,
+      "holdout_4block_ci95": [
+       0.111602,
+       0.134397
+      ],
+      "folds_beating_gemsdoe32_b2": "4/4",
+      "uniqueness_max_surface_spearman": 0.11433,
+      "uniqueness_max_dot_overlap_3px": 0.66394
+     }
+    },
+    {
+     "id": "primary-h27-4-solo-d28",
+     "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
+     "submission_name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
+     "ok_to_download_and_submit": false,
+     "role": "prior incumbent baseline (40,199 dots, B=1 >100m catalogue prune; owner-reported live 0.2708)",
+     "provenance": "re-emission of the dot set published as GEMSDOE28 gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); byte-verified against GEMSDOE28 SHA-256 ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73",
+     "note_for_portal": "h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template",
+     "slot_approved": false,
+     "why_not_slot_approved": "Superseded by the unique H31-B submissions (which remove the 2,545 dead-zone dots in 100 m < d(catalogue) <= 200 m and beat h27-4 in 4/4 holdout folds).",
+     "positive_pixels": 40199,
+     "positive_pixels_on_public_catalogue": 0,
+     "format_status": "locally validated against the grid template; not organizer acceptance",
+     "receipt": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-format-check.json",
+     "file_nan": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+     "bytes_nan": 199214,
+     "sha256_nan": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+     "format_ok_nan": true,
+     "hard_failures_nan": [],
+     "organizer_acceptance_verified_nan": false,
+     "file_allfinite": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+     "bytes_allfinite": 154580,
+     "sha256_allfinite": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+     "format_ok_allfinite": true,
+     "hard_failures_allfinite": [],
+     "organizer_acceptance_verified_allfinite": false,
+     "zip": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip"
+    },
+    {
+     "id": "research-union-lidar-arm",
+     "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
+     "submission_name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
+     "ok_to_download_and_submit": false,
+     "role": "research candidate - the strongest measured union on the off-catalogue proxy",
+     "provenance": "the incumbent dot set plus every cell where the LiDAR-arm fold-OOF probability is >= 0.60 and the cell is not on the public catalogue (scripts/run_union.py)",
+     "note_for_portal": "incumbent h27-4 dot set + 65939 LiDAR-arm detections (p>=0.6, off-catalogue); +0.0060 off-catalogue proxy DTI; research candidate",
+     "slot_approved": false,
+     "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live submission has tested it. It is the best-supported next-week candidate.",
+     "positive_pixels": 106138,
+     "positive_pixels_on_public_catalogue": 0,
+     "format_status": "locally validated against the grid template; not organizer acceptance",
+     "receipt": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-format-check.json",
+     "file_nan": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif",
+     "bytes_nan": 247886,
+     "sha256_nan": "a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23",
+     "format_ok_nan": true,
+     "hard_failures_nan": [],
+     "organizer_acceptance_verified_nan": false,
+     "file_allfinite": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+     "bytes_allfinite": 204922,
+     "sha256_allfinite": "b44248ee7ca46405326b81998c5e4c417971d0596c01d3f995f6dd73f3997707",
+     "format_ok_allfinite": true,
+     "hard_failures_allfinite": [],
+     "organizer_acceptance_verified_allfinite": false,
+     "zip": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.zip",
+     "measured": {
+      "off_catalogue_proxy_DTI": 0.09985654750452583,
+      "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
+      "delta": 0.006008398517191579,
+      "catalogue_gap_proxy_DTI": 0.09482862741978171,
+      "incumbent_catalogue_gap_proxy_DTI": 0.04909549919996504,
+      "added_dots": 65939,
+      "added_credit_per_dot": 0.024651922576187434
+     }
+    },
+    {
+     "id": "research-union-radiometric-arm",
+     "name": "gemsdoe31-add-arm-d28-20261004-8acb75e1",
+     "submission_name": "gemsdoe31-add-arm-d28-20261004-8acb75e1",
+     "ok_to_download_and_submit": false,
+     "role": "research candidate - the radiometric half of the same union experiment",
+     "provenance": "the incumbent dot set plus every cell where the radiometric+LiDAR fold-OOF probability is >= 0.70 and the cell is not on the public catalogue",
+     "note_for_portal": "incumbent h27-4 dot set + 15105 radiometric-arm detections (p>=0.70, off-catalogue); +0.0017 off-catalogue proxy DTI; research candidate",
+     "slot_approved": false,
+     "why_not_slot_approved": "Same proxy caveat as the LiDAR union, with a smaller measured gain; kept for the record because it is the variant that was built first.",
+     "positive_pixels": 55304,
+     "positive_pixels_on_public_catalogue": 0,
+     "format_status": "locally validated against the grid template; not organizer acceptance",
+     "receipt": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-format-check.json",
+     "file_nan": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.tif",
+     "bytes_nan": 212925,
+     "sha256_nan": "5987d5051a76a8a28e8a31106936413d26ab8d8af143d6849c29827cf1d35597",
+     "format_ok_nan": true,
+     "hard_failures_nan": [],
+     "organizer_acceptance_verified_nan": false,
+     "file_allfinite": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-allfinite.tif",
+     "bytes_allfinite": 169213,
+     "sha256_allfinite": "deda0533e4aa041e3877f58a8d6b9d0f8930fec6db1f66934f649a6583c71201",
+     "format_ok_allfinite": true,
+     "hard_failures_allfinite": [],
+     "organizer_acceptance_verified_allfinite": false,
+     "zip": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.zip",
+     "measured": {
+      "off_catalogue_proxy_DTI": 0.09552698476959738,
+      "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
+      "delta": 0.0016788357822631328,
+      "catalogue_gap_proxy_DTI": 0.0720682317672818,
+      "incumbent_catalogue_gap_proxy_DTI": 0.04909549919996504,
+      "added_dots": 15105,
+      "added_credit_per_dot": 0.02473161766669712
+     }
+    },
+    {
+     "id": "legacy-d28-reference",
+     "name": "gemsdoe31-reference-d28-offcat-44090-20261004",
+     "submission_name": "gemsdoe31-reference-d28-offcat-44090-20261004",
+     "ok_to_download_and_submit": false,
+     "role": "legacy audit reference (not recommended)",
+     "provenance": "pixel-identical (not byte-identical) to the GEMSDOE25 D2.8 raster whose owner-reported live score is 0.2600",
+     "note_for_portal": "",
+     "slot_approved": false,
+     "why_not_slot_approved": "Superseded by the h27-4 geometry; kept only so the audit trail for the owner-reported 0.2600 can be followed.",
+     "positive_pixels": 44090,
+     "positive_pixels_on_public_catalogue": null,
+     "format_status": "locally validated against the grid template; not organizer acceptance",
+     "receipt": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-format-check.json",
+     "file_nan": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif",
+     "bytes_nan": 1573188,
+     "sha256_nan": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+     "format_ok_nan": true,
+     "hard_failures_nan": [],
+     "organizer_acceptance_verified_nan": false,
+     "legacy_receipt": true
+    }
+   ],
+   "format_conventions": {
+    "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention the official page specifies and the grid template uses",
+    "all-finite": "every cell finite and in [0,1], zeros outside the footprint - a defensive fallback; validated separately in src/gemsdoe31/submission.py"
+   }
+  },
+  "registry/review_passes.json": {
+   "schema_version": 1,
+   "generated_utc": "2026-10-04",
+   "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
+   "passes": [
+    {
+     "id": "pass-1-implementation-and-verification",
+     "status": "complete-for-current-artifacts",
+     "scope": [
+      "frozen H31-A design, two magnetic-scale features, pinned sibling runtime/cache verification, paired four-block pilot, same-trace residual variogram, bootstrap range rule and stop gate",
+      "strict GeoTIFF CRS/grid/shape/transform/dtype/value/NaN checks and out-of-range regression protection",
+      "ranked geological hypotheses, official/primary source access audit, prior-score audit, registries, site, and manual upload guide"
+     ],
+     "verification": {
+      "pytest": "23 passed in the final post-pilot check, without warnings",
+      "ruff": "all checks passed",
+      "compileall": "passed for src/, scripts/, and tests/",
+      "json_documents": "all 11 repository JSON documents parse; all 8 pilot cells.jsonl rows parse",
+      "html_local_links": "6 static pages checked; no broken local links",
+      "legacy_tiff": "local hard format checks pass against the pinned owner-mirror template only; organizer acceptance remains false",
+      "production_context": "7/7 owner-mirror inputs and 6/6 caches verified; 3730x3292 footprint and 55/57 feature columns built",
+      "h31_a_pilot": "8 arm/fold fits completed on clean code revision 23191e7; mean paired delta -0.0040088545; metric gate false; both residual ranges unknown; no screen or confirmation"
+     },
+     "open_scientific_gates": [
+      "H31-A is stopped: the paired pilot metric gate failed and both point fits failed the observed-lag sill-support criterion",
+      "no operational residual range, bootstrap confidence interval, or data-derived final buffer exists",
+      "the current-best comparable incumbent has not been reproduced on the same folds/buffer; no slot is eligible",
+      "H31-B LAZ binary, point-return attributes, and full-footprint overlap remain unavailable"
+     ]
+    },
+    {
+     "id": "pass-2-independent-bug-assumption-leakage-review",
+     "status": "complete-for-current-code-and-pilot",
+     "checks": [
+      "confirmed H31 feature construction uses no fault labels and re-masks invalid cells after filtering",
+      "confirmed model arms share folds, draws, training samples, test rows, and emission; residual pairs are restricted to the same fold/draw/8-connected trace component",
+      "confirmed pilot collar is labeled temporary, an unstable/unknown range fails closed, and no screen or submission can be authorized by a pilot win",
+      "confirmed final file validator checks range before any clipping/serialization and regression tests reject values outside [0,1]",
+      "reviewed source classifications, local links, legacy-download labels, AI draft, score claim, and static-only official leaderboard link"
+     ],
+     "findings_fixed": [
+      "replaced deprecated Rasterio from_origin test setup with explicit Affine transforms; checks run without warnings",
+      "fixed a malformed score_claims.json key found by recursive validation and added automated registry/evidence assertions",
+      "added tests for the virtual stacked feature array and the preregistered maximum-three data-derived buffer retry chain",
+      "bound pilot/screen/confirmation stages to the same preregistration hash, executable-code/dependency digest, and Python/package environment digest",
+      "the original pilot variogram record retained the instability reason but omitted empirical bins on exceptions; added a regression test and a post-hoc diagnostic JSON regenerated only from the saved OOF residuals, with no classifier refit or gate change"
+     ],
+     "remaining_risks": [
+      "the fitted ~24.964 km point diagnostic is unstable extrapolation and must not be used as a buffer; no component-bootstrap interval exists",
+      "official sample-template provenance and the user-reported D2.8 0.2600 score remain unresolved",
+      "no official score, organizer acceptance, upload, leaderboard inspection, or current-best incumbent comparison has occurred"
+     ]
+    },
+    {
+     "id": "pass-3-whole-request-crosscheck",
+     "status": "complete-with-open-gates",
+     "criteria": [
+      {
+       "criterion": "README charter, Maximize P(Win), Own the Outcome, source classes, and status-first site",
+       "status": "implemented; README states the charter is a consolidated restatement, not a verbatim reconstruction"
+      },
+      {
+       "criterion": "prominent GeoTIFF download, executive summary, unique reserved name/comment, and exact manual upload instructions",
+       "status": "site complete; prominent TIFF is expressly legacy/reference-only because no H31 candidate exists"
+      },
+      {
+       "criterion": "official-grid/value validation and out-of-range regression protection",
+       "status": "implemented and locally tested against owner-mirror sample; organizer authenticity/acceptance unverified"
+      },
+      {
+       "criterion": "prior-score analysis with official/user/owner distinctions",
+       "status": "audit complete; D2.8 0.2600 remains USER-REPORTED and unresolved"
+      },
+      {
+       "criterion": "rank 3-5 geological hypotheses with rationale, novelty, uncertain gain, effort, provenance and validation",
+       "status": "four hypotheses documented; external data access blockers explicit"
+      },
+      {
+       "criterion": "empirical same-trace residual range and no arbitrary final buffer",
+       "status": "method frozen and pilot attempted; operational range unknown, H31-A stopped, no buffer substituted"
+      },
+      {
+       "criterion": "same-run/current-best comparison, fresh confirmation, exact-file, and official promotion gates",
+       "status": "fail-closed policy documented; H31-A metric failed; current-best comparison and confirmation not run; no slot approval"
+      },
+      {
+       "criterion": "multiple review passes and remaining-work recommendations",
+       "status": "three passes recorded; PRs #1 and #2 merged; root-source Pages redirect is built and verified; direct /docs configuration remains blocked by integration permissions"
+      },
+      {
+       "criterion": "truthful AI-use narrative",
+       "status": "draft updated to reflect the pilot and its negative result; entrant review required; not submitted"
+      }
+     ],
+     "delivery_state": "PR #1 merged at 18a9c4e9493192a21f2bb22ca0356d4a24be8d6c and PR #2 at d8b531025c63e9d56897f8b983bdfca284b33420; root-source Pages build is built and the root redirect to docs/ is verified; direct /docs settings change returned 403"
+    },
+    {
+     "id": "pass-4-score-prior-art-and-source-implementation-2026-10-03",
+     "status": "complete-for-reviewed-artifacts",
+     "scope": [
+      "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
+      "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
+      "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective \u0394DTI planning brackets, cost, and source-access limits",
+      "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
+     ],
+     "verification": {
+      "pytest": "25 passed",
+      "ruff": "all checks passed",
+      "compileall": "passed for src/, scripts/, and tests/",
+      "json": "all 11 checked JSON documents and all 8 pilot JSONL rows parse",
+      "html": "7 pages (root and docs) have no broken local links or fragments",
+      "claims_and_artifact": "score classes preserve USER-REPORTED / OWNER-MIRROR distinctions; official_score_receipts is empty; legacy TIFF SHA-256 matches 5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32"
+     },
+     "open_gates": [
+      "H27-4 0.2708 remains a user claim and directly conflicts with GEMSDOE28 owner-page UNSCORED status; D2.8 0.2600 remains user/owner-reported against GEMSDOE25 UNSCORED; no organizer receipt ties a value to exact bytes",
+      "four hypotheses are desk-only; no source product was assembled into a raster and no model/holdout was fit",
+      "runtime competition inputs/cache are absent; H31-A range and final buffer remain unknown; no candidate TIFF or slot is approved"
+     ]
+    },
+    {
+     "id": "pass-5-independent-assumption-and-link-review-2026-10-03",
+     "status": "complete-with-blockers-preserved",
+     "checks": [
+      "rechecked the H27-4 filename/hash/status against GEMSDOE28 owner records and separated its catalogue-gap proxy deltas from competition DTI",
+      "rechecked D2.8 0.2600 against both the pinned GEMSDOE25 registry and GEMSDOE28 owner page; retained attribution conflict and empty organizer receipt list",
+      "reviewed official ComCat, CMR ASTER, Water Data, NGMDB, and Water Data migration links; approximate-bbox catalog hits were not represented as full coverage or a viable feature",
+      "checked site local links/fragments, score classification assertions, branch guard tests, legacy hash, no-candidate labels, and manual-upload status"
+     ],
+     "findings_fixed": [
+      "updated stale runner/instruction branch from arena/01a104a9-gemsdoe31 to active fixed branch arena/01a1050e-gemsdoe31",
+      "retired H31-A sample submission name/comment because no current candidate exists",
+      "linked the official USGS notice that decommissions the old /nwis/gwlevels/ endpoint",
+      "updated the current test count from the historical 23 to the latest 25"
+     ],
+     "remaining_risks": [
+      "GEMSDOE28 Pages deployment identity was not proven byte-identical to its repository HEAD; its records remain OWNER-MIRROR, not organizer evidence",
+      "ComCat count and sample, ASTER catalog granule, Water Data sample, and reachable NGMDB viewer do not establish exact-area coverage, licensing, or holdout utility",
+      "no live DrivenData leaderboard, private score page, or submission interface was accessed; no monitoring/feed/upload was implemented"
+     ]
+    },
+    {
+     "id": "pass-6-whole-charter-and-delivery-crosscheck-2026-10-03",
+     "status": "complete-with-open-gates",
+     "criteria": [
+      {
+       "criterion": "fault-mapping target, Maximize P(Win), Own the Outcome, README startup brief and source/evidence labels",
+       "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
+      },
+      {
+       "criterion": "3\u20135 distinct ranked hypotheses and official-source/access checks",
+       "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
+      },
+      {
+       "criterion": "manual upload guidance, unique name/comment, and prominent TIFF",
+       "status": "manual guidance retained; no current name/comment assigned; download explicitly legacy/reference-only, not a candidate"
+      },
+      {
+       "criterion": "measured buffer, holdout, current-best comparison, confirmation, exact-file validation, slot approval",
+       "status": "H31-A remains STOP; operational range unknown; no new holdout, candidate, confirmation, or slot approval; hard gates remain fail-closed"
+      },
+      {
+       "criterion": "AI narrative, three cumulative reviews, and delivery record",
+       "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1\u20133; PR #4 merged from the fixed branch."
+      }
+     ],
+     "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate."
+    },
+    {
+     "id": "pass-10-regenerate-and-verify-every-measured-number",
+     "status": "complete-for-current-artifacts",
+     "scope": [
+      "restore and hash-verify the 11 pinned inputs in this workspace (data_restore.json all_verified true)",
+      "write the official metric from the published sums and verify it against a literal brute-force transcription",
+      "regenerate the filter and union experiments from committed artifacts (scripts/run_union.py)",
+      "quantise the fold-OOF maps so a fresh clone can reproduce the union step (scripts/pack_oof.py)",
+      "regenerate every site page from the registers (scripts/build_site.py) and check it (scripts/check_site.py)"
+     ],
+     "verification": {
+      "inputs": "11/11 hash-pinned entries restored and verified; grid/CRS/shape/dtype re-checked by prepare_data --verify-only",
+      "metric": "max |DTI_fast - DTI_brute| = 4.44e-16 over 24 random grids, plus two exact closed-form cases; TPw + FNw = |G| holds",
+      "incumbent_reproduction": "scripts/run_union.py reproduces the registered incumbent DTIs (0.04909549919996513 / 0.09384814898733441) to < 1e-9 and refuses to write otherwise",
+      "union_reproduction": "D-arm p>=0.70 catalogue-dropping union reproduces exactly (15,105 added, 55,304 dots, 0.0721 / 0.0955)",
+      "new_finding": "the LiDAR-arm union at p>=0.60 is stronger than any radiometric-arm union (+0.0060 vs +0.0017 on the off-catalogue proxy)",
+      "site": "20 pages, 257 local links, no broken link, no placeholder symbol, no pictogram in chrome (scripts/check_site.py)",
+      "suite": "ruff clean; 30 tests pass, including the new metric, register, submission-file and buffer tests"
+     },
+     "open_scientific_gates": [
+      "the arm-training code behind arm_results.json / operating_point.json is not in this snapshot",
+      "no organizer receipt for any score; 0.2708 and 0.2600 remain owner-reported",
+      "the off-catalogue proxy is SGMC state-map faults, not the hidden expert-mapped truth"
+     ]
+    },
+    {
+     "id": "pass-11-bug-assumption-and-leakage-review",
+     "status": "complete-for-current-artifacts",
+     "scope": [
+      "re-derive the metric from the official page rather than from memory, and correct the earlier off-by-one arithmetic in the exact test case",
+      "check that no catalogue-derived feature enters either evaluation proxy",
+      "check that the site never states a score as official, never states a proxy DTI as a competition score, and never marks a file slot-approved",
+      "check the register schema change (submissions.json) against the tests and the site generator"
+     ],
+     "verification": {
+      "metric_definition": "re-fetched the official problem page in this session; formulas, alpha/beta, 300 m kernel and format rules transcribed from it, and epsilon recorded as an assumption",
+      "epsilon": "the published page does not state epsilon; the implementation uses 1e-10 and says so in the module and on the site",
+      "proxies": "no arm uses a catalogue-distance or SGMC-derived feature; both proxies are computed from rasters that never enter training",
+      "claims": "registry/submissions.json marks every file slot_approved false; feed.json discloses the absent organizer receipt; tests assert both fail-closed properties",
+      "schema": "collect_evidence.py now derives the register from receipts so hashes cannot go stale; a test re-hashes every registered file"
+     },
+     "open_scientific_gates": [
+      "the union gain (+0.0060) is measured on a proxy with a different fault population from the hidden truth",
+      "the quantised OOF maps shift a few threshold-boundary cells (max value error 7.7e-06); headline rows reproduce exactly"
+     ]
+    },
+    {
+     "id": "pass-12-charter-crosscheck",
+     "status": "complete-with-open-work",
+     "scope": [
+      "walk the written brief item by item against the repository, the site and the registers",
+      "record what is satisfied, what is partial, and what is blocked"
+     ],
+     "verification": {
+      "core_question": "answered with measurements on the research page: sparse off-catalogue dot geometry plus the metric algebra; the 0.3195 target is quantified as a detection gap, not a budget gap",
+      "hypotheses": "five candidates ranked on the research page, each with layers, physical signature, novelty, cost and status; only H32-2 has partial measurement",
+      "buffer": "derived (21.25 km) and reported with fits, bootstrap band and the withdrawn 94.3 km rule recorded",
+      "one_click_download": "index and executive summary both carry the download; executive summary documents the portal steps and the [0,1] error class",
+      "regression_test": "tests/test_submission.py keeps the inside-NaN case that produces that error class",
+      "delivery": "pull request and merge recorded in the repository history; Pages serves docs/"
+     },
+     "open_scientific_gates": [
+      "next-week slot candidate: rerun the union with a better-trained classifier rather than a re-quantiled incumbent",
+      "re-implement the arm trainer so the whole chain reruns from a fresh clone",
+      "obtain the GDR 1391 depth stack and 3DEP return attributes through the CI runner, or record them as unavailable"
+     ]
+    },
+    {
+     "id": "pass-13-h31b-implementation-and-9site-forensic-audit-2026-10-25",
+     "status": "complete-for-current-artifacts",
+     "scope": [
+      "fix scripts/download_competition_data.py in-place with blobless git fetch over github.com so all 11 hash-pinned inputs restore inside the sandbox",
+      "restore all 11 sibling GeoTIFFs across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36 and compute exact catalogue-distance annuli and off-catalogue SGMC DTIs (evidence/nine_site_forensic_audit.json)",
+      "implement H31-B1..B4 multi-physics discovery surfaces (src/gemsdoe31/h31b_discover.py) and run the single-feature leakage canary + 3 H31-B experiments + uniqueness gate + GeoTIFF packaging (scripts/run_h31b_campaign.py)"
+     ],
+     "verification": {
+      "inputs_and_stack": "11/11 hash-pinned inputs verified (all_verified=true); 46-band prepared/features.f32 built and verified",
+      "forensic_proof_0p2778": "proved GEMSDOE32 (37,654 dots, 0.2778 USER-REPORTED) equals H27-4 (40,199 dots, 0.2708 USER-REPORTED) minus 2,545 flank dots in 100 m < d(catalogue) <= 200 m, and verified via paired natural experiment against GEMSDOE28 H36-1 (37,660 dots, 0.2710 USER-REPORTED)",
+      "h31b_experiments": "EXP-1 standalone reaches 0.1380 HOLDOUT-DTI (95% CI [0.1169, 0.1683], 4/4 folds > GEMSDOE32 B=2 0.0984); EXP-2 hybrid reaches 0.1249 HOLDOUT-DTI (4/4 folds > B=2); EXP-3 B=1 ablation scores 0.1296 (negative)",
+      "submissions": "built and validated gemsdoe31-h31b-scarp-hessian-20261025-37654 and gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654 (21/21 format checks passed)"
+     },
+     "open_scientific_gates": [
+      "no official DrivenData organizer receipt is stored in the repository; all historical live scores remain USER-REPORTED",
+      "external 3D MT depth stack (GDR 1391) and raw 3DEP LAZ return attributes require CI runner egress outside sandbox"
+     ]
+    },
+    {
+     "id": "pass-14-h31b-bug-leakage-and-uniqueness-review-2026-10-25",
+     "status": "complete-for-current-artifacts",
+     "scope": [
+      "audit single-feature leakage canary across all 46 bands + 5 engineered surfaces (evidence/leakage_canary.json)",
+      "audit sparse LiDAR/GeoDAWN NaN handling, Parallel-Run Uniqueness Gate (surface Spearman r_s <= 0.90 and 3-px dot overlap <= 70%), and [0, 1] footprint range",
+      "verify fail-closed registry invariants (slot_approved=false when no organizer receipt exists, while ok_to_download_and_submit=true is prominently displayed)"
+     ],
+     "verification": {
+      "leakage_canary": "all 14 input bands and 5 engineered surfaces used in H31-B have holdout ROC-AUC <= 0.7753 <= 0.90; dist_cat_km (1.0000) and dist_sgmc_km (0.9981) flagged and strictly excluded",
+      "nan_and_mad_guard": "fixed sparse-survey NaN fill saturation by rank-normalizing only finite in-footprint survey values and assigning neutral 0.5 outside coverage",
+      "uniqueness_gate": "EXP-1 max surface r_s = 0.11433 <= 0.90, max 3-px dot overlap = 35.938% <= 70%; EXP-2 max 3-px dot overlap = 66.394% <= 70%",
+      "tests_and_lint": "38 pytest tests pass; ruff check passes cleanly; check_site.py passes on all 20 pages and 269 local links"
+     },
+     "open_scientific_gates": [
+      "SGMC off-catalogue proxy is a 1:500k state-map proxy for hidden unmapped faults, not the organizer's private evaluation raster"
+     ]
+    },
+    {
+     "id": "pass-15-whole-request-and-run-card-crosscheck-2026-10-25",
+     "status": "complete-with-open-work",
+     "scope": [
+      "cross-check all user requirements: 9-site forensic study of 0.2778, unique validated GeoTIFF generation, obvious readiness on site home and executive summary, unique name and <=140-char note, Parallel-Run Protocol compliance, and JSON RUN CARD"
+     ],
+     "verification": {
+      "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES \u2014 VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
+      "run_card": "evidence/run_card_2026-10-25.json generated and verified with all required fields"
+     },
+     "open_scientific_gates": [
+      "human entrant must manually download the GeoTIFF and submit on DrivenData if desired, and attach any official score receipt to registry/score_claims.json"
+     ]
+    }
+   ],
+   "remaining_work": [
+    "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
+    "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
+    "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",
+    "fetch the GDR 1391 depth stack and 3DEP LAZ return attributes through the CI runner (sandbox cannot reach those hosts) or record them as unavailable",
+    "resolve the D2.8 0.2600 and h27-4 0.2708 score provenance by attaching organizer receipts to registry/score_claims.json",
+    "keep the leaderboard as a static link and the AI disclosure as an entrant-reviewed draft"
+   ]
+  }
+ }
+}

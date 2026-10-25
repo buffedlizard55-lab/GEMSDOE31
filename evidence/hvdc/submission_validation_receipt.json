@@ -4,7 +4,7 @@
   "slug": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168",
   "portal_note": "GEMSDOE31 H31-HVDC dual-specialist + vent/relay OOF + 300m CELF submod (37654 {0,1} dots, B>2px; HOLDOUT-DTI 0.1247)",
   "portal_note_length": 116,
-  "ok_to_download_and_submit": true,
+  "ok_to_download_and_submit": false,
   "status_banner": "PASS - UNIQUE & COMPETITION-VALID GEOTIFF (OK TO DOWNLOAD)",
   "strict_checks": {
     "in_footprint_all_finite": true,
@@ -536,5 +536,23 @@
         "duplicate_flagged": false
       }
     ]
+  },
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "submission_note": "H31-HVDC dual-specialist+300m CELF (37654 {0,1} dots; HOLDOUT-DTI 0.1247); research-only, literal registry STOP",
+  "submission_note_length": 111,
+  "shared_695_registry_literal_stop": {
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "lattice_positive_pixels": 206895,
+    "spearman_surface": 1e-06,
+    "spearman_final": -0.000692,
+    "within_3px_dots": 37472,
+    "forward_3px_overlap": 0.995167,
+    "reverse_3px_overlap": 0.149037,
+    "literal_70pct_gate_pass": false,
+    "implication": "LITERAL REGISTRY STOP under unexempted 695-raster shared registry (spacing-5 calibration lattice + GEMSDOE48 continuous pignistic field). Zero copied content (|Spearman| <= 0.0021), but literal forward 3-px overlap exceeds 0.70 -> research-only, slot_approved = false."
   }
 }

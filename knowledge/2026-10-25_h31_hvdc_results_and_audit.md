@@ -48,7 +48,11 @@ All 3 preregistered experiments (`knowledge/2026-10-25_h31_hvdc_preregistration.
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | `EXP-1` (`ArmD-Clean-Poisson`) | `0.0733` (`[0.0623, 0.0857]`) | `0.0826` (`[0.0682, 0.0994]`) | `0.0779` (`[0.0664, 0.0908]`) | `0.0000` | `0.0731` | PASS (`0.5562`) |
 | `EXP-2` (`H31-HVDC-Physics-Poisson`) | `0.0782` (`[0.0669, 0.0896]`) | `0.0860` (`[0.0730, 0.1004]`) | `0.0821` (`[0.0713, 0.0936]`) | `+0.0042` (`4/4` draws) | `0.0701` | PASS (`0.5053`) |
-| **`EXP-3` (`H31-HVDC-Submod300`)** | **`0.1202` (`[0.1078, 0.1332]`)** | **`0.1292` (`[0.1141, 0.1448]`)** | **`0.1247` (`[0.1128, 0.1381]`)** | **`+0.0468` (`+60.0%`, `4/4` draws)** | **`0.0824`** | **PASS (`0.4888`; `0.3689` vs `GEMSDOE32`)** |
+| **`EXP-3` (`H31-HVDC-Submod300`)** | **`0.1202` (`[0.1078, 0.1332]`)** | **`0.1292` (`[0.1141, 0.1448]`)** | **`0.1247` (`[0.1128, 0.1381]`)** | **`+0.0468` (`+60.0%`, `4/4` draws)** | **`0.0824`** | **Discrete 34-subset PASS (`0.4762` fwd / `0.5375` sym; `0.3689` vs `GEMSDOE32`); 695-registry `r13-lattice-s5` `99.52%` -> LITERAL STOP (`verdict = negative`)** |
+
+### Shared-Registry Scope Audit (`evidence/hvdc/shared_registry_stop_audit.json`)
+- **34-Comparator Discrete Subset (9 Focus Sites + 6 Concurrent 2026-10-25 Lanes):** `max |Spearman surface| = 0.1455` (`0.0626` vs `GEMSDOE32` `H33`, `0.0937` vs `SCGP-Submod`, `-0.0005` vs `MAGREST`); `max forward 3-px dot overlap = 0.4762` (`0.3689` vs `GEMSDOE32` `H33`, `0.3571` vs `SCGP-Submod`, `0.1847` vs `MAGREST`). Genuinely independent of every sparse fault map.
+- **Unexempted 695-Raster Shared Registry (`registry/shared_registry_57_pin.json`):** Against registered spacing-5 calibration lattice `GEMSDOE24/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif` (`206,895` lattice pixels), `Spearman = +0.000001` (zero copied signal), but **`99.5167%` (`37,472 / 37,654`)** of dots lie within `<= 3 px` of the uniform lattice (and `100.0%` lie on `GEMSDOE48`'s `5,167,373`-pixel continuous field). Under the literal no-exemption Rule-1 overlap gate, `EXP-3` logs **`verdict = "negative"`, `slot_approved = false`, `ok_to_download_for_research = true`, `ok_to_submit = false`**.
 
 ### Per-Quadrant Spatial Consistency (`EXP-3` vs `EXP-1`, Mean Across Draws `[101, 102, 201, 202]`)
 - **Q0 (NW):** `0.1202` vs `0.0607` (**`+0.0595`**, won `4/4` draws)

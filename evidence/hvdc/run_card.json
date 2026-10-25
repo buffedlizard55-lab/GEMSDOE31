@@ -41,17 +41,89 @@
     0.138135
   ],
   "correlation_overlap_vs_registry": {
-    "passed": true,
-    "n_registry_rasters_checked": 21,
-    "spearman_ceiling": 0.9,
-    "max_abs_spearman_surface": 0.147257,
-    "max_spearman_raster": "gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
-    "spearman_vs_gemsdoe32_h33": 0.062575,
-    "overlap_3px_ceiling": 0.7,
-    "max_symmetric_3px_dot_overlap": 0.488845,
-    "max_overlap_raster": "gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
-    "overlap_3px_vs_gemsdoe32_h33": 0.368859,
-    "exact_shared_pixels_vs_gemsdoe32_h33": 1232
+    "discrete_34_comparator_subset_passed": true,
+    "discrete_subset_only_not_global_approval": true,
+    "comparators_tested_discrete": 34,
+    "max_abs_surface_spearman": 0.145481,
+    "max_abs_final_spearman": 0.047461,
+    "max_forward_3px_overlap_discrete": 0.476151,
+    "max_symmetric_3px_overlap_discrete": 0.537473,
+    "spearman_vs_gemsdoe32_h33": 0.062617,
+    "overlap_3px_vs_gemsdoe32_h33": 0.368885,
+    "concurrent_lanes": {
+      "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif": {
+        "spearman_surface": 0.028238,
+        "forward_3px_overlap": 0.226643
+      },
+      "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif": {
+        "spearman_surface": 0.028238,
+        "forward_3px_overlap": 0.226643
+      },
+      "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif": {
+        "spearman_surface": -0.011304,
+        "forward_3px_overlap": 0.123758
+      },
+      "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif": {
+        "spearman_surface": 0.059418,
+        "forward_3px_overlap": 0.362219
+      },
+      "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif": {
+        "spearman_surface": 0.059418,
+        "forward_3px_overlap": 0.362219
+      },
+      "gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif": {
+        "spearman_surface": 0.04603,
+        "forward_3px_overlap": 0.294364
+      },
+      "gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif": {
+        "spearman_surface": 0.04603,
+        "forward_3px_overlap": 0.294364
+      },
+      "gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif": {
+        "spearman_surface": 0.052218,
+        "forward_3px_overlap": 0.40596
+      },
+      "gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif": {
+        "spearman_surface": 0.052218,
+        "forward_3px_overlap": 0.40596
+      },
+      "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif": {
+        "spearman_surface": -0.000516,
+        "forward_3px_overlap": 0.184735
+      },
+      "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif": {
+        "spearman_surface": -0.000516,
+        "forward_3px_overlap": 0.184735
+      },
+      "gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif": {
+        "spearman_surface": 0.09371,
+        "forward_3px_overlap": 0.357147
+      },
+      "gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif": {
+        "spearman_surface": 0.09371,
+        "forward_3px_overlap": 0.357147
+      }
+    },
+    "shared_695_registry_literal_gate_pass": false,
+    "shared_695_registry_counterexample_r13_lattice_s5": {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "lattice_positive_pixels": 206895,
+      "spearman_surface": 1e-06,
+      "spearman_final": -0.000692,
+      "within_3px_dots": 37472,
+      "forward_3px_overlap": 0.995167,
+      "reverse_3px_overlap": 0.149037,
+      "literal_70pct_gate_pass": false,
+      "implication": "LITERAL REGISTRY STOP under unexempted 695-raster shared registry (spacing-5 calibration lattice + GEMSDOE48 continuous pignistic field). Zero copied content (|Spearman| <= 0.0021), but literal forward 3-px overlap exceeds 0.70 -> research-only, slot_approved = false."
+    },
+    "shared_695_registry_universal_blocker_gemsdoe48_continuous": {
+      "repo": "buffedlizard55-lab/GEMSDOE48",
+      "artifact": "gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+      "positive_pixels": 5167373,
+      "forward_3px_overlap": 1.0
+    }
   },
   "raster_sha256": {
     "nan_tif": "2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2",
@@ -59,7 +131,7 @@
     "nan_zip": "995d01e3ab88ba983e126d18846a371063389cfd4fbcd57f60279b4a727a5506"
   },
   "validator_output": {
-    "ok_to_download_and_submit": true,
+    "ok_to_download_and_submit": false,
     "no_nan_inside_footprint": true,
     "in_footprint_nan_count": 0,
     "values_in_0_1": true,
@@ -84,9 +156,16 @@
     ],
     "emitted_binary_dots": 37654,
     "dots_within_200m_of_catalogue": 0,
-    "hard_failures": []
+    "hard_failures": [],
+    "format_checks_pass": true,
+    "ok_to_download_for_research": true,
+    "ok_to_submit": false,
+    "blocking_reason": "Format checks (10/10), leakage canary (55/55 <= 0.7606), holdout confirmation (HOLDOUT-DTI 0.1247, +60.0%, 4/4 draws), and 34-raster discrete uniqueness (max forward 3-px overlap 47.62%) all PASS, but the unexempted 695-raster shared registry contains r13-lattice-s5 (99.52% forward 3-px overlap) and GEMSDOE48 continuous pignistic (100% overlap), triggering a literal Rule-1 STOP -> research download only, NOT approved for competition upload."
   },
-  "submission_name": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif",
-  "note": "GEMSDOE31 H31-HVDC dual-specialist + vent/relay OOF + 300m CELF submod (37654 {0,1} dots, B>2px; HOLDOUT-DTI 0.1247)",
-  "verdict": "promote"
+  "submission_name": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168",
+  "note": "H31-HVDC dual-specialist+300m CELF (37654 {0,1} dots; HOLDOUT-DTI 0.1247); research-only, literal registry STOP",
+  "verdict": "negative",
+  "note_length": 111,
+  "verdict_rationale": "Scientifically positive on blocked 21.25 km hide-and-recover holdout (EXP-3 HOLDOUT-DTI 0.1247 vs 0.0779 clean ArmD control, +60.0%, 4/4 draws and 4/4 quadrants won; OFFCAT-PROXY-DTI 0.0824) and genuinely independent across all 34 discrete focus & concurrent sibling fault maps (max |Spearman| = 0.1455, max forward 3-px overlap = 47.62%). Recorded as verdict = negative (slot_approved = false, DO NOT SUBMIT) strictly because the unexempted 695-raster shared registry includes a 206,895-dot spacing-5 calibration lattice (99.52% within 3 px) and GEMSDOE48 continuous field (100% > 0). Negative results are preserved as first-class research deliverables.",
+  "slot_approved": false
 }

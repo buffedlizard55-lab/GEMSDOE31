@@ -33,7 +33,7 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from gemsdoe31.holdout import (  # noqa: E402
+from gemsdoe31.hvdc_holdout import (  # noqa: E402
     DEFAULT_COLLAR_M,
     EVALUATOR_VERSION,
     FoldSplit,

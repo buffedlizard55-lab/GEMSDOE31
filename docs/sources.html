@@ -25,13 +25,13 @@
   </section>
 
   <main class="wrap">
-    <section>
+<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>    <section>
       <div class="section-head">
         <div><p class="kicker">Provenance</p><h2>How to read a claim on this site</h2></div>
         <p>Every claim carries its class. A class is a statement about where the evidence came from — not about how confident anyone feels.</p>
       </div>
       <ul class="pill-list">
-        <li><strong>OFFICIAL</strong> — read from a government, publisher or competition-administrator page linked here.</li>
+        <li><strong>OFFICIAL</strong> — direct retrieval recorded on the row's accessed date. Only the pinned organizer GitHub reference was freshly retrieved on 2026-10-25; other official links retain historical access dates.</li>
         <li><strong>OWNER-MIRROR</strong> — published in one of this project's own repositories; a hash match proves byte identity to that mirror only.</li>
         <li><strong>COMPUTED</strong> — reproduced by a script in this repository, with the artifact path recorded.</li>
         <li><strong>INFERENCE</strong> — reasoning to be tested, not a measurement.</li>
@@ -161,9 +161,9 @@
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched this session. The prize structure quoted in registry/score_claims.json and on the site comes from page 967, which was fetched and is verified below.</p>
         </li><li>
           <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noopener">DrivenData GEMS reference solution repository</a></strong>
-          <span class="badge badge-green">OFFICIAL</span>
-          <span class="small"> · DrivenData / Prof. John Lipor (Portland State University) · 2026-10-25</span>
-          <ul class="small" style="margin:8px 0 0"><li>Official benchmark repository (commit aebe92f7c8a9) implementing Monte Carlo U-Net CV in unet-mc-cv-reference-solution.ipynb.</li><li>Linked directly from the official DrivenData GEMS problem description page.</li></ul>
+          <span class="badge">OWNER-MIRROR</span>
+          <span class="small"> · this project (buffedlizard55-lab) · 2026-10-04</span>
+          <ul class="small" style="margin:8px 0 0"><li>Repository exists and is linked from the official problem page.</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not executed in this session.</p>
         </li><li>
           <strong><a href="https://mrdata.usgs.gov/geology/state/" target="_blank" rel="noopener">State Geologic Map Compilation (SGMC) — state geological map packages</a></strong>
@@ -178,29 +178,47 @@
           <ul class="small" style="margin:8px 0 0"><li>DOI 10.5066/P93LGLVQ; the release provides contractor K, Th, U, total-count radiometric grids and derived ratio grids plus an upward-continued TMI grid.</li><li>The derived layers used here were built by this project&#x27;s earlier CI runs from that release (GEMSDOE24 data/external/geodawn_rad.json, geodawn_extensions.json).</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched in the current session (sciencebase.gov is unreachable from the sandbox); the DOI, item id and derived layers are taken from this project&#x27;s own GEMSDOE24 descriptors.</p>
         </li><li>
-          <strong><a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">INGENIOUS Great Basin Regional Play Fairway &amp; Geoscience Compilation (GDR Submission 1391)</a></strong>
+          <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md" target="_blank" rel="noopener">Organizer reference code, commit-pinned and freshly retrieved</a></strong>
           <span class="badge badge-green">OFFICIAL</span>
-          <span class="small"> · DOE Geothermal Data Repository / University of Nevada, Reno (Nevada Bureau of Mines and Geology) · not fetched this session</span>
-          <ul class="small" style="margin:8px 0 0"><li>Provides CC-BY-4.0 regional Quaternary volcanic vents/flows, 2 m shallow temperature probe compilations, paleo-geothermal sinter/tufa/travertine deposits, and Quaternary fault compilations rasterized on the GEMS grid in registry/data_manifest.json.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> GDR host not fetched live in sandbox (network whitelist); hash-pinned 100 m GeoTIFFs verified via registry/data_manifest.json.</p>
+          <span class="small"> · DrivenData / John Lipor reference-solution repository · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>The reference notebook labels its feature visualization EPSG:32611, 100m resolution. This does not authenticate our mirror bytes.</li><li>The reference notebook trains a U-Net with Monte Carlo train/test splits and ordinary TverskyLoss(alpha=0.2,beta=0.8). This is training loss, NOT proof of the distance-weighted organizer scorer.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> No DrivenData website, organizer score receipt, private truth or account quota was accessed. The full official problem-page metric and outside-footprint wording remain historically recorded references, not re-fetched under the current network allowlist. No correspondence is asserted between the reference notebook training loss and the distance-weighted evaluation kernel.</p>
         </li><li>
-          <strong><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener">Focus sibling GEMSDOE repositories (19GEMSDOE, GEMSDOE24, 25, 27, 28, 30, 32, 33, 36, 70)</a></strong>
-          <span class="badge">OWNER-MIRROR</span>
-          <span class="small"> · buffedlizard55-lab GitHub organization · 2026-10-25</span>
-          <ul class="small" style="margin:8px 0 0"><li>Retrieved and SHA-256-verified 14 champion GeoTIFF rasters across 19GEMSDOE and GEMSDOE24/25/27/28/30/32/33/36/70 via GitHub API.</li><li>Verified bitwise subset/superset lineage from 19GEMSDOE H19-5 -&gt; D1.5 -&gt; D2.8 -&gt; H27-4 -&gt; GEMSDOE32 H33-2-B2 -&gt; GEMSDOE36.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Owner-reported leaderboard scores in sibling READMEs lack DrivenData submission receipts and are labeled USER-REPORTED.</p>
-        </li><li>
-          <strong><a href="https://doi.org/10.1007/BF01588971" target="_blank" rel="noopener">Nemhauser, Wolsey &amp; Fisher (1978) &amp; Minoux (1978) — Submodular Maximization and Accelerated Lazy Greedy (CELF)</a></strong>
+          <strong><a href="https://doi.org/10.1029/2003GL017370" target="_blank" rel="noopener">Gallardo, L. A., &amp; Meju, M. A. (2003). Characterization of heterogeneous near-surface materials by joint 2D inversion of dc resistivity and seismic data, GRL 30(13), 1658</a></strong>
           <span class="badge">TRUSTED-PEER-REVIEWED</span>
-          <span class="small"> · Mathematical Programming / IFIP Optimization Techniques · not fetched this session</span>
-          <ul class="small" style="margin:8px 0 0"><li>Establishes (1 - 1/e) optimality guarantee of greedy maximization for monotone submodular set functions and exactness of CELF upper-bound pruning.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Supplies mathematical optimality proof for src/gemsdoe31/submodular.py; supplies no dataset numbers.</p>
+          <span class="small"> · Geophysical Research Letters (AGU) · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Defines the structural cross-gradient vector t(x) = grad(m1) x grad(m2) whose vanishing cross product identifies co-aligned structural boundaries regardless of sign reversal across modalities.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Methodological formulation only; supplies no dataset values.</p>
         </li><li>
-          <strong><a href="https://pubs.usgs.gov/of/2008/1283/" target="_blank" rel="noopener">Faulds et al. (2006, 2011), Ponce &amp; Glen (2002), Cowie &amp; Scholz (1992), Crider &amp; Pollard (1998), King &amp; Zeng (2001)</a></strong>
+          <strong><a href="https://doi.org/10.1016/0926-9851(94)90022-1" target="_blank" rel="noopener">Miller, H. G., &amp; Singh, V. (1994). Potential field tilt — a new concept for location of potential field sources, J. Appl. Geophys. 32(2-3), 213-217</a></strong>
           <span class="badge">TRUSTED-PEER-REVIEWED</span>
-          <span class="small"> · Geothermal Resources Council Transactions / Geophysical Research Letters / Journal of Structural Geology · not fetched this session</span>
-          <ul class="small" style="margin:8px 0 0"><li>Grounds H31-HVDC physical design: &gt;75% of Great Basin geothermal systems occupy fault terminations, step-overs, and range-front intersections; hydrothermal fluids destroy magnetite and enrich K/Th; case-control prior shift restores true spatial odds.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Peer-reviewed geoscience and statistical methods literature; empirical holdout performance is measured independently in evidence/hvdc/hvdc_experiment_results.json.</p>
+          <span class="small"> · Journal of Applied Geophysics · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Defines potential-field tilt angle theta = atan2(dF/dz, |grad_H F|), equalizing shallow and deeper basement edge amplitudes.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Methodological formulation only.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1007/BF01588971" target="_blank" rel="noopener">Nemhauser, Wolsey &amp; Fisher (1978) / Minoux (1978): Accelerated lazy-greedy maximization of monotone submodular facility-location coverage</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Mathematical Programming / Lecture Notes in Computer Science · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Weighted max-kernel coverage TPw(S) = sum_y w(y) max_{x in S} k(d(x,y)) is monotone submodular; Minoux lazy priority-queue evaluation returns the exact greedy sequence with (1 - 1/e) optimality guarantee.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Exact optimization guarantee applies to the estimated weight field w(y), not the unseen hidden truth.</p>
+        </li><li>
+          <strong><a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">Great Basin Play Fairway / INGENIOUS Geothermal Datasets (GDR Submission 1391, DOI 10.15121/1841825)</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DOE Geothermal Data Repository / Nevada Bureau of Mines and Geology · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Source provenance for 2 m temperature probes, Quaternary volcanic vents, and paleo-geothermal sinter/tufa outflow occurrences rasterized in derived_gdr_*_100m_u8.tif.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Local copies are restored from the hash-pinned repository mirror.</p>
+        </li><li>
+          <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noopener">Official GEMS Prize Reference Solution Repository (drivendataorg/gems-prize-reference-solution)</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Inspected commit aebe92f7c8a9 via GitHub API: README documents Prof. John Lipor&#x27;s U-Net Monte Carlo CV reference workflow; unet-mc-cv-reference-solution.ipynb on main is 0 bytes.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Reference architecture note only; no pre-trained weights or scores included.</p>
+        </li><li>
+          <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noopener">DrivenData GEMS Prize Reference Solution (Prof. John Lipor, PyTorch Monte Carlo U-Net CV baseline)</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData (drivendataorg) · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Official organizer Monte Carlo U-Net cross-validation baseline at commit aebe92f7c8a9</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Does not provide private competition test labels or leaderboard receipts.</p>
         </li></ul>
     </section>
 
@@ -215,8 +233,8 @@
         nothing on this site is derived from it.</p></div>
         <div class="card"><h3>No uploading</h3><p>Nothing in this repository submits a file. A weekly slot is scarce
         and the charter requires a measured margin before one is spent.</p></div>
-        <div class="card"><h3>No unaudited scores</h3><p>A score appears only as <span class="badge">owner-reported</span>
-        with the file's SHA-256 attached, unless an organizer receipt is present. None is.</p></div>
+        <div class="card"><h3>No unaudited competition claims</h3><p>Competition values without exact-byte organizer receipts are <span class="badge">USER-REPORTED</span>.
+        Current local results are separately labelled HOLDOUT-DTI with evaluator, positive count and CI. No organizer receipt is present.</p></div>
       </div>
     </section>
 
@@ -242,7 +260,7 @@
   </main>
   <footer class="footer"><div class="wrap footer-inner">
     <p>Reported irregularities, including the D2.8 score discrepancy, are listed on the register page.</p>
-    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+    <p><a href="feed.html">Evidence feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
   </div></footer>
 </body>
 </html>

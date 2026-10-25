@@ -2,7 +2,7 @@
  "schema_version": 1,
  "generated_utc": "2026-10-25",
  "claim_classes": {
-  "OFFICIAL": "read from a government, competition-administrator or publisher page linked below, retrieved this session",
+  "OFFICIAL": "Direct source retrieval recorded on the row accessed_utc date; not necessarily fresh in the current session. See current_access_audit for this environment.",
   "OWNER-MIRROR": "bytes or claims published in one of this project's own public GitHub repositories; a hash match proves byte identity to that mirror only",
   "COMPUTED": "reproduced from local code and data by scripts in this repository, with the artifact path recorded",
   "INFERENCE": "geological or statistical reasoning to be tested, not a measured result",
@@ -302,14 +302,13 @@
   },
   {
    "id": "tg-repo",
-   "class": "OFFICIAL",
-   "publisher": "DrivenData / Prof. John Lipor (Portland State University)",
+   "class": "OWNER-MIRROR",
+   "publisher": "this project (buffedlizard55-lab)",
    "title": "DrivenData GEMS reference solution repository",
    "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
-   "accessed_utc": "2026-10-25",
+   "accessed_utc": "2026-10-04",
    "claims_verified": [
-    "Official benchmark repository (commit aebe92f7c8a9) implementing Monte Carlo U-Net CV in unet-mc-cv-reference-solution.ipynb.",
-    "Linked directly from the official DrivenData GEMS problem description page."
+    "Repository exists and is linked from the official problem page."
    ],
    "limits": "Not executed in this session."
   },
@@ -340,53 +339,99 @@
    "limits": "Not fetched in the current session (sciencebase.gov is unreachable from the sandbox); the DOI, item id and derived layers are taken from this project's own GEMSDOE24 descriptors."
   },
   {
-   "id": "gdr-1391-ingenious-great-basin",
+   "id": "organizer-github-reference-20261025",
    "class": "OFFICIAL",
-   "publisher": "DOE Geothermal Data Repository / University of Nevada, Reno (Nevada Bureau of Mines and Geology)",
-   "title": "INGENIOUS Great Basin Regional Play Fairway & Geoscience Compilation (GDR Submission 1391)",
-   "url": "https://gdr.openei.org/submissions/1391",
-   "accessed_utc": null,
-   "claims_verified": [
-    "Provides CC-BY-4.0 regional Quaternary volcanic vents/flows, 2 m shallow temperature probe compilations, paleo-geothermal sinter/tufa/travertine deposits, and Quaternary fault compilations rasterized on the GEMS grid in registry/data_manifest.json."
-   ],
-   "limits": "GDR host not fetched live in sandbox (network whitelist); hash-pinned 100 m GeoTIFFs verified via registry/data_manifest.json."
-  },
-  {
-   "id": "sibling-focus-repos-20261025",
-   "class": "OWNER-MIRROR",
-   "publisher": "buffedlizard55-lab GitHub organization",
-   "title": "Focus sibling GEMSDOE repositories (19GEMSDOE, GEMSDOE24, 25, 27, 28, 30, 32, 33, 36, 70)",
-   "url": "https://github.com/buffedlizard55-lab/GEMSDOE32",
+   "publisher": "DrivenData / John Lipor reference-solution repository",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md",
    "accessed_utc": "2026-10-25",
    "claims_verified": [
-    "Retrieved and SHA-256-verified 14 champion GeoTIFF rasters across 19GEMSDOE and GEMSDOE24/25/27/28/30/32/33/36/70 via GitHub API.",
-    "Verified bitwise subset/superset lineage from 19GEMSDOE H19-5 -> D1.5 -> D2.8 -> H27-4 -> GEMSDOE32 H33-2-B2 -> GEMSDOE36."
+    "The reference notebook labels its feature visualization EPSG:32611, 100m resolution. This does not authenticate our mirror bytes.",
+    "The reference notebook trains a U-Net with Monte Carlo train/test splits and ordinary TverskyLoss(alpha=0.2,beta=0.8). This is training loss, NOT proof of the distance-weighted organizer scorer."
    ],
-   "limits": "Owner-reported leaderboard scores in sibling READMEs lack DrivenData submission receipts and are labeled USER-REPORTED."
+   "limits": [
+    "No DrivenData website, organizer score receipt, private truth or account quota was accessed.",
+    "The full official problem-page metric and outside-footprint wording remain historically recorded references, not re-fetched under the current network allowlist.",
+    "No correspondence is asserted between the reference notebook training loss and the distance-weighted evaluation kernel."
+   ],
+   "evidence": "evidence/official_reference_audit_20261025.json",
+   "title": "Organizer reference code, commit-pinned and freshly retrieved"
   },
   {
-   "id": "nemhauser-1978-minoux-1978-celf",
+   "id": "gallardo-meju-2003-cross-gradient",
    "class": "TRUSTED-PEER-REVIEWED",
-   "publisher": "Mathematical Programming / IFIP Optimization Techniques",
-   "title": "Nemhauser, Wolsey & Fisher (1978) & Minoux (1978) \u2014 Submodular Maximization and Accelerated Lazy Greedy (CELF)",
+   "publisher": "Geophysical Research Letters (AGU)",
+   "title": "Gallardo, L. A., & Meju, M. A. (2003). Characterization of heterogeneous near-surface materials by joint 2D inversion of dc resistivity and seismic data, GRL 30(13), 1658",
+   "url": "https://doi.org/10.1029/2003GL017370",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Defines the structural cross-gradient vector t(x) = grad(m1) x grad(m2) whose vanishing cross product identifies co-aligned structural boundaries regardless of sign reversal across modalities."
+   ],
+   "limits": "Methodological formulation only; supplies no dataset values."
+  },
+  {
+   "id": "miller-singh-1994-tilt-angle",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "publisher": "Journal of Applied Geophysics",
+   "title": "Miller, H. G., & Singh, V. (1994). Potential field tilt \u2014 a new concept for location of potential field sources, J. Appl. Geophys. 32(2-3), 213-217",
+   "url": "https://doi.org/10.1016/0926-9851(94)90022-1",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Defines potential-field tilt angle theta = atan2(dF/dz, |grad_H F|), equalizing shallow and deeper basement edge amplitudes."
+   ],
+   "limits": "Methodological formulation only."
+  },
+  {
+   "id": "nemhauser-minoux-1978-lazy-submodular",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "publisher": "Mathematical Programming / Lecture Notes in Computer Science",
+   "title": "Nemhauser, Wolsey & Fisher (1978) / Minoux (1978): Accelerated lazy-greedy maximization of monotone submodular facility-location coverage",
    "url": "https://doi.org/10.1007/BF01588971",
-   "accessed_utc": null,
+   "accessed_utc": "2026-10-25",
    "claims_verified": [
-    "Establishes (1 - 1/e) optimality guarantee of greedy maximization for monotone submodular set functions and exactness of CELF upper-bound pruning."
+    "Weighted max-kernel coverage TPw(S) = sum_y w(y) max_{x in S} k(d(x,y)) is monotone submodular; Minoux lazy priority-queue evaluation returns the exact greedy sequence with (1 - 1/e) optimality guarantee."
    ],
-   "limits": "Supplies mathematical optimality proof for src/gemsdoe31/submodular.py; supplies no dataset numbers."
+   "limits": "Exact optimization guarantee applies to the estimated weight field w(y), not the unseen hidden truth."
   },
   {
-   "id": "faulds-2006-ponce-glen-2002-structural-hydrothermal",
-   "class": "TRUSTED-PEER-REVIEWED",
-   "publisher": "Geothermal Resources Council Transactions / Geophysical Research Letters / Journal of Structural Geology",
-   "title": "Faulds et al. (2006, 2011), Ponce & Glen (2002), Cowie & Scholz (1992), Crider & Pollard (1998), King & Zeng (2001)",
-   "url": "https://pubs.usgs.gov/of/2008/1283/",
-   "accessed_utc": null,
+   "id": "gdr-1391-ingeniou-great-basin",
+   "class": "OFFICIAL",
+   "publisher": "DOE Geothermal Data Repository / Nevada Bureau of Mines and Geology",
+   "title": "Great Basin Play Fairway / INGENIOUS Geothermal Datasets (GDR Submission 1391, DOI 10.15121/1841825)",
+   "url": "https://gdr.openei.org/submissions/1391",
+   "accessed_utc": "2026-10-25",
    "claims_verified": [
-    "Grounds H31-HVDC physical design: >75% of Great Basin geothermal systems occupy fault terminations, step-overs, and range-front intersections; hydrothermal fluids destroy magnetite and enrich K/Th; case-control prior shift restores true spatial odds."
+    "Source provenance for 2 m temperature probes, Quaternary volcanic vents, and paleo-geothermal sinter/tufa outflow occurrences rasterized in derived_gdr_*_100m_u8.tif."
    ],
-   "limits": "Peer-reviewed geoscience and statistical methods literature; empirical holdout performance is measured independently in evidence/hvdc/hvdc_experiment_results.json."
+   "limits": "Local copies are restored from the hash-pinned repository mirror."
+  },
+  {
+   "id": "dd-gems-reference-solution-repo",
+   "class": "OFFICIAL",
+   "publisher": "DrivenData",
+   "title": "Official GEMS Prize Reference Solution Repository (drivendataorg/gems-prize-reference-solution)",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Inspected commit aebe92f7c8a9 via GitHub API: README documents Prof. John Lipor's U-Net Monte Carlo CV reference workflow; unet-mc-cv-reference-solution.ipynb on main is 0 bytes."
+   ],
+   "limits": "Reference architecture note only; no pre-trained weights or scores included."
+  },
+  {
+   "id": "SRC-DRIVENDATA-GEMS-REFERENCE-REPO",
+   "class": "OFFICIAL",
+   "publisher": "DrivenData (drivendataorg)",
+   "title": "DrivenData GEMS Prize Reference Solution (Prof. John Lipor, PyTorch Monte Carlo U-Net CV baseline)",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-25",
+   "sections_read": [
+    "README.md",
+    "unet-mc-cv-reference-solution.ipynb"
+   ],
+   "claims_verified": [
+    "Official organizer Monte Carlo U-Net cross-validation baseline at commit aebe92f7c8a9"
+   ],
+   "limits": "Does not provide private competition test labels or leaderboard receipts."
   }
- ]
+ ],
+ "current_access_audit": "2026-10-25: only GitHub sources re-fetched; non-GitHub official links remain historically recorded, not fresh verification."
 }

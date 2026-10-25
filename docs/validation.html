@@ -25,7 +25,7 @@
   </section>
 
   <main class="wrap">
-    <section>
+<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>    <section>
       <div class="section-head">
         <div><p class="kicker">Buffer</p><h2>A collar measured from the data</h2></div>
         <p>An under-buffered holdout leaks training pixels from the same fault structure and overstates generalisation to a genuinely unmapped fault.</p>
@@ -59,15 +59,15 @@
       </div>
       <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Each row deletes every evaluation cell within the collar of the training region, then rescores.</caption><thead><tr><th>collar (km)</th><th>A cat / off-cat</th><th>B cat / off-cat</th><th>D cat / off-cat</th></tr></thead><tbody><tr><td>0.00</td><td>0.1219 / 0.0689</td><td>0.1269 / 0.0705</td><td>0.1355 / 0.0644</td></tr><tr><td>0.50</td><td>0.1219 / 0.0690</td><td>0.1270 / 0.0706</td><td>0.1356 / 0.0644</td></tr><tr><td>1.00</td><td>0.1219 / 0.0691</td><td>0.1272 / 0.0707</td><td>0.1358 / 0.0644</td></tr><tr><td>2.00</td><td>0.1219 / 0.0690</td><td>0.1273 / 0.0706</td><td>0.1359 / 0.0642</td></tr><tr><td>5.00</td><td>0.1218 / 0.0693</td><td>0.1273 / 0.0707</td><td>0.1362 / 0.0641</td></tr><tr><td>10.00</td><td>0.1208 / 0.0698</td><td>0.1277 / 0.0708</td><td>0.1363 / 0.0640</td></tr><tr><td>21.25</td><td>0.1211 / 0.0715</td><td>0.1288 / 0.0714</td><td>0.1384 / 0.0641</td></tr><tr><td>30.00</td><td>0.1196 / 0.0674</td><td>0.1292 / 0.0700</td><td>0.1389 / 0.0623</td></tr></tbody></table></div>
       <p class="small">Interpretation, stated conservatively: the quadrant protocol (≈150–190 km blocks) is insensitive
-      to the collar between 0 and 30 km, so the LiDAR arm's advantage is not a short-range leakage artefact. It does
-      <strong>not</strong> license the small collars used elsewhere: those are component-level holdouts whose
+      to the collar between 0 and 30 km in this historical test. This does not prove leakage is absent or establish MAGREST's
+      residual range. It does <strong>not</strong> license the small collars used elsewhere: those are component-level holdouts whose
       geography is one to two orders of magnitude smaller than the measured range.</p>
     </section>
 
     <section id="metric">
       <div class="section-head">
         <div><p class="kicker">Metric</p><h2>The implementation is exact</h2></div>
-        <p>Every score on this site comes from a direct implementation of the official formula, not an approximation.</p>
+        <p>This historical local implementation agrees with a literal transcription of the recorded formula. That is not equivalence testing against the organizer's private scoring engine.</p>
       </div>
       <div class="content">
         <p><code>src/gemsdoe31/metric.py</code> implements the definition directly — the 29 lattice offsets whose
@@ -102,8 +102,8 @@
           <span class="badge badge-red">not usable as a selector</span></p></div>
         <div class="card"><h3>Off-catalogue discovery proxy</h3>
           <p>USGS State Geologic Map Compilation structure layers rasterised to this grid: 82,151 fault cells, of which
-          <strong>61,664 lie more than 300 m from the competition catalogue</strong>. The only populated fault population
-          in reach that is off-catalogue by construction. <span class="badge badge-green">selection instrument</span></p>
+          <strong>61,664 lie more than 300 m from the competition catalogue</strong>. Historical full-region population;
+          not the current component instrument. <span class="badge">historical proxy, not slot approval</span></p>
           <p class="small">Limit, stated plainly: SGMC faults are state-map faults of mixed age and certainty, not the
           experts' newly mapped Quaternary faults. A proxy can rank arms wrongly, which is why the arm ordering was
           checked at every threshold and both proxies are always printed.</p></div>
@@ -116,32 +116,38 @@
         <p>Nothing about the folds, the buffer, the model class or the excluded features changed between arms.</p>
       </div>
       <div class="table-wrap"><table><tbody>
-        <tr><th style="width:190px">Folds</th><td>Four spatial quadrants (row 1851, col 1639) with whole-component exclusion across boundaries and 4 whole-component hide-and-recover draws (screen=[101, 102], confirm=[201, 202], hide_frac=0.20).</td></tr>
-        <tr><th>Buffer</th><td>21,250 m (21.25 km, 213 pixels) derived from empirical within-component OOF residual semivariogram decay range (evidence/buffer_derivation.json).</td></tr>
-        <tr><th>Model</th><td>Coverage-deconfounded HistGradientBoostingClassifier ensemble (0.55 full-footprint specialist + 0.45 multi-sensor specialist combined 50/50 with fold-visible structural-hydrothermal conduit specialist) + exact King &amp; Zeng (2001) Bayes prior shift + exact 300 m CELF submodular max-cover (37,654 binary {0,1} dots outside d_vis &lt;= 2.0 px).</td></tr>
-        <tr><th>Excluded features</th><td>valid (LiDAR coverage indicator), dist_cat_km (full-catalogue leakage), dist_sgmc_km (off-catalogue proxy circularity), derived_gdr_qfaults_v2_100m_u8.tif (99.95% overlap with labels.tif).</td></tr>
-        <tr><th>Metric</th><td>Official Distance-Weighted Tversky Index (alpha=0.2, beta=0.8, 300 m linear triangular kernel, 29 lattice offsets) with pixel-exact visible masking and 1,000-replicate 20 km x 20 km spatial-tile cluster-bootstrap 95% CIs.</td></tr>
+        <tr><th style="width:190px">Folds</th><td>four equal spatial blocks (NW/NE/SW/SE) of the 3730x3292 competition grid</td></tr>
+        <tr><th>Buffer</th><td>measured from residual autocorrelation, see evidence/buffer_derivation.json; the adopted collar is read from that file rather than restated here</td></tr>
+        <tr><th>Model</th><td>HistGradientBoostingClassifier (200 trees, lr 0.08, 31 leaves) trained per fold on all catalogue pixels of the other three blocks plus 90,000 background samples</td></tr>
+        <tr><th>Excluded features</th><td>no catalogue-distance or SGMC-derived feature is used, so neither the catalogue-gap nor the off-catalogue evaluation is circular</td></tr>
+        <tr><th>Metric</th><td>official distance-weighted Tversky index, alpha=0.2, beta=0.8, R=300 m triangular kernel, verified against a literal transcription of the published sums (scripts/check_metric.py, evidence/metric_check.json)</td></tr>
       </tbody></table></div>
       <h3>Reproduce every number</h3>
       <pre>git clone https://github.com/buffedlizard55-lab/GEMSDOE31.git &amp;&amp; cd GEMSDOE31
 python -m pip install -r requirements.txt
-python scripts/download_competition_data.py --data-dir /tmp/gems_data
-python scripts/prepare_data.py --data-dir /tmp/gems_data --out-dir /tmp/gems_data/prepared
+bash scripts/download_competition_data.sh      # restore + SHA-256 verify the 11 hash-pinned inputs
+python scripts/prepare_data.py --verify-only   # grid/hash re-check; add no flag to build features.f32
 python scripts/check_metric.py                 # metric vs brute force -&gt; evidence/metric_check.json
 python scripts/derive_buffer.py                # semivariogram -&gt; evidence/buffer_derivation.json
-python scripts/run_arms.py --data-dir /tmp/gems_data --prepared-dir /tmp/gems_data/prepared --cache-dir /tmp/gems_data/hvdc_cache
-python scripts/evaluate_holdout.py docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif --data-dir /tmp/gems_data
-python scripts/build_site.py &amp;&amp; python scripts/check_site.py</pre>
+python scripts/run_union.py                    # filtering + union tables -&gt; evidence/union_results.json
+python scripts/collect_evidence.py             # hash the artifacts, rebuild registry/*.json
+python scripts/build_submission.py --dots &lt;tif&gt; --name &lt;unique-name&gt;
+python scripts/build_site.py                   # regenerate this site from the registers</pre>
       <p class="small">Nothing on this site is typed in by hand: <code>scripts/build_site.py</code> reads the JSON in
-      <code>registry/</code> and <code>evidence/</code>. Irregularity <code>IR-31-TRAINER-NOT-IN-SNAPSHOT</code> is now
-      closed: <code>scripts/run_arms.py</code> reproduces the full H31-HVDC feature cache, single-feature leakage canary,
-      all three preregistered experiments (EXP-1..3), confirmation draws, and live OOF surfaces from scratch.</p>
+      <code>registry/</code> and <code>evidence/</code>, and <code>scripts/collect_evidence.py</code> writes those JSON
+      files from the artifacts on disk. One step is <em>not</em> yet reproducible from this snapshot: the training runs
+      behind <code>evidence/arm_results.json</code> and <code>evidence/operating_point.json</code> (four arms × four
+      folds) were executed in a sibling workspace whose trainer is not in this repository. Their outputs and protocol
+      are pinned here, the fold-OOF probability maps they produced are committed in quantised form
+      (<code>evidence/oof/*_u16.npz</code>, audited in <code>evidence/oof_quantisation.json</code>), and every
+      downstream step — union, filter, metric, buffer, submission, site — reruns from those artifacts.
+      Re-implementing the trainer is the top item of remaining work.</p>
     </section>
 
   </main>
   <footer class="footer"><div class="wrap footer-inner">
     <p>Reproduce with: scripts/derive_buffer.py, scripts/check_metric.py, scripts/build_site.py.</p>
-    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+    <p><a href="feed.html">Evidence feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
   </div></footer>
 </body>
 </html>

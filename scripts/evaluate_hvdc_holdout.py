@@ -21,7 +21,7 @@ from scipy.ndimage import distance_transform_edt
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from gemsdoe31.holdout import (  # noqa: E402
+from gemsdoe31.hvdc_holdout import (  # noqa: E402
     EVALUATOR_VERSION,
     additive_dti_pixel_maps,
     check_registry_duplicate_canary,
