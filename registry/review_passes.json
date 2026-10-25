@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-25T21:54:56.775782+00:00",
+ "generated_utc": "2026-10-25T22:06:21+00:00",
  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
  "passes": [
   {
@@ -372,6 +372,56 @@
     "Scientific screen negative; no confirmation, own-method dependence range, comparable global-best win, official provenance/convention or selector approval.",
     "No slot used. PR checks/merge/Pages outcome is external GitHub evidence, not inferred from local review."
    ]
+  },
+  {
+   "id": "arena-repo-review-2026-10-25-pass1",
+   "status": "complete",
+   "scope": [
+    "read full README charter, active preregistration, latest outcome and registers",
+    "inspect site, registry, current run, TIFF/ZIP artifacts and repository state",
+    "restore all 11 pinned owner-mirror inputs and build the prepared feature stack without fitting a model"
+   ],
+   "findings": [
+    "all 11 input hashes and grids verified against the manifest; provenance remains owner-mirror, not organizer-authenticated",
+    "42-band feature stack built outside Git at data/prepared/features.f32 (2,062,898,880 bytes)",
+    "current MAGREST artifact remains negative and explicitly not for competition submission"
+   ]
+  },
+  {
+   "id": "arena-repo-review-2026-10-25-pass2",
+   "status": "complete-with-fix",
+   "scope": [
+    "review edge cases, prior-art/uniqueness claims, ZIP packaging and status language",
+    "integrate current main after PR #14 merged, preserving its registry-overlap STOP and no-submit status",
+    "fix ZIP SHA-256/byte-count omission and add archive-integrity tests"
+   ],
+   "findings_fixed": [
+    "submission registry now records SHA-256 and byte size for existing ZIPs, including the current negative artifact",
+    "tests verify archive digest, size, CRC/readability and exactly one TIFF member",
+    "site checker independently compares every registered ZIP against its stored digest/size"
+   ],
+   "open_gates": [
+    "no new model/TIFF due the literal registry STOP and exhausted experiment budget",
+    "no organizer score receipt or portal acceptance"
+   ]
+  },
+  {
+   "id": "arena-repo-review-2026-10-25-pass3",
+   "status": "complete-negative-no-new-candidate",
+   "scope": [
+    "run full local test/lint/metric/site checks and current-run independent verifier",
+    "recheck all input hashes/grids and prepared feature stack",
+    "confirm no submission, upload or selector action occurred"
+   ],
+   "verification": {
+    "pytest": "90 passed",
+    "ruff": "clean",
+    "metric": "max abs fast-vs-brute 4.441e-16 over 24 grids; 29 kernel offsets",
+    "current_run_verifier": "ok_to_download_for_research=true; ok_to_submit=false; verdict=negative",
+    "site": "20 pages; 281 local links; all checks passed",
+    "data": "11/11 manifest hashes and grids match; 42 feature bands; 2,062,898,880 bytes"
+   },
+   "decision": "no new TIFF, no experiment, no submission slot. Existing MAGREST TIFF remains research-only and DO NOT SUBMIT."
   }
  ],
  "remaining_work": [
@@ -384,9 +434,9 @@
  ],
  "current_run": "registry/current_run.json",
  "current_three_passes": [
-  "magrest-20261025-pass1-implementation",
-  "magrest-20261025-pass2-bug-and-edge-review",
-  "magrest-20261025-pass3-whole-request-and-integration"
+  "arena-repo-review-2026-10-25-pass1",
+  "arena-repo-review-2026-10-25-pass2",
+  "arena-repo-review-2026-10-25-pass3"
  ],
- "release_decision": "research download permitted; literal registry STOP and negative scientific result; DO NOT SUBMIT"
+ "release_decision": "Research-only MAGREST TIFF; literal registry STOP and negative screen; DO NOT SUBMIT. Inputs and cached 42-band stack now restored locally; no new experiment or slot."
 }
