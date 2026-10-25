@@ -65,7 +65,10 @@ def write_variants(dots: np.ndarray, footprint: np.ndarray, out_stem: Path, *, n
     zip_path = out_stem.with_name(out_stem.name + "-nan.zip")
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         archive.write(nan_path, arcname=nan_path.name)
-    return {"nan": nan_path, "allfinite": allfinite_path, "zip": zip_path}
+    zip_finite = out_stem.with_name(out_stem.name + "-allfinite.zip")
+    with zipfile.ZipFile(zip_finite, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        archive.write(allfinite_path, arcname=allfinite_path.name)
+    return {"nan": nan_path, "allfinite": allfinite_path, "zip": zip_path, "zip_allfinite": zip_finite}
 
 
 def main() -> None:

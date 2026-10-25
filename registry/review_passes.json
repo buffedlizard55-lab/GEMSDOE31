@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
  "passes": [
   {
@@ -231,9 +231,79 @@
     "re-implement the arm trainer so the whole chain reruns from a fresh clone",
     "obtain the GDR 1391 depth stack and 3DEP return attributes through the CI runner, or record them as unavailable"
    ]
+  },
+  {
+   "id": "pass-13-lane-implement-and-verify",
+   "status": "complete-for-current-artifacts",
+   "scope": [
+    "restore inputs and hash-verify them",
+    "build the 716-dot-set raster registry from owner repos",
+    "implement lane evaluator, E1-E3, calibration, gate, candidate emission, run card"
+   ],
+   "verification": {
+    "inputs": "12 pinned inputs incl. TIGER road distance (sha256 e5350423...2988); download script re-run, see evidence/data_restore.json",
+    "evaluator": "tests/test_lane.py: pooled DTI equals metric.dti (1e-9); masked visible pixels cost nothing; restrict_truth keeps the FP rule",
+    "experiments": "E1, E2 (self-declared designs), E3 (committed before running); all negative or inconclusive",
+    "gate": "scripts/submission_gate.py ran on both conventions: format and range pass, lane uniqueness and evidence fail, verdict BLOCKED",
+    "tests": "pytest 41 passed, ruff clean"
+   },
+   "open_scientific_gates": [
+    "no candidate passed its holdout gate",
+    "catalogue-shadow geometry (H4) cannot be scored by any local proxy"
+   ]
+  },
+  {
+   "id": "pass-14-bug-assumption-and-leakage-review",
+   "status": "complete-for-current-artifacts",
+   "scope": [
+    "hunt for bugs and unsupported assumptions in the lane code and the gate",
+    "leakage canary",
+    "comparator fairness"
+   ],
+   "verification": {
+    "bugs_found_and_fixed": [
+     "registry inherited scores by loose fragment (b2 variants got 0.2778), which made the first neighbour projection exactly 0.2778; exact-fragment matching with ambiguous skip",
+     "gate crashed on an empty registry; now fails closed and has a regression test",
+     "an API-quota failure overwrote the registry with 0 rasters; builder rewritten to use git",
+     "raw 3 px rule is vacuous for dense rasters; chance-adjusted rule added"
+    ],
+    "assumptions_checked": "the E3 comparator b2 was pruned against the hidden half of the catalogue, so the catalogue-gap instrument is structurally unfair to it; reported, not used to promote",
+    "leakage": "canary max AUC 0.77 (E1) and 0.737 (AS-1), below 0.90",
+    "instrument_validity": "calibration over 87 scored files: Spearman 0.32 (SGMC) and 0.11 (gap); random dots beat D28 on the gap proxy: both proxies are weak rankers"
+   },
+   "open_scientific_gates": [
+    "a family-agnostic instrument does not exist locally; only a live slot can discriminate families"
+   ]
+  },
+  {
+   "id": "pass-15-whole-request-recheck",
+   "status": "complete-with-open-work",
+   "scope": [
+    "walk the 2026-10-25 brief item by item"
+   ],
+   "verification": {
+    "unique_tif": "PARTIAL: byte-unique, format-valid, named, note 118/140; fails the lane-uniqueness gate (14 duplicates) and the evidence gate, so not cleared. A unique file that is also live-validated does not exist locally",
+    "validation_without_human": "DONE: scripts/submission_gate.py with machine-readable receipts, exit codes 0/3/2, tests",
+    "hypotheses": "DONE: 5 ranked in knowledge/2026-10-25_lane_hypotheses.md; the top-ranked (H4) was not run because it is not unique and no proxy can score it, so the 'validate the top one before a slot' rule is satisfied by not spending a slot",
+    "data_source_check": "TIGER restored and hashed; FDSN documentation page fetched; its data endpoint is not downloadable from the sandbox",
+    "lane_protocol": "followed: surface check (max Spearman 0.71 vs registry), final-dot check (duplicate found), canary, run card, negative verdict, no slot picked",
+    "budget": "3 experiments used; wall-clock exceeded two hours (not logged precisely)",
+    "research_depth": "PARTIAL: sandbox reaches only github and package hosts; two official pages were read through the fetch tool; most official sources remain links for manual review",
+    "site_readme": "DONE: README carries the brief; site shows the gate verdict at the top, executive summary, lane page, register data table, limitations",
+    "delivery": "PR from the session branch; see the PR for merge status"
+   },
+   "open_scientific_gates": [
+    "owner decision on a live-slot experiment",
+    "23 unmatched score fragments",
+    "paleoshoreline mimic untested"
+   ]
   }
  ],
  "remaining_work": [
+  "owner decision: spend one live slot as an experiment on the catalogue-shadow idea (H4), accepting an explicit uniqueness waiver",
+  "fetch the 23 score-fragment files missing from the cloned repositories so calibration covers all 111 scores",
+  "test a Lake Lahontan paleoshoreline mask against LiDAR scarp detectors (the Great Basin mimic that was not tested)",
+  "verify NaN versus zero outside-footprint acceptance with one template-identical file through the portal (owner action)",
   "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
   "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
   "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",

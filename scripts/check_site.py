@@ -10,6 +10,7 @@ Run after ``scripts/build_site.py``. Exits non-zero on any failure.
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 import unicodedata
@@ -18,7 +19,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-MAX_PAGES = 20
+MAX_PAGES = 21
 ALLOWED_STATUS_PICTOGRAMS: set[str] = set()
 
 FAILURES: list[str] = []
@@ -70,7 +71,19 @@ def main() -> None:
     index = (DOCS / "index.html").read_text()
     if "Download submission TIFF" not in index:
         fail("index.html: the one-click download button is missing")
-    for name in ("executive-summary.html", "feed.json"):
+    gate_receipt = next((DOCS / "downloads" / "blocked").glob("*-gate-allfinite.json"), None)
+    if gate_receipt is None:
+        fail("no gate receipt for the candidate download")
+    else:
+        verdict = json.loads(gate_receipt.read_text())["verdict"]
+        label = verdict.replace("_", " ")
+        for page in ("index.html", "executive-summary.html"):
+            if label not in (DOCS / page).read_text() and {"READY_TO_SUBMIT": "READY TO SUBMIT", "BLOCKED": "BLOCKED: DO NOT SUBMIT",
+                                                            "FORMAT_VALID_NOT_PROMOTED": "FORMAT VALID, NOT PROMOTED"}[verdict] not in (DOCS / page).read_text():
+                fail(f"{page}: the gate verdict {verdict} is not shown")
+        if verdict != "READY_TO_SUBMIT" and "OK to submit" in (DOCS / "index.html").read_text().replace("Is this file OK to submit?", ""):
+            fail("index.html calls a non-cleared file OK to submit")
+    for name in ("executive-summary.html", "lane.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")
 

@@ -144,6 +144,28 @@ def inventory() -> list[dict]:
     return rows
 
 
+def lane_candidate_record() -> dict | None:
+    """The lane's unique candidate with the verdict of every automated gate, copied out of the gate receipts."""
+    build_path = ROOT / "evidence" / "lane_candidate_build.json"
+    if not build_path.is_file():
+        return None
+    build = json.loads(build_path.read_text())
+    record = {"id": "lane-as1", "name": build["name"], "note_for_portal": build["note"], "note_chars": build["note_chars"],
+              "role": "unique lane candidate (AS-1). Built to exercise the gates end to end; NOT promoted.",
+              "dots": build["dots"], "dot_set_sha256": build["dot_set_sha256"], "slot_approved": False, "files": build["files"],
+              "gate_receipts": {}}
+    for key in ("allfinite", "nan"):
+        receipt_path = Path(build["files"][key]).parent / f"{build['name']}-gate-{key}.json"
+        receipt = json.loads((ROOT / receipt_path).read_text())
+        record["gate_receipts"][key] = {"receipt": str(receipt_path), "sha256": receipt["sha256"], "verdict": receipt["verdict"],
+                                        "hard_failures": receipt["hard_failures"], "evidence_failures": receipt["evidence_failures"],
+                                        "submit_recommended": receipt["submit_recommended"],
+                                        "positive_cells": receipt["positive_cells"]}
+    record["ready_to_submit"] = all(v["submit_recommended"] for v in record["gate_receipts"].values())
+    record["verdict"] = "READY_TO_SUBMIT" if record["ready_to_submit"] else record["gate_receipts"]["allfinite"]["verdict"]
+    return record
+
+
 def submissions_register() -> dict:
     receipts = {}
     for receipt in sorted((ROOT / "docs" / "downloads").glob("*-format-check.json")):
@@ -228,6 +250,8 @@ def submissions_register() -> dict:
                     }
 
     primary = next((r for r in files if r["id"] == "primary-h27-4-solo-d28"), None)
+    lane_candidate = lane_candidate_record()
+    cleared = bool(lane_candidate and lane_candidate["ready_to_submit"])
     best_research = None
     for record in files:
         if record.get("measured") and record["id"].startswith("research"):
@@ -235,18 +259,20 @@ def submissions_register() -> dict:
                 best_research = record
     return {
         "schema_version": 1,
-        "generated_utc": "2026-10-04",
+        "generated_utc": "2026-10-25",
         "policy": "Every hash and pixel count below is copied out of the format-check receipt written by "
                   "scripts/build_submission.py. Local validation is not organizer acceptance and no file "
                   "here carries an organizer receipt.",
+        "decision": "A_FILE_IS_CLEARED" if cleared else "NO_FILE_CLEARED_FOR_SUBMISSION",
+        "lane_candidate": lane_candidate,
         "current_recommended": {
             "name": primary["name"] if primary else None,
             "role": primary["role"] if primary else None,
             "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer "
                             "receipt exists in this repository",
             "slot_approved": False,
-            "reason_not_slot_approved": "It is the incumbent, not an improvement: no measured candidate beats "
-                                        "it by a margin that justifies spending the weekly slot.",
+            "reason_not_slot_approved": "It is the incumbent, not an improvement, and it is not unique (the geometry "
+                                        "was already scored by the owner): resubmitting it spends a slot for no new information.",
         },
         "best_research_candidate": {
             "name": best_research["name"] if best_research else None,
@@ -273,7 +299,7 @@ def main() -> None:
     artifacts = inventory()
     summary = {
         "schema_version": 1,
-        "generated_utc": "2026-10-04",
+        "generated_utc": "2026-10-25",
         "protocol": PROTOCOL,
         "legacy_cache_copied": copied,
         "artifacts": artifacts,

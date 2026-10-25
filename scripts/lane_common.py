@@ -8,7 +8,7 @@ from pathlib import Path
 
 import numpy as np
 import rasterio
-from scipy.ndimage import distance_transform_edt, gaussian_filter
+from scipy.ndimage import distance_transform_edt
 from scipy.stats import rankdata
 
 ROOT = Path(__file__).resolve().parents[1]

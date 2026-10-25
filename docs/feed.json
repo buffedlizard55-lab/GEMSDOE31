@@ -2,6 +2,17 @@
  "schema_version": 1,
  "project": "GEMSDOE31",
  "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
+ "decision": "NO_FILE_CLEARED_FOR_SUBMISSION",
+ "lane_candidate": {
+  "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8",
+  "verdict": "BLOCKED",
+  "ready_to_submit": false,
+  "tif_allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
+  "tif_nan": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+  "sha256_allfinite": "28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4",
+  "note": "GEMSDOE31 AS-1: LiDAR antislope-scarp dots, 38k px, off-catalogue. UNSCORED. Holdout gate failed: do not rank on this.",
+  "organizer_receipt": "none"
+ },
  "current_download": {
   "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
   "tif": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
@@ -41,7 +52,7 @@
    "id": "dd-gems-problem-format-metric",
    "class": "OFFICIAL",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
-   "accessed_utc": "2026-10-04"
+   "accessed_utc": "2026-10-25"
   },
   {
    "id": "doe-gems-official-rules",
@@ -125,7 +136,7 @@
    "id": "usgs-comcat-moment-tensor-preflight",
    "class": "OFFICIAL",
    "url": "https://earthquake.usgs.gov/fdsnws/event/1/",
-   "accessed_utc": "2026-10-04"
+   "accessed_utc": "2026-10-25"
   },
   {
    "id": "nasa-aster-ast07-cmr-preflight",
@@ -178,6 +189,7 @@
  "open_items": [
   "no organizer receipt for any score on this site",
   "no candidate has beaten the incumbent on the off-catalogue proxy by a margin worth a weekly slot",
+  "lane candidate AS-1 failed its preregistered holdout gate and the lane-uniqueness gate: no file is cleared for submission",
   "external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated"
  ]
 }

@@ -12,7 +12,7 @@
     <div class="wrap topbar-inner">
       <a class="brand" href="index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html" aria-current="page">Overview</a><a href="executive-summary.html">Executive summary</a><a href="research.html">Research</a><a href="validation.html">Validation</a><a href="register/index.html">Register</a><a href="experiments/index.html">Experiments</a><a href="sources.html">Sources</a>
+        <a href="index.html" aria-current="page">Overview</a><a href="executive-summary.html">Executive summary</a><a href="research.html">Research</a><a href="validation.html">Validation</a><a href="register/index.html">Register</a><a href="experiments/index.html">Experiments</a><a href="lane.html">Lane</a><a href="sources.html">Sources</a>
       </nav>
     </div>
   </header>
@@ -20,20 +20,21 @@
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">DOE GEMS Prize · competition 306 · auditable fault mapping</p>
-        <h1>Download the file. Submit it.</h1>
-        <p class="hero-lede">A verified, format-checked submission raster built from the best-scoring geometry this
-        project has measured, next to the measured evidence for why it scores — and what would have to change to
-        beat the leaderboard.</p>
+        <h1>Download the candidate file. Read its verdict first.</h1>
+        <p class="hero-lede"><span class="badge badge-red">BLOCKED: DO NOT SUBMIT</span> The candidate <code>gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8</code> is a single-band float32 GeoTIFF on the
+        exact competition grid. Automated gates checked its format, value range, catalogue masking, byte and lane uniqueness against
+        715 registry rasters, name, note and preregistered holdout evidence.
+        It is NOT cleared: see the failing gates on the right. Do not spend a weekly slot on it.</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif" download>Download submission TIFF</a>
-          <a class="button button-light" href="executive-summary.html">How to submit — 5 steps</a>
+          <a class="button button-primary" href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif" download>Download submission TIFF (all-finite, default)</a>
+          <a class="button button-light" href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif" download>NaN-outside twin</a>
+          <a class="button button-light" href="executive-summary.html">How to submit</a>
         </div>
       </div>
-      <aside class="hero-side" aria-label="Current state">
-        <strong>Current file · 40,199 pixels</strong>
-        <p>Single-band float32 GeoTIFF on the exact competition grid; <b>zero</b> of its pixels sit on the public
-        catalogue. Format validated in this repository (<a href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-format-check.json">receipt</a>).
-        It is the incumbent geometry, deliberately not slot-approved: nothing here beat it by a margin worth a slot.</p>
+      <aside class="hero-side" aria-label="Gate verdict">
+        <strong>Gate verdict · BLOCKED</strong>
+        <p>PASS · G1 format grid footprint<br>PASS · G2 range 0 1 no nan inside<br>PASS · G2b whole array finite in 0 1<br>PASS · G3 no emission on public catalogue<br>PASS · G3b emission size sane<br>PASS · G4 not a byte or dot set duplicate<br>FAIL · G5 unique by overlap and rank correlation<br>PASS · G6 unique name and short note<br>FAIL · G7 preregistered holdout evidence<br></p>
+        <p><a href="lane.html">Run card, hypotheses and calibration</a></p>
       </aside>
     </div>
   </section>
@@ -41,27 +42,34 @@
   <main class="wrap">
     <section>
       <div class="section-head">
-        <div><p class="kicker">Submission</p><h2>One click to a valid file</h2></div>
-        <p>The portal wants a single-band GeoTIFF (or a zip of one) matching the template's CRS, shape and
-        geotransform. This is exactly that, validated against the template in this repository.</p>
+        <div><p class="kicker">Submission</p><h2>Is this file OK to download and submit?</h2></div>
+        <p>Download: always fine, the file is format-valid. Submit: only when the verdict says READY TO SUBMIT.</p>
       </div>
       <div class="card download-card">
-        <h2>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</h2>
-        <p>Single-band float32 · EPSG:32611 · 100 m · 3730×3292 · values finite in [0,1] inside the footprint · NaN
-        outside · nodata = nan.</p>
+        <h2>gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8</h2>
+        <p><span class="badge badge-red">BLOCKED: DO NOT SUBMIT</span> · 38,000 positive pixels · EPSG:32611 · 100 m · 3730×3292 · finite in [0,1] ·
+        zero emitted on the public catalogue.</p>
         <div class="actions" style="margin-top:18px">
-          <a class="button button-primary" href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif" download>Download .tif</a>
-          <a class="button button-light" href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip" download>Download .zip</a>
-          <a class="button button-light" href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif" download>All-finite fallback</a>
+          <a class="button button-primary" href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif" download>Download .tif (all-finite)</a>
+          <a class="button button-light" href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.zip" download>Download .zip (all-finite)</a>
+          <a class="button button-light" href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif" download>NaN-outside .tif</a>
+          <a class="button button-light" href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.zip" download>NaN-outside .zip</a>
         </div>
-        <p class="download-meta">SHA-256 <code>07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40</code><br>
-        Portal note: <em>h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template</em><br>
-        40,199 positive pixels · 0 on the public catalogue ·
-        <a href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-format-check.json">format receipt</a> ·
+        <p class="download-meta">SHA-256 (all-finite) <code>28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4</code><br>
+        Portal name: <code>gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8</code><br>
+        Portal note (118/140 characters): <em>GEMSDOE31 AS-1: LiDAR antislope-scarp dots, 38k px, off-catalogue. UNSCORED. Holdout gate failed: do not rank on this.</em><br>
+        <a href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-allfinite.json">gate receipt (all-finite)</a> ·
+        <a href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-nan.json">gate receipt (NaN-outside)</a> ·
         <a href="executive-summary.html">how to submit</a></p>
       </div>
+      <div class="table-wrap"><table><thead><tr><th>gate</th><th>result</th><th>detail</th></tr></thead><tbody><tr><td><code>G1_format_grid_footprint</code></td><td><span class="badge badge-green">PASS</span></td><td>convention=all-finite; hard failures: none</td></tr><tr><td><code>G2_range_0_1_no_nan_inside</code></td><td><span class="badge badge-green">PASS</span></td><td>footprint cells 5,167,373; min=0; max=1; non-finite=0; nodata tag=nan</td></tr><tr><td><code>G2b_whole_array_finite_in_0_1</code></td><td><span class="badge badge-green">PASS</span></td><td>every one of the 12,279,160 cells is finite and within [0,1] (defends against a whole-raster range check)</td></tr><tr><td><code>G3_no_emission_on_public_catalogue</code></td><td><span class="badge badge-green">PASS</span></td><td>0 emitted cells on the 60,988 public-catalogue cells (masked by the organizer, pure waste)</td></tr><tr><td><code>G3b_emission_size_sane</code></td><td><span class="badge badge-green">PASS</span></td><td>38,000 positive cells (accepted range 1,000-250,000)</td></tr><tr><td><code>G4_not_a_byte_or_dot_set_duplicate</code></td><td><span class="badge badge-green">PASS</span></td><td>file sha256 absent in registry; identical dot set absent; 715 registry rasters compared (0 not restored)</td></tr><tr><td><code>G5_unique_by_overlap_and_rank_correlation</code></td><td><span class="badge badge-red">FAIL</span></td><td>715 compared (an empty comparison fails closed); max 500 m-block Spearman 0.582 (limit 0.9); max non-vacuous 3 px overlap 0.934 (limit 0.7); max chance-adjusted overlap 0.905; duplicates by overlap 14, by correlation 0</td></tr><tr><td><code>G6_unique_name_and_short_note</code></td><td><span class="badge badge-green">PASS</span></td><td>name ok; note 118/140 characters</td></tr><tr><td><code>G7_preregistered_holdout_evidence</code></td><td><span class="badge badge-red">FAIL</span></td><td>preregistered PROMOTE_TO_SELECTOR=False; leakage canary ok=True; evidence bound to this emission procedure=True; evaluator LANE-EVAL-1</td></tr></tbody></table></div>
+      <div class="notice notice-danger"><strong>Not an organizer score</strong> No organizer receipt exists for this file and
+      no number on this site is a leaderboard score. Download links above are for inspection; the verdict is the instruction.</div>
+      <div class="card" style="margin-top:18px"><h3>The earlier incumbent is not a new submission</h3>
+        <p><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code> (40,199 pixels, owner-reported 0.2708) is format-valid but its
+        geometry was already scored by the owner, so resubmitting it spends a slot for nothing.
+        <a href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif" download>Download for reference</a>.</p></div>
     </section>
-
     <section>
       <div class="section-head">
         <div><p class="kicker">The answer</p><h2>Why the 0.2708 submission scores</h2></div>

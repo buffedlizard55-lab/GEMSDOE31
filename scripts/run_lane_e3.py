@@ -27,9 +27,9 @@ import time
 
 import numpy as np
 from lane_candidate import BUDGET, CANDIDATE_ID, emit_candidate, surface
-from lane_common import (CELL_M, ROOT, auc, discovery_instrument, emit, holdout_instruments, lane, load_base, load_dots,
+from lane_common import (ROOT, auc, discovery_instrument, holdout_instruments, lane, load_base, load_dots,
                          load_lidar, pct_rank, write_json)
-from scipy.ndimage import distance_transform_edt, gaussian_filter
+from scipy.ndimage import gaussian_filter
 
 FRESH_SEEDS = (11, 12, 13, 14, 15)
 N_BOOT = 1000
@@ -88,7 +88,9 @@ def main() -> None:
     cand = f"{CANDIDATE_ID} (this lane)"
     b2 = "h33-2-b2 (live-best, USER-REPORTED 0.2778)"
     inc = "D28 incumbent (USER-REPORTED 0.2708)"
-    out: dict = {"evaluator": lane.EVAL_VERSION, "candidate": CANDIDATE_ID, "budget": BUDGET, "fresh_seeds": FRESH_SEEDS,
+    import hashlib
+    proc = hashlib.sha256((ROOT / "scripts/lane_candidate.py").read_bytes()).hexdigest()  # provenance only, added after the first run
+    out: dict = {"evaluator": lane.EVAL_VERSION, "candidate": CANDIDATE_ID, "candidate_procedure_sha256": proc, "budget": BUDGET, "fresh_seeds": FRESH_SEEDS,
                  "canary": canary, "groups": {}}
     gates: dict = {}
     for gname, members in groups.items():

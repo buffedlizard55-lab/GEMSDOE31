@@ -1,13 +1,60 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "policy": "Every hash and pixel count below is copied out of the format-check receipt written by scripts/build_submission.py. Local validation is not organizer acceptance and no file here carries an organizer receipt.",
+ "decision": "NO_FILE_CLEARED_FOR_SUBMISSION",
+ "lane_candidate": {
+  "id": "lane-as1",
+  "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8",
+  "note_for_portal": "GEMSDOE31 AS-1: LiDAR antislope-scarp dots, 38k px, off-catalogue. UNSCORED. Holdout gate failed: do not rank on this.",
+  "note_chars": 118,
+  "role": "unique lane candidate (AS-1). Built to exercise the gates end to end; NOT promoted.",
+  "dots": 38000,
+  "dot_set_sha256": "9b3afbc881f991998da267e10c0b0981e72aea974c176faa003eeaa7e8e7166e",
+  "slot_approved": false,
+  "files": {
+   "nan": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+   "allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
+   "zip": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.zip",
+   "zip_allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.zip"
+  },
+  "gate_receipts": {
+   "allfinite": {
+    "receipt": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-allfinite.json",
+    "sha256": "28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4",
+    "verdict": "BLOCKED",
+    "hard_failures": [
+     "G5_unique_by_overlap_and_rank_correlation"
+    ],
+    "evidence_failures": [
+     "G7_preregistered_holdout_evidence"
+    ],
+    "submit_recommended": false,
+    "positive_cells": 38000
+   },
+   "nan": {
+    "receipt": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-nan.json",
+    "sha256": "e84c5a252381294aa0f22aebd765f7b9fa0136c270617bac22d40f48cc7f5f0c",
+    "verdict": "BLOCKED",
+    "hard_failures": [
+     "G5_unique_by_overlap_and_rank_correlation"
+    ],
+    "evidence_failures": [
+     "G7_preregistered_holdout_evidence"
+    ],
+    "submit_recommended": false,
+    "positive_cells": 38000
+   }
+  },
+  "ready_to_submit": false,
+  "verdict": "BLOCKED"
+ },
  "current_recommended": {
   "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
   "role": "primary download - the best-scoring geometry this project has measured, re-emitted and re-validated here",
   "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
   "slot_approved": false,
-  "reason_not_slot_approved": "It is the incumbent, not an improvement: no measured candidate beats it by a margin that justifies spending the weekly slot."
+  "reason_not_slot_approved": "It is the incumbent, not an improvement, and it is not unique (the geometry was already scored by the owner): resubmitting it spends a slot for no new information."
  },
  "best_research_candidate": {
   "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",

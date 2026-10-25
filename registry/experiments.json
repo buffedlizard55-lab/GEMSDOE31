@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "protocol": {
   "folds": "four equal spatial blocks (NW/NE/SW/SE) of the 3730x3292 competition grid",
   "buffer": "measured from residual autocorrelation, see evidence/buffer_derivation.json; the adopted collar is read from that file rather than restated here",
@@ -32,8 +32,8 @@
   },
   {
    "path": "evidence/data_restore.json",
-   "bytes": 5835,
-   "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
+   "bytes": 5457,
+   "sha256": "6529b01a2189e1b0f94d0e0052dc54cef8b3766576dff987db7cc81ccfee6c75"
   },
   {
    "path": "evidence/h27_geometry.json",
@@ -76,6 +76,31 @@
    "sha256": "8450fc3dac29319e8a103c438477287a29582e11799ea68e6423126bb33b029a"
   },
   {
+   "path": "evidence/instrument_calibration.json",
+   "bytes": 30316,
+   "sha256": "3f11ba1d5a73713985b30761a7f0366a4dc3ea2107bda461b3f3c654cb15491e"
+  },
+  {
+   "path": "evidence/lane_candidate_build.json",
+   "bytes": 1916,
+   "sha256": "d45254422e16d3af9ac0824446f299f3e5b17bbf6249a092ba16f477f4d98e4b"
+  },
+  {
+   "path": "evidence/lane_e1.json",
+   "bytes": 15961,
+   "sha256": "a842b40cf50c38ac12d0e22462d4d918475716f2ecb2943ed3317009a342fa32"
+  },
+  {
+   "path": "evidence/lane_e2.json",
+   "bytes": 14248,
+   "sha256": "418ae4f521f7aea510b1f1153c380fb8b59549dbbaa7f98637222aa12a7d556f"
+  },
+  {
+   "path": "evidence/lane_e3.json",
+   "bytes": 6995,
+   "sha256": "6b691ab1c4f6b5cd4159984ef48a6deb1ed65fd80654a2b009cf3150dd3040a9"
+  },
+  {
    "path": "evidence/metric_check.json",
    "bytes": 5940,
    "sha256": "75a556851de64739ebf438647383415a1112ef99c342d95fedeac1a0d9830aee"
@@ -104,6 +129,11 @@
    "path": "evidence/operating_point.json",
    "bytes": 12723,
    "sha256": "013d71048e3800b8d4a32adf765d5a50df50269fe834b1dadbcab8a5f6e2f596"
+  },
+  {
+   "path": "evidence/run_card_lane_as1.json",
+   "bytes": 9203,
+   "sha256": "f91276f08c2eefbd0f228765c1abdf5d75ee38c749f263164136c4f72075faad"
   },
   {
    "path": "evidence/union_results.json",

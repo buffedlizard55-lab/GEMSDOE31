@@ -1,0 +1,48 @@
+{
+ "candidate": "AS-1",
+ "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8",
+ "note": "GEMSDOE31 AS-1: LiDAR antislope-scarp dots, 38k px, off-catalogue. UNSCORED. Holdout gate failed: do not rank on this.",
+ "note_chars": 118,
+ "dots": 38000,
+ "dot_set_sha256": "9b3afbc881f991998da267e10c0b0981e72aea974c176faa003eeaa7e8e7166e",
+ "files": {
+  "nan": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+  "allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
+  "zip": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.zip",
+  "zip_allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.zip"
+ },
+ "pre_placement_surface_check": {
+  "claim_class": "COMPUTED, label-free surface; LiDAR-valid zone only",
+  "registry_rasters_compared": 716,
+  "max_spearman_surface_vs_registry_density": 0.7111811673004941,
+  "limit": 0.9,
+  "passes": true,
+  "top5": [
+   {
+    "file": "docs/downloads/gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-allfinite.tif",
+    "spearman": 0.7111811673004941,
+    "user_reported_score": null
+   },
+   {
+    "file": "docs/downloads/gemsdoe50-h57-scarpstep-80000-20261007T1830Z-allfinite.tif",
+    "spearman": 0.6813825888937597,
+    "user_reported_score": null
+   },
+   {
+    "file": "docs/downloads/gems62-h62i-scarpcrosscut-hardcore-zeros.tif",
+    "spearman": 0.6251504052766937,
+    "user_reported_score": null
+   },
+   {
+    "file": "docs/downloads/gemsdoe50-h56-scarpdisperse-90000-allfinite.tif",
+    "spearman": 0.5845813787963349,
+    "user_reported_score": null
+   },
+   {
+    "file": "docs/downloads/diagnostics/GEMSDOE48-H57-ds-relief-augmented-20261007-e6b785718c07-diag-conflict-k.tif",
+    "spearman": 0.5338515369131955,
+    "user_reported_score": null
+   }
+  ]
+ }
+}
