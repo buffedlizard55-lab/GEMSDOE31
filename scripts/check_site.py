@@ -88,18 +88,38 @@ def main() -> None:
         fail("index.html: the no-upload-approval warning is missing")
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
-
     executive = (DOCS / "executive-summary.html").read_text()
     if "do not submit a download from this page yet" not in executive.lower():
-        fail("executive-summary.html: the no-upload-approval warning is missing")
+        fail("executive-summary.html: explicit no-upload-approval warning is missing")
+    if "Human sign-off cannot override a failed gate" not in executive:
+        fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
         if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in html_text:
             fail(f"{page_name}: H31-E2 SCGP-Submod candidate name missing")
         if "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8" not in html_text:
             fail(f"{page_name}: H31-E2 SCGP-Submod primary SHA-256 missing")
+        if "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168" not in html_text:
+            fail(f"{page_name}: H31-HVDC-Submod300 candidate name missing")
+        if "2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2" not in html_text:
+            fail(f"{page_name}: H31-HVDC-Submod300 primary SHA-256 missing")
+        if "gemsdoe31-h31m-bstep-xmod-submod-20261025-37654" not in html_text:
+            fail(f"{page_name}: H31-M BStep-XMod-Submod candidate name missing")
+        if "ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6" not in html_text:
+            fail(f"{page_name}: H31-M BStep-XMod-Submod primary SHA-256 missing")
     for name in ("executive-summary.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")
+
+    for page_name in ("index.html", "executive-summary.html", "research.html"):
+        html_text = (DOCS / page_name).read_text()
+        for card_id, label in (("scgp-submod", "H31-E2"), ("hvdc-submod", "H31-HVDC"), ("h31m-submod", "H31-M")):
+            if f'id="{card_id}"' in html_text:
+                if "RESEARCH DOWNLOAD ONLY" not in html_text or "DO NOT SUBMIT · REGISTRY STOP" not in html_text:
+                    fail(f"{page_name}: {label} research-only/registry STOP warning missing")
+                if "SUBSET ONLY — NOT UNIQUENESS APPROVAL" not in html_text:
+                    fail(f"{page_name}: {label} subset comparison incorrectly presented as broad uniqueness")
+                if "Portal Format" in html_text or "explicit human selector sign-off" in html_text:
+                    fail(f"{page_name}: {label} unsupported portal acceptance or human override wording")
 
     register = (ROOT / "registry" / "submissions.json").read_text()
     if '"slot_approved": true' in register:

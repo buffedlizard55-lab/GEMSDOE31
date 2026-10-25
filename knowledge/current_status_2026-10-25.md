@@ -2,7 +2,18 @@
 
 Read the complete owner prompt at the end of README, AGENTS, [H31-E preregistration](2026-10-25_h31e_preregistration.md), the frozen MAGREST preregistration, this record and `registry/review_passes.json` before continuing.
 
-## Latest lane (H31-E2 SCGP-Submod · `gemsdoe31-scgp-submod-37654-20261025-fa735287`)
+## Submission-safety correction (current review)
+
+No artifact is approved for submission. H31-E2's 22-comparator PASS is a historical subset result,
+not a broad-registry uniqueness pass. Literal registry STOP is binding, not merely an automatic-selector
+hold that a human can override. See [review](review_2026-10-25_submission_safety.md).
+No new experiment or TIFF is permitted in this stopped lane.
+
+## Clean-runtime repository review (Arena continuation)
+
+The local clean checkout lacked the full ignored production input/cache despite prior-session restore receipts. The exact-file verifier restored the two small inputs and registered witness, then passed; no new fit, TIFF, or slot followed. Final checks after integrating concurrent submission-safety fixes: pytest 101 passed, Ruff and compileall passed, metric equivalence max absolute difference 4.441e-16, and site check 20 pages/296 links passed. Updated review: [`repo_review_2026-10-25_arena.md`](repo_review_2026-10-25_arena.md).
+
+## Historical integrated lane (H31-E2 SCGP-Submod · `gemsdoe31-scgp-submod-37654-20261025-fa735287`)
 
 - **Primary NaN-outside GeoTIFF:** `docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif` (`d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8`); all-finite fallback `88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6`; `37,654` off-catalogue binary dots (`31.5%` beyond `1.5 km`).
 - **Automated validation gates (`evidence/h31e/run_card.json`):** `G1` Format & `[0, 1]` Range **PASS** (`0` NaN inside footprint); `G2` Single-Feature Leakage **PASS** (`max AUC = 0.7624 <= 0.90`); `G3a` Uniqueness across all 22 genuine submissions **PASS** (`max surface |ρ| = 0.1073 <= 0.90`, `max 3-px overlap = 51.53% <= 70.0%`); `G4a` Screen (`draw=101`, `21.3 km` buffer) **PASS** (`0.1274` vs `0.0922`, `+0.0352`, `4/4` quadrants); `G4b` Fresh Untouched Confirmation (`draws=[202, 303]`, `n=35,599`) **PASS** (`0.1145 [0.1071, 0.1232]` vs `0.0886`, `+0.0259`, `+29.3%`); `G5a` Piedmont SGMC **PASS** (`0.1233` vs `GEMSDOE32 H33-2-B2 = 0.1091`, `+13.0%`).

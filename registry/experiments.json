@@ -182,9 +182,59 @@
    "sha256": "a6c8a24617596e0564ef1ee813153d21265308262eb3627c165502e4bbe64d9c"
   },
   {
+   "path": "evidence/h31m_results.json",
+   "bytes": 57568,
+   "sha256": "3d4388d45a4026c4da8327c9dae3c7db755c409d97cbb90b9eddfa6611b12f28"
+  },
+  {
+   "path": "evidence/h31m_run_card.json",
+   "bytes": 8149,
+   "sha256": "f3e46d86bd5b0f301fecb49d03ddc3bf74f5ee8395f4e3c65ed6cfe5c1ebb8ab"
+  },
+  {
    "path": "evidence/h33_forensics_20261025.json",
    "bytes": 9966,
    "sha256": "8a2873d1b5a4c8b0b8c951ac0285ccf2bc5d23841923ddf846e76412c3018448"
+  },
+  {
+   "path": "evidence/hvdc/duplicate_canary_full.json",
+   "bytes": 7567,
+   "sha256": "0467b7b9ac221371614f66c7cfb6058e494bc9462dbacc0be66b1c910c473576"
+  },
+  {
+   "path": "evidence/hvdc/hvdc_experiment_results.json",
+   "bytes": 16769,
+   "sha256": "a2ab73073974be47756f9e98510706e3d5e04f5205942e3eea851960e84ec1d0"
+  },
+  {
+   "path": "evidence/hvdc/leakage_canary.json",
+   "bytes": 9708,
+   "sha256": "d06e880d1ccac8e533ada9f424777d335116e36358b3c4ed310e1d24a4d84194"
+  },
+  {
+   "path": "evidence/hvdc/run_card.json",
+   "bytes": 8344,
+   "sha256": "91a7a32b61a3d6864e1359d838ad311d410462fe885c5a43eabfa559960e53b4"
+  },
+  {
+   "path": "evidence/hvdc/shared_registry_stop_audit.json",
+   "bytes": 16290,
+   "sha256": "4aef45b882506e015bd917d88adc492f69d6d3a512f56638fb66687d6cfea350"
+  },
+  {
+   "path": "evidence/hvdc/submission_validation_receipt.json",
+   "bytes": 18092,
+   "sha256": "de660e7acad3c7ff48ae6525ec7f40c80c28f6416e769c81f67ad497e2d1aa78"
+  },
+  {
+   "path": "evidence/hvdc/validate_allfinite.json",
+   "bytes": 3614,
+   "sha256": "acb0f922617d53c5fe737dc488288a76cd6112b6f6084c51adbda57e82df14fb"
+  },
+  {
+   "path": "evidence/hvdc/validate_nan.json",
+   "bytes": 3503,
+   "sha256": "a55bf31caf12a2720c8c2031c61539a16a77a6eba23ce414f2881ef880f27e43"
   },
   {
    "path": "evidence/incumbent_filter_results.json",
@@ -480,6 +530,11 @@
    "path": "evidence/sibling_inventory_20261025.json",
    "bytes": 158255,
    "sha256": "6d81a3e1e12314b8181449666a1ed25b7fd1b5b900750767ba58efe4cf5db1d6"
+  },
+  {
+   "path": "evidence/submission_safety_review_20261025.json",
+   "bytes": 1040,
+   "sha256": "9b870a97a2428a42802637438a4ca2960ed9c65e3986e3877d321ed1eadeb502"
   },
   {
    "path": "evidence/tgj31/STOP.json",

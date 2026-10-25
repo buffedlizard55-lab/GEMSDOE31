@@ -31,7 +31,7 @@ Before changing this repository, read the entire `README.md` (including the pres
   `python scripts/check_metric.py`, `python scripts/verify_current_run.py --restore-small-inputs`,
   `python scripts/collect_evidence.py`, `python scripts/build_site.py`, `python scripts/check_site.py`.
   The verifier re-reads TIFF/ZIP bytes and reproduces pooled DTI/CI and denial gates without a human inspector.
-  `scripts/recheck_magrest.py` repeats the full scoped registry test from restored caches without a new fit/candidate.
+  `scripts/recheck_magrest.py` repeats only the original nine-download-tree comparison and requires the ignored `.cache/magrest/responses.npy`; it does not test the broad 695-raster registry. On a clean checkout that cache is unavailable and must not be recreated after the registered STOP. `scripts/verify_current_run.py --restore-small-inputs` instead re-derives the served raster's literal overlap STOP against the pinned registered counterexample.
   Update `registry/review_passes.json` with what each pass actually found.
 - Regenerate the site from the registers; never hand-edit `docs/*.html`. If a number on the site is wrong, fix the
   artifact or the generator, not the HTML.
