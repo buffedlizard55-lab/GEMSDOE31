@@ -543,6 +543,39 @@
    ]
   },
   {
+   "id": "arena-11fd7d52-safety-pass-1",
+   "status": "complete-with-scientific-stop",
+   "scope": [
+    "Inspected current and archived evidence; fixed public subset-pass/portal-acceptance wording; preserved stopped lane and research artifacts."
+   ],
+   "record": "knowledge/review_2026-10-25_submission_safety.md",
+   "new_experiments": 0,
+   "new_tiffs": 0,
+   "weekly_slots_used": 0
+  },
+  {
+   "id": "arena-11fd7d52-safety-pass-2",
+   "status": "complete-with-scientific-stop",
+   "scope": [
+    "Rechecked existing H31-E2 final support: 37641/37654 overlap; corrected nonexact 100% wording; guarded archived README generator; added presentation regression tests."
+   ],
+   "record": "knowledge/review_2026-10-25_submission_safety.md",
+   "new_experiments": 0,
+   "new_tiffs": 0,
+   "weekly_slots_used": 0
+  },
+  {
+   "id": "arena-11fd7d52-safety-pass-3",
+   "status": "complete-with-scientific-stop",
+   "scope": [
+    "Crosschecked owner requirements; 101 tests, lint, compile, metric proof, exact-file denial verifier and 20-page/296-link site checks pass; new unique submission remains blocked, not claimed complete."
+   ],
+   "record": "knowledge/review_2026-10-25_submission_safety.md",
+   "new_experiments": 0,
+   "new_tiffs": 0,
+   "weekly_slots_used": 0
+  },
+  {
    "id": "arena-2026-10-25-repo-review-pass-1",
    "status": "complete-current-runtime",
    "scope": [
@@ -556,7 +589,7 @@
     "current_run": "verified exact current raster hash; ok_to_download_for_research=true, ok_to_submit=false, verdict=negative",
     "site": "20 pages; 296 local links; all checks passed",
     "pytest_initial": "92 passed, 6 skipped before restoring the two small pinned validation inputs",
-    "pytest_final": "98 passed, 0 skipped after exact-file verifier restored those inputs"
+    "pytest_final": "101 passed, 0 skipped after restoring validation inputs and integrating the concurrent presentation-safety fixes"
    },
    "no_new_experiment_or_tiff": true
   },
@@ -567,14 +600,14 @@
     "found AGENTS.md inaccurately describing recheck_magrest.py as a full broad-registry test; code only covers the original nine downloads trees and requires ignored .cache/magrest/responses.npy",
     "confirmed clean runtime lacks the full data/cache; verifier restored only the two small validation inputs and pinned registry witness",
     "found collector console label 'best research candidate' did not identify historical proxy scope",
-    "found archived H31-E2 site card visually foregrounded its earlier narrow-scope PASS; executive summary wording could imply human selector sign-off might override a hard STOP"
+    "found archived H31-E2 site wording foregrounded a narrow-subset PASS and implied human selector authority"
    ],
    "findings_fixed": [
-    "corrected AGENTS.md scope and cache dependency description; explicitly point to verify_current_run.py for the broad pinned-counterexample STOP",
-    "clarified README audit commands and corrected stale claim that full inputs/cache exist in this runtime",
-    "changed collector console wording to 'best historical proxy research candidate (not slot-approved)'",
-    "added current-runtime review record and updated current status",
-    "updated current-site generator, automated site assertions, and README to mark archived H31-E2 DO NOT SUBMIT after broad registry STOP; state that no human selector waives a hard gate"
+    "corrected AGENTS.md scope/cache dependency and README audit command; verify_current_run.py is the clean-checkout broad-counterexample verifier",
+    "corrected stale README claim that full inputs/cache exist in this runtime",
+    "changed collector output wording to identify the best historical proxy candidate as not slot-approved",
+    "integrated upstream submission-safety correction and strengthened site wording/checks: subset uniqueness is not broad approval; no human sign-off overrides a hard stop",
+    "added current-runtime review record and updated current status"
    ],
    "no_new_experiment_or_tiff": true
   },
@@ -588,15 +621,15 @@
     },
     {
      "criterion": "Prominent download status and autonomous validator decision",
-     "status": "homepage/executive guide visibly distinguish research download from DO NOT SUBMIT; exact-file verifier independently returns ok_to_submit=false"
+     "status": "homepage/executive guide distinguish research download from DO NOT SUBMIT; exact-file verifier independently returns ok_to_submit=false"
     },
     {
      "criterion": "Candidate hypotheses and expected gain",
-     "status": "only desk backlog GRAVREST, RADREST, TERRREST from prior preregistration recorded; all remain unfit, all expected DTI gains unknown, no method is authorized in this lane"
+     "status": "only desk backlog GRAVREST, RADREST, TERRREST from prior preregistration recorded; all remain unfit, expected DTI gain unknown, and none is authorized in this lane"
     },
     {
      "criterion": "Sources and current claims",
-     "status": "no organizer page/leaderboard/receipt queried; 0.2778/0.3195/0.4413 remain unverified claims; current review labels mirror evidence and computation limits"
+     "status": "no organizer page/leaderboard/receipt queried; 0.2778/0.3195/0.4413 remain unverified claims; mirror and computed evidence are distinguished"
     }
    ],
    "remaining_blockers": [
@@ -618,9 +651,9 @@
  ],
  "current_run": "registry/current_run.json",
  "current_three_passes": [
-  "arena-repo-review-2026-10-25-pass1",
-  "arena-repo-review-2026-10-25-pass2",
-  "arena-repo-review-2026-10-25-pass3"
+  "arena-11fd7d52-safety-pass-1",
+  "arena-11fd7d52-safety-pass-2",
+  "arena-11fd7d52-safety-pass-3"
  ],
- "release_decision": "Research-only MAGREST TIFF; literal registry STOP and negative screen; DO NOT SUBMIT. Inputs and cached 42-band stack now restored locally; no new experiment or slot."
+ "release_decision": "Research-only artifacts; literal registry STOP. No new experiment/TIFF/slot in safety continuation. No human override of failed gates."
 }

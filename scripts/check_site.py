@@ -88,15 +88,10 @@ def main() -> None:
         fail("index.html: the no-upload-approval warning is missing")
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
-    if "ARCHIVED HISTORICAL RUN" not in index or "DO NOT SUBMIT · BROAD-REGISTRY LITERAL STOP" not in index:
-        fail("index.html: archived H31-E2 TIFF is not clearly research-only after the broad-registry STOP")
-    if "Download archived research TIFF (DO NOT SUBMIT)" not in index:
-        fail("index.html: archived H31-E2 download button is not explicitly marked DO NOT SUBMIT")
-
     executive = (DOCS / "executive-summary.html").read_text()
-    if "DO NOT SUBMIT any TIFF on this page" not in executive:
+    if "do not submit a download from this page yet" not in executive.lower():
         fail("executive-summary.html: explicit no-upload-approval warning is missing")
-    if "no human selector can waive a failed hard gate" not in executive:
+    if "Human sign-off cannot override a failed gate" not in executive:
         fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
         if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in html_text:
@@ -106,6 +101,16 @@ def main() -> None:
     for name in ("executive-summary.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")
+
+    for page_name in ("index.html", "executive-summary.html", "research.html"):
+        html_text = (DOCS / page_name).read_text()
+        if 'id="scgp-submod"' in html_text:
+            if "RESEARCH DOWNLOAD ONLY" not in html_text or "DO NOT SUBMIT · REGISTRY STOP" not in html_text:
+                fail(f"{page_name}: H31-E2 research-only/registry STOP warning missing")
+            if "SUBSET ONLY — NOT UNIQUENESS APPROVAL" not in html_text:
+                fail(f"{page_name}: subset comparison incorrectly presented as broad uniqueness")
+            if "Portal Format" in html_text or "explicit human selector sign-off" in html_text:
+                fail(f"{page_name}: unsupported portal acceptance or human override wording")
 
     register = (ROOT / "registry" / "submissions.json").read_text()
     if '"slot_approved": true' in register:

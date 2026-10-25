@@ -25,29 +25,31 @@
   </section>
 
   <main class="wrap">
-<div class="notice notice-danger"><strong>DO NOT SUBMIT any TIFF on this page.</strong>
-      The active MAGREST file fails the literal broad-registry overlap gate. The archived H31-E2 file also has a literal registry STOP despite passing its earlier narrow-scope format checks. Downloads are research-only; no human selector can waive a failed hard gate.</div>
+<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
+      The new H31-E2 SCGP-Submod and MAGREST artifacts are format-validated and available to download; both are research-only and fail the literal registry gate. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
       <section id="scgp-submod" aria-labelledby="scgp-heading">
-      <div class="section-head"><div><p class="kicker">ARCHIVED HISTORICAL RUN · 2026-10-25 · H31-E2</p>
-        <h2 id="scgp-heading">H31-E2 SCGP-Submod: Format Validated; DO NOT SUBMIT</h2></div>
-        <p>This older artifact passed its then-scoped format, leakage, 22-submission and holdout checks. Final review found a literal 100% overlap with a registered 5×5 calibration lattice outside that original comparison scope; it is therefore blocked, not an active candidate. Separate proxy/selector gates also remain unresolved.</p></div>
+      <div class="section-head"><div><p class="kicker">2026-10-25 Multi-Physics + 300 m Submodular Candidate · H31-E2</p>
+        <h2 id="scgp-heading">H31-E2 SCGP-Submod: Research Only · DO NOT SUBMIT</h2></div>
+        <p>Historical evidence below is not a new experiment or organizer acceptance. Local format checks pass,
+           but the broader registry gate FAILS. A pass against a selected comparator subset does not establish uniqueness.
+           The literal lattice STOP and failed mountain SGMC gate prohibit submission under the current protocol.</p></div>
       <div class="card download-card">
-        <span class="badge badge-green">FORMAT VALIDATED · OK TO DOWNLOAD FOR RESEARCH ONLY</span>
-        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · BROAD-REGISTRY LITERAL STOP</span>
+        <span class="badge badge-green">LOCAL FORMAT CHECKS PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
         <h3 style="margin-top:18px">gemsdoe31-scgp-submod-37654-20261025-fa735287</h3>
         <p>43-feature Gallardo–Meju structural cross-gradient concordance + 2D FFT upward-continuation residuals +
            seam-free Dual-Expert 1 m 3DEP LiDAR scarp polarity + GeoDAWN K/Th/U &amp; GDR-1391 paleo-sinter +
            strike-tip/relay bridge + Minoux lazy-greedy 300 m submodular DTI allocator (37,654 off-catalogue dots; 31.5% beyond 1.5 km).</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif" download>Download archived research TIFF (DO NOT SUBMIT)</a>
+          <a class="button button-primary" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif" download>Download H31-E2 Research .tif (NaN-outside)</a>
           <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.zip" download>Download Single-TIFF .zip</a>
-          <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif" download>All-finite [0, 1] fallback .tif</a>
+          <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif" download>All-finite research encoding .tif</a>
           <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-format-check.json" download>Format receipt .json</a>
         </div>
         <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {0.0, 1.0} in [0.0, 1.0] · 0 dots on public catalogue.<br>
           <strong>SHA-256 (NaN primary):</strong> <code>d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8</code><br>
           <strong>SHA-256 (All-finite):</strong> <code>88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6</code><br>
-          <strong>Unique Name:</strong> <code>gemsdoe31-scgp-submod-37654-20261025-fa735287</code><br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>gemsdoe31-scgp-submod-37654-20261025-fa735287</code><br>
           <strong>Note (79/140):</strong> <code>GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287</code></p>
       </div>
       <div class="table-wrap" style="margin-top:18px"><table>
@@ -55,14 +57,19 @@
         <tbody>
           <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {0.0, 1.0}; 0 NaN inside; 0 on catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 86 features</td><td>max AUC = 0.7624 across 86 features</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G3a · 22 Genuine Submissions</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = 0.1073; max 3-px overlap = 51.53% (concurrent lanes ≤ 45.24%)</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>100.00% (5×5 lattice covers 100% of Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G3a · Historical 22-comparator subset</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = 0.1073; max 3-px overlap = 51.53% (concurrent lanes ≤ 45.24%)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>99.9655% of final H31-E2 dots (37,641 / 37,654); read-only byte audit, not a new experiment</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
           <tr><td><code>G4a · Screen (draw=101, 21.3 km)</code></td><td>Paired ΔDTI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI 0.1274 vs 0.0922 (+0.0352, 4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G4b · Fresh Confirm (draws 202,303)</code></td><td>Untouched draws, n = 35,599, 95% CI &gt; 0</td><td>HOLDOUT-DTI 0.1145 [0.1071, 0.1232] vs 0.0886 (+0.0259, +29.3%)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Quaternary piedmont habitat (det_elev ≤ +50 m)</td><td>0.1233 vs Baseline-D 0.1147 and GEMSDOE32 H33-2-B2 0.1091 (+13.0%)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5b · All-Elevation Mountain SGMC</code></td><td>Strict pre-declared &gt; H33-2-B2 (0.0940) across mountain SGMC</td><td>0.0816 vs Baseline-D 0.0718 (+13.6%), &lt; H33 0.0940</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
         </tbody>
       </table></div>
+      <p class="small">These are historical HOLDOUT-DTI/proxy results, not competition scores.
+        Holdout evaluator: gemsdoe31-hide-v2.0; screen n=17,900, confirmation n=35,599 withheld positives.
+        The inherited 21.3 km collar is not a newly measured candidate-specific correlation range.
+        Proxy independence and a same-instrument global-best comparison are not established.
+        See linked receipts for intervals; no high-score claim follows from these figures.</p>
       <p class="small">Full artifact &amp; 3-experiment log (including stopped Exp 1 proximity-halo audit and Exp 2 submodular +0.0372 ablation):
         <a href="experiments/12-h31e-scgp-submod.html">Experiment 12 · H31-E2 SCGP-Submod</a>.</p>
     </section>

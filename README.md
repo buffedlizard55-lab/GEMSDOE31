@@ -1,21 +1,18 @@
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
-> ### ARCHIVED · 2026-10-25 · H31-E2 SCGP-Submod (`gemsdoe31-scgp-submod-37654-20261025-fa735287`)
+> ### Current decision — research downloads only; DO NOT SUBMIT
 >
-> - **Historical narrow-scope checks passed, but final broad-registry review found a literal 100% 3-px overlap STOP. OK TO DOWNLOAD FOR RESEARCH ONLY. DO NOT SUBMIT.** The historical G1/G2/G3a/G4/G5a passes below do not override the unexempted 695-raster registry control or separate selector gates.
-> - **No submission slot is approved.** The strict predeclared **`G5b`** mountain SGMC gate (`0.0816` vs `0.0940` `H33-2-B2`) and unexempted `57GEMSDOE` `r13-lattice-s5` registry STOP remain. No human selector can waive a failed hard gate.
-> - [**Download archived H31-E2 research GeoTIFF (`-nan.tif`) — DO NOT SUBMIT**](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif) (`d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8`) ·
->   [Single-TIFF ZIP](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.zip) ·
->   [All-finite `[0, 1]` fallback (`-allfinite.tif`)](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif) (`88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6`) ·
->   [Format receipt](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-format-check.json) ·
->   [H31-E2 JSON Run Card](evidence/h31e/run_card.json) ·
->   [H31-E Preregistration (`H31-E`..`H31-I`)](knowledge/2026-10-25_h31e_preregistration.md).
-> - **`21.3 km`-Buffered Whole-Segment Holdout (`gemsdoe31-hide-v2.0`):**
->   - **Screen (`draw=101`, `17,900` withheld positives):** `HOLDOUT-DTI = 0.1274` (`95% CI [0.1117, 0.1442]`) vs `0.0922` `Baseline-D-Poisson` (**`+0.0352`, `+38.2%`, winning `4/4` spatial quadrants**).
->   - **Fresh Untouched Confirmation (`draws=[202, 303]`, `35,599` withheld positives):** `HOLDOUT-DTI = 0.1145` (`95% CI [0.1071, 0.1232]`) vs `0.0886` `Baseline-D-Poisson` (**`+0.0259`, `+29.3%`, `95% CI [+0.0167, +0.0355]`**).
->   - **Off-Catalogue Proxies & Uniqueness (`37,654` dots, `31.5%` beyond `1.5 km`):** **Piedmont SGMC `DTI = 0.1233`** vs `GEMSDOE32 H33-2-B2 = 0.1091` (**`+13.0%`**); max single-feature leakage `AUC = 0.7624 <= 0.90`; max surface `|ρ| = 0.1073 <= 0.90` and max 3-px dot overlap `= 51.53% <= 70.0%` across all 22 genuine submissions (`GEMSDOE24..36, 70` + concurrent `TGJ31`, `AS-1`, `H31-B`, `H31-E surfexpr`, `MAGREST`).
->   - **Note (`79/140` chars):** `GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287`.
-
+> **No current artifact is approved for competition submission.** Format validity is not uniqueness,
+> scientific promotion, or organizer acceptance. The literal shared-registry overlap gate fails.
+> No human sign-off can override that failure under the current protocol.
+>
+> H31-E2 SCGP-Submod is preserved as historical negative research, not a new experiment in this session.
+> Its 22-comparator subset passed, but that subset excluded a registered lattice that triggers STOP.
+> [Research-only H31-E2 TIFF](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif) ·
+> [Historical run card](evidence/h31e/run_card.json) · [Review correction](knowledge/review_2026-10-25_submission_safety.md).
+> The earlier H31-E2 confirmation belongs to a different evaluator/instrument from MAGREST;
+> it does not establish a same-protocol global-best win or authorize a weekly slot.
+>
 > **2026-10-25 · NEWLY COMPUTED RESEARCH TIFF · LITERAL REGISTRY STOP.**
 > **OK TO DOWNLOAD FOR RESEARCH. NOT APPROVED FOR SUBMISSION.**
 > [**Download the new MAGREST GeoTIFF**](docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif) ·
@@ -61,7 +58,7 @@ registry witness were restored for this review. Do not restart a stopped lane or
 | Historical experiment log (11 pages); current three-variant result | [archive](docs/experiments/index.html) · [MAGREST research](docs/research.html) |
 | Machine-readable state | [`feed.json`](docs/feed.json) · [`registry/`](registry/) · [`evidence/`](evidence/) |
 | Previous repository review | [2026-10-25 review](knowledge/repo_review_2026-10-25.md) |
-| Latest clean-runtime repository review, blockers, and next actions | [Arena review](knowledge/repo_review_2026-10-25_arena.md) |
+| Latest clean-runtime review | [Arena review](knowledge/repo_review_2026-10-25_arena.md) |
 | Latest status / score audit | [Current status](knowledge/current_status_2026-10-25.md) · [MAGREST review](knowledge/session_review_2026-10-25_magrest.md) · [irregularity register](registry/irregularities.json) |
 | AI-use disclosure draft for the narrative | [ai-disclosure](docs/ai-disclosure.html) |
 
@@ -222,11 +219,8 @@ python -m venv .venv
 # Read-only scientific audit if the original ignored inputs/cache are needed:
 .venv/bin/python scripts/download_competition_data.py
 .venv/bin/python scripts/prepare_template_cache.py   # unchanged shared cache_bands; all 19 hashes must match
-# Optional historical recheck only when the original ignored response cache exists.
-# It covers the original nine downloads trees, not the broad 695-raster registry.
-# Do not regenerate/re-fit responses after the literal STOP.
-.venv/bin/python scripts/recheck_magrest.py
-# The clean-checkout broad STOP verification is included in verify_current_run.py above.
+.venv/bin/python scripts/recheck_magrest.py          # original nine-tree scope only; not broad approval
+.venv/bin/python scripts/audit_shared_registry_stop.py # audit frozen surfaces/supports; no fit or TIFF
 # run_magrest.py now refuses every stage because the broad registry STOP is recorded.
 ```
 

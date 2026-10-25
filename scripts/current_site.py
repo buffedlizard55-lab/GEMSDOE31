@@ -41,26 +41,28 @@ def scgp_download_and_gates() -> str:
     sha_fin = esc(rc["raster_sha256"]["allfinite_fallback"])
     note = esc(rc["note"])
     return f'''<section id="scgp-submod" aria-labelledby="scgp-heading">
-      <div class="section-head"><div><p class="kicker">ARCHIVED HISTORICAL RUN · 2026-10-25 · H31-E2</p>
-        <h2 id="scgp-heading">H31-E2 SCGP-Submod: Format Validated; DO NOT SUBMIT</h2></div>
-        <p>This older artifact passed its then-scoped format, leakage, 22-submission and holdout checks. Final review found a literal 100% overlap with a registered 5×5 calibration lattice outside that original comparison scope; it is therefore blocked, not an active candidate. Separate proxy/selector gates also remain unresolved.</p></div>
+      <div class="section-head"><div><p class="kicker">2026-10-25 Multi-Physics + 300 m Submodular Candidate · H31-E2</p>
+        <h2 id="scgp-heading">H31-E2 SCGP-Submod: Research Only · DO NOT SUBMIT</h2></div>
+        <p>Historical evidence below is not a new experiment or organizer acceptance. Local format checks pass,
+           but the broader registry gate FAILS. A pass against a selected comparator subset does not establish uniqueness.
+           The literal lattice STOP and failed mountain SGMC gate prohibit submission under the current protocol.</p></div>
       <div class="card download-card">
-        <span class="badge badge-green">FORMAT VALIDATED · OK TO DOWNLOAD FOR RESEARCH ONLY</span>
-        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · BROAD-REGISTRY LITERAL STOP</span>
+        <span class="badge badge-green">LOCAL FORMAT CHECKS PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
         <h3 style="margin-top:18px">{sub_name}</h3>
         <p>43-feature Gallardo–Meju structural cross-gradient concordance + 2D FFT upward-continuation residuals +
            seam-free Dual-Expert 1 m 3DEP LiDAR scarp polarity + GeoDAWN K/Th/U &amp; GDR-1391 paleo-sinter +
            strike-tip/relay bridge + Minoux lazy-greedy 300 m submodular DTI allocator (37,654 off-catalogue dots; 31.5% beyond 1.5 km).</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/{sub_name}-nan.tif" download>Download archived research TIFF (DO NOT SUBMIT)</a>
+          <a class="button button-primary" href="downloads/{sub_name}-nan.tif" download>Download H31-E2 Research .tif (NaN-outside)</a>
           <a class="button" href="downloads/{sub_name}-nan.zip" download>Download Single-TIFF .zip</a>
-          <a class="button" href="downloads/{sub_name}-allfinite.tif" download>All-finite [0, 1] fallback .tif</a>
+          <a class="button" href="downloads/{sub_name}-allfinite.tif" download>All-finite research encoding .tif</a>
           <a class="button" href="downloads/{sub_name}-format-check.json" download>Format receipt .json</a>
         </div>
         <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {{0.0, 1.0}} in [0.0, 1.0] · 0 dots on public catalogue.<br>
           <strong>SHA-256 (NaN primary):</strong> <code>{sha_nan}</code><br>
           <strong>SHA-256 (All-finite):</strong> <code>{sha_fin}</code><br>
-          <strong>Unique Name:</strong> <code>{sub_name}</code><br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>{sub_name}</code><br>
           <strong>Note ({rc['submission_note_chars']}/140):</strong> <code>{note}</code></p>
       </div>
       <div class="table-wrap" style="margin-top:18px"><table>
@@ -68,14 +70,19 @@ def scgp_download_and_gates() -> str:
         <tbody>
           <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {{0.0, 1.0}}; 0 NaN inside; 0 on catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 86 features</td><td>max AUC = {rc['leakage_canary']['max_single_feature_auc']:.4f} across {rc['leakage_canary']['features_tested']} features</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G3a · 22 Genuine Submissions</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = {cov['max_surface_spearman_rho']:.4f}; max 3-px overlap = {100*cov['max_final_dots_within_3px']:.2f}% (concurrent lanes ≤ {100*cov['max_final_dots_within_3px_concurrent_discrete_lanes']:.2f}%)</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>100.00% (5×5 lattice covers 100% of Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G3a · Historical 22-comparator subset</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = {cov['max_surface_spearman_rho']:.4f}; max 3-px overlap = {100*cov['max_final_dots_within_3px']:.2f}% (concurrent lanes ≤ {100*cov['max_final_dots_within_3px_concurrent_discrete_lanes']:.2f}%)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>99.9655% of final H31-E2 dots (37,641 / 37,654); read-only byte audit, not a new experiment</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
           <tr><td><code>G4a · Screen (draw=101, 21.3 km)</code></td><td>Paired ΔDTI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI {scr['h31e_scgp_submod']['pooled_dti']:.4f} vs {scr['baseline_d_poisson']['pooled_dti']:.4f} (+{scr['paired_delta_dti']:.4f}, {scr['folds_won_out_of_4']}/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G4b · Fresh Confirm (draws 202,303)</code></td><td>Untouched draws, n = {conf['withheld_positives_pooled']:,}, 95% CI &gt; 0</td><td>HOLDOUT-DTI {conf['h31e_scgp_submod_pooled_dti']:.4f} [{conf['h31e_scgp_submod_ci95'][0]:.4f}, {conf['h31e_scgp_submod_ci95'][1]:.4f}] vs {conf['baseline_d_poisson_pooled_dti']:.4f} (+{conf['paired_delta_dti']:.4f}, +29.3%)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Quaternary piedmont habitat (det_elev ≤ +50 m)</td><td>{pied['h31e_scgp_submod_dti']:.4f} vs Baseline-D {pied['baseline_d_poisson_dti']:.4f} and GEMSDOE32 H33-2-B2 {pied['h33_2_b2_reference_dti']:.4f} (+13.0%)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5b · All-Elevation Mountain SGMC</code></td><td>Strict pre-declared &gt; H33-2-B2 (0.0940) across mountain SGMC</td><td>{all_sgmc['h31e_scgp_submod_dti']:.4f} vs Baseline-D {all_sgmc['baseline_d_poisson_dti']:.4f} (+13.6%), &lt; H33 {all_sgmc['h33_2_b2_reference_dti']:.4f}</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
         </tbody>
       </table></div>
+      <p class="small">These are historical HOLDOUT-DTI/proxy results, not competition scores.
+        Holdout evaluator: gemsdoe31-hide-v2.0; screen n=17,900, confirmation n=35,599 withheld positives.
+        The inherited 21.3 km collar is not a newly measured candidate-specific correlation range.
+        Proxy independence and a same-instrument global-best comparison are not established.
+        See linked receipts for intervals; no high-score claim follows from these figures.</p>
       <p class="small">Full artifact &amp; 3-experiment log (including stopped Exp 1 proximity-halo audit and Exp 2 submodular +0.0372 ablation):
         <a href="experiments/12-h31e-scgp-submod.html">Experiment 12 · H31-E2 SCGP-Submod</a>.</p>
     </section>'''
@@ -166,8 +173,8 @@ def overview(card):
 
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
-    return f'''<div class="notice notice-danger"><strong>DO NOT SUBMIT any TIFF on this page.</strong>
-      The active MAGREST file fails the literal broad-registry overlap gate. The archived H31-E2 file also has a literal registry STOP despite passing its earlier narrow-scope format checks. Downloads are research-only; no human selector can waive a failed hard gate.</div>
+    return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
+      The new H31-E2 SCGP-Submod and MAGREST artifacts are format-validated and available to download; both are research-only and fail the literal registry gate. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
       {scgp_download_and_gates()}
       {download(card)}
       <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>

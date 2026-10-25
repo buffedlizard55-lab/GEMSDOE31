@@ -13,7 +13,7 @@ The reported H33-2-B2 value `0.2778` remains **USER-REPORTED**, not ORGANIZER-CO
 ### Pass 1 — inspect and verify
 
 - Read the full README and owner prompt, `AGENTS.md`, current status, current run card, all review-pass records, and the frozen MAGREST preregistration before assessing work.
-- Installed the pinned environment from `requirements.txt`. Before restoring the two small validation inputs, pytest reported **92 passed, 6 skipped**; after restore, the complete final suite reported **98 passed, 0 skipped**. The skips were limited to checks requiring the two pinned small inputs and did not indicate test failures.
+- Installed the pinned environment from `requirements.txt`. Before restoring the two small validation inputs, pytest reported **92 passed, 6 skipped**; after restore and integration with the concurrent submission-safety fixes, the complete final suite reported **101 passed, 0 skipped**. The skips were limited to checks requiring the two pinned small inputs and did not indicate test failures.
 - Ruff passed; `compileall` passed; the metric cross-check's maximum absolute fast-vs-brute difference was `4.441e-16` across 24 random grids and two exact cases.
 - `verify_current_run.py --restore-small-inputs` passed and correctly returned a negative/no-submit decision for the served TIFF. Site regeneration and `check_site.py` passed for 20 pages and 296 local links.
 
