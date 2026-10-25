@@ -159,6 +159,10 @@ def validate_submission(
                 "nan_mask_matches_template", True,
                 "not required under the all-finite convention", hard=False,
             )
+            checks["outside_footprint_zero"] = _check(
+                "outside_footprint_zero", bool(np.all(outside == 0.0)),
+                "all-finite convention requires exactly zero outside the template footprint",
+            )
             finite_everywhere = bool(np.isfinite(values).all())
             in_range = bool(values.min() >= 0.0 and values.max() <= 1.0)
             checks["allfinite_values_in_0_1"] = _check(

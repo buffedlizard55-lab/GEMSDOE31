@@ -154,6 +154,115 @@
    "action": "Updated AGENTS.md and scripts/run_h31.py to use one EXPECTED_BRANCH constant for arena/01a1050e-gemsdoe31; added tests for accept/reject behavior."
   },
   {
+   "id": "IR-31-LITERAL-UNIVERSAL-BLOCKER",
+   "severity": "critical",
+   "status": "open",
+   "summary": "A full-support GEMSDOE48 prior makes the unchanged finite-positive/3px/70% rule fail for every nonempty candidate.",
+   "evidence": [
+    "evidence/tgj31/registry_universal_blocker.json"
+   ],
+   "action": "Stop promotion; do not invent a density exemption or rerun TGJ31."
+  },
+  {
+   "id": "IR-31-REGISTRY-INCOMPLETE-20261025",
+   "severity": "high",
+   "status": "open",
+   "summary": "286 raster paths are unavailable; one of 87 focus byte-distinct files is off-grid and remains an explicit error.",
+   "evidence": [
+    "registry/prior_raster_snapshot.json"
+   ],
+   "action": "Recover missing pinned objects and retain errors; no completeness or uniqueness clearance."
+  },
+  {
+   "id": "IR-31-ASSIGNED-LANE-MISSING",
+   "severity": "high",
+   "status": "open",
+   "summary": "The prompt references an assigned paragraph but supplies none. TGJ31 is a declared audit lane, not an assignment.",
+   "evidence": [
+    "knowledge/2026-10-25_transfer_preregistration.md"
+   ],
+   "action": "No promotion without actual owner assignment."
+  },
+  {
+   "id": "IR-31-TGJ31-METRIC-NEGATIVE",
+   "severity": "high",
+   "status": "closed-negative",
+   "summary": "Frozen TGJ31 loses to the same-input amplitude control and wins only one quadrant; controls have different confidence mass.",
+   "evidence": [
+    "evidence/tgj31/decision.json"
+   ],
+   "action": "Preserve negative artifact; no retuning or submission."
+  },
+  {
+   "id": "IR-31-H33-SCORE-INSTRUMENT",
+   "severity": "high",
+   "status": "open",
+   "summary": "User H33 result and current-high values lack receipts; source LM arithmetic/calibration differs from shared pooled max-credit arithmetic.",
+   "evidence": [
+    "evidence/metric_instrument_audit_20261025.json"
+   ],
+   "action": "Quarantine claims; do not use source projections as scores."
+  },
+  {
+   "id": "IR-31-LEGACY-STATIC-LEAKAGE-CHANNELS",
+   "severity": "high",
+   "status": "fixed-for-new-preparation",
+   "summary": "Legacy preparation had full-catalogue/SGMC distance channels and unmasked sentinel reads. Active TGJ31 never used this stack.",
+   "evidence": [
+    "scripts/prepare_data.py"
+   ],
+   "action": "Use unchanged shared cache; derive future catalogue features only from visible folds and rerun canaries."
+  },
+  {
+   "id": "IR-31-PAGES-SETTINGS-PERMISSION",
+   "severity": "medium",
+   "status": "open-permission-limit",
+   "summary": "The integration cannot change Pages build type (HTTP403); main/root legacy is configured.",
+   "evidence": [
+    "knowledge/2026-10-25_three_pass_review.md"
+   ],
+   "action": "Publish only from configured main source and verify actual Actions deployment; do not claim settings changed."
+  },
+  {
+   "id": "IR-31-H33-2-B2-DUPLICATE",
+   "severity": "high",
+   "status": "duplicate-stop",
+   "summary": "The GEMSDOE32 H33-2-B2 prior-art geometry exceeds the registered duplicate canary against a GEMSDOE31 registry raster and must not be regenerated or treated as a unique candidate.",
+   "evidence": [
+    "Inspected public owner-mirror GEMSDOE32 main at commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc; artifact SHA-256 c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9.",
+    "Against the finite footprint of the local H27-4 raster, computed Spearman rho=0.967587, 37,654/37,654 candidate-positive cells within 3 pixels, and 37,654 exact shared positives.",
+    "The owner-mirror archive labels the artifact UNSCORED; the user-provided 0.2778 score claim is not linked to an organizer receipt in the inspected archive."
+   ],
+   "impact": "This method is not unique relative to the local registered raster set under the preregistered correlation/overlap rule. No new TIFF can be created from it or submitted.",
+   "action": "Stop the duplicate lane. Preserve the source only as learning/prior-art evidence; choose and validate a distinct geological mechanism only after restoring the hash-pinned runtime data and cached stack."
+  },
+  {
+   "id": "IR-31-H33-B2-HOLDOUT-LABEL-LEAKAGE",
+   "severity": "high",
+   "status": "owner-mirror-protocol-warning",
+   "summary": "The inspected GEMSDOE32 H33 holdout path builds the H33-2 catalogue-flank removal from full labels before evaluating fixed candidate masks against hidden components; it does not appear to recompute the catalogue-derived removal using only fold-visible faults.",
+   "evidence": [
+    "Owner-mirror code at commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc: scripts/run_h33_validation.py reads labels and calls compute_h33_2_flank_sweep(base, labels, d_cat, buffers=(2,3)).",
+    "src/gems32/hypotheses33.py compute_h33_2_flank_sweep derives d_cat from labels when not supplied and removes base cells using d_cat.",
+    "src/gems32/holdout.py load_holdout_context hides components for the scoring context, but evaluate_candidate_holdout receives a prebuilt static candidate mask."
+   ],
+   "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project\u2019s preregistered rules. Bias direction is not assumed.",
+   "action": "Do not use the owner-mirror H33 holdout result to promote this method. Any future catalogue-based processing must be rebuilt per fold from visible segments, mask visible faults pixel-exactly, and be tested under the registered evaluator."
+  },
+  {
+   "id": "IR-31-H33-ZERO-OUTSIDE",
+   "severity": "medium",
+   "status": "owner-mirror-format-mismatch",
+   "summary": "The inspected GEMSDOE32 H33-2-B2 -zeros GeoTIFF stores finite zeros outside the submission footprint and has no nodata tag, while the official problem-page format states values outside the bounds must be null/NaN.",
+   "evidence": [
+    "Read-only inspection of the public owner-mirror raster at GEMSDOE32 commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc: one float32 band, EPSG:32611, competition-grid transform/shape, no nodata tag, all 7,111,787 cells outside the local pinned footprint finite and equal to zero.",
+    "registry/sources.json records the official DrivenData problem-page convention: values outside the competition footprint are null/NaN.",
+    "The official sample template is absent in this workspace; the owner-mirror validation receipt is not an organizer validation receipt."
+   ],
+   "impact": "This variant does not match the recorded official outside-footprint convention. No claim is made that zero-filled outside values improve the score or were accepted by the organizer.",
+   "action": "Do not use this as a submission format exemplar. For any future candidate use NaN/null outside as specified and validate against an authorized exact sample template; retain all-finite zeros only as a clearly labeled defensive comparison if separately allowed."
+  },
+  {
    "id": "IR-31-LANE-0.4413-PROXY",
    "severity": "medium",
    "status": "open",
@@ -235,43 +344,17 @@
    "action": "Only the template footprint is used."
   },
   {
-   "id": "IR-31-H33-2-B2-DUPLICATE",
+   "id": "IR-31-ARCHIVED-AS1-UNVALIDATED-SLOT-SUGGESTIONS",
    "severity": "high",
-   "status": "duplicate-stop",
-   "summary": "The GEMSDOE32 H33-2-B2 prior-art geometry exceeds the registered duplicate canary against a GEMSDOE31 registry raster and must not be regenerated or treated as a unique candidate.",
+   "status": "archived-not-adopted",
+   "summary": "Concurrent AS-1 notes suggest live probe slots and a uniqueness waiver; these conflict with current fail-closed promotion rules and are not adopted.",
    "evidence": [
-    "Inspected public owner-mirror GEMSDOE32 main at commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc; artifact SHA-256 c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9.",
-    "Against the finite footprint of the local H27-4 raster, computed Spearman rho=0.967587, 37,654/37,654 candidate-positive cells within 3 pixels, and 37,654 exact shared positives.",
-    "The owner-mirror archive labels the artifact UNSCORED; the user-provided 0.2778 score claim is not linked to an organizer receipt in the inspected archive."
+    "knowledge/2026-10-25_lane_hypotheses.md",
+    "knowledge/upstream_AS1_README_2026-10-25.md"
    ],
-   "impact": "This method is not unique relative to the local registered raster set under the preregistered correlation/overlap rule. No new TIFF can be created from it or submitted.",
-   "action": "Stop the duplicate lane. Preserve the source only as learning/prior-art evidence; choose and validate a distinct geological mechanism only after restoring the hash-pinned runtime data and cached stack."
-  },
-  {
-   "id": "IR-31-H33-B2-HOLDOUT-LABEL-LEAKAGE",
-   "severity": "high",
-   "status": "owner-mirror-protocol-warning",
-   "summary": "The inspected GEMSDOE32 H33 holdout path builds the H33-2 catalogue-flank removal from full labels before evaluating fixed candidate masks against hidden components; it does not appear to recompute the catalogue-derived removal using only fold-visible faults.",
-   "evidence": [
-    "Owner-mirror code at commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc: scripts/run_h33_validation.py reads labels and calls compute_h33_2_flank_sweep(base, labels, d_cat, buffers=(2,3)).",
-    "src/gems32/hypotheses33.py compute_h33_2_flank_sweep derives d_cat from labels when not supplied and removes base cells using d_cat.",
-    "src/gems32/holdout.py load_holdout_context hides components for the scoring context, but evaluate_candidate_holdout receives a prebuilt static candidate mask."
-   ],
-   "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project\u2019s preregistered rules. Bias direction is not assumed.",
-   "action": "Do not use the owner-mirror H33 holdout result to promote this method. Any future catalogue-based processing must be rebuilt per fold from visible segments, mask visible faults pixel-exactly, and be tested under the registered evaluator."
-  },
-  {
-   "id": "IR-31-H33-ZERO-OUTSIDE",
-   "severity": "medium",
-   "status": "owner-mirror-format-mismatch",
-   "summary": "The inspected GEMSDOE32 H33-2-B2 -zeros GeoTIFF stores finite zeros outside the submission footprint and has no nodata tag, while the official problem-page format states values outside the bounds must be null/NaN.",
-   "evidence": [
-    "Read-only inspection of the public owner-mirror raster at GEMSDOE32 commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc: one float32 band, EPSG:32611, competition-grid transform/shape, no nodata tag, all 7,111,787 cells outside the local pinned footprint finite and equal to zero.",
-    "registry/sources.json records the official DrivenData problem-page convention: values outside the competition footprint are null/NaN.",
-    "The official sample template is absent in this workspace; the owner-mirror validation receipt is not an organizer validation receipt."
-   ],
-   "impact": "This variant does not match the recorded official outside-footprint convention. No claim is made that zero-filled outside values improve the score or were accepted by the organizer.",
-   "action": "Do not use this as a submission format exemplar. For any future candidate use NaN/null outside as specified and validate against an authorized exact sample template; retain all-finite zeros only as a clearly labeled defensive comparison if separately allowed."
+   "action": "No probe is risk-free; user-reported calibration does not authenticate acceptance. Preserve the blocked candidate, but require actual owner assignment, complete literal gates, comparable-best confirmation and separate cap-aware selector before any slot."
   }
- ]
+ ],
+ "concurrent_upstream_review": "PRs #8/#9, origin/main 4371416; retained as separate-checkout historical findings. TGJ31 current state is in evidence/tgj31/run_card.json.",
+ "concurrent_as1_source": "PR #11 at main 946558c; separate-lane artifacts and experiments retained, not run by TGJ31."
 }

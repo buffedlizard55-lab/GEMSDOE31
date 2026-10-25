@@ -233,6 +233,44 @@
    ]
   },
   {
+   "id": "20261025-pass-1",
+   "status": "complete-with-open-promotion-gates",
+   "scope": "Implement, preregister and execute one frozen audit",
+   "checks": [
+    "preregistration f6dde77 precedes implementation b9be6ef and run",
+    "11 inputs verified, original shared19-band cache, 24 shared source files unchanged",
+    "new physical TIFF/ZIP, whole-fault hide-and-recover, feature canaries, pooled CIs, two format validators",
+    "one experiment, literal registry STOP, zero slots"
+   ],
+   "evidence": "knowledge/2026-10-25_three_pass_review.md"
+  },
+  {
+   "id": "20261025-pass-2",
+   "status": "complete-with-open-promotion-gates",
+   "scope": "Review bugs, assumptions and edge cases",
+   "checks": [
+    "reject range/nonfinite inputs without clipping; exact grids and <=140-character notes",
+    "remove full-catalogue/SGMC static channels; masked sentinel-safe legacy preparation",
+    "repair source/presentation mismatches, missing links and null access dates",
+    "API-only restore and partial cleanup; exact surface/TIFF reconstruction",
+    "real desktop/mobile one-click SHA smoke and dated metadata fallback"
+   ],
+   "evidence": "knowledge/2026-10-25_three_pass_review.md"
+  },
+  {
+   "id": "20261025-pass-3",
+   "status": "complete-with-open-promotion-gates",
+   "scope": "Cross-check full request after cumulative fixes",
+   "checks": [
+    "66 tests passed, lint passed, 20 pages/305 local links pass",
+    "complete owner prompt in README and values preserved",
+    "newly computed content is not protocol-unique; scientific/provenance gates stay blocked",
+    "format/science/slot separated; no organizer score, acceptance, current cap or submission claim",
+    "prioritized next-session plan; actual PR/merge/deployment remains separately verified delivery"
+   ],
+   "evidence": "knowledge/2026-10-25_three_pass_review.md"
+  },
+  {
    "id": "pass-13-2026-10-25-prior-art-and-hypothesis-gate",
    "status": "complete-with-data-blocker",
    "scope": [
@@ -367,6 +405,59 @@
   }
  ],
  "remaining_work": [
+  "Resolve literal universal blocker without unilateral rule changes",
+  "Recover missing pinned registry paths; retain invalid/off-grid errors",
+  "Record actual lane assignment and authentic organizer template/cap/receipt evidence",
+  "Reconstruct comparable current-best detector using shared visible-only folds and per-feature canaries",
+  "Only then preregister a different authorized hypothesis with matched controls and fresh confirmation; no TGJ31 retuning"
+ ],
+ "historical_records_warning": "Earlier passes below are dated historical reports, not current-session re-verification or comparable HOLDOUT-DTI. Current review is the three 20261025 passes.",
+ "historical_remaining_work_20261004": [
+  "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
+  "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
+  "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",
+  "fetch the GDR 1391 depth stack and 3DEP LAZ return attributes through the CI runner (sandbox cannot reach those hosts) or record them as unavailable",
+  "resolve the D2.8 0.2600 and h27-4 0.2708 score provenance by attaching organizer receipts to registry/score_claims.json",
+  "keep the leaderboard as a static link and the AI disclosure as an entrant-reviewed draft"
+ ],
+ "latest_verification": {
+  "pytest_passed": 76,
+  "ruff": "passed",
+  "site_pages": 21,
+  "site_local_links": 321,
+  "exact_surface_and_tiff_reconstruction": true,
+  "browser_smoke": "evidence/browser_smoke_20261025.json",
+  "organizer_confirmed_score": null,
+  "slot_approved": false
+ },
+ "concurrent_upstream_review": "PRs #8/#9, origin/main 4371416; retained as separate-checkout historical findings. TGJ31 current state is in evidence/tgj31/run_card.json.",
+ "concurrent_upstream_remaining_work_at_review": [
+  "restore the 11 permitted hash-pinned competition/runtime inputs and prepared feature stack before any new holdout or candidate construction",
+  "after restoration, preregister a distinct geological hypothesis and run feature-alone leakage canaries plus whole-segment buffered holdout with pooled DTI and confidence interval",
+  "retain duplicate-canary checks both before placement and on the final raster; stop when either registered threshold is exceeded",
+  "keep all current TIFF downloads reference/research-only until the separate selector approves a verified candidate",
+  "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
+  "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
+  "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",
+  "fetch the GDR 1391 depth stack and 3DEP LAZ return attributes through the CI runner (sandbox cannot reach those hosts) or record them as unavailable",
+  "resolve the D2.8 0.2600 and h27-4 0.2708 score provenance by attaching organizer receipts to registry/score_claims.json",
+  "keep the leaderboard as a static link and the AI disclosure as an entrant-reviewed draft"
+ ],
+ "post_integration_verification": {
+  "upstream_main": "4371416",
+  "preserved_upstream_prs": [
+   8,
+   9
+  ],
+  "pytest_passed": 67,
+  "ruff": "passed",
+  "site_pages": 20,
+  "site_local_links": 305,
+  "tiff_unchanged": true,
+  "outside_encoding_portal_convention": "unverified; local all-finite policy only"
+ },
+ "concurrent_as1_source": "PR #11 at main 946558c; separate-lane artifacts and experiments retained, not run by TGJ31.",
+ "concurrent_as1_remaining_work_at_review": [
   "owner decision: spend one live slot as an experiment on the catalogue-shadow idea (H4), accepting an explicit uniqueness waiver",
   "fetch the 23 score-fragment files missing from the cloned repositories so calibration covers all 111 scores",
   "test a Lake Lahontan paleoshoreline mask against LiDAR scarp detectors (the Great Basin mimic that was not tested)",
@@ -381,5 +472,19 @@
   "after restoration, preregister a distinct geological hypothesis and run feature-alone leakage canaries plus whole-segment buffered holdout with pooled DTI and confidence interval",
   "retain duplicate-canary checks both before placement and on the final raster; stop when either registered threshold is exceeded",
   "keep all current TIFF downloads reference/research-only until the separate selector approves a verified candidate"
- ]
+ ],
+ "post_AS1_integration_verification": {
+  "upstream_main": "946558c",
+  "preserved_upstream_pr": 11,
+  "pytest_passed": 76,
+  "ruff": "passed",
+  "site_pages": 21,
+  "site_local_links": 321,
+  "restored_current_manifest_files": 12,
+  "tiff_unchanged": true,
+  "other_lane_experiments_executed_by_this_run": 0,
+  "browser_pages": 9,
+  "mobile_pages": 6,
+  "publication_status": "Requires actual GitHub job status; not inferred from local tests."
+ }
 }

@@ -1,3 +1,5 @@
+> **Historical concurrent audit, preserved from upstream PRs #8/#9.** This describes a separate checkout before the TGJ31 delivery. Its missing-data/no-new-artifact status is not the current workspace state. H33 duplicate, catalogue leakage and outside-encoding findings are retained, not waived. See the current status and TGJ31 source review for the newer negative artifact and explicit all-finite local-preflight policy.
+
 # Session review — 2026-10-25
 
 **Decision: NEGATIVE / STOP. No new submission TIFF was generated.** The requested priority artifact is blocked twice: the H33-2-B2 geometry from the referenced GEMSDOE32 owner mirror fails this repository's pre-placement duplicate canary against the existing H27-4 registry raster, and this checkout contains none of the competition/runtime inputs needed to validate a different geological hypothesis. No weekly slot is recommended or used.

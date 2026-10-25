@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "generated_utc": "2026-10-25",
- "policy": "No claim is an OFFICIAL score unless backed by an organizer receipt. The agent did not access the DrivenData leaderboard, private score page, or submission interface. User-supplied values and owner-mirror claims are stored separately and are not treated as verification. No leaderboard table/feed is maintained. The register is regenerated with the site and every claim here is rendered on the register page with its evidence class.",
+ "policy": "No performance claim is ORGANIZER-CONFIRMED without an authentic organizer receipt. User/owner numbers remain quarantined context. No DrivenData leaderboard, result page or submission interface was accessed. The research page explains the key discrepancies and links the complete raw ledger; the source-status feed contains public GitHub metadata only.",
  "official_score_receipts": [],
  "claims": [
   {
@@ -87,6 +87,39 @@
    "organizer_verification": "not applicable: sibling explicitly marks it unscored",
    "local_identity": "44,090 positive pixels; deterministic thinning; owner registry says unscored/not slot-approved",
    "status": "unscored in the pinned GEMSDOE25 owner-mirror record; later GEMSDOE28 0.2600 owner claim is a separate unresolved report"
+  },
+  {
+   "id": "user-reported-GEMSDOE32-0.2778-20261025",
+   "artifact": "H33 B2 zeros file",
+   "reported_dti": 0.2778,
+   "reported_dti_text": "0.2778",
+   "claim_source": "Current owner prompt, preserved in README and knowledge/owner_request_2026-10-25.md",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt, leaderboard or submission page access",
+   "status": "quarantined; not a score target, calibration label or verified current high",
+   "raster_sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+   "forensic_evidence": "evidence/h33_forensics_20261025.json",
+   "limit": "The measured raster identity does not establish that these exact bytes earned the reported value."
+  },
+  {
+   "id": "user-reported-current-high-0.4413-20261025",
+   "artifact": "Unidentified claimed current leaderboard high",
+   "reported_dti": 0.4413,
+   "reported_dti_text": "0.4413",
+   "claim_source": "Current owner prompt, preserved in README and knowledge/owner_request_2026-10-25.md",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt, leaderboard or submission page access",
+   "status": "quarantined; not a score target, calibration label or verified current high"
+  },
+  {
+   "id": "user-reported-current-high-conflict-0.3195-20261025",
+   "artifact": "Conflicting claimed current leaderboard high",
+   "reported_dti": 0.3195,
+   "reported_dti_text": "0.3195",
+   "claim_source": "Current owner prompt, preserved in README and knowledge/owner_request_2026-10-25.md",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt, leaderboard or submission page access",
+   "status": "quarantined; not a score target, calibration label or verified current high"
   }
  ],
  "safe_next_step": "Do not resolve discrepancies by accessing or monitoring DrivenData leaderboard material absent prior written permission. Preserve user-supplied claims as USER-REPORTED and owner-site claims as OWNER-MIRROR until an authorized organizer-generated receipt and exact artifact identity are available.",
@@ -96,11 +129,15 @@
   "verification": "individual entries were not independently authenticated in this review",
   "handling": "context only; do not treat any listed historical value as an official organizer score absent an authorized receipt"
  },
- "lane_score_table": {
-  "evidence_class": "USER-REPORTED",
-  "source": "user prompt 2026-10-25",
-  "file": "registry/user_reported_scores.json",
-  "entries": 111,
-  "handling": "calibration context only; matched to registry rasters by exact name fragment; no organizer receipt for any entry"
+ "current_requested_focus_audit": "evidence/h33_forensics_20261025.json; all nine focus values remain unauthenticated user reports",
+ "concurrent_as1_source": "PR #11 at main 946558c; separate-lane artifacts and experiments retained, not run by TGJ31.",
+ "concurrent_as1_additional_notes": {
+  "lane_score_table": {
+   "evidence_class": "USER-REPORTED",
+   "source": "user prompt 2026-10-25",
+   "file": "registry/user_reported_scores.json",
+   "entries": 111,
+   "handling": "calibration context only; matched to registry rasters by exact name fragment; no organizer receipt for any entry"
+  }
  }
 }

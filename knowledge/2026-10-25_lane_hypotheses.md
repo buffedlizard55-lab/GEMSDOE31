@@ -1,3 +1,5 @@
+> **Preserved concurrent AS-1 audit (PR #11), not the active TGJ31 lane.** The following reports another session's experiments and `LANE-EVAL-1` instrument, not comparable current shared57 HOLDOUT-DTI. Its user-reported calibrations and statements about organizer acceptance are not authenticated here. Its suggested live-slot probes/uniqueness waiver are NOT adopted: no probe is "free of risk", no slot is authorized, and TGJ31 remains stopped. Official-source access claims below belong to that separate source record and were not re-fetched by this session. Preserve the research without converting those suggestions into current instructions.
+
 # Lane hypotheses, E1-E3 results, calibration and the b2 question (2026-10-25)
 
 Claim classes: **HOLDOUT-DTI** = computed here by evaluator `LANE-EVAL-1` on owner-mirror inputs. **USER-REPORTED** = a leaderboard
