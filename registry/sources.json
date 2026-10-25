@@ -1,20 +1,23 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "claim_classes": {
-  "OFFICIAL": "read from a government, competition-administrator or publisher page linked below, retrieved this session",
+  "OFFICIAL": "Official-origin source record; check accessed_utc. Historical access is not fresh verification.",
   "OWNER-MIRROR": "bytes or claims published in one of this project's own public GitHub repositories; a hash match proves byte identity to that mirror only",
   "COMPUTED": "reproduced from local code and data by scripts in this repository, with the artifact path recorded",
   "INFERENCE": "geological or statistical reasoning to be tested, not a measured result",
   "USER-REPORTED": "stated by the project owner; no organizer receipt in the repository",
-  "TRUSTED-PEER-REVIEWED": "peer-reviewed methods literature cited for the design of the validation protocol; supplies no value for this dataset"
+  "TRUSTED-PEER-REVIEWED": "peer-reviewed methods literature cited for the design of the validation protocol; supplies no value for this dataset",
+  "OFFICIAL-CODE": "Administrator-owned public source code fetched at the recorded pinned commit; not a private scorer or receipt.",
+  "HOLDOUT-DTI": "Pooled hide-and-recover result with evaluator version, withheld positive count and 95% spatial-cluster CI.",
+  "ORGANIZER-CONFIRMED": "Requires an authentic submission-page receipt; none is available here."
  },
  "sources": [
   {
    "id": "dd-gems-problem-format-metric",
    "class": "OFFICIAL",
    "publisher": "DrivenData / DOE GEMS Prize",
-   "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge \u2014 problem description",
+   "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge — problem description",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
    "accessed_utc": "2026-10-04",
    "sections_read": [
@@ -35,7 +38,8 @@
     "An official reference solution exists: https://github.com/drivendataorg/gems-prize-reference-solution",
     "The page says the provided sample submission 'predicts total fault absence'; the owner-mirror copy's non-zero cells are exactly the catalogue raster, which is recorded as IR-31-TEMPLATE-CATALOGUE-CONTENT rather than silently accepted."
    ],
-   "limits": "Public/private leaderboard values were not accessed. The official data-download tab redirects to login in this environment."
+   "limits": "Public/private leaderboard values were not accessed. The official data-download tab redirects to login in this environment.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "doe-gems-official-rules",
@@ -55,7 +59,8 @@
     "The rules refer competitors to the competition website for format details and state three submissions per week.",
     "Generative-AI use is allowed but must be disclosed in the narrative, including its extent and how it contributed to submission elements."
    ],
-   "limits": "The competition interface was not used; submission/upload was not attempted. The user remains responsible for accurate authorship and results statements."
+   "limits": "The competition interface was not used; submission/upload was not attempted. The user remains responsible for accurate authorship and results statements.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "drivendata-terms",
@@ -72,7 +77,8 @@
     "The terms prohibit using robots, spiders, or other automatic means to access the website for any purpose, including monitoring or copying.",
     "The terms prohibit manual monitoring/copying without prior written consent."
    ],
-   "project_action": "No leaderboard/feed scraper, scheduled monitor, copied leaderboard table, or automatic submission was created. Only a static official leaderboard link is provided for manual review."
+   "project_action": "No leaderboard/feed scraper, scheduled monitor, copied leaderboard table, or automatic submission was created. Only a static official leaderboard link is provided for manual review.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "dd-gems-data-tab",
@@ -82,20 +88,22 @@
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/data/",
    "accessed_utc": "2026-10-04",
    "status": "login-gated; not accessed with credentials",
-   "limits": "Training inputs and original organizer sample template are not independently available in this environment. The local sample TIFF is from a hash-pinned owner mirror."
+   "limits": "Training inputs and original organizer sample template are not independently available in this environment. The local sample TIFF is from a hash-pinned owner mirror.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "dd-gems-leaderboard-static-link",
    "class": "OFFICIAL",
    "publisher": "DrivenData / DOE GEMS Prize",
-   "title": "GEMS public leaderboard \u2014 static manual-review link",
+   "title": "GEMS public leaderboard — static manual-review link",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
    "accessed_utc": null,
    "status": "not fetched or monitored; static link only",
    "limits": "No score or rank is asserted from this page. Follow DrivenData Terms of Use; no monitoring/copying without prior written consent.",
    "claims_verified": [
     "Static link retained for human review."
-   ]
+   ],
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "gdr-1501-geodawn-lidar",
@@ -105,10 +113,11 @@
    "url": "https://gdr.openei.org/submissions/1501",
    "accessed_utc": "2026-10-04",
    "claims_verified": [
-    "The record lists OPR and LiDAR point cloud data and links to a coverage-map PDF and work-unit 1\u20136 source directories.",
+    "The record lists OPR and LiDAR point cloud data and links to a coverage-map PDF and work-unit 1–6 source directories.",
     "The GDR page displays a CC-BY 4.0 license."
    ],
-   "limits": "The page's map and directory listings do not establish exact tile overlap with the entire GEMS footprint or point-field consistency."
+   "limits": "The page's map and directory listings do not establish exact tile overlap with the entire GEMS footprint or point-field consistency.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "usgs-3dep-products",
@@ -120,7 +129,8 @@
    "claims_verified": [
     "3DEP products are distributed free of charge and without use restrictions - recorded in this project's own GEMSDOE24 lidar_scarp_features.json descriptors and re-used here; the page itself was not re-fetched in the current session."
    ],
-   "limits": "This general program statement does not replace checking a product's metadata or any separately distributed derivative's license."
+   "limits": "This general program statement does not replace checking a product's metadata or any separately distributed derivative's license.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "tnm-access-api-docs",
@@ -132,7 +142,8 @@
    "claims_verified": [
     "The API exposes individual staged products and searchable dataset/product catalogs."
    ],
-   "limits": "API catalog response is not a retrieved product binary or point-cloud header."
+   "limits": "API catalog response is not a retrieved product binary or point-cloud header.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "tnm-lpc-sample-record",
@@ -157,20 +168,22 @@
     "download_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/NV_Southern_D23/NV_Southern_1_D23/LAZ/USGS_LPC_NV_Southern_D23_11SMD150210.laz",
     "metadata_url": "https://thor-f5.er.usgs.gov/ngtoc/metadata/waf/elevation/lidar_point_cloud/laz/NV_Southern_1_D23/USGS_LPC_NV_Southern_D23_11SMD150210.xml"
    },
-   "limits": "The sandbox LAZ download failed before transfer (SSL_ERROR_SYSCALL); the XML metadata URL reported maintenance. The product bbox is inside the owner-mirror footprint at 49/49 sampled locations, not a complete coverage overlay."
+   "limits": "The sandbox LAZ download failed before transfer (SSL_ERROR_SYSCALL); the XML metadata URL reported maintenance. The product bbox is inside the owner-mirror footprint at 49/49 sampled locations, not a complete coverage overlay.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "gdr-1391-ingenious",
    "class": "OFFICIAL",
    "publisher": "INGENIOUS / Geothermal Data Repository",
-   "title": "INGENIOUS \u2014 Great Basin Regional Dataset Compilation, DOI 10.15121/1881483",
+   "title": "INGENIOUS — Great Basin Regional Dataset Compilation, DOI 10.15121/1881483",
    "url": "https://gdr.openei.org/submissions/1391",
    "accessed_utc": "2026-10-04",
    "claims_verified": [
     "Public CC-BY 4.0 compilation including Quaternary volcanics, 2 m temperature-probe locations and paleo-geothermal outlines used as external layers here.",
     "The GDR Quaternary-fault compilation is the source of the public catalogue the competition labels rasterise."
    ],
-   "limits": "Individual raster bytes, effective spatial resolution, and exact GEMS-footprint coverage were not retrieved or checked."
+   "limits": "Individual raster bytes, effective spatial resolution, and exact GEMS-footprint coverage were not retrieved or checked.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "nasa-opera-disp-s1",
@@ -181,9 +194,10 @@
    "accessed_utc": "2026-10-04",
    "claims_verified": [
     "The product reports 30 m spatial posting and line-of-sight displacement from Sentinel-1 interferometric time-series analysis.",
-    "The collection has broad North American coverage and temporal extent beginning 2016-07-01; the page also describes the Sentinel data as 2016\u20132025."
+    "The collection has broad North American coverage and temporal extent beginning 2016-07-01; the page also describes the Sentinel data as 2016–2025."
    ],
-   "limits": "A product-wide extent does not prove a usable granule/track for every GEMS cell; no granule selection or access test was run."
+   "limits": "A product-wide extent does not prove a usable granule/track for every GEMS cell; no granule selection or access test was run.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "spatial-cv-roberts-2017",
@@ -192,7 +206,8 @@
    "title": "Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure",
    "url": "https://doi.org/10.1111/ecog.02881",
    "accessed_utc": null,
-   "used_for": "Motivation for spatially blocked validation; this paper does not supply a universal pixel buffer for this dataset."
+   "used_for": "Motivation for spatially blocked validation; this paper does not supply a universal pixel buffer for this dataset.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "blockcv-valavi-2019",
@@ -201,7 +216,8 @@
    "title": "blockCV: An R package for generating spatially or environmentally separated folds for k-fold cross-validation of species distribution models",
    "url": "https://doi.org/10.1111/2041-210X.13107",
    "accessed_utc": null,
-   "used_for": "Motivation for separated spatial folds; no fixed 4\u20135 pixel buffer is inferred."
+   "used_for": "Motivation for separated spatial folds; no fixed 4–5 pixel buffer is inferred.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "owner-mirror-gemsdoe28-h27-4-audit",
@@ -217,7 +233,8 @@
     "The page lists H27-4 filename gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif, SHA-256 ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73, and 40,199 positive cells.",
     "The page describes the D2.8 base as owner-reported 0.2600; this conflicts with the pinned GEMSDOE25 registry that marks its D2.8 file unscored."
    ],
-   "limits": "Owner-maintained site, not an organizer receipt. Page deployment identity was not proven to equal the repository HEAD; the TIFF was not downloaded or independently audited in this checkout."
+   "limits": "Owner-maintained site, not an organizer receipt. Page deployment identity was not proven to equal the repository HEAD; the TIFF was not downloaded or independently audited in this checkout.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "usgs-comcat-moment-tensor-preflight",
@@ -243,7 +260,8 @@
     "The official API documentation supports custom event queries and count requests.",
     "A broad approximate-envelope query returned 618 event records with a moment-tensor product; an inspected event record lists focal-mechanism and moment-tensor product types."
    ],
-   "limits": "The query rectangle is an approximate envelope, not the exact competition footprint. Count and one inspected record do not verify spatial distribution, solution quality, independent station coverage, data license for every product component, or holdout utility. No model was fit."
+   "limits": "The query rectangle is an approximate envelope, not the exact competition footprint. Count and one inspected record do not verify spatial distribution, solution quality, independent station coverage, data license for every product component, or holdout utility. No model was fit.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "nasa-aster-ast07-cmr-preflight",
@@ -258,13 +276,14 @@
     "The approximate-bbox preflight returned at least one pre-2008 granule whose reported polygon intersects the broad query rectangle; linked SWIR assets use lp-prod-protected URLs.",
     "CMR metadata notes ASTER SWIR detector failure on 2009-01-12 and warns about earlier anomaly periods."
    ],
-   "limits": "No ASTER binary was downloaded, no Earthdata-authenticated access was available or tested, and one matching granule is not full-footprint coverage. The approximate rectangle is not the exact GEMS polygon."
+   "limits": "No ASTER binary was downloaded, no Earthdata-authenticated access was available or tested, and one matching granule is not full-footprint coverage. The approximate rectangle is not the exact GEMS polygon.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "usgs-waterdata-field-measurements-preflight",
    "class": "OFFICIAL",
    "publisher": "U.S. Geological Survey Water Data for the Nation",
-   "title": "Modernized Water Data OGC API \u2014 field measurements",
+   "title": "Modernized Water Data OGC API — field measurements",
    "url": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements?f=json",
    "accessed_utc": "2026-10-04",
    "sample_query_url": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements/items?f=json&bbox=-120.1,37.2,-115.0,40.8&limit=10",
@@ -274,7 +293,8 @@
     "USGS's 2025 API transition notice states the legacy /nwis/gwlevels/ endpoint is decommissioned; the modern Water Data API is the current route."
    ],
    "limits": "The 10-row sample is not a total count, full-footprint coverage analysis, repeated-well audit, or common-datum check. The query uses an approximate rectangle. No features were written to the repository or used in a model.",
-   "legacy_api_notice_url": "https://waterdata.usgs.gov/blog/api-decom-fall-2025/#gwlevels"
+   "legacy_api_notice_url": "https://waterdata.usgs.gov/blog/api-decom-fall-2025/#gwlevels",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "usgs-ngmdb-mapview-preflight",
@@ -286,23 +306,25 @@
    "claims_verified": [
     "The official MapView page is reachable and exposes a map-viewer interface for USGS/AASG map products."
    ],
-   "limits": "No specific surficial-geology product, map scale, digital polygon download, exact GEMS-area coverage, or license was verified; it is only a source lead."
+   "limits": "No specific surficial-geology product, map scale, digital polygon download, exact GEMS-area coverage, or license was verified; it is only a source lead.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "dd-gems-overview",
    "class": "OFFICIAL",
    "publisher": "DrivenData / U.S. Department of Energy GEMS Prize",
-   "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge \u2014 overview and rules",
+   "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge — overview and rules",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/",
    "accessed_utc": null,
    "claims_verified": [
     "Static link retained for manual review; not fetched in the current session."
    ],
-   "limits": "Not fetched this session. The prize structure quoted in registry/score_claims.json and on the site comes from page 967, which was fetched and is verified below."
+   "limits": "Not fetched this session. The prize structure quoted in registry/score_claims.json and on the site comes from page 967, which was fetched and is verified below.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "tg-repo",
-   "class": "OWNER-MIRROR",
+   "class": "OFFICIAL-CODE",
    "publisher": "this project (buffedlizard55-lab)",
    "title": "DrivenData GEMS reference solution repository",
    "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
@@ -310,20 +332,22 @@
    "claims_verified": [
     "Repository exists and is linked from the official problem page."
    ],
-   "limits": "Not executed in this session."
+   "limits": "Not executed in this session.",
+   "current_session_status": "Official administrator-owned GitHub code; current pinned verification is in tg-repo-pin-20261025."
   },
   {
    "id": "sgmc",
    "class": "OFFICIAL",
    "publisher": "U.S. Geological Survey, Mineral Resources Program",
-   "title": "State Geologic Map Compilation (SGMC) \u2014 state geological map packages",
+   "title": "State Geologic Map Compilation (SGMC) — state geological map packages",
    "url": "https://mrdata.usgs.gov/geology/state/",
    "accessed_utc": null,
    "claims_verified": [
     "Nevada package NV.zip (69,056,094 B, sha256 3b333ac025e59aae7f0d827db45ba32c425cf867eb341561a788af1de186b76b) and California package CA.zip (24,977,406 B, sha256 78765ba4428df9f25a84f86e0b2529bd0508fc8a2cf65d2f41a830e82bccfd58) were fetched by this project's own CI runner (GEMSDOE30 external_receipt.json, runner='GitHub Actions (general internet access); the agent sandbox cannot reach these hosts').",
     "Licence: US Government work / public domain."
    ],
-   "limits": "Not fetched in the current session: the sandbox cannot reach mrdata.usgs.gov. The NV/CA packages, their sizes and their SHA-256 values were verified by this project's own CI runner (GEMSDOE30 external_receipt.json) and the derived raster is hash-pinned in registry/data_manifest.json. The SGMC structure layers are state-map faults of mixed age and certainty, NOT the competition's hidden expert-mapped Quaternary faults; they are used only as an off-catalogue proxy and that use is labelled INFERENCE."
+   "limits": "Not fetched in the current session: the sandbox cannot reach mrdata.usgs.gov. The NV/CA packages, their sizes and their SHA-256 values were verified by this project's own CI runner (GEMSDOE30 external_receipt.json) and the derived raster is hash-pinned in registry/data_manifest.json. The SGMC structure layers are state-map faults of mixed age and certainty, NOT the competition's hidden expert-mapped Quaternary faults; they are used only as an off-catalogue proxy and that use is labelled INFERENCE.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
   },
   {
    "id": "geodawn",
@@ -336,7 +360,48 @@
     "DOI 10.5066/P93LGLVQ; the release provides contractor K, Th, U, total-count radiometric grids and derived ratio grids plus an upward-continued TMI grid.",
     "The derived layers used here were built by this project's earlier CI runs from that release (GEMSDOE24 data/external/geodawn_rad.json, geodawn_extensions.json)."
    ],
-   "limits": "Not fetched in the current session (sciencebase.gov is unreachable from the sandbox); the DOI, item id and derived layers are taken from this project's own GEMSDOE24 descriptors."
+   "limits": "Not fetched in the current session (sciencebase.gov is unreachable from the sandbox); the DOI, item id and derived layers are taken from this project's own GEMSDOE24 descriptors.",
+   "current_session_status": "Historical record not re-fetched; see its original access date."
+  },
+  {
+   "id": "tg-repo-pin-20261025",
+   "class": "OFFICIAL-CODE",
+   "publisher": "DrivenData (administrator-owned public GitHub organization)",
+   "title": "Pinned GEMS reference solution",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution/tree/aebe92f7c8a990f0e3443451b7a825d9afd6336b",
+   "accessed_utc": "2026-10-25",
+   "current_session_status": "Pinned README and U-Net notebook fetched this session; code-only verification, not the private scorer.",
+   "claims_verified": [
+    "An administrator-published U-Net reference example is present.",
+    "This is not an authenticated official scoring implementation."
+   ],
+   "limits": "No official-model training, private labels, score receipt or leaderboard access."
+  },
+  {
+   "id": "shared57-pin-20261025",
+   "class": "OWNER-MIRROR",
+   "publisher": "buffedlizard55-lab",
+   "title": "Unchanged shared57 cache, evaluator and submission writer",
+   "url": "https://github.com/buffedlizard55-lab/57GEMSDOE/tree/822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+   "accessed_utc": "2026-10-25",
+   "current_session_status": "24 source files and original evaluator tests fetched, hash-pinned and vendored unchanged.",
+   "claims_verified": [
+    "Evaluator version gems57-pooled-hide-v2; literal positive-support overlap gate."
+   ],
+   "limits": "Owner-published code, not organizer authentication; all source hashes in registry/shared_template.json."
+  },
+  {
+   "id": "universal-prior-gems48-20261025",
+   "class": "OWNER-MIRROR",
+   "publisher": "buffedlizard55-lab",
+   "title": "GEMSDOE48 full-support continuous registry witness",
+   "url": "https://github.com/buffedlizard55-lab/GEMSDOE48",
+   "accessed_utc": "2026-10-25",
+   "current_session_status": "Raster hash and full-footprint support measured; unchanged shared saturation certificate executed.",
+   "claims_verified": [
+    "Positive support covers all 5,167,373 template footprint cells; any nonempty candidate has literal forward overlap 1.0."
+   ],
+   "limits": "Pinned source/ref/path/hash in registry/prior_raster_snapshot.json and evidence/tgj31/registry_universal_blocker.json; no density exemption."
   }
  ]
 }

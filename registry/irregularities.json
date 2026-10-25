@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "items": [
   {
    "id": "IR-31-SCORE-2600-D28",
@@ -152,6 +152,76 @@
    ],
    "impact": "A correctly pinned current-session worktree could not pass the runner branch guard.",
    "action": "Updated AGENTS.md and scripts/run_h31.py to use one EXPECTED_BRANCH constant for arena/01a1050e-gemsdoe31; added tests for accept/reject behavior."
+  },
+  {
+   "id": "IR-31-LITERAL-UNIVERSAL-BLOCKER",
+   "severity": "critical",
+   "status": "open",
+   "summary": "A full-support GEMSDOE48 prior makes the unchanged finite-positive/3px/70% rule fail for every nonempty candidate.",
+   "evidence": [
+    "evidence/tgj31/registry_universal_blocker.json"
+   ],
+   "action": "Stop promotion; do not invent a density exemption or rerun TGJ31."
+  },
+  {
+   "id": "IR-31-REGISTRY-INCOMPLETE-20261025",
+   "severity": "high",
+   "status": "open",
+   "summary": "286 raster paths are unavailable; one of 87 focus byte-distinct files is off-grid and remains an explicit error.",
+   "evidence": [
+    "registry/prior_raster_snapshot.json"
+   ],
+   "action": "Recover missing pinned objects and retain errors; no completeness or uniqueness clearance."
+  },
+  {
+   "id": "IR-31-ASSIGNED-LANE-MISSING",
+   "severity": "high",
+   "status": "open",
+   "summary": "The prompt references an assigned paragraph but supplies none. TGJ31 is a declared audit lane, not an assignment.",
+   "evidence": [
+    "knowledge/2026-10-25_transfer_preregistration.md"
+   ],
+   "action": "No promotion without actual owner assignment."
+  },
+  {
+   "id": "IR-31-TGJ31-METRIC-NEGATIVE",
+   "severity": "high",
+   "status": "closed-negative",
+   "summary": "Frozen TGJ31 loses to the same-input amplitude control and wins only one quadrant; controls have different confidence mass.",
+   "evidence": [
+    "evidence/tgj31/decision.json"
+   ],
+   "action": "Preserve negative artifact; no retuning or submission."
+  },
+  {
+   "id": "IR-31-H33-SCORE-INSTRUMENT",
+   "severity": "high",
+   "status": "open",
+   "summary": "User H33 result and current-high values lack receipts; source LM arithmetic/calibration differs from shared pooled max-credit arithmetic.",
+   "evidence": [
+    "evidence/metric_instrument_audit_20261025.json"
+   ],
+   "action": "Quarantine claims; do not use source projections as scores."
+  },
+  {
+   "id": "IR-31-LEGACY-STATIC-LEAKAGE-CHANNELS",
+   "severity": "high",
+   "status": "fixed-for-new-preparation",
+   "summary": "Legacy preparation had full-catalogue/SGMC distance channels and unmasked sentinel reads. Active TGJ31 never used this stack.",
+   "evidence": [
+    "scripts/prepare_data.py"
+   ],
+   "action": "Use unchanged shared cache; derive future catalogue features only from visible folds and rerun canaries."
+  },
+  {
+   "id": "IR-31-PAGES-SETTINGS-PERMISSION",
+   "severity": "medium",
+   "status": "open-permission-limit",
+   "summary": "The integration cannot change Pages build type (HTTP403); main/root legacy is configured.",
+   "evidence": [
+    "knowledge/2026-10-25_three_pass_review.md"
+   ],
+   "action": "Publish only from configured main source and verify actual Actions deployment; do not claim settings changed."
   }
  ]
 }

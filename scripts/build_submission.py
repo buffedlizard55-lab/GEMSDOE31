@@ -61,6 +61,8 @@ def write_variants(dots: np.ndarray, footprint: np.ndarray, out_stem: Path, *, n
         raise ValueError("prediction values must match the dot grid")
     if not np.isfinite(strength[footprint]).all() or np.any((strength[footprint] < 0) | (strength[footprint] > 1)):
         raise ValueError("prediction values must already be finite in [0,1]; no silent clipping")
+    if dots.shape != (PROFILE["height"], PROFILE["width"]):
+        raise ValueError("aligned arrays must also match the exact competition template grid")
     inside = np.where(dots, strength, 0.0).astype(np.float32)
     nan_variant = np.where(footprint, inside, np.nan).astype(np.float32)
     finite_variant = np.where(footprint, inside, 0.0).astype(np.float32)
@@ -99,13 +101,18 @@ def main() -> None:
     template = ROOT / args.template
     footprint = footprint_mask(template)
     with rasterio.open(template) as ref, rasterio.open(Path(args.dots or args.prob)) as src:
+        if (ref.shape != (PROFILE["height"], PROFILE["width"]) or ref.crs is None
+                or ref.crs.to_epsg() != 32611 or ref.transform != EXPECTED_TRANSFORM or ref.count != 1):
+            raise ValueError("template itself must match the exact competition grid")
+        if not footprint.any():
+            raise ValueError("template must have a nonempty finite footprint")
         if src.count != 1 or (src.shape, src.crs, src.transform) != (ref.shape, ref.crs, ref.transform):
             raise ValueError("source must be single-band and match the exact template grid")
         raw = src.read(1)
     inside_raw = raw[footprint]
     if not np.isfinite(inside_raw).all() or np.any((inside_raw < 0) | (inside_raw > 1)):
         raise ValueError("source footprint values must already be finite in [0,1]; no repair")
-    dots = footprint & (raw > 0 if args.dots else raw >= args.threshold)
+    dots = footprint & (raw > 0) & (True if args.dots else raw >= args.threshold)
     values = None if args.dots else raw
 
     stem = Path(args.outdir) / args.name

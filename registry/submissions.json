@@ -1,15 +1,27 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "policy": "Every hash and pixel count below is copied out of the format-check receipt written by scripts/build_submission.py. Local validation is not organizer acceptance and no file here carries an organizer receipt.",
  "current_recommended": {
-  "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-  "role": "primary download - the best-scoring geometry this project has measured, re-emitted and re-validated here",
-  "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
+  "name": null,
+  "role": "No file is approved for competition submission",
+  "score_status": "no organizer receipt exists; owner-reported values remain unverified context",
   "slot_approved": false,
-  "reason_not_slot_approved": "It is the incumbent, not an improvement: no measured candidate beats it by a margin that justifies spending the weekly slot."
+  "reason_not_slot_approved": "TGJ31 is negative; historical copied references are not new candidates."
+ },
+ "newly_generated_artifact": {
+  "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT",
+  "safe_to_download_for_audit": true,
+  "safe_to_submit": false,
+  "run_card": "evidence/tgj31/run_card.json",
+  "decision": "evidence/tgj31/decision.json"
  },
  "best_research_candidate": {
+  "name": null,
+  "slot_approved": false,
+  "reason": "No active candidate passed the common hide-and-recover gates; historical unions are archival."
+ },
+ "historical_best_research_candidate": {
   "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
   "measured": {
    "off_catalogue_proxy_DTI": 0.09985654750452583,
@@ -20,13 +32,14 @@
    "added_dots": 65939,
    "added_credit_per_dot": 0.024651922576187434
   },
-  "slot_approved": false
+  "slot_approved": false,
+  "status": "ARCHIVAL-PROXY-NOT-COMPARABLE-HOLDOUT"
  },
  "files": [
   {
    "id": "primary-h27-4-solo-d28",
    "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-   "role": "primary download - the best-scoring geometry this project has measured, re-emitted and re-validated here",
+   "role": "historical copied reference only - not a new submission or an approved download",
    "provenance": "re-emission of the dot set published as GEMSDOE28 gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); pixel-identical, freshly written and re-validated in this repository",
    "note_for_portal": "h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template",
    "slot_approved": false,
@@ -52,11 +65,11 @@
   {
    "id": "research-union-lidar-arm",
    "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
-   "role": "research candidate - the strongest measured union on the off-catalogue proxy",
+   "role": "historical LiDAR union - not an active candidate",
    "provenance": "the incumbent dot set plus every cell where the LiDAR-arm fold-OOF probability is >= 0.60 and the cell is not on the public catalogue (scripts/run_union.py)",
    "note_for_portal": "incumbent h27-4 dot set + 65939 LiDAR-arm detections (p>=0.6, off-catalogue); +0.0060 off-catalogue proxy DTI; research candidate",
    "slot_approved": false,
-   "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live submission has tested it. It is the best-supported next-week candidate.",
+   "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live submission has tested it. Archival only; not a current-best comparator or next-week selection.",
    "positive_pixels": 106138,
    "positive_pixels_on_public_catalogue": 0,
    "format_status": "locally validated against the grid template; not organizer acceptance",
@@ -87,7 +100,7 @@
   {
    "id": "research-union-radiometric-arm",
    "name": "gemsdoe31-add-arm-d28-20261004-8acb75e1",
-   "role": "research candidate - the radiometric half of the same union experiment",
+   "role": "historical radiometric union - not an active candidate",
    "provenance": "the incumbent dot set plus every cell where the radiometric+LiDAR fold-OOF probability is >= 0.70 and the cell is not on the public catalogue",
    "note_for_portal": "incumbent h27-4 dot set + 15105 radiometric-arm detections (p>=0.70, off-catalogue); +0.0017 off-catalogue proxy DTI; research candidate",
    "slot_approved": false,
@@ -138,10 +151,46 @@
    "hard_failures_nan": [],
    "organizer_acceptance_verified_nan": false,
    "legacy_receipt": true
+  },
+  {
+   "id": "tgj31-new-negative-audit",
+   "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT",
+   "role": "newly generated negative research artifact - DO NOT SUBMIT",
+   "provenance": "TGJ31-v1 built from original-template RTP and gravity features, not prior predictions",
+   "note_for_portal": "TGJ31 gravity-magnetic transfer jumps; new continuous research surface, no copied predictions; automatic gates required; DO NOT SUBMIT",
+   "slot_approved": false,
+   "safe_to_submit": false,
+   "why_not_slot_approved": "Failed automated scientific/registry gates; see decision.json",
+   "positive_pixels": 255289,
+   "positive_pixels_on_public_catalogue": 0,
+   "format_status": "locally validated by two validators; not organizer acceptance",
+   "file_allfinite": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+   "bytes_allfinite": 1302840,
+   "sha256_allfinite": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
+   "format_ok_allfinite": true,
+   "organizer_acceptance_verified_allfinite": false,
+   "hard_failures_allfinite": [],
+   "receipt": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.json",
+   "zip": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.zip",
+   "evidence_class": "HOLDOUT-DTI",
+   "holdout": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "dti": 0.008280993580848684,
+    "ci95": [
+     0.005740976876658766,
+     0.011234426585263453
+    ],
+    "withheld_positive_pixels": 60988,
+    "tpw": 431.93180940144043,
+    "fpw": 16413.160462449872,
+    "fnw": 60556.06819059854
+   },
+   "verdict": "negative"
   }
  ],
  "format_conventions": {
   "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention the official page specifies and the grid template uses",
-  "all-finite": "every cell finite and in [0,1], zeros outside the footprint - a defensive fallback; validated separately in src/gemsdoe31/submission.py"
+  "all-finite": "every cell finite and in [0,1], explicit zeros outside the footprint; active TGJ31 policy uses nodata=None and two on-disk validators; not organizer acceptance"
  }
 }

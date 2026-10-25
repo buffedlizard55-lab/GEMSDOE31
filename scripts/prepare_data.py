@@ -149,5 +149,5 @@ def main() -> None:
         raise SystemExit("input hash/grid verification failed; see receipt")
 
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     main()

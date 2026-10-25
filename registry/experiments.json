@@ -1,17 +1,16 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "protocol": {
-  "folds": "four equal spatial blocks (NW/NE/SW/SE) of the 3730x3292 competition grid",
-  "buffer": "measured from residual autocorrelation, see evidence/buffer_derivation.json; the adopted collar is read from that file rather than restated here",
-  "model": "HistGradientBoostingClassifier (200 trees, lr 0.08, 31 leaves) trained per fold on all catalogue pixels of the other three blocks plus 90,000 background samples",
-  "excluded_features": "no catalogue-distance or SGMC-derived feature is used, so neither the catalogue-gap nor the off-catalogue evaluation is circular",
-  "truth_proxies": {
-   "catalogue_gap": "held-out public catalogue pixels (60,988 px)",
-   "off_catalogue": "USGS SGMC state-map fault cells more than 300 m from the public catalogue (61,664 px) - the only populated fault population in reach that is off-catalogue by construction, i.e. the population the competition scores"
-  },
-  "metric": "official distance-weighted Tversky index, alpha=0.2, beta=0.8, R=300 m triangular kernel, verified against a literal transcription of the published sums (scripts/check_metric.py, evidence/metric_check.json)",
-  "claim_class": "COMPUTED on owner-mirror inputs; not organizer-authenticated and not a live score"
+  "active_hypothesis": "TGJ31-v1; negative, closed after one preregistered experiment",
+  "folds": "label-blind-quadrants-v2, whole connected components with 213 px exclusion buffer",
+  "buffer": "historical 21.25 km range rounded to 21.3 km, not a newly measured candidate residual range",
+  "model": "label-free RTP/gravity multiscale local transfer-coefficient jumps; no supervised training",
+  "features": "unchanged shared57 original cached bands 2 and 13; no catalogue or SGMC predictors",
+  "evaluation": "gems57-pooled-hide-v2, pooled alpha=0.2 beta=0.8 triangular 300 m DTI",
+  "ci": "1000 paired 30 km spatial-cluster resamples, seed 20261025; proxy conditional interval only",
+  "promotion": "all automated research gates plus independent confirmation and separate slot selector",
+  "historical_results_warning": "Legacy full-catalogue OOF artifacts are archival and not comparable HOLDOUT-DTI."
  },
  "legacy_cache_copied": {},
  "artifacts": [
@@ -19,6 +18,11 @@
    "path": "evidence/arm_results.json",
    "bytes": 3289,
    "sha256": "1268489161208eb5fcd38302985b2b43daeb44f93a3b6634982e60e507f7e68d"
+  },
+  {
+   "path": "evidence/browser_smoke_20261025.json",
+   "bytes": 664,
+   "sha256": "56e1e29d0741c5442e1a4b74dbf32424b7ab557be9740f9fefbe363bb6c1f9eb"
   },
   {
    "path": "evidence/buffer_derivation.json",
@@ -31,9 +35,24 @@
    "sha256": "422e6dd594db85c7b72b013806b57721311e447ee1fee6ff8d4fb23e4a1b84fe"
   },
   {
+   "path": "evidence/data_preparation_20261025.json",
+   "bytes": 4069,
+   "sha256": "0d9f135d152786bb8e2b69fbaedffc550e06a1897bb4ee417038061ac53b8bbb"
+  },
+  {
    "path": "evidence/data_restore.json",
    "bytes": 5835,
    "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
+  },
+  {
+   "path": "evidence/data_restore_20261025.json",
+   "bytes": 5835,
+   "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
+  },
+  {
+   "path": "evidence/delivery_verification_20261025.json",
+   "bytes": 1055,
+   "sha256": "0e6527ece6a16a44ef81954de63000d44651d7535a518c783608e6c87edfa258"
   },
   {
    "path": "evidence/h27_geometry.json",
@@ -71,6 +90,11 @@
    "sha256": "64f66b055149ed7b77f557bb777454849333368b404f68761ab6a0dc2c1e1473"
   },
   {
+   "path": "evidence/h33_forensics_20261025.json",
+   "bytes": 9966,
+   "sha256": "8a2873d1b5a4c8b0b8c951ac0285ccf2bc5d23841923ddf846e76412c3018448"
+  },
+  {
    "path": "evidence/incumbent_filter_results.json",
    "bytes": 3512,
    "sha256": "8450fc3dac29319e8a103c438477287a29582e11799ea68e6423126bb33b029a"
@@ -79,6 +103,11 @@
    "path": "evidence/metric_check.json",
    "bytes": 5940,
    "sha256": "75a556851de64739ebf438647383415a1112ef99c342d95fedeac1a0d9830aee"
+  },
+  {
+   "path": "evidence/metric_instrument_audit_20261025.json",
+   "bytes": 1065,
+   "sha256": "b23839888d9d027841ae0a7a8c8c62f1f8bc7bb8452c14edf41ffc9149e3656b"
   },
   {
    "path": "evidence/oof/oof_B_19_plus_lidar_u16.npz",
@@ -104,6 +133,96 @@
    "path": "evidence/operating_point.json",
    "bytes": 12723,
    "sha256": "013d71048e3800b8d4a32adf765d5a50df50269fe834b1dadbcab8a5f6e2f596"
+  },
+  {
+   "path": "evidence/pages_configuration_20261025.json",
+   "bytes": 769,
+   "sha256": "d40bf596fff5ae1177b45234ce97611028a03a4fa587b4f6059480b3f52c2bfd"
+  },
+  {
+   "path": "evidence/shared_feature_cache.json",
+   "bytes": 6019,
+   "sha256": "3200ecb8c467821a88a16d7441846ecb92010154567062f3d2b1ed423eef895c"
+  },
+  {
+   "path": "evidence/tgj31/STOP.json",
+   "bytes": 149,
+   "sha256": "b24ab2275b93ff85f05a7605f8655b2bd8011f61bad75768ba5c3fd548061311"
+  },
+  {
+   "path": "evidence/tgj31/decision.json",
+   "bytes": 1393,
+   "sha256": "93fcec4f813dba81dd599055963ccd91879c2692cb3c220efd794be9750f9c2e"
+  },
+  {
+   "path": "evidence/tgj31/feature_alone_holdout.json",
+   "bytes": 4185,
+   "sha256": "d907a9828e67f503684118ab85c4f222b4e62da0ce5326646f43dcc88a238943"
+  },
+  {
+   "path": "evidence/tgj31/folds.json",
+   "bytes": 19383,
+   "sha256": "a145497148477f7812712247c552e3c0ae92e3feacc1e5870cc03a5b179d2cf0"
+  },
+  {
+   "path": "evidence/tgj31/holdout.json",
+   "bytes": 2888,
+   "sha256": "a364b8fe4d6f9c9205d80965844846bfc9ad2578cba88fe1f15e441ce7d0b904"
+  },
+  {
+   "path": "evidence/tgj31/independent_format_validation.json",
+   "bytes": 3438,
+   "sha256": "18950fe89b0ba29fc8c823b3c778f27e7a6680564deabfa0e7405ca0fbb15014"
+  },
+  {
+   "path": "evidence/tgj31/leakage_canary.json",
+   "bytes": 9222,
+   "sha256": "760e516e7780bd64cda3cf34dcfa3435b50ee40985383f72af44226c64a969ae"
+  },
+  {
+   "path": "evidence/tgj31/operator.json",
+   "bytes": 1267,
+   "sha256": "2d8eed66fe29d20d9d46b0da310970127545fbde4c1d9071f69372a5cd81d673"
+  },
+  {
+   "path": "evidence/tgj31/registry_final_support.json",
+   "bytes": 84915,
+   "sha256": "fbb9113fc2b7b9119f467815b4aff5327bba1f2275a259c06915f3fd0cc005b0"
+  },
+  {
+   "path": "evidence/tgj31/registry_surface.json",
+   "bytes": 84923,
+   "sha256": "6c282ebcd5fa7f85929f9a22d7e13ca91e7af1cfa13c26776cf74471fbc1caf0"
+  },
+  {
+   "path": "evidence/tgj31/registry_universal_blocker.json",
+   "bytes": 742,
+   "sha256": "282cb98f9888e77d7aa14beadd93b05830a84be460e2d00af3383991eb3fc308"
+  },
+  {
+   "path": "evidence/tgj31/registry_witness_final_support.json",
+   "bytes": 2645,
+   "sha256": "821d5153866bf90dbbc3682947e39f6c3fc78bcfee67f13a9f032d18c2edefa4"
+  },
+  {
+   "path": "evidence/tgj31/registry_witness_surface.json",
+   "bytes": 2647,
+   "sha256": "82e6f90095c4a66e594db8000fc27c44420923e528c32e7648d9d68b8bf3af70"
+  },
+  {
+   "path": "evidence/tgj31/run_card.json",
+   "bytes": 5697,
+   "sha256": "251d2ab6508a2398438ded935045cd8a4b0199f7a2f6eac2eee67dd4b2aa5fdb"
+  },
+  {
+   "path": "evidence/tgj31/secondary_sgmc.json",
+   "bytes": 2627,
+   "sha256": "71cb4a3cbaabab6e980f3de8f2c28115281638cd5c332bd6caf56ae36c53a4e8"
+  },
+  {
+   "path": "evidence/tgj31_exact_reconstruction_20261025.txt",
+   "bytes": 452,
+   "sha256": "0a5afb20c3182924bcc251987ac18a024fb1ebaa80f27fa57a569f0a2e7b28ca"
   },
   {
    "path": "evidence/union_results.json",

@@ -23,7 +23,7 @@ test = ["pytest>=9,<10", "ruff>=0.16,<1"]
 where = ["src"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "vendor/template57/test_evaluate_holdout.py"]
 pythonpath = ["src", "vendor"]
 addopts = "-ra"
 

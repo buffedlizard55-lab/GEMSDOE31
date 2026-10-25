@@ -1,0 +1,25 @@
+{
+ "checked_pages": [
+  "index.html",
+  "executive-summary.html",
+  "research.html",
+  "validation.html",
+  "sources.html",
+  "register/index.html",
+  "experiments/index.html",
+  "feed.html"
+ ],
+ "desktop": [
+  1440,
+  1000
+ ],
+ "mobile": [
+  390,
+  844
+ ],
+ "no_horizontal_overflow": true,
+ "one_click_download_sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
+ "negative_status_visible": true,
+ "page_errors": [],
+ "feed_status": "10/10 published snapshot checks (browser checks unavailable; snapshot is dated, not live) succeeded. Checked 2026-10-25T20:40:48.084341+00:00. Scientific results remain frozen; no live score is known."
+}

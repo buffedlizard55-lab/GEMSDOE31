@@ -11,6 +11,8 @@ Run after ``scripts/build_site.py``. Exits non-zero on any failure.
 from __future__ import annotations
 
 import re
+import hashlib
+import json
 import sys
 import unicodedata
 from pathlib import Path
@@ -44,6 +46,8 @@ def local_links(html: str) -> list[str]:
 
 
 def main() -> None:
+    FAILURES.clear()
+    NOTES.clear()
     pages = sorted(DOCS.rglob("*.html"))
     if len(pages) > MAX_PAGES:
         fail(f"{len(pages)} pages generated, budget is {MAX_PAGES}")
@@ -81,6 +85,25 @@ def main() -> None:
     feed = (DOCS / "feed.json").read_text()
     if "no organizer receipt" not in feed:
         fail("feed.json does not disclose the absent organizer receipt")
+
+    card = json.loads((ROOT / "evidence/tgj31/run_card.json").read_text())
+    decision = json.loads((ROOT / "evidence/tgj31/decision.json").read_text())
+    tif = ROOT / card["files"]["tif"]
+    if hashlib.sha256(tif.read_bytes()).hexdigest() != card["raster_sha256"]:
+        fail("active TIFF hash does not match the frozen run card")
+    if decision["safe_to_submit"] or decision["verdict"] != "negative":
+        fail("closed negative audit artifact became submission-approved")
+    for page_name in ("index.html", "executive-summary.html", "validation.html"):
+        text = (DOCS / page_name).read_text()
+        if "DO NOT SUBMIT" not in text or 'data-safe-to-submit="false"' not in text:
+            fail(f"{page_name}: negative submission decision is not explicit")
+    if tif.name not in index or "<a download " not in index:
+        fail("front-page one-click download does not target the new frozen TIFF")
+    for page in pages:
+        if "Submit it" in page.read_text():
+            fail(f"{page.name}: stale unapproved submission recommendation")
+    if not (DOCS / "source-health.json").exists():
+        fail("dated public-source metadata fallback missing")
 
     print(f"checked {len(pages)} pages and {len(local_links(''.join(p.read_text() for p in pages)))} local links")
     for item in NOTES:
