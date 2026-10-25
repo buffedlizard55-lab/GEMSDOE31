@@ -47,6 +47,11 @@
    "sha256": "0d9f135d152786bb8e2b69fbaedffc550e06a1897bb4ee417038061ac53b8bbb"
   },
   {
+   "path": "evidence/data_preparation_20261025_regime.json",
+   "bytes": 5523,
+   "sha256": "e7d4ce38b8cda8547717417c4fa30b6606734e27cca5b062e41fb276aaa53a00"
+  },
+  {
    "path": "evidence/data_preparation_integration_20261025.json",
    "bytes": 4441,
    "sha256": "681a0b87be54553311002850f32c2578ff26f56ac0d1d629aee47c3284893d14"
@@ -63,6 +68,11 @@
   },
   {
    "path": "evidence/data_restore_20261025.json",
+   "bytes": 5835,
+   "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
+  },
+  {
+   "path": "evidence/data_restore_20261025_regime.json",
    "bytes": 5835,
    "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
   },
@@ -330,6 +340,101 @@
    "path": "evidence/prior_lineage_20261025.json",
    "bytes": 2389,
    "sha256": "cc13c4467cb7d6c34ce6777d6efac7e947d56ed1de7e858da5e5d44f13f9a01e"
+  },
+  {
+   "path": "evidence/regime31/duplicate_canary.json",
+   "bytes": 12317,
+   "sha256": "05c2b59a1499259dafe40ee261bcc442c52295a8696bc6c1f8abf00a0739e388"
+  },
+  {
+   "path": "evidence/regime31/holdout_results.json",
+   "bytes": 8483,
+   "sha256": "ce779497c950a9aef5170a078699af2ef2fd83fadb456efb4ea0bb35de1602f1"
+  },
+  {
+   "path": "evidence/regime31/independent_verification.json",
+   "bytes": 1874,
+   "sha256": "9a044d2b6583d304db1d9300ca4532075a5cf1e2eb5e187fcbd9411f54f95476"
+  },
+  {
+   "path": "evidence/regime31/leakage_canary.json",
+   "bytes": 11443,
+   "sha256": "f29df686c60a76a4f1955d4bf98881c7c291cd58e93941141b5a58f491086a50"
+  },
+  {
+   "path": "evidence/regime31/peer_fetch.json",
+   "bytes": 4621,
+   "sha256": "71e3fb40f73692ce5ae0ed8ff88a9ec846437d17b0f56b5fddb2b468ccdc6c6f"
+  },
+  {
+   "path": "evidence/regime31/regime_forensics.json",
+   "bytes": 6596,
+   "sha256": "79be036beee7f1e77df0d8cd9e071e752d2a82faa4d7ca0dc93d18937fd5a07d"
+  },
+  {
+   "path": "evidence/regime31/results_partial.json",
+   "bytes": 5628,
+   "sha256": "eeaa4e8219799d52c0d93448883d792477f4ba5a92249c266402aafab4556144"
+  },
+  {
+   "path": "evidence/regime31/run_card.json",
+   "bytes": 3981,
+   "sha256": "ce6d9a20feb9c2981c14b2aca7affe577f67e9da036d850acd50a3761c11879e"
+  },
+  {
+   "path": "evidence/regime31/shared_tool_defect.json",
+   "bytes": 1336,
+   "sha256": "8867b8c2f547d5e669e6c906542651b88d32df9abfed635d743cf7f25bb2e2bb"
+  },
+  {
+   "path": "evidence/regime31/v1/duplicate_canary.json",
+   "bytes": 12317,
+   "sha256": "05c2b59a1499259dafe40ee261bcc442c52295a8696bc6c1f8abf00a0739e388"
+  },
+  {
+   "path": "evidence/regime31/v1/holdout_results.json",
+   "bytes": 8483,
+   "sha256": "ce779497c950a9aef5170a078699af2ef2fd83fadb456efb4ea0bb35de1602f1"
+  },
+  {
+   "path": "evidence/regime31/v1/leakage_canary.json",
+   "bytes": 11443,
+   "sha256": "f29df686c60a76a4f1955d4bf98881c7c291cd58e93941141b5a58f491086a50"
+  },
+  {
+   "path": "evidence/regime31/v1/run_card.json",
+   "bytes": 3981,
+   "sha256": "ce6d9a20feb9c2981c14b2aca7affe577f67e9da036d850acd50a3761c11879e"
+  },
+  {
+   "path": "evidence/regime31b/duplicate_canary.json",
+   "bytes": 12064,
+   "sha256": "764f98f93404b83dfcf2aaac31d63587026ac07511fd7be40f49ebf85f839446"
+  },
+  {
+   "path": "evidence/regime31b/holdout_results.json",
+   "bytes": 8276,
+   "sha256": "c336d4c8efc5fa6cfba1334b4b8edc49e224bfa53ddda2f670ef9a11eedeb1dd"
+  },
+  {
+   "path": "evidence/regime31b/independent_verification.json",
+   "bytes": 1871,
+   "sha256": "807e94c0465a0b47ab9dc39edb291ec4f2fc1d8141a1b3469099248ae3176fdd"
+  },
+  {
+   "path": "evidence/regime31b/leakage_canary.json",
+   "bytes": 11443,
+   "sha256": "f29df686c60a76a4f1955d4bf98881c7c291cd58e93941141b5a58f491086a50"
+  },
+  {
+   "path": "evidence/regime31b/results_partial.json",
+   "bytes": 5682,
+   "sha256": "3daf1c5ad29b10aad241272197e40e99bba63c2d0ed2254e2e856ee773feda6c"
+  },
+  {
+   "path": "evidence/regime31b/run_card.json",
+   "bytes": 3805,
+   "sha256": "f610749147717748f58984e1874830906ae0144442b37a197c662f468f08be68"
   },
   {
    "path": "evidence/review_verification_20261025.json",

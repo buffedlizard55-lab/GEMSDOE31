@@ -1,0 +1,239 @@
+{
+ "evidence_class": "COMPUTED (SGMC off-catalogue proxy; not a competition score)",
+ "regime_definition": "piedmont: det_elev <= 50 m; mountain: det_elev > 50 m (same split as H31-E G5a/G5b)",
+ "footprint_pixels": 5167373,
+ "piedmont_pixels": 3512694,
+ "mountain_pixels": 1651618,
+ "catalogue_pixels": 60988,
+ "catalogue_piedmont": 44183,
+ "catalogue_mountain": 16711,
+ "catalogue_piedmont_share": 0.7244539909490392,
+ "truth_pixels": {
+  "sgmc_offcat_all": 61664,
+  "sgmc_offcat_piedmont": 23135,
+  "sgmc_offcat_mountain": 38492
+ },
+ "sgmc_piedmont_share_of_offcat": 0.3751783860923716,
+ "candidates": {
+  "h31e_scgp_submod_fa735287": {
+   "dots": 37654,
+   "dots_piedmont": 25897,
+   "dots_mountain": 11754,
+   "piedmont_dot_share": 0.6877622563339885,
+   "dots_dcat_le2px": 0,
+   "dots_dcat_2_3px": 972,
+   "dots_dcat_gt15px_beyond_1p5km": 11866,
+   "sgmc_offcat_all": {
+    "dti": 0.08162303908333594,
+    "tpw": 4674.301627913826,
+    "fpw": 35004.39507098164,
+    "truth_pixels": 61664
+   },
+   "sgmc_offcat_piedmont": {
+    "dti": 0.12330626713422095,
+    "tpw": 3242.1801089978644,
+    "fpw": 35686.40556591696,
+    "truth_pixels": 23135
+   },
+   "sgmc_offcat_mountain": {
+    "dti": 0.03723230474997055,
+    "tpw": 1431.454852249296,
+    "fpw": 36833.45442667794,
+    "truth_pixels": 38492
+   }
+  },
+  "h27_4_solo_d28": {
+   "dots": 40199,
+   "dots_piedmont": 25912,
+   "dots_mountain": 14271,
+   "piedmont_dot_share": 0.6445931490833106,
+   "dots_dcat_le2px": 2545,
+   "dots_dcat_2_3px": 2171,
+   "dots_dcat_gt15px_beyond_1p5km": 21989,
+   "sgmc_offcat_all": {
+    "dti": 0.09384814898733425,
+    "tpw": 5440.668009944882,
+    "fpw": 37768.825803851345,
+    "truth_pixels": 61664
+   },
+   "sgmc_offcat_piedmont": {
+    "dti": 0.10794879639755846,
+    "tpw": 2898.467233642162,
+    "fpw": 38813.48046605944,
+    "truth_pixels": 23135
+   },
+   "sgmc_offcat_mountain": {
+    "dti": 0.06490401940174269,
+    "tpw": 2539.089316723299,
+    "fpw": 39096.30629170932,
+    "truth_pixels": 38492
+   }
+  },
+  "d28_reference_44090": {
+   "dots": 44090,
+   "dots_piedmont": 28758,
+   "dots_mountain": 15316,
+   "piedmont_dot_share": 0.6522567475618054,
+   "dots_dcat_le2px": 6436,
+   "dots_dcat_2_3px": 2171,
+   "dots_dcat_gt15px_beyond_1p5km": 21989,
+   "sgmc_offcat_all": {
+    "dti": 0.09273846081357204,
+    "tpw": 5448.406693134413,
+    "fpw": 41646.7859262412,
+    "truth_pixels": 61664
+   },
+   "sgmc_offcat_piedmont": {
+    "dti": 0.10515803295251991,
+    "tpw": 2905.27041193394,
+    "fpw": 42693.03107406348,
+    "truth_pixels": 23135
+   },
+   "sgmc_offcat_mountain": {
+    "dti": 0.06366176737246847,
+    "tpw": 2540.024821621053,
+    "fpw": 42985.71580609515,
+    "truth_pixels": 38492
+   }
+  },
+  "h31b_scarp_hessian": {
+   "dots": 37654,
+   "dots_piedmont": 19854,
+   "dots_mountain": 17797,
+   "piedmont_dot_share": 0.5272746587347957,
+   "dots_dcat_le2px": 0,
+   "dots_dcat_2_3px": 3091,
+   "dots_dcat_gt15px_beyond_1p5km": 21267,
+   "sgmc_offcat_all": {
+    "dti": 0.13914380940247592,
+    "tpw": 8042.171471684174,
+    "fpw": 34289.58537569514,
+    "truth_pixels": 61664
+   },
+   "sgmc_offcat_piedmont": {
+    "dti": 0.1432007775044591,
+    "tpw": 3786.953328408666,
+    "fpw": 35898.35279085215,
+    "truth_pixels": 23135
+   },
+   "sgmc_offcat_mountain": {
+    "dti": 0.10952739276044571,
+    "tpw": 4250.93730172404,
+    "fpw": 35839.242783942886,
+    "truth_pixels": 38492
+   }
+  },
+  "h31b_corroborated_b2_hybrid": {
+   "dots": 37654,
+   "dots_piedmont": 23131,
+   "dots_mountain": 14519,
+   "piedmont_dot_share": 0.6143039252137887,
+   "dots_dcat_le2px": 0,
+   "dots_dcat_2_3px": 1556,
+   "dots_dcat_gt15px_beyond_1p5km": 21658,
+   "sgmc_offcat_all": {
+    "dti": 0.12057858545580671,
+    "tpw": 6953.306652360184,
+    "fpw": 34721.603271468215,
+    "truth_pixels": 61664
+   },
+   "sgmc_offcat_piedmont": {
+    "dti": 0.13541009630937675,
+    "tpw": 3577.8577057114308,
+    "fpw": 35994.06759478262,
+    "truth_pixels": 23135
+   },
+   "sgmc_offcat_mountain": {
+    "dti": 0.08714736345130907,
+    "tpw": 3373.832580860744,
+    "fpw": 36228.71546823549,
+    "truth_pixels": 38492
+   }
+  },
+  "magrest_concordant": {
+   "dots": 37654,
+   "dots_piedmont": 25742,
+   "dots_mountain": 11912,
+   "piedmont_dot_share": 0.6836458278004993,
+   "dots_dcat_le2px": 2290,
+   "dots_dcat_2_3px": 1151,
+   "dots_dcat_gt15px_beyond_1p5km": 23628,
+   "sgmc_offcat_all": {
+    "dti": 0.07068187517740411,
+    "tpw": 4054.3787232889226,
+    "fpw": 36094.31576966627,
+    "truth_pixels": 61664
+   },
+   "sgmc_offcat_piedmont": {
+    "dti": 0.055925354373256894,
+    "tpw": 1465.6169747349609,
+    "fpw": 37027.70334659347,
+    "truth_pixels": 23135
+   },
+   "sgmc_offcat_mountain": {
+    "dti": 0.06698977214470755,
+    "tpw": 2588.7617485539613,
+    "fpw": 36663.90953256761,
+    "truth_pixels": 38492
+   }
+  },
+  "union_b_p060": {
+   "dots": 106138,
+   "dots_piedmont": 83330,
+   "dots_mountain": 22015,
+   "piedmont_dot_share": 0.7851099511956132,
+   "dots_dcat_le2px": 12852,
+   "dots_dcat_2_3px": 6696,
+   "dots_dcat_gt15px_beyond_1p5km": 46624,
+   "sgmc_offcat_all": {
+    "dti": 0.09985654750452583,
+    "tpw": 7066.191132696105,
+    "fpw": 100094.92498459364,
+    "truth_pixels": 61664
+   },
+   "sgmc_offcat_piedmont": {
+    "dti": 0.10880291998527016,
+    "tpw": 4313.703870353784,
+    "fpw": 101381.04345709691,
+    "truth_pixels": 23135
+   },
+   "sgmc_offcat_mountain": {
+    "dti": 0.05223090679394351,
+    "tpw": 2730.84209404307,
+    "fpw": 104721.28840613451,
+    "truth_pixels": 38492
+   }
+  },
+  "h33_reconstructed_h27_gt2px": {
+   "dots": 37654,
+   "dots_piedmont": 24242,
+   "dots_mountain": 13396,
+   "piedmont_dot_share": 0.6438094226377011,
+   "dots_dcat_le2px": 0,
+   "dots_dcat_2_3px": 2171,
+   "dots_dcat_gt15px_beyond_1p5km": 21989,
+   "sgmc_offcat_all": {
+    "dti": 0.09396541728952698,
+    "tpw": 5399.782592048414,
+    "fpw": 35272.40408595845,
+    "truth_pixels": 61664
+   },
+   "sgmc_offcat_piedmont": {
+    "dti": 0.10905112828813972,
+    "tpw": 2872.730744755255,
+    "fpw": 36302.12584823606,
+    "truth_pixels": 23135
+   },
+   "sgmc_offcat_mountain": {
+    "dti": 0.06537572606415722,
+    "tpw": 2524.2737210470714,
+    "fpw": 36566.669790328975,
+    "truth_pixels": 38492
+   }
+  }
+ },
+ "notes": [
+  "h33_reconstructed = local H27-4 dots with catalogue distance > 2 px; equality with the GEMSDOE32 H33-2-B2 file was byte-verified in evidence/h33_forensics_20261025.json.",
+  "SGMC is an independent-lineage-unverified proxy (USGS State Geologic Map Compilation); it disagrees with the catalogue holdout by construction and neither is the private truth."
+ ]
+}

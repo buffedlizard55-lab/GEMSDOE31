@@ -59,6 +59,24 @@ PROTOCOL = {
 
 SUBMISSIONS = [
     {
+        "id": "research-rbu31b-localunion",
+        "name": "gemsdoe31-rbu31b-localunion-37654-20261025-b7585935",
+        "role": "newest unique RBU31-B candidate - NEGATIVE, DO NOT SUBMIT (passes format/[0,1], leakage and 24-raster uniqueness; fails preregistered holdout-fold and mountain-SGMC gates)",
+        "provenance": "scripts/run_rbu31.py --variant local: union raw-39 + SCGP-40 HistGradientBoosting per fold with regime-balanced sample weights (piedmont det_elev<=50 m vs mountain), ranking surface replaced by masked 12 km locally standardized rank (sigma=120 px, weight 0.65); Poisson 2.8 px emission, >2 px catalogue prune, 37,654 dots. Preregistered in knowledge/2026-10-25_rbu31b_amendment_preregistration.md; evidence in evidence/regime31b/.",
+        "note_for_portal": "GEMSDOE31 RBU31-B local-standardized union 37654d | HOLDOUT-DTI 0.0991 vs 0.0922 | id b7585935",
+        "slot_approved": False,
+        "why_not_slot_approved": "Screen HOLDOUT-DTI 0.0991 vs Baseline-D 0.0922 won only 2/4 folds (paired 95% CI crosses zero), so fresh confirmation was not run; off-catalogue SGMC mountain 0.0343 < H33-2-B2 0.0654. Verdict negative; research only.",
+    },
+    {
+        "id": "research-rbu31-regimeunion",
+        "name": "gemsdoe31-rbu31-regimeunion-37654-20261025-1788ff29",
+        "role": "unique RBU31 candidate - NEGATIVE, DO NOT SUBMIT (superseded by RBU31-B within the same session)",
+        "provenance": "scripts/run_rbu31.py (plain variant): union raw-39 + SCGP-40 HistGradientBoosting per fold with regime-balanced sample weights; Poisson 2.8 px emission, >2 px catalogue prune, 37,654 dots. Preregistered in knowledge/2026-10-25_rbu31_preregistration.md; evidence in evidence/regime31/.",
+        "note_for_portal": "GEMSDOE31 RBU31 regime-balanced union 37654d | HOLDOUT-DTI 0.0955 vs 0.0922 | id 1788ff29",
+        "slot_approved": False,
+        "why_not_slot_approved": "Screen won 1/4 folds, surface top-N 3-px overlap 75.3% vs H31-E2 exceeded the 70% lane limit, and SGMC trailed H33-2-B2 overall and in mountains. Verdict negative; research only.",
+    },
+    {
         "id": "candidate-h31e2-scgp-submod",
         "name": "gemsdoe31-scgp-submod-37654-20261025-fa735287",
         "role": "unique H31-E2 SCGP-Submod multi-physics candidate (PASS format/[0,1]/leakage/22-submission uniqueness/21.3 km confirmation +29.3% & Piedmont SGMC +13.0%; held from auto-slot by strict G5b & 5x5 lattice rule)",
@@ -296,10 +314,41 @@ def submissions_register() -> dict:
                 }
                 record["automated_gates"] = hdata.get("automated_gates", {})
 
+    for rid, ev_dir in (("research-rbu31-regimeunion", "regime31"),
+                        ("research-rbu31b-localunion", "regime31b")):
+        res = ROOT / "evidence" / ev_dir / "holdout_results.json"
+        card = ROOT / "evidence" / ev_dir / "run_card.json"
+        if not (res.is_file() and card.is_file()):
+            continue
+        rdata = json.loads(res.read_text())
+        rcard = json.loads(card.read_text())
+        scr = rdata.get("experiment_1_screen_draw_101", {})
+        proxies = rdata.get("experiment_3_sgmc_proxies", {}).get("candidates", {})
+        for record in files:
+            if record["id"] == rid:
+                record["measured"] = {
+                    "evaluator_version": rdata.get("evaluator_version"),
+                    "screen_holdout_dti": scr.get("rbu31_poisson", {}).get("pooled_dti"),
+                    "screen_holdout_ci95": scr.get("rbu31_poisson", {}).get("ci95"),
+                    "screen_baseline_dti": scr.get("baseline_d_poisson", {}).get("pooled_dti"),
+                    "screen_delta": scr.get("paired_delta_dti"),
+                    "screen_folds_won_out_of_4": scr.get("folds_won_out_of_4"),
+                    "withheld_positives": scr.get("rbu31_poisson", {}).get("withheld_positives"),
+                    "sgmc_all_proxy_DTI": proxies.get("rbu31", {}).get("sgmc_all_dti"),
+                    "sgmc_piedmont_proxy_DTI": proxies.get("rbu31", {}).get("sgmc_piedmont_dti"),
+                    "sgmc_mountain_proxy_DTI": proxies.get("rbu31", {}).get("sgmc_mountain_dti"),
+                    "incumbent_h33_sgmc_all_proxy_DTI": proxies.get("h33_2_b2_actual_peer_file", {}).get("sgmc_all_dti"),
+                }
+                record["automated_gates"] = rcard.get("automated_gates", {})
+                record["run_card"] = f"evidence/{ev_dir}/run_card.json"
+
     primary = next((r for r in files if r["id"] == "primary-h27-4-solo-d28"), None)
     best_research = None
     for record in files:
-        if record.get("measured") and record["id"].startswith("research"):
+        # "delta" here is the historical union-arm off-catalogue proxy delta;
+        # newer research records (RBU31) report screen_delta on a different
+        # instrument and must not enter this legacy comparison.
+        if record.get("measured") and "delta" in record["measured"] and record["id"].startswith("research"):
             if best_research is None or record["measured"]["delta"] > best_research["measured"]["delta"]:
                 best_research = record
     registered = {r[k] for r in files for k in ("file_nan", "file_allfinite") if r.get(k)}
