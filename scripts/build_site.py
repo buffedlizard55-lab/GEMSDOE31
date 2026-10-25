@@ -292,7 +292,7 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
         {receipt['uniqueness']['registry_rasters_compared']} registry rasters, name, note and preregistered holdout evidence.
         {'It is cleared.' if cleared else 'It is NOT cleared: see the failing gates on the right. Do not spend a weekly slot on it.'}</p>
         <div class="actions">
-          <a class="button button-primary" href="{e(fa.replace('docs/', '', 1))}" download>Download submission TIFF (all-finite, default)</a>
+          <a class="button button-primary" href="{e(fa.replace('docs/', '', 1))}" download>{'Download submission TIFF' if cleared else 'Download candidate TIFF — not approved for upload'} (all-finite)</a>
           <a class="button button-light" href="{e(fn.replace('docs/', '', 1))}" download>NaN-outside twin</a>
           <a class="button button-light" href="executive-summary.html">How to submit</a>
         </div>
@@ -305,7 +305,8 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     </div>
   </section>
 """
-    body = f"""    <section>
+    body = f"""    <div class="notice notice-danger"><strong>Not approved for upload.</strong> The TIFF below is a legacy incumbent for research and format-reference purposes only. The separate union file is research-only, and the inspected GEMSDOE32 H33-2-B2 geometry fails the project's duplicate canary. No unique candidate has passed holdout validation and confirmation, so do not spend a competition slot on any download from this site.</div>
+    <section>
       <div class="section-head">
         <div><p class="kicker">Submission</p><h2>Is this file OK to download and submit?</h2></div>
         <p>Download: always fine, the file is format-valid. Submit: only when the verdict says READY TO SUBMIT.</p>
@@ -328,6 +329,7 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
         <a href="executive-summary.html">how to submit</a></p>
       </div>
       {table(['gate', 'result', 'detail'], gate_rows(receipt))}
+      {'' if cleared else '<div class="notice notice-danger"><strong>Not approved for upload.</strong> The candidate failed a gate, and the legacy incumbent and union files are reference or research only. Do not spend a competition slot on any download from this site.</div>'}
       <div class="notice notice-danger"><strong>Not an organizer score</strong> No organizer receipt exists for this file and
       no number on this site is a leaderboard score. Download links above are for inspection; the verdict is the instruction.</div>
       <div class="card" style="margin-top:18px"><h3>The earlier incumbent is not a new submission</h3>
@@ -404,8 +406,8 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
       </div>
     </section>
 """
-    return shell("", "Overview", "Download a format-verified GEMS Prize submission raster and read the measured "
-                                 "evidence behind it.", "Overview", hero, body,
+    return shell("", "Overview", "Download a format-checked legacy reference raster; no candidate is approved for upload.",
+                 "Overview", hero, body,
                  "Measured artifacts, honest limits. No score on this site is organizer-verified.")
 
 
@@ -428,7 +430,7 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
         <div><p class="kicker">Verdict first</p><h2>{'This file is cleared.' if cleared else 'No file is cleared for submission today.'}</h2></div>
         <p>The gates run in the project with no human inspector: <code>python scripts/submission_gate.py</code>.</p>
       </div>
-      <div class="notice {'notice-good' if cleared else 'notice-danger'}"><strong>{verdict_badge(cand['verdict'])}</strong>
+      <div class="notice {'notice-good' if cleared else 'notice-danger'}"><strong>{verdict_badge(cand['verdict'])} {'' if cleared else 'Do not submit a download from this page yet.'}</strong>
       {'All gates passed.' if cleared else 'The file is format-valid and byte-unique, but it failed the lane-uniqueness gate (' + str(len(ph['duplicates_by_overlap'])) + ' registry rasters already contain more than 70 percent of its dots within 3 pixels) and the preregistered holdout gate. Spending a weekly slot on it is not recommended.'}
       Failing gates: {e(', '.join(cand['gate_receipts']['allfinite']['hard_failures'] + cand['gate_receipts']['allfinite']['evidence_failures']) or 'none')}.</div>
       {table(['gate', 'result', 'detail'], gate_rows(rc['allfinite']))}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Download a format-verified GEMS Prize submission raster and read the measured evidence behind it.">
+  <meta name="description" content="Download a format-checked legacy reference raster; no candidate is approved for upload.">
   <title>Overview · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -26,7 +26,7 @@
         715 registry rasters, name, note and preregistered holdout evidence.
         It is NOT cleared: see the failing gates on the right. Do not spend a weekly slot on it.</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif" download>Download submission TIFF (all-finite, default)</a>
+          <a class="button button-primary" href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif" download>Download candidate TIFF — not approved for upload (all-finite)</a>
           <a class="button button-light" href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif" download>NaN-outside twin</a>
           <a class="button button-light" href="executive-summary.html">How to submit</a>
         </div>
@@ -40,6 +40,7 @@
   </section>
 
   <main class="wrap">
+    <div class="notice notice-danger"><strong>Not approved for upload.</strong> The TIFF below is a legacy incumbent for research and format-reference purposes only. The separate union file is research-only, and the inspected GEMSDOE32 H33-2-B2 geometry fails the project's duplicate canary. No unique candidate has passed holdout validation and confirmation, so do not spend a competition slot on any download from this site.</div>
     <section>
       <div class="section-head">
         <div><p class="kicker">Submission</p><h2>Is this file OK to download and submit?</h2></div>
@@ -63,6 +64,7 @@
         <a href="executive-summary.html">how to submit</a></p>
       </div>
       <div class="table-wrap"><table><thead><tr><th>gate</th><th>result</th><th>detail</th></tr></thead><tbody><tr><td><code>G1_format_grid_footprint</code></td><td><span class="badge badge-green">PASS</span></td><td>convention=all-finite; hard failures: none</td></tr><tr><td><code>G2_range_0_1_no_nan_inside</code></td><td><span class="badge badge-green">PASS</span></td><td>footprint cells 5,167,373; min=0; max=1; non-finite=0; nodata tag=nan</td></tr><tr><td><code>G2b_whole_array_finite_in_0_1</code></td><td><span class="badge badge-green">PASS</span></td><td>every one of the 12,279,160 cells is finite and within [0,1] (defends against a whole-raster range check)</td></tr><tr><td><code>G3_no_emission_on_public_catalogue</code></td><td><span class="badge badge-green">PASS</span></td><td>0 emitted cells on the 60,988 public-catalogue cells (masked by the organizer, pure waste)</td></tr><tr><td><code>G3b_emission_size_sane</code></td><td><span class="badge badge-green">PASS</span></td><td>38,000 positive cells (accepted range 1,000-250,000)</td></tr><tr><td><code>G4_not_a_byte_or_dot_set_duplicate</code></td><td><span class="badge badge-green">PASS</span></td><td>file sha256 absent in registry; identical dot set absent; 715 registry rasters compared (0 not restored)</td></tr><tr><td><code>G5_unique_by_overlap_and_rank_correlation</code></td><td><span class="badge badge-red">FAIL</span></td><td>715 compared (an empty comparison fails closed); max 500 m-block Spearman 0.582 (limit 0.9); max non-vacuous 3 px overlap 0.934 (limit 0.7); max chance-adjusted overlap 0.905; duplicates by overlap 14, by correlation 0</td></tr><tr><td><code>G6_unique_name_and_short_note</code></td><td><span class="badge badge-green">PASS</span></td><td>name ok; note 118/140 characters</td></tr><tr><td><code>G7_preregistered_holdout_evidence</code></td><td><span class="badge badge-red">FAIL</span></td><td>preregistered PROMOTE_TO_SELECTOR=False; leakage canary ok=True; evidence bound to this emission procedure=True; evaluator LANE-EVAL-1</td></tr></tbody></table></div>
+      <div class="notice notice-danger"><strong>Not approved for upload.</strong> The candidate failed a gate, and the legacy incumbent and union files are reference or research only. Do not spend a competition slot on any download from this site.</div>
       <div class="notice notice-danger"><strong>Not an organizer score</strong> No organizer receipt exists for this file and
       no number on this site is a leaderboard score. Download links above are for inspection; the verdict is the instruction.</div>
       <div class="card" style="margin-top:18px"><h3>The earlier incumbent is not a new submission</h3>

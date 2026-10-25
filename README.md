@@ -6,19 +6,24 @@
 > the gate receipts say so in machine-readable form. The 2026-10-04 incumbent (`gemsdoe31-h27-4-solo-d28-...`, owner-reported 0.2708)
 > is not a new submission: its geometry was already scored. No organizer receipt exists for any score in this repository.
 
+> Parallel finding from the session reviewed in [the session review](knowledge/session_review_2026-10-25.md): GEMSDOE32's H33-2-B2 prior-art TIFF exceeds the
+> duplicate-correlation and overlap limits against the local H27-4 raster (run stopped and logged), and the prompt's 0.2778 claim stays USER-REPORTED because the
+> inspected owner-mirror archive labels the artifact UNSCORED. The older H27-4 and union files are audit/format-reference only; **none is approved for a weekly slot.**
+
 **Arena core values for this project: Maximize P(Win) · Own the Outcome.**
 
 ## Start here
 
 | what | where |
 | --- | --- |
-| One-click submission download + how to submit | [site home](docs/index.html) · [executive summary](docs/executive-summary.html) |
+| Reference TIFF download + upload status | [site home](docs/index.html) · [executive summary](docs/executive-summary.html) |
 | Why the 0.2708 geometry scores, and what would beat it | [research](docs/research.html) |
 | Buffer derivation, collar control, metric proof, truth proxies | [validation](docs/validation.html) |
 | Inputs, score claims, irregularities, review passes | [register](docs/register/index.html) |
 | Experiment log (11 experiments, including the stopped one) | [experiments](docs/experiments/index.html) |
 | Lane run card, E1-E3, instrument calibration, ranked hypotheses | [lane](docs/lane.html) · [`knowledge/2026-10-25_lane_hypotheses.md`](knowledge/2026-10-25_lane_hypotheses.md) · [`evidence/run_card_lane_as1.json`](evidence/run_card_lane_as1.json) |
 | Machine-readable state | [`feed.json`](docs/feed.json) · [`registry/`](registry/) · [`evidence/`](evidence/) |
+| Latest status / score audit | [Current status](knowledge/current_status_2026-10-25.md) · [2026-10-25 review](knowledge/session_review_2026-10-25.md) · [irregularity register](registry/irregularities.json) |
 | AI-use disclosure draft for the narrative | [ai-disclosure](docs/ai-disclosure.html) |
 
 GitHub Pages serves [`docs/`](docs/index.html); the root [`index.html`](index.html) redirects there.

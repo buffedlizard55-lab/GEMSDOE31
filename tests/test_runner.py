@@ -19,10 +19,11 @@ class _EmpiricalStub:
         return {"n_residuals": 4, "pair_counts": [6, 3]}
 
 
-def test_runner_accepts_the_fixed_arena_session_branch(monkeypatch):
+def test_runner_accepts_an_arena_session_branch_without_stale_session_id(monkeypatch):
+    monkeypatch.setattr(RUNNER, "EXPECTED_BRANCH", None)
     outputs = {
         ("status", "--porcelain"): "",
-        ("branch", "--show-current"): RUNNER.EXPECTED_BRANCH,
+        ("branch", "--show-current"): "arena/7a0b39fb-gemsdoe31",
         ("rev-parse", "HEAD"): "deadbeef",
     }
     monkeypatch.setattr(RUNNER, "git_output", lambda *args: outputs[args])
@@ -30,10 +31,23 @@ def test_runner_accepts_the_fixed_arena_session_branch(monkeypatch):
     assert RUNNER.require_clean_worktree() == "deadbeef"
 
 
-def test_runner_rejects_any_other_branch(monkeypatch):
+def test_runner_rejects_non_arena_branch_without_override(monkeypatch):
+    monkeypatch.setattr(RUNNER, "EXPECTED_BRANCH", None)
     outputs = {
         ("status", "--porcelain"): "",
         ("branch", "--show-current"): "main",
+    }
+    monkeypatch.setattr(RUNNER, "git_output", lambda *args: outputs[args])
+
+    with pytest.raises(SystemExit, match="wrong working branch"):
+        RUNNER.require_clean_worktree()
+
+
+def test_runner_honors_explicit_exact_branch_override(monkeypatch):
+    monkeypatch.setattr(RUNNER, "EXPECTED_BRANCH", "arena/frozen-session")
+    outputs = {
+        ("status", "--porcelain"): "",
+        ("branch", "--show-current"): "arena/other-session",
     }
     monkeypatch.setattr(RUNNER, "git_output", lambda *args: outputs[args])
 

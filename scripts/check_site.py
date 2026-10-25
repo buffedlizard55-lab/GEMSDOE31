@@ -69,20 +69,29 @@ def main() -> None:
                 fail(f"{page.relative_to(ROOT)}: pictogram/symbol U+{ord(character):04X} ({character!r}) in markup")
 
     index = (DOCS / "index.html").read_text()
-    if "Download submission TIFF" not in index:
-        fail("index.html: the one-click download button is missing")
     gate_receipt = next((DOCS / "downloads" / "blocked").glob("*-gate-allfinite.json"), None)
+    executive = (DOCS / "executive-summary.html").read_text()
     if gate_receipt is None:
         fail("no gate receipt for the candidate download")
     else:
         verdict = json.loads(gate_receipt.read_text())["verdict"]
-        label = verdict.replace("_", " ")
-        for page in ("index.html", "executive-summary.html"):
-            if label not in (DOCS / page).read_text() and {"READY_TO_SUBMIT": "READY TO SUBMIT", "BLOCKED": "BLOCKED: DO NOT SUBMIT",
-                                                            "FORMAT_VALID_NOT_PROMOTED": "FORMAT VALID, NOT PROMOTED"}[verdict] not in (DOCS / page).read_text():
+        shown = {"READY_TO_SUBMIT": "READY TO SUBMIT", "BLOCKED": "BLOCKED: DO NOT SUBMIT",
+                 "FORMAT_VALID_NOT_PROMOTED": "FORMAT VALID, NOT PROMOTED"}[verdict]
+        for page, text in (("index.html", index), ("executive-summary.html", executive)):
+            if shown not in text:
                 fail(f"{page}: the gate verdict {verdict} is not shown")
-        if verdict != "READY_TO_SUBMIT" and "OK to submit" in (DOCS / "index.html").read_text().replace("Is this file OK to submit?", ""):
-            fail("index.html calls a non-cleared file OK to submit")
+        if verdict == "READY_TO_SUBMIT":
+            if "Download submission TIFF" not in index:
+                fail("index.html: the one-click download button is missing")
+        else:
+            if "Download candidate TIFF" not in index:
+                fail("index.html: the candidate download button is missing")
+            if "not approved for upload" not in index.lower():
+                fail("index.html: the no-upload-approval warning is missing")
+            if "Download submission TIFF" in index:
+                fail("index.html: a non-cleared file is labeled as a submission TIFF")
+            if "do not submit a download from this page yet" not in executive.lower():
+                fail("executive-summary.html: the no-upload-approval warning is missing")
     for name in ("executive-summary.html", "lane.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")
