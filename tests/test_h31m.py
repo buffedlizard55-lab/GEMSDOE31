@@ -7,7 +7,7 @@ from scipy.ndimage import distance_transform_edt
 
 from gemsdoe31 import metric
 from gemsdoe31.h31m_features import H31M_CHANNELS, build_h31m_channels
-from gemsdoe31.submodular_emit import submodular_emit_dots
+from gemsdoe31.h31m_submodular import submodular_emit_dots
 
 
 def _synthetic_bands(shape: tuple[int, int] = (80, 90)) -> dict[str, np.ndarray]:

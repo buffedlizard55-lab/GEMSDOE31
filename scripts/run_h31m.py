@@ -50,7 +50,7 @@ from gemsdoe31.h31m_features import (  # noqa: E402
     build_h31m_channels,
 )
 from gemsdoe31.raster import SHAPE  # noqa: E402
-from gemsdoe31.submodular_emit import submodular_emit_dots  # noqa: E402
+from gemsdoe31.h31m_submodular import submodular_emit_dots  # noqa: E402
 
 SCREEN_SEED = 20261025
 CONFIRM_SEED = 20261026
