@@ -32,8 +32,8 @@
   },
   {
    "path": "evidence/data_restore.json",
-   "bytes": 5835,
-   "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
+   "bytes": 5829,
+   "sha256": "9d555e189013d6494a2145e81168a3af77e86bfd48b5ff8c921981644d829d12"
   },
   {
    "path": "evidence/h27_geometry.json",
@@ -71,14 +71,29 @@
    "sha256": "64f66b055149ed7b77f557bb777454849333368b404f68761ab6a0dc2c1e1473"
   },
   {
+   "path": "evidence/h31b_experiments.json",
+   "bytes": 32127,
+   "sha256": "6863e771499a7a95b5104c142018e314f3a541801e17e807effe242998413731"
+  },
+  {
    "path": "evidence/incumbent_filter_results.json",
    "bytes": 3512,
    "sha256": "8450fc3dac29319e8a103c438477287a29582e11799ea68e6423126bb33b029a"
   },
   {
+   "path": "evidence/leakage_canary.json",
+   "bytes": 24572,
+   "sha256": "87cc1e1fabdb1e8ead7e82567b6b987af40178fb021d1517fe4d61f1a7396238"
+  },
+  {
    "path": "evidence/metric_check.json",
    "bytes": 5940,
    "sha256": "75a556851de64739ebf438647383415a1112ef99c342d95fedeac1a0d9830aee"
+  },
+  {
+   "path": "evidence/nine_site_forensic_audit.json",
+   "bytes": 20617,
+   "sha256": "ae622038d789dd8a5de8a6b69ee059469238c8114105c24cf5703e1c1ec0ef96"
   },
   {
    "path": "evidence/oof/oof_B_19_plus_lidar_u16.npz",
@@ -104,6 +119,11 @@
    "path": "evidence/operating_point.json",
    "bytes": 12723,
    "sha256": "013d71048e3800b8d4a32adf765d5a50df50269fe834b1dadbcab8a5f6e2f596"
+  },
+  {
+   "path": "evidence/run_card_2026-10-25.json",
+   "bytes": 5745,
+   "sha256": "02acdb7f4b613910cf0f20af2166ba796b95e373b97d1cfc99d5e068f06b9082"
   },
   {
    "path": "evidence/union_results.json",

@@ -21,7 +21,7 @@ Before changing this repository, read the entire `README.md`, the active H31 pre
 
 ## Execution / Git rules
 
-- Work only on the branch this session is attached to (`arena/01a104f4-gemsdoe31` at the time of writing);
+- Work only on the branch this session is attached to (`arena/58bb7423-gemsdoe31` at the time of writing);
   never switch, create or push another branch.
 - Keep large input rasters and regenerable caches out of Git. Pin hashes and provenance in `registry/`.
 - Run the full local check set before any PR: `python -m pytest -q`, `python -m ruff check .`,

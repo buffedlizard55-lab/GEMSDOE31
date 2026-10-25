@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "verify_only": true,
+ "verify_only": false,
  "files": [
   {
    "id": "training_features",
@@ -157,5 +157,72 @@
    "bands": 1
   }
  ],
- "all_hashes_match": true
+ "all_hashes_match": true,
+ "prepared": {
+  "bands": [
+   "mag_anom",
+   "rtp",
+   "tmi_hg",
+   "geod_2ndinv",
+   "iso_grav_anom_slope",
+   "tc",
+   "geod_shearrate",
+   "geod_dilaterate",
+   "tmi_vg",
+   "deq_n100a15",
+   "iso_grav_anom_vg",
+   "det_elev",
+   "iso_grav_anom",
+   "tmi",
+   "depth_to_base_surf",
+   "ieq_n100a15",
+   "cond_surf",
+   "iso_grav_anom_hg",
+   "det_elev_slope",
+   "ex_max",
+   "ex_mean",
+   "step_max",
+   "lapneg_max",
+   "lappos_max",
+   "downface_max",
+   "upface_max",
+   "cross_max",
+   "relief",
+   "coh100",
+   "strike",
+   "valid",
+   "K",
+   "Th",
+   "U",
+   "TC",
+   "ThK",
+   "UK",
+   "UTh",
+   "TMI_up150",
+   "mean_k_500m",
+   "upface_minus_downface",
+   "th_minus_k",
+   "dist_cat_km",
+   "dist_sgmc_km",
+   "dist_vent_km",
+   "dist_probe_km"
+  ],
+  "shape": [
+   3730,
+   3292
+  ],
+  "crs_epsg": 32611,
+  "transform": [
+   100.0,
+   0.0,
+   243350.0,
+   0.0,
+   -100.0,
+   4508550.0
+  ],
+  "footprint_pixels": 5167373,
+  "bytes": 2259365440,
+  "missing_data_policy": "0 means 'no survey coverage' in the LiDAR and GeoDAWN layers and is converted to NaN; the competition layers keep their own -3.4028235e38 nodata and are also converted to NaN.",
+  "provenance": "owner-mirror competition and derived external layers; not organizer-authenticated"
+ }
 }
