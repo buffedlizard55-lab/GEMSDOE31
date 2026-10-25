@@ -1,5 +1,7 @@
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
+> **Latest review (2026-10-25): no new TIFF or experiment was authorized.** The active lane is stopped by the universal literal-overlap witness and exhausted three-experiment budget. The existing MAGREST TIFF is **OK TO DOWNLOAD FOR RESEARCH ONLY — DO NOT SUBMIT**: [download the existing research TIFF](docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif) · [automated decision receipt](docs/downloads/magrest-run-card.json). See the [follow-up repo review](knowledge/repo_review_2026-10-25_arena_followup.md), [latest current status](knowledge/current_status_2026-10-25.md), and [`registry/review_passes.json`](registry/review_passes.json). The review found four possible next-lane hypotheses, but they remain unfit proposals pending lane authorization and blocker resolution.
+
 > ### Current decision — research downloads only; DO NOT SUBMIT
 >
 > **No current artifact is approved for competition submission.** Format validity is not uniqueness,

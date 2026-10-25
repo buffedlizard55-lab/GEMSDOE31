@@ -1194,6 +1194,60 @@
     "suite": "48 pytest tests pass; ruff clean; check_metric max |delta| 4.44e-16; check_site passes 20/20 pages and 267 local links",
     "run_card": "evidence/h31m_run_card.json emitted with verdict='promote' and all 11/11 gates True"
    }
+  },
+  {
+   "id": "arena-followup-pass-1-2026-10-25",
+   "status": "complete-with-lane-stop-preserved",
+   "scope": [
+    "Read the complete README charter and current project instructions/status/preregistration. Reviewed H33 lineage, current MAGREST decision, templates, registry witness, generated pages, and prior audit. No experiment or TIFF was created because the lane is closed."
+   ],
+   "verification": {
+    "review_report": "knowledge/repo_review_2026-10-25_arena_followup.md",
+    "decision": "Existing MAGREST raster only: research download permitted; submission denied; no new artifact authorized."
+   }
+  },
+  {
+   "id": "arena-followup-pass-2-2026-10-25",
+   "status": "complete-with-limitations-recorded",
+   "checks": [
+    "Installed pinned dependencies in ignored .venv. Ran pytest, Ruff, DTI equivalence, exact current-run verifier after restoring small inputs, evidence collector, site builder, and local link checker.",
+    "Confirmed 6 current-run pytest cases are skipped until small inputs are restored; the explicit verifier restored them and returned verdict negative / ok_to_submit false.",
+    "Found current README top summary foregrounds H31-M before the later-dated MAGREST result, and historical review-pass record includes an earlier stale promoted-candidate label; later entries reverse it. Preserved history and documented both for interpretation."
+   ],
+   "verification": {
+    "pytest": "106 passed, 6 skipped",
+    "ruff": "passed",
+    "metric_check": "max absolute fast/brute difference 4.441e-16; closed forms passed",
+    "verify_current_run": "ok_to_download_for_research=true; ok_to_submit=false; verdict=negative",
+    "site": "20 pages and 320 local links passed"
+   }
+  },
+  {
+   "id": "arena-followup-pass-3-2026-10-25",
+   "status": "complete-with-blockers-preserved",
+   "criteria": [
+    {
+     "criterion": "H33-2-B2 explanation and possible win",
+     "status": "Geometric pruning lineage identified; score explanation remains inference; 0.2778, 0.3195 and 0.4413 are USER-REPORTED absent exact-byte organizer receipts; no beating claim supported."
+    },
+    {
+     "criterion": "3-5 untried candidates ranked with layers/signatures/mimics/cost/data",
+     "status": "Four desk-only proposals documented in knowledge/repo_review_2026-10-25_arena_followup.md; no execution, score projection, or global novelty claim."
+    },
+    {
+     "criterion": "Top hypothesis validated before spending weekly slot",
+     "status": "No slot spent. Validation is blocked by the closed three-experiment budget, absent assigned method paragraph, and universal 100% overlap witness."
+    },
+    {
+     "criterion": "Unique TIFF and clear download/submission decision",
+     "status": "No new TIFF generated after STOP. Existing new MAGREST TIFF is clearly research-download-only and DO NOT SUBMIT; local format validation does not mean organizer acceptance."
+    },
+    {
+     "criterion": "Sources and access checked",
+     "status": "Primary URLs supplied for manual review; non-GitHub official sources were not fetched in this run due network allowlist. Owner mirrors are not organizer-authenticated."
+    }
+   ],
+   "release_decision": "No new experiment, TIFF, submission slot, or upload. Existing literal registry STOP remains binding."
   }
  ],
  "remaining_work": [
@@ -1206,11 +1260,11 @@
  ],
  "current_run": "registry/current_run.json",
  "current_three_passes": [
-  "arena-11fd7d52-safety-pass-1",
-  "arena-11fd7d52-safety-pass-2",
-  "arena-11fd7d52-safety-pass-3"
+  "arena-followup-pass-1-2026-10-25",
+  "arena-followup-pass-2-2026-10-25",
+  "arena-followup-pass-3-2026-10-25"
  ],
- "release_decision": "Research-only artifacts; literal registry STOP. No new experiment/TIFF/slot in safety continuation. No human override of failed gates.",
+ "release_decision": "Current follow-up: existing MAGREST research TIFF is negative and blocked by universal literal overlap witness; no new experiment/TIFF/slot. See knowledge/repo_review_2026-10-25_arena_followup.md.",
  "rbu31_session_2026_10_25": {
   "branch": "arena/84287da3-gemsdoe31",
   "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",
