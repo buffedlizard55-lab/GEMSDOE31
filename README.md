@@ -6,6 +6,19 @@
 > scientific promotion, or organizer acceptance. The literal shared-registry overlap gate fails.
 > No human sign-off can override that failure under the current protocol.
 >
+> H31-HVDC-Submod300 (`EXP-3`, newly computed 2026-10-25) passed local GeoTIFF format validation (10/10 checks),
+> 55-feature single-feature leakage canary (`max AUC = 0.7606 <= 0.90`), blocked 21.25 km hide-and-recover confirmation
+> (`HOLDOUT-DTI 0.1247`, `95% CI [0.1128, 0.1381]` vs `0.0779` clean `ArmD`, `+60.0%`, `4/4` draws won; `OFFCAT-PROXY-DTI 0.0824`),
+> and 34-comparator discrete separation (`max |Spearman| = 0.1455`, `max forward 3-px overlap = 47.62%`),
+> **but triggers a literal STOP under the unexempted 695-raster shared registry** (`99.52%` within 3 px of `r13-lattice-s5`; `100%` within `GEMSDOE48` continuous field).
+> **OK TO DOWNLOAD FOR RESEARCH. NOT APPROVED FOR SUBMISSION (`verdict = negative`, `slot_approved = false`).**
+> [**Download H31-HVDC Research .tif (NaN-outside)**](docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif) ·
+> [One-TIFF .zip](docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.zip) ·
+> [All-finite .tif](docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif) ·
+> [Format & gate receipt](docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-format-check.json) ·
+> [HVDC Run Card](evidence/hvdc/run_card.json) ·
+> SHA-256 `2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2`.
+>
 > H31-E2 SCGP-Submod is preserved as historical negative research, not a new experiment in this session.
 > Its 22-comparator subset passed, but that subset excluded a registered lattice that triggers STOP.
 > [Research-only H31-E2 TIFF](docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif) ·
@@ -275,6 +288,25 @@ files) from commit `1a22d755d5e2d2588c23c66a3ce6db9955cf5fa4`. The exact source 
 [Archived artifacts](docs/research.html) remain separately identifiable; no parallel fit is counted as a new experiment
 in this session. H31-B's original promote flag is **not** reproduced, endorsed or imported as selector approval here.
 Different truth populations/CI/buffer instruments cannot be ranked by headline DTI. No current file is approved.
+
+## 2026-10-25 H31-HVDC-Submod300 dual-specialist + 300 m CELF submodular audit
+
+Full preregistration and measured audit:
+[`knowledge/2026-10-25_h31_hvdc_preregistration.md`](knowledge/2026-10-25_h31_hvdc_preregistration.md) ·
+[`knowledge/2026-10-25_h31_hvdc_results_and_audit.md`](knowledge/2026-10-25_h31_hvdc_results_and_audit.md) ·
+[`evidence/hvdc/run_card.json`](evidence/hvdc/run_card.json) ·
+[`evidence/hvdc/hvdc_experiment_results.json`](evidence/hvdc/hvdc_experiment_results.json) ·
+[`evidence/hvdc/shared_registry_stop_audit.json`](evidence/hvdc/shared_registry_stop_audit.json).
+
+- **Mechanism (`H31-HVDC`):** Deconfounds the `24.63%` 3DEP LiDAR coverage gap (hard-blocking `valid`, `dist_cat_km`, and `dist_sgmc_km`) via a `100%`-footprint geophysical/radiometric/GDR-1391 specialist + `75.37%` multi-sensor specialist + fold-visible-only vent-to-tip & relay-ramp accommodation specialist, calibrated via exact Bayes case-control prior shift and discretized via vectorized Batch-Exact 300 m triangular-kernel CELF submodular maximum coverage (`37,654` binary `{0.0, 1.0}` dots at `d_cat > 2.0 px`).
+- **Blocked Hide-and-Recover `HOLDOUT-DTI` (`gemsdoe31-hide-recover-v1`, `21,250 m` collar, `48,169` withheld positives across 4 draws, `1,000`-rep 20 km bootstrap):**
+  - `EXP-1` (`ArmD-Clean-Poisson`): Screen `0.0733 [0.0623, 0.0857]`, Confirm `0.0826 [0.0682, 0.0994]`, Pooled-4 `0.0779 [0.0664, 0.0908]`, `OFFCAT-PROXY-DTI 0.0731`.
+  - `EXP-2` (`H31-HVDC-Physics-Poisson`): Screen `0.0782 [0.0669, 0.0896]`, Confirm `0.0860 [0.0730, 0.1004]`, Pooled-4 `0.0821 [0.0713, 0.0936]` (`+0.0042`, `4/4` draws), `OFFCAT-PROXY-DTI 0.0701`.
+  - **`EXP-3` (`H31-HVDC-Submod300`):** Screen **`0.1202 [0.1078, 0.1332]`**, Untuned Confirm **`0.1292 [0.1141, 0.1448]`**, Pooled-4 **`0.1247 [0.1128, 0.1381]`** (**`+0.0468` / `+60.0%`**, `4/4` draws and `4/4` spatial quadrants `Q0..Q3`), `OFFCAT-PROXY-DTI 0.0824` (`+12.7%` vs clean `ArmD`, `+61.0%` vs legacy `Arm D`).
+- **Canaries & Shared-Registry STOP:**
+  - Single-feature leakage (`55/55` features): **`PASS`** (`max AUC = 0.7606 <= 0.90`).
+  - Discrete 34-comparator subset (9 focus sites + 6 concurrent 2026-10-25 lanes): `max |Spearman| = 0.1455` (`0.0626` vs `GEMSDOE32` `H33`), `max forward 3-px overlap = 47.62%` (`36.89%` vs `GEMSDOE32` `H33`, `35.71%` vs `SCGP-Submod`, `18.47%` vs `MAGREST`) — subset only, not global uniqueness approval.
+  - Unexempted 695-raster shared registry (`r13-lattice-s5` / `GEMSDOE48` continuous field): `99.52%` (`37,472 / 37,654`) within 3 px of `r13-lattice-s5` (`|Spearman| = 0.000001`, zero copied signal) and `100%` within `GEMSDOE48` continuous field -> **`LITERAL STOP` (`verdict = negative`, `slot_approved = false`, research download only)**.
 
 ## Complete owner prompt — reread at every session start
 

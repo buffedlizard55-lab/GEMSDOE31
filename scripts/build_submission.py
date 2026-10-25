@@ -68,10 +68,11 @@ def write_variants(dots: np.ndarray, footprint: np.ndarray, out_stem: Path, *, n
     finite_variant = np.where(footprint, inside, 0.0).astype(np.float32)
     nan_path = out_stem.with_name(out_stem.name + "-nan.tif")
     allfinite_path = out_stem.with_name(out_stem.name + "-allfinite.tif")
+    allfinite_profile = {**PROFILE, "nodata": None}
     with rasterio.open(nan_path, "w", **PROFILE) as dst:
         dst.write(nan_variant, 1)
         dst.update_tags(submission_name=name, convention="nan-outside-footprint")
-    with rasterio.open(allfinite_path, "w", **PROFILE) as dst:
+    with rasterio.open(allfinite_path, "w", **allfinite_profile) as dst:
         dst.write(finite_variant, 1)
         dst.update_tags(submission_name=name, convention="all-finite-zero-outside")
     zip_path = out_stem.with_name(out_stem.name + "-nan.zip")
@@ -87,12 +88,18 @@ def main() -> None:
     source.add_argument("--prob", help="float GeoTIFF of probabilities; thresholded with --threshold")
     parser.add_argument("--threshold", type=float, default=0.4)
     parser.add_argument("--template", default="data/sample_submission.tif")
+    parser.add_argument("--labels", default=None)
     parser.add_argument("--outdir", default="docs/downloads")
     parser.add_argument("--name", required=True, help="submission name (used in file names and metadata)")
     parser.add_argument("--note", default="", help="the comment to paste into the portal's Note box")
     args = parser.parse_args()
 
-    template = ROOT / args.template
+    template = Path(args.template) if Path(args.template).is_absolute() else (ROOT / args.template)
+    labels_path = (
+        Path(args.labels)
+        if args.labels
+        else (template.parent / "labels.tif" if (template.parent / "labels.tif").is_file() else ROOT / "data/labels.tif")
+    )
     footprint = footprint_mask(template)
     source_path = Path(args.dots or args.prob)
     with rasterio.open(source_path) as src, rasterio.open(template) as ref:
@@ -122,7 +129,7 @@ def main() -> None:
         "name": args.name,
         "note": args.note,
         "dots": int(dots.sum()),
-        "dots_on_catalogue": int((dots & (rasterio.open(ROOT / "data/labels.tif").read(1) == 1)).sum()),
+        "dots_on_catalogue": int((dots & (rasterio.open(labels_path).read(1) == 1)).sum()),
         "files": {k: str(v if v.is_absolute() else v) for k, v in paths.items()},
         "validation": receipts,
         "warnings": [

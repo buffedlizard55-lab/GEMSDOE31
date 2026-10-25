@@ -274,6 +274,12 @@
    "class": "OFFICIAL",
    "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
    "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "SRC-DRIVENDATA-GEMS-REFERENCE-REPO",
+   "class": "OFFICIAL",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-25"
   }
  ],
  "automation": {

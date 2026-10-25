@@ -639,6 +639,51 @@
     "no comparable global-best confirmation on same evaluator and buffer"
    ],
    "no_new_experiment_or_tiff": true
+  },
+  {
+   "id": "PASS-2026-10-25-HVDC-1",
+   "status": "passed",
+   "scope": [
+    "H31-HVDC math, Batch-Exact CELF submodular exactness, 55-feature leakage canary, GeoTIFF byte contract"
+   ],
+   "verification": {
+    "celf": "20/20 exact match",
+    "leakage": "55/55 <= 0.7606",
+    "geotiff": "10/10 strict checks pass"
+   },
+   "open_scientific_gates": [
+    "Shared 695-raster literal overlap gate audited in Pass 2"
+   ],
+   "historical_scope": false
+  },
+  {
+   "id": "PASS-2026-10-25-HVDC-2",
+   "status": "passed",
+   "scope": [
+    "Cumulative Pass 1 + 34-comparator discrete audit + 695-raster r13-lattice-s5 / GEMSDOE48 literal STOP audit"
+   ],
+   "verification": {
+    "discrete_34": "max |rho| 0.1455, max fwd 3px 47.62%",
+    "shared_695": "r13-lattice-s5 99.52% -> literal STOP logged"
+   },
+   "open_scientific_gates": [
+    "Weekly live slot blocked under unexempted 695-raster shared registry"
+   ],
+   "historical_scope": false
+  },
+  {
+   "id": "PASS-2026-10-25-HVDC-3",
+   "status": "passed",
+   "scope": [
+    "Full cold-read integration with origin/main concurrent lanes, CI workflow, 20-page site check, pytest & ruff"
+   ],
+   "verification": {
+    "ci_suite": "verify_current_run + pytest + ruff + check_metric + collect_evidence + build_site + check_site all pass"
+   },
+   "open_scientific_gates": [
+    "No organizer receipt exists; research download only"
+   ],
+   "historical_scope": false
   }
  ],
  "remaining_work": [

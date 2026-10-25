@@ -98,19 +98,24 @@ def main() -> None:
             fail(f"{page_name}: H31-E2 SCGP-Submod candidate name missing")
         if "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8" not in html_text:
             fail(f"{page_name}: H31-E2 SCGP-Submod primary SHA-256 missing")
+        if "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168" not in html_text:
+            fail(f"{page_name}: H31-HVDC-Submod300 candidate name missing")
+        if "2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2" not in html_text:
+            fail(f"{page_name}: H31-HVDC-Submod300 primary SHA-256 missing")
     for name in ("executive-summary.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")
 
     for page_name in ("index.html", "executive-summary.html", "research.html"):
         html_text = (DOCS / page_name).read_text()
-        if 'id="scgp-submod"' in html_text:
-            if "RESEARCH DOWNLOAD ONLY" not in html_text or "DO NOT SUBMIT · REGISTRY STOP" not in html_text:
-                fail(f"{page_name}: H31-E2 research-only/registry STOP warning missing")
-            if "SUBSET ONLY — NOT UNIQUENESS APPROVAL" not in html_text:
-                fail(f"{page_name}: subset comparison incorrectly presented as broad uniqueness")
-            if "Portal Format" in html_text or "explicit human selector sign-off" in html_text:
-                fail(f"{page_name}: unsupported portal acceptance or human override wording")
+        for card_id, label in (("scgp-submod", "H31-E2"), ("hvdc-submod", "H31-HVDC")):
+            if f'id="{card_id}"' in html_text:
+                if "RESEARCH DOWNLOAD ONLY" not in html_text or "DO NOT SUBMIT · REGISTRY STOP" not in html_text:
+                    fail(f"{page_name}: {label} research-only/registry STOP warning missing")
+                if "SUBSET ONLY — NOT UNIQUENESS APPROVAL" not in html_text:
+                    fail(f"{page_name}: {label} subset comparison incorrectly presented as broad uniqueness")
+                if "Portal Format" in html_text or "explicit human selector sign-off" in html_text:
+                    fail(f"{page_name}: {label} unsupported portal acceptance or human override wording")
 
     register = (ROOT / "registry" / "submissions.json").read_text()
     if '"slot_approved": true' in register:

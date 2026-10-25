@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "name": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168",
+  "note": "H31-HVDC dual-specialist+300m CELF (37654 {0,1} dots; HOLDOUT-DTI 0.1247); research-only, literal registry STOP",
+  "dots": 37654,
+  "dots_on_catalogue": 0,
+  "ok_to_download_and_submit": false,
+  "status_banner": "LOCAL FORMAT CHECKS PASS \u00b7 RESEARCH DOWNLOAD ONLY \u00b7 DO NOT SUBMIT (literal 695-raster registry STOP)",
+  "files": {
+    "nan": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif",
+    "allfinite": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+    "zip": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.zip"
+  },
+  "validation": {
+    "nan": {
+      "bytes": 185198,
+      "checks": {
+        "crs_matches_template": {
+          "detail": "EPSG:32611 vs EPSG:32611",
+          "hard": true,
+          "pass_": true
+        },
+        "dtype_float32": {
+          "detail": "dtypes=('float32',)",
+          "hard": true,
+          "pass_": true
+        },
+        "footprint_all_finite": {
+          "detail": "0 NaN/Inf inside 5,167,373 template cells",
+          "hard": true,
+          "pass_": true
+        },
+        "footprint_values_in_0_1": {
+          "detail": "min=0.0; max=1.0; required finite [0,1]",
+          "hard": true,
+          "pass_": true
+        },
+        "nan_mask_matches_template": {
+          "detail": "NaN cells exactly match the template's outside-footprint mask",
+          "hard": true,
+          "pass_": true
+        },
+        "no_infinite_pixels": {
+          "detail": "0 infinite values",
+          "hard": true,
+          "pass_": true
+        },
+        "nodata_tag_nan_or_none": {
+          "detail": "nodata=nan",
+          "hard": false,
+          "pass_": true
+        },
+        "output_100m_pixels": {
+          "detail": "xres=100, yres=-100",
+          "hard": true,
+          "pass_": true
+        },
+        "output_epsg_32611": {
+          "detail": "EPSG:32611",
+          "hard": true,
+          "pass_": true
+        },
+        "outside_footprint_nan": {
+          "detail": "7,111,787/7,111,787 outside pixels are NaN; finite outside pixels are forbidden",
+          "hard": true,
+          "pass_": true
+        },
+        "shape_matches_template": {
+          "detail": "(3730, 3292) vs (3730, 3292)",
+          "hard": true,
+          "pass_": true
+        },
+        "single_band": {
+          "detail": "count=1",
+          "hard": true,
+          "pass_": true
+        },
+        "template_epsg_32611": {
+          "detail": "EPSG:32611",
+          "hard": true,
+          "pass_": true
+        },
+        "template_expected_footprint": {
+          "detail": "5,167,373 (expected 5,167,373)",
+          "hard": true,
+          "pass_": true
+        },
+        "template_expected_outside": {
+          "detail": "7,111,787 (expected 7,111,787)",
+          "hard": true,
+          "pass_": true
+        },
+        "template_expected_shape": {
+          "detail": "(3730, 3292) (expected (3730, 3292))",
+          "hard": true,
+          "pass_": true
+        },
+        "template_expected_transform": {
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+          "hard": true,
+          "pass_": true
+        },
+        "template_float32": {
+          "detail": "dtypes=('float32',)",
+          "hard": true,
+          "pass_": true
+        },
+        "template_has_finite_footprint": {
+          "detail": "5,167,373 finite pixels",
+          "hard": true,
+          "pass_": true
+        },
+        "template_single_band": {
+          "detail": "count=1",
+          "hard": true,
+          "pass_": true
+        },
+        "transform_matches_template": {
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+          "hard": true,
+          "pass_": true
+        }
+      },
+      "file": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif",
+      "grid": {
+        "bands": 1,
+        "bounds": [
+          243350.0,
+          4135550.0,
+          572550.0,
+          4508550.0
+        ],
+        "crs": "EPSG:32611",
+        "dtype": [
+          "float32"
+        ],
+        "nodata_tag": "NaN",
+        "positive_pixels_inside": 37654,
+        "shape": [
+          3730,
+          3292
+        ],
+        "template_footprint_pixels": 5167373,
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ]
+      },
+      "hard_failures": [],
+      "ok_to_upload_format_only": true,
+      "organizer_acceptance_verified": false,
+      "sha256": "2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2"
+    },
+    "allfinite": {
+      "bytes": 141056,
+      "checks": {
+        "allfinite_values_in_0_1": {
+          "detail": "finite=True; min=0.0; max=1.0",
+          "hard": true,
+          "pass_": true
+        },
+        "crs_matches_template": {
+          "detail": "EPSG:32611 vs EPSG:32611",
+          "hard": true,
+          "pass_": true
+        },
+        "dtype_float32": {
+          "detail": "dtypes=('float32',)",
+          "hard": true,
+          "pass_": true
+        },
+        "footprint_all_finite": {
+          "detail": "0 NaN/Inf inside 5,167,373 template cells",
+          "hard": true,
+          "pass_": true
+        },
+        "footprint_values_in_0_1": {
+          "detail": "min=0.0; max=1.0; required finite [0,1]",
+          "hard": true,
+          "pass_": true
+        },
+        "nan_mask_matches_template": {
+          "detail": "not required under the all-finite convention",
+          "hard": false,
+          "pass_": true
+        },
+        "no_infinite_pixels": {
+          "detail": "0 infinite values",
+          "hard": true,
+          "pass_": true
+        },
+        "nodata_tag_nan_or_none": {
+          "detail": "nodata=None",
+          "hard": false,
+          "pass_": true
+        },
+        "output_100m_pixels": {
+          "detail": "xres=100, yres=-100",
+          "hard": true,
+          "pass_": true
+        },
+        "output_epsg_32611": {
+          "detail": "EPSG:32611",
+          "hard": true,
+          "pass_": true
+        },
+        "outside_footprint_nan": {
+          "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+          "hard": false,
+          "pass_": true
+        },
+        "shape_matches_template": {
+          "detail": "(3730, 3292) vs (3730, 3292)",
+          "hard": true,
+          "pass_": true
+        },
+        "single_band": {
+          "detail": "count=1",
+          "hard": true,
+          "pass_": true
+        },
+        "template_epsg_32611": {
+          "detail": "EPSG:32611",
+          "hard": true,
+          "pass_": true
+        },
+        "template_expected_footprint": {
+          "detail": "5,167,373 (expected 5,167,373)",
+          "hard": true,
+          "pass_": true
+        },
+        "template_expected_outside": {
+          "detail": "7,111,787 (expected 7,111,787)",
+          "hard": true,
+          "pass_": true
+        },
+        "template_expected_shape": {
+          "detail": "(3730, 3292) (expected (3730, 3292))",
+          "hard": true,
+          "pass_": true
+        },
+        "template_expected_transform": {
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+          "hard": true,
+          "pass_": true
+        },
+        "template_float32": {
+          "detail": "dtypes=('float32',)",
+          "hard": true,
+          "pass_": true
+        },
+        "template_has_finite_footprint": {
+          "detail": "5,167,373 finite pixels",
+          "hard": true,
+          "pass_": true
+        },
+        "template_single_band": {
+          "detail": "count=1",
+          "hard": true,
+          "pass_": true
+        },
+        "transform_matches_template": {
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+          "hard": true,
+          "pass_": true
+        }
+      },
+      "file": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+      "grid": {
+        "bands": 1,
+        "bounds": [
+          243350.0,
+          4135550.0,
+          572550.0,
+          4508550.0
+        ],
+        "crs": "EPSG:32611",
+        "dtype": [
+          "float32"
+        ],
+        "nodata_tag": null,
+        "positive_pixels_inside": 37654,
+        "shape": [
+          3730,
+          3292
+        ],
+        "template_footprint_pixels": 5167373,
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ]
+      },
+      "hard_failures": [],
+      "ok_to_upload_format_only": true,
+      "organizer_acceptance_verified": false,
+      "sha256": "1cce914c6daa274ce84cfe215540cdb03bef88f880c952e528807378b826262d"
+    }
+  },
+  "duplicate_canary": {
+    "passed": true,
+    "max_abs_spearman": 0.147257,
+    "max_symmetric_3px_overlap": 0.488845
+  },
+  "warnings": [
+    "Format, [0, 1] range, NaN mask, leakage canary, and 21-raster duplicate canary are programmatically verified.",
+    "Weekly slot promotion remains subject to the cross-lane weekly selector per Parallel-Run Protocol Rule 6."
+  ],
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "verdict": "negative",
+  "note_length": 111,
+  "duplicate_canary_discrete_34_subset": {
+    "subset_only_not_global_approval": true,
+    "max_abs_surface_spearman": 0.145481,
+    "max_abs_final_spearman": 0.047461,
+    "max_forward_3px_overlap": 0.476151,
+    "max_forward_3px_raster": "gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+    "max_symmetric_3px_overlap": 0.537473,
+    "max_symmetric_3px_raster": "gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif",
+    "concurrent_lanes": {
+      "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif": {
+        "spearman_surface": 0.028238,
+        "forward_3px_overlap": 0.226643
+      },
+      "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif": {
+        "spearman_surface": 0.028238,
+        "forward_3px_overlap": 0.226643
+      },
+      "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif": {
+        "spearman_surface": -0.011304,
+        "forward_3px_overlap": 0.123758
+      },
+      "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif": {
+        "spearman_surface": 0.059418,
+        "forward_3px_overlap": 0.362219
+      },
+      "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif": {
+        "spearman_surface": 0.059418,
+        "forward_3px_overlap": 0.362219
+      },
+      "gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif": {
+        "spearman_surface": 0.04603,
+        "forward_3px_overlap": 0.294364
+      },
+      "gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif": {
+        "spearman_surface": 0.04603,
+        "forward_3px_overlap": 0.294364
+      },
+      "gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif": {
+        "spearman_surface": 0.052218,
+        "forward_3px_overlap": 0.40596
+      },
+      "gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif": {
+        "spearman_surface": 0.052218,
+        "forward_3px_overlap": 0.40596
+      },
+      "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif": {
+        "spearman_surface": -0.000516,
+        "forward_3px_overlap": 0.184735
+      },
+      "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif": {
+        "spearman_surface": -0.000516,
+        "forward_3px_overlap": 0.184735
+      },
+      "gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif": {
+        "spearman_surface": 0.09371,
+        "forward_3px_overlap": 0.357147
+      },
+      "gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif": {
+        "spearman_surface": 0.09371,
+        "forward_3px_overlap": 0.357147
+      }
+    }
+  },
+  "shared_695_registry_literal_stop": {
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "lattice_positive_pixels": 206895,
+    "spearman_surface": 1e-06,
+    "spearman_final": -0.000692,
+    "within_3px_dots": 37472,
+    "forward_3px_overlap": 0.995167,
+    "reverse_3px_overlap": 0.149037,
+    "literal_70pct_gate_pass": false,
+    "implication": "LITERAL REGISTRY STOP under unexempted 695-raster shared registry (spacing-5 calibration lattice + GEMSDOE48 continuous pignistic field). Zero copied content (|Spearman| <= 0.0021), but literal forward 3-px overlap exceeds 0.70 -> research-only, slot_approved = false."
+  }
+}

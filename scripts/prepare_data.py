@@ -140,10 +140,10 @@ def main() -> None:
             raise SystemExit("input hashes/grids do not match registry/data_manifest.json; refusing to prepare")
         payload["prepared"] = build(data_dir, (ROOT / args.out_dir).resolve())
         print(f"prepared {payload['prepared']['bytes']:,} bytes, {len(payload['prepared']['bands'])} bands")
-    out = ROOT / args.out
+    out = Path(args.out) if Path(args.out).is_absolute() else (ROOT / args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, indent=1) + "\n")
-    print(f"wrote {out.relative_to(ROOT)}")
+    print(f"wrote {(out.relative_to(ROOT) if out.is_relative_to(ROOT) else out)}")
     if not ok:
         raise SystemExit("input hash/grid validation failed; report is not a successful validation")
 
