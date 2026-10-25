@@ -1,0 +1,141 @@
+{
+ "checked_utc": "2026-10-25T21:54:57.071Z",
+ "scope": "Local static preview, not public Pages HTTP or organizer access",
+ "no_fit_candidate_or_submission": true,
+ "viewports": [
+  {
+   "width": 1440,
+   "page": "index.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 1440,
+   "page": "executive-summary.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 1440,
+   "page": "research.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 1440,
+   "page": "sources.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 1440,
+   "page": "register/index.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 820,
+   "page": "index.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 820,
+   "page": "executive-summary.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 820,
+   "page": "research.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 820,
+   "page": "sources.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 820,
+   "page": "register/index.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 390,
+   "page": "index.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 390,
+   "page": "executive-summary.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 390,
+   "page": "research.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 390,
+   "page": "sources.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  },
+  {
+   "width": 390,
+   "page": "register/index.html",
+   "http_status": 200,
+   "no_horizontal_page_overflow": true
+  }
+ ],
+ "downloads": [
+  {
+   "width": 1440,
+   "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+   "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+   "exact_disk_bytes": true
+  },
+  {
+   "width": 1440,
+   "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+   "sha256": "f0313e7fa0751622f4bcf2db23dba430bbc3467dc1b8b154d4c4ba6450f5fc14",
+   "exact_disk_bytes": true
+  },
+  {
+   "width": 820,
+   "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+   "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+   "exact_disk_bytes": true
+  },
+  {
+   "width": 820,
+   "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+   "sha256": "f0313e7fa0751622f4bcf2db23dba430bbc3467dc1b8b154d4c4ba6450f5fc14",
+   "exact_disk_bytes": true
+  },
+  {
+   "width": 390,
+   "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+   "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+   "exact_disk_bytes": true
+  },
+  {
+   "width": 390,
+   "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+   "sha256": "f0313e7fa0751622f4bcf2db23dba430bbc3467dc1b8b154d4c4ba6450f5fc14",
+   "exact_disk_bytes": true
+  }
+ ],
+ "errors": [],
+ "tool_versions": {
+  "playwright_core": "1.64.1",
+  "chromium": "153.0.0"
+ },
+ "passed": true
+}

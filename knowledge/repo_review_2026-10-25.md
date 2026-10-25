@@ -1,37 +1,37 @@
-# Repository review — 2026-10-25 (Arena branch review)
+# Repository review — 2026-10-25 (current integration)
 
 ## Executive result
 
-**No fresh experiment or new GeoTIFF was produced in this review.** The local checkout has no `data/` input directory or prepared feature stack; `scripts/prepare_data.py --verify-only` reports `all_hashes_match: false` for the 11-file manifest. Therefore a new candidate cannot be responsibly fitted, evaluated with the required hide-and-recover protocol, or emitted from this checkout. Existing H31-B TIFFs were not modified or re-labeled as newly generated work.
+**No new experiment or GeoTIFF was produced by this review.** I fixed the ZIP-hash display/metadata defect in the active submission-register collector, added ZIP-integrity regression checks, and documented the review in the README. During this work, upstream `main` advanced when PR #14 was merged; this branch has now integrated that commit. The resulting canonical project state is the negative MAGREST research release described below, not the earlier H31-B green download page.
 
-This review found and fixed one deterministic packaging/UI defect: the generated home page printed a blank SHA-256 for the primary submission ZIP although the ZIP existed. The evidence collector now hashes the archive and records its size; the site displays the hash and its link checker fails if it disappears. Tests also assert each registered ZIP digest and that each archive contains exactly one readable `.tif` member.
+**Current submission decision: research download only; DO NOT SUBMIT.** The just-merged audit found a literal 100% within-3-pixel overlap between the MAGREST support and a registered spacing-5 lattice, and the preregistered screen failed its paired-loss gate. The file is preserved as a negative research artifact; no selector approval, weekly slot, or organizer score exists. Do not relabel or reuse the historic H31-B TIFF as a new candidate.
 
-## Findings and limitations
+## Findings
 
-1. **Missing local training inputs (blocking for new modeling).** `data/` and the prepared cache are absent. The manifest and historic evidence refer to owner mirrors; they do not establish organizer authenticity. No current feature-alone canary or new spatial holdout can be run without restoring and hash-checking the inputs first.
-2. **Existing download artifacts versus a new submission.** The repository contains H31-B TIFFs from prior work, but this review did not create them. Their prior JSON receipts say they passed template checks; this checkout lacks the sample template/input rasters needed to independently repeat exact template-footprint comparison now. A standalone read of the H31-B primary file confirms one float32 band, EPSG:32611, shape 3730×3292, 100 m affine transform, values `{0,1}` across finite cells and NaN elsewhere; its SHA-256 remains `ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb`. This check is not organizer acceptance and does not revalidate its scientific gates.
-3. **Submission selection remains separate.** `registry/submissions.json` intentionally has `slot_approved: false`; a locally valid file and a holdout proxy are not evidence of a competition score or organizer approval. Do not auto-upload or claim acceptance.
-4. **GEMSDOE32 score provenance.** The `0.2778` claim remains `USER-REPORTED` in the records inspected; there is no organizer receipt in `registry/score_claims.json`. The documented annulus/pruning explanation is an inference supported by the mirrored raster comparisons, not proof of an organizer score.
-5. **Parallel repository work must be reconciled.** On review, GitHub showed open PR #14, from a different Arena branch, whose description reports a separate broader registry/uniqueness audit and a no-submit outcome. It is not part of this checkout or this change. Do not infer its artifacts are merged, and do not silently combine its lane with this one. Before any future promotion, compare exact output support against the complete applicable registry and reconcile the findings with that PR's verified evidence. This review does not merge or push another branch.
-6. **ZIP digest defect (fixed here).** `scripts/collect_evidence.py` previously copied the ZIP path from a receipt but omitted its digest and byte size. The generated home page therefore rendered an empty ZIP hash. Fixed by hashing the actual archive and storing `sha256_zip`/`bytes_zip`; a regression check now verifies the hash, byte count, archive integrity, and single-TIFF member constraint.
+1. **Bulk modeling inputs unavailable in this working checkout.** The current-run verifier restored the pinned `labels.tif` and `sample_submission.tif` plus its registered control from the permitted GitHub mirror, then independently verified the current negative artifact. The other manifest inputs and prepared feature stack are still absent: `scripts/prepare_data.py --verify-only` returned `all_hashes_match: false` and `all_grids_match: false` for the 11-file manifest. That blocks new feature construction/fitting/holdout work here.
+2. **The reported GEMSDOE32 `0.2778` is not organizer-confirmed.** It remains a user/owner claim without an organizer receipt. The documented H27→H33 pruning geometry is useful forensic evidence, but cannot establish a live score, a competition win, or that a new predictor generalizes to the private truth.
+3. **Existing H31-B/H31-E files are historical artifacts, not this review's output.** The H31-B primary file was reopened before upstream integration: one float32 band, EPSG:32611, 3730×3292, 100 m grid, finite values `{0,1}` and NaN elsewhere; its digest was `ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb`. Its older template receipt records format checks, but this review did not recreate it or re-run scientific gates from source inputs.
+4. **Current MAGREST artifact is explicitly negative.** The merged run card reports `HOLDOUT-DTI` under `gems57-pooled-hide-v2`, 2,901 withheld positives, 0.052972 (95% CI [0.041311, 0.065329]); paired Δ against its same-run physical control is +0.004678 (95% CI [-0.017864, +0.022933]). These are local holdout results, not competition scores. The distinct registry-overlap STOP is sufficient to block uniqueness regardless of the screen result.
+5. **ZIP metadata/UI defect (fixed by this change).** The register collector previously recorded ZIP paths without their SHA-256 or size, causing a blank archive digest on the old H31-B home page. It now hashes extant ZIPs and records size; tests verify matching digest/size and a readable archive containing exactly one TIFF. The site checker verifies each registered ZIP receipt against the archive bytes. The merged main page's no-upload wording remains intact.
+6. **Merged parallel work.** GitHub reports PR #14 merged to `main` as commit `3e8854d6b487f7cf65fac853e4333778cb0f061e` during this review. This branch integrated that commit rather than carrying an out-of-date green H31-B site forward. Its exact scientific claims and limitations are recorded in `knowledge/session_review_2026-10-25_magrest.md`, `knowledge/current_status_2026-10-25.md`, and the cited evidence/run cards.
 
-## Verified locally in this review
+## Verification performed
 
-- Full unit suite: **46 passed**.
-- Ruff: clean.
-- Metric audit: maximum absolute difference against brute-force reference `4.441e-16` over 24 test grids; 29 kernel offsets in support.
-- Site generation/check: 20 pages and 274 local links pass; primary ZIP hash is populated.
-- H31-B primary TIFF byte digest and raster header/range/mask were inspected with Rasterio. The pre-existing receipt records 21/21 format checks; current check is not a replacement for missing template data.
+- Full integrated suite: **90 passed**; Ruff clean.
+- Metric check: maximum fast-vs-brute difference `4.441e-16` over 24 grids; 29 in-support kernel offsets. This is a numerical implementation check, not a competition score.
+- `scripts/verify_current_run.py --restore-small-inputs` independently returned `ok_to_download_for_research=true`, `ok_to_submit=false`, `verdict=negative` for the current artifact and exact digest.
+- Site build/check: 20 pages and 281 local links passed. `scripts/prepare_data.py --verify-only` remains a fail-closed incomplete-input result for the full 11-file manifest.
+- No DrivenData endpoint was contacted, no submission was uploaded, and no live leaderboard or weekly cap was checked.
 
 ## Next actions, in order
 
-1. Reconcile the open parallel PR #14 against this branch's promotion/download language before claiming any existing file meets the complete fleet-wide uniqueness rule.
-2. Restore the 11 manifested inputs from an approved, reachable source and verify every SHA-256; do not substitute the owner mirrors for official organizer provenance.
-3. Read the active preregistration first, then run no more than its experiment/time budget. Test every candidate feature alone; fail closed above the AUC leakage threshold. Use whole-segment hide-and-recover, visible-only catalogue-derived features, exact masking, the empirically derived collar, pooled DTI, and uncertainty intervals.
-4. Only after a candidate beats the same-run incumbent and fresh confirmation, compare continuous surface rank-correlation and final-dot overlap against the complete registry. Record any failed/duplicate result as a negative deliverable; do not use a weekly slot as a test.
-5. Revalidate the exact final TIFF and its ZIP against the sample template; include the unique portal name and ≤140-character note. Keep any organizer receipt separate from proxy metrics.
-6. Keep the public site honest about what is currently downloadable, format-valid, scientifically promoted, and organizer-confirmed. These are four distinct statuses.
+1. Follow [`knowledge/2026-10-25_next_session.md`](2026-10-25_next_session.md): do not reopen a stopped lane or emit another TIFF under an unresolved registry gate.
+2. Resolve the dense-control/registry policy without waiving the literal overlap rule; recover missing registry paths and preserve hashes/error records.
+3. Restore inputs from an authorized source and verify every SHA-256 and grid before new modeling. The working copy currently lacks the inputs; upstream history's restoration receipt does not change that.
+4. Reconstruct a same-protocol current-best baseline before proposing a new preregistration; use the shared hide-and-recover evaluator, per-feature leakage canaries, exact visible-fault masking, empirical buffer, pooled DTI and paired spatial confidence intervals.
+5. Keep every candidate's surface and final-dot uniqueness checks against the complete applicable raster registry. Any duplicate or failed scientific gate remains a negative result; the weekly selector is separate.
+6. Keep format validity, unique support, scientific promotion, organizer acceptance, and leaderboard score as distinct statuses. Only an organizer receipt can make a score `ORGANIZER-CONFIRMED`.
 
-## Sources and scope note
+## Source/scope note
 
-The task-provided official references remain in [`registry/sources.json`](../registry/sources.json), including the DrivenData problem/rules links, DOE GDR and USGS sources, and EPSG:32611. This review did not query the DrivenData data or submission endpoints, attempt an upload, or freshly verify changing external pages. It used local files/tests and GitHub PR metadata only.
+The source register is [`registry/sources.json`](../registry/sources.json); the official competition rules and data endpoints were not freshly queried here. The review used local artifacts/tests and GitHub PR metadata. Owner mirrors are not organizer-authenticated, and no assumption is made about a live score or upload result.

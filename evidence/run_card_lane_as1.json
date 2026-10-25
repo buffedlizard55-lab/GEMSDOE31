@@ -1,0 +1,235 @@
+{
+ "schema": "lane-run-card-1",
+ "lane": "LiDAR antislope scarp (AS-1)",
+ "hypothesis": "Fault scarps with a dominant up-facing (antislope) component in 3DEP LiDAR, ranked label-free, locate expert-mapped faults that are absent from the USGS/INGENIOUS catalogue better than a generic LiDAR scarp score or random coverage.",
+ "mechanism": "Normal-fault scarps and antithetic/antislope facets produce a coherent step in the bare-earth surface at 1-10 m scale that the 100 m GeoDAWN stack cannot resolve; the up-face/down-face asymmetry separates tectonic steps from symmetric ridges.",
+ "mimicking_non_fault_processes": [
+  "road cuts and embankments (tested: E2a, refuted as a filter)",
+  "mine benches and quarries",
+  "irrigation berms and canals",
+  "pluvial paleoshorelines (Lake Lahontan wave-cut scarps; NOT tested)",
+  "landslide headscarps",
+  "lava-flow margins and volcanic cones"
+ ],
+ "evaluator": "LANE-EVAL-1",
+ "holdout_dti": {
+  "catalogue_gap_fresh_seeds_11_15": {
+   "label": "HOLDOUT-DTI",
+   "value": 0.07554424904540337,
+   "ci95": [
+    0.06026815638023423,
+    0.08951625998041282
+   ],
+   "withheld_positive_pixels": 152681,
+   "random_score_null": 0.06878451769449996,
+   "paired_vs_null": {
+    "mean": 0.006546093566743505,
+    "ci95": [
+     -0.005481180262375686,
+     0.01845181276622532
+    ],
+    "p_better": 0.868,
+    "quadrants_won": 3
+   }
+  },
+  "off_catalogue_sgmc_not_fresh": {
+   "label": "HOLDOUT-DTI",
+   "value": 0.1420883218704914,
+   "ci95": [
+    0.1006639489635513,
+    0.18156601122669752
+   ],
+   "withheld_positive_pixels": 61664,
+   "random_score_null": 0.06585322843868857,
+   "paired_vs_null": {
+    "mean": 0.07561664528763438,
+    "ci95": [
+     0.048112614981602304,
+     0.10511181000695542
+    ],
+    "p_better": 1.0,
+    "quadrants_won": 4
+   }
+  },
+  "projection_note": "Projections are never scores; no organizer score exists for this file."
+ },
+ "preregistered_gates": {
+  "per_instrument": {
+   "catalogue-gap FRESH seeds 11-15": {
+    "beats_live_best_lower_bound_positive": true,
+    "quadrants_won_vs_live_best": 4,
+    "beats_null_lower_bound_positive": false
+   },
+   "off-catalogue SGMC (NOT fresh)": {
+    "beats_live_best_lower_bound_positive": true,
+    "quadrants_won_vs_live_best": 3,
+    "beats_null_lower_bound_positive": true
+   }
+  },
+  "leakage_canary_ok": true,
+  "PROMOTE_TO_SELECTOR": false
+ },
+ "leakage_canary": {
+  "AS-1 surface": {
+   "auc_off_catalogue_sgmc": 0.7372006454055097,
+   "auc_catalogue": 0.5967472591388975
+  },
+  "upface_max": {
+   "auc_off_catalogue_sgmc": 0.7447733956194215,
+   "auc_catalogue": 0.5898075122081227
+  },
+  "antislope_dominant": {
+   "auc_off_catalogue_sgmc": 0.5473502189450372,
+   "auc_catalogue": 0.5254482530176416
+  }
+ },
+ "instrument_calibration": {
+  "n_files": 87,
+  "spearman": {
+   "sgmc_DTI": {
+    "rho": 0.3152570639912892,
+    "p": 0.002937251382296737
+   },
+   "sgmc_credit_per_dot": {
+    "rho": 0.20709107397849438,
+    "p": 0.05427968182924095
+   },
+   "gap_DTI": {
+    "rho": 0.10763754683863797,
+    "p": 0.3210308849917467
+   },
+   "coverage_3px": {
+    "rho": 0.40229837923370254,
+    "p": 0.00011216034405326173
+   },
+   "dots": {
+    "rho": 0.11367271248766987,
+    "p": 0.2944840328795757
+   },
+   "neg_abs(dots-40000)": {
+    "rho": 0.09276927463359744,
+    "p": 0.39275941865983444
+   }
+  },
+  "reading": "the proxies rank weakly across geometry families (rho 0.1 to 0.4); scarp-led registry files with high SGMC DTI scored live far below the D28 family"
+ },
+ "overlap_vs_registry": {
+  "registry_rasters_compared": 715,
+  "max_spearman_500m": 0.5823476898628742,
+  "max_non_vacuous_3px_overlap": 0.933921052631579,
+  "duplicates_by_overlap": [
+   "docs/downloads/13gems_20261001_r11-greedy-mp_v2_nan-outside.tif",
+   "docs/downloads/gems61-lane-buried-step-gravinversion-hgm-r3-k400k-b2zeros.tif",
+   "docs/downloads/gems62-h62i-scarpcrosscut-hardcore-zeros.tif",
+   "docs/downloads/gems62b-tiltgrad-vote-scarpcorrob-120000-zeros.tif",
+   "docs/downloads/gemsdoe23-h24-dispersed-habitat-20261002-ada8df14-allfinite.tif",
+   "docs/downloads/gemsdoe23-h29-dealiased-habitat-20261002-7bf9fac6-allfinite.tif",
+   "docs/downloads/gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-allfinite.tif",
+   "docs/downloads/coverage-v3-wide-20260925T054019Z-0ac095a7ed.tif",
+   "docs/r11f/gems46-r11f-scarp-radiometric-fusion-00e049b51218-zeros.tif",
+   "docs/r12/gems46-r12-scarp-rad-concordance-23e807e2de9f-zeros.tif",
+   "docs/downloads/diagnostics/GEMSDOE48-H57-ds-relief-augmented-20261007-e6b785718c07-diag-conflict-k.tif",
+   "docs/downloads/gemsdoe50-h56-scarpdisperse-90000-allfinite.tif",
+   "docs/downloads/gemsdoe50-h57-scarpstep-80000-20261007T1830Z-allfinite.tif",
+   "docs/downloads/gemsdoe50-h60-union-d0-75308-20261007T2250Z-allfinite.tif"
+  ],
+  "duplicates_with_user_reported_live_score": {
+   "docs/downloads/gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-allfinite.tif": 0.1352,
+   "docs/r11f/gems46-r11f-scarp-radiometric-fusion-00e049b51218-zeros.tif": 0.1589,
+   "docs/r12/gems46-r12-scarp-rad-concordance-23e807e2de9f-zeros.tif": 0.0843
+  },
+  "duplicates_by_rank_correlation": [],
+  "pre_placement_surface_max_spearman": 0.7111811673004941
+ },
+ "raster_sha256": {
+  "allfinite": "28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4",
+  "nan": "e84c5a252381294aa0f22aebd765f7b9fa0136c270617bac22d40f48cc7f5f0c"
+ },
+ "validator_output": {
+  "allfinite": {
+   "verdict": "BLOCKED",
+   "gates": {
+    "G1_format_grid_footprint": {
+     "pass": true,
+     "detail": "convention=all-finite; hard failures: none"
+    },
+    "G2_range_0_1_no_nan_inside": {
+     "pass": true,
+     "detail": "footprint cells 5,167,373; min=0; max=1; non-finite=0; nodata tag=nan"
+    },
+    "G2b_whole_array_finite_in_0_1": {
+     "pass": true,
+     "detail": "every one of the 12,279,160 cells is finite and within [0,1] (defends against a whole-raster range check)"
+    },
+    "G3_no_emission_on_public_catalogue": {
+     "pass": true,
+     "detail": "0 emitted cells on the 60,988 public-catalogue cells (masked by the organizer, pure waste)"
+    },
+    "G3b_emission_size_sane": {
+     "pass": true,
+     "detail": "38,000 positive cells (accepted range 1,000-250,000)"
+    },
+    "G4_not_a_byte_or_dot_set_duplicate": {
+     "pass": true,
+     "detail": "file sha256 absent in registry; identical dot set absent; 715 registry rasters compared (0 not restored)"
+    },
+    "G5_unique_by_overlap_and_rank_correlation": {
+     "pass": false,
+     "detail": "715 compared (an empty comparison fails closed); max 500 m-block Spearman 0.582 (limit 0.9); max non-vacuous 3 px overlap 0.934 (limit 0.7); max chance-adjusted overlap 0.905; duplicates by overlap 14, by correlation 0"
+    },
+    "G6_unique_name_and_short_note": {
+     "pass": true,
+     "detail": "name ok; note 118/140 characters"
+    },
+    "G7_preregistered_holdout_evidence": {
+     "pass": false,
+     "detail": "preregistered PROMOTE_TO_SELECTOR=False; leakage canary ok=True; evidence bound to this emission procedure=True; evaluator LANE-EVAL-1"
+    }
+   }
+  },
+  "nan": {
+   "verdict": "BLOCKED",
+   "gates": {
+    "G1_format_grid_footprint": {
+     "pass": true,
+     "detail": "convention=nan-outside; hard failures: none"
+    },
+    "G2_range_0_1_no_nan_inside": {
+     "pass": true,
+     "detail": "footprint cells 5,167,373; min=0; max=1; non-finite=0; nodata tag=nan"
+    },
+    "G3_no_emission_on_public_catalogue": {
+     "pass": true,
+     "detail": "0 emitted cells on the 60,988 public-catalogue cells (masked by the organizer, pure waste)"
+    },
+    "G3b_emission_size_sane": {
+     "pass": true,
+     "detail": "38,000 positive cells (accepted range 1,000-250,000)"
+    },
+    "G4_not_a_byte_or_dot_set_duplicate": {
+     "pass": true,
+     "detail": "file sha256 absent in registry; identical dot set absent; 715 registry rasters compared (0 not restored)"
+    },
+    "G5_unique_by_overlap_and_rank_correlation": {
+     "pass": false,
+     "detail": "715 compared (an empty comparison fails closed); max 500 m-block Spearman 0.582 (limit 0.9); max non-vacuous 3 px overlap 0.934 (limit 0.7); max chance-adjusted overlap 0.905; duplicates by overlap 14, by correlation 0"
+    },
+    "G6_unique_name_and_short_note": {
+     "pass": true,
+     "detail": "name ok; note 118/140 characters"
+    },
+    "G7_preregistered_holdout_evidence": {
+     "pass": false,
+     "detail": "preregistered PROMOTE_TO_SELECTOR=False; leakage canary ok=True; evidence bound to this emission procedure=True; evaluator LANE-EVAL-1"
+    }
+   }
+  }
+ },
+ "submission_name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8",
+ "submission_note": "GEMSDOE31 AS-1: LiDAR antislope-scarp dots, 38k px, off-catalogue. UNSCORED. Holdout gate failed: do not rank on this.",
+ "note_chars": 118,
+ "verdict": "negative",
+ "verdict_reason": "Preregistered E3 gate failed (AS-1 does not beat the random-score null on the fresh catalogue-gap draws) AND the file duplicates 14 registry rasters under the lane overlap rule. Per protocol: logged as duplicate, not promoted.",
+ "organizer_confirmed": false,
+ "slot_recommendation": "none. Do not spend a weekly slot on this file."
+}

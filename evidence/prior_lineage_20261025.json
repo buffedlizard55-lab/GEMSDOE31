@@ -1,0 +1,59 @@
+{
+ "evidence_class": "COMPUTED geometry / OWNER-MIRROR provenance; NOT DTI or competition scores",
+ "records": {
+  "d15": {
+   "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+   "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+   "dots": 60069,
+   "dots_on_catalogue": 0,
+   "dots_beyond_300m": 48131,
+   "nearest_neighbor_m": {
+    "min": 200.0,
+    "median": 223.60679774997897
+   }
+  },
+  "d28": {
+   "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h25-1-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+   "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+   "dots": 44090,
+   "dots_on_catalogue": 0,
+   "dots_beyond_300m": 35483,
+   "nearest_neighbor_m": {
+    "min": 282.842712474619,
+    "median": 300.0
+   }
+  },
+  "h27": {
+   "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+   "sha256": "ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73",
+   "dots": 40199,
+   "dots_on_catalogue": 0,
+   "dots_beyond_300m": 35483,
+   "nearest_neighbor_m": {
+    "min": 282.842712474619,
+    "median": 300.0
+   }
+  },
+  "h33": {
+   "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+   "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+   "dots": 37654,
+   "dots_on_catalogue": 0,
+   "dots_beyond_300m": 35483,
+   "nearest_neighbor_m": {
+    "min": 282.842712474619,
+    "median": 300.0
+   }
+  }
+ },
+ "relations": {
+  "h27_equals_d28_prune_at_1px": true,
+  "h33_equals_d28_prune_at_2px": true,
+  "h33_is_subset_h27": true,
+  "h27_to_h33_dots_removed": 2545,
+  "common_beyond_300m_dots": 35483,
+  "offcat_support_equal_beyond_300m": true
+ },
+ "score_status": "The request's historical values are USER-REPORTED; no organizer score-to-file receipt.",
+ "scientific_limit": "Equal dot support beyond 300m does NOT imply equal kernel credit; a removed near-catalogue dot can cover nearby off-catalogue truth."
+}

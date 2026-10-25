@@ -1,0 +1,150 @@
+{
+ "schema_version": 1,
+ "date_utc": "2026-10-25",
+ "hypothesis": "TGJ31-v1",
+ "mechanism": "Persistent discontinuities in signed local gravity-on-RTP transfer coefficient at 300/700 m scales",
+ "named_non_fault_process": "Unfaulted lithologic or intrusive contacts; source-depth changes and survey leveling seams",
+ "hypothesis_class": "INFERENCE tested on public mapped-fault proxies, not a confirmed geological discovery",
+ "holdout_dti": {
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "dti": 0.008280993580848684,
+  "ci95": [
+   0.005740976876658766,
+   0.011234426585263453
+  ],
+  "withheld_positive_pixels": 60988,
+  "tpw": 431.93180940144043,
+  "fpw": 16413.160462449872,
+  "fnw": 60556.06819059854
+ },
+ "paired_control_results": {
+  "amplitude_control": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": -0.01754408282889753,
+   "ci95": [
+    -0.02782541744324505,
+    -0.007401850589069351
+   ],
+   "withheld_positive_pixels": 60988
+  },
+  "H33_as_is_noncomparable": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": 0.0015839517963742843,
+   "ci95": [
+    -0.0010370386286124513,
+    0.004485528267595681
+   ],
+   "withheld_positive_pixels": 60988
+  }
+ },
+ "secondary_holdout_dti": {
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "dti": 0.0037140803685450467,
+  "ci95": [
+   0.0022246306477297414,
+   0.005221765308111439
+  ],
+  "withheld_positive_pixels": 61664,
+  "tpw": 195.75088124342088,
+  "fpw": 16673.619895943557,
+  "fnw": 61468.24911875656
+ },
+ "correlation_overlap_vs_registry": {
+  "required_nine_max_spearman": 0.009279377998266475,
+  "required_nine_surface_max_overlap": 0.33690890212411173,
+  "required_nine_final_max_overlap": 0.33094257880284694,
+  "required_nine_surface_report": "registry_surface.json",
+  "required_nine_final_report": "registry_final_support.json",
+  "extended_universal_witness_overlap": 1.0,
+  "universal_witness_sha256": "59ef8e7d8374e228bc1e41376f03fc67dd5b8a5e6804885a1ae802f399140b89",
+  "extended_inventory_complete": false,
+  "literal_duplicate": true,
+  "interpretation": "Newly computed content is not a protocol-unique lane. No density exemption was applied."
+ },
+ "raster_sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
+ "unplaced_surface_npy_sha256": "8d912b23db5a612d32e017310fbb4fdd074c7648b6d1ac5084ca00faea713717",
+ "validator_output": {
+  "shared_all_checks_passed": true,
+  "independent_format_passed": true,
+  "nan_inside_footprint": 0,
+  "nan_anywhere": 0,
+  "range": [
+   0.0,
+   0.6177024841308594
+  ],
+  "CRS_shape_transform_match": true,
+  "single_float32_band": true,
+  "outside_footprint_zero": true,
+  "zip_verified_single_tiff": true,
+  "organizer_acceptance_verified": false
+ },
+ "submission_name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT",
+ "note": "TGJ31 gravity-magnetic transfer jumps; new continuous research surface, no copied predictions; automatic gates required; DO NOT SUBMIT",
+ "note_characters": 134,
+ "files": {
+  "tif": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+  "zip": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.zip",
+  "writer_receipt": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.json"
+ },
+ "evaluator": {
+  "version": "gems57-pooled-hide-v2",
+  "split_version": "label-blind-quadrants-v2",
+  "withheld_positive_pixels": 60988,
+  "bootstrap_block_m": 30000,
+  "bootstrap_resamples": 1000,
+  "implementation_sha256": {
+   "evaluate_holdout.py": "ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a",
+   "holdout.py": "7a0a84176986190b527aa9c6a84216c2dab4b599f25b1143db5f420e85020ab1",
+   "metric.py": "4afe10cbaa229948520c75194b1ebc32676e72544f05582f0725092b097b4d7f",
+   "spatial.py": "fad7b09db9efc512247b9a176a7e7ce8631e287592b4e07902d0b9c38bed00f8"
+  }
+ },
+ "leakage_canary": {
+  "passed": true,
+  "max_symmetric_auc": 0.5712345125436646,
+  "threshold": 0.9
+ },
+ "lineage": {
+  "shared_template_repository": "buffedlizard55-lab/57GEMSDOE",
+  "shared_template_ref": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+  "preregistration_sha256": "e0490bf2d39f8b068add18caa049a84b1926e0e7d1622286cd816eb924dda702",
+  "raw_feature_sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+  "code_sha256": "6d2f1d53fb0715b03e550e3753f75918b57b941bb677e282a86698506b5ed475",
+  "feature_code_sha256": "5da1fdfc4cf526db7618a0985837868b8de2d88ba88d979470837da692c578cb",
+  "raw_input_features": [
+   "RTP band 2",
+   "isostatic gravity anomaly band 13"
+  ],
+  "prior_prediction_used_as_input": false,
+  "python": "3.11.2",
+  "dependencies": {
+   "numpy": "2.4.6",
+   "scipy": "1.17.1",
+   "rasterio": "1.4.4",
+   "scikit-learn": "1.9.1"
+  }
+ },
+ "gate_failures": [
+  "Literal registry overlap gate fails: a same-grid prior is positive throughout the footprint",
+  "No reproduced same-run current-best incumbent or fresh confirmation",
+  "Lane paragraph was not supplied by the request; self-declaration is not assignment",
+  "Organizer sample authenticity and current weekly cap are not independently authenticated"
+ ],
+ "verdict": "negative",
+ "safe_to_download": true,
+ "download_purpose": "Reproduce the newly generated negative audit artifact; not competition upload",
+ "safe_to_submit": false,
+ "slot_approved": false,
+ "submission_slots_used": 0,
+ "experiments_used": 1,
+ "experiment_limit": 3,
+ "time_limit_hours": 2,
+ "scientific_stop": true,
+ "discrete_dot_placement_performed": false,
+ "surface_and_file_bounded": true,
+ "organizer_confirmed_score": null
+}

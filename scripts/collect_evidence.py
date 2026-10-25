@@ -48,8 +48,8 @@ PROTOCOL = {
     "truth_proxies": {
         "catalogue_gap": "held-out public catalogue pixels (60,988 px)",
         "off_catalogue": "USGS SGMC state-map fault cells more than 300 m from the public catalogue "
-                         "(61,664 px) - the only populated fault population in reach that is "
-                         "off-catalogue by construction, i.e. the population the competition scores",
+                         "(61,664 px in the historical instrument); a state-map proxy with unverified mapping "
+                         "lineage, not the competition's private truth",
     },
     "metric": "official distance-weighted Tversky index, alpha=0.2, beta=0.8, R=300 m triangular kernel, "
               "verified against a literal transcription of the published sums (scripts/check_metric.py, "
@@ -59,39 +59,17 @@ PROTOCOL = {
 
 SUBMISSIONS = [
     {
-        "id": "primary-h31b-scarp-hessian-standalone",
-        "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654",
-        "submission_name": "GEMSDOE31-H31B-ScarpHessian-B2-37654",
-        "ok_to_download_and_submit": True,
-        "role": "PRIMARY UNIQUE SUBMISSION (YES — OK TO DOWNLOAD AND SUBMIT) - H31-B1..B4 Standalone Multi-Physics Scarp-Hessian-Alteration-Kostrov Constellation (37,654 dots, B=2 >200m catalogue exclusion, R=2.85px)",
-        "provenance": "Generated in GEMSDOE31 by scripts/run_h31b_campaign.py from H31-B1 (3DEP 1 m LiDAR scarp curvature/step/relief), H31-B2 (shallow-basement & potential-field 2D Hessian crest), H31-B3 (GeoDAWN argillic K-leaching Th-K & U/K mobility), and H31-B4 (Kostrov strain-rate + microseismicity + 4-block fold-OOF likelihood), with 12 km survey-regime-invariant local standardization, B=2 (d(catalogue) > 200 m) exclusion, and R=2.85 px Poisson-disk emission.",
-        "note_for_portal": "H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(>200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (4/4 folds > 0.2778 base)",
-        "slot_approved": False,
-        "why_not_slot_approved": "YES — OK TO DOWNLOAD AND SUBMIT (format_ok=True, 21/21 GeoTIFF checks passed; uniqueness_ok=True, r_s=0.1143<=0.90, 3px_overlap=35.94%<=70%; 4-block HOLDOUT-DTI=0.1380 beating h27-4 0.0981 and GEMSDOE32 B=2 0.0984 in 4/4 folds). Note: slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.",
-    },
-    {
-        "id": "companion-h31b-corroborated-b2-hybrid",
-        "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654",
-        "submission_name": "GEMSDOE31-H31B-Corroborated-B2-Hybrid-37654",
-        "ok_to_download_and_submit": True,
-        "role": "COMPANION UNIQUE HYBRID SUBMISSION (YES — OK TO DOWNLOAD AND SUBMIT) - Top 25,000 S_H31-corroborated B=2 core dots + 12,654 new far-field S_H31 ridge dots (37,654 dots total)",
-        "provenance": "Generated in GEMSDOE31 by scripts/run_h31b_campaign.py: retains the top 25,000 multi-physics-corroborated dots of the B=2 (>200 m from catalogue) constellation and replaces the 12,654 weakest uncorroborated dots (0.1125 TPw/dot) with 12,654 newly discovered far-field S_H31 ridge crests (>300 m from all registry rasters, 0.2759 TPw/dot).",
-        "note_for_portal": "H31-B Corroborated B=2(25k) + 12,654 new Scarp-Hessian far-field dots: 37,654 dots; 4-block HOLDOUT-DTI 0.1249 (4/4 folds > 0.2778 base)",
-        "slot_approved": False,
-        "why_not_slot_approved": "YES — OK TO DOWNLOAD AND SUBMIT (format_ok=True, 21/21 GeoTIFF checks passed; uniqueness_ok=True, r_s=0.1143<=0.90, 3px_overlap=66.39%<=70%; 4-block HOLDOUT-DTI=0.1249 beating h27-4 0.0981 and GEMSDOE32 B=2 0.0984 in 4/4 folds). Note: slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.",
-    },
-    {
         "id": "primary-h27-4-solo-d28",
         "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-        "role": "prior incumbent baseline (40,199 dots, B=1 >100m catalogue prune; owner-reported live 0.2708)",
+        "role": "historical reference only - pixel-identical to an earlier submission; not a unique current candidate",
         "provenance": "re-emission of the dot set published as GEMSDOE28 "
-                      "gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); byte-verified "
-                      "against GEMSDOE28 SHA-256 ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73",
+                      "gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); pixel-identical, "
+                      "freshly written and re-validated in this repository",
         "note_for_portal": "h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; "
                            "format re-verified against the competition grid template",
         "slot_approved": False,
-        "why_not_slot_approved": "Superseded by the unique H31-B submissions (which remove the 2,545 dead-zone "
-                                "dots in 100 m < d(catalogue) <= 200 m and beat h27-4 in 4/4 holdout folds).",
+        "why_not_slot_approved": "Historical copied geometry, not a unique current detector or a "
+                                "same-protocol current-best comparison; no slot authority.",
     },
     {
         "id": "research-union-lidar-arm",
@@ -104,7 +82,7 @@ SUBMISSIONS = [
         "slot_approved": False,
         "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) "
                                 "that resembles but is not the hidden expert-mapped truth, and no live "
-                                "submission has tested it. It is the best-supported next-week candidate.",
+                                "exact-byte organizer receipt exists. Historical proxy-only result, not a current next-week recommendation.",
     },
     {
         "id": "research-union-radiometric-arm",
@@ -128,25 +106,6 @@ SUBMISSIONS = [
         "slot_approved": False,
         "why_not_slot_approved": "Superseded by the h27-4 geometry; kept only so the audit trail for the "
                                 "owner-reported 0.2600 can be followed.",
-    },
-    {
-        "id": "research-h31e-surface-expression",
-        "name": "gemsdoe31-h31e-surfexpr-20261025-8817f551",
-        "role": "research candidate - H31-E surface-expression lane (2026-10-25); unique and format-valid, "
-                "verdict negative on preregistered gates; NOT OK TO SUBMIT",
-        "provenance": "trained and emitted in this repository (scripts/run_h31e.py; design frozen in "
-                      "knowledge/2026-10-25_h31e_surface_expression_preregistration.md): HGB on det_elev "
-                      "top-hat/flexure + radiometric ratio-gradient + LiDAR dipole channels, no magnetics "
-                      "and no catalogue-derived features; ridge-NMS + d=2.8 Poisson emission at incumbent "
-                      "density; packaged by scripts/build_submission.py",
-        "note_for_portal": "H31-E surfexpr 40199d det-flexure+ratio-ridge+lidar-dipole; HOLDOUT 0.1340 vs "
-                           "base 0.1273; offcat 0.0712<0.0938 DO NOT SUBMIT",
-        "slot_approved": False,
-        "why_not_slot_approved": "Preregistered gates failed (evidence/h31e_results.json): discovery-proxy "
-                                "DTI 0.0712 is below the incumbent 0.0938 and the screen beat its base in "
-                                "only 2/4 folds, although pooled catalogue-gap HOLDOUT-DTI beat the same-run "
-                                "base on both seeds (0.1340/0.1326 vs 0.1273/0.1256). A proxy or holdout "
-                                "number is not a competition score; promotion is a separate selector step.",
     },
 ]
 
@@ -198,8 +157,6 @@ def submissions_register() -> dict:
         record = {
             "id": entry["id"],
             "name": entry["name"],
-            "submission_name": entry.get("submission_name", entry["name"]),
-            "ok_to_download_and_submit": entry.get("ok_to_download_and_submit", False),
             "role": entry["role"],
             "provenance": entry["provenance"],
             "note_for_portal": entry["note_for_portal"],
@@ -239,6 +196,34 @@ def submissions_register() -> dict:
             record["measured"] = entry["measured"]
         files.append(record)
 
+    current_path = ROOT / "registry/current_run.json"
+    if current_path.exists():
+        current = json.loads(current_path.read_text())
+        v0, vn = current["validator"]["zeros"], current["validator"]["nan"]
+        # Do not put this on the historical union leaderboard: different masks,
+        # withheld population and evaluator, with no comparable legacy best.
+        files.append({
+            "id": "magrest-current-negative", "name": current["submission_name"],
+            "role": "newly computed research-only MAGREST bytes; literal registry-overlap STOP and negative efficacy screen",
+            "provenance": "computed from raw RTP magnetic texture, no copied prior dots; frozen preregistration",
+            "note_for_portal": current["note"], "slot_approved": False,
+            "why_not_slot_approved": "; ".join(current["failed_or_unknown_gates"]),
+            "positive_pixels": v0["grid"]["positive_pixels_inside"],
+            "positive_pixels_on_public_catalogue": 0,
+            "format_status": "locally validated under separately stated outside conventions; not organizer acceptance",
+            "file_nan": current["nan_file"], "sha256_nan": vn["sha256"], "bytes_nan": vn["bytes"],
+            "file_allfinite": current["file"], "sha256_allfinite": v0["sha256"], "bytes_allfinite": v0["bytes"],
+            "format_ok_nan": vn["ok_to_upload_format_only"], "format_ok_allfinite": v0["ok_to_upload_format_only"],
+            "organizer_acceptance_verified_nan": False, "organizer_acceptance_verified_allfinite": False,
+            "hard_failures_nan": vn["hard_failures"], "hard_failures_allfinite": v0["hard_failures"],
+            "receipt": current["file"].replace(".tif", ".json"), "zip": current["zip_file"],
+            "holdout_dti": current["holdout_dti"], "current_run_card": "docs/downloads/magrest-run-card.json",
+        })
+        current_zip = ROOT / current["zip_file"]
+        if current_zip.is_file():
+            files[-1]["sha256_zip"] = sha256(current_zip)
+            files[-1]["bytes_zip"] = current_zip.stat().st_size
+
     union = ROOT / "evidence" / "union_results.json"
     if union.is_file():
         data = json.loads(union.read_text())
@@ -273,112 +258,50 @@ def submissions_register() -> dict:
                         "added_credit_per_dot": row["added_ff_credit_per_dot"],
                     }
 
-    h31b = ROOT / "evidence" / "h31b_experiments.json"
-    if h31b.is_file():
-        hdata = json.loads(h31b.read_text())
-        exps = {row["experiment_id"]: row for row in hdata.get("experiments", [])}
-        inc_4block = hdata.get("baselines", {}).get("incumbent_h27_4_off_sgmc_4block", {}).get("mean_holdout_dti", 0.09813)
-        for record in files:
-            if record["id"] == "primary-h31b-scarp-hessian-standalone" and "EXP-1" in exps:
-                e1 = exps["EXP-1"]
-                record["measured"] = {
-                    "off_catalogue_proxy_DTI": e1["full_footprint_off_sgmc_dti"],
-                    "incumbent_off_catalogue_proxy_DTI": 0.09385,
-                    "delta": round(e1["full_footprint_off_sgmc_dti"] - 0.09385, 6),
-                    "holdout_4block_off_sgmc_DTI": e1["holdout_off_sgmc_4block"]["mean_holdout_dti"],
-                    "incumbent_holdout_4block_off_sgmc_DTI": inc_4block,
-                    "holdout_4block_delta": e1["delta_vs_incumbent_h27_4"],
-                    "holdout_4block_ci95": [
-                        e1["holdout_off_sgmc_4block"]["ci95_low"],
-                        e1["holdout_off_sgmc_4block"]["ci95_high"],
-                    ],
-                    "folds_beating_gemsdoe32_b2": e1["folds_beating_gemsdoe32_b2"],
-                    "uniqueness_max_surface_spearman": e1["uniqueness_audit"]["max_surface_spearman"],
-                    "uniqueness_max_dot_overlap_3px": e1["uniqueness_audit"]["max_dot_overlap_3px"],
-                }
-            if record["id"] == "companion-h31b-corroborated-b2-hybrid" and "EXP-2" in exps:
-                e2 = exps["EXP-2"]
-                record["measured"] = {
-                    "off_catalogue_proxy_DTI": e2["full_footprint_off_sgmc_dti"],
-                    "incumbent_off_catalogue_proxy_DTI": 0.09385,
-                    "delta": round(e2["full_footprint_off_sgmc_dti"] - 0.09385, 6),
-                    "holdout_4block_off_sgmc_DTI": e2["holdout_off_sgmc_4block"]["mean_holdout_dti"],
-                    "incumbent_holdout_4block_off_sgmc_DTI": inc_4block,
-                    "holdout_4block_delta": e2["delta_vs_incumbent_h27_4"],
-                    "holdout_4block_ci95": [
-                        e2["holdout_off_sgmc_4block"]["ci95_low"],
-                        e2["holdout_off_sgmc_4block"]["ci95_high"],
-                    ],
-                    "folds_beating_gemsdoe32_b2": e2["folds_beating_gemsdoe32_b2"],
-                    "uniqueness_max_surface_spearman": e2["uniqueness_audit"]["max_surface_spearman"],
-                    "uniqueness_max_dot_overlap_3px": e2["uniqueness_audit"]["max_dot_overlap_3px"],
-                }
-
-    h31e = ROOT / "evidence" / "h31e_results.json"
-    if h31e.is_file():
-        results = json.loads(h31e.read_text())
-        for record in files:
-            if record["id"] != "research-h31e-surface-expression":
-                continue
-            cand = results["proxies_full_footprint"]["candidate"]
-            inc = results["proxies_full_footprint"]["incumbent_h27_4"]
-            if cand["dots"] == record["positive_pixels"]:
-                record["measured"] = {
-                    "holdout_dti_screen": results["holdout_screen"]["arms"]["candidate"]["pooled_DTI"],
-                    "holdout_dti_screen_ci95": results["holdout_screen"]["bootstrap"]["ci95"]["candidate"],
-                    "holdout_dti_confirm": results["holdout_confirm"]["arms"]["candidate"]["pooled_DTI"],
-                    "evaluator": results["evaluator"],
-                    "withheld_positive_pixels": results["canary"]["withheld_positive_pixels_total"],
-                    "off_catalogue_proxy_DTI": cand["offcatalogue_DTI"],
-                    "incumbent_off_catalogue_proxy_DTI": inc["offcatalogue_DTI"],
-                    "delta": cand["offcatalogue_DTI"] - inc["offcatalogue_DTI"],
-                    "gates": results["gates"],
-                    "verdict": results["verdict"],
-                }
-
-    primary = next((r for r in files if r["id"] == "primary-h31b-scarp-hessian-standalone"), None)
-    if primary is None:
-        primary = next((r for r in files if r["id"] == "primary-h27-4-solo-d28"), None)
-    best_research = next((r for r in files if r["id"] == "companion-h31b-corroborated-b2-hybrid"), None)
-    if best_research is None:
-        for record in files:
-            if record.get("measured") and record["id"].startswith("research"):
-                if best_research is None or record["measured"]["delta"] > best_research["measured"]["delta"]:
-                    best_research = record
+    primary = next((r for r in files if r["id"] == "primary-h27-4-solo-d28"), None)
+    best_research = None
+    for record in files:
+        if record.get("measured") and record["id"].startswith("research"):
+            if best_research is None or record["measured"]["delta"] > best_research["measured"]["delta"]:
+                best_research = record
+    registered = {r[k] for r in files for k in ("file_nan", "file_allfinite") if r.get(k)}
+    parallel = []
+    for tif in sorted((ROOT / "docs/downloads").rglob("*.tif")):
+        rel = tif.relative_to(ROOT).as_posix()
+        if rel in registered:
+            continue
+        parallel.append(dict(file=rel, name=tif.name, sha256=sha256(tif), bytes=tif.stat().st_size,
+            role="Archived parallel-session research; not reproduced or endorsed by this run",
+            slot_approved=False, ok_to_submit=False,
+            evidence_class="COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+            warning="Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."))
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "generated_utc": "2026-10-25",
-        "policy": "Every hash and pixel count below is copied out of the format-check receipt written by "
-                  "scripts/build_submission.py. Local validation is not organizer acceptance and no file "
-                  "here carries an organizer receipt.",
+        "parallel_archived_files": parallel,
+        "parallel_source_archive": "registry/parallel_main_archive_20261025.json",
+        "active_run_card": "registry/current_run.json" if current_path.exists() else None,
+        "policy": "Active/historical file metadata comes from its format receipt; parallel archived TIFF hashes are "
+                  "recomputed from served bytes and carry no new scientific/format endorsement. Local validation "
+                  "is not organizer acceptance; no exact-file organizer score receipt is present.",
         "current_recommended": {
-            "name": primary["name"] if primary else None,
-            "submission_name": primary.get("submission_name") if primary else None,
-            "role": primary["role"] if primary else None,
-            "score_status": (
-                "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, "
-                "mean=0.1380, 95% CI [0.1169, 0.1683], 4/4 folds beating GEMSDOE32 B=2 0.0984 and incumbent h27-4 0.0981)"
-            ),
+            "name": None,
+            "role": "No submission is recommended; the active run card separately identifies the research-only download.",
+            "historical_reference": primary["name"] if primary else None,
+            "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer "
+                            "receipt exists in this repository",
             "slot_approved": False,
-            "ok_to_download_and_submit": True,
-            "reason_not_slot_approved": (
-                "YES — OK TO DOWNLOAD AND SUBMIT: Unique GeoTIFF validated across all 21 format checks, "
-                "passes the Parallel-Run Uniqueness Gate (r_s = 0.1143 <= 0.90; 3-px overlap = 35.94% <= 70%), "
-                "and beats incumbent h27-4 and GEMSDOE32 B=2 in 4/4 spatially blocked holdout folds. "
-                "(slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.)"
-            ),
+            "reason_not_slot_approved": "Literal shared-registry overlap STOP and failed MAGREST screen; no comparable global-best evidence, confirmation or separate selector approval.",
         },
         "best_research_candidate": {
             "name": best_research["name"] if best_research else None,
-            "submission_name": best_research.get("submission_name") if best_research else None,
             "measured": best_research.get("measured") if best_research else None,
             "slot_approved": False,
-            "ok_to_download_and_submit": True,
         },
         "files": files,
         "format_conventions": {
             "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention "
-                   "the official page specifies and the grid template uses",
+                   "historically recorded problem-page wording; not freshly verified in this session",
             "all-finite": "every cell finite and in [0,1], zeros outside the footprint - a defensive "
                           "fallback; validated separately in src/gemsdoe31/submission.py",
         },
@@ -387,15 +310,16 @@ def submissions_register() -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--cache", default="/home/user/work/cache",
-                        help="optional legacy run cache to copy small JSON/NPZ artifacts out of")
+    parser.add_argument("--cache", default=None,
+                        help="explicit optional legacy cache; never discover/copy another session's cache by default")
     args = parser.parse_args()
 
-    copied = copy_legacy_cache(Path(args.cache))
+    copied = copy_legacy_cache(Path(args.cache)) if args.cache else {}
     artifacts = inventory()
     summary = {
         "schema_version": 1,
-        "generated_utc": "2026-10-04",
+        "generated_utc": "2026-10-25",
+        "protocol_scope": "Historical 2026-10-04 arms only; current MAGREST protocol is in its frozen preregistration and run card.",
         "protocol": PROTOCOL,
         "legacy_cache_copied": copied,
         "artifacts": artifacts,

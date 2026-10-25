@@ -1,0 +1,16 @@
+{
+ "repository": "buffedlizard55-lab/57GEMSDOE",
+ "commit": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+ "manifest": "registry/shared_registry_57_snapshot.json",
+ "manifest_sha256": "846eddb9459f0e5b67f33da519bbd62c966bf5f539545ba3dad262fbfbc308c2",
+ "source_url": "https://github.com/buffedlizard55-lab/57GEMSDOE/blob/822a0ce5546c7b6749cdd82eb145b6b3e616603d/docs/data/registry_refreshed.json",
+ "registered_rasters": 695,
+ "counterexample": {
+  "repo": "buffedlizard55-lab/GEMSDOE24",
+  "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+  "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "cache_file": ".cache/registry-scope/registered-lattice.tif",
+  "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+  "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif"
+ }
+}

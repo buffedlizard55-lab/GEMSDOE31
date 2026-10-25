@@ -121,7 +121,7 @@ def restore(entry: dict, data_dir: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", default="data")
-    parser.add_argument("--group", default="all", help="all | core | external")
+    parser.add_argument("--group", choices=("all", "core", "external"), default="all", help="input group to restore")
     parser.add_argument("--out", default="evidence/data_restore.json")
     args = parser.parse_args()
     manifest = json.loads(MANIFEST.read_text())
