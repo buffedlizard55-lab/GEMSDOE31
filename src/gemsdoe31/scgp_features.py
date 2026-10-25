@@ -352,8 +352,20 @@ def build_static_h31e_stack(
         paleo_mask = (src.read(1) > 0) & footprint
     dist_paleo = (distance_transform_edt(~paleo_mask, sampling=CELL_M) / 1000.0).astype(np.float32)
     write_feat("dist_paleo_sinter_km", dist_paleo)
-    write_feat("dist_2m_probe_km", get_band("dist_probe_km"))
-    write_feat("dist_quat_vent_km", get_band("dist_vent_km"))
+    # Shared-tool repair (2026-10-25, RBU31 session): the current
+    # ``scripts/prepare_data.py`` stack no longer carries ``dist_probe_km`` /
+    # ``dist_vent_km`` bands (present only in the retired 46-band stack), so
+    # reading them via ``get_band`` raised ``ValueError``. Compute both here
+    # from the same GDR-1391 external rasters and with the identical
+    # EDT-in-km semantics as ``dist_paleo_sinter_km`` above.
+    with rasterio.open(data_dir / "external" / "derived_gdr_2m_probes_100m_u8.tif") as src:
+        probe_mask = (src.read(1) > 0) & footprint
+    write_feat("dist_2m_probe_km",
+               (distance_transform_edt(~probe_mask, sampling=CELL_M) / 1000.0).astype(np.float32))
+    with rasterio.open(data_dir / "external" / "derived_gdr_volcanics_100m_u8.tif") as src:
+        vent_mask = (src.read(1) > 0) & footprint
+    write_feat("dist_quat_vent_km",
+               (distance_transform_edt(~vent_mask, sampling=CELL_M) / 1000.0).astype(np.float32))
 
     # Group P5 & P6: Crustal strain, microseismicity, and core reference channels
     dil = nearest_finite_fill(get_band("geod_dilaterate"), footprint)

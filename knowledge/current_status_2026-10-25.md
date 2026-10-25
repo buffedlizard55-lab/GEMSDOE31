@@ -72,3 +72,9 @@ Main then advanced to `7619b61` (H31-E / PR #13); its code, tests, TIFFs, prereg
 PR #14 merged at 21:57:39Z as `3e8854d6b487f7cf65fac853e4333778cb0f061e`; push/PR/main CI and the Pages deployment succeeded. Fresh GitHub API retrieval of all four TIFF/ZIP blobs at that merge matches the reviewed bytes, and the published current run card is identical and denies upload. `evidence/magrest_delivery_release14_20261025.json` records the commit-specific API proof and limitations (public Pages HTTP and CI logs unavailable under the host allowlist). 89 local tests, 20 pages/281 local links, and 15 local browser viewport checks/six exact downloads passed.
 
 A final wording-only follow-up removes an incorrect “failed confirmation” phrase (confirmation was never run), and withdraws “independent” from the SGMC proxy description because mapping-lineage independence is not established. No data, metric, TIFF or negative/STOP decision changes. The separate selector still has no candidate/slot authorization.
+
+## Arena follow-up review (2026-10-25)
+
+No new experiment or TIFF was authorized. The review's ranked four-hypothesis shortlist is desk-only; the active lane remains closed by the universal full-footprint overlap witness, missing assigned method paragraph, and exhausted three-experiment budget. The existing MAGREST raster remains **OK TO DOWNLOAD FOR RESEARCH ONLY — DO NOT SUBMIT**.
+
+Final clean-runtime verification after restoring the two small pinned input files: 112 pytest tests passed; Ruff passed; DTI fast/brute maximum absolute difference was 4.441e-16; exact-run verifier returned `verdict=negative`, `ok_to_submit=false`; site build/check passed 20 pages and 320 local links. Report: [`knowledge/repo_review_2026-10-25_arena_followup.md`](repo_review_2026-10-25_arena_followup.md). Three current review-pass records are appended to `registry/review_passes.json`.

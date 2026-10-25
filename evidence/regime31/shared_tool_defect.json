@@ -1,0 +1,6 @@
+{
+  "defect": "src/gemsdoe31/scgp_features.py build_static_h31e_stack read prepared-stack bands dist_probe_km/dist_vent_km that the current scripts/prepare_data.py no longer produces (they existed only in the retired 46-band stack, evidence/data_preparation.json). First RBU31 run crashed with ValueError: 'dist_probe_km' is not in list before any model fit.",
+  "fix": "Fixed ONCE in the shared module (no private fork): both distance features are now computed in build_static_h31e_stack from data/external/derived_gdr_2m_probes_100m_u8.tif and derived_gdr_volcanics_100m_u8.tif with the same EDT-in-km semantics already used for dist_paleo_sinter_km in the same function.",
+  "impact_on_prior_results": "None on stored artifacts. The two features' values depend only on the GDR rasters and grid; semantics (km to nearest positive pixel) match the band names and the paleo implementation. H31-E2's published numbers were produced with the older stack and are not recomputed here; the RBU31 comparison baseline (Baseline-D) is retrained in-run and does not use these bands, and both RBU31 arms use identical corrected features.",
+  "reported_per_protocol": "Parallel-Run Protocol rule 2: fix once in the shared tool and report; this file is the report. scripts/run_h31e.py / scripts/evaluate_holdout.py benefit from the same repair."
+}

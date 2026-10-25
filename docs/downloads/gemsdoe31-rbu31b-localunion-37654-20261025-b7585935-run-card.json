@@ -1,0 +1,95 @@
+{
+ "hypothesis": "RBU31-B: the RBU31 union/regime-balanced surface, ranked by masked 12 km local standardization (sigma=120px, local weight 0.65), beats Baseline-D on the buffered holdout and H33-2-B2 on off-catalogue SGMC in every regime.",
+ "mechanism": "Global top-budget emission starves low-absolute-score districts (mountain bedrock, survey-sparse west) where off-catalogue truth concentrates; ranking each pixel against its 12 km neighbourhood forces budget into every district, and under DTI beta=0.8 covering more distinct truth segments dominates. Base surface: union raw-39 + SCGP-40 HGB with regime-balanced weights. Emission: 2.8px Poisson thinning + >2px catalogue prune (verified H33 DTI economics; no prior dots copied).",
+ "named_non_fault_mimic": "Pleistocene Lake Lahontan wave-cut shoreline terraces and unfaulted volcanic-flow/erosional piedmont scarps.",
+ "holdout_dti": {
+  "label": "HOLDOUT-DTI",
+  "evaluator_version": "gemsdoe31-hide-v2.0",
+  "buffer_m": 21300,
+  "screen_draw_101": {
+   "dti": 0.09910617744213443,
+   "ci95": [
+    0.08396370931401916,
+    0.11654313623172013
+   ],
+   "withheld_positives": 17900,
+   "baseline_d_dti": 0.0921712554276685,
+   "paired_delta_dti": 0.006934922014465925,
+   "paired_delta_ci95": [
+    -0.006530923441524917,
+    0.019219215490855417
+   ]
+  },
+  "fresh_confirmation_draws_202_303": null
+ },
+ "organizer_confirmed_score": null,
+ "sgmc_proxy_computed_not_a_score": {
+  "rbu31": {
+   "dots": 37654,
+   "sgmc_all_dti": 0.0800969869550875,
+   "sgmc_piedmont_dti": 0.12356479371977941,
+   "sgmc_mountain_dti": 0.034313777323608435
+  },
+  "baseline_d_final": {
+   "dots": 37654,
+   "sgmc_all_dti": 0.07176546660591096,
+   "sgmc_piedmont_dti": 0.1146914942896734,
+   "sgmc_mountain_dti": 0.027656308630841658
+  },
+  "h33_2_b2_actual_peer_file": {
+   "dots": 37654,
+   "sgmc_all_dti": 0.09396541728952698,
+   "sgmc_piedmont_dti": 0.10905112828813972,
+   "sgmc_mountain_dti": 0.06537572606415722
+  },
+  "h31e_scgp_submod_local": {
+   "dots": 37654,
+   "sgmc_all_dti": 0.08162303908333594,
+   "sgmc_piedmont_dti": 0.12330626713422095,
+   "sgmc_mountain_dti": 0.03723230474997055
+  }
+ },
+ "leakage_canary": {
+  "features_tested": 79,
+  "max_two_sided_auc": 0.611808,
+  "passed": true
+ },
+ "correlation_overlap_vs_registry": {
+  "checked_count": 24,
+  "max_surface_spearman_rho": 0.150244,
+  "max_surface_topn_within_3px": 0.655415,
+  "max_final_dots_spearman_rho": 0.044173,
+  "max_final_dots_within_3px": 0.534073,
+  "duplicates": [],
+  "passed": true
+ },
+ "raster_sha256": {
+  "nan_outside": "7b57519fdbcf594231043730c9d86042182c968cd2479be63a8c8a5ea9c71e98",
+  "allfinite": "07c939198a9145ae8281012bcba2c2167e3a6a482dd15c04ce3872b5b94e1041"
+ },
+ "validator_output": {
+  "no_nan_inside_footprint": true,
+  "values_in_0_1": true,
+  "crs_shape_transform_match": true,
+  "allfinite_values_in_0_1_everywhere": true,
+  "dots": 37654,
+  "dots_on_catalogue": 0
+ },
+ "submission_name": "gemsdoe31-rbu31b-localunion-37654-20261025-b7585935",
+ "submission_note": "GEMSDOE31 RBU31-B local-standardized union 37654d | HOLDOUT-DTI 0.0991 vs 0.0922 | id b7585935",
+ "submission_note_chars": 94,
+ "automated_gates": {
+  "G1_format_and_range_0_1_pass": true,
+  "G2_leakage_canary_pass": true,
+  "G3a_uniqueness_genuine_registry_pass": true,
+  "G3b_literal_695_registry_lattice": "UNIVERSAL_DEGENERACY_DISCLOSED (spacing-5 lattice covers 100% of interior within 3px for any candidate; see preregistration \u00a75)",
+  "G4_holdout_screen_and_fresh_confirmation_pass": false,
+  "G5_sgmc_all_piedmont_mountain_beats_baseline_and_h33": false,
+  "human_inspection_required_for_validation": false,
+  "weekly_slot_spent_by_agent": false,
+  "all_automated_gates_passed": false,
+  "verdict": "negative"
+ },
+ "verdict": "negative",
+ "ok_to_download_and_submit": false
+}
