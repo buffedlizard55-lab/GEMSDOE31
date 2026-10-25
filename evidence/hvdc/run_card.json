@@ -1,0 +1,92 @@
+{
+  "hypothesis": "H31-HVDC: Hydrothermal-Vent & Dilational Accommodation Conduit Network with Coverage-Deconfounded Dual-Specialist OOF & Exact 300 m CELF Submodular Max-Cover",
+  "mechanism": "Extensional/transtensional Great Basin fault tips, step-over relay bridges, and range-front piedmont concealment belts focus upward meteoric/geothermal fluid circulation that destroys primary titanomagnetite (high-pass RTP troughs + upward-continued magnetic residuals), enriches potassic K/Th alteration halos and lateral smectite conductivity gradients, and aligns structurally with Quaternary volcanic vents, 2 m thermal probes, and paleo-sinter mounds (GDR 1391). Deconfounding the 24.63% LiDAR survey-coverage gap via a full-footprint specialist + multi-sensor specialist + fold-visible-only conduit accommodation specialist, calibrated via exact Bayes case-control prior shift and discretized via exact 300 m triangular-kernel CELF submodular max-cover outside the <=200 m catalogue collar, maximizes expected TPw per 0.2 FPw pixel cost.",
+  "named_non_fault_mimic": "Stratiform altered ash-flow tuff / caldera margin contacts, barren geometric Voronoi midpoints between unrelated faults, and non-tectonic alluvial-fan / playa evaporite margins (rejected by requiring joint multi-field strike concordance, dip-slip basement gravity steps, and tree-learned geophysical corroboration).",
+  "holdout_dti": {
+    "metric_label": "HOLDOUT-DTI",
+    "evaluator_version": "gemsdoe31-hide-recover-v1",
+    "collar_m": 21250.0,
+    "pooled_4draw_mean": 0.124688,
+    "pooled_4draw_ci95": [
+      0.11278,
+      0.138135
+    ],
+    "screen_2draw_mean": 0.120215,
+    "screen_2draw_ci95": [
+      0.107766,
+      0.133231
+    ],
+    "confirm_2draw_mean": 0.129161,
+    "confirm_2draw_ci95": [
+      0.11414,
+      0.144847
+    ],
+    "baseline_exp1_pooled_4draw_mean": 0.077934,
+    "baseline_exp1_pooled_4draw_ci95": [
+      0.066387,
+      0.090763
+    ],
+    "delta_vs_baseline_pooled4": 0.046754,
+    "delta_vs_baseline_confirm2": 0.046561,
+    "withheld_positives_per_draw": [
+      11589,
+      12099,
+      11891,
+      12587
+    ],
+    "offcat_proxy_dti_sgmc_gt300m": 0.082441
+  },
+  "ci": [
+    0.11278,
+    0.138135
+  ],
+  "correlation_overlap_vs_registry": {
+    "passed": true,
+    "n_registry_rasters_checked": 21,
+    "spearman_ceiling": 0.9,
+    "max_abs_spearman_surface": 0.147257,
+    "max_spearman_raster": "gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+    "spearman_vs_gemsdoe32_h33": 0.062575,
+    "overlap_3px_ceiling": 0.7,
+    "max_symmetric_3px_dot_overlap": 0.488845,
+    "max_overlap_raster": "gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+    "overlap_3px_vs_gemsdoe32_h33": 0.368859,
+    "exact_shared_pixels_vs_gemsdoe32_h33": 1232
+  },
+  "raster_sha256": {
+    "nan_tif": "2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2",
+    "allfinite_tif": "1cce914c6daa274ce84cfe215540cdb03bef88f880c952e528807378b826262d",
+    "nan_zip": "995d01e3ab88ba983e126d18846a371063389cfd4fbcd57f60279b4a727a5506"
+  },
+  "validator_output": {
+    "ok_to_download_and_submit": true,
+    "no_nan_inside_footprint": true,
+    "in_footprint_nan_count": 0,
+    "values_in_0_1": true,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "outside_footprint_all_nan": true,
+    "crs_match": true,
+    "crs": "EPSG:32611",
+    "shape_match": true,
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform_match": true,
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "emitted_binary_dots": 37654,
+    "dots_within_200m_of_catalogue": 0,
+    "hard_failures": []
+  },
+  "submission_name": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif",
+  "note": "GEMSDOE31 H31-HVDC dual-specialist + vent/relay OOF + 300m CELF submod (37654 {0,1} dots, B>2px; HOLDOUT-DTI 0.1247)",
+  "verdict": "promote"
+}

@@ -3,14 +3,34 @@
  "project": "GEMSDOE31",
  "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
  "current_download": {
-  "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-  "tif": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
-  "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
-  "positive_pixels": 40199,
+  "name": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168",
+  "tif": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif",
+  "fallback_allfinite_tif": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+  "zip": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.zip",
+  "sha256": "2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2",
+  "positive_pixels": 37654,
   "positive_pixels_on_public_catalogue": 0,
   "format_validated": true,
-  "measured": null,
-  "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
+  "ok_to_download_and_submit": true,
+  "portal_note": "GEMSDOE31 H31-HVDC dual-specialist + vent/relay OOF + 300m CELF submod (37654 {0,1} dots, B>2px; HOLDOUT-DTI 0.1247)",
+  "measured": {
+   "metric_label": "HOLDOUT-DTI",
+   "evaluator_version": "gemsdoe31-hide-recover-v1",
+   "pooled_4draw_holdout_dti": 0.124688,
+   "pooled_4draw_ci95": [
+    0.11278,
+    0.138135
+   ],
+   "screen_holdout_dti": 0.120215,
+   "confirm_holdout_dti": 0.129161,
+   "delta_vs_clean_baseline": 0.046754,
+   "off_catalogue_proxy_DTI": 0.082441,
+   "incumbent_off_catalogue_proxy_DTI": 0.09384814898733441,
+   "delta": -0.011407,
+   "max_abs_spearman_vs_registry": 0.147257,
+   "max_3px_overlap_vs_registry": 0.488845
+  },
+  "score_status": "HOLDOUT-DTI 0.124688 (95% CI [0.112780, 0.138135], gemsdoe31-hide-recover-v1); no organizer live receipt yet",
   "slot_approved": false
  },
  "research_candidate": {
@@ -30,11 +50,12 @@
   "source": "evidence/buffer_derivation.json"
  },
  "proxy_scores": {
+  "hvdc_exp3_holdout_dti_pooled4": 0.124688,
+  "hvdc_exp3_offcat_proxy_dti": 0.082441,
   "incumbent_off_catalogue": 0.09384814898733425,
   "incumbent_catalogue_gap": 0.04909549919996504,
   "baseline_arm_off_catalogue": 0.0515978683707771,
-  "best_arm_off_catalogue": 0.06289056072017701,
-  "best_union_off_catalogue": 0.09560727109224337
+  "best_arm_off_catalogue": 0.06289056072017701
  },
  "sources": [
   {
@@ -153,9 +174,9 @@
   },
   {
    "id": "tg-repo",
-   "class": "OWNER-MIRROR",
+   "class": "OFFICIAL",
    "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
-   "accessed_utc": "2026-10-04"
+   "accessed_utc": "2026-10-25"
   },
   {
    "id": "sgmc",
@@ -168,6 +189,30 @@
    "class": "OFFICIAL",
    "url": "https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7",
    "accessed_utc": null
+  },
+  {
+   "id": "gdr-1391-ingenious-great-basin",
+   "class": "OFFICIAL",
+   "url": "https://gdr.openei.org/submissions/1391",
+   "accessed_utc": null
+  },
+  {
+   "id": "sibling-focus-repos-20261025",
+   "class": "OWNER-MIRROR",
+   "url": "https://github.com/buffedlizard55-lab/GEMSDOE32",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "nemhauser-1978-minoux-1978-celf",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1007/BF01588971",
+   "accessed_utc": null
+  },
+  {
+   "id": "faulds-2006-ponce-glen-2002-structural-hydrothermal",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://pubs.usgs.gov/of/2008/1283/",
+   "accessed_utc": null
   }
  ],
  "automation": {
@@ -176,8 +221,7 @@
   "not_automated": "leaderboard reads, score entry and file uploads remain manual by competition terms"
  },
  "open_items": [
-  "no organizer receipt for any score on this site",
-  "no candidate has beaten the incumbent on the off-catalogue proxy by a margin worth a weekly slot",
-  "external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated"
+  "no organizer receipt for any score on this site (live upload governed by weekly cross-lane selector)",
+  "1 m / 10 m 3DEP nonlinear scarp-diffusion (H31-3DEP-DIFF) and GDR 1391 3-D MT depth slices require general-internet CI runner outside sandbox whitelist"
  ]
 }

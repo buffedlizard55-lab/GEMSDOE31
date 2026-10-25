@@ -82,14 +82,19 @@ def restore(entry: dict, data_dir: Path) -> dict:
             "repo": entry["repo"], "ref": entry["ref"]}
 
 
+def _display_path(path: Path) -> Path:
+    return path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
+
+
 def main() -> None:
+    import os
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", default="data")
+    parser.add_argument("--data-dir", default=os.environ.get("GEMSDOE31_DATA_DIR", "data"))
     parser.add_argument("--group", default="all", help="all | core | external")
     parser.add_argument("--out", default="evidence/data_restore.json")
     args = parser.parse_args()
     manifest = json.loads(MANIFEST.read_text())
-    data_dir = (ROOT / args.data_dir).resolve()
+    data_dir = (Path(args.data_dir) if Path(args.data_dir).is_absolute() else (ROOT / args.data_dir)).resolve()
     data_dir.mkdir(parents=True, exist_ok=True)
     rows = []
     for entry in manifest["files"]:
@@ -100,7 +105,7 @@ def main() -> None:
         row["provenance"] = entry["provenance"]
         rows.append(row)
         print(f"{row['status']:<16} {row['dest']:<48} {row['bytes']:>12,} B")
-    out = ROOT / args.out
+    out = Path(args.out) if Path(args.out).is_absolute() else (ROOT / args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps({
         "schema_version": 1,
@@ -110,7 +115,7 @@ def main() -> None:
         "files": rows,
         "all_verified": all(r["status"] in ("restored", "already-verified") for r in rows),
     }, indent=1) + "\n")
-    print(f"\n{out.relative_to(ROOT)}: all_verified="
+    print(f"\n{_display_path(out)}: all_verified="
           f"{all(r['status'] in ('restored', 'already-verified') for r in rows)}")
 
 

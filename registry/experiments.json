@@ -1,17 +1,18 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "protocol": {
-  "folds": "four equal spatial blocks (NW/NE/SW/SE) of the 3730x3292 competition grid",
-  "buffer": "measured from residual autocorrelation, see evidence/buffer_derivation.json; the adopted collar is read from that file rather than restated here",
-  "model": "HistGradientBoostingClassifier (200 trees, lr 0.08, 31 leaves) trained per fold on all catalogue pixels of the other three blocks plus 90,000 background samples",
-  "excluded_features": "no catalogue-distance or SGMC-derived feature is used, so neither the catalogue-gap nor the off-catalogue evaluation is circular",
+  "evaluator": "gemsdoe31-hide-recover-v1",
+  "folds": "Four spatial quadrants (row 1851, col 1639) with whole-component exclusion across boundaries and 4 whole-component hide-and-recover draws (screen=[101, 102], confirm=[201, 202], hide_frac=0.20).",
+  "buffer": "21,250 m (21.25 km, 213 pixels) derived from empirical within-component OOF residual semivariogram decay range (evidence/buffer_derivation.json).",
+  "model": "Coverage-deconfounded HistGradientBoostingClassifier ensemble (0.55 full-footprint specialist + 0.45 multi-sensor specialist combined 50/50 with fold-visible structural-hydrothermal conduit specialist) + exact King & Zeng (2001) Bayes prior shift + exact 300 m CELF submodular max-cover (37,654 binary {0,1} dots outside d_vis <= 2.0 px).",
+  "excluded_features": "valid (LiDAR coverage indicator), dist_cat_km (full-catalogue leakage), dist_sgmc_km (off-catalogue proxy circularity), derived_gdr_qfaults_v2_100m_u8.tif (99.95% overlap with labels.tif).",
   "truth_proxies": {
    "catalogue_gap": "held-out public catalogue pixels (60,988 px)",
    "off_catalogue": "USGS SGMC state-map fault cells more than 300 m from the public catalogue (61,664 px) - the only populated fault population in reach that is off-catalogue by construction, i.e. the population the competition scores"
   },
-  "metric": "official distance-weighted Tversky index, alpha=0.2, beta=0.8, R=300 m triangular kernel, verified against a literal transcription of the published sums (scripts/check_metric.py, evidence/metric_check.json)",
-  "claim_class": "COMPUTED on owner-mirror inputs; not organizer-authenticated and not a live score"
+  "metric": "Official Distance-Weighted Tversky Index (alpha=0.2, beta=0.8, 300 m linear triangular kernel, 29 lattice offsets) with pixel-exact visible masking and 1,000-replicate 20 km x 20 km spatial-tile cluster-bootstrap 95% CIs.",
+  "claim_class": "COMPUTED on hash-pinned inputs; not organizer-authenticated and not a live score"
  },
  "legacy_cache_copied": {},
  "artifacts": [
@@ -29,6 +30,11 @@
    "path": "evidence/collar_sweep.json",
    "bytes": 4139,
    "sha256": "422e6dd594db85c7b72b013806b57721311e447ee1fee6ff8d4fb23e4a1b84fe"
+  },
+  {
+   "path": "evidence/data_preparation.json",
+   "bytes": 2771,
+   "sha256": "6256ef8ef1589cc357bf8d7982a856d6825890f4a1e941407b7242a81c48826d"
   },
   {
    "path": "evidence/data_restore.json",
@@ -69,6 +75,41 @@
    "path": "evidence/h31_a/pilot/variogram.json",
    "bytes": 545,
    "sha256": "64f66b055149ed7b77f557bb777454849333368b404f68761ab6a0dc2c1e1473"
+  },
+  {
+   "path": "evidence/hvdc/duplicate_canary_full.json",
+   "bytes": 7567,
+   "sha256": "0467b7b9ac221371614f66c7cfb6058e494bc9462dbacc0be66b1c910c473576"
+  },
+  {
+   "path": "evidence/hvdc/hvdc_experiment_results.json",
+   "bytes": 16769,
+   "sha256": "a2ab73073974be47756f9e98510706e3d5e04f5205942e3eea851960e84ec1d0"
+  },
+  {
+   "path": "evidence/hvdc/leakage_canary.json",
+   "bytes": 9708,
+   "sha256": "d06e880d1ccac8e533ada9f424777d335116e36358b3c4ed310e1d24a4d84194"
+  },
+  {
+   "path": "evidence/hvdc/run_card.json",
+   "bytes": 3914,
+   "sha256": "b0d6e944645ede43e99f4ae83c7e3855a7ee512a642d2842de486b6d65bea52f"
+  },
+  {
+   "path": "evidence/hvdc/submission_validation_receipt.json",
+   "bytes": 17042,
+   "sha256": "67424eaa1e7ae2dc020b9bd5096c79960e74a9e3ea7de032a8c7311282923aae"
+  },
+  {
+   "path": "evidence/hvdc/validate_allfinite.json",
+   "bytes": 3614,
+   "sha256": "acb0f922617d53c5fe737dc488288a76cd6112b6f6084c51adbda57e82df14fb"
+  },
+  {
+   "path": "evidence/hvdc/validate_nan.json",
+   "bytes": 3503,
+   "sha256": "a55bf31caf12a2720c8c2031c61539a16a77a6eba23ce414f2881ef880f27e43"
   },
   {
    "path": "evidence/incumbent_filter_results.json",

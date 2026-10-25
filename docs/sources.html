@@ -161,9 +161,9 @@
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched this session. The prize structure quoted in registry/score_claims.json and on the site comes from page 967, which was fetched and is verified below.</p>
         </li><li>
           <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noopener">DrivenData GEMS reference solution repository</a></strong>
-          <span class="badge">OWNER-MIRROR</span>
-          <span class="small"> · this project (buffedlizard55-lab) · 2026-10-04</span>
-          <ul class="small" style="margin:8px 0 0"><li>Repository exists and is linked from the official problem page.</li></ul>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData / Prof. John Lipor (Portland State University) · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Official benchmark repository (commit aebe92f7c8a9) implementing Monte Carlo U-Net CV in unet-mc-cv-reference-solution.ipynb.</li><li>Linked directly from the official DrivenData GEMS problem description page.</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not executed in this session.</p>
         </li><li>
           <strong><a href="https://mrdata.usgs.gov/geology/state/" target="_blank" rel="noopener">State Geologic Map Compilation (SGMC) — state geological map packages</a></strong>
@@ -177,6 +177,30 @@
           <span class="small"> · U.S. Geological Survey / ScienceBase · not fetched this session</span>
           <ul class="small" style="margin:8px 0 0"><li>DOI 10.5066/P93LGLVQ; the release provides contractor K, Th, U, total-count radiometric grids and derived ratio grids plus an upward-continued TMI grid.</li><li>The derived layers used here were built by this project&#x27;s earlier CI runs from that release (GEMSDOE24 data/external/geodawn_rad.json, geodawn_extensions.json).</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched in the current session (sciencebase.gov is unreachable from the sandbox); the DOI, item id and derived layers are taken from this project&#x27;s own GEMSDOE24 descriptors.</p>
+        </li><li>
+          <strong><a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">INGENIOUS Great Basin Regional Play Fairway &amp; Geoscience Compilation (GDR Submission 1391)</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DOE Geothermal Data Repository / University of Nevada, Reno (Nevada Bureau of Mines and Geology) · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Provides CC-BY-4.0 regional Quaternary volcanic vents/flows, 2 m shallow temperature probe compilations, paleo-geothermal sinter/tufa/travertine deposits, and Quaternary fault compilations rasterized on the GEMS grid in registry/data_manifest.json.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> GDR host not fetched live in sandbox (network whitelist); hash-pinned 100 m GeoTIFFs verified via registry/data_manifest.json.</p>
+        </li><li>
+          <strong><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener">Focus sibling GEMSDOE repositories (19GEMSDOE, GEMSDOE24, 25, 27, 28, 30, 32, 33, 36, 70)</a></strong>
+          <span class="badge">OWNER-MIRROR</span>
+          <span class="small"> · buffedlizard55-lab GitHub organization · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Retrieved and SHA-256-verified 14 champion GeoTIFF rasters across 19GEMSDOE and GEMSDOE24/25/27/28/30/32/33/36/70 via GitHub API.</li><li>Verified bitwise subset/superset lineage from 19GEMSDOE H19-5 -&gt; D1.5 -&gt; D2.8 -&gt; H27-4 -&gt; GEMSDOE32 H33-2-B2 -&gt; GEMSDOE36.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Owner-reported leaderboard scores in sibling READMEs lack DrivenData submission receipts and are labeled USER-REPORTED.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1007/BF01588971" target="_blank" rel="noopener">Nemhauser, Wolsey &amp; Fisher (1978) &amp; Minoux (1978) — Submodular Maximization and Accelerated Lazy Greedy (CELF)</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Mathematical Programming / IFIP Optimization Techniques · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Establishes (1 - 1/e) optimality guarantee of greedy maximization for monotone submodular set functions and exactness of CELF upper-bound pruning.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Supplies mathematical optimality proof for src/gemsdoe31/submodular.py; supplies no dataset numbers.</p>
+        </li><li>
+          <strong><a href="https://pubs.usgs.gov/of/2008/1283/" target="_blank" rel="noopener">Faulds et al. (2006, 2011), Ponce &amp; Glen (2002), Cowie &amp; Scholz (1992), Crider &amp; Pollard (1998), King &amp; Zeng (2001)</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Geothermal Resources Council Transactions / Geophysical Research Letters / Journal of Structural Geology · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Grounds H31-HVDC physical design: &gt;75% of Great Basin geothermal systems occupy fault terminations, step-overs, and range-front intersections; hydrothermal fluids destroy magnetite and enrich K/Th; case-control prior shift restores true spatial odds.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Peer-reviewed geoscience and statistical methods literature; empirical holdout performance is measured independently in evidence/hvdc/hvdc_experiment_results.json.</p>
         </li></ul>
     </section>
 

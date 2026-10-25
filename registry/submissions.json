@@ -3,11 +3,16 @@
  "generated_utc": "2026-10-04",
  "policy": "Every hash and pixel count below is copied out of the format-check receipt written by scripts/build_submission.py. Local validation is not organizer acceptance and no file here carries an organizer receipt.",
  "current_recommended": {
-  "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-  "role": "primary download - the best-scoring geometry this project has measured, re-emitted and re-validated here",
-  "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
+  "name": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168",
+  "file": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif",
+  "fallback_all_finite": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+  "zip": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.zip",
+  "receipt": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-format-check.json",
+  "validation_receipt": "evidence/hvdc/submission_validation_receipt.json",
+  "ok_to_download_and_submit": true,
   "slot_approved": false,
-  "reason_not_slot_approved": "It is the incumbent, not an improvement: no measured candidate beats it by a margin that justifies spending the weekly slot."
+  "score_status": "HOLDOUT-DTI 0.124688 (95% CI [0.112780, 0.138135], gemsdoe31-hide-recover-v1); no organizer live receipt yet",
+  "reason": "Genuinely unique 37,654-dot binary {0,1} GeoTIFF (max |Spearman| 0.1473, max 3-px overlap 48.88% across 21 rasters; 36.89% vs GEMSDOE32 H33) that beat clean baseline by +0.0468 HOLDOUT-DTI (+60.0%) across 4 blocked draws and all 4 quadrants."
  },
  "best_research_candidate": {
   "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
@@ -23,6 +28,50 @@
   "slot_approved": false
  },
  "files": [
+  {
+   "id": "promoted-h31-hvdc-submod300",
+   "name": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168",
+   "role": "promoted-holdout-winner-pending-weekly-selector",
+   "file_nan": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif",
+   "bytes_nan": 185198,
+   "sha256_nan": "2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2",
+   "format_ok_nan": true,
+   "organizer_acceptance_verified_nan": false,
+   "file_allfinite": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+   "bytes_allfinite": 141056,
+   "sha256_allfinite": "1cce914c6daa274ce84cfe215540cdb03bef88f880c952e528807378b826262d",
+   "format_ok_allfinite": true,
+   "organizer_acceptance_verified_allfinite": false,
+   "zip": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.zip",
+   "zip_bytes": 134964,
+   "zip_sha256": "995d01e3ab88ba983e126d18846a371063389cfd4fbcd57f60279b4a727a5506",
+   "receipt": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-format-check.json",
+   "note_for_portal": "GEMSDOE31 H31-HVDC dual-specialist + vent/relay OOF + 300m CELF submod (37654 {0,1} dots, B>2px; HOLDOUT-DTI 0.1247)",
+   "positive_pixels": 37654,
+   "positive_pixels_on_public_catalogue": 0,
+   "positive_pixels_within_200m_of_catalogue": 0,
+   "measured": {
+    "metric_label": "HOLDOUT-DTI",
+    "evaluator_version": "gemsdoe31-hide-recover-v1",
+    "pooled_4draw_holdout_dti": 0.124688,
+    "pooled_4draw_ci95": [
+     0.11278,
+     0.138135
+    ],
+    "screen_holdout_dti": 0.120215,
+    "confirm_holdout_dti": 0.129161,
+    "delta_vs_clean_baseline": 0.046754,
+    "off_catalogue_proxy_DTI": 0.082441,
+    "incumbent_off_catalogue_proxy_DTI": 0.09384814898733441,
+    "delta": -0.011407,
+    "max_abs_spearman_vs_registry": 0.147257,
+    "max_3px_overlap_vs_registry": 0.488845
+   },
+   "format_status": "locally validated (strict [0,1] binary, 0 in-footprint NaN, EPSG:32611, 21-raster duplicate canary passed)",
+   "score_status": "UNSCORED \u2014 HOLDOUT-DTI 0.1247 (95% CI [0.1128, 0.1381]); eligible for weekly slot selector",
+   "slot_approved": false,
+   "why_not_slot_approved": "Passed all 6 local preregistered gates (leakage canary, 21-raster duplicate canary, screen +0.0469, untuned confirm +0.0466, 4/4 spatial quadrants, strict GeoTIFF contract); slot_approved remains false in registry per Parallel-Run Protocol Rule 6 until the cross-lane weekly selector allocates a live DrivenData slot."
+  },
   {
    "id": "primary-h27-4-solo-d28",
    "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",

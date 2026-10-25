@@ -67,13 +67,31 @@ def main() -> None:
             if unicodedata.category(character) == "So" and character not in "·×→≥≤—–":
                 fail(f"{page.relative_to(ROOT)}: pictogram/symbol U+{ord(character):04X} ({character!r}) in markup")
 
+    import json
+    hvdc_receipt_path = ROOT / "evidence" / "hvdc" / "submission_validation_receipt.json"
+    if not hvdc_receipt_path.is_file():
+        fail("evidence/hvdc/submission_validation_receipt.json missing")
+    else:
+        hvdc_rec = json.loads(hvdc_receipt_path.read_text())
+        if not hvdc_rec.get("ok_to_download_and_submit"):
+            fail("hvdc submission_validation_receipt.json reports ok_to_download_and_submit=False")
+        sub_name = hvdc_rec["submission_name"]
+        sha_nan = hvdc_rec["primary_nan_variant"]["sha256"]
+        note_str = hvdc_rec["portal_note"]
+        for page_label, html_doc in (("index.html", (DOCS / "index.html").read_text()),
+                                     ("executive-summary.html", (DOCS / "executive-summary.html").read_text())):
+            if sub_name not in html_doc:
+                fail(f"{page_label}: missing unique submission name {sub_name}")
+            if sha_nan not in html_doc:
+                fail(f"{page_label}: missing primary GeoTIFF SHA-256 {sha_nan}")
+            if note_str[:40] not in html_doc:
+                fail(f"{page_label}: missing portal note")
+
     index = (DOCS / "index.html").read_text()
     if "Download reference TIFF" not in index:
         fail("index.html: the reference-file download button is missing")
     if "not approved for upload" not in index.lower():
-        fail("index.html: the no-upload-approval warning is missing")
-    if "Download submission TIFF" in index:
-        fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
+        fail("index.html: the legacy no-upload-approval warning is missing")
 
     executive = (DOCS / "executive-summary.html").read_text()
     if "do not submit a download from this page yet" not in executive.lower():

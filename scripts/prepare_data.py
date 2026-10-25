@@ -117,17 +117,23 @@ def build(data_dir: Path, out_dir: Path, *, include_derived: bool = True) -> dic
     return meta
 
 
+def _display_path(path: Path) -> Path:
+    return path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
+
+
 def main() -> None:
+    import os
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", default="data")
-    parser.add_argument("--out-dir", default="data/prepared")
+    parser.add_argument("--data-dir", default=os.environ.get("GEMSDOE31_DATA_DIR", "data"))
+    parser.add_argument("--out-dir", default=os.environ.get("GEMSDOE31_PREPARED_DIR", "data/prepared"))
     parser.add_argument("--verify-only", action="store_true")
     parser.add_argument("--manifest", default="registry/data_manifest.json")
     parser.add_argument("--out", default="evidence/data_preparation.json")
     args = parser.parse_args()
-    data_dir = (ROOT / args.data_dir).resolve()
+    data_dir = (Path(args.data_dir) if Path(args.data_dir).is_absolute() else (ROOT / args.data_dir)).resolve()
+    out_dir = (Path(args.out_dir) if Path(args.out_dir).is_absolute() else (ROOT / args.out_dir)).resolve()
     manifest = json.loads((ROOT / args.manifest).read_text())
-    rows = verify(manifest, data_dir if not args.verify_only else data_dir)
+    rows = verify(manifest, data_dir)
     ok = all(r.get("sha256_match") for r in rows)
     payload = {"schema_version": 1, "verify_only": args.verify_only, "files": rows, "all_hashes_match": ok}
     if args.verify_only:
@@ -135,12 +141,12 @@ def main() -> None:
     else:
         if not ok:
             raise SystemExit("input hashes do not match registry/data_manifest.json; refusing to prepare")
-        payload["prepared"] = build(data_dir, (ROOT / args.out_dir).resolve())
+        payload["prepared"] = build(data_dir, out_dir)
         print(f"prepared {payload['prepared']['bytes']:,} bytes, {len(payload['prepared']['bands'])} bands")
-    out = ROOT / args.out
+    out = Path(args.out) if Path(args.out).is_absolute() else (ROOT / args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, indent=1) + "\n")
-    print(f"wrote {out.relative_to(ROOT)}")
+    print(f"wrote {_display_path(out)}")
 
 
 if __name__ == "__main__":

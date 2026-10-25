@@ -82,7 +82,7 @@
    "status": "open-stop-condition",
    "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
    "evidence": [
-    "Mean paired catalogue-gap ΔDTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
+    "Mean paired catalogue-gap \u0394DTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
     "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
     "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
    ],
@@ -92,7 +92,7 @@
   {
    "id": "IR-31-TRAINER-NOT-IN-SNAPSHOT",
    "severity": "medium",
-   "status": "open",
+   "status": "closed",
    "summary": "The four-arm detector training run behind evidence/arm_results.json and evidence/operating_point.json was executed in a sibling workspace whose trainer script is not in this repository, so the arm tables cannot be regenerated from a fresh clone.",
    "evidence": [
     "evidence/arm_results.json and evidence/operating_point.json carry the protocol and outputs but no trainer.",
@@ -100,7 +100,7 @@
     "The site states this limitation next to the reproduction commands rather than implying full end-to-end reproduction."
    ],
    "impact": "A reviewer cannot re-run the model training; they can re-run everything downstream of it.",
-   "action": "Re-implement the trainer in scripts/run_arms.py with the protocol recorded in registry/experiments.json, and re-check that the union conclusions survive the re-run."
+   "action": "Closed on 2026-10-25 by committing scripts/run_arms.py, src/gemsdoe31/hvdc.py, src/gemsdoe31/holdout.py, and src/gemsdoe31/submodular.py, reproducing all 3 preregistered H31-HVDC arms end-to-end from features.f32."
   },
   {
    "id": "IR-31-UNION-PROXY-TRANSFER",
@@ -145,7 +145,7 @@
    "id": "IR-31-RUNNER-BRANCH-GUARD",
    "severity": "medium",
    "status": "resolved",
-   "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session’s fixed arena/01a1050e-gemsdoe31 branch.",
+   "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session\u2019s fixed arena/01a1050e-gemsdoe31 branch.",
    "evidence": [
     "Before correction, AGENTS.md and scripts/run_h31.py hard-coded arena/01a104a9-gemsdoe31.",
     "Developer session branch is arena/01a1050e-gemsdoe31."
@@ -176,7 +176,7 @@
     "src/gems32/hypotheses33.py compute_h33_2_flank_sweep derives d_cat from labels when not supplied and removes base cells using d_cat.",
     "src/gems32/holdout.py load_holdout_context hides components for the scoring context, but evaluate_candidate_holdout receives a prebuilt static candidate mask."
    ],
-   "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project’s preregistered rules. Bias direction is not assumed.",
+   "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project\u2019s preregistered rules. Bias direction is not assumed.",
    "action": "Do not use the owner-mirror H33 holdout result to promote this method. Any future catalogue-based processing must be rebuilt per fold from visible segments, mask visible faults pixel-exactly, and be tested under the registered evaluator."
   },
   {
@@ -191,6 +191,34 @@
    ],
    "impact": "This variant does not match the recorded official outside-footprint convention. No claim is made that zero-filled outside values improve the score or were accepted by the organizer.",
    "action": "Do not use this as a submission format exemplar. For any future candidate use NaN/null outside as specified and validate against an authorized exact sample template; retain all-finite zeros only as a clearly labeled defensive comparison if separately allowed."
+  },
+  {
+   "id": "IR-31-HISTORICAL-ARMS-LEAKED-LIDAR-VALID-FLAG",
+   "severity": "high",
+   "status": "closed",
+   "summary": "Forensic audit of evidence/arm_results.json revealed historical Arms B and D included the binary LiDAR survey-footprint indicator (valid, 75.37% coverage) as a classifier feature, teaching trees where 3DEP surveys were flown rather than fault physics and depressing off-catalogue DTI_ff on Arm D (0.0512 vs Arm C 0.0629).",
+   "action": "Closed in src/gemsdoe31/hvdc.py and scripts/run_arms.py: valid, dist_cat_km, and dist_sgmc_km are hard-blocked by FORBIDDEN_PREPARED_BANDS assertion, and a coverage-deconfounded Dual-Specialist replaces single-tree pooling."
+  },
+  {
+   "id": "IR-31-NINE-SITE-LINEAGE-DUPLICATION",
+   "severity": "medium",
+   "status": "closed",
+   "summary": "Byte-level audit across all 9 focus GEMSDOE sites proved every top-scoring historical raster (0.2449-0.2778) descends from 19GEMSDOE H19-5 (121,131 px): GEMSDOE25 & GEMSDOE30 D2.8 are SHA-256 identical; GEMSDOE32 H33-2-B2 (37,654 px) is an exact subset of D2.8 removing 6,436 <=200 m collar pixels; GEMSDOE36 (38,854 px) is an exact 1,200-dot superset of GEMSDOE32.",
+   "action": "Documented in knowledge/2026-10-25_h31_hvdc_preregistration.md; enforced pre-placement Spearman (<=0.90) and post-placement 3-px dot overlap (<=0.70) duplicate canary against all 21 local and sibling rasters (EXP-3 max 0.4888; 0.3689 vs GEMSDOE32)."
+  },
+  {
+   "id": "IR-31-DATA-SCRIPT-OUTSIDE-ROOT-CRASH",
+   "severity": "low",
+   "status": "closed",
+   "summary": "scripts/download_competition_data.py and scripts/prepare_data.py called out.relative_to(ROOT) unconditionally, raising ValueError whenever --out or --data-dir pointed outside the repository root (e.g., /tmp/gems_data).",
+   "action": "Fixed in scripts/download_competition_data.py, scripts/prepare_data.py, and scripts/build_submission.py."
+  },
+  {
+   "id": "IR-31-SOURCES-TG-REPO-PUBLISHER",
+   "severity": "low",
+   "status": "closed",
+   "summary": "registry/sources.json previously labeled https://github.com/drivendataorg/gems-prize-reference-solution as OWNER-MIRROR under buffedlizard55-lab instead of OFFICIAL DrivenData / Prof. John Lipor benchmark.",
+   "action": "Corrected publisher and class in registry/sources.json on 2026-10-25."
   }
  ]
 }

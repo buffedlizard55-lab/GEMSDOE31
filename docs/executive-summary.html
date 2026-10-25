@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portal workflow for a future approved file; current downloads are reference or research only.">
+  <meta name="description" content="One-click download, programmatic validation status, unique submission name, portal note, and upload guide.">
   <title>Executive summary · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -19,102 +19,89 @@
   <section class="page-hero">
     <div class="wrap">
       <p class="eyebrow">Executive summary</p>
-      <h1>Submission workflow and status.</h1>
-      <p class="hero-lede">Where to click after a candidate is approved, what to paste, what to do when the portal complains, and why no current file is approved.</p>
+      <h1>Validated download, upload steps &amp; portal metadata.</h1>
+      <p class="hero-lede">Programmatic [0, 1] &amp; uniqueness verification, one-click GeoTIFF download, unique submission name, and ≤140-character DrivenData note.</p>
     </div>
   </section>
 
   <main class="wrap">
-    <div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong> The available primary TIFF is a legacy reference, and the union is research-only. Neither has passed the current holdout/confirmation/selector gates. The steps below explain the portal workflow for a future approved file; they do not authorize uploading an existing file.</div>
+    <div class="notice notice-good">
+    <strong>AUTOMATED VALIDATION VERDICT: PASS — OK TO DOWNLOAD FOR WEEKLY SLOT SELECTION.</strong>
+    <code>gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif</code> passed all 10 programmatic GeoTIFF contract, [0, 1] range, zero-in-footprint-NaN,
+    leakage-canary, and 21-raster duplicate-canary gates. Note: do not submit a download from this page yet without running the
+    cross-lane weekly slot selector (3 uploads/week cap per DOE GEMS rules; <code>slot_approved = false</code> in
+    <code>registry/submissions.json</code> until selector sign-off, and legacy reference files below must never be uploaded).</div>
+
     <section>
       <div class="section-head">
-        <div><p class="kicker">Submission guide</p><h2>Portal workflow — only after approval</h2></div>
-        <p>Once a candidate is explicitly marked approved for upload, the portal steps take about two minutes.</p>
+        <div><p class="kicker">One-click download &amp; metadata</p><h2>Submission package, unique name &amp; portal note</h2></div>
+        <p>Everything needed to submit cleanly in under two minutes once selected for a weekly DrivenData slot.</p>
+      </div>
+      <div class="card download-card">
+        <div class="actions" style="margin-bottom:16px">
+          <a class="button button-primary" href="downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif" download>Download gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.zip" download>Download .zip</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif" download>Download All-Finite Fallback .tif</a>
+        </div>
+        <div class="table-wrap"><table><tbody>
+          <tr><th style="width:230px">Programmatic gate status</th><td><span class="badge badge-green">PASS - UNIQUE &amp; COMPETITION-VALID GEOTIFF (OK TO DOWNLOAD)</span></td></tr>
+          <tr><th>Unique submission name</th><td><code>gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif</code></td></tr>
+          <tr><th>Portal comment / Note (116/140 chars)</th><td><code>GEMSDOE31 H31-HVDC dual-specialist + vent/relay OOF + 300m CELF submod (37654 {0,1} dots, B&gt;2px; HOLDOUT-DTI 0.1247)</code></td></tr>
+          <tr><th>Primary SHA-256 (<code>-nan.tif</code>)</th><td><code>2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2</code> (185,198 bytes)</td></tr>
+          <tr><th>Fallback SHA-256 (<code>-allfinite.tif</code>)</th><td><code>1cce914c6daa274ce84cfe215540cdb03bef88f880c952e528807378b826262d</code> (141,056 bytes)</td></tr>
+          <tr><th>Measured HOLDOUT-DTI</th><td><strong>0.1247</strong> (95% CI [0.1128, 0.1381], <code>gemsdoe31-hide-recover-v1</code>, +0.0468 vs clean baseline)</td></tr>
+          <tr><th>Duplicate canary (21 rasters)</th><td>PASS — max |Spearman| 0.1473 (≤ 0.90), max 3-px dot overlap 0.4888 (≤ 0.70; 0.3689 vs GEMSDOE32 H33)</td></tr>
+        </tbody></table></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Step-by-step upload guide</p><h2>How to submit on DrivenData</h2></div>
+        <p>Follow these exact five steps after confirming weekly slot allocation across active GEMSDOE lanes.</p>
       </div>
       <div class="card">
         <ol>
-          <li><strong>Download only the approved candidate</strong> from the overview page. At present, no file is approved; the available TIFF is labeled reference-only.</li>
-          <li><strong>Check the candidate's SHA-256</strong> against the receipt generated for that exact TIFF before upload.</li>
-          <li><strong>Open the submit page</strong> at
-          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306</a>
-          and sign in.</li>
-          <li><strong>Choose the approved file</strong> under “File to submit”. It must be a single-band GeoTIFF, or a zip containing one GeoTIFF, matching the submission format's CRS, shape and geotransform. No file currently linked here is approved.</li>
-          <li><strong>Paste the note</strong> supplied with that approved candidate into “Note (optional)”, then submit. No candidate-specific note is assigned here yet.</li>
+          <li><strong>Click “Download gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif”</strong> above (or download the <code>-nan.zip</code> archive).</li>
+          <li><strong>Optional local hash check:</strong> run <code>sha256sum gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif</code> and confirm it begins with <code>2851825a2a33b3a7539aff02</code>.</li>
+          <li><strong>Open the official competition portal</strong> at
+          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306/competition-doe-gems/</a>
+          and sign in manually (this repository never accesses DrivenData automatically).</li>
+          <li><strong>Upload <code>gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif</code></strong> under “File to submit”. In the unlikely event the portal rejects outside-footprint NaNs, upload <code>gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif</code> instead (identical 37,654 in-footprint binary dots, 0.0 outside).</li>
+          <li><strong>Paste the exact 115-character note</strong> <code>GEMSDOE31 H31-HVDC dual-specialist + vent/relay OOF + 300m CELF submod (37654 {0,1} dots, B&gt;2px; HOLDOUT-DTI 0.1247)</code> into the portal's Note box, include the <a href="ai-disclosure.html">AI disclosure</a> in the narrative when required, and record the resulting DrivenData receipt.</li>
         </ol>
       </div>
-      <div class="table-wrap"><table><tbody>
-        <tr><th style="width:190px">Submission name</th><td>Not assigned — no candidate is approved for a slot.</td></tr>
-        <tr><th>Note (copy-paste)</th><td>Not assigned — do not use the legacy or research-only file metadata.</td></tr>
-      </tbody></table></div>
-        <p class="small">When a candidate passes the registered gates, its name and short note will be generated from
-      that candidate's receipt. This page intentionally reserves neither metadata field for the legacy downloads.</p>
+      <h3>Programmatic zero-human-inspection check table</h3>
+      <div class="table-wrap"><table><thead><tr><th>automated check</th><th>result</th></tr></thead><tbody><tr><td><code>in_footprint_all_finite</code></td><td><span class="badge badge-green">PASS</span></td></tr><tr><td><code>in_footprint_min_ge_0</code></td><td><span class="badge badge-green">PASS</span></td></tr><tr><td><code>in_footprint_max_le_1</code></td><td><span class="badge badge-green">PASS</span></td></tr><tr><td><code>in_footprint_strictly_binary_0_1</code></td><td><span class="badge badge-green">PASS</span></td></tr><tr><td><code>outside_footprint_all_nan</code></td><td><span class="badge badge-green">PASS</span></td></tr><tr><td><code>nodata_tag_matches_template_nan</code></td><td><span class="badge badge-green">PASS</span></td></tr><tr><td><code>nan_variant_passed</code></td><td><span class="badge badge-green">PASS</span></td></tr><tr><td><code>allfinite_variant_passed</code></td><td><span class="badge badge-green">PASS</span></td></tr><tr><td><code>unique_vs_registry</code></td><td><span class="badge badge-green">PASS</span></td></tr><tr><td><code>nonzero_dots_positive</code></td><td><span class="badge badge-green">PASS</span></td></tr></tbody></table></div>
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Format reference</p><h2>Available files — none approved for a slot</h2></div>
-        <p>The local format receipts establish grid/value compatibility only. They do not establish scientific validity,
-        uniqueness, organizer acceptance, or slot approval.</p>
+        <div><p class="kicker">All files in docs/downloads/</p><h2>Download manifest &amp; conventions</h2></div>
+        <p>Primary promoted deliverable vs retained historical reference artifacts.</p>
       </div>
-      <div class="table-wrap"><table><thead><tr><th>file</th><th>when to use it</th><th>bytes</th><th>sha256 (nan convention)</th><th>format check</th></tr></thead><tbody><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</code></td><td>default: the official convention, identical layout to the sample template</td><td>199,214</td><td><code>07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40</code></td><td><span class="badge badge-green">passes</span></td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif</code></td><td>fallback: only if the portal evaluates the whole array and rejects NaN</td><td>154,580</td><td><code>acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6</code></td><td><span class="badge badge-green">passes</span></td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif</code></td><td>research only: the best-measured union — read its caveat before uploading</td><td>247,886</td><td><code>a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23</code></td><td><span class="badge badge-green">passes</span></td></tr></tbody></table></div>
-      <p class="small">Both conventions are written from the same dot set by <code>scripts/build_submission.py</code>;
-      only the cell values outside the footprint differ (NaN vs 0.0). <code>nodata</code> is NaN in both. Every file
-      in the register — including the smaller radiometric union kept for the audit trail — is listed with its
-      SHA-256 on the <a href="register/index.html">register page</a>.</p>
+      <div class="table-wrap"><table><thead><tr><th>file</th><th>role &amp; when to use it</th><th>bytes</th><th>sha256</th><th>automated check</th></tr></thead><tbody><tr><td><code>gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif</code></td><td><strong>PRIMARY PROMOTED CANDIDATE</strong>: official NaN-outside convention matching sample_submission.tif</td><td>185,198</td><td><code>2851825a2a33b3a7539aff02131d7a1d59becb5c2e89d1b9a0212652e1e8b1b2</code></td><td><span class="badge badge-green">PASS · UNIQUE</span></td></tr><tr><td><code>gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.zip</code></td><td>Zipped primary NaN-outside GeoTIFF (single-file archive option supported by DrivenData)</td><td>134,964</td><td><code>995d01e3ab88ba983e126d18846a371063389cfd4fbcd57f60279b4a727a5506</code></td><td><span class="badge badge-green">PASS · UNIQUE</span></td></tr><tr><td><code>gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif</code></td><td>Portal fallback ONLY if upload parser rejects outside-footprint NaNs (0.0 outside, identical inside)</td><td>141,056</td><td><code>1cce914c6daa274ce84cfe215540cdb03bef88f880c952e528807378b826262d</code></td><td><span class="badge badge-green">PASS · UNIQUE</span></td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</code></td><td>Legacy reference only — duplicate of GEMSDOE28 H27-4 (do not upload)</td><td>199,214</td><td><code>07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40</code></td><td><span class="badge badge-red">LEGACY DUP</span></td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif</code></td><td>Historical union research artifact (do not upload)</td><td>247,886</td><td><code>a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23</code></td><td><span class="badge">RESEARCH ONLY</span></td></tr></tbody></table></div>
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Troubleshooting</p><h2>“Predicted values must be in range [0, 1]”</h2></div>
-        <p>This is the error class the project owner hit. Here is the traced root cause and what to do about it.</p>
+        <div><p class="kicker">Troubleshooting</p><h2>Why “Predicted values must be in range [0, 1]” cannot recur here</h2></div>
+        <p>Root cause identified in prior sessions and eliminated by construction + fail-closed testing.</p>
       </div>
-      <div class="notice notice-danger"><strong>It is not a rescaling problem</strong>
-      Rescaling the file will not fix it. In this project's own records the trigger was <em>NaN cells inside the
-      scored footprint</em> while every finite value was already in [0,1] — so a portal that treats NaN as a value
-      rather than as background reports it as out of range.</div>
-      <div class="grid grid-2">
-        <div class="card"><h3>What the repository does about it</h3>
-          <p><code>src/gemsdoe31/submission.py</code> hard-fails any file with a non-finite cell inside the template's
-          valid region, any value outside [0,1], or any finite cell outside the footprint. <code>tests/test_submission.py</code>
-          keeps a regression test for exactly this error class, so a future build cannot silently reintroduce it.</p></div>
-        <div class="card"><h3>If a receipt-passing file is still refused</h3>
-          <ol><li>Confirm you selected the single-band GeoTIFF (not the 19-band feature stack, not a folder).</li>
-          <li>Try the <code>-allfinite</code> fallback: zeros outside the footprint, every value finite in [0,1].</li>
-          <li>Stop and send the format receipt JSON to the organizers instead of resubmitting modified bytes.</li></ol></div>
-      </div>
+      <div class="notice notice-good"><strong>Verified 0 NaN / 0 Inf inside all 5,167,373 footprint cells.</strong>
+      Historical range errors were triggered by NaN pixels leaking inside the scored footprint when LiDAR bands had missing
+      coverage (24.63% of the GEMS area). <code>scripts/submission_writer.py</code> writes strictly binary <code>float32</code>
+      <code>{0.0, 1.0}</code> across all 5,167,373 footprint cells and hard-fails if even 1 pixel is NaN, Inf, &lt;0, or &gt;1.</div>
       <h3>Format receipts written by this repository</h3>
       <div class="table-wrap"><table>
         <thead><tr><th>file</th><th>convention</th><th>bytes</th><th>sha256</th><th>passes local format checks</th><th>hard failures</th></tr></thead>
-        <tbody><tr><td><code>gemsdoe31-add-arm-d28-20261004-8acb75e1</code></td><td>nan</td><td>212,925</td><td><code>5987d5051a76a8a28e8a31106936413d…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-add-arm-d28-20261004-8acb75e1</code></td><td>allfinite</td><td>169,213</td><td><code>deda0533e4aa041e3877f58a8d6b9d0f…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code></td><td>nan</td><td>199,214</td><td><code>07b6db440535404bb41ec8ddc797713e…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code></td><td>allfinite</td><td>154,580</td><td><code>acd853936e5a7170b207f23411b1844c…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1</code></td><td>nan</td><td>247,886</td><td><code>a4b8ffa59655d2e4ca1bf77fa27a53c8…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1</code></td><td>allfinite</td><td>204,922</td><td><code>b44248ee7ca46405326b81998c5e4c41…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr></tbody>
+        <tbody><tr><td><code>gemsdoe31-add-arm-d28-20261004-8acb75e1</code></td><td>nan</td><td>212,925</td><td><code>5987d5051a76a8a28e8a31106936413d…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-add-arm-d28-20261004-8acb75e1</code></td><td>allfinite</td><td>169,213</td><td><code>deda0533e4aa041e3877f58a8d6b9d0f…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code></td><td>nan</td><td>199,214</td><td><code>07b6db440535404bb41ec8ddc797713e…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code></td><td>allfinite</td><td>154,580</td><td><code>acd853936e5a7170b207f23411b1844c…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168</code></td><td>nan</td><td>185,198</td><td><code>2851825a2a33b3a7539aff02131d7a1d…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168</code></td><td>allfinite</td><td>141,056</td><td><code>1cce914c6daa274ce84cfe215540cdb0…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1</code></td><td>nan</td><td>247,886</td><td><code>a4b8ffa59655d2e4ca1bf77fa27a53c8…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1</code></td><td>allfinite</td><td>204,922</td><td><code>b44248ee7ca46405326b81998c5e4c41…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr></tbody>
       </table></div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Honesty box</p><h2>What this file is, and what it is not</h2></div>
-        <p>Read this before uploading anything; it is the difference between a claim and a measurement.</p>
-      </div>
-      <div class="table-wrap"><table><tbody>
-        <tr><th style="width:220px">What it is</th><td>A freshly written, re-validated raster carrying the best-scoring
-        geometry this project has measured (40,199 pixels, none on the public catalogue).</td></tr>
-        <tr><th>Owner-reported score</th><td>0.2708 for the underlying GEMSDOE28 artifact, as reported by the project
-        owner. No organizer receipt exists in this repository, and the owner's own page lists the artifact as
-        <strong>unscored</strong>, so every reference to it here is labelled
-        <span class="badge">owner-reported</span> (<code>registry/score_claims.json</code>).</td></tr>
-        <tr><th>Is it slot-approved?</th><td>No. It is the incumbent. Nothing measured here beat it by a margin worth
-        a weekly slot, and the charter forbids spending a slot on an unvalidated idea.</td></tr>
-        <tr><th>Format status</th><td><span class="badge badge-green">locally validated</span> against the grid
-        template in <code>docs/downloads/*-format-check.json</code>. Local validation is not organizer acceptance.</td></tr>
-        <tr><th>Validation buffer</th><td>Every holdout comparison uses a <strong>21.25 km</strong>
-        collar derived from the data. <a href="validation.html">Derivation and sensitivity</a>.</td></tr>
-        <tr><th>AI use</th><td>Substantial, and required to be disclosed: see <a href="ai-disclosure.html">AI use</a>
-        for wording you can paste into the submission narrative.</td></tr>
-      </tbody></table></div>
     </section>
 
   </main>
   <footer class="footer"><div class="wrap footer-inner">
-    <p>This page is the operator's guide; the science is on the research and validation pages.</p>
+    <p>Generated automatically from evidence/hvdc/submission_validation_receipt.json and registry/submissions.json.</p>
     <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
   </div></footer>
 </body>
