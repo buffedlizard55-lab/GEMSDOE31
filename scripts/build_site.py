@@ -317,12 +317,13 @@ def h31e_candidate_section(sub: dict, h31e: dict) -> str:
 
 
 def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
-    primary = next(f for f in sub["files"] if f["id"] == "primary-h31b-scarp-hessian-standalone")
+    primary = next(f for f in sub["files"] if f["id"] == "primary-h31m-bstep-xmod-submod")
     hybrid = next(f for f in sub["files"] if f["id"] == "companion-h31b-corroborated-b2-hybrid")
+    h31b_arch = next(f for f in sub["files"] if f["id"] == "primary-h31b-scarp-hessian-standalone")
     inc = union.get("incumbent", {})
     inc_credit = inc.get("ff_credit_per_dot")
     forensic = load("evidence/nine_site_forensic_audit.json", {"focus_submissions": []})
-    h31b_exp = load("evidence/h31b_experiments.json", {"experiments": [], "baselines": {}})
+    h31m = load("evidence/h31m_results.json", {})
     h31e = load("evidence/h31e_results.json", {})
 
     forensic_rows = []
@@ -334,47 +335,63 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
             fmt(r["emitted_dots"], 0),
             f'{fmt(ann.get("d_eq_0_on_catalogue", 0), 0)} / {fmt(ann.get("d_0_to_100m_px1", 0), 0)} / <strong>{fmt(ann.get("d_100_to_200m_px2", 0), 0)}</strong> / {fmt(ann.get("d_200_to_300m_px3", 0), 0)} / {fmt(ann.get("d_gt_300m_far_field", 0), 0)}',
             fmt(r["full_footprint_off_sgmc_dti"], 4),
-            fmt(r["prevalence_calibrated_sgmc_dti"], 4),
             f'<code>{e(r["sha256"][:16])}…</code>',
         ])
 
-    exp_rows = []
-    for x in h31b_exp.get("experiments", []):
-        m_sgmc = x.get("holdout_off_sgmc_4block", {})
-        u = x.get("uniqueness_audit", {})
-        exp_rows.append([
-            f'<code>{e(x["experiment_id"])}</code><div class="small">{e(x.get("title", ""))}</div>',
-            fmt(x["emitted_dots"], 0),
-            f'<strong>{fmt(m_sgmc.get("mean_holdout_dti"), 4)}</strong><div class="small">95% CI [{fmt(m_sgmc.get("ci95_low"), 4)}, {fmt(m_sgmc.get("ci95_high"), 4)}] ({e(x.get("folds_beating_gemsdoe32_b2", "4/4"))} folds &gt; B=2)</div>',
-            fmt(x.get("full_footprint_off_sgmc_dti"), 4),
-            f'r_s={fmt(u.get("max_surface_spearman"), 4)} / 3px={fmt(100.0 * (u.get("max_dot_overlap_3px") or 0.0), 1)}%',
-            '<span class="badge badge-green">PASS / PROMOTE</span>' if x.get("verdict") == "promote" else f'<span class="badge">{e(x.get("verdict", ""))}</span>',
+    scr = h31m.get("exp2_holdout_screen", {})
+    cnf = h31m.get("exp2_holdout_confirm", {})
+    prox = h31m.get("exp3_proxies_and_habitat", {})
+    uniq = h31m.get("uniqueness", {})
+
+    h31m_cmp_rows = []
+    cmp_meta = [
+        ("H31-M_candidate", "H31-M Primary Unique Submission (promoted)", "HOLDOUT-DTI 0.1350 (scr) / 0.1372 (cnf)", '<span class="badge badge-green">YES — OK TO SUBMIT</span>'),
+        ("GEMSDOE32_H33_2_B2", "GEMSDOE32 H33-2-B2 (0.2778 USER-REPORTED)", "prior-art B=2 benchmark", '<span class="badge">sibling benchmark</span>'),
+        ("H27_4_incumbent", "GEMSDOE28/31 H27-4 (0.2708 USER-REPORTED)", "HOLDOUT-DTI 0.1297", '<span class="badge">prior archive</span>'),
+        ("H31_B_standalone", "H31-B Standalone (97.5% mountain; piedmont-starved)", "HOLDOUT-DTI 0.1171", '<span class="badge badge-red">ARCHIVE — DO NOT SUBMIT</span>'),
+        ("H31_E_surfexpr", "H31-E Surface-Expression (subsurface-blind)", "HOLDOUT-DTI 0.0884 (full emit)", '<span class="badge badge-red">NO — DO NOT SUBMIT</span>'),
+    ]
+    for key, label, hv1_note, status_badge in cmp_meta:
+        row_p = prox.get(key, {})
+        ho4 = row_p.get("holdout_4block_off_sgmc", {})
+        h31m_cmp_rows.append([
+            f'<strong>{e(label)}</strong>',
+            fmt(row_p.get("dots"), 0),
+            f'{fmt(100.0 * (row_p.get("piedmont_dot_fraction") or 0.0), 1)}%',
+            e(hv1_note),
+            f'<strong>{fmt(ho4.get("mean_holdout_dti"), 4)}</strong><div class="small">95% CI [{fmt(ho4.get("ci95_low"), 4)}, {fmt(ho4.get("ci95_high"), 4)}]</div>',
+            fmt(row_p.get("full_off_sgmc_DTI"), 4),
+            f'<strong>{fmt(row_p.get("piedmont_off_sgmc_DTI"), 4)}</strong>',
+            status_badge,
         ])
 
     hero = f"""  <section class="hero">
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">DOE GEMS Prize · competition 306 · <span class="badge badge-green">YES — VALIDATED &amp; OK TO DOWNLOAD AND SUBMIT</span></p>
-        <h1>Unique H31-B GeoTIFF: Validated &amp; Ready to Submit.</h1>
-        <p class="hero-lede">New unique H31-B submission rasters (<code>{e(primary['name'])}-nan.tif</code> and companion hybrid
-        <code>{e(hybrid['name'])}-nan.tif</code>) passing all <strong>21/21 automated GeoTIFF format checks</strong>
-        (strictly in <code>[0.0, 1.0]</code> inside footprint, <code>0</code> NaN inside footprint), the
-        <strong>Single-Feature Leakage Canary</strong> (max feature AUC <code>0.7753 &le; 0.90</code>), and the
-        <strong>Parallel-Run Uniqueness Gate</strong> (<code>r_s = 0.1143 &le; 0.90</code>, 3-px dot overlap <code>35.94% &le; 70%</code>),
-        while beating both incumbent <code>h27-4</code> (<code>0.0981</code>) and <code>GEMSDOE32 B=2</code> (<code>0.0984</code>) in
-        <strong>4/4 spatially blocked holdout folds</strong> (<code>HOLDOUT-DTI = 0.1380</code>, 95% CI <code>[0.1169, 0.1683]</code>).</p>
+        <h1>Unique H31-M GeoTIFF: Validated &amp; Ready to Submit.</h1>
+        <p class="hero-lede">New unique out-of-fold subsurface-concordance + exact 29-cell submodular submission
+        (<code>{e(primary['name'])}-nan.tif</code>) passing all <strong>11/11 frozen preregistered gates</strong> and
+        <strong>21/21 GeoTIFF format checks</strong> (<code>EPSG:32611</code>, <code>3730×3292</code>, strictly in <code>[0.0, 1.0]</code>
+        inside footprint, <code>0</code> NaN inside footprint), the <strong>Single-Feature Leakage Canary</strong>
+        (max feature AUC <code>0.7740 &le; 0.90</code>), and the <strong>Parallel-Run Uniqueness Gate</strong>
+        (surface <code>r_s = 0.7204 &le; 0.90</code>, max 3-px dot overlap <code>53.16% &le; 70%</code> across all registry rasters and
+        <code>40.25%</code> vs <code>GEMSDOE32 H33-2-B2</code>). Wins <strong>4/4 hide-and-recover holdout folds on both seeds</strong>
+        (<code>HOLDOUT-DTI = 0.1350 / 0.1372</code>) and beats <code>GEMSDOE32 H33-2-B2</code> simultaneously on full off-SGMC
+        (<code>0.1010 vs 0.0940</code>), 4-block off-SGMC (<code>0.1077 vs 0.0984</code>), and piedmont off-SGMC
+        (<code>0.0641 vs 0.0586</code>).</p>
         <div class="actions">
           <a class="button button-primary" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download submission TIFF ({e(primary['name'])}-nan.tif)</a>
-          <a class="button button-light" href="downloads/{e(hybrid['file_nan'].split('/')[-1])}" download>Download Companion Hybrid TIFF</a>
+          <a class="button button-light" href="downloads/{e(primary['zip'].split('/')[-1])}" download>Download .zip</a>
           <a class="button button-light" href="executive-summary.html">How to submit — 5 steps</a>
-          <a class="button button-light" href="#h31e">H31-E lane candidate (verdict: negative)</a>
+          <a class="button button-light" href="#h31e">Negative archive lanes (do not submit)</a>
         </div>
       </div>
       <aside class="hero-side" aria-label="Current state">
         <strong>STATUS: YES — OK TO DOWNLOAD &amp; SUBMIT</strong>
         <p><b>Unique Name:</b> <code>{e(primary.get('submission_name', primary['name']))}</code><br>
         <b>Note ({len(primary['note_for_portal'])}/140 chars):</b> <code>{e(primary['note_for_portal'])}</code><br>
-        <b>Dots:</b> {fmt(primary['positive_pixels'], 0)} (<b>0</b> within 200 m of public catalogue; <code>B=2</code> rule).
+        <b>Dots:</b> {fmt(primary['positive_pixels'], 0)} (<b>0</b> within 200 m of public catalogue; <code>37.2%</code> piedmont balance).
         Format receipt verified (<a href="downloads/{e(primary['receipt'].split('/')[-1])}">receipt</a>).</p>
       </aside>
     </div>
@@ -383,24 +400,27 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     body = f"""    <section>
       <div class="notice notice-good">
         <strong>IS IT OK TO DOWNLOAD AND SUBMIT THIS GENERATED TIF SUBMISSION? YES — VALIDATED &amp; READY TO SUBMIT.</strong>
-        Every automated format, range (<code>[0.0, 1.0]</code> inside footprint, <code>0</code> NaN inside footprint), CRS (<code>EPSG:32611</code>,
-        <code>3730×3292</code>), leakage canary (<code>AUC &le; 0.7753 &le; 0.90</code>), uniqueness (<code>r_s = 0.1143 &le; 0.90</code>,
-        3-px dot overlap <code>35.94% &le; 70%</code>), and 4-block 21.25 km spatial holdout gate (<code>4/4</code> folds beating
-        <code>GEMSDOE32 B=2</code>) passed automatically without human intervention.
+        Primary file <code>{e(primary['name'])}-nan.tif</code> passed all 11/11 frozen preregistered gates without human intervention:
+        values strictly in <code>[0.0, 1.0]</code> inside footprint (<code>0</code> NaN inside footprint, preventing
+        <code>"Predicted values must be in range [0, 1]"</code>), <code>EPSG:32611</code> <code>3730×3292</code> grid match,
+        canary max AUC <code>0.7740 &le; 0.90</code>, uniqueness surface <code>r_s = 0.7204 &le; 0.90</code> and 3-px dot overlap
+        <code>&le; 53.16% &le; 70%</code> (<code>40.25%</code> vs <code>GEMSDOE32 H33-2-B2</code>), <code>HOLDOUT-DTI = 0.1350</code>
+        (screen) / <code>0.1372</code> (confirm) winning <code>4/4</code> folds on <code>gemsdoe31-holdout-v1</code> (<code>58,625</code> withheld positives),
+        and simultaneous gains over <code>GEMSDOE32 H33-2-B2</code> on full off-SGMC (<code>0.1010 vs 0.0940</code>),
+        4-block off-SGMC (<code>0.1077 vs 0.0984</code>), and piedmont off-SGMC (<code>0.0641 vs 0.0586</code>).
       </div>
       <div class="section-head">
-        <div><p class="kicker">Submission</p><h2>One click to a validated, unique submission GeoTIFF</h2></div>
-        <p>The portal wants a single-band GeoTIFF (or a zip of one) matching the template's CRS, shape and
-        geotransform with values in <code>[0, 1]</code>. Both our primary unique standalone H31-B submission and our companion
-        corroborated-B=2 hybrid submission are validated against the template in this repository.</p>
+        <div><p class="kicker">Submission</p><h2>One click to the validated, unique H31-M submission GeoTIFF</h2></div>
+        <p>The portal expects a single-band float32 GeoTIFF (or zip of one) matching the template's CRS, shape and
+        geotransform with finite values in <code>[0, 1]</code> inside the footprint and <code>NaN</code> outside.</p>
       </div>
       <div class="card download-card">
-        <p class="kicker"><span class="badge badge-green">YES — OK TO DOWNLOAD &amp; SUBMIT</span> · Primary Unique Standalone Submission (EXP-1)</p>
+        <p class="kicker"><span class="badge badge-green">YES — OK TO DOWNLOAD &amp; SUBMIT</span> · Primary Unique Submission (H31-M)</p>
         <h2>{e(primary['name'])}</h2>
         <p><strong>Unique Submission Name:</strong> <code>{e(primary.get('submission_name', primary['name']))}</code><br>
         <strong>Short Portal Note ({len(primary['note_for_portal'])}/140 chars):</strong> <code>{e(primary['note_for_portal'])}</code></p>
         <p>Single-band float32 · EPSG:32611 · 100 m · 3730×3292 · values finite in [0,1] inside the footprint (0 NaN inside) · NaN
-        outside · nodata = nan · 37,654 dots (0 within 200 m of public catalogue).</p>
+        outside · nodata = nan · 37,654 dots (0 within 200 m of public catalogue; 37.2% piedmont/basin balance).</p>
         <div class="actions" style="margin-top:18px">
           <a class="button button-primary" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download .tif (NaN outside)</a>
           <a class="button button-light" href="downloads/{e(primary['zip'].split('/')[-1])}" download>Download .zip</a>
@@ -408,76 +428,69 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
         </div>
         <p class="download-meta">SHA-256 (NaN): <code>{e(primary.get('sha256_nan',''))}</code><br>
         SHA-256 (all-finite): <code>{e(primary.get('sha256_allfinite',''))}</code> · SHA-256 (.zip): <code>{e(primary.get('sha256_zip',''))}</code><br>
-        <strong>HOLDOUT-DTI (Off-Cat SGMC, 4-block, 21.25 km collar, 50,470 withheld pos):</strong> <code>0.1380</code> (95% CI <code>[0.1169, 0.1683]</code>, 4/4 folds &gt; 0.0984) ·
-        <strong>Uniqueness:</strong> <code>r_s = 0.1143 &le; 0.90</code>, 3-px overlap <code>35.94% &le; 70%</code> ·
+        <strong>HOLDOUT-DTI (gemsdoe31-holdout-v1, 21.25 km collar, 58,625 withheld pos):</strong> screen <code>0.1350</code> (95% CI <code>[0.1163, 0.1566]</code>, paired delta <code>[+0.0064, +0.0380]</code>), confirm <code>0.1372</code> (<code>4/4</code> folds &gt; base) ·
+        <strong>HOLDOUT-DTI (Off-SGMC 4-block, 50,470 pos):</strong> <code>0.1077</code> vs <code>0.0984</code> ·
+        <strong>Piedmont Off-SGMC DTI:</strong> <code>0.0641</code> vs <code>0.0586</code> ·
+        <strong>Uniqueness:</strong> surface <code>r_s = {fmt(uniq.get('max_surface_spearman'), 4)} &le; 0.90</code>, max 3-px overlap <code>{fmt(100.0 * (uniq.get('max_within_3px_fraction') or 0.0), 2)}% &le; 70%</code> ·
         <a href="downloads/{e(primary['receipt'].split('/')[-1])}">format receipt (21/21 checks)</a> ·
         <a href="executive-summary.html">how to submit</a></p>
       </div>
 
       <div class="card download-card" style="margin-top:16px">
-        <p class="kicker"><span class="badge badge-green">YES — OK TO DOWNLOAD &amp; SUBMIT</span> · Companion Corroborated-B=2 Hybrid Submission (EXP-2)</p>
+        <p class="kicker"><span class="badge">OPTIONAL COMPANION</span> · Corroborated-B=2 Hybrid Archive · <span class="badge badge-red">DO NOT USE STANDALONE H31-B ({e(h31b_arch['name'])})</span></p>
         <h2>{e(hybrid['name'])}</h2>
-        <p><strong>Unique Submission Name:</strong> <code>{e(hybrid.get('submission_name', hybrid['name']))}</code><br>
-        <strong>Short Portal Note ({len(hybrid['note_for_portal'])}/140 chars):</strong> <code>{e(hybrid['note_for_portal'])}</code></p>
-        <p>Retains the top 25,000 physics-corroborated dots of the <code>0.2778</code> (USER-REPORTED) <code>B=2</code> geometry and replaces its weakest
-        12,654 uncorroborated dots with 12,654 fresh <code>S_H31</code> detections at <code>d &gt; 600 m</code> (total 37,654 dots; 3-px overlap <code>66.39% &le; 70%</code>).</p>
-        <div class="actions" style="margin-top:18px">
-          <a class="button button-primary" href="downloads/{e(hybrid['file_nan'].split('/')[-1])}" download>Download Companion .tif</a>
-          <a class="button button-light" href="downloads/{e(hybrid['zip'].split('/')[-1])}" download>Download .zip</a>
-          <a class="button button-light" href="downloads/{e(hybrid['file_allfinite'].split('/')[-1])}" download>All-finite fallback (.tif)</a>
-        </div>
-        <p class="download-meta">SHA-256 (NaN): <code>{e(hybrid.get('sha256_nan',''))}</code> ·
-        <strong>HOLDOUT-DTI (Off-Cat SGMC, 4-block):</strong> <code>0.1249</code> (95% CI <code>[0.1116, 0.1344]</code>, 4/4 folds &gt; 0.0984) ·
-        <a href="downloads/{e(hybrid['receipt'].split('/')[-1])}">format receipt (21/21 checks)</a></p>
+        <p><strong>Companion Submission Name:</strong> <code>{e(hybrid.get('submission_name', hybrid['name']))}</code> ·
+        <strong>Note ({len(hybrid['note_for_portal'])}/140 chars):</strong> <code>{e(hybrid['note_for_portal'])}</code></p>
+        <p>Conservative archive option retaining 25,000 physics-corroborated <code>B=2</code> core dots + 12,654 far-field detections (3-px overlap <code>66.39% &le; 70%</code>). Note: earlier standalone <code>H31-B</code> placed <code>97.5%</code> of dots in steep mountains (piedmont off-SGMC DTI <code>0.0052</code>, logged as <code>IR-31-H31B-PIEDMONT-STARVATION</code>) and is superseded by <strong>H31-M</strong> above.</p>
       </div>
     </section>
 
     <section>
       <div class="section-head">
         <div><p class="kicker">Nine-Site Forensic Audit</p><h2>Why <code>GEMSDOE32</code> (<code>h33-h33-2-b2</code>) scored <code>0.2778</code> (USER-REPORTED)</h2></div>
-        <p>Exact byte-level annulus decomposition across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, and 36 (<code>evidence/nine_site_forensic_audit.json</code>).</p>
+        <p>Exact byte-level annulus and habitat decomposition across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, and 36 (<code>evidence/nine_site_forensic_audit.json</code> and <code>evidence/h31m_results.json</code>).</p>
       </div>
       <div class="grid grid-3">
         <article class="card stat"><span class="badge badge-green">B=2 Flank Prune</span><strong>2,545 dots</strong>
           <span><code>GEMSDOE32</code> (<code>37,654</code> dots, <code>0.2778</code> USER-REPORTED) equals <code>GEMSDOE28/31 h27-4</code>
           (<code>40,199</code> dots, <code>0.2708</code> USER-REPORTED) minus the <strong>2,545 dots in <code>100 m &lt; d(catalogue) &le; 200 m</code></strong>.
-          Those flank dots came from <code>sigma = 100 m</code> Gaussian smoothing of <code>H19-5</code> and earned only <code>0.0040</code> live TPw/dot
-          (&lt; <code>0.0556</code> break-even), so pruning them cut the denominator by <code>498.8</code> units and lifted DTI by <strong>+0.0070</strong>.</span></article>
-        <article class="card stat"><span class="badge badge-green">Natural Experiment</span><strong>37,654 vs 37,660</strong>
-          <span><code>GEMSDOE28 H36-1</code> emitted <code>37,660</code> dots (virtually identical to <code>GEMSDOE32</code>'s <code>37,654</code>)
-          by pruning dots at <code>d &gt; 300 m</code> while keeping <code>2,353</code> dots in <code>100–200 m</code>, and scored only
-          <strong>0.2710</strong> (USER-REPORTED). Same dot count, <strong>+0.0068 score difference</strong> — proving the gain is <code>100–200 m</code>
-          catalogue-flank pruning, not generic volume reduction.</span></article>
-        <article class="card stat"><span class="badge">H31-B Gain</span><strong>0.1380 vs 0.0984</strong>
-          <span>On the 4-block 21.25 km spatially blocked holdout (<code>50,470</code> withheld off-catalogue SGMC positives), our new unique
-          <code>H31-B</code> submission at the same <code>37,654</code>-dot <code>B=2</code> budget reaches <strong>0.1380</strong>
-          (95% CI <code>[0.1169, 0.1683]</code>), beating <code>GEMSDOE32 B=2</code> (<code>0.0984</code>) in <strong>4/4 folds</strong>.</span></article>
+          Those flank dots came from <code>sigma = 100 m</code> Gaussian smoothing of <code>H19-5</code> around pixel-masked known faults and earned only
+          <code>0.0040</code> live TPw/dot (&lt; <code>0.0556</code> break-even), lifting DTI by <strong>+0.0070</strong>.</span></article>
+        <article class="card stat"><span class="badge badge-green">Piedmont Habitat Balance</span><strong>30.9% → 37.2%</strong>
+          <span>Real catalogue faults are <code>52.6%</code> piedmont/basin (<code>slope &le; 6 deg</code>), whereas unstratified <code>off_sgmc</code> is
+          <code>81.2%</code> mountain bedrock. Mountain-only detectors (<code>GEMSDOE70 P8-OOF38k</code> <code>0.2478</code> USER-REPORTED; <code>H31-B</code>
+          <code>2.5%</code> piedmont) starve concealed range-front faults. <code>H31-M</code> restores <code>37.2%</code> piedmont balance and lifts
+          piedmont off-SGMC DTI to <strong>0.0641</strong> (vs <code>0.0586</code> in <code>GEMSDOE32 B=2</code>).</span></article>
+        <article class="card stat"><span class="badge badge-green">29-Cell Submodular Gain</span><strong>0.1350 / 0.1372</strong>
+          <span>Replacing heuristic isotropic Poisson thinning with Minoux lazy-greedy maximization over the exact 29-offset <code>R = 300 m</code>
+          triangular kernel plus 8 geophysical concordance channels wins <strong>4/4 spatial folds on both seeds</strong>
+          (screen paired delta 95% CI <code>[+0.0064, +0.0380]</code>; confirm <code>[+0.0107, +0.0392]</code>).</span></article>
       </div>
       <div style="margin-top:18px">
         {table(
-            ["Site &amp; Artifact", "Reported DTI", "Dots |P|", "Catalogue Annuli d=0 / (0,1] / (1,2] / (2,3] / &gt;3 px", "Off-Cat SGMC DTI", "Calibrated Live Model", "SHA-256"],
+            ["Site &amp; Artifact", "Reported DTI", "Dots |P|", "Catalogue Annuli d=0 / (0,1] / (1,2] / (2,3] / &gt;3 px", "Full Off-Cat SGMC DTI", "SHA-256"],
             forensic_rows,
-            "All live scores are labelled USER-REPORTED per registry/score_claims.json. Annulus (1,2] px (100-200 m from public catalogue) is bolded."
+            "All live scores are labelled USER-REPORTED per registry/score_claims.json (no organizer receipt in repository; projections are never written as scores). Annulus (1,2] px (100-200 m from public catalogue) is bolded."
         )}
       </div>
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">H31-B Campaign</p><h2>Three disciplined experiments under the 21.25 km variogram buffer</h2></div>
-        <p>Evaluated with <code>evaluator_v2.0_protocol_v1_buffer21250m</code> across 4 spatial blocks (<code>50,470</code> withheld off-catalogue SGMC positives; <code>47,088</code> withheld catalogue-gap positives).</p>
+        <div><p class="kicker">H31-M Multi-Instrument Comparison</p><h2>Simultaneous wins on hide-and-recover, off-catalogue SGMC, and piedmont fault discovery</h2></div>
+        <p>Evaluated under the 21.25 km variogram collar across <code>gemsdoe31-holdout-v1</code> (<code>58,625</code> withheld positives), 4-block off-SGMC (<code>50,470</code> positives), full off-SGMC (<code>61,664</code> positives), and piedmont off-SGMC (<code>slope &le; 6 deg</code>, <code>11,573</code> positives).</p>
       </div>
       {table(
-          ["Experiment / Baseline", "Dots |P|", "HOLDOUT-DTI (Off-Cat SGMC, 4-Block)", "HOLDOUT-DTI (Cat-Gap, 4-Block)", "Uniqueness vs Registry", "Verdict"],
-          exp_rows,
-          "Source: evidence/h31b_experiments.json and evidence/run_card_2026-10-25.json."
+          ["Candidate / Benchmark", "Dots |P|", "Piedmont %", "Cat-Gap Hide-and-Recover (v1)", "HOLDOUT-DTI (4-Block Off-SGMC)", "Full Off-SGMC DTI", "Piedmont Off-SGMC DTI", "Submission Status"],
+          h31m_cmp_rows,
+          "Source: evidence/h31m_results.json and evidence/h31m_run_card.json (all computed numbers carry evaluator version, withheld positive count, and 95% CI)."
       )}
     </section>
 
     <section>
       <div class="section-head">
         <div><p class="kicker">Earlier Baseline Arms</p><h2>What the baseline arms A–D and union sweep measured</h2></div>
-        <p>Two truth proxies, both off the public catalogue path. Their orderings on raw thresholded arms vs dotted emissions motivate the H31-B dotted architecture.</p>
+        <p>Two truth proxies, both off the public catalogue path. Their orderings on raw thresholded arms vs dotted emissions motivate the H31-M submodular dotted architecture.</p>
       </div>
       {arm_table(arms)}
       <p class="small">Catalogue-gap proxy: held-out public-catalogue pixels (60,988 px). Off-catalogue proxy: USGS SGMC
@@ -491,12 +504,11 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
         <div><p class="kicker">Direction of travel</p><h2>Adding detections works; re-budgeting does not</h2></div>
         <p>The incumbent's own dots earn {fmt(inc_credit)} credit each on the off-catalogue proxy; the best
         detector arms' dots earn ~0.02. Thresholding the incumbent down therefore loses at every quantile, while
-        replacing uncorroborated dots with multi-physics H31-B detections under the B=2 (>200 m) rule wins in 4/4 spatial blocks.</p>
+        training deconfounded subsurface-concordance OOF models and allocating 37,654 dots via the exact 29-cell DTI kernel wins across all instruments.</p>
       </div>
       {union_table(union)}
-      <div class="notice notice-good"><strong>Promoted H31-B Submissions — Validated &amp; Ready to Submit</strong>
-      Primary unique standalone: <code>{e(primary['name'])}</code> (<code>HOLDOUT-DTI = 0.1380</code>, 4/4 folds &gt; 0.0984).
-      Companion corroborated-B=2 hybrid: <code>{e(hybrid['name'])}</code> (<code>HOLDOUT-DTI = 0.1249</code>, 4/4 folds &gt; 0.0984).
+      <div class="notice notice-good"><strong>Promoted H31-M Primary Unique Submission — Validated &amp; Ready to Submit</strong>
+      Primary unique submission: <code>{e(primary['name'])}-nan.tif</code> (<code>HOLDOUT-DTI = {fmt(scr.get('arms',{}).get('h31m_submod',{}).get('pooled_DTI'), 4)} / {fmt(cnf.get('arms',{}).get('h31m_submod',{}).get('pooled_DTI'), 4)}</code>, Off-SGMC 4-block <code>0.1077</code>, Piedmont Off-SGMC <code>0.0641</code>).
       <a href="executive-summary.html">Full upload checklist and portal notes →</a></div>
     </section>
 
@@ -530,34 +542,39 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
 
 
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
-    primary = next(f for f in sub["files"] if f["id"] == "primary-h31b-scarp-hessian-standalone")
+    primary = next(f for f in sub["files"] if f["id"] == "primary-h31m-bstep-xmod-submod")
     hybrid = next(f for f in sub["files"] if f["id"] == "companion-h31b-corroborated-b2-hybrid")
+    h31b_arch = next(f for f in sub["files"] if f["id"] == "primary-h31b-scarp-hessian-standalone")
     incumbent_h27 = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     candidate = next((f for f in sub["files"] if f["id"] == "research-h31e-surface-expression"), None)
     variants = table(
         ["file", "submission name &amp; note (&le;140 chars)", "when to use it", "bytes", "sha256 (nan convention)", "ready to submit?"],
         [[f"<code>{e(primary['name'])}-nan.tif</code>",
           f"<strong>Name:</strong> <code>{e(primary.get('submission_name', primary['name']))}</code><br><strong>Note ({len(primary['note_for_portal'])} chars):</strong> <code>{e(primary['note_for_portal'])}</code>",
-          "PRIMARY UNIQUE SUBMISSION (default NaN convention): H31-B multi-physics OOF + B=2 (>200 m) prune, 37,654 dots; 0.1380 4-block HOLDOUT-DTI (4/4 folds > B=2)",
+          "PRIMARY UNIQUE SUBMISSION (default NaN convention): H31-M deconfounded subsurface-concordance OOF + exact 29-cell submodular DTI allocation, B=2 (>200 m), 37,654 dots; HOLDOUT-DTI 0.1350/0.1372 (4/4 folds), Off-SGMC 4-block 0.1077, Piedmont Off-SGMC 0.0641",
           fmt(primary.get("bytes_nan"), 0), f"<code>{e(primary.get('sha256_nan',''))}</code>", "<span class=\"badge badge-green\">YES — OK TO SUBMIT</span>"],
          [f"<code>{e(primary['name'])}-allfinite.tif</code>",
           f"<strong>Name:</strong> <code>{e(primary.get('submission_name', primary['name']))}-allfinite</code><br><strong>Note ({len(primary['note_for_portal'])} chars):</strong> <code>{e(primary['note_for_portal'])}</code>",
-          "FALLBACK for Primary Unique Submission: identical 37,654 dots with 0.0 instead of NaN outside the footprint",
+          "FALLBACK for Primary Unique Submission: identical 37,654 H31-M dots with 0.0 instead of NaN outside the footprint",
           fmt(primary.get("bytes_allfinite"), 0), f"<code>{e(primary.get('sha256_allfinite',''))}</code>", "<span class=\"badge badge-green\">YES — FALLBACK</span>"],
          [f"<code>{e(hybrid['name'])}-nan.tif</code>",
           f"<strong>Name:</strong> <code>{e(hybrid.get('submission_name', hybrid['name']))}</code><br><strong>Note ({len(hybrid['note_for_portal'])} chars):</strong> <code>{e(hybrid['note_for_portal'])}</code>",
-          "COMPANION HYBRID SUBMISSION: 25,000 physics-corroborated GEMSDOE32 B=2 dots + 12,654 far-field H31-B dots (37,654 total; 66.39% 3-px overlap <= 70%); 0.1249 4-block HOLDOUT-DTI",
-          fmt(hybrid.get("bytes_nan"), 0), f"<code>{e(hybrid.get('sha256_nan',''))}</code>", "<span class=\"badge badge-green\">YES — OK TO SUBMIT</span>"],
+          "OPTIONAL COMPANION HYBRID: 25,000 physics-corroborated B=2 dots + 12,654 far-field S_H31 dots (37,654 total; 66.39% 3-px overlap <= 70%)",
+          fmt(hybrid.get("bytes_nan"), 0), f"<code>{e(hybrid.get('sha256_nan',''))}</code>", "<span class=\"badge\">COMPANION ARCHIVE</span>"],
+         [f"<code>{e(h31b_arch['name'])}-nan.tif</code>",
+          f"<strong>Name:</strong> <code>{e(h31b_arch.get('submission_name', h31b_arch['name']))}</code><br><strong>Note ({len(h31b_arch['note_for_portal'])} chars):</strong> <code>{e(h31b_arch['note_for_portal'])}</code>",
+          "SUPERSEDED BEDROCK ARCHIVE (IR-31-H31B-PIEDMONT-STARVATION): 97.5% mountain placement starved piedmont faults (piedmont Off-SGMC DTI 0.0052 vs H31-M 0.0641)",
+          fmt(h31b_arch.get("bytes_nan"), 0), f"<code>{e(h31b_arch.get('sha256_nan',''))}</code>", "<span class=\"badge badge-red\">NO — SUPERSEDED</span>"],
          [f"<code>{e(incumbent_h27['name'])}-nan.tif</code>",
           f"<strong>Name:</strong> <code>{e(incumbent_h27['name'])}</code><br><strong>Note:</strong> <code>{e(incumbent_h27['note_for_portal'])}</code>",
           "ARCHIVE BASELINE: 40,199-dot H27-4 B=1 (>100 m) baseline (0.2708 USER-REPORTED)",
           fmt(incumbent_h27.get("bytes_nan"), 0), f"<code>{e(incumbent_h27.get('sha256_nan',''))}</code>", "<span class=\"badge\">baseline archive</span>"],
          [f"<code>{e(candidate['name'])}-nan.tif</code>" if candidate else "<code>n/a</code>",
           (f"<strong>Name:</strong> <code>{e(candidate['name'])}</code><br><strong>Note ({len(candidate['note_for_portal'])} chars):</strong> <code>{e(candidate['note_for_portal'])}</code>" if candidate else "n/a"),
-          "RESEARCH ONLY - H31-E surface-expression lane (parallel session, 2026-10-25): unique + format-valid but verdict NEGATIVE on preregistered gates (discovery proxy below incumbent); see overview #h31e",
+          "RESEARCH ONLY - H31-E surface-expression lane (2026-10-25): unique + format-valid but verdict NEGATIVE on preregistered gates (discovery proxy 0.0712 < 0.0938); see overview #h31e",
           fmt(candidate.get("bytes_nan"), 0) if candidate else "n/a",
           f"<code>{e(candidate.get('sha256_nan',''))}</code>" if candidate else "n/a",
-          "<span class=\"badge badge-red\">NO - DO NOT SUBMIT</span>"]])
+          "<span class=\"badge badge-red\">NO — DO NOT SUBMIT</span>"]])
     receipt_rows = []
     for r in receipts:
         for convention in ("nan", "allfinite"):
@@ -572,14 +589,16 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
                                      failures])
     body = f"""    <section>
       <div class="notice notice-good">
-        <strong>VERDICT: YES — IT IS OK TO DOWNLOAD AND SUBMIT THE GENERATED UNIQUE TIF SUBMISSION.</strong><br>
+        <strong>VERDICT: YES — IT IS OK TO DOWNLOAD AND SUBMIT THE GENERATED UNIQUE H31-M TIF SUBMISSION.</strong><br>
         Primary Unique File: <code>{e(primary['name'])}-nan.tif</code> ·
         Unique Submission Name: <code>{e(primary.get('submission_name', primary['name']))}</code> ·
         Portal Note ({len(primary['note_for_portal'])}/140 chars): <code>{e(primary['note_for_portal'])}</code>.<br>
-        Passes all 21/21 GeoTIFF format checks (strictly in <code>[0.0, 1.0]</code> inside footprint, <code>0</code> NaN inside footprint),
-        passes the Single-Feature Leakage Canary (max feature AUC <code>0.7753 &le; 0.90</code>), passes the Parallel-Run Uniqueness Gate
-        (<code>r_s = 0.1143 &le; 0.90</code>, 3-px dot overlap <code>35.94% &le; 70%</code>), and beats both <code>h27-4</code> (<code>0.0981</code>)
-        and <code>GEMSDOE32 B=2</code> (<code>0.0984</code>) in <strong>4/4 spatially blocked holdout folds</strong> (<code>HOLDOUT-DTI = 0.1380</code>).
+        Passes all 11/11 frozen preregistered gates: 21/21 GeoTIFF format checks (strictly in <code>[0.0, 1.0]</code> inside footprint, <code>0</code> NaN inside footprint),
+        Single-Feature Leakage Canary (max feature AUC <code>0.7740 &le; 0.90</code>), Parallel-Run Uniqueness Gate
+        (surface <code>r_s = 0.7204 &le; 0.90</code>, max 3-px dot overlap <code>53.16% &le; 70%</code> and <code>40.25%</code> vs <code>GEMSDOE32 B=2</code>),
+        <strong>4/4 hide-and-recover folds won on both seeds</strong> (<code>HOLDOUT-DTI = 0.1350 / 0.1372</code>), and simultaneous wins over
+        <code>GEMSDOE32 H33-2-B2</code> on full off-SGMC (<code>0.1010 vs 0.0940</code>), 4-block off-SGMC (<code>0.1077 vs 0.0984</code>),
+        and piedmont off-SGMC (<code>0.0641 vs 0.0586</code>).
       </div>
       <div class="section-head">
         <div><p class="kicker">Submission</p><h2>Submit in five steps</h2></div>
@@ -588,7 +607,7 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
       <div class="card">
         <ol>
           <li><strong>Download</strong> {f'<a href="downloads/{e(primary["file_nan"].split("/")[-1])}" download>'}{e(primary['file_nan'].split('/')[-1])}</a>
-          (or the companion hybrid <a href="downloads/{e(hybrid['file_nan'].split('/')[-1])}" download>{e(hybrid['file_nan'].split('/')[-1])}</a>)
+          (or its compressed archive <a href="downloads/{e(primary['zip'].split('/')[-1])}" download>{e(primary['zip'].split('/')[-1])}</a>)
           from this page (or the green button on the <a href="index.html">overview page</a>).</li>
           <li><strong>Check the hash</strong> (optional but cheap):
           <code>sha256sum {e(primary['file_nan'].split('/')[-1])}</code> must print
@@ -607,11 +626,9 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
         <tr><th>Primary Unique File</th><td><a href="downloads/{e(primary['file_nan'].split('/')[-1])}" download><code>{e(primary['file_nan'].split('/')[-1])}</code></a> · <a href="downloads/{e(primary['zip'].split('/')[-1])}" download><code>.zip</code></a> · <a href="downloads/{e(primary['file_allfinite'].split('/')[-1])}" download><code>-allfinite.tif</code></a></td></tr>
         <tr><th>Unique Submission Name</th><td><code>{e(primary.get('submission_name', primary['name']))}</code></td></tr>
         <tr><th>Portal Note ({len(primary['note_for_portal'])}/140 chars)</th><td><code>{e(primary['note_for_portal'])}</code></td></tr>
-        <tr><th>Companion Hybrid File</th><td><a href="downloads/{e(hybrid['file_nan'].split('/')[-1])}" download><code>{e(hybrid['file_nan'].split('/')[-1])}</code></a> · <a href="downloads/{e(hybrid['zip'].split('/')[-1])}" download><code>.zip</code></a> · <a href="downloads/{e(hybrid['file_allfinite'].split('/')[-1])}" download><code>-allfinite.tif</code></a></td></tr>
-        <tr><th>Companion Submission Name</th><td><code>{e(hybrid.get('submission_name', hybrid['name']))}</code></td></tr>
-        <tr><th>Companion Note ({len(hybrid['note_for_portal'])}/140 chars)</th><td><code>{e(hybrid['note_for_portal'])}</code></td></tr>
+        <tr><th>SHA-256 (-nan.tif / .zip)</th><td><code>{e(primary.get('sha256_nan',''))}</code> / <code>{e(primary.get('sha256_zip',''))}</code></td></tr>
       </tbody></table></div>
-      <p class="small">Each name and SHA-256 is unique to this repository's generated GeoTIFFs, and both portal notes are strictly under 140 characters.</p>
+      <p class="small">Each name and SHA-256 is unique to this repository's generated GeoTIFFs, and the portal note is strictly under 140 characters.</p>
     </section>
 
     <section>
@@ -657,21 +674,22 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
         <p>Read this before uploading anything; it is the difference between a claim and a measurement.</p>
       </div>
       <div class="table-wrap"><table><tbody>
-        <tr><th style="width:220px">What it is</th><td>A freshly generated, unique, format-validated H31-B GeoTIFF raster
-        (<code>{e(primary['name'])}-nan.tif</code>, {fmt(primary['positive_pixels'], 0)} positive pixels, 0 within 200 m of the public catalogue)
-        built from our multi-physics H31-B discovery surface + OOF probability + <code>B=2</code> (&gt;200 m) flank prune + <code>R=2.85 px</code>
-        Poisson-disk thinning.</td></tr>
+        <tr><th style="width:220px">What it is</th><td>A freshly generated, unique, format-validated H31-M GeoTIFF raster
+        (<code>{e(primary['name'])}-nan.tif</code>, {fmt(primary['positive_pixels'], 0)} positive pixels, 0 within 200 m of the public catalogue,
+        37.2% piedmont/basin balance) built from 8 label-free geophysical/structural concordance channels, 2-seed spatially collared
+        deconfounded OOF HistGradientBoosting, and exact 29-cell lazy-greedy submodular DTI allocation.</td></tr>
         <tr><th>Is it OK to download and submit?</th><td><span class="badge badge-green">YES — OK TO DOWNLOAD AND SUBMIT</span>.
-        It passes all 21 automated format checks (<code>[0.0, 1.0]</code> inside footprint, <code>0</code> NaN inside footprint),
-        the Single-Feature Leakage Canary (max input feature AUC <code>0.7753 &le; 0.90</code>), the Parallel-Run Uniqueness Gate
-        (<code>r_s = 0.1143 &le; 0.90</code>, 3-px dot overlap <code>35.94% &le; 70%</code>), and beats both <code>h27-4</code> (<code>0.0981</code>)
-        and <code>GEMSDOE32 B=2</code> (<code>0.0984</code>) in <strong>4/4 spatially blocked holdout folds</strong>
-        (<code>HOLDOUT-DTI = 0.1380</code>, 95% CI <code>[0.1169, 0.1683]</code>).</td></tr>
-        <tr><th>Live score claims</th><td>Every reference to historical live scores (<code>0.2778</code> for <code>GEMSDOE32</code>,
-        <code>0.2750</code> for <code>GEMSDOE36</code>, <code>0.2708</code> for <code>GEMSDOE28/31 h27-4</code>, <code>0.2600</code> for <code>D2.8</code>)
-        is labelled <span class="badge">USER-REPORTED</span> (<code>registry/score_claims.json</code>) because no official DrivenData
-        organizer receipt is stored in the repository. Our new H31-B numbers are labelled <span class="badge badge-green">HOLDOUT-DTI</span>
-        with exact evaluator version, withheld positives, and 95% CI.</td></tr>
+        Passes all 11/11 frozen gates: 21/21 format checks (<code>[0.0, 1.0]</code> inside footprint, <code>0</code> NaN inside footprint),
+        Single-Feature Leakage Canary (max feature AUC <code>0.7740 &le; 0.90</code>), Parallel-Run Uniqueness Gate
+        (surface <code>r_s = 0.7204 &le; 0.90</code>, max 3-px dot overlap <code>53.16% &le; 70%</code> and <code>40.25%</code> vs <code>GEMSDOE32 B=2</code>),
+        <code>HOLDOUT-DTI = 0.1350 / 0.1372</code> on <code>gemsdoe31-holdout-v1</code> (<code>4/4</code> folds &gt; base on both seeds),
+        and simultaneous wins over <code>GEMSDOE32 B=2</code> on full off-SGMC (<code>0.1010 vs 0.0940</code>), 4-block off-SGMC
+        (<code>0.1077 vs 0.0984</code>), and piedmont off-SGMC (<code>0.0641 vs 0.0586</code>).</td></tr>
+        <tr><th>Live score claims</th><td>Every reference to historical live scores (<code>0.4413</code> / <code>0.3195</code> public anchors,
+        <code>0.2778</code> for <code>GEMSDOE32</code>, <code>0.2750</code> for <code>GEMSDOE36</code>, <code>0.2708</code> for <code>GEMSDOE28/31 h27-4</code>,
+        <code>0.2600</code> for <code>D2.8</code>, <code>0.2478</code> for <code>GEMSDOE70</code>) is labelled <span class="badge">USER-REPORTED</span>
+        or <span class="badge">OWNER-MIRROR</span> (<code>registry/score_claims.json</code>) because no official DrivenData organizer receipt is stored here.
+        Our H31-M numbers are labelled <span class="badge badge-green">HOLDOUT-DTI</span> with exact evaluator version, withheld positives, and 95% CI.</td></tr>
         <tr><th>Format status</th><td><span class="badge badge-green">locally validated (21/21 checks)</span> against the grid
         template in <code>docs/downloads/*-format-check.json</code>. Local validation is not organizer acceptance.</td></tr>
         <tr><th>Validation buffer</th><td>Every holdout comparison uses a <strong>{fmt(buf['decision']['buffer_km'], 2)} km</strong>
@@ -683,8 +701,8 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
 """
     return shell("", "Executive summary", "The exact steps to turn the download into a submitted entry, plus the "
                                            "format-error fix and the honesty box.", "Executive summary",
-                 page_hero("Executive summary", "YES — Validated & Ready to Submit in Five Steps.",
-                           "Unique H31-B GeoTIFF downloads, unique submission names and <=140-char notes, automated validation checks, and format-error troubleshooting."),
+                 page_hero("Executive summary", "YES — H31-M Validated & Ready to Submit in Five Steps.",
+                           "Unique H31-M GeoTIFF download, unique submission name and <=140-char note, 11/11 automated validation checks, and format-error troubleshooting."),
                  body, "This page is the operator's guide; the science is on the research and validation pages.")
 
 
@@ -693,120 +711,120 @@ def build_research(sub: dict, buf: dict, union: dict) -> str:
     geom = load("evidence/h27_geometry.json", {"prune_test": {}, "counts": {},
                                                "nearest_neighbour_spacing_m": {},
                                                "distance_to_catalogue_m_for_retained_cells": {}})
-    canary = load("evidence/leakage_canary.json", {"features": []})
+    h31m = load("evidence/h31m_results.json", {})
+    canary_m = h31m.get("exp1_canary", {})
+    scr_m = h31m.get("exp2_holdout_screen", {})
+    cnf_m = h31m.get("exp2_holdout_confirm", {})
 
-    surface_desc = {
-        "H31_B1": "3DEP 1 m Degraded Scarp Profile & Anisotropic Slope-Break Index",
-        "H31_B2": "Multi-Scale Potential-Field & MT Hessian Ridgeness (Bouguer, ISA, Mag Tilt, Cond)",
-        "H31_B3": "GeoDAWN Radiometric K-Leaching & Epithermal Relay Index (K, Th/K, U/K, Z500)",
-        "H31_B4": "Transtensional Kostrov Strain-Seismicity Relay Index",
-        "S_H31": "Combined Multi-Physics Discovery Surface S_H31",
+    channel_desc = {
+        "bstep_grad_norm": "Fractional basement-throw gradient |grad(depth_to_base_surf)| / (depth_to_base_surf + 150 m)",
+        "bstep_inflect": "Multi-scale basement-step ridge crest max(0, -lambda_min(Hessian(depth_to_base_surf)))",
+        "grav_tilt_zero": "Miller-Singh (1994) gravity phase-tilt contact |grad_h(iso_grav)| * exp(-(theta / 0.35)^2)",
+        "rtp_bandpass_crest": "Blakely-Simpson (1986) shallow upper-crustal (100-800 m) RTP horizontal gradient crest",
+        "cond_grad_ridge": "Shallow brine/clay fault-gouge lateral conductance boundary |grad(cond_surf)|",
+        "sub_tensor_coh": "300 m multi-physics structure-tensor linear anisotropy coherence (suppresses circular plutons)",
+        "surf_piedmont_ridge": "Piedmont-normalized scarp flexure ridge crest (suppresses mountain talus saturation)",
+        "xmod_strike_concordance": "Cross-modality strike concordance cos^2(theta_surf - theta_sub) (suppresses pluvial shorelines)",
     }
+    single_scr = canary_m.get("single_channel_holdout_screen", {})
     canary_rows = [[
         f"<code>{e(s['feature'])}</code>",
-        e(surface_desc.get(s["feature"], s["kind"])),
-        fmt(s.get("cat_holdout_auc", {}).get("unsigned_auc"), 4),
-        fmt(s.get("off_sgmc_holdout_auc", {}).get("unsigned_auc"), 4),
+        e(channel_desc.get(s["feature"], "H31-M channel")),
+        fmt(s.get("cat_holdout_unsigned_auc"), 4),
+        fmt(s.get("off_sgmc_unsigned_auc"), 4),
+        fmt(single_scr.get(s["feature"], {}).get("pooled_holdout_dti"), 4),
         '<span class="badge badge-green">PASS (&le; 0.90)</span>' if not s.get("leakage_flagged") else '<span class="badge badge-red">FLAGGED</span>',
-    ] for s in canary.get("features", []) if s.get("kind") == "engineered_hypothesis_surface"]
+    ] for s in canary_m.get("features", []) if s.get("is_new_h31m_channel")]
+
+    exp2_rows = []
+    for seed_tag, d in [("Screen (seed 20261025)", scr_m), ("Confirm (seed 20261026)", cnf_m)]:
+        for arm_id, arm_label in [
+            ("base_C1_poisson", "base_C1_poisson (29 sub + 11 LiDAR, Poisson d=2.8)"),
+            ("h31m_poisson", "h31m_poisson (+8 H31-M channels, Poisson d=2.8)"),
+            ("h31m_submod", "h31m_submod (+8 H31-M channels + exact 29-cell submodular)"),
+        ]:
+            a = d.get("arms", {}).get(arm_id, {})
+            pf = {r["fold"]: r["DTI"] for r in a.get("per_fold", [])}
+            exp2_rows.append([
+                e(seed_tag),
+                f"<code>{e(arm_label)}</code>",
+                fmt(pf.get("NW"), 4),
+                fmt(pf.get("NE"), 4),
+                fmt(pf.get("SW"), 4),
+                fmt(pf.get("SE"), 4),
+                f"<strong>{fmt(a.get('pooled_DTI'), 4)}</strong>",
+            ])
 
     body = f"""    <section>
       <div class="section-head">
-        <div><p class="kicker">Question 1</p><h2>Why <code>GEMSDOE32</code> (<code>h33-h33-2-b2</code>) scored <code>0.2778</code> and <code>h27-4</code> scored <code>0.2708</code> (USER-REPORTED)</h2></div>
-        <p>The mechanism is in the metric algebra and the <code>sigma = 100 m</code> Gaussian smoothing halo around the public catalogue.</p>
+        <div><p class="kicker">Question 1</p><h2>PhD-level analysis: why <code>GEMSDOE32</code> (<code>h33-h33-2-b2</code>) scored <code>0.2778</code> (USER-REPORTED) and why <code>0.4413</code> is reachable</h2></div>
+        <p>The mechanism joins three coupled physical and metric phenomena: Tversky denominator economics, Gaussian smoothing-halo flank deletion, and Basin-and-Range piedmont habitat balance.</p>
       </div>
       <div class="content">
-        <p>The official metric is a distance-weighted Tversky index with α = 0.2, β = 0.8 and a triangular kernel of
-        radius 300 m, so the denominator charges <strong>0.2 for every emitted pixel</strong> while a truth pixel is
-        credited once. A dotted emission therefore pays little per dot and still reaches almost every truth pixel
-        within the kernel radius. By auditing all 11 submission GeoTIFFs across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, and 36
-        (<code>evidence/nine_site_forensic_audit.json</code> and <code>evidence/h27_geometry.json</code>), the exact progression
-        is measured bit for bit:</p>
+        <p>The official metric is the distance-weighted Tversky index <code>DTI = TPw / (TPw + 0.2·FPw + 0.8·FNw + eps)</code>
+        with linear triangular kernel <code>k(d) = max(1 - d / 300 m, 0)</code> over 29 lattice offsets. Because <code>TPw + FNw = |G_test|</code>
+        is constant for hidden off-catalogue expert faults <code>G_test</code>, differentiating <code>DTI</code> with respect to adding one isolated
+        binary dot gives the exact marginal break-even threshold <code>tau_live = 0.2·DTI / (1 - 0.2·DTI) = 0.0556</code> live TPw/dot at
+        <code>DTI = 0.2778</code>. Auditing all 11 GeoTIFFs across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, and 36 plus GEMSDOE70/76 reveals:</p>
         <ul>
-          <li><strong>Step 1 — <code>B=1 (&le;100 m)</code> prune (<code>0.2600 → 0.2708</code> USER-REPORTED):</strong>
-          Removing every D2.8 cell within 100 m of the public catalogue leaves {fmt(geom['prune_test']['pruned_cells'], 0)} cells,
-          matching the {fmt(incumbent_h27['positive_pixels'], 0)}-cell <code>h27-4</code> file <strong>bit for bit</strong> — a
-          {fmt(geom['counts']['d28_cells_removed_from_base'], 0)}-cell prune that cuts zero-credit catalogue-halo false positives.</li>
-          <li><strong>Step 2 — <code>B=2 (&le;200 m)</code> prune in <code>GEMSDOE32 h33-h33-2-b2</code> (<code>0.2708 → 0.2778</code> USER-REPORTED):</strong>
-          Because the upstream <code>H19-5</code> surface was smoothed with a <code>sigma = 1.0 px (100 m)</code> Gaussian filter before
-          Poisson-disk thinning, catalogue fault traces induced a 2-pixel (<code>200 m</code>) ridge halo. Expanding the catalogue exclusion
-          mask from <code>d &le; 100 m</code> to <code>d &le; 200 m</code> pruned exactly <strong>2,545 flank dots in <code>100 m &lt; d(C) &le; 200 m</code></strong>,
-          leaving <code>37,654</code> dots (<code>2,171</code> in <code>200–300 m</code> and <code>35,483</code> at <code>&gt;300 m</code>).
-          Those 2,545 flank dots earned only <code>0.0040</code> live TPw/dot (14× below the <code>0.0556</code> break-even threshold),
-          so deleting them reduced the live denominator by <code>498.8</code> units and lifted DTI by <strong>+0.0070</strong>.</li>
-          <li><strong>Natural Experiment Proof (<code>GEMSDOE32 H33-2-B2</code> vs <code>GEMSDOE28 H36-1</code>):</strong>
-          <code>GEMSDOE28 H36-1</code> emitted <code>37,660</code> dots (within 6 dots of <code>37,654</code>) by pruning far-field dots while keeping
-          <code>2,353</code> dots inside <code>100–200 m</code>, and scored only <strong>0.2710</strong> (USER-REPORTED). Same dot count,
-          <strong>+0.0068 score difference</strong> — proving the gain is specifically the <code>100–200 m</code> flank prune.</li>
-          <li><strong>Why <code>GEMSDOE36</code> (<code>38,854</code> dots, <code>0.2750</code> USER-REPORTED) regressed by <code>-0.0028</code>:</strong>
-          Adding <code>1,200</code> diffuse thermal halo dots to <code>GEMSDOE32</code> earned only <code>0.0125</code> live TPw/dot (&lt; <code>0.0556</code> break-even).</li>
+          <li><strong>Step 1 — Sparse Kernel Packing &amp; <code>B=1 (&le;100 m)</code> Prune (<code>0.1922 → 0.2600 → 0.2708</code> USER-REPORTED):</strong>
+          Thinning <code>H19-5</code> (<code>121,131</code> px, <code>0.1922</code>) to <code>D2.8</code> (<code>44,090</code> px, <code>0.2600</code>) eliminated redundant kernel overlap,
+          and pruning {fmt(geom['counts']['d28_cells_removed_from_base'], 0)} cells within 100 m of the public catalogue matched
+          the {fmt(incumbent_h27['positive_pixels'], 0)}-cell <code>h27-4</code> raster (<code>0.2708</code>) bit for bit.</li>
+          <li><strong>Step 2 — <code>B=2 (&le;200 m)</code> Smoothing-Halo Flank Deletion in <code>GEMSDOE32 h33-h33-2-b2</code> (<code>0.2708 → 0.2778</code> USER-REPORTED):</strong>
+          Upstream <code>sigma = 100 m</code> Gaussian smoothing of catalogue-trained features created a 200 m bleed ridge around known traces where
+          organizer truth is pixel-masked. Expanding the exclusion collar from <code>d &le; 100 m</code> to <code>d &le; 200 m</code> deleted exactly
+          <strong>2,545 flank dots in <code>100 m &lt; d(C) &le; 200 m</code></strong> (leaving <code>37,654</code> dots), which earned only <code>~0.0040</code> live TPw/dot
+          (14× below break-even). Paired natural experiment: <code>GEMSDOE28 H36-1</code> emitted <code>37,660</code> dots while keeping <code>2,353</code> flank dots
+          in <code>100–200 m</code> and scored only <strong>0.2710</strong> (USER-REPORTED) — proving the <code>+0.0068</code> gain is specifically <code>B=2</code> flank hygiene.</li>
+          <li><strong>Step 3 — Piedmont vs Mountain-Block Habitat Balance (why <code>GEMSDOE70</code> scored <code>0.2478</code> and <code>H31-B</code> starved piedmonts):</strong>
+          Real public-catalogue Quaternary faults (<code>60,988</code> px) have median slope <code>5.56 deg</code> and <code>52.6%</code> lie in piedmont/basin terrain
+          (<code>det_elev_slope &le; 6 deg</code>), whereas unstratified <code>off_sgmc</code> (<code>61,664</code> px) is <code>81.2%</code> steep Mesozoic/Paleozoic bedrock
+          (median slope <code>13.50 deg</code>). <code>GEMSDOE32 H33-2-B2</code> preserved <code>30.9%</code> piedmont dots, whereas <code>GEMSDOE70 P8-OOF38k</code>
+          chased mountain SGMC (<code>+39.8%</code> offline, <code>-10.1%</code> piedmont, <code>0.2478</code> USER-REPORTED) and standalone <code>H31-B</code> placed
+          <code>97.5%</code> of dots in steep mountains (<code>piedmont_off_sgmc_DTI = 0.0052</code>).</li>
+          <li><strong>Why <code>0.2778</code> Is Far Below the <code>0.4413</code> (USER-REPORTED) Public Ceiling — and How to Beat <code>0.2778</code>:</strong>
+          At <code>37,654</code> dots and <code>|G_live| ≈ 13,368</code> px, <code>0.2778</code> recovers only ~23% kernel-weighted recall of hidden faults because
+          <code>H33-2-B2</code> still relies on isotropic heuristic thinning and lacks explicit subsurface basement-step, gravity phase-tilt, and strike-concordance physics.</li>
         </ul>
       </div>
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Question 2</p><h2>How our H31-B architecture beats the 0.2778 B=2 baseline on blocked holdout</h2></div>
-        <p>Combining the <code>B=2 (&gt;200 m)</code> flank-exclusion rule with multi-physics off-catalogue fault discovery.</p>
-      </div>
-      <div class="content">
-        <p>Live-anchor inversion across all 9 repositories calibrates the hidden test denominator at
-        <code>D0_live = 10,694.64</code> (<code>|G_live| ≈ 13,368</code> px) and marginal break-even at
-        <code>tau_live = 0.2·DTI / (1 - 0.2·DTI) = 0.0556</code> TPw/dot. To beat <code>0.2778</code>, a submission must
-        enforce <code>B=2 (d_cat &gt; 200 m)</code> while concentrating its <code>37,654</code> dots on genuine unmapped Basin-and-Range
-        structures (pediment-buried range-front scarps, step-over relay ramps, and hydrothermally altered shear zones) rather than
-        single-channel magnetic or topographic noise.</p>
-        <p>On the 4-block 21.25 km spatially blocked holdout (<code>50,470</code> withheld off-catalogue SGMC positives), our standalone
-        <code>H31-B</code> submission (<code>EXP-1</code>, <code>37,654</code> dots) achieves <strong><code>HOLDOUT-DTI = 0.1380</code></strong>
-        (95% CI <code>[0.1169, 0.1683]</code>) and our corroborated-B=2 hybrid (<code>EXP-2</code>, <code>37,654</code> dots) achieves
-        <strong><code>HOLDOUT-DTI = 0.1249</code></strong> (95% CI <code>[0.1116, 0.1344]</code>), both beating <code>GEMSDOE32 B=2</code>
-        (<code>0.0984</code>) and <code>h27-4</code> (<code>0.0981</code>) in <strong>4/4 spatial folds</strong>.</p>
-      </div>
-      {union_table(union)}
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Question 3</p><h2>Four implemented H31-B geological hypotheses + two external candidates, ranked</h2></div>
-        <p>Ranked by measured off-catalogue 4-block holdout contribution per unit of effort, with official public data sources.</p>
+        <div><p class="kicker">Question 2</p><h2>Four untried geological hypotheses, ranked before any fit</h2></div>
+        <p>Frozen in <code>knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md</code> prior to computing features or fitting models.</p>
       </div>
       <div class="table-wrap"><table>
-        <thead><tr><th>rank &amp; id</th><th>layers and physical signature</th><th>why it catches faults missing from USGS/INGENIOUS catalogue</th><th>non-fault mimic &amp; suppression</th><th>status &amp; official source</th></tr></thead>
+        <thead><tr><th>rank &amp; id</th><th>specific layers &amp; physical transform</th><th>why it catches faults missing from USGS/INGENIOUS catalogue</th><th>named non-fault mimic &amp; suppression</th><th>expected gain, cost &amp; verified official source</th></tr></thead>
         <tbody>
           <tr>
-            <td><span class="badge badge-green">1 · implemented &amp; promoted</span><br><strong>H31-B1</strong><br>3DEP Degraded Scarp Profile &amp; Anisotropic Slope-Break</td>
-            <td>3DEP 1 m bare-earth LiDAR bands <code>lidar_scarp_step_max_m</code> [19], <code>lidar_aniso_coherence</code> [22], <code>lidar_relief_25m_m</code> [23], plus competition <code>dem_slope</code> [01] and <code>dem_plan_curv</code> [02].</td>
-            <td>Alluvial-fan and pediment aprons degrade older Quaternary range-front scarps into wide, low-angle breaks in slope omitted by aerial-photo compilers but preserved in 1 m 3DEP LiDAR step height and anisotropic coherence.</td>
-            <td><strong>Mimic:</strong> Fluvial terrace risers &amp; shoreline benches.<br><strong>Filter:</strong> Suppressed unless corroborated by geophysical Hessian ridge or radiometric K-metasomatism.</td>
-            <td><strong>Measured &amp; promoted in EXP-1/EXP-2:</strong> Canary AUC = <code>0.6805</code> (PASS).<br>Source: <a href="https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-dtm" target="_blank" rel="noopener">USGS 3DEP 1 m STAC</a> / <a href="https://www.sciencebase.gov/catalog/item/63992fc2d34e0de3a1f08f6d" target="_blank" rel="noopener">ScienceBase</a></td>
+            <td><span class="badge badge-green">1 · implemented &amp; promoted</span><br><strong>H31-M</strong><br>Deconfounded Subsurface Basement-Step, Phase-Tilt &amp; Cross-Modality Concordance + 29-Cell Submodular DTI</td>
+            <td>Verified competition bands <code>depth_to_base_surf</code> [01], <code>iso_grav_anom_slope</code> [08], <code>iso_grav_anom_vg</code> [09], <code>rtp</code> [11], <code>cond_surf</code> [00], <code>det_elev</code> [02], <code>det_elev_slope</code> [03], plus 3DEP/GeoDAWN stack: fractional throw <code>|grad(Z)|/(Z+150m)</code>, Miller-Singh tilt <code>arctan2(vg, slope)</code> zero-crossing, shallow RTP bandpass crest, <code>|grad(cond_surf)|</code>, structure-tensor coherence, piedmont ridge, and <code>cos^2(theta_surf - theta_sub)</code> + Minoux 29-cell submodular allocator.</td>
+            <td>Concealed range-front piedmont faults and intrabasinal graben step-overs buried under Holocene alluvial fans/playas lack crisp aerial-photo scarps omitted by Qfaults, but juxtapose dense resistive footwall bedrock against low-density basin fill and shallow clay/brine gouge co-axially with subtle piedmont flexures.</td>
+            <td><strong>Mimics:</strong> (a) Pluvial Lake Lahontan shoreline benches &amp; terrace risers (zero subsurface basement step → <code>xmod_strike_concordance → 0</code>); (b) Circular pluton margins &amp; calderas (suppressed by 300 m linear tensor coherence); (c) Flat conductive playas (zeroed by <code>|grad(cond_surf)|</code>); (d) 3DEP LiDAR coverage borders (eliminated by within-<code>lidar_valid</code> dual-head Bayes calibration).</td>
+            <td><strong>Measured &amp; PROMOTED:</strong> <code>+0.0215 / +0.0245</code> HOLDOUT-DTI on <code>gemsdoe31-holdout-v1</code> (<code>4/4</code> folds both seeds), <code>+0.0093</code> 4-block Off-SGMC, <code>+0.0055</code> Piedmont Off-SGMC (&lt;25 min CPU, in-hand data).<br>Sources: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener">DrivenData GEMS</a> · <a href="https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7" target="_blank" rel="noopener">USGS GeoDAWN DOI 10.5066/P93LGLVQ</a></td>
           </tr>
           <tr>
-            <td><span class="badge badge-green">2 · implemented &amp; promoted</span><br><strong>H31-B2</strong><br>Multi-Scale Potential-Field &amp; MT Hessian Ridgeness</td>
-            <td>Multi-scale 2D Hessian principal ridge eigenvalue <code>max(0, -lambda_min)</code> on <code>gravity_bouguer</code> [13], <code>gravity_isa</code> [14], <code>magnetic_tilt_angle</code> [10], and <code>cond_surf</code> [03] at <code>sigma in {{100 m, 200 m, 400 m}}</code>.</td>
-            <td>Blind intrabasinal graben-bounding faults and accommodation zones beneath Quaternary playa/alluvial fill have zero surface scarp, so the USGS Qfaults catalogue omits them completely; density/susceptibility/conductance contacts image them directly.</td>
-            <td><strong>Mimic:</strong> Pluton-margin intrusive aureoles &amp; caldera ring dikes.<br><strong>Filter:</strong> Multi-scale ridge-orientation coherence plus crustal strain-rate modulation.</td>
-            <td><strong>Measured &amp; promoted in EXP-1/EXP-2:</strong> Canary AUC = <code>0.6594</code> (PASS).<br>Source: <a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">DOE GDR 1391</a> / <a href="https://www.sciencebase.gov/catalog/item/63992fc2d34e0de3a1f08f6d" target="_blank" rel="noopener">USGS ScienceBase</a></td>
+            <td><span class="badge">2 · next in-hand add-on</span><br><strong>H31-N</strong><br>Hydrothermal Upflow &amp; Shallow Temperature-Probe Relay Bridge</td>
+            <td><code>external/gdr_thermal.tif</code> (<code>temp2m_anom_c</code>, <code>dist_vent_km</code>, <code>dist_sinter_km</code>, <code>dist_pal_km</code>) + <code>heatflow</code> [06], <code>strain_dilation</code> [15], <code>strain_max_shear</code> [16]: directional anisotropic bridge connecting oblique step-over tips.</td>
+            <td>Dilational fault step-overs and accommodation zones fracture into breccia pipes hosting opal/travertine sinter and 2 m thermal anomalies without forming a single through-going scarp in Qfaults.</td>
+            <td><strong>Mimic:</strong> Lateral outflow thermal plumes &amp; circular volcanic vents (<code>GEMSDOE36</code> failure mode).<br><strong>Filter:</strong> Restrict strictly to narrow saddle corridors aligned with local Kostrov principal shear strike.</td>
+            <td><strong>Expected:</strong> <code>+0.002 to +0.006</code> DTI in geothermal districts (~5% footprint coverage; ~35 min CPU, in-hand data).<br>Source: <a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">DOE GDR 1391 (DOI 10.15121/1881483, CC-BY 4.0)</a></td>
           </tr>
           <tr>
-            <td><span class="badge badge-green">3 · implemented &amp; promoted</span><br><strong>H31-B3</strong><br>GeoDAWN Radiometric K-Leaching &amp; Epithermal Relay Index</td>
-            <td>GeoDAWN airborne gamma-ray bands <code>geodawn_k_pct</code> [31], <code>geodawn_th_k</code> [34], <code>geodawn_u_k</code> [35], <code>geodawn_k_z500</code> [37], and <code>geodawn_th_k_z500</code> [38].</td>
-            <td>Brittle damage zones and relay ramps channel meteoric/epithermal fluids that alter feldspar to illite/adularia, enriching K and depressing Th/K along unmapped range-front step-overs.</td>
-            <td><strong>Mimic:</strong> Felsic ash-flow tuff outcrops &amp; potassic playa evaporites.<br><strong>Filter:</strong> Local 500 m z-score contrast + structural gradient corroboration.</td>
-            <td><strong>Measured &amp; promoted in EXP-1/EXP-2:</strong> Canary AUC = <code>0.5453</code> (PASS).<br>Source: <a href="https://www.sciencebase.gov/catalog/item/61955dc7d34eb622f6908d8d" target="_blank" rel="noopener">USGS GeoDAWN ScienceBase</a></td>
+            <td><span class="badge">3 · external CI candidate</span><br><strong>H31-P</strong><br>1 m 3DEP Hanks Morphologic Diffusion-Age Scarp Matched Filter</td>
+            <td>Raw 1 m 3DEP bare-earth DEM tiles listed in competition <code>1m_DEM_links.csv</code>: cross-strike Hanks (2000) error-function scarp template fit <code>z(x) = (H/2)·erf(x / sqrt(4·kappa·t)) + b·x</code> across <code>sqrt(4·kappa·t) in {{4, 8, 16, 32}} m</code>.</td>
+            <td>Late-Pleistocene piedmont scarps degraded over 15–130 ka into smooth 15–40 m S-curves are invisible on 100 m DEMs and missed by 3 m finite steps in <code>lidar_scarp.tif</code>, but retain diagnostic symmetric convex-concave curvature doublets vs asymmetric channels.</td>
+            <td><strong>Mimic:</strong> Incised V-shaped gullies &amp; anthropogenic road/canal embankments.<br><strong>Filter:</strong> Asymmetric V-profile rejection + minimum 400 m lateral strike continuity.</td>
+            <td><strong>Expected:</strong> <code>+0.008 to +0.018</code> DTI inside 62.1% 3DEP coverage (blocked in sandbox; 1–2 days via GitHub Actions CI).<br>Sources: <a href="https://www.usgs.gov/3d-elevation-program/about-3dep-products-services" target="_blank" rel="noopener">USGS 3DEP</a> · <a href="https://tnmaccess.nationalmap.gov/api/v1/docs" target="_blank" rel="noopener">USGS TNM API</a></td>
           </tr>
           <tr>
-            <td><span class="badge badge-green">4 · implemented &amp; promoted</span><br><strong>H31-B4</strong><br>Transtensional Kostrov Strain-Seismicity Relay Index</td>
-            <td><code>strain_2nd_inv</code> [16], <code>strain_dilation</code> [17], <code>strain_max_shear</code> [18], <code>earthquakes</code> [15], and <code>heatflow</code> [05].</td>
-            <td>Walker Lane and Central Nevada Seismic Belt obliquity transfers displacement across unmapped horse-tail splays and incipient R/R' Riedel shears lacking mature cumulative scarps.</td>
-            <td><strong>Mimic:</strong> Long-wavelength GPS interpolation bullseyes.<br><strong>Filter:</strong> Enters only as a multiplicative structural modulator (<code>0.78 + 0.22·H31_B4</code>) on local morphological/geophysical ridges.</td>
-            <td><strong>Measured &amp; promoted in EXP-1/EXP-2:</strong> Canary AUC = <code>0.7465</code> (PASS).<br>Source: <a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noopener">USGS ANSS ComCat</a> / <a href="https://geodesy.unr.edu/" target="_blank" rel="noopener">UNR NGL</a></td>
-          </tr>
-          <tr>
-            <td><span class="badge">5 · external data candidate</span><br><strong>H32-1</strong><br>3D MT Depth-Slice Conductance Vertical-Continuity Tensor</td>
-            <td>Full 3D MT resistivity cube from DOE GDR 1391 (500 m to 10 km depth slices) vs single surface conductance layer.</td>
-            <td>Sub-vertical brittle fault conduits connect deep geothermal reservoirs to shallow basins across multiple depth slices, separating deep faults from shallow clay playas.</td>
-            <td><strong>Mimic:</strong> Shallow conductive smectite/playa evaporite lenses.<br><strong>Filter:</strong> Require vertical phase-tensor coherence from 0.5 km to 5 km depth.</td>
-            <td><strong>3–5 days (CI runner):</strong> Free public CC-BY data at <a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">DOE GDR 1391</a>.</td>
+            <td><span class="badge">4 · external CI candidate</span><br><strong>H31-Q</strong><br>3D Magnetotelluric Phase-Tensor Vertical Persistence</td>
+            <td>3D Great Basin / INGENIOUS MT resistivity depth slices (<code>0.5, 1.5, 3.0, 6.0 km</code>) vs competition surface <code>cond_surf</code> [00]: vertical persistence product of horizontal log-conductivity gradients from 0.5 km to 6 km depth.</td>
+            <td>Blind crustal-scale extensional fault conduits cut sub-vertically through resistive basement into deeper brittle-ductile roots while surficial playas terminate above 500 m.</td>
+            <td><strong>Mimic:</strong> Closed-basin smectite/evaporite playa lenses (&lt;400 m thick).<br><strong>Filter:</strong> Vertical gradient coherence across &ge;3 depth slices.</td>
+            <td><strong>Expected:</strong> <code>+0.005 to +0.012</code> DTI at 5–15 km station spacing (blocked in sandbox; 2–3 days via CI).<br>Sources: <a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">DOE GDR 1391</a> · <a href="https://www.sciencebase.gov/catalog/item/5fb70a32d34eb413d5e14873" target="_blank" rel="noopener">USGS ScienceBase MT</a></td>
           </tr>
         </tbody>
       </table></div>
@@ -814,13 +832,21 @@ def build_research(sub: dict, buf: dict, union: dict) -> str:
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Leakage Canary</p><h2>Single-feature holdout ROC-AUC audit (<code>evidence/leakage_canary.json</code>)</h2></div>
-        <p>Protocol rule: every feature and engineered surface is tested alone on the 4-block holdout before trusting any result; AUC &gt; 0.90 flags leakage.</p>
+        <div><p class="kicker">EXP-1 · Leakage Canary</p><h2>Single-feature holdout ROC-AUC &amp; unsupervised channel screen (<code>evidence/h31m_results.json</code>)</h2></div>
+        <p>Every one of the 48 features used in H31-M passes the 0.90 ROC-AUC canary ceiling (max used AUC = <code>0.7740</code>; max new H31-M channel AUC = <code>0.6139</code>).</p>
       </div>
-      {table(["Engineered Surface", "Physical Mechanism &amp; Formula", "Cat-Gap Holdout AUC", "Off-SGMC Holdout AUC", "Canary Status"], canary_rows)}
-      <p class="small">Across all 46 bands in <code>prepared/features.f32</code>, bands <code>[00..41, 44..45]</code> pass with unsigned ROC-AUC
-      <code>&le; 0.7774 &le; 0.90</code>. Only the two catalogue/SGMC distance bands <code>[42] dist_cat_km</code> (<code>1.0000</code>) and
-      <code>[43] dist_sgmc_km</code> (<code>0.9981</code>) exceed 0.90 and are strictly excluded from all detectors and discovery surfaces.</p>
+      {table(["H31-M Channel", "Physical Transform", "Cat-Gap Holdout AUC", "Off-SGMC Holdout AUC", "Unsupervised Holdout DTI", "Canary Status"], canary_rows)}
+      <p class="small">Excluded known-leak bands <code>dist_cat_km</code> and <code>dist_sgmc_km</code> were tested by the same canary, flagged above <code>0.99</code>, and strictly excluded from all H31-M features, models, and emitters.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">EXP-2 · Spatially Blocked Holdout</p><h2>Monotonic 4/4 fold gains across both screen and confirmation seeds</h2></div>
+        <p>Evaluated on <code>gemsdoe31-holdout-v1</code> (<code>58,625</code> withheld positives, <code>21.25 km</code> collar) with identical per-fold dot budgets.</p>
+      </div>
+      {table(["Run", "Arm", "NW", "NE", "SW", "SE", "Pooled HOLDOUT-DTI"], exp2_rows)}
+      <p class="small">Paired 20 km spatial-block bootstrap 95% CI for <code>h31m_submod - base_C1_poisson</code>: screen <code>[+0.0064, +0.0380]</code>, confirm <code>[+0.0107, +0.0392]</code>. Both mechanisms — the 8 geophysical concordance channels alone (<code>h31m_poisson</code>) and the exact 29-cell submodular DTI kernel allocator (<code>h31m_submod</code>) — improve all 4 spatial quadrants on both seeds.</p>
+      {union_table(union)}
     </section>
 
     <section>
@@ -837,10 +863,10 @@ def build_research(sub: dict, buf: dict, union: dict) -> str:
       </div>
     </section>
 """
-    return shell("", "Research", "Forensic proof of 0.2778, H31-B multi-physics fault discovery, leakage canary audit, "
-                                 "and ranked geological hypotheses.", "Research",
-                 page_hero("Research", "Why 0.2778 scored, and how H31-B beats it in 4/4 spatial folds.",
-                           "Byte-level forensic proof across 9 GEMSDOE repositories, the B=2 (>200 m) flank-halo mechanism, and the H31-B multi-physics discovery architecture."),
+    return shell("", "Research", "PhD forensic proof of 0.2778, four ranked hypotheses, H31-M subsurface concordance "
+                                 "and 29-cell submodular DTI results.", "Research",
+                 page_hero("Research", "Why 0.2778 scored, and how H31-M beats it across every instrument.",
+                           "Byte-level forensic proof across 9+ GEMSDOE repositories, piedmont vs mountain habitat mechanics, 4 ranked hypotheses, and H31-M validation."),
                  body, "All quantitative claims are backed by JSON artifacts in evidence/ and registry/.")
 
 
@@ -1060,7 +1086,7 @@ def build_sources(sources: dict, experiments: dict) -> str:
 
 
 def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> tuple[str, str]:
-    primary = next(f for f in sub["files"] if f["id"] == "primary-h31b-scarp-hessian-standalone")
+    primary = next(f for f in sub["files"] if f["id"] == "primary-h31m-bstep-xmod-submod")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
     candidate = next((f for f in sub["files"] if f["id"] == "research-h31e-surface-expression"), None)
     h31e = load("evidence/h31e_results.json", {})
@@ -1129,8 +1155,8 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
         },
         "open_items": [
             "no organizer receipt for any score on this site",
-            "no candidate has beaten the incumbent on the off-catalogue proxy by a margin worth a weekly slot",
-            "external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated",
+            "H31-M passed all 11/11 local preregistered gates (verdict: promote); human entrant decides whether to spend a manual portal slot and attach any organizer receipt",
+            "external layers needing the CI runner (GDR 1391 MT depth stack, raw 1 m 3DEP DEM tiles) remain blocked in sandbox",
         ],
     }
     payload = json.dumps(feed, indent=1) + "\n"
@@ -1388,11 +1414,11 @@ EXPERIMENTS = [
          detail="Two format conventions are written from every dot set (NaN outside the footprint, and an all-finite variant). Each file gets a "
                 "JSON receipt recording grid equality, value range, NaN placement and SHA-256, so a rejection can be diagnosed from the receipt "
                 "instead of by guesswork."),
-    dict(slug="11-score-claims", number=11, title="Score-claim audit, 9-site forensic proof of 0.2778, and H31-B campaign",
-         source="evidence/h31b_experiments.json", status="measured",
-         question="Why did GEMSDOE32 score 0.2778 (USER-REPORTED), and can a unique multi-physics H31-B GeoTIFF beat it in 4/4 spatial holdout blocks while passing the uniqueness and leakage gates?",
-         verdict="Measured and promoted: GEMSDOE32 scored 0.2778 by pruning 2,545 flank dots in 100 m < d(catalogue) <= 200 m (B=2). Our unique H31-B standalone submission (EXP-1, 37,654 dots) reaches 0.1380 HOLDOUT-DTI (95% CI [0.1169, 0.1683], 4/4 folds beating GEMSDOE32 B=2 0.0984) with r_s = 0.1143 and 3-px dot overlap 35.94%.",
-         detail="Restored all 11 sibling GeoTIFFs across GEMSDOE24..36 to prove the B=2 (>200 m) flank-halo mechanism, ran a single-feature holdout ROC-AUC leakage canary across all 46 bands, and evaluated three H31-B experiments under the 21.25 km variogram buffer."),
+    dict(slug="11-score-claims", number=11, title="Nine-site forensic proof of 0.2778, H31-B archive, and promoted H31-M subsurface-submodular campaign",
+         source="evidence/h31m_results.json", status="measured",
+         question="Why did GEMSDOE32 score 0.2778 (USER-REPORTED), why did mountain-only off-SGMC starve piedmont faults in H31-B, and can H31-M win hide-and-recover, off-SGMC, and piedmont fault discovery simultaneously?",
+         verdict="Measured and PROMOTED (11/11 frozen gates True): GEMSDOE32 scored 0.2778 by pruning 2,545 B=2 flank dots while preserving 30.9% piedmont balance. H31-M (8 label-free subsurface/cross-modality concordance channels + deconfounded Bayes OOF trees + exact 29-cell submodular DTI allocation) achieves HOLDOUT-DTI 0.1350 (screen) and 0.1372 (confirm) on gemsdoe31-holdout-v1 (4/4 folds both seeds), while beating GEMSDOE32 H33-2-B2 simultaneously on full off-SGMC (0.1010 vs 0.0940), 4-block off-SGMC (0.1077 vs 0.0984), and piedmont off-SGMC (0.0641 vs 0.0586) with <=53.16% 3-px overlap across all registry rasters.",
+         detail="Combines the 9-site byte-level annulus audit (evidence/nine_site_forensic_audit.json), the H31-B mountain-bias diagnosis (evidence/h31b_experiments.json, IR-31-H31B-PIEDMONT-STARVATION), and the frozen 3-experiment H31-M campaign (scripts/run_h31m.py, evidence/h31m_results.json, evidence/h31m_run_card.json)."),
 ]
 
 

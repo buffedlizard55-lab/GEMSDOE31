@@ -196,6 +196,17 @@
    "owner_mirror_record": "GEMSDOE32 round-5 forensics (owner mirror) state the file contains all 37,654 H33-2-B2 dots plus 1,200 more; not independently re-measured here.",
    "organizer_verification": "not verified",
    "status": "unverified"
+  },
+  {
+   "id": "owner-mirror-gemsdoe70-p8-oof38k-0.2478-20261025",
+   "artifact": "GEMSDOE70 gems70-p5-dual-submod300-oof38k-20261020 (38,000 dots)",
+   "reported_dti": 0.2478,
+   "reported_dti_text": "0.2478",
+   "claim_source": "GEMSDOE70 and GEMSDOE76 owner-mirror READMEs (accessed 2026-10-25 via GitHub REST API)",
+   "evidence_class": "OWNER-MIRROR",
+   "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+   "local_identity": "Sibling audit reports off-catalogue SGMC DTI 0.1311 (+39.8% vs H33 0.0938) alongside piedmont proxy C_pied 0.0842 (-10.1% vs H33 0.0937) and owner-reported live 0.2478 (-10.8% vs H33 0.2778)",
+   "status": "owner-reported diagnostic illustrating why mountain-dominated SGMC gains alone fail on live scoring when piedmont fault recovery drops"
   }
  ],
  "safe_next_step": "Do not resolve discrepancies by accessing or monitoring DrivenData leaderboard material absent prior written permission. Preserve user-supplied claims as USER-REPORTED and owner-site claims as OWNER-MIRROR until an authorized organizer-generated receipt and exact artifact identity are available.",

@@ -75,12 +75,21 @@ def main() -> None:
     source.add_argument("--prob", help="float GeoTIFF of probabilities; thresholded with --threshold")
     parser.add_argument("--threshold", type=float, default=0.4)
     parser.add_argument("--template", default="data/sample_submission.tif")
+    parser.add_argument("--labels", default=None, help="optional path to labels.tif (defaults to <template_dir>/labels.tif or data/labels.tif)")
     parser.add_argument("--outdir", default="docs/downloads")
     parser.add_argument("--name", required=True, help="submission name (used in file names and metadata)")
     parser.add_argument("--note", default="", help="the comment to paste into the portal's Note box")
     args = parser.parse_args()
 
-    template = ROOT / args.template
+    t_arg = Path(args.template)
+    template = t_arg if t_arg.is_absolute() else (ROOT / t_arg)
+    if args.labels:
+        l_arg = Path(args.labels)
+        labels_path = l_arg if l_arg.is_absolute() else (ROOT / l_arg)
+    elif (template.parent / "labels.tif").is_file():
+        labels_path = template.parent / "labels.tif"
+    else:
+        labels_path = ROOT / "data/labels.tif"
     footprint = footprint_mask(template)
     if args.dots:
         dots = load_dots(Path(args.dots))
@@ -104,7 +113,7 @@ def main() -> None:
         "name": args.name,
         "note": args.note[:200],
         "dots": int(dots.sum()),
-        "dots_on_catalogue": int((dots & (rasterio.open(ROOT / "data/labels.tif").read(1) == 1)).sum()),
+        "dots_on_catalogue": int((dots & (rasterio.open(labels_path).read(1) == 1)).sum()),
         "files": {k: str(v if v.is_absolute() else v) for k, v in paths.items()},
         "validation": receipts,
         "warnings": [

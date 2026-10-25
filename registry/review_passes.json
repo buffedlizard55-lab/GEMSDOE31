@@ -390,6 +390,46 @@
     "site": "build_site 20 pages; check_site passed (260 local links at first build; final count in session log)",
     "verdict": "negative; promotion remains a separate selector step"
    }
+  },
+  {
+   "id": "pass-19-2026-10-25-h31m-implementation-and-holdout",
+   "status": "complete-promoted",
+   "scope": [
+    "restore + SHA-256-verify all 11 hash-pinned inputs and rebuild sentinel-cleaned 46-band features.f32 in /tmp/gemsdoe31_data",
+    "freeze 4 ranked hypotheses (H31-M, H31-N, H31-P, H31-Q) and 11 gate criteria in knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md before any fit",
+    "implement 8 label-free geophysical/structural channels (src/gemsdoe31/h31m_features.py), exact 29-cell lazy-greedy submodular DTI allocator (src/gemsdoe31/submodular_emit.py), and 3-experiment runner (scripts/run_h31m.py)"
+   ],
+   "verification": {
+    "canary": "all 48 used features pass <= 0.90 ceiling (max_used_unsigned_AUC=0.7740, max_new_H31M_AUC=0.6139); dist_cat_km and dist_sgmc_km flagged and excluded",
+    "holdout_v1": "screen HOLDOUT-DTI 0.1350 vs base 0.1135 (paired delta 95% CI [+0.0064, +0.0380], 4/4 folds); confirm HOLDOUT-DTI 0.1372 vs base 0.1127 (paired delta 95% CI [+0.0107, +0.0392], 4/4 folds)",
+    "multi_proxy": "full off-SGMC 0.1010 vs GEMSDOE32 B=2 0.0940; 4-block off-SGMC 0.1077 vs 0.0984 (3/4 folds); piedmont off-SGMC 0.0641 vs 0.0586 (37.2% piedmont balance)",
+    "uniqueness_and_format": "surface Spearman 0.7204 <= 0.90; 3-px dot overlap <= 53.16% across all 7 registry rasters (40.25% vs GEMSDOE32 B=2); 21/21 GeoTIFF checks pass"
+   }
+  },
+  {
+   "id": "pass-20-2026-10-25-h31m-adversarial-bug-leakage-habitat-audit",
+   "status": "complete",
+   "scope": [
+    "fix external --out and --labels path bugs in scripts/download_competition_data.py, scripts/prepare_data.py, and scripts/build_submission.py (IR-31-SCRIPT-EXTERNAL-PATHS)",
+    "diagnose and log H31-B piedmont starvation (2.5% piedmont dots, piedmont off-SGMC DTI 0.0052; IR-31-H31B-PIEDMONT-STARVATION) and LiDAR coverage confounding (IR-31-LIDAR-COVERAGE-CONFOUND)",
+    "purge hallucinated fleet slugs/scores, nonexistent band names, and linear live-score projection column from README.md and scripts/build_site.py (IR-31-README-HALLUCINATED-FLEET-SCORES, IR-31-SITE-PROJECTION-AND-HEADER-BUGS)"
+   ],
+   "verification": {
+    "submodular_equivalence": "tests/test_h31m.py proves pixel-exact equivalence between Minoux lazy-greedy and naive step-by-step greedy plus sentinel/NaN safety and strike concordance rotation check",
+    "readback_audit": "independent rasterio + zipfile readback confirms 37,654 finite {0.0, 1.0} dots inside footprint, 0 NaN inside footprint, exact EPSG:32611 3730x3292 grid, and matching SHA-256 digests"
+   }
+  },
+  {
+   "id": "pass-21-2026-10-25-h31m-whole-charter-crosscheck",
+   "status": "complete-with-promoted-unique-candidate",
+   "scope": [
+    "verify obvious YES — OK TO DOWNLOAD AND SUBMIT readiness on docs/index.html, docs/executive-summary.html, and README.md with unique name, <=140-char note, and one-click download",
+    "rerun pytest, ruff, check_metric.py, collect_evidence.py, build_site.py, and check_site.py across all 20 HTML pages and 267 local links"
+   ],
+   "verification": {
+    "suite": "48 pytest tests pass; ruff clean; check_metric max |delta| 4.44e-16; check_site passes 20/20 pages and 267 local links",
+    "run_card": "evidence/h31m_run_card.json emitted with verdict='promote' and all 11/11 gates True"
+   }
   }
  ],
  "remaining_work": [

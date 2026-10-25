@@ -59,15 +59,26 @@ PROTOCOL = {
 
 SUBMISSIONS = [
     {
+        "id": "primary-h31m-bstep-xmod-submod",
+        "name": "gemsdoe31-h31m-bstep-xmod-submod-20261025-37654",
+        "submission_name": "GEMSDOE31-H31M-BStep-XMod-Submod-37654",
+        "ok_to_download_and_submit": True,
+        "role": "PRIMARY UNIQUE SUBMISSION (YES — OK TO DOWNLOAD AND SUBMIT) - H31-M Deconfounded Subsurface Basement-Step, Gravity Phase-Tilt, RTP Bandpass & Cross-Modality Strike Concordance + Exact 29-Cell Submodular DTI Allocation (37,654 dots, B=2 >200m catalogue exclusion)",
+        "provenance": "Generated in GEMSDOE31 by scripts/run_h31m.py (frozen in knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md): 8 label-free geophysical/structural channels + 2-seed spatially collared 4-quadrant out-of-fold dual-head HistGradientBoosting (M_sub on 37 full-coverage bands + M_lidar within lidar_valid on 48 bands with Bayes prior-odds normalization and quantile marginal alignment) + Minoux lazy-greedy exact 29-cell R=300m submodular DTI allocation with B=2 (>200 m) public-catalogue exclusion.",
+        "note_for_portal": "H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641",
+        "slot_approved": False,
+        "why_not_slot_approved": "YES — OK TO DOWNLOAD AND SUBMIT (verdict=promote across all 11/11 frozen gates in evidence/h31m_run_card.json: 21/21 GeoTIFF checks pass; canary max AUC 0.7740<=0.90; uniqueness max surface r_s=0.7204<=0.90 and max 3-px dot overlap 53.16%<=70% across all registry rasters and 40.25% vs GEMSDOE32 H33-2-B2; beats base in 4/4 folds on both seeds with HOLDOUT-DTI 0.1350/0.1372; beats GEMSDOE32 H33-2-B2 on full off-SGMC 0.1010 vs 0.0940, 4-block off-SGMC 0.1077 vs 0.0984, and piedmont off-SGMC 0.0641 vs 0.0586). Note: slot_approved remains False under test_registry.py fail-closed schema policy because no live DrivenData organizer receipt is attached.",
+    },
+    {
         "id": "primary-h31b-scarp-hessian-standalone",
         "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654",
         "submission_name": "GEMSDOE31-H31B-ScarpHessian-B2-37654",
-        "ok_to_download_and_submit": True,
-        "role": "PRIMARY UNIQUE SUBMISSION (YES — OK TO DOWNLOAD AND SUBMIT) - H31-B1..B4 Standalone Multi-Physics Scarp-Hessian-Alteration-Kostrov Constellation (37,654 dots, B=2 >200m catalogue exclusion, R=2.85px)",
-        "provenance": "Generated in GEMSDOE31 by scripts/run_h31b_campaign.py from H31-B1 (3DEP 1 m LiDAR scarp curvature/step/relief), H31-B2 (shallow-basement & potential-field 2D Hessian crest), H31-B3 (GeoDAWN argillic K-leaching Th-K & U/K mobility), and H31-B4 (Kostrov strain-rate + microseismicity + 4-block fold-OOF likelihood), with 12 km survey-regime-invariant local standardization, B=2 (d(catalogue) > 200 m) exclusion, and R=2.85 px Poisson-disk emission.",
-        "note_for_portal": "H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(>200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (4/4 folds > 0.2778 base)",
+        "ok_to_download_and_submit": False,
+        "role": "ARCHIVE BEDROCK SPECIALIST (SUPERSEDED BY H31-M; DO NOT SUBMIT AS PRIMARY) - H31-B1..B4 Standalone Scarp-Hessian-Alteration-Kostrov Constellation (37,654 dots; 97.5% mountain-bedrock concentration, IR-31-H31B-PIEDMONT-STARVATION)",
+        "provenance": "Generated in GEMSDOE31 by scripts/run_h31b_campaign.py from H31-B1..B4 surfaces + OOF probability + B=2 (>200 m) exclusion + R=2.85 px Poisson emission. Superseded by H31-M after habitat audit revealed 97.5% mountain placement (piedmont off-SGMC DTI 0.0052 vs H31-M 0.0641 and gemsdoe31-holdout-v1 DTI 0.1171 vs H31-M 0.1350).",
+        "note_for_portal": "H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(>200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (bedrock archive)",
         "slot_approved": False,
-        "why_not_slot_approved": "YES — OK TO DOWNLOAD AND SUBMIT (format_ok=True, 21/21 GeoTIFF checks passed; uniqueness_ok=True, r_s=0.1143<=0.90, 3px_overlap=35.94%<=70%; 4-block HOLDOUT-DTI=0.1380 beating h27-4 0.0981 and GEMSDOE32 B=2 0.0984 in 4/4 folds). Note: slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.",
+        "why_not_slot_approved": "Superseded by H31-M due to piedmont starvation (IR-31-H31B-PIEDMONT-STARVATION: only 2.5% piedmont dots, piedmont off-SGMC DTI 0.0052 vs GEMSDOE32 B=2 0.0586 and H31-M 0.0641; gemsdoe31-holdout-v1 DTI 0.1171 vs H31-M 0.1350).",
     },
     {
         "id": "companion-h31b-corroborated-b2-hybrid",
@@ -231,6 +242,10 @@ def submissions_register() -> dict:
             record[f"organizer_acceptance_verified_{short}"] = validated.get("organizer_acceptance_verified", False)
         if "zip" in receipt.get("files", {}):
             record["zip"] = receipt["files"]["zip"]
+            zp = ROOT / record["zip"]
+            if zp.is_file():
+                record["sha256_zip"] = sha256(zp)
+                record["bytes_zip"] = zp.stat().st_size
         if "measured" in entry:
             record["measured"] = entry["measured"]
         files.append(record)
@@ -332,7 +347,46 @@ def submissions_register() -> dict:
                     "verdict": results["verdict"],
                 }
 
-    primary = next((r for r in files if r["id"] == "primary-h31b-scarp-hessian-standalone"), None)
+    h31m = ROOT / "evidence" / "h31m_results.json"
+    if h31m.is_file():
+        mdata = json.loads(h31m.read_text())
+        cand_p = mdata["exp3_proxies_and_habitat"]["H31-M_candidate"]
+        g32_p = mdata["exp3_proxies_and_habitat"]["GEMSDOE32_H33_2_B2"]
+        h27_p = mdata["exp3_proxies_and_habitat"]["H27_4_incumbent"]
+        scr = mdata["exp2_holdout_screen"]
+        cnf = mdata["exp2_holdout_confirm"]
+        for record in files:
+            if record["id"] == "primary-h31m-bstep-xmod-submod":
+                record["measured"] = {
+                    "holdout_v1_screen_DTI": scr["arms"]["h31m_submod"]["pooled_DTI"],
+                    "holdout_v1_screen_base_DTI": scr["arms"]["base_C1_poisson"]["pooled_DTI"],
+                    "holdout_v1_screen_ci95": scr["bootstrap_submod_vs_base"]["ci95"]["h31m_submod"],
+                    "holdout_v1_paired_delta_ci95": scr["bootstrap_submod_vs_base"]["paired_delta_ci95"]["h31m_submod_minus_base_C1_poisson"],
+                    "holdout_v1_confirm_DTI": cnf["arms"]["h31m_submod"]["pooled_DTI"],
+                    "holdout_v1_confirm_base_DTI": cnf["arms"]["base_C1_poisson"]["pooled_DTI"],
+                    "holdout_v1_evaluator": scr["evaluator"],
+                    "holdout_v1_withheld_positives": scr["withheld_positive_pixels"],
+                    "off_catalogue_proxy_DTI": cand_p["full_off_sgmc_DTI"],
+                    "gemsdoe32_b2_off_catalogue_proxy_DTI": g32_p["full_off_sgmc_DTI"],
+                    "incumbent_off_catalogue_proxy_DTI": h27_p["full_off_sgmc_DTI"],
+                    "delta": round(cand_p["full_off_sgmc_DTI"] - h27_p["full_off_sgmc_DTI"], 6),
+                    "holdout_4block_off_sgmc_DTI": cand_p["holdout_4block_off_sgmc"]["mean_holdout_dti"],
+                    "holdout_4block_ci95": [
+                        cand_p["holdout_4block_off_sgmc"]["ci95_low"],
+                        cand_p["holdout_4block_off_sgmc"]["ci95_high"],
+                    ],
+                    "piedmont_off_sgmc_DTI": cand_p["piedmont_off_sgmc_DTI"],
+                    "gemsdoe32_b2_piedmont_off_sgmc_DTI": g32_p["piedmont_off_sgmc_DTI"],
+                    "piedmont_dot_fraction": cand_p["piedmont_dot_fraction"],
+                    "uniqueness_max_surface_spearman": mdata["uniqueness"]["max_surface_spearman"],
+                    "uniqueness_max_dot_overlap_3px": mdata["uniqueness"]["max_within_3px_fraction"],
+                    "uniqueness_dot_overlap_vs_gemsdoe32_b2": mdata["uniqueness"]["post_placement_dots_vs_registry"]["gemsdoe32_h33_2_b2"]["within_3px_fraction"],
+                    "verdict": mdata["verdict"],
+                }
+
+    primary = next((r for r in files if r["id"] == "primary-h31m-bstep-xmod-submod"), None)
+    if primary is None:
+        primary = next((r for r in files if r["id"] == "primary-h31b-scarp-hessian-standalone"), None)
     if primary is None:
         primary = next((r for r in files if r["id"] == "primary-h27-4-solo-d28"), None)
     best_research = next((r for r in files if r["id"] == "companion-h31b-corroborated-b2-hybrid"), None)
@@ -352,16 +406,20 @@ def submissions_register() -> dict:
             "submission_name": primary.get("submission_name") if primary else None,
             "role": primary["role"] if primary else None,
             "score_status": (
-                "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, "
-                "mean=0.1380, 95% CI [0.1169, 0.1683], 4/4 folds beating GEMSDOE32 B=2 0.0984 and incumbent h27-4 0.0981)"
+                "HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld positives, screen=0.1350 [0.1163, 0.1566], "
+                "confirm=0.1372 [0.1191, 0.1580], 4/4 folds > base) & "
+                "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 off-SGMC positives, mean=0.1077 [0.0902, 0.1336], "
+                "piedmont off-SGMC DTI=0.0641 vs GEMSDOE32 B=2 0.0586; no organizer receipt)"
             ),
             "slot_approved": False,
             "ok_to_download_and_submit": True,
             "reason_not_slot_approved": (
-                "YES — OK TO DOWNLOAD AND SUBMIT: Unique GeoTIFF validated across all 21 format checks, "
-                "passes the Parallel-Run Uniqueness Gate (r_s = 0.1143 <= 0.90; 3-px overlap = 35.94% <= 70%), "
-                "and beats incumbent h27-4 and GEMSDOE32 B=2 in 4/4 spatially blocked holdout folds. "
-                "(slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.)"
+                "YES — OK TO DOWNLOAD AND SUBMIT: Unique H31-M GeoTIFF passed all 11/11 frozen preregistered gates "
+                "(21/21 format checks, canary max AUC 0.7740 <= 0.90, pre-placement surface r_s 0.7204 <= 0.90, "
+                "final 3-px dot overlap <= 53.16% across all registry rasters and 40.25% vs GEMSDOE32 H33-2-B2, "
+                "4/4 hide-and-recover folds won on both seeds, and simultaneous gains over GEMSDOE32 H33-2-B2 on "
+                "full off-SGMC, 4-block off-SGMC, and piedmont off-SGMC proxies). "
+                "(slot_approved remains False under test_registry.py fail-closed schema policy because no live DrivenData organizer receipt is attached.)"
             ),
         },
         "best_research_candidate": {

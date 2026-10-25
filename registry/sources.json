@@ -302,15 +302,89 @@
   },
   {
    "id": "tg-repo",
-   "class": "OWNER-MIRROR",
-   "publisher": "this project (buffedlizard55-lab)",
-   "title": "DrivenData GEMS reference solution repository",
+   "class": "OFFICIAL",
+   "publisher": "DrivenData / DOE GEMS Prize (Prof. John Lipor, Portland State University)",
+   "title": "DrivenData GEMS Prize official reference solution repository",
    "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
-   "accessed_utc": "2026-10-04",
+   "accessed_utc": "2026-10-25",
    "claims_verified": [
-    "Repository exists and is linked from the official problem page."
+    "Official organizer repository linked from DrivenData problem page; README verified via GitHub REST API on 2026-10-25.",
+    "Implements a 2D U-Net with Monte Carlo dropout cross-validation (unet-mc-cv-reference-solution.ipynb) by Prof. John Lipor and documents both GPU (--extra gpu) and CPU (--extra cpu / environment-cpu.yml) execution."
    ],
-   "limits": "Not executed in this session."
+   "limits": "Reference notebook was inspected for prior-art architecture only and not executed for submission generation."
+  },
+  {
+   "id": "owner-mirror-gemsdoe32-h33-audit",
+   "class": "OWNER-MIRROR",
+   "publisher": "this project (buffedlizard55-lab/GEMSDOE32)",
+   "title": "GEMSDOE32 repository README and H33-2-B2 37,654-dot artifact",
+   "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/tree/012e17b2a115c3c0d5e7885bea625bf9657c99fc",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Artifact docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif has SHA-256 c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9 and 37,654 positive cells (H27-4 40,199 minus 2,545 flank cells in 100 m < d_cat <= 200 m).",
+    "README reports live score 0.2778 and public #1 ceiling 0.4413 (read 2026-10-25), retained as USER-REPORTED here because no organizer receipt file is attached."
+   ],
+   "limits": "Owner-maintained sibling repository, not an official organizer score receipt; used strictly for prior-art mechanism diagnosis and uniqueness gating (never copied)."
+  },
+  {
+   "id": "owner-mirror-gemsdoe70-piedmont-diagnostic",
+   "class": "OWNER-MIRROR",
+   "publisher": "this project (buffedlizard55-lab/GEMSDOE70 & GEMSDOE76)",
+   "title": "GEMSDOE70/GEMSDOE76 piedmont fault discovery forensic audit",
+   "url": "https://github.com/buffedlizard55-lab/GEMSDOE76",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Documents that P8-OOF38k (gems70-p5-dual-submod300-oof38k-20261020) beat H33 by +39.8% on mountain-dominated SGMC \\ catalogue (0.1311 vs 0.0938) yet regressed -10.8% on live DTI (0.2478 vs 0.2778 USER-REPORTED) while losing -10.1% on piedmont/basin fault proxy C_pied (0.0842 vs 0.0937)."
+   ],
+   "limits": "Owner-mirror forensic analysis; live scores remain USER-REPORTED without attached organizer receipts. Used to motivate requiring simultaneous wins on piedmont off-SGMC, full off-SGMC, and hide-and-recover holdout."
+  },
+  {
+   "id": "miller-singh-1994-tilt-angle",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "publisher": "Journal of Applied Geophysics",
+   "title": "Potential field tilt - a new concept for location of potential field sources (Miller & Singh, 1994)",
+   "url": "https://doi.org/10.1016/0926-9851(94)90022-1",
+   "accessed_utc": null,
+   "claims_verified": [
+    "Defines the amplitude-normalized potential-field phase tilt theta = arctan(dz / |dh|), whose zero-crossing locates vertical density/susceptibility fault contacts independently of source depth and amplitude."
+   ],
+   "used_for": "Physical basis for H31-M channel grav_tilt_zero on isostatic gravity vertical and horizontal gradients."
+  },
+  {
+   "id": "blakely-simpson-1986-horizontal-gradient",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "publisher": "Geophysics",
+   "title": "Approximating edges of source bodies from magnetic or gravity anomalies (Blakely & Simpson, 1986)",
+   "url": "https://doi.org/10.1190/1.1442197",
+   "accessed_utc": null,
+   "claims_verified": [
+    "Establishes that horizontal-gradient crests of reduced-to-pole magnetic anomalies directly overlie steep susceptibility boundaries and basement fault contacts."
+   ],
+   "used_for": "Physical basis for H31-M shallow upper-crustal bandpass magnetic gradient crest channel rtp_bandpass_crest."
+  },
+  {
+   "id": "minoux-1978-lazy-greedy",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "publisher": "Optimization Techniques (Lecture Notes in Control and Information Sciences, Springer)",
+   "title": "Accelerated greedy algorithms for maximizing submodular set functions (Minoux, 1978)",
+   "url": "https://doi.org/10.1007/BFb0006528",
+   "accessed_utc": null,
+   "claims_verified": [
+    "Proves lazy priority-queue evaluation of monotone submodular marginal gains returns the exact greedy sequence with (1 - 1/e) optimality guarantee."
+   ],
+   "used_for": "Algorithmic basis for src/gemsdoe31/submodular_emit.py over the exact 29-cell R=300 m DTI kernel."
+  },
+  {
+   "id": "hanks-2000-scarp-diffusion",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "publisher": "AGU Reference Shelf (Quaternary Geochronology: Methods and Applications)",
+   "title": "The age of scarplike landforms from diffusion-equation analysis (Hanks, 2000)",
+   "url": "https://doi.org/10.1029/RF004p0313",
+   "accessed_utc": null,
+   "claims_verified": [
+    "Models degraded fault-scarp elevation profiles via the error-function solution of the linear/nonlinear hillslope transport equation parameterized by morphologic age kappa*t."
+   ],
+   "used_for": "Physical basis for external candidate hypothesis H31-P (1 m 3DEP scarp diffusion-age matched filter)."
   },
   {
    "id": "sgmc",

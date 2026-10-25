@@ -20,27 +20,30 @@
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">DOE GEMS Prize · competition 306 · <span class="badge badge-green">YES — VALIDATED &amp; OK TO DOWNLOAD AND SUBMIT</span></p>
-        <h1>Unique H31-B GeoTIFF: Validated &amp; Ready to Submit.</h1>
-        <p class="hero-lede">New unique H31-B submission rasters (<code>gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif</code> and companion hybrid
-        <code>gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif</code>) passing all <strong>21/21 automated GeoTIFF format checks</strong>
-        (strictly in <code>[0.0, 1.0]</code> inside footprint, <code>0</code> NaN inside footprint), the
-        <strong>Single-Feature Leakage Canary</strong> (max feature AUC <code>0.7753 &le; 0.90</code>), and the
-        <strong>Parallel-Run Uniqueness Gate</strong> (<code>r_s = 0.1143 &le; 0.90</code>, 3-px dot overlap <code>35.94% &le; 70%</code>),
-        while beating both incumbent <code>h27-4</code> (<code>0.0981</code>) and <code>GEMSDOE32 B=2</code> (<code>0.0984</code>) in
-        <strong>4/4 spatially blocked holdout folds</strong> (<code>HOLDOUT-DTI = 0.1380</code>, 95% CI <code>[0.1169, 0.1683]</code>).</p>
+        <h1>Unique H31-M GeoTIFF: Validated &amp; Ready to Submit.</h1>
+        <p class="hero-lede">New unique out-of-fold subsurface-concordance + exact 29-cell submodular submission
+        (<code>gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif</code>) passing all <strong>11/11 frozen preregistered gates</strong> and
+        <strong>21/21 GeoTIFF format checks</strong> (<code>EPSG:32611</code>, <code>3730×3292</code>, strictly in <code>[0.0, 1.0]</code>
+        inside footprint, <code>0</code> NaN inside footprint), the <strong>Single-Feature Leakage Canary</strong>
+        (max feature AUC <code>0.7740 &le; 0.90</code>), and the <strong>Parallel-Run Uniqueness Gate</strong>
+        (surface <code>r_s = 0.7204 &le; 0.90</code>, max 3-px dot overlap <code>53.16% &le; 70%</code> across all registry rasters and
+        <code>40.25%</code> vs <code>GEMSDOE32 H33-2-B2</code>). Wins <strong>4/4 hide-and-recover holdout folds on both seeds</strong>
+        (<code>HOLDOUT-DTI = 0.1350 / 0.1372</code>) and beats <code>GEMSDOE32 H33-2-B2</code> simultaneously on full off-SGMC
+        (<code>0.1010 vs 0.0940</code>), 4-block off-SGMC (<code>0.1077 vs 0.0984</code>), and piedmont off-SGMC
+        (<code>0.0641 vs 0.0586</code>).</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif" download>Download submission TIFF (gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif)</a>
-          <a class="button button-light" href="downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif" download>Download Companion Hybrid TIFF</a>
+          <a class="button button-primary" href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif" download>Download submission TIFF (gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif)</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.zip" download>Download .zip</a>
           <a class="button button-light" href="executive-summary.html">How to submit — 5 steps</a>
-          <a class="button button-light" href="#h31e">H31-E lane candidate (verdict: negative)</a>
+          <a class="button button-light" href="#h31e">Negative archive lanes (do not submit)</a>
         </div>
       </div>
       <aside class="hero-side" aria-label="Current state">
         <strong>STATUS: YES — OK TO DOWNLOAD &amp; SUBMIT</strong>
-        <p><b>Unique Name:</b> <code>GEMSDOE31-H31B-ScarpHessian-B2-37654</code><br>
-        <b>Note (134/140 chars):</b> <code>H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(&gt;200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (4/4 folds &gt; 0.2778 base)</code><br>
-        <b>Dots:</b> 37,654 (<b>0</b> within 200 m of public catalogue; <code>B=2</code> rule).
-        Format receipt verified (<a href="downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-format-check.json">receipt</a>).</p>
+        <p><b>Unique Name:</b> <code>GEMSDOE31-H31M-BStep-XMod-Submod-37654</code><br>
+        <b>Note (102/140 chars):</b> <code>H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641</code><br>
+        <b>Dots:</b> 37,654 (<b>0</b> within 200 m of public catalogue; <code>37.2%</code> piedmont balance).
+        Format receipt verified (<a href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-format-check.json">receipt</a>).</p>
       </aside>
     </div>
   </section>
@@ -49,93 +52,89 @@
     <section>
       <div class="notice notice-good">
         <strong>IS IT OK TO DOWNLOAD AND SUBMIT THIS GENERATED TIF SUBMISSION? YES — VALIDATED &amp; READY TO SUBMIT.</strong>
-        Every automated format, range (<code>[0.0, 1.0]</code> inside footprint, <code>0</code> NaN inside footprint), CRS (<code>EPSG:32611</code>,
-        <code>3730×3292</code>), leakage canary (<code>AUC &le; 0.7753 &le; 0.90</code>), uniqueness (<code>r_s = 0.1143 &le; 0.90</code>,
-        3-px dot overlap <code>35.94% &le; 70%</code>), and 4-block 21.25 km spatial holdout gate (<code>4/4</code> folds beating
-        <code>GEMSDOE32 B=2</code>) passed automatically without human intervention.
+        Primary file <code>gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif</code> passed all 11/11 frozen preregistered gates without human intervention:
+        values strictly in <code>[0.0, 1.0]</code> inside footprint (<code>0</code> NaN inside footprint, preventing
+        <code>"Predicted values must be in range [0, 1]"</code>), <code>EPSG:32611</code> <code>3730×3292</code> grid match,
+        canary max AUC <code>0.7740 &le; 0.90</code>, uniqueness surface <code>r_s = 0.7204 &le; 0.90</code> and 3-px dot overlap
+        <code>&le; 53.16% &le; 70%</code> (<code>40.25%</code> vs <code>GEMSDOE32 H33-2-B2</code>), <code>HOLDOUT-DTI = 0.1350</code>
+        (screen) / <code>0.1372</code> (confirm) winning <code>4/4</code> folds on <code>gemsdoe31-holdout-v1</code> (<code>58,625</code> withheld positives),
+        and simultaneous gains over <code>GEMSDOE32 H33-2-B2</code> on full off-SGMC (<code>0.1010 vs 0.0940</code>),
+        4-block off-SGMC (<code>0.1077 vs 0.0984</code>), and piedmont off-SGMC (<code>0.0641 vs 0.0586</code>).
       </div>
       <div class="section-head">
-        <div><p class="kicker">Submission</p><h2>One click to a validated, unique submission GeoTIFF</h2></div>
-        <p>The portal wants a single-band GeoTIFF (or a zip of one) matching the template's CRS, shape and
-        geotransform with values in <code>[0, 1]</code>. Both our primary unique standalone H31-B submission and our companion
-        corroborated-B=2 hybrid submission are validated against the template in this repository.</p>
+        <div><p class="kicker">Submission</p><h2>One click to the validated, unique H31-M submission GeoTIFF</h2></div>
+        <p>The portal expects a single-band float32 GeoTIFF (or zip of one) matching the template's CRS, shape and
+        geotransform with finite values in <code>[0, 1]</code> inside the footprint and <code>NaN</code> outside.</p>
       </div>
       <div class="card download-card">
-        <p class="kicker"><span class="badge badge-green">YES — OK TO DOWNLOAD &amp; SUBMIT</span> · Primary Unique Standalone Submission (EXP-1)</p>
-        <h2>gemsdoe31-h31b-scarp-hessian-20261025-37654</h2>
-        <p><strong>Unique Submission Name:</strong> <code>GEMSDOE31-H31B-ScarpHessian-B2-37654</code><br>
-        <strong>Short Portal Note (134/140 chars):</strong> <code>H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(&gt;200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (4/4 folds &gt; 0.2778 base)</code></p>
+        <p class="kicker"><span class="badge badge-green">YES — OK TO DOWNLOAD &amp; SUBMIT</span> · Primary Unique Submission (H31-M)</p>
+        <h2>gemsdoe31-h31m-bstep-xmod-submod-20261025-37654</h2>
+        <p><strong>Unique Submission Name:</strong> <code>GEMSDOE31-H31M-BStep-XMod-Submod-37654</code><br>
+        <strong>Short Portal Note (102/140 chars):</strong> <code>H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641</code></p>
         <p>Single-band float32 · EPSG:32611 · 100 m · 3730×3292 · values finite in [0,1] inside the footprint (0 NaN inside) · NaN
-        outside · nodata = nan · 37,654 dots (0 within 200 m of public catalogue).</p>
+        outside · nodata = nan · 37,654 dots (0 within 200 m of public catalogue; 37.2% piedmont/basin balance).</p>
         <div class="actions" style="margin-top:18px">
-          <a class="button button-primary" href="downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif" download>Download .tif (NaN outside)</a>
-          <a class="button button-light" href="downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.zip" download>Download .zip</a>
-          <a class="button button-light" href="downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif" download>All-finite fallback (.tif)</a>
+          <a class="button button-primary" href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif" download>Download .tif (NaN outside)</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.zip" download>Download .zip</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif" download>All-finite fallback (.tif)</a>
         </div>
-        <p class="download-meta">SHA-256 (NaN): <code>ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb</code><br>
-        SHA-256 (all-finite): <code>b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41</code> · SHA-256 (.zip): <code></code><br>
-        <strong>HOLDOUT-DTI (Off-Cat SGMC, 4-block, 21.25 km collar, 50,470 withheld pos):</strong> <code>0.1380</code> (95% CI <code>[0.1169, 0.1683]</code>, 4/4 folds &gt; 0.0984) ·
-        <strong>Uniqueness:</strong> <code>r_s = 0.1143 &le; 0.90</code>, 3-px overlap <code>35.94% &le; 70%</code> ·
-        <a href="downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-format-check.json">format receipt (21/21 checks)</a> ·
+        <p class="download-meta">SHA-256 (NaN): <code>ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6</code><br>
+        SHA-256 (all-finite): <code>8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0</code> · SHA-256 (.zip): <code>c24ea5d55e0ae385c9d04848676159b6afe654be0f0e9dafd5c624f3ab17c624</code><br>
+        <strong>HOLDOUT-DTI (gemsdoe31-holdout-v1, 21.25 km collar, 58,625 withheld pos):</strong> screen <code>0.1350</code> (95% CI <code>[0.1163, 0.1566]</code>, paired delta <code>[+0.0064, +0.0380]</code>), confirm <code>0.1372</code> (<code>4/4</code> folds &gt; base) ·
+        <strong>HOLDOUT-DTI (Off-SGMC 4-block, 50,470 pos):</strong> <code>0.1077</code> vs <code>0.0984</code> ·
+        <strong>Piedmont Off-SGMC DTI:</strong> <code>0.0641</code> vs <code>0.0586</code> ·
+        <strong>Uniqueness:</strong> surface <code>r_s = 0.7204 &le; 0.90</code>, max 3-px overlap <code>53.15% &le; 70%</code> ·
+        <a href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-format-check.json">format receipt (21/21 checks)</a> ·
         <a href="executive-summary.html">how to submit</a></p>
       </div>
 
       <div class="card download-card" style="margin-top:16px">
-        <p class="kicker"><span class="badge badge-green">YES — OK TO DOWNLOAD &amp; SUBMIT</span> · Companion Corroborated-B=2 Hybrid Submission (EXP-2)</p>
+        <p class="kicker"><span class="badge">OPTIONAL COMPANION</span> · Corroborated-B=2 Hybrid Archive · <span class="badge badge-red">DO NOT USE STANDALONE H31-B (gemsdoe31-h31b-scarp-hessian-20261025-37654)</span></p>
         <h2>gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654</h2>
-        <p><strong>Unique Submission Name:</strong> <code>GEMSDOE31-H31B-Corroborated-B2-Hybrid-37654</code><br>
-        <strong>Short Portal Note (136/140 chars):</strong> <code>H31-B Corroborated B=2(25k) + 12,654 new Scarp-Hessian far-field dots: 37,654 dots; 4-block HOLDOUT-DTI 0.1249 (4/4 folds &gt; 0.2778 base)</code></p>
-        <p>Retains the top 25,000 physics-corroborated dots of the <code>0.2778</code> (USER-REPORTED) <code>B=2</code> geometry and replaces its weakest
-        12,654 uncorroborated dots with 12,654 fresh <code>S_H31</code> detections at <code>d &gt; 600 m</code> (total 37,654 dots; 3-px overlap <code>66.39% &le; 70%</code>).</p>
-        <div class="actions" style="margin-top:18px">
-          <a class="button button-primary" href="downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif" download>Download Companion .tif</a>
-          <a class="button button-light" href="downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.zip" download>Download .zip</a>
-          <a class="button button-light" href="downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif" download>All-finite fallback (.tif)</a>
-        </div>
-        <p class="download-meta">SHA-256 (NaN): <code>6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c</code> ·
-        <strong>HOLDOUT-DTI (Off-Cat SGMC, 4-block):</strong> <code>0.1249</code> (95% CI <code>[0.1116, 0.1344]</code>, 4/4 folds &gt; 0.0984) ·
-        <a href="downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-format-check.json">format receipt (21/21 checks)</a></p>
+        <p><strong>Companion Submission Name:</strong> <code>GEMSDOE31-H31B-Corroborated-B2-Hybrid-37654</code> ·
+        <strong>Note (136/140 chars):</strong> <code>H31-B Corroborated B=2(25k) + 12,654 new Scarp-Hessian far-field dots: 37,654 dots; 4-block HOLDOUT-DTI 0.1249 (4/4 folds &gt; 0.2778 base)</code></p>
+        <p>Conservative archive option retaining 25,000 physics-corroborated <code>B=2</code> core dots + 12,654 far-field detections (3-px overlap <code>66.39% &le; 70%</code>). Note: earlier standalone <code>H31-B</code> placed <code>97.5%</code> of dots in steep mountains (piedmont off-SGMC DTI <code>0.0052</code>, logged as <code>IR-31-H31B-PIEDMONT-STARVATION</code>) and is superseded by <strong>H31-M</strong> above.</p>
       </div>
     </section>
 
     <section>
       <div class="section-head">
         <div><p class="kicker">Nine-Site Forensic Audit</p><h2>Why <code>GEMSDOE32</code> (<code>h33-h33-2-b2</code>) scored <code>0.2778</code> (USER-REPORTED)</h2></div>
-        <p>Exact byte-level annulus decomposition across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, and 36 (<code>evidence/nine_site_forensic_audit.json</code>).</p>
+        <p>Exact byte-level annulus and habitat decomposition across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, and 36 (<code>evidence/nine_site_forensic_audit.json</code> and <code>evidence/h31m_results.json</code>).</p>
       </div>
       <div class="grid grid-3">
         <article class="card stat"><span class="badge badge-green">B=2 Flank Prune</span><strong>2,545 dots</strong>
           <span><code>GEMSDOE32</code> (<code>37,654</code> dots, <code>0.2778</code> USER-REPORTED) equals <code>GEMSDOE28/31 h27-4</code>
           (<code>40,199</code> dots, <code>0.2708</code> USER-REPORTED) minus the <strong>2,545 dots in <code>100 m &lt; d(catalogue) &le; 200 m</code></strong>.
-          Those flank dots came from <code>sigma = 100 m</code> Gaussian smoothing of <code>H19-5</code> and earned only <code>0.0040</code> live TPw/dot
-          (&lt; <code>0.0556</code> break-even), so pruning them cut the denominator by <code>498.8</code> units and lifted DTI by <strong>+0.0070</strong>.</span></article>
-        <article class="card stat"><span class="badge badge-green">Natural Experiment</span><strong>37,654 vs 37,660</strong>
-          <span><code>GEMSDOE28 H36-1</code> emitted <code>37,660</code> dots (virtually identical to <code>GEMSDOE32</code>'s <code>37,654</code>)
-          by pruning dots at <code>d &gt; 300 m</code> while keeping <code>2,353</code> dots in <code>100–200 m</code>, and scored only
-          <strong>0.2710</strong> (USER-REPORTED). Same dot count, <strong>+0.0068 score difference</strong> — proving the gain is <code>100–200 m</code>
-          catalogue-flank pruning, not generic volume reduction.</span></article>
-        <article class="card stat"><span class="badge">H31-B Gain</span><strong>0.1380 vs 0.0984</strong>
-          <span>On the 4-block 21.25 km spatially blocked holdout (<code>50,470</code> withheld off-catalogue SGMC positives), our new unique
-          <code>H31-B</code> submission at the same <code>37,654</code>-dot <code>B=2</code> budget reaches <strong>0.1380</strong>
-          (95% CI <code>[0.1169, 0.1683]</code>), beating <code>GEMSDOE32 B=2</code> (<code>0.0984</code>) in <strong>4/4 folds</strong>.</span></article>
+          Those flank dots came from <code>sigma = 100 m</code> Gaussian smoothing of <code>H19-5</code> around pixel-masked known faults and earned only
+          <code>0.0040</code> live TPw/dot (&lt; <code>0.0556</code> break-even), lifting DTI by <strong>+0.0070</strong>.</span></article>
+        <article class="card stat"><span class="badge badge-green">Piedmont Habitat Balance</span><strong>30.9% → 37.2%</strong>
+          <span>Real catalogue faults are <code>52.6%</code> piedmont/basin (<code>slope &le; 6 deg</code>), whereas unstratified <code>off_sgmc</code> is
+          <code>81.2%</code> mountain bedrock. Mountain-only detectors (<code>GEMSDOE70 P8-OOF38k</code> <code>0.2478</code> USER-REPORTED; <code>H31-B</code>
+          <code>2.5%</code> piedmont) starve concealed range-front faults. <code>H31-M</code> restores <code>37.2%</code> piedmont balance and lifts
+          piedmont off-SGMC DTI to <strong>0.0641</strong> (vs <code>0.0586</code> in <code>GEMSDOE32 B=2</code>).</span></article>
+        <article class="card stat"><span class="badge badge-green">29-Cell Submodular Gain</span><strong>0.1350 / 0.1372</strong>
+          <span>Replacing heuristic isotropic Poisson thinning with Minoux lazy-greedy maximization over the exact 29-offset <code>R = 300 m</code>
+          triangular kernel plus 8 geophysical concordance channels wins <strong>4/4 spatial folds on both seeds</strong>
+          (screen paired delta 95% CI <code>[+0.0064, +0.0380]</code>; confirm <code>[+0.0107, +0.0392]</code>).</span></article>
       </div>
       <div style="margin-top:18px">
-        <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">All live scores are labelled USER-REPORTED per registry/score_claims.json. Annulus (1,2] px (100-200 m from public catalogue) is bolded.</caption><thead><tr><th>Site &amp;amp; Artifact</th><th>Reported DTI</th><th>Dots |P|</th><th>Catalogue Annuli d=0 / (0,1] / (1,2] / (2,3] / &amp;gt;3 px</th><th>Off-Cat SGMC DTI</th><th>Calibrated Live Model</th><th>SHA-256</th></tr></thead><tbody><tr><td><strong>GEMSDOE24</strong><div class="small"><code>h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan</code></div></td><td>0.2477 <span class="badge">USER-REPORTED</span></td><td>60,069</td><td>0 / 5,355 / <strong>3,414</strong> / 3,169 / 48,131</td><td>0.0984</td><td>0.2505</td><td><code>68d0e2e4fcc594f9…</code></td></tr><tr><td><strong>GEMSDOE25</strong><div class="small"><code>dotted-h19-5-d2-8-20261002-e56ea318af89-nan</code></div></td><td>0.2600 <span class="badge">USER-REPORTED</span></td><td>44,090</td><td>0 / 3,891 / <strong>2,545</strong> / 2,171 / 35,483</td><td>0.0927</td><td>0.2608</td><td><code>91eae1ca42ec845e…</code></td></tr><tr><td><strong>GEMSDOE27</strong><div class="small"><code>topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan</code></div></td><td>0.2449 <span class="badge">USER-REPORTED</span></td><td>61,328</td><td>0 / 5,413 / <strong>3,462</strong> / 3,312 / 49,141</td><td>0.0996</td><td>0.2519</td><td><code>33003374335d84bf…</code></td></tr><tr><td><strong>GEMSDOE28-h27-4</strong><div class="small"><code>h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan</code></div></td><td>0.2708 <span class="badge">USER-REPORTED</span></td><td>40,199</td><td>0 / 0 / <strong>2,545</strong> / 2,171 / 35,483</td><td>0.0938</td><td>0.2712</td><td><code>ab02300152248fdd…</code></td></tr><tr><td><strong>GEMSDOE28-h32-1</strong><div class="small"><code>h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan</code></div></td><td>0.2649 <span class="badge">USER-REPORTED</span></td><td>42,294</td><td>0 / 1,542 / <strong>3,095</strong> / 2,179 / 35,478</td><td>0.0933</td><td>0.2657</td><td><code>04d31922f5c1ea40…</code></td></tr><tr><td><strong>GEMSDOE28-h36-1</strong><div class="small"><code>h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan</code></div></td><td>0.2710 <span class="badge">USER-REPORTED</span></td><td>37,660</td><td>0 / 0 / <strong>2,353</strong> / 2,024 / 33,283</td><td>0.0919</td><td>0.2705</td><td><code>5556aa1438fd6737…</code></td></tr><tr><td><strong>GEMSDOE28-h38-1</strong><div class="small"><code>h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan</code></div></td><td>0.2707 <span class="badge">USER-REPORTED</span></td><td>37,860</td><td>0 / 0 / <strong>2,353</strong> / 2,043 / 33,464</td><td>0.0921</td><td>0.2709</td><td><code>81d5b87bc8424f16…</code></td></tr><tr><td><strong>GEMSDOE30</strong><div class="small"><code>d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca</code></div></td><td>0.2600 <span class="badge">USER-REPORTED</span></td><td>44,090</td><td>0 / 3,891 / <strong>2,545</strong> / 2,171 / 35,483</td><td>0.0927</td><td>0.2608</td><td><code>8cf893ead5667df2…</code></td></tr><tr><td><strong>GEMSDOE32-h33-2-b2</strong><div class="small"><code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</code></div></td><td>0.2778 <span class="badge">USER-REPORTED</span></td><td>37,654</td><td>0 / 0 / <strong>0</strong> / 2,171 / 35,483</td><td>0.0940</td><td>0.2767</td><td><code>c55bafc470054e82…</code></td></tr><tr><td><strong>GEMSDOE33-h33d</strong><div class="small"><code>h33d-analog-tip-stepover-r30-20261004-cb490425926e</code></div></td><td>0.2632 <span class="badge">USER-REPORTED</span></td><td>41,865</td><td>0 / 1,377 / <strong>2,517</strong> / 2,130 / 35,841</td><td>0.0942</td><td>0.2692</td><td><code>87f857d505e23247…</code></td></tr><tr><td><strong>GEMSDOE36-pinn</strong><div class="small"><code>anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros</code></div></td><td>0.2750 <span class="badge">USER-REPORTED</span></td><td>38,854</td><td>0 / 0 / <strong>0</strong> / 2,281 / 36,573</td><td>0.0954</td><td>0.2784</td><td><code>e15891020b9c5705…</code></td></tr></tbody></table></div>
+        <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">All live scores are labelled USER-REPORTED per registry/score_claims.json (no organizer receipt in repository; projections are never written as scores). Annulus (1,2] px (100-200 m from public catalogue) is bolded.</caption><thead><tr><th>Site &amp;amp; Artifact</th><th>Reported DTI</th><th>Dots |P|</th><th>Catalogue Annuli d=0 / (0,1] / (1,2] / (2,3] / &amp;gt;3 px</th><th>Full Off-Cat SGMC DTI</th><th>SHA-256</th></tr></thead><tbody><tr><td><strong>GEMSDOE24</strong><div class="small"><code>h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan</code></div></td><td>0.2477 <span class="badge">USER-REPORTED</span></td><td>60,069</td><td>0 / 5,355 / <strong>3,414</strong> / 3,169 / 48,131</td><td>0.0984</td><td><code>68d0e2e4fcc594f9…</code></td></tr><tr><td><strong>GEMSDOE25</strong><div class="small"><code>dotted-h19-5-d2-8-20261002-e56ea318af89-nan</code></div></td><td>0.2600 <span class="badge">USER-REPORTED</span></td><td>44,090</td><td>0 / 3,891 / <strong>2,545</strong> / 2,171 / 35,483</td><td>0.0927</td><td><code>91eae1ca42ec845e…</code></td></tr><tr><td><strong>GEMSDOE27</strong><div class="small"><code>topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan</code></div></td><td>0.2449 <span class="badge">USER-REPORTED</span></td><td>61,328</td><td>0 / 5,413 / <strong>3,462</strong> / 3,312 / 49,141</td><td>0.0996</td><td><code>33003374335d84bf…</code></td></tr><tr><td><strong>GEMSDOE28-h27-4</strong><div class="small"><code>h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan</code></div></td><td>0.2708 <span class="badge">USER-REPORTED</span></td><td>40,199</td><td>0 / 0 / <strong>2,545</strong> / 2,171 / 35,483</td><td>0.0938</td><td><code>ab02300152248fdd…</code></td></tr><tr><td><strong>GEMSDOE28-h32-1</strong><div class="small"><code>h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan</code></div></td><td>0.2649 <span class="badge">USER-REPORTED</span></td><td>42,294</td><td>0 / 1,542 / <strong>3,095</strong> / 2,179 / 35,478</td><td>0.0933</td><td><code>04d31922f5c1ea40…</code></td></tr><tr><td><strong>GEMSDOE28-h36-1</strong><div class="small"><code>h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan</code></div></td><td>0.2710 <span class="badge">USER-REPORTED</span></td><td>37,660</td><td>0 / 0 / <strong>2,353</strong> / 2,024 / 33,283</td><td>0.0919</td><td><code>5556aa1438fd6737…</code></td></tr><tr><td><strong>GEMSDOE28-h38-1</strong><div class="small"><code>h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan</code></div></td><td>0.2707 <span class="badge">USER-REPORTED</span></td><td>37,860</td><td>0 / 0 / <strong>2,353</strong> / 2,043 / 33,464</td><td>0.0921</td><td><code>81d5b87bc8424f16…</code></td></tr><tr><td><strong>GEMSDOE30</strong><div class="small"><code>d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca</code></div></td><td>0.2600 <span class="badge">USER-REPORTED</span></td><td>44,090</td><td>0 / 3,891 / <strong>2,545</strong> / 2,171 / 35,483</td><td>0.0927</td><td><code>8cf893ead5667df2…</code></td></tr><tr><td><strong>GEMSDOE32-h33-2-b2</strong><div class="small"><code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</code></div></td><td>0.2778 <span class="badge">USER-REPORTED</span></td><td>37,654</td><td>0 / 0 / <strong>0</strong> / 2,171 / 35,483</td><td>0.0940</td><td><code>c55bafc470054e82…</code></td></tr><tr><td><strong>GEMSDOE33-h33d</strong><div class="small"><code>h33d-analog-tip-stepover-r30-20261004-cb490425926e</code></div></td><td>0.2632 <span class="badge">USER-REPORTED</span></td><td>41,865</td><td>0 / 1,377 / <strong>2,517</strong> / 2,130 / 35,841</td><td>0.0942</td><td><code>87f857d505e23247…</code></td></tr><tr><td><strong>GEMSDOE36-pinn</strong><div class="small"><code>anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros</code></div></td><td>0.2750 <span class="badge">USER-REPORTED</span></td><td>38,854</td><td>0 / 0 / <strong>0</strong> / 2,281 / 36,573</td><td>0.0954</td><td><code>e15891020b9c5705…</code></td></tr></tbody></table></div>
       </div>
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">H31-B Campaign</p><h2>Three disciplined experiments under the 21.25 km variogram buffer</h2></div>
-        <p>Evaluated with <code>evaluator_v2.0_protocol_v1_buffer21250m</code> across 4 spatial blocks (<code>50,470</code> withheld off-catalogue SGMC positives; <code>47,088</code> withheld catalogue-gap positives).</p>
+        <div><p class="kicker">H31-M Multi-Instrument Comparison</p><h2>Simultaneous wins on hide-and-recover, off-catalogue SGMC, and piedmont fault discovery</h2></div>
+        <p>Evaluated under the 21.25 km variogram collar across <code>gemsdoe31-holdout-v1</code> (<code>58,625</code> withheld positives), 4-block off-SGMC (<code>50,470</code> positives), full off-SGMC (<code>61,664</code> positives), and piedmont off-SGMC (<code>slope &le; 6 deg</code>, <code>11,573</code> positives).</p>
       </div>
-      <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Source: evidence/h31b_experiments.json and evidence/run_card_2026-10-25.json.</caption><thead><tr><th>Experiment / Baseline</th><th>Dots |P|</th><th>HOLDOUT-DTI (Off-Cat SGMC, 4-Block)</th><th>HOLDOUT-DTI (Cat-Gap, 4-Block)</th><th>Uniqueness vs Registry</th><th>Verdict</th></tr></thead><tbody><tr><td><code>EXP-1</code><div class="small">H31-B Standalone Multi-Physics Scarp-Hessian-Alteration-Kostrov Constellation (B=2, R=2.85px, 37,654 dots)</div></td><td>37,654</td><td><strong>0.1380</strong><div class="small">95% CI [0.1169, 0.1683] (4/4 folds &gt; B=2)</div></td><td>0.1391</td><td>r_s=0.1143 / 3px=35.9%</td><td><span class="badge badge-green">PASS / PROMOTE</span></td></tr><tr><td><code>EXP-2</code><div class="small">H31-B Corroborated B=2 Hybrid Constellation (25,000 S_H31-corroborated B=2 core + 12,654 far-field S_H31 ridges)</div></td><td>37,654</td><td><strong>0.1249</strong><div class="small">95% CI [0.1116, 0.1344] (4/4 folds &gt; B=2)</div></td><td>0.1206</td><td>r_s=0.1143 / 3px=66.4%</td><td><span class="badge badge-green">PASS / PROMOTE</span></td></tr><tr><td><code>EXP-3</code><div class="small">H31-B Un-Pruned Catalogue-Flank (B=1) + Dense Spacing (R=2.35px) Ablation (42,500 dots)</div></td><td>42,500</td><td><strong>0.1322</strong><div class="small">95% CI [0.1211, 0.1418] (4/4 folds &gt; B=2)</div></td><td>0.1291</td><td>r_s=0.1143 / 3px=62.5%</td><td><span class="badge">negative</span></td></tr></tbody></table></div>
+      <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Source: evidence/h31m_results.json and evidence/h31m_run_card.json (all computed numbers carry evaluator version, withheld positive count, and 95% CI).</caption><thead><tr><th>Candidate / Benchmark</th><th>Dots |P|</th><th>Piedmont %</th><th>Cat-Gap Hide-and-Recover (v1)</th><th>HOLDOUT-DTI (4-Block Off-SGMC)</th><th>Full Off-SGMC DTI</th><th>Piedmont Off-SGMC DTI</th><th>Submission Status</th></tr></thead><tbody><tr><td><strong>H31-M Primary Unique Submission (promoted)</strong></td><td>37,654</td><td>37.2%</td><td>HOLDOUT-DTI 0.1350 (scr) / 0.1372 (cnf)</td><td><strong>0.1077</strong><div class="small">95% CI [0.0902, 0.1336]</div></td><td>0.1010</td><td><strong>0.0641</strong></td><td><span class="badge badge-green">YES — OK TO SUBMIT</span></td></tr><tr><td><strong>GEMSDOE32 H33-2-B2 (0.2778 USER-REPORTED)</strong></td><td>37,654</td><td>30.9%</td><td>prior-art B=2 benchmark</td><td><strong>0.0984</strong><div class="small">95% CI [0.0797, 0.1159]</div></td><td>0.0940</td><td><strong>0.0586</strong></td><td><span class="badge">sibling benchmark</span></td></tr><tr><td><strong>GEMSDOE28/31 H27-4 (0.2708 USER-REPORTED)</strong></td><td>40,199</td><td>30.8%</td><td>HOLDOUT-DTI 0.1297</td><td><strong>0.0981</strong><div class="small">95% CI [0.0796, 0.1151]</div></td><td>0.0938</td><td><strong>0.0584</strong></td><td><span class="badge">prior archive</span></td></tr><tr><td><strong>H31-B Standalone (97.5% mountain; piedmont-starved)</strong></td><td>37,654</td><td>2.5%</td><td>HOLDOUT-DTI 0.1171</td><td><strong>0.1380</strong><div class="small">95% CI [0.1169, 0.1683]</div></td><td>0.1391</td><td><strong>0.0052</strong></td><td><span class="badge badge-red">ARCHIVE — DO NOT SUBMIT</span></td></tr><tr><td><strong>H31-E Surface-Expression (subsurface-blind)</strong></td><td>40,199</td><td>40.1%</td><td>HOLDOUT-DTI 0.0884 (full emit)</td><td><strong>0.0773</strong><div class="small">95% CI [0.0598, 0.0881]</div></td><td>0.0712</td><td><strong>0.0481</strong></td><td><span class="badge badge-red">NO — DO NOT SUBMIT</span></td></tr></tbody></table></div>
     </section>
 
     <section>
       <div class="section-head">
         <div><p class="kicker">Earlier Baseline Arms</p><h2>What the baseline arms A–D and union sweep measured</h2></div>
-        <p>Two truth proxies, both off the public catalogue path. Their orderings on raw thresholded arms vs dotted emissions motivate the H31-B dotted architecture.</p>
+        <p>Two truth proxies, both off the public catalogue path. Their orderings on raw thresholded arms vs dotted emissions motivate the H31-M submodular dotted architecture.</p>
       </div>
       <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Same folds, same model class, no catalogue-derived feature in either arm.</caption><thead><tr><th>feature arm</th><th>inputs</th><th>thr</th><th>dots</th><th>catalogue-gap DTI</th><th>dots</th><th>off-catalogue DTI</th><th>credit/dot</th></tr></thead><tbody><tr><td><code>A_competition19</code></td><td>19 planes</td><td>0.50</td><td>190,320</td><td><strong>0.1063</strong></td><td>190,320</td><td><strong>0.0516</strong></td><td>0.0234</td></tr><tr><td><code>B_19_plus_lidar</code></td><td>31 planes</td><td>0.50</td><td>224,532</td><td><strong>0.1232</strong></td><td>224,532</td><td><strong>0.0557</strong></td><td>0.0231</td></tr><tr><td><code>C_19_plus_radiometric</code></td><td>28 planes</td><td>0.50</td><td>265,544</td><td><strong>0.1182</strong></td><td>265,544</td><td><strong>0.0629</strong></td><td>0.0239</td></tr><tr><td><code>D_19_plus_lidar_radiometric</code></td><td>40 planes</td><td>0.50</td><td>221,335</td><td><strong>0.1335</strong></td><td>221,335</td><td><strong>0.0512</strong></td><td>0.0214</td></tr></tbody></table></div>
       <p class="small">Catalogue-gap proxy: held-out public-catalogue pixels (60,988 px). Off-catalogue proxy: USGS SGMC
@@ -149,12 +148,11 @@
         <div><p class="kicker">Direction of travel</p><h2>Adding detections works; re-budgeting does not</h2></div>
         <p>The incumbent's own dots earn 0.1353 credit each on the off-catalogue proxy; the best
         detector arms' dots earn ~0.02. Thresholding the incumbent down therefore loses at every quantile, while
-        replacing uncorroborated dots with multi-physics H31-B detections under the B=2 (>200 m) rule wins in 4/4 spatial blocks.</p>
+        training deconfounded subsurface-concordance OOF models and allocating 37,654 dots via the exact 29-cell DTI kernel wins across all instruments.</p>
       </div>
       <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Catalogue-dropping variants only, both detector arms, thresholds that actually add at least 1,000 dots; the full sweep including the near-empty high thresholds is in evidence/union_results.json. The incumbent is never thinned; additions are only ever added.</caption><thead><tr><th>emission</th><th>total dots</th><th>catalogue-gap DTI</th><th>off-catalogue DTI</th><th>Δ off-catalogue</th><th>added credit/dot</th></tr></thead><tbody><tr><td><strong>incumbent</strong> (40,199 dots)</td><td>—</td><td>0.0491</td><td>0.0938</td><td>—</td><td>0.1353</td></tr><tr><td>incumbent + LiDAR arm p≥0.50<div class="small">+211,125 added dots</div></td><td>251,324</td><td>0.1033</td><td>0.0982</td><td><strong>+0.0044</strong></td><td>0.0203</td></tr><tr><td>incumbent + LiDAR arm p≥0.60 <span class="badge badge-green">best union</span><div class="small">+65,939 added dots</div></td><td>106,138</td><td>0.0948</td><td>0.0999</td><td><strong>+0.0060</strong></td><td>0.0247</td></tr><tr><td>incumbent + LiDAR arm p≥0.65<div class="small">+30,461 added dots</div></td><td>70,660</td><td>0.0821</td><td>0.0972</td><td><strong>+0.0034</strong></td><td>0.0252</td></tr><tr><td>incumbent + LiDAR arm p≥0.70<div class="small">+12,180 added dots</div></td><td>52,379</td><td>0.0683</td><td>0.0958</td><td><strong>+0.0020</strong></td><td>0.0277</td></tr><tr><td>incumbent + LiDAR arm p≥0.75<div class="small">+4,586 added dots</div></td><td>44,785</td><td>0.0592</td><td>0.0950</td><td><strong>+0.0012</strong></td><td>0.0329</td></tr><tr><td>incumbent + LiDAR arm p≥0.80<div class="small">+1,563 added dots</div></td><td>41,762</td><td>0.0524</td><td>0.0944</td><td><strong>+0.0005</strong></td><td>0.0373</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.50<div class="small">+207,428 added dots</div></td><td>247,627</td><td>0.1090</td><td>0.0933</td><td><strong>-0.0006</strong></td><td>0.0180</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.60<div class="small">+69,320 added dots</div></td><td>109,519</td><td>0.0971</td><td>0.0951</td><td><strong>+0.0012</strong></td><td>0.0196</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.65<div class="small">+34,257 added dots</div></td><td>74,456</td><td>0.0851</td><td>0.0956</td><td><strong>+0.0018</strong></td><td>0.0215</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.70<div class="small">+15,105 added dots</div></td><td>55,304</td><td>0.0721</td><td>0.0955</td><td><strong>+0.0017</strong></td><td>0.0247</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.75<div class="small">+6,439 added dots</div></td><td>46,638</td><td>0.0622</td><td>0.0952</td><td><strong>+0.0014</strong></td><td>0.0302</td></tr><tr><td>incumbent + LiDAR + radiometric arm p≥0.80<div class="small">+2,429 added dots</div></td><td>42,628</td><td>0.0558</td><td>0.0949</td><td><strong>+0.0010</strong></td><td>0.0421</td></tr></tbody></table></div>
-      <div class="notice notice-good"><strong>Promoted H31-B Submissions — Validated &amp; Ready to Submit</strong>
-      Primary unique standalone: <code>gemsdoe31-h31b-scarp-hessian-20261025-37654</code> (<code>HOLDOUT-DTI = 0.1380</code>, 4/4 folds &gt; 0.0984).
-      Companion corroborated-B=2 hybrid: <code>gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654</code> (<code>HOLDOUT-DTI = 0.1249</code>, 4/4 folds &gt; 0.0984).
+      <div class="notice notice-good"><strong>Promoted H31-M Primary Unique Submission — Validated &amp; Ready to Submit</strong>
+      Primary unique submission: <code>gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif</code> (<code>HOLDOUT-DTI = 0.1350 / 0.1372</code>, Off-SGMC 4-block <code>0.1077</code>, Piedmont Off-SGMC <code>0.0641</code>).
       <a href="executive-summary.html">Full upload checklist and portal notes →</a></div>
     </section>
 

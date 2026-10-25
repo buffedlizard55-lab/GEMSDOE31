@@ -3,13 +3,13 @@
  "generated_utc": "2026-10-25",
  "policy": "Every hash and pixel count below is copied out of the format-check receipt written by scripts/build_submission.py. Local validation is not organizer acceptance and no file here carries an organizer receipt.",
  "current_recommended": {
-  "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654",
-  "submission_name": "GEMSDOE31-H31B-ScarpHessian-B2-37654",
-  "role": "PRIMARY UNIQUE SUBMISSION (YES \u2014 OK TO DOWNLOAD AND SUBMIT) - H31-B1..B4 Standalone Multi-Physics Scarp-Hessian-Alteration-Kostrov Constellation (37,654 dots, B=2 >200m catalogue exclusion, R=2.85px)",
-  "score_status": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1380, 95% CI [0.1169, 0.1683], 4/4 folds beating GEMSDOE32 B=2 0.0984 and incumbent h27-4 0.0981)",
+  "name": "gemsdoe31-h31m-bstep-xmod-submod-20261025-37654",
+  "submission_name": "GEMSDOE31-H31M-BStep-XMod-Submod-37654",
+  "role": "PRIMARY UNIQUE SUBMISSION (YES \u2014 OK TO DOWNLOAD AND SUBMIT) - H31-M Deconfounded Subsurface Basement-Step, Gravity Phase-Tilt, RTP Bandpass & Cross-Modality Strike Concordance + Exact 29-Cell Submodular DTI Allocation (37,654 dots, B=2 >200m catalogue exclusion)",
+  "score_status": "HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld positives, screen=0.1350 [0.1163, 0.1566], confirm=0.1372 [0.1191, 0.1580], 4/4 folds > base) & HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 off-SGMC positives, mean=0.1077 [0.0902, 0.1336], piedmont off-SGMC DTI=0.0641 vs GEMSDOE32 B=2 0.0586; no organizer receipt)",
   "slot_approved": false,
   "ok_to_download_and_submit": true,
-  "reason_not_slot_approved": "YES \u2014 OK TO DOWNLOAD AND SUBMIT: Unique GeoTIFF validated across all 21 format checks, passes the Parallel-Run Uniqueness Gate (r_s = 0.1143 <= 0.90; 3-px overlap = 35.94% <= 70%), and beats incumbent h27-4 and GEMSDOE32 B=2 in 4/4 spatially blocked holdout folds. (slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.)"
+  "reason_not_slot_approved": "YES \u2014 OK TO DOWNLOAD AND SUBMIT: Unique H31-M GeoTIFF passed all 11/11 frozen preregistered gates (21/21 format checks, canary max AUC 0.7740 <= 0.90, pre-placement surface r_s 0.7204 <= 0.90, final 3-px dot overlap <= 53.16% across all registry rasters and 40.25% vs GEMSDOE32 H33-2-B2, 4/4 hide-and-recover folds won on both seeds, and simultaneous gains over GEMSDOE32 H33-2-B2 on full off-SGMC, 4-block off-SGMC, and piedmont off-SGMC proxies). (slot_approved remains False under test_registry.py fail-closed schema policy because no live DrivenData organizer receipt is attached.)"
  },
  "best_research_candidate": {
   "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654",
@@ -34,15 +34,77 @@
  },
  "files": [
   {
+   "id": "primary-h31m-bstep-xmod-submod",
+   "name": "gemsdoe31-h31m-bstep-xmod-submod-20261025-37654",
+   "submission_name": "GEMSDOE31-H31M-BStep-XMod-Submod-37654",
+   "ok_to_download_and_submit": true,
+   "role": "PRIMARY UNIQUE SUBMISSION (YES \u2014 OK TO DOWNLOAD AND SUBMIT) - H31-M Deconfounded Subsurface Basement-Step, Gravity Phase-Tilt, RTP Bandpass & Cross-Modality Strike Concordance + Exact 29-Cell Submodular DTI Allocation (37,654 dots, B=2 >200m catalogue exclusion)",
+   "provenance": "Generated in GEMSDOE31 by scripts/run_h31m.py (frozen in knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md): 8 label-free geophysical/structural channels + 2-seed spatially collared 4-quadrant out-of-fold dual-head HistGradientBoosting (M_sub on 37 full-coverage bands + M_lidar within lidar_valid on 48 bands with Bayes prior-odds normalization and quantile marginal alignment) + Minoux lazy-greedy exact 29-cell R=300m submodular DTI allocation with B=2 (>200 m) public-catalogue exclusion.",
+   "note_for_portal": "H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641",
+   "slot_approved": false,
+   "why_not_slot_approved": "YES \u2014 OK TO DOWNLOAD AND SUBMIT (verdict=promote across all 11/11 frozen gates in evidence/h31m_run_card.json: 21/21 GeoTIFF checks pass; canary max AUC 0.7740<=0.90; uniqueness max surface r_s=0.7204<=0.90 and max 3-px dot overlap 53.16%<=70% across all registry rasters and 40.25% vs GEMSDOE32 H33-2-B2; beats base in 4/4 folds on both seeds with HOLDOUT-DTI 0.1350/0.1372; beats GEMSDOE32 H33-2-B2 on full off-SGMC 0.1010 vs 0.0940, 4-block off-SGMC 0.1077 vs 0.0984, and piedmont off-SGMC 0.0641 vs 0.0586). Note: slot_approved remains False under test_registry.py fail-closed schema policy because no live DrivenData organizer receipt is attached.",
+   "positive_pixels": 37654,
+   "positive_pixels_on_public_catalogue": 0,
+   "format_status": "locally validated against the grid template; not organizer acceptance",
+   "receipt": "docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-format-check.json",
+   "file_nan": "docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif",
+   "bytes_nan": 182571,
+   "sha256_nan": "ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6",
+   "format_ok_nan": true,
+   "hard_failures_nan": [],
+   "organizer_acceptance_verified_nan": false,
+   "file_allfinite": "docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif",
+   "bytes_allfinite": 138497,
+   "sha256_allfinite": "8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0",
+   "format_ok_allfinite": true,
+   "hard_failures_allfinite": [],
+   "organizer_acceptance_verified_allfinite": false,
+   "zip": "docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.zip",
+   "sha256_zip": "c24ea5d55e0ae385c9d04848676159b6afe654be0f0e9dafd5c624f3ab17c624",
+   "bytes_zip": 131271,
+   "measured": {
+    "holdout_v1_screen_DTI": 0.135034,
+    "holdout_v1_screen_base_DTI": 0.113497,
+    "holdout_v1_screen_ci95": [
+     0.11633374663592005,
+     0.15656767027992866
+    ],
+    "holdout_v1_paired_delta_ci95": [
+     0.006385757169909022,
+     0.03802179406762765
+    ],
+    "holdout_v1_confirm_DTI": 0.137153,
+    "holdout_v1_confirm_base_DTI": 0.112705,
+    "holdout_v1_evaluator": "gemsdoe31-holdout-v1",
+    "holdout_v1_withheld_positives": 58625,
+    "off_catalogue_proxy_DTI": 0.100955,
+    "gemsdoe32_b2_off_catalogue_proxy_DTI": 0.093965,
+    "incumbent_off_catalogue_proxy_DTI": 0.093848,
+    "delta": 0.007107,
+    "holdout_4block_off_sgmc_DTI": 0.107742,
+    "holdout_4block_ci95": [
+     0.090155,
+     0.133628
+    ],
+    "piedmont_off_sgmc_DTI": 0.064106,
+    "gemsdoe32_b2_piedmont_off_sgmc_DTI": 0.058614,
+    "piedmont_dot_fraction": 0.37215,
+    "uniqueness_max_surface_spearman": 0.72037,
+    "uniqueness_max_dot_overlap_3px": 0.53155,
+    "uniqueness_dot_overlap_vs_gemsdoe32_b2": 0.40245,
+    "verdict": "promote"
+   }
+  },
+  {
    "id": "primary-h31b-scarp-hessian-standalone",
    "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654",
    "submission_name": "GEMSDOE31-H31B-ScarpHessian-B2-37654",
-   "ok_to_download_and_submit": true,
-   "role": "PRIMARY UNIQUE SUBMISSION (YES \u2014 OK TO DOWNLOAD AND SUBMIT) - H31-B1..B4 Standalone Multi-Physics Scarp-Hessian-Alteration-Kostrov Constellation (37,654 dots, B=2 >200m catalogue exclusion, R=2.85px)",
-   "provenance": "Generated in GEMSDOE31 by scripts/run_h31b_campaign.py from H31-B1 (3DEP 1 m LiDAR scarp curvature/step/relief), H31-B2 (shallow-basement & potential-field 2D Hessian crest), H31-B3 (GeoDAWN argillic K-leaching Th-K & U/K mobility), and H31-B4 (Kostrov strain-rate + microseismicity + 4-block fold-OOF likelihood), with 12 km survey-regime-invariant local standardization, B=2 (d(catalogue) > 200 m) exclusion, and R=2.85 px Poisson-disk emission.",
-   "note_for_portal": "H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(>200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (4/4 folds > 0.2778 base)",
+   "ok_to_download_and_submit": false,
+   "role": "ARCHIVE BEDROCK SPECIALIST (SUPERSEDED BY H31-M; DO NOT SUBMIT AS PRIMARY) - H31-B1..B4 Standalone Scarp-Hessian-Alteration-Kostrov Constellation (37,654 dots; 97.5% mountain-bedrock concentration, IR-31-H31B-PIEDMONT-STARVATION)",
+   "provenance": "Generated in GEMSDOE31 by scripts/run_h31b_campaign.py from H31-B1..B4 surfaces + OOF probability + B=2 (>200 m) exclusion + R=2.85 px Poisson emission. Superseded by H31-M after habitat audit revealed 97.5% mountain placement (piedmont off-SGMC DTI 0.0052 vs H31-M 0.0641 and gemsdoe31-holdout-v1 DTI 0.1171 vs H31-M 0.1350).",
+   "note_for_portal": "H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(>200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (bedrock archive)",
    "slot_approved": false,
-   "why_not_slot_approved": "YES \u2014 OK TO DOWNLOAD AND SUBMIT (format_ok=True, 21/21 GeoTIFF checks passed; uniqueness_ok=True, r_s=0.1143<=0.90, 3px_overlap=35.94%<=70%; 4-block HOLDOUT-DTI=0.1380 beating h27-4 0.0981 and GEMSDOE32 B=2 0.0984 in 4/4 folds). Note: slot_approved remains False under test_registry.py fail-closed policy because no live DrivenData organizer receipt is attached.",
+   "why_not_slot_approved": "Superseded by H31-M due to piedmont starvation (IR-31-H31B-PIEDMONT-STARVATION: only 2.5% piedmont dots, piedmont off-SGMC DTI 0.0052 vs GEMSDOE32 B=2 0.0586 and H31-M 0.0641; gemsdoe31-holdout-v1 DTI 0.1171 vs H31-M 0.1350).",
    "positive_pixels": 37654,
    "positive_pixels_on_public_catalogue": 0,
    "format_status": "locally validated against the grid template; not organizer acceptance",
@@ -60,6 +122,8 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.zip",
+   "sha256_zip": "79c7f224760ad452e5883ec8fbbf5b1c9b3276af4e8920a7d83489b4f698885e",
+   "bytes_zip": 136532,
    "measured": {
     "off_catalogue_proxy_DTI": 0.139144,
     "incumbent_off_catalogue_proxy_DTI": 0.09385,
@@ -103,6 +167,8 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.zip",
+   "sha256_zip": "ce32c33fd7c3610a80e3cdb5c0f8fd8a27edad90fcabf6390ef5ce8d0e0c148c",
+   "bytes_zip": 144667,
    "measured": {
     "off_catalogue_proxy_DTI": 0.120579,
     "incumbent_off_catalogue_proxy_DTI": 0.09385,
@@ -145,7 +211,9 @@
    "format_ok_allfinite": true,
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
-   "zip": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip"
+   "zip": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip",
+   "sha256_zip": "bb1539bf51f84c8b04e8175bddb23c0269e950a841f6fb6dd812852d4dedf43b",
+   "bytes_zip": 152689
   },
   {
    "id": "research-union-lidar-arm",
@@ -174,6 +242,8 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.zip",
+   "sha256_zip": "553fd9b8ed2d9af2ed0ae2309b4dec78aa06b1a6ddbe5c29d37ad4971844f0d4",
+   "bytes_zip": 201767,
    "measured": {
     "off_catalogue_proxy_DTI": 0.09985654750452583,
     "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
@@ -211,6 +281,8 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.zip",
+   "sha256_zip": "1903a8f4099cff32bed5b5bad3fccc7da0bed4eec7df704f08de0cc208098d31",
+   "bytes_zip": 166820,
    "measured": {
     "off_catalogue_proxy_DTI": 0.09552698476959738,
     "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
@@ -270,6 +342,8 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.zip",
+   "sha256_zip": "96e8919315043ff1fc5cc39a33aaca2b379e5b154a3272607d2183f12667bde7",
+   "bytes_zip": 158340,
    "measured": {
     "holdout_dti_screen": 0.13404828147016595,
     "holdout_dti_screen_ci95": [
