@@ -99,6 +99,22 @@ def main() -> None:
     register = (ROOT / "registry" / "submissions.json").read_text()
     if '"slot_approved": true' in register:
         fail("a submission is marked slot-approved without a promotion gate record")
+    try:
+        registry_data = json.loads(register)
+        for record in registry_data.get("files", []):
+            if not record.get("zip"):
+                continue
+            archive = ROOT / record["zip"]
+            if not archive.is_file():
+                fail(f"registered submission ZIP is missing: {record['zip']}")
+                continue
+            digest = record.get("sha256_zip", "")
+            if len(digest) != 64 or hashlib.sha256(archive.read_bytes()).hexdigest() != digest:
+                fail(f"registered submission ZIP digest is missing, malformed, or stale: {record['zip']}")
+            if record.get("bytes_zip") != archive.stat().st_size:
+                fail(f"registered submission ZIP byte count is stale: {record['zip']}")
+    except (KeyError, TypeError, ValueError) as exc:
+        fail(f"cannot verify submission ZIP metadata: {exc}")
 
     feed = (DOCS / "feed.json").read_text()
     if "no organizer receipt" not in feed:

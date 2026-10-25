@@ -151,7 +151,9 @@
    "format_ok_allfinite": true,
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
-   "zip": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip"
+   "zip": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip",
+   "sha256_zip": "bb1539bf51f84c8b04e8175bddb23c0269e950a841f6fb6dd812852d4dedf43b",
+   "bytes_zip": 152689
   },
   {
    "id": "research-union-lidar-arm",
@@ -178,6 +180,8 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.zip",
+   "sha256_zip": "553fd9b8ed2d9af2ed0ae2309b4dec78aa06b1a6ddbe5c29d37ad4971844f0d4",
+   "bytes_zip": 201767,
    "measured": {
     "off_catalogue_proxy_DTI": 0.09985654750452583,
     "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
@@ -213,6 +217,8 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.zip",
+   "sha256_zip": "1903a8f4099cff32bed5b5bad3fccc7da0bed4eec7df704f08de0cc208098d31",
+   "bytes_zip": 166820,
    "measured": {
     "off_catalogue_proxy_DTI": 0.09552698476959738,
     "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
@@ -281,7 +287,9 @@
     "fpw": 9193.274462229707,
     "fnw": 2678.3058560175496
    },
-   "current_run_card": "docs/downloads/magrest-run-card.json"
+   "current_run_card": "docs/downloads/magrest-run-card.json",
+   "sha256_zip": "f0313e7fa0751622f4bcf2db23dba430bbc3467dc1b8b154d4c4ba6450f5fc14",
+   "bytes_zip": 121213
   }
  ],
  "format_conventions": {

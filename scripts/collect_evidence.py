@@ -188,6 +188,10 @@ def submissions_register() -> dict:
             record[f"organizer_acceptance_verified_{short}"] = validated.get("organizer_acceptance_verified", False)
         if "zip" in receipt.get("files", {}):
             record["zip"] = receipt["files"]["zip"]
+            zip_path = ROOT / record["zip"]
+            if zip_path.is_file():
+                record["sha256_zip"] = sha256(zip_path)
+                record["bytes_zip"] = zip_path.stat().st_size
         if "measured" in entry:
             record["measured"] = entry["measured"]
         files.append(record)
@@ -215,6 +219,10 @@ def submissions_register() -> dict:
             "receipt": current["file"].replace(".tif", ".json"), "zip": current["zip_file"],
             "holdout_dti": current["holdout_dti"], "current_run_card": "docs/downloads/magrest-run-card.json",
         })
+        current_zip = ROOT / current["zip_file"]
+        if current_zip.is_file():
+            files[-1]["sha256_zip"] = sha256(current_zip)
+            files[-1]["bytes_zip"] = current_zip.stat().st_size
 
     union = ROOT / "evidence" / "union_results.json"
     if union.is_file():
