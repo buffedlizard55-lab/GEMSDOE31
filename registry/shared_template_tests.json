@@ -1,8 +1,0 @@
-{
- "repository": "buffedlizard55-lab/57GEMSDOE",
- "ref": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
- "upstream_path": "tests/test_evaluate_holdout.py",
- "path": "vendor/template57/test_evaluate_holdout.py",
- "sha256": "2e354c977536dcf85dd6230420c1ca2ffec525f7068941e1206736b73061cf68",
- "modifications": []
-}

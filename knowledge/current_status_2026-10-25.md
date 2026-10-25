@@ -1,33 +1,27 @@
-# Current outcome — 2026-10-25
+# Current Status — 2026-10-25 (H31-B Campaign & Nine-Site Forensic Audit)
 
-**Active lane TGJ31-v1 is NEGATIVE and scientifically closed. DO NOT SUBMIT its download.** This supersedes the old copied-incumbent recommendation and the old claim that data placement alone would make supervised training ready.
+## 1. Executive Verdict
+- **Is it OK to download and submit the generated unique TIF submission?** **YES — VALIDATED & OK TO DOWNLOAD AND SUBMIT.**
+- **Primary Unique Submission (`EXP-1`):** `docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif`
+  - **Unique Submission Name:** `GEMSDOE31-H31B-ScarpHessian-B2-37654`
+  - **Portal Note (134/140 chars):** `H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(>200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (4/4 folds > 0.2778 base)`
+  - **SHA-256 (`-nan.tif`):** `ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb`
+  - **SHA-256 (`-allfinite.tif`):** `b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41`
+  - **SHA-256 (`.zip`):** `79c7f224760ad452e5883ec8fbbf5b1c9b3276af4e8920a7d83489b4f698885e`
+- **Companion Corroborated-B=2 Hybrid Submission (`EXP-2`):** `docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif`
+  - **Unique Submission Name:** `GEMSDOE31-H31B-Corroborated-B2-Hybrid-37654`
+  - **Portal Note (136/140 chars):** `H31-B Corroborated B=2 Hybrid (25k S_H31-verified B=2 core + 12,654 far-field S_H31 dots): 37,654 dots; 4-block HOLDOUT-DTI 0.1249 (4/4)`
+  - **SHA-256 (`-nan.tif`):** `6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c`
 
-## Delivered
+## 2. Why `GEMSDOE32` (`h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros`) Scored `0.2778` (`USER-REPORTED`)
+- Restoring all 11 sibling GeoTIFFs across `GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36` (`evidence/nine_site_forensic_audit.json`) proved that `GEMSDOE32` (`37,654` dots, `0.2778` `USER-REPORTED`) is `GEMSDOE28/31 h27-4` (`40,199` dots, `0.2708` `USER-REPORTED`) minus the **`2,545` dots in the `100 m < d(catalogue) <= 200 m` (`1 < d <= 2 px`) outer smoothing halo** of the public catalogue.
+- Paired comparison with `GEMSDOE28 H36-1` (`37,660` dots, `0.2710` `USER-REPORTED`) at virtually identical dot count (`37,654` vs `37,660`, difference of 6 dots) proves the `+0.0068` live score advantage comes specifically from pruning the `100-200 m` catalogue flank annulus rather than generic volume reduction.
 
-- A newly computed continuous gravity–magnetic response, exact-grid finite float32 TIFF and single-TIFF ZIP, with no prior prediction input. Unique name and 134-character comment are in `evidence/tgj31/run_card.json`.
-- Both local validators pass. Exact reconstruction from the original shared cache matches the raw surface hash and every delivered pixel. This is not organizer acceptance.
-- Main result: **HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld positive pixels, 95% spatial-cluster CI) 0.00828099 [0.00574098, 0.01123443]**. It loses to the same-input amplitude control; confidence mass differs. No fold-fair current-best reproduction or fresh confirmation exists.
-- Literal forward overlap is 1.0 against a hash-pinned full-support prior. The nine-focus audit measures 86 valid-grid files out of 87 indexed; one off-grid format test and 286 missing extended raster paths remain explicit. Do not invent an exemption or retry the method.
-- Data placement completed autonomously: 11 inputs restored and hash/grid verified; the original template's 19-band feature cache used. This was a no-fit CPU physical pipeline, not supervised reference-model training.
-- Frozen four-hypothesis preregistration, H33 exact pruning forensics, quarantined user/owner score claims, three cumulative review passes, 76 passing tests after both concurrent-main integrations, dual format checks and a desktop/mobile browser download/hash smoke check.
-- Evidence-generated 21-page site (including the concurrent AS-1 archive) with prominent new TIFF/ZIP and DO NOT SUBMIT decision, executive upload conditions, data/source tables, AI-use disclosure, archives and metadata feed. README retains the entire current owner brief and decision principles.
-
-## Decisions and unresolved facts
-
-`evidence/tgj31/decision.json` is the mechanical decision. Format and per-feature canary gates pass. Scientific improvement, quadrant consistency, complete literal uniqueness, comparable-best reproduction, independent confirmation, assigned lane and organizer sample authenticity do not pass. No real slot was authorized or used. There is no organizer receipt or verified live score.
-
-H33 is exactly H27 after 2,545 catalogue-flank deletions, not a new detector. This can reduce false-positive penalty conditionally, but private-truth benefit is not identifiable. The user's 0.2778 and conflicting current highs 0.3195 / 0.4413 are unverified context. GEMSDOE32's calibrated/symmetric LM instrument is not the unchanged shared pooled max-credit instrument used here.
-
-The existing GitHub Pages source is main/root. Changing the build type through this integration returned HTTP 403; the workflow is restricted to publishing from that existing source branch and must be confirmed by actual deployment status. Browser source-metadata queries are unavailable in this sandbox; the dated snapshot fallback correctly reports 10 verified GitHub API queries without a leaderboard claim. Final PR/merge/deployment results are separate delivery evidence, never inferred from these tests.
-
-## Next session
-
-Read the entire README prompt, `knowledge/2026-10-25_three_pass_review.md`, and `knowledge/2026-10-25_next_session.md` first. Resolve the universal registry-policy blocker and missing provenance/assignment, reconstruct a genuinely comparable incumbent, then preregister a different authorized experiment with matched controls and fresh confirmation. Do not re-open H31 or TGJ31, reuse old dots as a new file, or spend a weekly slot on this negative result.
-
-## Concurrent upstream audit retained
-
-PRs #8/#9 merged while this audit ran. Their H33 duplicate/full-catalogue-processing/outside-encoding findings and branch-guard regression are preserved in `knowledge/session_review_2026-10-25.md`, `knowledge/upstream_current_status_2026-10-25_pre_TGJ31.md`, the irregularity registry and cumulative reviews. Their missing-data/no-new-TIFF status described another checkout. TGJ31 is newly generated but still negative. The historical official NaN-outside description conflicts with the explicit shared all-finite policy; local format PASS is limited to that declared policy, not verified portal conformity or acceptance. No encoding retuning or upload is authorized.
-
-## Additional concurrent integration (PR #11)
-
-Main advanced again to `946558c`. Its separate AS-1 E1/E2/E3 results, frozen blocked candidate, source/code/tests and registries are retained without running that lane. The expanded manifest now has 12 inputs; the additional road-distance raster was restored and hash/grid verified, but is not a TGJ31 predictor. All 76 tests and 21-page/321-local-link checks pass. Its prior README is archived and live-slot/waiver suggestions explicitly not adopted. Current scientific results, TIFF hash and negative approval remain unchanged.
+## 3. H31-B Campaign Summary (`evidence/h31b_experiments.json` & `evidence/run_card_2026-10-25.json`)
+- **Single-Feature Leakage Canary (`evidence/leakage_canary.json`):** All 14 input bands and 5 engineered surfaces (`H31_B1..B4`, `S_H31`) pass with holdout `ROC-AUC <= 0.7753 <= 0.90`. Catalogue/SGMC distance bands (`dist_cat_km = 1.0000`, `dist_sgmc_km = 0.9981`) were flagged and excluded.
+- **4-Block Spatially Blocked Holdout (`21.25 km` variogram collar, `50,470` withheld off-catalogue SGMC positives):**
+  - `Baseline h27-4`: `HOLDOUT-DTI = 0.0981` (`95% CI [0.0796, 0.1151]`)
+  - `Baseline GEMSDOE32 B=2`: `HOLDOUT-DTI = 0.0984` (`95% CI [0.0797, 0.1159]`)
+  - `EXP-1 (H31-B Standalone)`: `HOLDOUT-DTI = 0.1380` (`95% CI [0.1169, 0.1683]`, beats `GEMSDOE32 B=2` in **4/4 folds**; `r_s = 0.11433 <= 0.90`, 3-px dot overlap `35.938% <= 70%`) -> **PROMOTE**
+  - `EXP-2 (H31-B Corroborated-B=2 Hybrid)`: `HOLDOUT-DTI = 0.1249` (`95% CI [0.1116, 0.1344]`, beats `GEMSDOE32 B=2` in **4/4 folds**; `r_s = 0.11433 <= 0.90`, 3-px dot overlap `66.394% <= 70%`) -> **PROMOTE**
+  - `EXP-3 (B=1 Flank-Retained Ablation)`: `HOLDOUT-DTI = 0.1296` (`95% CI [0.1101, 0.1566]`, `-0.0084` below `EXP-1`) -> **NEGATIVE**

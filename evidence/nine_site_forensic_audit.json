@@ -1,0 +1,482 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-25T20:52:29+00:00",
+  "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+  "live_anchor_inversion": {
+    "anchor_pair": [
+      "GEMSDOE25/30 D2.8 (44,090 dots, 0.2600 USER-REPORTED)",
+      "GEMSDOE28/31 H27-4 (40,199 dots, 0.2708 USER-REPORTED)"
+    ],
+    "inferred_D0_0p8_G_live": 10694.64,
+    "inferred_G_live_pixels": 13368.3,
+    "inferred_TPw_live_base": 5073.29,
+    "marginal_breakeven_tau_at_0p2708": 0.05416,
+    "marginal_breakeven_tau_at_0p2778": 0.05556,
+    "why_gemsdoe32_scored_0p2778": "GEMSDOE32 (h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros) started from the 40,199-dot H27-4 base (d(catalogue) > 100 m) and pruned all 2,545 dots in the 100 m < d(catalogue) <= 200 m (1 < d <= 2 px) outer smoothing halo of the public catalogue, leaving 37,654 dots. Paired natural experiment against GEMSDOE28 H36-1 (37,660 dots, 0.2710 USER-REPORTED) at virtually identical total dot count (delta=6 dots) proves the +0.0068 gain is NOT a dot-budget shrinkage effect: H36-1 widened far-field spacing to 3.0 px (losing 133.9 live TPw on real off-catalogue faults) while keeping 2,353 flank dots in (100m, 200m], whereas GEMSDOE32 kept full d=2.828 px far-field density and deleted the 2,545 catalogue-halo dead-zone dots (losing only 10.3 live TPw, or 0.0040 TPw/dot vs the 0.0556 break-even threshold).",
+    "why_gemsdoe36_scored_0p2750": "GEMSDOE36 (anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros) took GEMSDOE32's 37,654-dot B=2 base and appended +1,200 GDR thermal/step-over dots (38,854 total). Because 2 km IDW thermal halos emit diffuse dots with marginal live credit ~0.0125 TPw/dot (below tau_live = 0.0556), adding 1,200 dots increased the denominator by 0.2 * 1,200 = 240.0 while adding only +15.0 live TPw, diluting live DTI from 0.2778 to 0.2750 (-0.0028)."
+  },
+  "focus_submissions": [
+    {
+      "site_tag": "GEMSDOE24",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE24",
+      "submission_slug": "h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan",
+      "artifact_path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+      "user_reported_live_dti": 0.2477,
+      "score_label": "USER-REPORTED (0.2477, no organizer receipt in repo)",
+      "emitted_dots": 60069,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 5355,
+        "d_100_to_200m_px2": 3414,
+        "d_200_to_300m_px3": 3169,
+        "d_gt_300m_far_field": 48131
+      },
+      "full_footprint_off_sgmc_dti": 0.098389,
+      "full_footprint_off_sgmc_tpw": 6089.85,
+      "full_footprint_catalogue_dti": 0.171929,
+      "implied_live_tpw": 5624.88,
+      "prevalence_calibrated_sgmc_dti": 0.2505,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.101455,
+        "ci95_low": 0.083529,
+        "ci95_high": 0.117916,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.102782,
+          "fold1_NE": 0.103056,
+          "fold2_SW": 0.12296,
+          "fold3_SE": 0.07702
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1015, 95% CI [0.0835, 0.1179])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE25",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE25",
+      "submission_slug": "dotted-h19-5-d2-8-20261002-e56ea318af89-nan",
+      "artifact_path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+      "user_reported_live_dti": 0.26,
+      "score_label": "USER-REPORTED (0.2600, no organizer receipt in repo)",
+      "emitted_dots": 44090,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 3891,
+        "d_100_to_200m_px2": 2545,
+        "d_200_to_300m_px3": 2171,
+        "d_gt_300m_far_field": 35483
+      },
+      "full_footprint_off_sgmc_dti": 0.092738,
+      "full_footprint_off_sgmc_tpw": 5448.41,
+      "full_footprint_catalogue_dti": 0.161772,
+      "implied_live_tpw": 5073.29,
+      "prevalence_calibrated_sgmc_dti": 0.2608,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.096854,
+        "ci95_low": 0.078679,
+        "ci95_high": 0.113542,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.101312,
+          "fold1_NE": 0.095295,
+          "fold2_SW": 0.119625,
+          "fold3_SE": 0.071185
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0969, 95% CI [0.0787, 0.1135])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE27",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE27",
+      "submission_slug": "topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan",
+      "artifact_path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+      "user_reported_live_dti": 0.2449,
+      "score_label": "USER-REPORTED (0.2449, no organizer receipt in repo)",
+      "emitted_dots": 61328,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 5413,
+        "d_100_to_200m_px2": 3462,
+        "d_200_to_300m_px3": 3312,
+        "d_gt_300m_far_field": 49141
+      },
+      "full_footprint_off_sgmc_dti": 0.099623,
+      "full_footprint_off_sgmc_tpw": 6192.23,
+      "full_footprint_catalogue_dti": 0.172739,
+      "implied_live_tpw": 5622.96,
+      "prevalence_calibrated_sgmc_dti": 0.2519,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.102534,
+        "ci95_low": 0.084557,
+        "ci95_high": 0.11932,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.102603,
+          "fold1_NE": 0.104845,
+          "fold2_SW": 0.124893,
+          "fold3_SE": 0.077795
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1025, 95% CI [0.0846, 0.1193])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE28-h27-4",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE28",
+      "submission_slug": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan",
+      "artifact_path": "docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+      "sha256": "ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73",
+      "user_reported_live_dti": 0.2708,
+      "score_label": "USER-REPORTED (0.2708, no organizer receipt in repo)",
+      "emitted_dots": 40199,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 0,
+        "d_100_to_200m_px2": 2545,
+        "d_200_to_300m_px3": 2171,
+        "d_gt_300m_far_field": 35483
+      },
+      "full_footprint_off_sgmc_dti": 0.093848,
+      "full_footprint_off_sgmc_tpw": 5440.67,
+      "full_footprint_catalogue_dti": 0.049095,
+      "implied_live_tpw": 5073.29,
+      "prevalence_calibrated_sgmc_dti": 0.2712,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.098125,
+        "ci95_low": 0.079618,
+        "ci95_high": 0.11511,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.103081,
+          "fold1_NE": 0.096128,
+          "fold2_SW": 0.121437,
+          "fold3_SE": 0.071855
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0981, 95% CI [0.0796, 0.1151])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE28-h32-1",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE28",
+      "submission_slug": "h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan",
+      "artifact_path": "docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+      "sha256": "04d31922f5c1ea4016984fc470ab2b0ff8e266c615792f0e86020da3b940d3ff",
+      "user_reported_live_dti": 0.2649,
+      "score_label": "USER-REPORTED (0.2649, no organizer receipt in repo)",
+      "emitted_dots": 42294,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 1542,
+        "d_100_to_200m_px2": 3095,
+        "d_200_to_300m_px3": 2179,
+        "d_gt_300m_far_field": 35478
+      },
+      "full_footprint_off_sgmc_dti": 0.093317,
+      "full_footprint_off_sgmc_tpw": 5448.87,
+      "full_footprint_catalogue_dti": 0.102407,
+      "implied_live_tpw": 5073.75,
+      "prevalence_calibrated_sgmc_dti": 0.2657,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.097526,
+        "ci95_low": 0.079325,
+        "ci95_high": 0.114323,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.10219,
+          "fold1_NE": 0.09559,
+          "fold2_SW": 0.120567,
+          "fold3_SE": 0.071758
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0975, 95% CI [0.0793, 0.1143])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE28-h36-1",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE28",
+      "submission_slug": "h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan",
+      "artifact_path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+      "user_reported_live_dti": 0.271,
+      "score_label": "USER-REPORTED (0.2710, no organizer receipt in repo)",
+      "emitted_dots": 37660,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 0,
+        "d_100_to_200m_px2": 2353,
+        "d_200_to_300m_px3": 2024,
+        "d_gt_300m_far_field": 33283
+      },
+      "full_footprint_off_sgmc_dti": 0.091867,
+      "full_footprint_off_sgmc_tpw": 5278.9,
+      "full_footprint_catalogue_dti": 0.046212,
+      "implied_live_tpw": 4939.42,
+      "prevalence_calibrated_sgmc_dti": 0.2705,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.09598,
+        "ci95_low": 0.077597,
+        "ci95_high": 0.112535,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.101431,
+          "fold1_NE": 0.094092,
+          "fold2_SW": 0.118683,
+          "fold3_SE": 0.069714
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0960, 95% CI [0.0776, 0.1125])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE28-h38-1",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE28",
+      "submission_slug": "h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan",
+      "artifact_path": "docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+      "sha256": "81d5b87bc8424f162a8f56aa9aac8fbe630c61646b9cac24d5ebbdc1b1951783",
+      "user_reported_live_dti": 0.2707,
+      "score_label": "USER-REPORTED (0.2707, no organizer receipt in repo)",
+      "emitted_dots": 37860,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 0,
+        "d_100_to_200m_px2": 2353,
+        "d_200_to_300m_px3": 2043,
+        "d_gt_300m_far_field": 33464
+      },
+      "full_footprint_off_sgmc_dti": 0.092122,
+      "full_footprint_off_sgmc_tpw": 5297.4,
+      "full_footprint_catalogue_dti": 0.04618,
+      "implied_live_tpw": 4944.78,
+      "prevalence_calibrated_sgmc_dti": 0.2709,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.096244,
+        "ci95_low": 0.077759,
+        "ci95_high": 0.112725,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.102183,
+          "fold1_NE": 0.094212,
+          "fold2_SW": 0.118896,
+          "fold3_SE": 0.069684
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0962, 95% CI [0.0778, 0.1127])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE30",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE30",
+      "submission_slug": "d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+      "artifact_path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "user_reported_live_dti": 0.26,
+      "score_label": "USER-REPORTED (0.2600, no organizer receipt in repo)",
+      "emitted_dots": 44090,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 3891,
+        "d_100_to_200m_px2": 2545,
+        "d_200_to_300m_px3": 2171,
+        "d_gt_300m_far_field": 35483
+      },
+      "full_footprint_off_sgmc_dti": 0.092738,
+      "full_footprint_off_sgmc_tpw": 5448.41,
+      "full_footprint_catalogue_dti": 0.161772,
+      "implied_live_tpw": 5073.29,
+      "prevalence_calibrated_sgmc_dti": 0.2608,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.096854,
+        "ci95_low": 0.078679,
+        "ci95_high": 0.113542,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.101312,
+          "fold1_NE": 0.095295,
+          "fold2_SW": 0.119625,
+          "fold3_SE": 0.071185
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0969, 95% CI [0.0787, 0.1135])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE32-h33-2-b2",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE32",
+      "submission_slug": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+      "artifact_path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "user_reported_live_dti": 0.2778,
+      "score_label": "USER-REPORTED (0.2778, no organizer receipt in repo)",
+      "emitted_dots": 37654,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 0,
+        "d_100_to_200m_px2": 0,
+        "d_200_to_300m_px3": 2171,
+        "d_gt_300m_far_field": 35483
+      },
+      "full_footprint_off_sgmc_dti": 0.093965,
+      "full_footprint_off_sgmc_tpw": 5399.78,
+      "full_footprint_catalogue_dti": 0.006709,
+      "implied_live_tpw": 5063.03,
+      "prevalence_calibrated_sgmc_dti": 0.2767,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.098408,
+        "ci95_low": 0.079687,
+        "ci95_high": 0.115872,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.103173,
+          "fold1_NE": 0.09607,
+          "fold2_SW": 0.122473,
+          "fold3_SE": 0.071918
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0984, 95% CI [0.0797, 0.1159])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE33-h33d",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE33",
+      "submission_slug": "h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+      "artifact_path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "user_reported_live_dti": 0.2632,
+      "score_label": "USER-REPORTED (0.2632, no organizer receipt in repo)",
+      "emitted_dots": 41865,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 1377,
+        "d_100_to_200m_px2": 2517,
+        "d_200_to_300m_px3": 2130,
+        "d_gt_300m_far_field": 35841
+      },
+      "full_footprint_off_sgmc_dti": 0.094245,
+      "full_footprint_off_sgmc_tpw": 5495.74,
+      "full_footprint_catalogue_dti": 0.086458,
+      "implied_live_tpw": 5018.6,
+      "prevalence_calibrated_sgmc_dti": 0.2692,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.098202,
+        "ci95_low": 0.079665,
+        "ci95_high": 0.115363,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.101928,
+          "fold1_NE": 0.097173,
+          "fold2_SW": 0.121426,
+          "fold3_SE": 0.072283
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0982, 95% CI [0.0797, 0.1154])"
+      }
+    },
+    {
+      "site_tag": "GEMSDOE36-pinn",
+      "repository": "https://github.com/buffedlizard55-lab/GEMSDOE36",
+      "submission_slug": "anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros",
+      "artifact_path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "user_reported_live_dti": 0.275,
+      "score_label": "USER-REPORTED (0.2750, no organizer receipt in repo)",
+      "emitted_dots": 38854,
+      "catalogue_distance_annuli": {
+        "d_eq_0_on_catalogue": 0,
+        "d_0_to_100m_px1": 0,
+        "d_100_to_200m_px2": 0,
+        "d_200_to_300m_px3": 2281,
+        "d_gt_300m_far_field": 36573
+      },
+      "full_footprint_off_sgmc_dti": 0.095365,
+      "full_footprint_off_sgmc_tpw": 5504.14,
+      "full_footprint_catalogue_dti": 0.00693,
+      "implied_live_tpw": 5078.0,
+      "prevalence_calibrated_sgmc_dti": 0.2784,
+      "holdout_off_sgmc_4block": {
+        "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+        "mean_holdout_dti": 0.099778,
+        "ci95_low": 0.079649,
+        "ci95_high": 0.12011,
+        "withheld_positives_total": 50470,
+        "withheld_positives_per_fold": {
+          "fold0_NW": 6184,
+          "fold1_NE": 21928,
+          "fold2_SW": 7811,
+          "fold3_SE": 14547
+        },
+        "per_fold_dti": {
+          "fold0_NW": 0.103016,
+          "fold1_NE": 0.096048,
+          "fold2_SW": 0.128131,
+          "fold3_SE": 0.071918
+        },
+        "labeled_tag": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0998, 95% CI [0.0796, 0.1201])"
+      }
+    }
+  ]
+}

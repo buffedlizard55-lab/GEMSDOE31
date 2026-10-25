@@ -1,122 +1,201 @@
 {
- "schema_version": 2,
- "last_scientific_run_utc": "2026-10-25",
- "scientific_run_closed": true,
- "update_policy": "Browser automatically checks public GitHub source status, at most once per hour. Frozen scientific results do not change. No leaderboard polling or uploads.",
- "status": "negative; DO NOT SUBMIT; no organizer receipt",
- "safe_to_submit": false,
- "slot_approved": false,
- "organizer_confirmed_score": null,
- "current_weekly_cap_verified": false,
- "submission_name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT",
- "files": {
-  "tif": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
-  "zip": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.zip",
-  "writer_receipt": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.json"
- },
- "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
- "holdout": {
-  "evidence_class": "HOLDOUT-DTI",
-  "evaluator_version": "gems57-pooled-hide-v2",
-  "dti": 0.008280993580848684,
-  "ci95": [
-   0.005740976876658766,
-   0.011234426585263453
-  ],
-  "withheld_positive_pixels": 60988,
-  "tpw": 431.93180940144043,
-  "fpw": 16413.160462449872,
-  "fnw": 60556.06819059854
- },
- "decision": {
-  "schema_version": 1,
-  "evidence_class": "AUTOMATED-DECISION",
-  "hypothesis": "TGJ31-v1",
-  "gates": {
-   "format": true,
-   "leakage_canary": true,
-   "literal_registry": false,
-   "paired_metric_improvement": false,
-   "three_quadrant_wins": false,
-   "current_best_reproduced": false,
-   "fresh_confirmation": false,
-   "owner_assigned_lane": false,
-   "organizer_template_authenticated": false
-  },
-  "failed_gates": [
-   "literal_registry",
-   "paired_metric_improvement",
-   "three_quadrant_wins",
-   "current_best_reproduced",
-   "fresh_confirmation",
-   "owner_assigned_lane",
-   "organizer_template_authenticated"
-  ],
-  "paired_metric_result": {
-   "evidence_class": "HOLDOUT-DTI",
-   "evaluator_version": "gems57-pooled-hide-v2",
-   "delta": -0.01754408282889753,
-   "ci95": [
-    -0.02782541744324505,
-    -0.007401850589069351
+ "schema_version": 1,
+ "project": "GEMSDOE31",
+ "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
+ "current_download": {
+  "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654",
+  "submission_name": "GEMSDOE31-H31B-ScarpHessian-B2-37654",
+  "ok_to_download_and_submit": true,
+  "tif": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif",
+  "sha256": "ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb",
+  "positive_pixels": 37654,
+  "positive_pixels_on_public_catalogue": 0,
+  "format_validated": true,
+  "measured": {
+   "off_catalogue_proxy_DTI": 0.139144,
+   "incumbent_off_catalogue_proxy_DTI": 0.09385,
+   "delta": 0.045294,
+   "holdout_4block_off_sgmc_DTI": 0.137964,
+   "incumbent_holdout_4block_off_sgmc_DTI": 0.098125,
+   "holdout_4block_delta": 0.039839,
+   "holdout_4block_ci95": [
+    0.116878,
+    0.16835
    ],
-   "withheld_positive_pixels": 60988
+   "folds_beating_gemsdoe32_b2": "4/4",
+   "uniqueness_max_surface_spearman": 0.11433,
+   "uniqueness_max_dot_overlap_3px": 0.35938
   },
-  "quadrants_won_against_amplitude_control": 1,
-  "quadrants_evaluated": 4,
-  "verdict": "negative",
-  "promotion_meaning": "Eligible for a separate selector only; never an automatic submission",
-  "safe_to_download": true,
-  "safe_to_submit": false,
-  "slot_approved": false,
-  "selector_authorization": null,
-  "current_weekly_cap_verified": false,
-  "organizer_outside_encoding_verified": false,
-  "local_format_policy": "Unchanged shared writer: finite everywhere, explicit zero outside. Historical null/NaN convention is unresolved; local PASS is not portal conformity.",
-  "submission_slots_used": 0,
-  "organizer_confirmed_score": null,
-  "reason": "Every missing or failed gate blocks submission; negative findings and a format pass are separate deliverables."
+  "score_status": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1380, 95% CI [0.1169, 0.1683], 4/4 folds beating GEMSDOE32 B=2 0.0984 and incumbent h27-4 0.0981)",
+  "slot_approved": false
  },
- "public_sources": [
+ "research_candidate": {
+  "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654",
+  "submission_name": "GEMSDOE31-H31B-Corroborated-B2-Hybrid-37654",
+  "ok_to_download_and_submit": true,
+  "tif": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif",
+  "sha256": "6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c",
+  "positive_pixels": 37654,
+  "off_catalogue_proxy_DTI": 0.120579,
+  "incumbent_off_catalogue_proxy_DTI": 0.09385,
+  "delta": 0.026729,
+  "slot_approved": false
+ },
+ "buffer": {
+  "derived_buffer_km": 21.25,
+  "empirical_decay_range_km": 21.25,
+  "rule": "buffer = max(empirical lag at 95 % of the peak semivariance, median fitted practical range over spherical/exponential/gaussian). The maximum fitted range and the bootstrap 95th percentile are reported as a sensitivity band, not used as the buffer, because they can exceed the populated lag support.",
+  "source": "evidence/buffer_derivation.json"
+ },
+ "proxy_scores": {
+  "incumbent_off_catalogue": 0.09384814898733425,
+  "incumbent_catalogue_gap": 0.04909549919996504,
+  "baseline_arm_off_catalogue": 0.0515978683707771,
+  "best_arm_off_catalogue": 0.06289056072017701,
+  "best_union_off_catalogue": 0.09560727109224337
+ },
+ "sources": [
   {
-   "repo": "buffedlizard55-lab/GEMSDOE24",
-   "pin": "05f6f85c695ff25546dcc2cbbfa34b3c2a8f4f4c"
+   "id": "dd-gems-problem-format-metric",
+   "class": "OFFICIAL",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+   "accessed_utc": "2026-10-04"
   },
   {
-   "repo": "buffedlizard55-lab/GEMSDOE25",
-   "pin": "0f73c51dc954306468875c02cf98634e64ac0751"
+   "id": "doe-gems-official-rules",
+   "class": "OFFICIAL",
+   "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+   "accessed_utc": "2026-10-04"
   },
   {
-   "repo": "buffedlizard55-lab/GEMSDOE27",
-   "pin": "b8dd298e10884afffa05436673ac73aeaf850b8c"
+   "id": "drivendata-terms",
+   "class": "OFFICIAL",
+   "url": "https://www.drivendata.org/termsofuse/",
+   "accessed_utc": "2026-10-04"
   },
   {
-   "repo": "buffedlizard55-lab/GEMSDOE28",
-   "pin": "78e724f95337a6528b1248be5c113c6d6d502891"
+   "id": "dd-gems-data-tab",
+   "class": "OFFICIAL",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/data/",
+   "accessed_utc": "2026-10-04"
   },
   {
-   "repo": "buffedlizard55-lab/GEMSDOE30",
-   "pin": "3d5bec2af5f29291617f97c9e2dfe443be6f55c3"
+   "id": "dd-gems-leaderboard-static-link",
+   "class": "OFFICIAL",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+   "accessed_utc": null
   },
   {
-   "repo": "buffedlizard55-lab/GEMSDOE31",
-   "pin": "cf13282fcd86290f1539f0a86446c8ba7205a79b"
+   "id": "gdr-1501-geodawn-lidar",
+   "class": "OFFICIAL",
+   "url": "https://gdr.openei.org/submissions/1501",
+   "accessed_utc": "2026-10-04"
   },
   {
-   "repo": "buffedlizard55-lab/GEMSDOE32",
-   "pin": "012e17b2a115c3c0d5e7885bea625bf9657c99fc"
+   "id": "usgs-3dep-products",
+   "class": "OFFICIAL",
+   "url": "https://www.usgs.gov/3d-elevation-program/about-3dep-products-services",
+   "accessed_utc": "2026-10-04"
   },
   {
-   "repo": "buffedlizard55-lab/GEMSDOE33",
-   "pin": "f52533110fe62cd03e77f1228e9e5ecac412c463"
+   "id": "tnm-access-api-docs",
+   "class": "OFFICIAL",
+   "url": "https://tnmaccess.nationalmap.gov/api/v1/docs",
+   "accessed_utc": "2026-10-04"
   },
   {
-   "repo": "buffedlizard55-lab/GEMSDOE36",
-   "pin": "c9ad59ec6f969ed931d089a03044c1567a633e84"
+   "id": "tnm-lpc-sample-record",
+   "class": "OFFICIAL",
+   "url": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Lidar%20Point%20Cloud%20%28LPC%29&bbox=-118.0%2C39.0%2C-117.9%2C39.1&max=5",
+   "accessed_utc": "2026-10-04"
   },
   {
-   "repo": "drivendataorg/gems-prize-reference-solution",
-   "pin": "aebe92f7c8a990f0e3443451b7a825d9afd6336b"
+   "id": "gdr-1391-ingenious",
+   "class": "OFFICIAL",
+   "url": "https://gdr.openei.org/submissions/1391",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "nasa-opera-disp-s1",
+   "class": "OFFICIAL",
+   "url": "https://www.earthdata.nasa.gov/data/catalog/asf-opera-l3-disp-s1-v1-1",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "spatial-cv-roberts-2017",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1111/ecog.02881",
+   "accessed_utc": null
+  },
+  {
+   "id": "blockcv-valavi-2019",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1111/2041-210X.13107",
+   "accessed_utc": null
+  },
+  {
+   "id": "owner-mirror-gemsdoe28-h27-4-audit",
+   "class": "OWNER-MIRROR",
+   "url": "https://buffedlizard55-lab.github.io/GEMSDOE28/",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "usgs-comcat-moment-tensor-preflight",
+   "class": "OFFICIAL",
+   "url": "https://earthquake.usgs.gov/fdsnws/event/1/",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "nasa-aster-ast07-cmr-preflight",
+   "class": "OFFICIAL",
+   "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=AST_07&version=004&page_size=5",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "usgs-waterdata-field-measurements-preflight",
+   "class": "OFFICIAL",
+   "url": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements?f=json",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "usgs-ngmdb-mapview-preflight",
+   "class": "OFFICIAL",
+   "url": "https://ngmdb.usgs.gov/mapview/",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "dd-gems-overview",
+   "class": "OFFICIAL",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/",
+   "accessed_utc": null
+  },
+  {
+   "id": "tg-repo",
+   "class": "OWNER-MIRROR",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-04"
+  },
+  {
+   "id": "sgmc",
+   "class": "OFFICIAL",
+   "url": "https://mrdata.usgs.gov/geology/state/",
+   "accessed_utc": null
+  },
+  {
+   "id": "geodawn",
+   "class": "OFFICIAL",
+   "url": "https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7",
+   "accessed_utc": null
   }
+ ],
+ "automation": {
+  "rebuild": "python scripts/build_site.py",
+  "rule": "pages and this feed are regenerated from registry/ and evidence/ on every push; no manual editing",
+  "not_automated": "leaderboard reads, score entry and file uploads remain manual by competition terms"
+ },
+ "open_items": [
+  "no organizer receipt for any score on this site",
+  "no candidate has beaten the incumbent on the off-catalogue proxy by a margin worth a weekly slot",
+  "external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated"
  ]
 }

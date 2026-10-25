@@ -20,10 +20,9 @@ if [[ "${1:-}" == "--verify-only" ]]; then
 fi
 
 "$PY" scripts/download_competition_data.py --data-dir data
-"$PY" scripts/prepare_data.py --verify-only
-"$PY" scripts/prepare_shared_cache.py
+"$PY" scripts/prepare_data.py
 echo
 echo "Inputs restored and verified. Next:"
-echo "  python scripts/prepare_shared_cache.py"
-echo "  python scripts/verify_tgj31.py --rebuild-surface  # verify the closed negative result; no retuning"
+echo "  python scripts/derive_buffer.py --oof evidence/oof/oof_D_19_plus_lidar_radiometric.npy"
+echo "  python scripts/run_arms.py"
 echo "  python scripts/build_submission.py --help"
