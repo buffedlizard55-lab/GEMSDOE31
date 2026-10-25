@@ -2,7 +2,7 @@
  "schema_version": 1,
  "generated_utc": "2026-10-25",
  "claim_classes": {
-  "OFFICIAL": "read from a government, competition-administrator or publisher page linked below, retrieved this session",
+  "OFFICIAL": "Direct source retrieval recorded on the row accessed_utc date; not necessarily fresh in the current session. See current_access_audit for this environment.",
   "OWNER-MIRROR": "bytes or claims published in one of this project's own public GitHub repositories; a hash match proves byte identity to that mirror only",
   "COMPUTED": "reproduced from local code and data by scripts in this repository, with the artifact path recorded",
   "INFERENCE": "geological or statistical reasoning to be tested, not a measured result",
@@ -339,6 +339,24 @@
    "limits": "Not fetched in the current session (sciencebase.gov is unreachable from the sandbox); the DOI, item id and derived layers are taken from this project's own GEMSDOE24 descriptors."
   },
   {
+   "id": "organizer-github-reference-20261025",
+   "class": "OFFICIAL",
+   "publisher": "DrivenData / John Lipor reference-solution repository",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "The reference notebook labels its feature visualization EPSG:32611, 100m resolution. This does not authenticate our mirror bytes.",
+    "The reference notebook trains a U-Net with Monte Carlo train/test splits and ordinary TverskyLoss(alpha=0.2,beta=0.8). This is training loss, NOT proof of the distance-weighted organizer scorer."
+   ],
+   "limits": [
+    "No DrivenData website, organizer score receipt, private truth or account quota was accessed.",
+    "The full official problem-page metric and outside-footprint wording remain historically recorded references, not re-fetched under the current network allowlist.",
+    "No correspondence is asserted between the reference notebook training loss and the distance-weighted evaluation kernel."
+   ],
+   "evidence": "evidence/official_reference_audit_20261025.json",
+   "title": "Organizer reference code, commit-pinned and freshly retrieved"
+  },
+  {
    "id": "gallardo-meju-2003-cross-gradient",
    "class": "TRUSTED-PEER-REVIEWED",
    "publisher": "Geophysical Research Letters (AGU)",
@@ -398,5 +416,6 @@
    ],
    "limits": "Reference architecture note only; no pre-trained weights or scores included."
   }
- ]
+ ],
+ "current_access_audit": "2026-10-25: only GitHub sources re-fetched; non-GitHub official links remain historically recorded, not fresh verification."
 }

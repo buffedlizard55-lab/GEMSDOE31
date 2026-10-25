@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Automated validation status, copy-paste portal metadata, and weekly-slot selector status for H31-E2.">
+  <meta name="description" content="New research TIFF, exact validation status, and portal workflow for a future approved file.">
   <title>Executive summary · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -18,108 +18,108 @@
   </header>
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Executive summary</p>
-      <h1>Can we download &amp; submit the generated H31-E2 TIF?</h1>
-      <p class="hero-lede">Technical &amp; [0, 1] portal validation: YES (G1–G4 + Piedmont PASS, 100% safe to upload). Automatic weekly-slot spending: HOLD for human selector sign-off (slot_approved = false on strict G5b).</p>
+      <p class="eyebrow">Download + submission guide</p>
+      <h1>Download for research. Do not submit.</h1>
+      <p class="hero-lede">The file, unique name, note and automated decision are together below. No weekly slot is authorized.</p>
     </div>
   </section>
 
   <main class="wrap">
-    <div class="notice notice-good"><strong>CAN WE DOWNLOAD &amp; SUBMIT THE GENERATED H31-E2 TIF? — TECHNICAL &amp; PORTAL VALIDATION: YES (100% VALIDATED &amp; SAFE TO UPLOAD).</strong>
-    <code>gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif</code> (<code>37,654</code> off-catalogue dots, <code>0</code> on public catalogue) passed automated machine checks for single-band <code>float32</code>, <code>EPSG:32611</code>, <code>3730×3292</code>, exact Affine geotransform, <strong>0 NaN/Inf inside the 5,167,373-cell footprint</strong>, values strictly in <code>[0.0, 1.0]</code> (zero risk of <code>"Predicted values must be in range [0, 1]"</code>), 86-feature leakage canary (<code>max AUC = 0.7624 ≤ 0.90</code>), cross-site uniqueness across all 16 local + peer rasters (<code>max 3-px overlap = 51.53% ≤ 70%</code>, <code>max surface ρ = 0.1073 ≤ 0.90</code>), 21.3 km buffered fresh confirmation <code>HOLDOUT-DTI = 0.1145</code> vs <code>0.0886</code> (<code>+29.3%</code>), and Piedmont SGMC discovery (<code>0.1233</code> vs <code>GEMSDOE32 H33-2-B2 = 0.1091</code>, <code>+13.0%</code>).</div>
-    <div class="notice notice-danger"><strong>WEEKLY-SLOT SELECTOR DECISION: HOLD FOR HUMAN SELECTOR SIGN-OFF (<code>slot_approved = false</code> · Run Card <code>verdict = "negative"</code>).</strong>
-    Do not submit a legacy reference download from this page yet, and do not auto-spend one of the 3 weekly DrivenData slots without human selector review: our strict 5-of-5 automated selector held automatic promotion solely on pre-declared sub-clause <strong>G5b</strong> (all-elevation mountain SGMC <code>0.0816</code> vs <code>0.0940</code> H33-2-B2, because H31-E2 avoids steep mountain pre-Quaternary thrusts at det_elev +126.8 m that caused G70-P8 to drop to 0.2478 USER-REPORTED). If the human weekly-slot selector wants our top orthogonal non-H19-5 multi-physics entry alongside H33-2-B2, <code>gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif</code> below is 100% validated and ready to upload.</div>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Executive decision matrix</p><h2>Automated 5-gate verification summary</h2></div>
-        <p>Every check below is machine-verified in <code>evidence/h31e/run_card.json</code> and <code>docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-format-check.json</code>.</p>
+<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
+      The new H31-E2 SCGP-Submod and MAGREST artifacts are format-validated and available to download; automated weekly-slot approval remains false without explicit human selector sign-off.</div>
+      <section id="scgp-submod" aria-labelledby="scgp-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 Multi-Physics + 300 m Submodular Candidate · H31-E2</p>
+        <h2 id="scgp-heading">H31-E2 SCGP-Submod: Portal Format &amp; [0, 1] Validated; Weekly-Slot Selector Hold</h2></div>
+        <p>Passes format/[0, 1] range (G1), single-feature leakage (G2), uniqueness across all 22 discrete fault submissions (G3),
+           21.3 km confirmation (+29.3%, G4), and Piedmont SGMC (+13.0% over GEMSDOE32 H33-2-B2, G5a); held from automatic weekly-slot spending by strict G5b mountain SGMC and the literal 5×5 calibration-lattice rule.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-green">FORMAT &amp; [0, 1] VALIDATED · OK TO DOWNLOAD</span>
+        <span class="badge badge-red" style="margin-left:8px">AUTO-SLOT SELECTOR: HOLD (slot_approved = false)</span>
+        <h3 style="margin-top:18px">gemsdoe31-scgp-submod-37654-20261025-fa735287</h3>
+        <p>43-feature Gallardo–Meju structural cross-gradient concordance + 2D FFT upward-continuation residuals +
+           seam-free Dual-Expert 1 m 3DEP LiDAR scarp polarity + GeoDAWN K/Th/U &amp; GDR-1391 paleo-sinter +
+           strike-tip/relay bridge + Minoux lazy-greedy 300 m submodular DTI allocator (37,654 off-catalogue dots; 31.5% beyond 1.5 km).</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif" download>Download H31-E2 Primary .tif (NaN-outside)</a>
+          <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.zip" download>Download Single-TIFF .zip</a>
+          <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif" download>All-finite [0, 1] fallback .tif</a>
+          <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-format-check.json" download>Format receipt .json</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {0.0, 1.0} in [0.0, 1.0] · 0 dots on public catalogue.<br>
+          <strong>SHA-256 (NaN primary):</strong> <code>d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8</code><br>
+          <strong>SHA-256 (All-finite):</strong> <code>88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6</code><br>
+          <strong>Unique Name:</strong> <code>gemsdoe31-scgp-submod-37654-20261025-fa735287</code><br>
+          <strong>Note (79/140):</strong> <code>GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287</code></p>
       </div>
-      <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">All 5 pre-registered gates evaluated automatically with zero post-hoc threshold modification.</caption><thead><tr><th>automated gate</th><th>status</th><th>measured evidence (evidence/h31e/run_card.json)</th></tr></thead><tbody><tr><td><strong>G1 · Format, Grid &amp; [0, 1] Range</strong></td><td><span class="badge badge-green">PASS</span></td><td>1-band float32 · EPSG:32611 · 3730×3292 · 0 NaN inside footprint · values strictly in [0, 1] (37,654 dots, 0 on public catalogue)</td></tr><tr><td><strong>G2 · Single-Feature Leakage Canary</strong></td><td><span class="badge badge-green">PASS</span></td><td>All 86 static, fold-visible, and baseline features tested individually on holdout: max two-sided ROC-AUC = <strong>0.7624</strong> ≤ 0.90</td></tr><tr><td><strong>G3 · Pre-Placement &amp; Final-Dot Uniqueness</strong></td><td><span class="badge badge-green">PASS</span></td><td>Checked against all 16 local + peer rasters (GEMSDOE24..36, 70): max surface Spearman ρ = <strong>0.1073</strong> ≤ 0.90; max 3-px dot overlap = <strong>51.53%</strong> ≤ 70.0%</td></tr><tr><td><strong>G4 · 21.3 km Buffered Whole-Segment Holdout</strong></td><td><span class="badge badge-green">PASS</span></td><td>Screen (draw 101, n=17,900): <strong>0.1274</strong> vs 0.0922 (+0.0352, 4/4 folds). Fresh Confirm (draws 202+303, n=35,599): <strong>0.1145</strong> (95% CI 0.1071–0.1232) vs 0.0886 (Δ = <strong>+0.0259</strong>, 95% CI +0.0167 to +0.0355)</td></tr><tr><td><strong>G5a · Piedmont Off-Catalogue SGMC (det_elev ≤ +50 m)</strong></td><td><span class="badge badge-green">PASS (+13.0%)</span></td><td>Basin-margin/piedmont faults (23,135 px): H31-E2 = <strong>0.1233</strong> beats both Baseline-D (0.1147) and GEMSDOE32 H33-2-B2 (0.1091)</td></tr><tr><td><strong>G5b · All-Elevation Mountain SGMC (62,649 px)</strong></td><td><span class="badge badge-red">HOLD (0.0816 vs 0.0940)</span></td><td>H31-E2 = <strong>0.0816</strong> beats Baseline-D (0.0718, +13.6%), below H33-2-B2 (0.0940) because H31-E2 avoids steep mountain pre-Quaternary thrusts (det_elev +126.8 m) that dragged G70-P8 down to 0.2478 USER-REPORTED</td></tr></tbody></table></div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Submission guide</p><h2>Copy-paste metadata &amp; portal upload steps for H31-E2</h2></div>
-        <p>Use these exact verified fields when the human weekly-slot selector chooses to upload <code>gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif</code>.</p>
-      </div>
-      <div class="table-wrap" style="margin-bottom:18px"><table><tbody>
-        <tr><th style="width:210px">Primary GeoTIFF download</th><td><a href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif" download><code>gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif</code></a> (174,223 bytes · <a href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.zip" download><code>.zip</code></a> · <a href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif" download><code>-allfinite.tif</code> fallback</a>)</td></tr>
-        <tr><th>Unique submission name</th><td><code>gemsdoe31-scgp-submod-37654-20261025-fa735287</code></td></tr>
-        <tr><th>Portal note (79/140 chars)</th><td><code>GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287</code></td></tr>
-        <tr><th>Primary SHA-256 (<code>-nan.tif</code>)</th><td><code>d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8</code></td></tr>
-        <tr><th>Fallback SHA-256 (<code>-allfinite.tif</code>)</th><td><code>88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6</code></td></tr>
-        <tr><th>Format &amp; [0, 1] check</th><td><span class="badge badge-green">PASS</span> 0 NaN inside footprint · min 0.0 · max 1.0 · 37,654 positive dots · 0 on public catalogue</td></tr>
-        <tr><th>Agent auto-slot status</th><td><code>slot_approved = false</code> · Run Card <code>verdict = "negative"</code> (strict G5b upland SGMC hold; human selector sign-off required)</td></tr>
-      </tbody></table></div>
-      <div class="card">
-        <ol>
-          <li><strong>Download <code>gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif</code></strong> (or <code>-nan.zip</code>) above — never upload legacy reference files (<code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code>).</li>
-          <li><strong>Verify SHA-256 locally</strong>: <code>shasum -a 256 gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif</code> must equal <code>d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8</code>.</li>
-          <li><strong>Open the DrivenData submit page</strong> at <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306</a> and sign in manually.</li>
-          <li><strong>Upload <code>gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif</code></strong> under “File to submit”, paste the 79-character note <code>GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287</code>, and include the <a href="ai-disclosure.html">AI disclosure statement</a> in the narrative when required.</li>
-          <li><strong>Record the organizer receipt</strong>: only after DrivenData returns an official score may a value be upgraded from <code>HOLDOUT-DTI</code> to <code>ORGANIZER-CONFIRMED</code> in <code>registry/score_claims.json</code>.</li>
-        </ol>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Format reference</p><h2>All registered files &amp; SHA-256 verification</h2></div>
-        <p>Comparison of our newly generated unique H31-E2 candidate against archived legacy/research baselines.</p>
-      </div>
-      <div class="table-wrap"><table><thead><tr><th>file</th><th>role &amp; when to use it</th><th>bytes</th><th>sha256</th><th>automated validation</th></tr></thead><tbody><tr><td><strong><code>gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif</code></strong></td><td>NEW UNIQUE CANDIDATE (primary convention: finite {0,1} inside footprint, NaN outside) — safe for human selector upload</td><td>174,223</td><td><code>d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8</code></td><td><span class="badge badge-green">G1–G4 + Piedmont PASS</span></td></tr><tr><td><code>gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif</code></td><td>NEW UNIQUE CANDIDATE defensive fallback (0.0 outside footprint, 100% finite across all 12.28M cells)</td><td>130,623</td><td><code>88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6</code></td><td><span class="badge badge-green">G1–G4 + Piedmont PASS</span></td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</code></td><td>Legacy reproducibility reference ONLY (duplicate of GEMSDOE28 H27-4) — do NOT submit</td><td>199,214</td><td><code>07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40</code></td><td><span class="badge badge-red">reference only (duplicate)</span></td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif</code></td><td>Prior union research baseline (106,138 dots) — superseded by H31-E2</td><td>247,886</td><td><code>a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23</code></td><td><span class="badge">research archive</span></td></tr></tbody></table></div>
-      <p class="small">Both conventions are written from the same dot set by <code>scripts/build_submission.py</code> and <code>scripts/submission_writer.py</code>;
-      only the cell values outside the footprint differ (NaN vs 0.0). <code>nodata</code> is NaN in both. Every file
-      in the register is listed with its SHA-256 on the <a href="register/index.html">register page</a>.</p>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Troubleshooting</p><h2>“Predicted values must be in range [0, 1]”</h2></div>
-        <p>This is the error class the project owner hit. Here is the traced root cause and what to do about it.</p>
-      </div>
-      <div class="notice notice-danger"><strong>It is not a rescaling problem</strong>
-      Rescaling the file will not fix it. In this project's own records the trigger was <em>NaN cells inside the
-      scored footprint</em> while every finite value was already in [0,1] — so a portal that treats NaN as a value
-      rather than as background reports it as out of range.</div>
-      <div class="grid grid-2">
-        <div class="card"><h3>What the repository does about it</h3>
-          <p><code>src/gemsdoe31/submission.py</code> hard-fails any file with a non-finite cell inside the template's
-          valid region, any value outside [0,1], or any finite cell outside the footprint. <code>tests/test_submission.py</code>
-          keeps a regression test for exactly this error class, so a future build cannot silently reintroduce it.</p></div>
-        <div class="card"><h3>If a receipt-passing file is still refused</h3>
-          <ol><li>Confirm you selected the single-band GeoTIFF (not the 19-band feature stack, not a folder).</li>
-          <li>Try the <code>-allfinite</code> fallback: zeros outside the footprint, every value finite in [0,1].</li>
-          <li>Stop and send the format receipt JSON to the organizers instead of resubmitting modified bytes.</li></ol></div>
-      </div>
-      <h3>Format receipts written by this repository</h3>
-      <div class="table-wrap"><table>
-        <thead><tr><th>file</th><th>convention</th><th>bytes</th><th>sha256</th><th>passes local format checks</th><th>hard failures</th></tr></thead>
-        <tbody><tr><td><code>gemsdoe31-add-arm-d28-20261004-8acb75e1</code></td><td>nan</td><td>212,925</td><td><code>5987d5051a76a8a28e8a31106936413d…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-add-arm-d28-20261004-8acb75e1</code></td><td>allfinite</td><td>169,213</td><td><code>deda0533e4aa041e3877f58a8d6b9d0f…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code></td><td>nan</td><td>199,214</td><td><code>07b6db440535404bb41ec8ddc797713e…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code></td><td>allfinite</td><td>154,580</td><td><code>acd853936e5a7170b207f23411b1844c…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-scgp-submod-37654-20261025-fa735287</code></td><td>nan</td><td>174,223</td><td><code>d5ae3715c4ee727195ec6c023d5c8524…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-scgp-submod-37654-20261025-fa735287</code></td><td>allfinite</td><td>130,623</td><td><code>88860b14b2808e910ad72544996e41cc…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1</code></td><td>nan</td><td>247,886</td><td><code>a4b8ffa59655d2e4ca1bf77fa27a53c8…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1</code></td><td>allfinite</td><td>204,922</td><td><code>b44248ee7ca46405326b81998c5e4c41…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr></tbody>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated Gate</th><th>Threshold</th><th>Measured H31-E2 Value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {0.0, 1.0}; 0 NaN inside; 0 on catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 86 features</td><td>max AUC = 0.7624 across 86 features</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3a · 22 Genuine Submissions</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = 0.1073; max 3-px overlap = 51.53% (concurrent lanes ≤ 45.24%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>100.00% (5×5 lattice covers 100% of Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G4a · Screen (draw=101, 21.3 km)</code></td><td>Paired ΔDTI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI 0.1274 vs 0.0922 (+0.0352, 4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4b · Fresh Confirm (draws 202,303)</code></td><td>Untouched draws, n = 35,599, 95% CI &gt; 0</td><td>HOLDOUT-DTI 0.1145 [0.1071, 0.1232] vs 0.0886 (+0.0259, +29.3%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Quaternary piedmont habitat (det_elev ≤ +50 m)</td><td>0.1233 vs Baseline-D 0.1147 and GEMSDOE32 H33-2-B2 0.1091 (+13.0%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5b · All-Elevation Mountain SGMC</code></td><td>Strict pre-declared &gt; H33-2-B2 (0.0940) across mountain SGMC</td><td>0.0816 vs Baseline-D 0.0718 (+13.6%), &lt; H33 0.0940</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
+        </tbody>
       </table></div>
+      <p class="small">Full artifact &amp; 3-experiment log (including stopped Exp 1 proximity-halo audit and Exp 2 submodular +0.0372 ablation):
+        <a href="experiments/12-h31e-scgp-submod.html">Experiment 12 · H31-E2 SCGP-Submod</a>.</p>
     </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Honesty box</p><h2>What H31-E2 is, and what it is not</h2></div>
-        <p>Read this before uploading anything; it is the difference between a claim and a measurement.</p>
+      <section id="download" aria-labelledby="download-heading">
+      <div class="section-head"><div><p class="kicker">New artifact · 2026-10-25</p>
+        <h2 id="download-heading">OK to download. Not approved for upload.</h2></div>
+        <p>Research-only. Automated scientific gates failed; no human inspection is needed to reach that decision.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-red">DO NOT SUBMIT · negative result</span>
+        <h3 style="margin-top:18px">MAGREST · magnetic texture restoration</h3>
+        <p>Newly computed from magnetic data, not copied or thinned from a prior submission.</p>
+        <div class="actions">
+          <a class="button button-dark" href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif" download>Download new research TIFF</a>
+          <a class="button" href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip" download>One-TIFF ZIP</a>
+          <a class="button" href="downloads/magrest-run-card.json" download>Validation + run card</a>
+        </div>
+        <p class="download-meta"><strong>Primary encoding:</strong> float32 · one band · EPSG:32611 · 3730 × 3292 · 100 m ·
+          values exactly 0 or 1 · finite everywhere · zero outside footprint · no nodata tag.<br>
+          <strong>SHA-256:</strong> <code>c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9</code><br>
+          <strong>Name:</strong> <code>gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff</code><br>
+          <strong>Note (128/140):</strong> <code>MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved</code></p>
+        <p class="small" style="margin-top:18px"><a href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif" download>NaN-outside version</a> ·
+          <a href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.zip" download>NaN one-TIFF ZIP</a>.
+          Same predictions inside the footprint. The recorded problem-page wording uses NaN/null outside;
+          the all-finite primary is a defensive range-check encoding, not proof of organizer acceptance.
+          Both are research-only while the convention and submission gates remain unresolved.</p>
       </div>
-      <div class="table-wrap"><table><tbody>
-        <tr><th style="width:220px">What H31-E2 is</th><td>A genuinely unique, end-to-end reproducible multi-physics + 1 m LiDAR scarp-polarity + 300 m submodular GeoTIFF (<code>gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif</code>, 37,654 off-catalogue dots, max 3-px overlap 51.53% across all 16 local and peer rasters).</td></tr>
-        <tr><th>Measured holdout &amp; proxy scores</th><td><code>HOLDOUT-DTI = 0.1145</code> (95% CI 0.1071–0.1232, evaluator <code>gemsdoe31-hide-v2.0</code>, 21.3 km buffer, n=35,599) vs <code>0.0886</code> Baseline-D-Poisson (<code>+29.3%</code>); Piedmont SGMC proxy <code>0.1233</code> vs <code>0.1091</code> GEMSDOE32 H33-2-B2 (<code>+13.0%</code>). Never projected as a live leaderboard score.</td></tr>
-        <tr><th>Peer scores cited for context</th><td><code>0.2778</code> (GEMSDOE32 H33-2-B2), <code>0.2750</code> (GEMSDOE36), <code>0.2708</code> (GEMSDOE28), and external anchors <code>0.3195</code> / <code>0.4413</code> are all labelled <span class="badge">USER-REPORTED</span> — no organizer receipt exists in this repository.</td></tr>
-        <tr><th>Is it auto-slot-approved?</th><td>No (<code>slot_approved = false</code>, Run Card <code>verdict = "negative"</code> under strict 5-of-5 auto-gate G5b). Human weekly-slot selector sign-off is required before spending one of the 3 weekly DrivenData slots.</td></tr>
-        <tr><th>Format &amp; [0, 1] status</th><td><span class="badge badge-green">PASS · locally validated</span> against the pinned competition grid template in <code>docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-format-check.json</code> (0 NaN inside footprint, values strictly in [0, 1]).</td></tr>
-        <tr><th>Validation buffer</th><td>Every holdout comparison enforces a <strong>21.25 km</strong> collar derived from the residual semivariogram (21,300 m in <code>gemsdoe31-hide-v2.0</code>). <a href="validation.html">Derivation and sensitivity</a>.</td></tr>
-        <tr><th>AI use</th><td>Substantial, and required to be disclosed: see <a href="ai-disclosure.html">AI use</a> for wording you can paste into the submission narrative.</td></tr>
-      </tbody></table></div>
     </section>
-
+      <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>
+        <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
+        <div class="card"><ul><li>Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.</li><li>paired spatial holdout screen failed</li><li>fresh confirmation not passed</li><li>own-method residual range not estimated</li><li>global current-best comparison unavailable on identical instrument</li><li>organizer-authenticated data/template provenance unverified</li><li>outside-footprint organizer convention unresolved</li><li>separate selector has not promoted this artifact; weekly cap not checked</li></ul></div>
+      </section>
+      <section><div class="section-head"><div><p class="kicker">For a future approved candidate</p><h2>How to enter a submission</h2></div>
+        <p>These are portal instructions, not permission to submit the current research file.</p></div>
+        <div class="card"><ol>
+          <li>Confirm the generated readiness receipt says <code>ok_to_submit: true</code> for the exact file. Today it says <code>false</code>.</li>
+          <li>Download the approved <code>.tif</code> or the ZIP containing that single TIFF. Do not upload a report, run-card JSON, input feature stack or multi-file ZIP.</li>
+          <li>Use your own <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData competition page</a> to open New submission, accept the rules and check the remaining weekly quota. This project does not know or spend your current quota.</li>
+          <li>Under File to submit, select that approved file. Use its generated unique name and paste its note (at most 140 characters) into Note (optional).</li>
+          <li>Only after approval and quota checks, submit. Keep the organizer's receipt, exact SHA-256, name and reported result together. Until that receipt exists, no result is ORGANIZER-CONFIRMED.</li>
+        </ol></div>
+      </section>
+      <section><div class="section-head"><div><p class="kicker">Range-error prevention</p><h2>“Predicted values must be in range [0, 1]”</h2></div>
+        <p>No silent clipping. No hidden NaN inside the footprint. Read-back validation before download.</p></div>
+        <div class="grid grid-2"><div class="card"><h3>What is checked automatically</h3><p>One float32 band; exact CRS, shape and transform; finite footprint values in [0,1]; no positive catalogue pixels; outside policy; hash; exact one-TIFF ZIP roundtrip.</p></div>
+          <div class="card"><h3>What cannot be inferred</h3><p>The portal implementation is private. An error message alone does not identify its cause. The all-finite version avoids NaN/range failures over the whole array, but does not establish organizer acceptance or settle the outside-footprint rule.</p></div></div>
+        <pre><code>python scripts/verify_current_run.py
+python scripts/validate_submission.py &lt;candidate.tif&gt; --template data/sample_submission.tif --convention all-finite</code></pre>
+        <p class="small">Geoscience/format validation is automated, not delegated to a human inspector.
+          Entrant identity, rules, final-slot selection and portal upload are outside this software.
+          AI-use disclosure: <a href="ai-disclosure.html">draft and limitations</a>.</p>
+      </section>
   </main>
   <footer class="footer"><div class="wrap footer-inner">
-    <p>This page is the operator's guide; the science is on the research and validation pages.</p>
-    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+    <p>Every figure on this site is generated from measured artifacts in the repository.</p>
+    <p><a href="feed.html">Evidence feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
   </div></footer>
 </body>
 </html>

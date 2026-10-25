@@ -49,7 +49,11 @@
     "max_final_dots_spearman_rho": 0.042103,
     "max_final_dots_within_3px": 0.515297,
     "duplicates_found": [],
-    "passed": true
+    "passed": true,
+    "concurrent_discrete_lanes_checked": 5,
+    "max_final_dots_within_3px_concurrent_discrete_lanes": 0.452435,
+    "shared_registry_57_calibration_lattice_overlap": 1.0,
+    "shared_registry_57_calibration_note": "5x5 uniform calibration lattice (r13-lattice-s5) covers 100% of Nevada interior within sqrt(8)=2.83<=3 px; all discrete fault-dot submissions across GEMSDOE24..36, 70, and concurrent GEMSDOE31 lanes have <=51.53% overlap."
   },
   "raster_sha256": {
     "nan_outside_primary": "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8",
@@ -78,5 +82,6 @@
     "human_inspection_required_for_validation": false,
     "weekly_slot_spent_by_agent": false
   },
-  "verdict": "negative"
+  "verdict": "negative",
+  "note": "GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287"
 }

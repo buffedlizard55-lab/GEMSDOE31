@@ -1,0 +1,50 @@
+{
+ "schema_version": 1,
+ "checked_utc": "2026-10-25T20:53:14.037538+00:00",
+ "evidence_class": "LOCAL-DELIVERY-VERIFICATION",
+ "passes_completed": 3,
+ "pytest_passed": 66,
+ "ruff": "passed",
+ "compileall": "passed for src/scripts/tests",
+ "site_pages": 20,
+ "local_links": 305,
+ "metric_arithmetic": "24 random-grid fast/brute comparisons, max difference 4.441e-16; not an official-score verification",
+ "exact_reconstruction": "unplaced NPY hash and delivered TIFF pixels identical; evidence/tgj31_exact_reconstruction_20261025.txt",
+ "browser_smoke": "evidence/browser_smoke_20261025.json",
+ "cumulative_diff_whitespace_check": "passed against base cf13282fcd86290f1539f0a86446c8ba7205a79b",
+ "scientific_experiments": 1,
+ "slot_approved": false,
+ "slots_used": 0,
+ "limitations": [
+  "Local tests do not authenticate organizer data, acceptance, score, cap or lane assignment.",
+  "Literal registry rule universally blocks nonempty promotion; extended inventory incomplete.",
+  "PR merge and site deployment require separate actual GitHub status."
+ ],
+ "post_integration_verification": {
+  "upstream_main": "4371416",
+  "preserved_upstream_prs": [
+   8,
+   9
+  ],
+  "pytest_passed": 67,
+  "ruff": "passed",
+  "site_pages": 20,
+  "site_local_links": 305,
+  "tiff_unchanged": true,
+  "outside_encoding_portal_convention": "unverified; local all-finite policy only"
+ },
+ "post_AS1_integration_verification": {
+  "upstream_main": "946558c",
+  "preserved_upstream_pr": 11,
+  "pytest_passed": 76,
+  "ruff": "passed",
+  "site_pages": 21,
+  "site_local_links": 321,
+  "restored_current_manifest_files": 12,
+  "tiff_unchanged": true,
+  "other_lane_experiments_executed_by_this_run": 0,
+  "browser_pages": 9,
+  "mobile_pages": 6,
+  "publication_status": "Requires actual GitHub job status; not inferred from local tests."
+ }
+}

@@ -1,18 +1,63 @@
-# Current status — 2026-10-25 (Updated post H31-E / H31-E2 execution)
+# Current status — 2026-10-25 (H31-E2 SCGP-Submod + MAGREST integrated record)
 
-Read the [project charter](../README.md), [agent rules](../AGENTS.md), [H31-E preregistration](2026-10-25_h31e_preregistration.md), and `registry/review_passes.json` before further experimentation.
+Read the complete owner prompt at the end of README, AGENTS, [H31-E preregistration](2026-10-25_h31e_preregistration.md), the frozen MAGREST preregistration, this record and `registry/review_passes.json` before continuing.
 
-## Decision
+## Latest lane (H31-E2 SCGP-Submod · `gemsdoe31-scgp-submod-37654-20261025-fa735287`)
 
-- **Generated unique GeoTIFF (`docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif`, `37,654` off-catalogue dots):**
-  - **Portal Format, `[0, 1]` Range, NaN-Mask, Leakage, Cross-Site Uniqueness, and `21.3 km` Holdout Validation: `PASS — OK TO DOWNLOAD & PORTAL-SAFE TO SUBMIT` (`G1 = PASS`, `G2 = PASS`, `G3 = PASS`, `G4 = PASS`, `G5a Piedmont SGMC = PASS +13.0% over H33-2-B2`).**
-  - **Weekly-Slot Auto-Selector Verdict (`slot_approved = false`, Run Card `verdict = "negative"`):** Automatic agent slot spending remains `false` solely because strict pre-declared sub-clause **`G5b`** required beating `H33-2-B2` (`0.0940`) on unfiltered all-elevation mountain SGMC (`H31-E2 = 0.0816` vs `Baseline-D = 0.0718`, `+13.6%`), where `H31-E2` avoids steep pre-Quaternary mountain-interior thrusts (`det_elev = +126.8 m`) that dragged `G70-P8` down to `0.2478` (`USER-REPORTED`). Human weekly-slot selector sign-off is required before spending one of the 3 weekly DrivenData slots.
+- **Primary NaN-outside GeoTIFF:** `docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif` (`d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8`); all-finite fallback `88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6`; `37,654` off-catalogue binary dots (`31.5%` beyond `1.5 km`).
+- **Automated validation gates (`evidence/h31e/run_card.json`):** `G1` Format & `[0, 1]` Range **PASS** (`0` NaN inside footprint); `G2` Single-Feature Leakage **PASS** (`max AUC = 0.7624 <= 0.90`); `G3a` Uniqueness across all 22 genuine submissions **PASS** (`max surface |ρ| = 0.1073 <= 0.90`, `max 3-px overlap = 51.53% <= 70.0%`); `G4a` Screen (`draw=101`, `21.3 km` buffer) **PASS** (`0.1274` vs `0.0922`, `+0.0352`, `4/4` quadrants); `G4b` Fresh Untouched Confirmation (`draws=[202, 303]`, `n=35,599`) **PASS** (`0.1145 [0.1071, 0.1232]` vs `0.0886`, `+0.0259`, `+29.3%`); `G5a` Piedmont SGMC **PASS** (`0.1233` vs `GEMSDOE32 H33-2-B2 = 0.1091`, `+13.0%`).
+- **Weekly-slot auto-selector verdict (`slot_approved = false`, Run Card `verdict = "negative"`):** Held from automatic agent slot spending by strict pre-declared `G5b` all-elevation mountain SGMC (`0.0816 < 0.0940`, though `+13.6%` vs `Baseline-D = 0.0718`) and the unexempted `57GEMSDOE` `r13-lattice-s5` 5×5 calibration-lattice rule (`100.0%` interior coverage).
 
-## Key measurements (2026-10-25)
+## Concurrent MAGREST decision
 
-1. **All 11 hash-pinned competition & external rasters restored and SHA-256 verified** in git-ignored `.cache/data/`, resolving `IR-31-RUNTIME-DATA-ABSENT`. Discovered and sanitized `3,061` in-footprint `-3.4028235e+38` float32 nodata sentinels (`IR-31-FLOAT32-NODATA-SENTINEL-3061PX`) and byte-scaled `TMI_up150` (`IR-31-TMI-UP150-UINT8-SCALE`).
-2. **Cross-site forensic audit (`evidence/h31e/forensic_comparison.json`):** Proved all `0.2449–0.2778` `USER-REPORTED` peer rasters (`GEMSDOE24..36`) share `86.7%–100.0%` 3-px overlap with `19GEMSDOE H19-5`, and proved `GEMSDOE32 H33-2-B2` (`0.2778` `USER-REPORTED`) equals `D2.8 & (d_cat > 200 m)` (`37,654` dots).
-3. **Three-experiment trajectory (`gemsdoe31-hide-v2.0`, `21,300 m` empirical buffer):**
-   - `Exp 1` (`H31-E v1`): `0.1788` screen / `0.1717` confirm `HOLDOUT-DTI`, stopped by `G5` after shell diagnostics caught lateral halo collapse (`75.6%` dots in `200–500 m`, `60` dots `>1.5 km`).
-   - `Exp 2` (`H31-E v1 Poisson`): `0.1417` screen `HOLDOUT-DTI`, isolating `+0.0372` gain from the 29-offset 300 m submodular allocator over `2.8 px` Poisson thinning.
-   - `Exp 3` (`H31-E2`, `fa735287`): Translation-invariant Dual-Expert + unsupervised multi-physics ridge + tip/relay continuation + 300 m submodular allocator achieved **`0.1274` screen** (`+0.0352`) and **`0.1145` fresh confirmation `HOLDOUT-DTI`** (`95% CI [0.1071, 0.1232]` vs `0.0886` `Baseline-D-Poisson`, **`+29.3%`**, `4/4` folds), placed `11,864` dots (`31.5%`) at `d_cat > 1.5 km`, beat `H33-2-B2` by **`+13.0%` on Piedmont SGMC (`0.1233` vs `0.1091`)**, and passed all uniqueness checks across 16 rasters (`max surface ρ = 0.1073`, `max 3-px dot overlap = 51.53%`).
+**Newly computed research TIFF exists. Literal registry-overlap STOP. OK TO DOWNLOAD FOR RESEARCH. DO NOT SUBMIT.**
+
+- Primary: `docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif`.
+- SHA-256: `c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9`.
+- A one-TIFF ZIP and explicitly named NaN-outside counterpart are alongside it. Both use the same new predictions.
+- Independent 37,654-dot emitter used no old dot field. All 118 comparable files in the nine pinned download trees pass the surface and final-support thresholds. One 32×48 test fixture is grid-incomparable. That original preflight scope was insufficient. Final review found an authentic registered spacing-5 lattice outside those download trees; surface/prospective and final overlaps are 100% for all three variants. The literal shared-registry rule FAILS. No dense/calibration exemption and no exhaustive 695-raster pass claimed. See `evidence/magrest/registry_scope_correction.json`.
+- HOLDOUT-DTI `gems57-pooled-hide-v2`, **2,901 withheld positives**, **0.052972044857535226**, 95% CI **[0.04131136300815562, 0.06532899139157548]**.
+- Same-run physical HGB control: HOLDOUT-DTI under that evaluator/n, **0.048293608830301336**, 95% CI **[0.029921573594205237, 0.06850647563703088]**.
+- Paired Δ **+0.00467843602723389**, 95% CI **[-0.017864202465723577, +0.022933167391729445]**. Three quadrant wins; southwest loss **-0.01822816838479043**, exceeding the permitted .010 loss. **Screen failed.**
+- Three frozen variants exhausted the experiment budget before the registry scope defect was discovered. No new fit/tuning/TIFF after the STOP. Already-generated genuinely new bytes are retained per the highest-priority output request, not promoted as a lane-approved unique submission. No confirmation, no fourth experiment, no selector action, no weekly slot. A format pass is not science approval or organizer acceptance.
+
+## Resolved engineering blockers
+
+- Eleven manifest inputs restored and hash/grid-verified; no manual placement needed.
+- All nineteen regenerated raw feature-cache bands exactly match the pinned shared 57GEMSDOE receipt. `prepare_template_cache.py` reuses them and calls the unchanged shared builder only if absent.
+- Whole 8-connected fault components withheld with an inherited 213-pixel collar; visible faults masked pixel-exactly. Active predictors use no catalogue/SGMC features or coordinate planes.
+- 136 feature/missingness leakage tests pass; highest bidirectional AUC .8048414150943396. Synthetic label-copy regression demonstrates the leakage STOP.
+- Shared evaluator, grid, mask, inference and writer files are unchanged and hash-pinned. The separate old local writer no longer clips invalid input, repairs footprint NaN or substitutes an unverified grid.
+- The older common data preparer no longer caches full-catalogue/SGMC distances; Float32-min sentinel cleaning and verify-only failure semantics were repaired. No historical result is rewritten.
+- Exact-file verification reopens both TIFFs, checks ZIP membership/bytes, template/catalogue hashes, spacing, supports, code/prereg pins, independent registry thresholds and frozen pooled DTI/CI/paired delta; re-derives the literal 100% overlap STOP and `ok_to_submit=false`. CI restores two small competition inputs plus that registered control.
+- README contains the complete normalized current owner prompt. Site home/executive show the new download and DO NOT SUBMIT; historical pages are scoped as archives.
+
+## Findings about the reported winner
+
+H27 equals D2.8 pruned at catalogue distance >1 pixel; H33 equals D2.8 pruned at >2 pixels. H33 removes 2,545 H27 dots and retains the same 35,483 dots farther than 300 m. This is geometry/pruning, not evidence of new fault discovery. Equal far support does not imply equal kernel credit: removed near-catalogue dots can still cover off-catalogue truth. Reported .2778, .3195 and .4413 values remain user reports without exact-byte organizer receipts. See the 12-artifact, nine-site claim-separated review and lineage receipt.
+
+## Remaining scientific/access limits
+
+- A global same-protocol current-best comparison is not established; the stronger historical holdout best uses a different truth/buffer instrument and its older full trainer is unavailable.
+- MAGREST's own residual correlation range is unknown. The inherited 21.3 km collar and 20 km bootstrap blocks do not prove independence or transfer.
+- The negative result does not establish a valuable fault-slip map. Volcanic contacts, undisturbed anisotropic magnetic fabric and flight-line seams are named mimics.
+- Only GitHub/package hosts are reachable. Official organizer reference code was freshly retrieved and pinned; official non-GitHub rule/data pages, the live leaderboard, submission page/quota and outside-mask convention were not freshly verified. Mirrors are not organizer-authenticated.
+- No human inspection or external manual input is needed to get the present decision: it is already automatically negative. Scientific/data/access shortcomings are not delegated to an inspector.
+
+## Next session
+
+Keep this negative release immutable. First resolve the dense-control degeneracy explicitly in a future protocol; this session cannot waive the literal 70% rule. Start a new preregistration only after the lane is clarified or an explicit assumption is documented. Priorities: reciprocal across-window consistency and explicit contact/seam nulls; own-method residual-range estimation; shared-protocol reproduction of the strongest available control; independent off-catalogue corroboration and fresh confirmation; exact-file organizer receipt and convention verification before any separate selector approval. Never reuse this negative TIFF as a new submission under another name.
+
+PR/deployment outcome is recorded in the session's final response and GitHub history; do not infer a deployment from an earlier Pages `built` response.
+
+## Concurrent integration
+
+Main advanced to `6b3ec48` during this run. Preserve H31-B source/TIFFs/receipts and restore the 121 earlier merged AS-1/TGJ31 files removed by that later merge. Colliding/obsolete workflow, extra page and homepage assertion are archived, not re-enabled; one legacy value-test fixture is adapted to the stricter grid contract. Current tests cover all retained scientific modules without a new fit. Original H31-B promote metadata is archived evidence, not reproduced or imported approval. All parallel TIFFs have current research-only/no-submit register entries. See `evidence/parallel_history_preservation_20261025.json`.
+
+Main then advanced to `7619b61` (H31-E / PR #13); its code, tests, TIFFs, preregistration, results and negative card are preserved in the same integration. None is a new experiment by this session or a same-instrument MAGREST comparison. Source sentinel fix is reconciled with the already stricter local preparer; active shared-template hashes remain unchanged.
+
+## Verified release delivery
+
+PR #14 merged at 21:57:39Z as `3e8854d6b487f7cf65fac853e4333778cb0f061e`; push/PR/main CI and the Pages deployment succeeded. Fresh GitHub API retrieval of all four TIFF/ZIP blobs at that merge matches the reviewed bytes, and the published current run card is identical and denies upload. `evidence/magrest_delivery_release14_20261025.json` records the commit-specific API proof and limitations (public Pages HTTP and CI logs unavailable under the host allowlist). 89 local tests, 20 pages/281 local links, and 15 local browser viewport checks/six exact downloads passed.
+
+A final wording-only follow-up removes an incorrect “failed confirmation” phrase (confirmation was never run), and withdraws “independent” from the SGMC proxy description because mapping-lineage independence is not established. No data, metric, TIFF or negative/STOP decision changes. The separate selector still has no candidate/slot authorization.

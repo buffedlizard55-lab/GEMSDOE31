@@ -14,6 +14,8 @@ import html
 import json
 from pathlib import Path
 
+import current_site
+
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 REPO = "https://github.com/buffedlizard55-lab/GEMSDOE31"
@@ -64,6 +66,10 @@ def table(headers: list[str], rows: list[list[str]], caption: str = "") -> str:
 def shell(prefix: str, title: str, description: str, current: str, hero: str, body: str,
           footer_left: str = "") -> str:
     current_attr = ' aria-current="page"'
+    active_run = load("registry/current_run.json")
+    if active_run and current not in {"Overview", "Executive summary", "Research"}:
+        prefix_notice = f'<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="{prefix}executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>'
+        body = prefix_notice + body
     nav = "".join(
         '<a href="{p}{h}"{c}>{l}</a>'.format(p=prefix, h=href, c=current_attr if label == current else "", l=e(label))
         for _, href, label in NAV
@@ -92,7 +98,7 @@ def shell(prefix: str, title: str, description: str, current: str, hero: str, bo
   </main>
   <footer class="footer"><div class="wrap footer-inner">
     <p>{footer_left or "Every figure on this site is generated from measured artifacts in the repository."}</p>
-    <p><a href="{prefix}feed.html">Live feed</a> · <a href="{prefix}ai-disclosure.html">AI use</a> · <a href="{REPO}">Repository</a></p>
+    <p><a href="{prefix}feed.html">Evidence feed</a> · <a href="{prefix}ai-disclosure.html">AI use</a> · <a href="{REPO}">Repository</a></p>
   </div></footer>
 </body>
 </html>
@@ -244,280 +250,109 @@ def submission_receipts() -> list[dict]:
     return out
 
 
-# --------------------------------------------------------------------------------------- H31-E views
-
-def h31e_gates_table(rc: dict, hold: dict) -> str:
-    if not rc or not hold:
-        return ""
-    gates = rc["automated_gates"]
-    prox = hold["off_catalogue_discovery_proxies"]
-    conf = rc["holdout_dti"]["fresh_confirmation_draws_202_303"]
-    scr = rc["holdout_dti"]["screen_draw_101"]
-    dup = rc["correlation_overlap_vs_registry"]
-    can = rc["leakage_canary"]
-    val = rc["validator_output"]
-    rows = [
-        [
-            "<strong>G1 · Format, Grid &amp; [0, 1] Range</strong>",
-            '<span class="badge badge-green">PASS</span>' if gates["G1_format_and_range_0_1_pass"] else '<span class="badge badge-red">FAIL</span>',
-            f"1-band float32 · EPSG:32611 · 3730×3292 · 0 NaN inside footprint · values strictly in [0, 1] "
-            f"({fmt(val['positive_dots'], 0)} dots, {fmt(val['dots_on_public_catalogue'], 0)} on public catalogue)",
-        ],
-        [
-            "<strong>G2 · Single-Feature Leakage Canary</strong>",
-            '<span class="badge badge-green">PASS</span>' if gates["G2_leakage_canary_pass"] else '<span class="badge badge-red">FAIL</span>',
-            f"All {fmt(can['features_tested'], 0)} static, fold-visible, and baseline features tested individually on holdout: "
-            f"max two-sided ROC-AUC = <strong>{fmt(can['max_single_feature_auc'], 4)}</strong> ≤ {fmt(can['threshold_auc'], 2)}",
-        ],
-        [
-            "<strong>G3 · Pre-Placement &amp; Final-Dot Uniqueness</strong>",
-            '<span class="badge badge-green">PASS</span>' if gates["G3_uniqueness_canary_pass"] else '<span class="badge badge-red">FAIL</span>',
-            f"Checked against all {fmt(dup['checked_rasters'], 0)} local + peer rasters (GEMSDOE24..36, 70): "
-            f"max surface Spearman ρ = <strong>{fmt(dup['max_surface_spearman_rho'], 4)}</strong> ≤ 0.90; "
-            f"max 3-px dot overlap = <strong>{fmt(dup['max_final_dots_within_3px'] * 100, 2)}%</strong> ≤ 70.0%",
-        ],
-        [
-            "<strong>G4 · 21.3 km Buffered Whole-Segment Holdout</strong>",
-            '<span class="badge badge-green">PASS</span>' if gates["G4_buffered_holdout_screen_and_confirm_pass"] else '<span class="badge badge-red">FAIL</span>',
-            f"Screen (draw 101, n={fmt(scr['withheld_positives'], 0)}): <strong>{fmt(scr['dti'], 4)}</strong> vs {fmt(scr['baseline_d_dti'], 4)} "
-            f"({scr['paired_delta_dti']:+.4f}, 4/4 folds). Fresh Confirm (draws 202+303, n={fmt(conf['withheld_positives'], 0)}): "
-            f"<strong>{fmt(conf['dti'], 4)}</strong> (95% CI {fmt(conf['ci95'][0], 4)}–{fmt(conf['ci95'][1], 4)}) vs {fmt(conf['baseline_d_dti'], 4)} "
-            f"(Δ = <strong>{conf['paired_delta_dti']:+.4f}</strong>, 95% CI {conf['paired_delta_ci95'][0]:+.4f} to {conf['paired_delta_ci95'][1]:+.4f})",
-        ],
-        [
-            "<strong>G5a · Piedmont Off-Catalogue SGMC (det_elev ≤ +50 m)</strong>",
-            '<span class="badge badge-green">PASS (+13.0%)</span>',
-            f"Basin-margin/piedmont faults (23,135 px): H31-E2 = <strong>{fmt(prox['piedmont_sgmc_offcat_det_elev_le_50m']['h31e_scgp_submod_dti'], 4)}</strong> "
-            f"beats both Baseline-D ({fmt(prox['piedmont_sgmc_offcat_det_elev_le_50m']['baseline_d_poisson_dti'], 4)}) and "
-            f"GEMSDOE32 H33-2-B2 ({fmt(prox['piedmont_sgmc_offcat_det_elev_le_50m']['h33_2_b2_reference_dti'], 4)})",
-        ],
-        [
-            "<strong>G5b · All-Elevation Mountain SGMC (62,649 px)</strong>",
-            '<span class="badge badge-red">HOLD (0.0816 vs 0.0940)</span>',
-            f"H31-E2 = <strong>{fmt(prox['sgmc_offcat_gt_300m']['h31e_scgp_submod_dti'], 4)}</strong> beats Baseline-D "
-            f"({fmt(prox['sgmc_offcat_gt_300m']['baseline_d_poisson_dti'], 4)}, +13.6%), below H33-2-B2 "
-            f"({fmt(prox['sgmc_offcat_gt_300m']['h33_2_b2_reference_dti'], 4)}) because H31-E2 avoids steep mountain pre-Quaternary thrusts "
-            f"(det_elev +126.8 m) that dragged G70-P8 down to 0.2478 USER-REPORTED",
-        ],
-    ]
-    return table(["automated gate", "status", "measured evidence (evidence/h31e/run_card.json)"], rows,
-                 "All 5 pre-registered gates evaluated automatically with zero post-hoc threshold modification.")
-
-
-def forensic_peer_table(forensic: dict) -> str:
-    if not forensic or not forensic.get("rasters"):
-        return ""
-    rows = []
-    sorted_r = sorted(
-        forensic["rasters"],
-        key=lambda r: (r["reported_score"] is not None, r["reported_score"] or 9.0),
-        reverse=True,
-    )
-    for r in sorted_r:
-        score_txt = (
-            f"<strong>{fmt(r['reported_score'], 4)}</strong> <span class=\"badge\">USER-REPORTED</span>"
-            if r["reported_score"] is not None
-            else f"<span class=\"badge badge-green\">{e(r['score_claim_class'])}</span>"
-        )
-        sh = r["shells_px"]
-        rows.append([
-            f"<code>{e(r['id'])}</code><div class=\"small\">{e(r['repo'].split('/')[-1])}</div>",
-            score_txt,
-            fmt(r["dots"], 0),
-            fmt(r["nn_median_px"], 2),
-            f"{fmt(sh['flank_0_to_2'], 0)} / {fmt(sh['near_2_to_5'] + sh['mid_5_to_15'], 0)} / {fmt(sh['far_gt_15'], 0)}",
-            f"{fmt(r['overlap_3px_with_h33_2_b2'] * 100, 1)}%",
-            fmt(r["piedmont_sgmc_dti"], 4),
-            fmt(r["sgmc_offcat_dti"], 4),
-            f"{fmt(r['median_det_elev_m'], 1)} m / {fmt(r['median_slope_deg'], 1)} deg",
-        ])
-    return table(
-        [
-            "artifact / site",
-            "score & claim class",
-            "dots",
-            "NN med (px)",
-            "shells ≤2 / 2–15 / >15 px",
-            "3-px overlap vs H33-2-B2",
-            "Piedmont SGMC DTI",
-            "All SGMC DTI",
-            "median elev / slope",
-        ],
-        rows,
-        "Computed directly across 12 SHA-256-verified sibling rasters and GEMSDOE31 H31-E2 (evidence/h31e/forensic_comparison.json). "
-        "Catalogue Quaternary medians: det_elev = -73.6 m, slope = 5.55 deg; all-SGMC off-cat medians: det_elev = +126.8 m, slope = 13.42 deg.",
-    )
-
-
-def h31e_three_experiments_table(exp12_halo: dict, hold: dict) -> str:
-    if not hold:
-        return ""
-    rows = []
-    scr3 = hold["experiment_1_and_2_screen_draw_101"]
-    conf3 = hold["experiment_3_fresh_confirmation_draws_202_303"]
-    prox3 = hold["off_catalogue_discovery_proxies"]
-    rows.append([
-        "<code>Arm 0 · Baseline-D-Poisson</code>",
-        "Comparator",
-        f"{fmt(scr3['baseline_d_poisson']['pooled_dti'], 4)}",
-        f"{fmt(conf3['baseline_d_poisson_pooled_dti'], 4)}",
-        "—",
-        f"{fmt(prox3['piedmont_sgmc_offcat_det_elev_le_50m']['baseline_d_poisson_dti'], 4)}",
-        f"{fmt(prox3['sgmc_offcat_gt_300m']['baseline_d_poisson_dti'], 4)}",
-        "Same-fold 39-band HGB + d=2.8 px Poisson (37,654d)",
-    ])
-    if exp12_halo:
-        s1 = exp12_halo["experiment_1_and_2_screen_draw_101"]
-        c1 = exp12_halo["experiment_3_fresh_confirmation_draws_202_303"]
-        p1 = exp12_halo["off_catalogue_discovery_proxies"]
-        rows.append([
-            "<code>Exp 1 · H31-E v1 (with vis_d1 in HGB)</code>",
-            '<span class="badge badge-red">stopped by G5</span>',
-            f"{fmt(s1['h31e_scgp_submod']['pooled_dti'], 4)}",
-            f"{fmt(c1['h31e_scgp_submod_pooled_dti'], 4)}",
-            f"{c1['paired_delta_dti']:+.4f}",
-            f"{fmt(p1['piedmont_sgmc_offcat_det_elev_le_50m']['h31e_scgp_submod_dti'], 4)}",
-            f"{fmt(p1['sgmc_offcat_gt_300m']['h31e_scgp_submod_dti'], 4)}",
-            "Caught lateral halo collapse: 75.6% dots in 200–500 m, only 60 dots >1.5 km",
-        ])
-        rows.append([
-            "<code>Exp 2 · H31-E v1 Poisson Ablation</code>",
-            "Ablation",
-            f"{fmt(s1['h31e_poisson_ablation']['pooled_dti'], 4)}",
-            "—",
-            f"{s1['surface_over_baseline_delta']:+.4f} (screen)",
-            "—",
-            "—",
-            f"Proved +0.0495 surface gain + {s1['submodular_over_poisson_delta']:+.4f} 300 m submodular allocator gain",
-        ])
-    rows.append([
-        "<strong><code>Exp 3 · H31-E2 SCGP-Submod (fa735287)</code></strong>",
-        '<span class="badge badge-green">G1–G4 + Piedmont PASS</span>',
-        f"<strong>{fmt(scr3['h31e_scgp_submod']['pooled_dti'], 4)}</strong>",
-        f"<strong>{fmt(conf3['h31e_scgp_submod_pooled_dti'], 4)}</strong>",
-        f"<strong>{conf3['paired_delta_dti']:+.4f}</strong> (+29.3%)",
-        f"<strong>{fmt(prox3['piedmont_sgmc_offcat_det_elev_le_50m']['h31e_scgp_submod_dti'], 4)}</strong>",
-        f"<strong>{fmt(prox3['sgmc_offcat_gt_300m']['h31e_scgp_submod_dti'], 4)}</strong>",
-        "Translation-invariant Dual-Expert + unsup ridge + tip/relay + 300 m submod; 11,864 dots >1.5 km (31.5%)",
-    ])
-    return table(
-        [
-            "experiment (<=3 budget)",
-            "gate outcome",
-            "HOLDOUT-DTI (draw 101)",
-            "HOLDOUT-DTI (fresh 202+303)",
-            "paired ΔDTI vs Base-D",
-            "Piedmont SGMC DTI",
-            "All SGMC DTI",
-            "scientific takeaway",
-        ],
-        rows,
-        "Evaluator gemsdoe31-hide-v2.0: 21,300 m (213 px) empirical buffer, whole 8-connected fault segments withheld, visible faults masked pixel-exactly.",
-    )
-
-
 # --------------------------------------------------------------------------------------- pages
 
 def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
-    cand = next((f for f in sub["files"] if f["id"] == "candidate-h31e2-scgp-submod"), None)
+    current = load("registry/current_run.json")
+    if current:
+        hero, body = current_site.overview(current)
+        body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
+        return shell("", "Overview", "Download the new MAGREST research TIFF. Format-valid; not approved for upload.",
+                     "Overview", hero, body, "Maximize P(Win) · Own the Outcome · negative results preserved.")
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
-    rc = load("evidence/h31e/run_card.json", {})
-    hold = load("evidence/h31e/holdout_results.json", {})
-    exp12_halo = load("evidence/h31e/exp1_exp2_halo_audit.json", {})
-    forensic = load("evidence/h31e/forensic_comparison.json", {})
-    conf = rc.get("holdout_dti", {}).get("fresh_confirmation_draws_202_303", {})
-    dup = rc.get("correlation_overlap_vs_registry", {})
-
+    inc = union.get("incumbent", {})
+    inc_credit = inc.get("ff_credit_per_dot")
+    operating = load("evidence/operating_point.json", {})
+    best_arm = max((max(row["ff_DTI"] for row in rows) for rows in operating.values() if rows), default=None)
     hero = f"""  <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">DOE GEMS Prize · competition 306 · multi-physics SCGP-Submod fault mapping</p>
-        <h1>Unique H31-E2 GeoTIFF Validated (G1–G4 + Piedmont PASS) · Slot Held for Selector Sign-Off</h1>
-        <p class="hero-lede">New candidate <code>{e(cand['name'])}-nan.tif</code> ({fmt(cand['positive_pixels'], 0)} off-catalogue dots)
-        is 100% portal-format, [0, 1] range, NaN-mask, leakage, and cross-site uniqueness validated — safe to download and upload
-        without format/range errors. Automatic weekly-slot spending remains <code>slot_approved = false</code> (Run Card
-        <code>verdict = "negative"</code> solely on strict upland SGMC sub-gate G5b; human selector sign-off required).</p>
+        <p class="eyebrow">DOE GEMS Prize · competition 306 · auditable fault mapping</p>
+        <h1>Review the reference file. Do not submit it.</h1>
+        <p class="hero-lede">The downloadable incumbent is format-checked, but no new candidate has passed the
+        required holdout, duplicate, confirmation and selector gates. This site is not offering an approved entry.</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/{e(cand['file_nan'].split('/')[-1])}" download>Download validated H31-E2 .tif (selector sign-off required)</a>
-          <a class="button button-light" href="executive-summary.html">Executive summary &amp; submission status</a>
-          <a class="button button-light" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download reference TIFF</a>
+          <a class="button button-primary" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download reference TIFF — not approved</a>
+          <a class="button button-light" href="executive-summary.html">Submission instructions and status</a>
         </div>
       </div>
-      <aside class="hero-side" aria-label="Automated validation summary">
-        <strong>{e(cand['name'])} · {fmt(cand['positive_pixels'], 0)} dots</strong>
-        <p><b>OK TO DOWNLOAD &amp; PORTAL-FORMAT VALIDATED:</b> 1-band float32 · EPSG:32611 · 3730×3292 · 0 NaN inside footprint ·
-        values strictly in [0, 1] · max 3-px peer overlap <b>{fmt(dup.get('max_final_dots_within_3px', 0)*100, 1)}%</b> ·
-        21.3 km fresh HOLDOUT-DTI <b>{fmt(conf.get('dti'), 4)}</b> vs {fmt(conf.get('baseline_d_dti'), 4)} (+29.3%) ·
-        Piedmont SGMC DTI <b>0.1233</b> vs H33-2-B2 0.1091 (+13.0%).</p>
+      <aside class="hero-side" aria-label="Current state">
+        <strong>Current file · {fmt(primary['positive_pixels'], 0)} pixels</strong>
+        <p>Single-band float32 GeoTIFF on the exact competition grid; <b>zero</b> of its pixels sit on the public
+        catalogue. Format validated in this repository (<a href="downloads/{e(primary['receipt'].split('/')[-1])}">receipt</a>).
+        It is the incumbent geometry, deliberately not slot-approved: nothing here beat it by a margin worth a slot.</p>
       </aside>
     </div>
   </section>
 """
-    body = f"""    <div class="notice notice-good"><strong>PORTAL UPLOAD &amp; TECHNICAL VALIDATION: PASS — OK TO DOWNLOAD &amp; FORMAT-SAFE TO SUBMIT (WITH HUMAN SELECTOR SIGN-OFF).</strong>
-    <code>{e(cand['name'])}-nan.tif</code> passed automated Gates <strong>G1</strong> ([0, 1] range, 0 NaN inside footprint, exact EPSG:32611 3730×3292 grid),
-    <strong>G2</strong> (86-feature leakage canary max AUC = 0.7624 ≤ 0.90), <strong>G3</strong> (100% unique across all 16 local and peer GEMSDOE24..36/70 rasters:
-    max surface Spearman ρ = 0.1073 ≤ 0.90, max 3-px dot overlap = 51.53% ≤ 70.0%), <strong>G4</strong> (21.3 km buffered whole-segment fresh confirmation
-    HOLDOUT-DTI = 0.1145 vs 0.0886 Baseline-D-Poisson, +29.3% across 4/4 spatial folds), and <strong>G5a</strong> (Piedmont SGMC DTI = 0.1233 vs GEMSDOE32 H33-2-B2 = 0.1091, +13.0%).</div>
-    <div class="notice notice-danger"><strong>WEEKLY-SLOT AUTO-SELECTOR STATUS: HOLD FOR HUMAN SELECTOR SIGN-OFF (<code>slot_approved = false</code> · Run Card <code>verdict = "negative"</code>).</strong>
-    Legacy reference files (<code>{e(primary['name'])}</code>) are <strong>not approved for upload</strong> (duplicate of GEMSDOE28). Our new unique H31-E2 raster is withheld from automatic agent slot spending solely because pre-declared strict Gate <strong>G5b</strong> required beating H33-2-B2 (0.0940) on unfiltered all-elevation mountain SGMC (H31-E2 scored 0.0816 vs Baseline-D 0.0718, +13.6%, intentionally avoiding steep pre-Quaternary mountain thrusts at det_elev +126.8 m that dragged G70-P8 down to 0.2478 USER-REPORTED). A human selector choosing an orthogonal non-H19-5 entry for one of the 3 weekly DrivenData slots may safely download and submit <code>{e(cand['name'])}-nan.tif</code>.</div>
-
+    body = f"""    <div class="notice notice-danger"><strong>Not approved for upload.</strong> The TIFF below is a legacy incumbent for research and format-reference purposes only. The separate union file is research-only, and the inspected GEMSDOE32 H33-2-B2 geometry fails the project's duplicate canary. No unique candidate has passed holdout validation and confirmation, so do not spend a competition slot on any download from this site.</div>
     <section>
       <div class="section-head">
-        <div><p class="kicker">Submission readiness &amp; automated gates</p><h2>Generated unique GeoTIFF &amp; machine-checked verification</h2></div>
-        <p>Every gate below ran automatically in <code>scripts/evaluate_holdout.py</code> and <code>scripts/submission_writer.py</code> — zero human-inspector-only gap.</p>
+        <div><p class="kicker">Reference artifact</p><h2>Format-valid does not mean slot-approved</h2></div>
+        <p>The file matches the local template and its value-range checks, but is not a new validated candidate.
+        It is deliberately retained as a reproducibility reference, not recommended for competition upload.</p>
       </div>
-      <div class="card download-card" style="margin-bottom:20px">
-        <h2>{e(cand['name'])}</h2>
-        <p>Single-band float32 · EPSG:32611 · 100 m · 3730×3292 · 0 NaN inside 5,167,373-cell footprint · footprint values strictly in [0, 1] · NaN outside · nodata = nan.</p>
+      <div class="card download-card">
+        <h2>{e(primary['name'])}</h2>
+        <p>Single-band float32 · EPSG:32611 · 100 m · 3730×3292 · values finite in [0,1] inside the footprint · NaN
+        outside · nodata = nan.</p>
         <div class="actions" style="margin-top:18px">
-          <a class="button button-primary" href="downloads/{e(cand['file_nan'].split('/')[-1])}" download>Download primary -nan.tif</a>
-          <a class="button button-light" href="downloads/{e(cand['zip'].split('/')[-1])}" download>Download -nan.zip</a>
-          <a class="button button-light" href="downloads/{e(cand['file_allfinite'].split('/')[-1])}" download>All-finite fallback (-allfinite.tif)</a>
+          <a class="button button-primary" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download .tif</a>
+          <a class="button button-light" href="downloads/{e(primary['zip'].split('/')[-1])}" download>Download .zip</a>
+          <a class="button button-light" href="downloads/{e(primary['file_allfinite'].split('/')[-1])}" download>All-finite fallback</a>
         </div>
-        <p class="download-meta">Primary SHA-256: <code>{e(cand.get('sha256_nan',''))}</code><br>
-        All-finite SHA-256: <code>{e(cand.get('sha256_allfinite',''))}</code><br>
-        Unique submission name: <code>{e(cand['name'])}</code><br>
-        Portal note ({len(cand['note_for_portal'])}/140 chars): <code>{e(cand['note_for_portal'])}</code><br>
-        {fmt(cand['positive_pixels'], 0)} positive dots · {fmt(cand['positive_pixels_on_public_catalogue'], 0)} on public catalogue ·
-        <a href="downloads/{e(cand['receipt'].split('/')[-1])}">format receipt JSON</a> ·
-        <a href="executive-summary.html">step-by-step upload checklist</a></p>
+        <p class="download-meta">SHA-256 <code>{e(primary.get('sha256_nan',''))}</code><br>
+        Portal note: <em>{e(primary['note_for_portal'])}</em><br>
+        {fmt(primary['positive_pixels'], 0)} positive pixels · {fmt(primary['positive_pixels_on_public_catalogue'], 0)} on the public catalogue ·
+        <a href="downloads/{e(primary['receipt'].split('/')[-1])}">format receipt</a> ·
+        <a href="executive-summary.html">how to submit</a></p>
       </div>
-      {h31e_gates_table(rc, hold)}
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Cross-site forensic audit</p><h2>Why GEMSDOE32 (0.2778 USER-REPORTED) won &amp; how H31-E2 breaks the H19-5 monoculture</h2></div>
-        <p>Direct byte- and pixel-level audit across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36, and 70.</p>
+        <div><p class="kicker">The answer</p><h2>Why the 0.2708 submission scores</h2></div>
+        <p>Three measured properties explain it, and together they say where an improvement has to come from.</p>
       </div>
-      <div class="grid grid-3" style="margin-bottom:18px">
-        <article class="card stat"><span class="badge badge-green">Monoculture uncovered</span><strong>86.7%–100%</strong>
-          <span>3-px dot overlap with GEMSDOE32 H33-2-B2 across every 0.2449–0.2778 peer submission — all descend from 19GEMSDOE H19-5 (0.1922 USER-REPORTED).</span></article>
-        <article class="card stat"><span class="badge badge-green">Why 0.2778 won</span><strong>d_cat &gt; 200 m</strong>
-          <span>H33-2-B2 = D2.8 minus 6,436 near-catalogue flank dots (0 &lt; d_cat ≤ 200 m) whose marginal credit falls below the 0.0556 DTI break-even threshold.</span></article>
-        <article class="card stat"><span class="badge badge-green">Genuine independence</span><strong>51.5% max</strong>
-          <span>3-px overlap of H31-E2 (<code>fa735287</code>) vs any registry raster (surface ρ ≤ 0.1073), while beating H33-2-B2 by <strong>+13.0%</strong> on Piedmont SGMC faults.</span></article>
+      <div class="grid grid-3">
+        <article class="card stat"><span class="badge badge-green">Verified prune</span><strong>{fmt(primary['positive_pixels'], 0)} dots</strong>
+          <span>Removing every D2.8 cell within 100 m of the catalogue reproduces this file bit for bit
+          ({fmt((load('evidence/h27_geometry.json', {}).get('counts') or {}).get('d28_cells_removed_from_base'), 0)} cells pruned);
+          spacing is 283 m minimum, 300 m median. The metric charges 0.2 per emitted pixel, so redundancy is expensive.</span></article>
+        <article class="card stat"><span class="badge badge-green">Off-catalogue</span><strong>0 px</strong>
+          <span>on the public USGS/INGENIOUS catalogue. The competition scores faults that are <em>missing</em> from that database, so catalogue-hugging pixels are worth ~0.</span></article>
+        <article class="card stat"><span class="badge">Detection gap</span><strong>{fmt(inc.get('ff_DTI'))}</strong>
+          <span>off-catalogue proxy DTI for the incumbent dot set, versus {fmt(best_arm)} for the best full-coverage
+          detector at any threshold it was swept over. The gap is in new detections, not in the threshold.</span></article>
       </div>
-      {forensic_peer_table(forensic)}
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Three-experiment trajectory (Rule 6)</p><h2>Empirically-buffered (21.3 km) whole-segment holdout results</h2></div>
-        <p>Every score below is labeled <code>HOLDOUT-DTI</code> (evaluator <code>gemsdoe31-hide-v2.0</code>, 21,300 m buffer) or <code>COMPUTED</code> off-catalogue proxy — never projected as a live leaderboard score.</p>
-      </div>
-      {h31e_three_experiments_table(exp12_halo, hold)}
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Prior baseline archive</p><h2>Legacy reference &amp; union baselines retained for audit continuity</h2></div>
-        <p>Retained unchanged so earlier 0.2600 / 0.2708 USER-REPORTED audit trails remain reproducible.</p>
+        <div><p class="kicker">Measured today</p><h2>What the arms actually score</h2></div>
+        <p>Two truth proxies, both off the public catalogue path. Their orderings disagree — the disagreement is the finding.</p>
       </div>
       {arm_table(arms)}
+      <p class="small">Catalogue-gap proxy: held-out public-catalogue pixels (60,988 px). Off-catalogue proxy: USGS SGMC
+      state-map fault cells more than 300 m from the catalogue (61,664 px) — the only populated fault population in
+      reach that is off-catalogue by construction, i.e. the one that resembles the hidden truth. Both proxies are
+      INFERENCE-class instruments, described with their limits on the <a href="validation.html">validation page</a>.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Direction of travel</p><h2>Adding detections works; re-budgeting does not</h2></div>
+        <p>The incumbent's own dots earn {fmt(inc_credit)} credit each on the off-catalogue proxy; the best
+        detector arms' dots earn ~0.02. Thresholding the incumbent down therefore loses at every quantile, while
+        adding thresholded detections to it gains — and the LiDAR arm gains most.</p>
+      </div>
       {union_table(union)}
-      <p class="small">Legacy reference file <code>{e(primary['name'])}-nan.tif</code> ({fmt(primary['positive_pixels'], 0)} dots, SHA-256 <code>{e(primary.get('sha256_nan','')[:24])}…</code>) and research union <code>{e(research['name'])}-nan.tif</code> remain archived in <code>docs/downloads/</code> and <code>registry/submissions.json</code>.</p>
+      <div class="notice notice-good"><strong>Strongest research candidate, not slot-approved</strong>
+      {e(research['name'])} ({fmt(research['positive_pixels'], 0)} dots, {fmt(research['positive_pixels_on_public_catalogue'], 0)} on the
+      public catalogue) moves the off-catalogue proxy by <strong>{fmt(research['measured']['delta'])}</strong>.
+      <a href="downloads/{e(research['file_nan'].split('/')[-1])}" download>Download it</a> and read the caveat:
+      {e(research['why_not_slot_approved'])}</div>
     </section>
 
     <section>
@@ -544,51 +379,28 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
       </div>
     </section>
 """
-    return shell("", "Overview", "Unique H31-E2 SCGP-Submod GeoTIFF format/range/uniqueness/holdout validated; weekly slot held for human selector sign-off.",
+    return shell("", "Overview", "Download a format-checked legacy reference raster; no candidate is approved for upload.",
                  "Overview", hero, body,
                  "Measured artifacts, honest limits. No score on this site is organizer-verified.")
 
 
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
-    cand = next((f for f in sub["files"] if f["id"] == "candidate-h31e2-scgp-submod"), None)
+    current = load("registry/current_run.json")
+    if current:
+        return shell("", "Executive summary", "New research TIFF, exact validation status, and portal workflow for a future approved file.",
+                     "Executive summary", page_hero("Download + submission guide", "Download for research. Do not submit.",
+                     "The file, unique name, note and automated decision are together below. No weekly slot is authorized."),
+                     current_site.executive(current))
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
-    rc = load("evidence/h31e/run_card.json", {})
-    hold = load("evidence/h31e/holdout_results.json", {})
-
     variants = table(
-        ["file", "role & when to use it", "bytes", "sha256", "automated validation"],
-        [
-            [
-                f"<strong><code>{e(cand['name'])}-nan.tif</code></strong>",
-                "NEW UNIQUE CANDIDATE (primary convention: finite {0,1} inside footprint, NaN outside) — safe for human selector upload",
-                fmt(cand.get("bytes_nan"), 0),
-                f"<code>{e(cand.get('sha256_nan',''))}</code>",
-                '<span class="badge badge-green">G1–G4 + Piedmont PASS</span>',
-            ],
-            [
-                f"<code>{e(cand['name'])}-allfinite.tif</code>",
-                "NEW UNIQUE CANDIDATE defensive fallback (0.0 outside footprint, 100% finite across all 12.28M cells)",
-                fmt(cand.get("bytes_allfinite"), 0),
-                f"<code>{e(cand.get('sha256_allfinite',''))}</code>",
-                '<span class="badge badge-green">G1–G4 + Piedmont PASS</span>',
-            ],
-            [
-                f"<code>{e(primary['name'])}-nan.tif</code>",
-                "Legacy reproducibility reference ONLY (duplicate of GEMSDOE28 H27-4) — do NOT submit",
-                fmt(primary.get("bytes_nan"), 0),
-                f"<code>{e(primary.get('sha256_nan',''))}</code>",
-                '<span class="badge badge-red">reference only (duplicate)</span>',
-            ],
-            [
-                f"<code>{e(research['name'])}-nan.tif</code>",
-                "Prior union research baseline (106,138 dots) — superseded by H31-E2",
-                fmt(research.get("bytes_nan"), 0),
-                f"<code>{e(research.get('sha256_nan',''))}</code>",
-                '<span class="badge">research archive</span>',
-            ],
-        ],
-    )
+        ["file", "when to use it", "bytes", "sha256 (nan convention)", "format check"],
+        [[f"<code>{e(primary['name'])}-nan.tif</code>", "default: the official convention, identical layout to the sample template",
+          fmt(primary.get("bytes_nan"), 0), f"<code>{e(primary.get('sha256_nan',''))}</code>", "<span class=\"badge badge-green\">passes</span>"],
+         [f"<code>{e(primary['name'])}-allfinite.tif</code>", "fallback: only if the portal evaluates the whole array and rejects NaN",
+          fmt(primary.get("bytes_allfinite"), 0), f"<code>{e(primary.get('sha256_allfinite',''))}</code>", "<span class=\"badge badge-green\">passes</span>"],
+         [f"<code>{e(research['name'])}-nan.tif</code>", "research only: the best-measured union — read its caveat before uploading",
+          fmt(research.get("bytes_nan"), 0), f"<code>{e(research.get('sha256_nan',''))}</code>", "<span class=\"badge badge-green\">passes</span>"]])
     receipt_rows = []
     for r in receipts:
         for convention in ("nan", "allfinite"):
@@ -601,72 +413,60 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
                                      '<span class="badge badge-green">passes</span>' if ok
                                      else '<span class="badge badge-red">fails</span>',
                                      failures])
-    body = f"""    <div class="notice notice-good"><strong>CAN WE DOWNLOAD &amp; SUBMIT THE GENERATED H31-E2 TIF? — TECHNICAL &amp; PORTAL VALIDATION: YES (100% VALIDATED &amp; SAFE TO UPLOAD).</strong>
-    <code>{e(cand['name'])}-nan.tif</code> (<code>37,654</code> off-catalogue dots, <code>0</code> on public catalogue) passed automated machine checks for single-band <code>float32</code>, <code>EPSG:32611</code>, <code>3730×3292</code>, exact Affine geotransform, <strong>0 NaN/Inf inside the 5,167,373-cell footprint</strong>, values strictly in <code>[0.0, 1.0]</code> (zero risk of <code>"Predicted values must be in range [0, 1]"</code>), 86-feature leakage canary (<code>max AUC = 0.7624 ≤ 0.90</code>), cross-site uniqueness across all 16 local + peer rasters (<code>max 3-px overlap = 51.53% ≤ 70%</code>, <code>max surface ρ = 0.1073 ≤ 0.90</code>), 21.3 km buffered fresh confirmation <code>HOLDOUT-DTI = 0.1145</code> vs <code>0.0886</code> (<code>+29.3%</code>), and Piedmont SGMC discovery (<code>0.1233</code> vs <code>GEMSDOE32 H33-2-B2 = 0.1091</code>, <code>+13.0%</code>).</div>
-    <div class="notice notice-danger"><strong>WEEKLY-SLOT SELECTOR DECISION: HOLD FOR HUMAN SELECTOR SIGN-OFF (<code>slot_approved = false</code> · Run Card <code>verdict = "negative"</code>).</strong>
-    Do not submit a legacy reference download from this page yet, and do not auto-spend one of the 3 weekly DrivenData slots without human selector review: our strict 5-of-5 automated selector held automatic promotion solely on pre-declared sub-clause <strong>G5b</strong> (all-elevation mountain SGMC <code>0.0816</code> vs <code>0.0940</code> H33-2-B2, because H31-E2 avoids steep mountain pre-Quaternary thrusts at det_elev +126.8 m that caused G70-P8 to drop to 0.2478 USER-REPORTED). If the human weekly-slot selector wants our top orthogonal non-H19-5 multi-physics entry alongside H33-2-B2, <code>{e(cand['name'])}-nan.tif</code> below is 100% validated and ready to upload.</div>
-
+    body = f"""    <div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong> The available primary TIFF is a legacy reference, and the union is research-only. Neither has passed the current holdout/confirmation/selector gates. The steps below explain the portal workflow for a future approved file; they do not authorize uploading an existing file.</div>
     <section>
       <div class="section-head">
-        <div><p class="kicker">Executive decision matrix</p><h2>Automated 5-gate verification summary</h2></div>
-        <p>Every check below is machine-verified in <code>evidence/h31e/run_card.json</code> and <code>docs/downloads/{e(cand['name'])}-format-check.json</code>.</p>
+        <div><p class="kicker">Submission guide</p><h2>Portal workflow — only after approval</h2></div>
+        <p>Once a candidate is explicitly marked approved for upload, the portal steps take about two minutes.</p>
       </div>
-      {h31e_gates_table(rc, hold)}
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Submission guide</p><h2>Copy-paste metadata &amp; portal upload steps for H31-E2</h2></div>
-        <p>Use these exact verified fields when the human weekly-slot selector chooses to upload <code>{e(cand['name'])}-nan.tif</code>.</p>
-      </div>
-      <div class="table-wrap" style="margin-bottom:18px"><table><tbody>
-        <tr><th style="width:210px">Primary GeoTIFF download</th><td><a href="downloads/{e(cand['file_nan'].split('/')[-1])}" download><code>{e(cand['name'])}-nan.tif</code></a> ({fmt(cand.get('bytes_nan'), 0)} bytes · <a href="downloads/{e(cand['zip'].split('/')[-1])}" download><code>.zip</code></a> · <a href="downloads/{e(cand['file_allfinite'].split('/')[-1])}" download><code>-allfinite.tif</code> fallback</a>)</td></tr>
-        <tr><th>Unique submission name</th><td><code>{e(cand['name'])}</code></td></tr>
-        <tr><th>Portal note ({len(cand['note_for_portal'])}/140 chars)</th><td><code>{e(cand['note_for_portal'])}</code></td></tr>
-        <tr><th>Primary SHA-256 (<code>-nan.tif</code>)</th><td><code>{e(cand.get('sha256_nan',''))}</code></td></tr>
-        <tr><th>Fallback SHA-256 (<code>-allfinite.tif</code>)</th><td><code>{e(cand.get('sha256_allfinite',''))}</code></td></tr>
-        <tr><th>Format &amp; [0, 1] check</th><td><span class="badge badge-green">PASS</span> 0 NaN inside footprint · min 0.0 · max 1.0 · 37,654 positive dots · 0 on public catalogue</td></tr>
-        <tr><th>Agent auto-slot status</th><td><code>slot_approved = false</code> · Run Card <code>verdict = "negative"</code> (strict G5b upland SGMC hold; human selector sign-off required)</td></tr>
-      </tbody></table></div>
       <div class="card">
         <ol>
-          <li><strong>Download <code>{e(cand['name'])}-nan.tif</code></strong> (or <code>-nan.zip</code>) above — never upload legacy reference files (<code>{e(primary['name'])}</code>).</li>
-          <li><strong>Verify SHA-256 locally</strong>: <code>shasum -a 256 {e(cand['name'])}-nan.tif</code> must equal <code>{e(cand.get('sha256_nan',''))}</code>.</li>
-          <li><strong>Open the DrivenData submit page</strong> at <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306</a> and sign in manually.</li>
-          <li><strong>Upload <code>{e(cand['name'])}-nan.tif</code></strong> under “File to submit”, paste the 79-character note <code>{e(cand['note_for_portal'])}</code>, and include the <a href="ai-disclosure.html">AI disclosure statement</a> in the narrative when required.</li>
-          <li><strong>Record the organizer receipt</strong>: only after DrivenData returns an official score may a value be upgraded from <code>HOLDOUT-DTI</code> to <code>ORGANIZER-CONFIRMED</code> in <code>registry/score_claims.json</code>.</li>
+          <li><strong>Download only the approved candidate</strong> from the overview page. At present, no file is approved; the available TIFF is labeled reference-only.</li>
+          <li><strong>Check the candidate's SHA-256</strong> against the receipt generated for that exact TIFF before upload.</li>
+          <li><strong>Open the submit page</strong> at
+          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306</a>
+          and sign in.</li>
+          <li><strong>Choose the approved file</strong> under “File to submit”. It must be a single-band GeoTIFF, or a zip containing one GeoTIFF, matching the submission format's CRS, shape and geotransform. No file currently linked here is approved.</li>
+          <li><strong>Paste the note</strong> supplied with that approved candidate into “Note (optional)”, then submit. No candidate-specific note is assigned here yet.</li>
         </ol>
       </div>
+      <div class="table-wrap"><table><tbody>
+        <tr><th style="width:190px">Submission name</th><td>Not assigned — no candidate is approved for a slot.</td></tr>
+        <tr><th>Note (copy-paste)</th><td>Not assigned — do not use the legacy or research-only file metadata.</td></tr>
+      </tbody></table></div>
+        <p class="small">When a candidate passes the registered gates, its name and short note will be generated from
+      that candidate's receipt. This page intentionally reserves neither metadata field for the legacy downloads.</p>
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Format reference</p><h2>All registered files &amp; SHA-256 verification</h2></div>
-        <p>Comparison of our newly generated unique H31-E2 candidate against archived legacy/research baselines.</p>
+        <div><p class="kicker">Format reference</p><h2>Available files — none approved for a slot</h2></div>
+        <p>The local format receipts establish grid/value compatibility only. They do not establish scientific validity,
+        uniqueness, organizer acceptance, or slot approval.</p>
       </div>
       {variants}
-      <p class="small">Both conventions are written from the same dot set by <code>scripts/build_submission.py</code> and <code>scripts/submission_writer.py</code>;
+      <p class="small">Both conventions are written from the same dot set by <code>scripts/build_submission.py</code>;
       only the cell values outside the footprint differ (NaN vs 0.0). <code>nodata</code> is NaN in both. Every file
-      in the register is listed with its SHA-256 on the <a href="register/index.html">register page</a>.</p>
+      in the register — including the smaller radiometric union kept for the audit trail — is listed with its
+      SHA-256 on the <a href="register/index.html">register page</a>.</p>
     </section>
 
     <section>
       <div class="section-head">
         <div><p class="kicker">Troubleshooting</p><h2>“Predicted values must be in range [0, 1]”</h2></div>
-        <p>This is the error class the project owner hit. Here is the traced root cause and what to do about it.</p>
+        <p>The exact rejected upload and organizer receipt are unavailable; the error message alone does not identify a root cause.</p>
       </div>
-      <div class="notice notice-danger"><strong>It is not a rescaling problem</strong>
-      Rescaling the file will not fix it. In this project's own records the trigger was <em>NaN cells inside the
-      scored footprint</em> while every finite value was already in [0,1] — so a portal that treats NaN as a value
-      rather than as background reports it as out of range.</div>
+      <div class="notice notice-danger"><strong>Validate, do not silently repair or resubmit</strong>
+      A historical local artifact had NaN inside its footprint, independently invalid even when all finite values
+      are in [0,1]. That observation does not prove it was the exact rejected upload or explain the private portal's implementation.</div>
       <div class="grid grid-2">
         <div class="card"><h3>What the repository does about it</h3>
           <p><code>src/gemsdoe31/submission.py</code> hard-fails any file with a non-finite cell inside the template's
-          valid region, any value outside [0,1], or any finite cell outside the footprint. <code>tests/test_submission.py</code>
+          valid region or a value outside [0,1]. NaN-outside requires NaN there; all-finite requires explicit zeros outside. <code>tests/test_submission.py</code>
           keeps a regression test for exactly this error class, so a future build cannot silently reintroduce it.</p></div>
         <div class="card"><h3>If a receipt-passing file is still refused</h3>
           <ol><li>Confirm you selected the single-band GeoTIFF (not the 19-band feature stack, not a folder).</li>
-          <li>Try the <code>-allfinite</code> fallback: zeros outside the footprint, every value finite in [0,1].</li>
+          <li>Compare the explicit outside-mask encodings locally; do not spend a slot testing an unapproved fallback.</li>
           <li>Stop and send the format receipt JSON to the organizers instead of resubmitting modified bytes.</li></ol></div>
       </div>
       <h3>Format receipts written by this repository</h3>
@@ -678,105 +478,51 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Honesty box</p><h2>What H31-E2 is, and what it is not</h2></div>
+        <div><p class="kicker">Honesty box</p><h2>What this file is, and what it is not</h2></div>
         <p>Read this before uploading anything; it is the difference between a claim and a measurement.</p>
       </div>
       <div class="table-wrap"><table><tbody>
-        <tr><th style="width:220px">What H31-E2 is</th><td>A genuinely unique, end-to-end reproducible multi-physics + 1 m LiDAR scarp-polarity + 300 m submodular GeoTIFF (<code>{e(cand['name'])}-nan.tif</code>, {fmt(cand['positive_pixels'], 0)} off-catalogue dots, max 3-px overlap 51.53% across all 16 local and peer rasters).</td></tr>
-        <tr><th>Measured holdout &amp; proxy scores</th><td><code>HOLDOUT-DTI = 0.1145</code> (95% CI 0.1071–0.1232, evaluator <code>gemsdoe31-hide-v2.0</code>, 21.3 km buffer, n=35,599) vs <code>0.0886</code> Baseline-D-Poisson (<code>+29.3%</code>); Piedmont SGMC proxy <code>0.1233</code> vs <code>0.1091</code> GEMSDOE32 H33-2-B2 (<code>+13.0%</code>). Never projected as a live leaderboard score.</td></tr>
-        <tr><th>Peer scores cited for context</th><td><code>0.2778</code> (GEMSDOE32 H33-2-B2), <code>0.2750</code> (GEMSDOE36), <code>0.2708</code> (GEMSDOE28), and external anchors <code>0.3195</code> / <code>0.4413</code> are all labelled <span class="badge">USER-REPORTED</span> — no organizer receipt exists in this repository.</td></tr>
-        <tr><th>Is it auto-slot-approved?</th><td>No (<code>slot_approved = false</code>, Run Card <code>verdict = "negative"</code> under strict 5-of-5 auto-gate G5b). Human weekly-slot selector sign-off is required before spending one of the 3 weekly DrivenData slots.</td></tr>
-        <tr><th>Format &amp; [0, 1] status</th><td><span class="badge badge-green">PASS · locally validated</span> against the pinned competition grid template in <code>docs/downloads/{e(cand['name'])}-format-check.json</code> (0 NaN inside footprint, values strictly in [0, 1]).</td></tr>
-        <tr><th>Validation buffer</th><td>Every holdout comparison enforces a <strong>{fmt(buf['decision']['buffer_km'], 2)} km</strong> collar derived from the residual semivariogram (21,300 m in <code>gemsdoe31-hide-v2.0</code>). <a href="validation.html">Derivation and sensitivity</a>.</td></tr>
-        <tr><th>AI use</th><td>Substantial, and required to be disclosed: see <a href="ai-disclosure.html">AI use</a> for wording you can paste into the submission narrative.</td></tr>
+        <tr><th style="width:220px">What it is</th><td>A historical reference encoding of prior geometry, not a newly discovered detector
+        or new submission ({fmt(primary['positive_pixels'], 0)} pixels, none on the public catalogue).</td></tr>
+        <tr><th>Owner-reported score</th><td>0.2708 for the underlying GEMSDOE28 artifact, as reported by the project
+        owner. No organizer receipt exists in this repository, and the owner's own page lists the artifact as
+        <strong>unscored</strong>, so every reference to it here is labelled
+        <span class="badge">owner-reported</span> (<code>registry/score_claims.json</code>).</td></tr>
+        <tr><th>Is it slot-approved?</th><td>No. It is the incumbent. Nothing measured here beat it by a margin worth
+        a weekly slot, and the charter forbids spending a slot on an unvalidated idea.</td></tr>
+        <tr><th>Format status</th><td><span class="badge badge-green">locally validated</span> against the grid
+        template in <code>docs/downloads/*-format-check.json</code>. Local validation is not organizer acceptance.</td></tr>
+        <tr><th>Validation buffer</th><td>Every holdout comparison uses a <strong>{fmt(buf['decision']['buffer_km'], 2)} km</strong>
+        collar derived from the data. <a href="validation.html">Derivation and sensitivity</a>.</td></tr>
+        <tr><th>AI use</th><td>Substantial, and required to be disclosed: see <a href="ai-disclosure.html">AI use</a>
+        for wording you can paste into the submission narrative.</td></tr>
       </tbody></table></div>
     </section>
 """
-    return shell("", "Executive summary", "Automated validation status, copy-paste portal metadata, and weekly-slot selector status for H31-E2.",
+    return shell("", "Executive summary", "Portal workflow for a future approved file; current downloads are reference or research only.",
                  "Executive summary",
-                 page_hero("Executive summary", "Can we download & submit the generated H31-E2 TIF?",
-                           "Technical & [0, 1] portal validation: YES (G1–G4 + Piedmont PASS, 100% safe to upload). Automatic weekly-slot spending: HOLD for human selector sign-off (slot_approved = false on strict G5b)."),
+                 page_hero("Executive summary", "Submission workflow and status.",
+                           "Where to click after a candidate is approved, what to paste, what to do when the portal complains, and why no current file is approved."),
                  body, "This page is the operator's guide; the science is on the research and validation pages.")
 
 
 def build_research(sub: dict, buf: dict, union: dict) -> str:
+    current = load("registry/current_run.json")
+    if current:
+        body = current_site.research(current, load("evidence/magrest/holdout_seed31.json"),
+                                    load("registry/focus_review.json"), load("evidence/prior_lineage_20261025.json"))
+        return shell("", "Research", "Nine-repository score-claim audit, H33 geometry, frozen hypotheses, and the MAGREST negative result.",
+                     "Research", page_hero("Geological mechanism · falsifiable evidence", "New information, not new filenames.",
+                     "What the prior sparse-dot family does, what a texture-restoration hypothesis changes, and why this run is not promoted."), body)
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     geom = load("evidence/h27_geometry.json", {"prune_test": {}, "counts": {},
                                                "nearest_neighbour_spacing_m": {},
                                                "distance_to_catalogue_m_for_retained_cells": {}})
     inc = union.get("incumbent", {})
     credit = inc.get("ff_TPw", 0) / inc["dots"] if inc.get("dots") else None
-    forensic = load("evidence/h31e/forensic_comparison.json", {})
-    hold = load("evidence/h31e/holdout_results.json", {})
-    exp12_halo = load("evidence/h31e/exp1_exp2_halo_audit.json", {})
     body = f"""    <section>
       <div class="section-head">
-        <div><p class="kicker">PhD Cross-Site Forensic Synthesis</p><h2>Why GEMSDOE32 (<code>0.2778</code> USER-REPORTED) Won Across GEMSDOE24..36 &amp; How to Reach 0.3195+</h2></div>
-        <p>Exact mathematical decomposition of the 12 sibling rasters and the five ranked untried hypotheses (<code>knowledge/2026-10-25_h31e_preregistration.md</code>).</p>
-      </div>
-      <div class="content">
-        <p><strong>1. The Single-Lineage Discovery:</strong> Byte- and pixel-level audit across <code>GEMSDOE24</code>, <code>25</code>, <code>27</code>, <code>28</code>, <code>30</code>, <code>31</code>, <code>32</code>, <code>33</code>, and <code>36</code> proves that every <code>0.2449–0.2778</code> <span class="badge">USER-REPORTED</span> submission descends from the single 121,131-pixel binary mask <code>H19-5</code> (<code>0.1922</code> USER-REPORTED, <code>19GEMSDOE</code>), with <strong>86.7%–100.0%</strong> 3-px dot overlap against <code>GEMSDOE32 H33-2-B2</code>. Under <code>DTI = TPw / (0.8|G| + 0.2 TPw + 0.2 FPw)</code>:</p>
-        <ul>
-          <li><strong>300 m kernel non-redundancy (0.1922 → 0.2600):</strong> Because <code>TPw</code> takes a <code>max</code> over the 29 lattice offsets inside 300 m while <code>FPw</code> sums linearly over every emitted pixel, Poisson thinning from 121,131 contiguous pixels to 44,090 dots (<code>d ≥ 280 m</code>) cuts denominator waste ~2.75× while preserving ridge coverage.</li>
-          <li><strong>Near-catalogue flank break-even surgery (0.2600 → 0.2708 → 0.2778):</strong> At <code>DTI* ≈ 0.278</code>, an added dot improves DTI iff marginal credit exceeds <code>0.2·DTI* / (1 − 0.2·DTI*) ≈ 0.0589</code>. Removing 3,891 1-px flank dots (<code>0 &lt; d_cat ≤ 100 m</code>) produced <code>H27-4</code> (<code>40,199</code> dots, <code>0.2708</code> USER-REPORTED), and removing the remaining 2,545 2-px flank dots (<code>100 &lt; d_cat ≤ 200 m</code>) produced <code>GEMSDOE32 H33-2-B2</code> (<code>37,654</code> dots, <code>0.2778</code> USER-REPORTED) — eliminating geophysical-blur false positives along already-mapped faults that are masked at scoring time.</li>
-          <li><strong>Physiographic regime alignment (why G70-P8 scored 0.2478 despite SGMC DTI = 0.1260):</strong> Public Quaternary faults occupy basin-margin piedmont aprons (median <code>det_elev = -73.6 m</code>, <code>slope = 5.55 deg</code>, <code>depth_base = 320.9 m</code>), whereas 63% of off-catalogue USGS SGMC faults are steep mountain-interior pre-Quaternary bedrock faults (<code>det_elev = +126.8 m</code>, <code>slope = 13.42 deg</code>). <code>H33-2-B2</code> stayed in piedmont habitat (<code>-19.9 m</code>, <code>7.65 deg</code>), and our <code>H31-E2</code> matches that exact geothermal regime (<code>-21.6 m</code>, <code>8.19 deg</code>) while lifting Piedmont SGMC discovery by <strong>+13.0%</strong> (<code>0.1233</code> vs <code>0.1091</code>).</li>
-          <li><strong>Can we beat 0.2778 and reach 0.3195 / 0.4413?</strong> Re-thinning <code>H19-5</code> is mathematically saturated near ~0.28. Reaching <code>0.3195+</code> requires genuinely independent detections from 1 m 3DEP LiDAR scarp polarity, GeoDAWN K/Th/U + GDR-1391 paleo-sinter hydrothermal alteration, Gallardo–Meju multi-physics cross-gradients, and submodular 300 m kernel allocation — exactly the orthogonal stack implemented in <strong>H31-E / H31-E2</strong> below.</li>
-        </ul>
-      </div>
-      {forensic_peer_table(forensic)}
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">2026-10-25 Preregistration</p><h2>Five Untried Geological Hypotheses Ranked Before Implementation (H31-E .. H31-I)</h2></div>
-        <p>Frozen in <code>knowledge/2026-10-25_h31e_preregistration.md</code> prior to fitting H31-E.</p>
-      </div>
-      <div class="table-wrap"><table>
-        <thead><tr><th>rank &amp; id</th><th>layers &amp; mathematical transform</th><th>why it catches unmapped faults &amp; named non-fault mimic</th><th>novelty vs. GEMSDOE24..70</th><th>expected ΔDTI, cost &amp; status</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><span class="badge badge-green">1 · implemented &amp; measured</span><br><strong>H31-E</strong><br>SCGP-Submod Dual-Expert</td>
-            <td>Gallardo–Meju cross-gradient concordance (<code>iso_grav</code>, <code>log depth_to_base</code>, <code>rtp</code>, <code>cond_surf</code>, <code>det_elev</code>), 2D FFT upward-continuation residuals (200 m, 800 m), Miller–Singh tilt ridges, seam-free Dual-Expert 1 m LiDAR scarp polarity (<code>|upface−downface|·coh100</code>), GeoDAWN K/Th/U + GDR-1391 <code>paleo_sinter</code>, 2-component relay/tip prior, and Minoux lazy-greedy 300 m submodular DTI allocation.</td>
-            <td>Concealed piedmont &amp; wave-reworked faults retain co-aligned basement/gravity/magnetic gradients and one-sided 1 m scarp polarity. <em>Named mimic:</em> Lake Lahontan paleoshoreline terraces (~1200–1335 m) &amp; volcanic flow edges, suppressed via <code>scgp_lahontan_mimic_score</code>.</td>
-            <td>First Gallardo–Meju cross-gradient + physical FFT upward continuation + seam-free quantile-matched LiDAR Dual-Expert + GDR-1391 paleo-sinter + 1D ridge-sharpened 300 m submodular allocator.</td>
-            <td>Bracket: +0.015 to +0.045 HOLDOUT-DTI (1.5 h, zero new downloads). <strong>Measured (H31-E2): +0.0259 (+29.3%) fresh confirm HOLDOUT-DTI; +13.0% Piedmont SGMC over H33-2-B2.</strong></td>
-          </tr>
-          <tr>
-            <td><span class="badge">2 · queued</span><br><strong>H31-F</strong><br>Anisotropic Strike-Steered Gabor Matched Filter</td>
-            <td>12-azimuth zero-DC Gabor wavelets (<code>λ=400 m, L=1.6 km</code>) across <code>step_max</code>, <code>iso_grav_anom_hg</code>, <code>rtp_tilt</code>, and <code>grad_log_depth_base</code> with regional Basin-and-Range strike prior.</td>
-            <td>Integrates discontinuous degraded scarps across alluvial fan channels (&gt;4× SNR gain). <em>Named mimic:</em> Linear highway embankments &amp; canal levees.</td>
-            <td>Replaces isotropic pixelwise gradients with 1.6 km anisotropic multi-physics matched filter banks.</td>
-            <td>+0.008 to +0.025 HOLDOUT-DTI · ~2.5 h · official layers already cached (<a href="https://gdr.openei.org/submissions/1501" target="_blank" rel="noopener">GDR-1501</a>).</td>
-          </tr>
-          <tr>
-            <td><span class="badge">3 · queued</span><br><strong>H31-G</strong><br>Curie-Depth &amp; Strain-Rate Brittle Localization</td>
-            <td>Crustal strain tensor ratio <code>dilatation / (2ndinv + ε)</code> × thermal gradient proxy <code>1/tc</code> × log earthquake density × basement-step gradient.</td>
-            <td>Highlights transtensional step-over relays (Humboldt structural zone / Walker Lane transition) lacking coherent range-front scarps. <em>Named mimic:</em> Broad regional GPS interpolation bullseyes &amp; mining blasts.</td>
-            <td>Couples shallow Top-of-Crustal-Magnetism (<code>tc</code>) isotherm doming with transtensional strain invariants rather than uniform PINN slip tendencies.</td>
-            <td>+0.005 to +0.015 HOLDOUT-DTI · ~1.5 h · official competition bands (<a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">GDR-1391</a>).</td>
-          </tr>
-          <tr>
-            <td><span class="badge">4 · queued</span><br><strong>H31-H</strong><br>Hydrothermal Clay/Zeolite K-Enrichment Cross-Strike Dipole</td>
-            <td>Oriented 500 m cross-strike step dipole on GeoDAWN <code>K</code>, <code>Th/K</code>, <code>U/Th</code> gated by conductive-cap rise (<code>cond_surf</code>) and <code>dist_paleo_sinter_km</code>.</td>
-            <td>Detects illite/smectite/adularia alteration halos in range-front smash zones eroded flat in topography. <em>Named mimic:</em> Unfaulted felsic ash-flow tuff contacts &amp; potash playa evaporites.</td>
-            <td>Oriented cross-fault radiometric step-asymmetry coupled with MT conductance &amp; paleo-sinter rather than isotropic pixel values.</td>
-            <td>+0.004 to +0.014 HOLDOUT-DTI · ~2.0 h · USGS GeoDAWN (<a href="https://doi.org/10.5066/P9X82496" target="_blank" rel="noopener">DOI 10.5066/P9X82496</a>).</td>
-          </tr>
-          <tr>
-            <td><span class="badge">5 · external data required</span><br><strong>H31-I</strong><br>3D MT Resistivity Vertical-Pipe &amp; Phase-Tensor Strike</td>
-            <td>Full depth-sliced Great Basin 3D MT resistivity cube (0.5, 1, 2, 4, 8 km) computing sub-vertical conductive fault-zone pipes.</td>
-            <td>Images deep blind geothermal conduits beneath Quaternary playas with zero surface expression. <em>Named mimic:</em> Conductive saline playa brines (distinguished by &lt;500 m bottoming vs &gt;2 km fault roots).</td>
-            <td>Competition stack provides only 2D <code>cond_surf</code> and <code>depth_to_base_surf</code>; full depth slices are untried.</td>
-            <td>+0.006 to +0.020 HOLDOUT-DTI · ~4–6 h · <a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">GDR-1391</a> / <a href="https://www.sciencebase.gov/catalog/" target="_blank" rel="noopener">USGS ScienceBase</a> (blocked in sandbox by outbound host allowlist).</td>
-          </tr>
-        </tbody>
-      </table></div>
-      {h31e_three_experiments_table(exp12_halo, hold)}
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Historical Question 1</p><h2>Prior baseline audit: how <code>h27-4-r1-solo-d2-8</code> was derived</h2></div>
+        <div><p class="kicker">Question 1</p><h2>Why <code>h27-4-r1-solo-d2-8</code> is the best artifact</h2></div>
         <p>The mechanism is in the metric algebra, and it is measurable rather than arguable.</p>
       </div>
       <div class="content">
@@ -970,15 +716,15 @@ def build_validation(buf: dict, buffer_derivation: dict, experiments: dict, metr
       </div>
       {collar_table(collar)}
       <p class="small">Interpretation, stated conservatively: the quadrant protocol (≈150–190 km blocks) is insensitive
-      to the collar between 0 and 30 km, so the LiDAR arm's advantage is not a short-range leakage artefact. It does
-      <strong>not</strong> license the small collars used elsewhere: those are component-level holdouts whose
+      to the collar between 0 and 30 km in this historical test. This does not prove leakage is absent or establish MAGREST's
+      residual range. It does <strong>not</strong> license the small collars used elsewhere: those are component-level holdouts whose
       geography is one to two orders of magnitude smaller than the measured range.</p>
     </section>
 
     <section id="metric">
       <div class="section-head">
         <div><p class="kicker">Metric</p><h2>The implementation is exact</h2></div>
-        <p>Every score on this site comes from a direct implementation of the official formula, not an approximation.</p>
+        <p>This historical local implementation agrees with a literal transcription of the recorded formula. That is not equivalence testing against the organizer's private scoring engine.</p>
       </div>
       <div class="content">
         <p><code>src/gemsdoe31/metric.py</code> implements the definition directly — the {fmt(offsets, 0)} lattice offsets whose
@@ -1013,8 +759,8 @@ def build_validation(buf: dict, buffer_derivation: dict, experiments: dict, metr
           <span class="badge badge-red">not usable as a selector</span></p></div>
         <div class="card"><h3>Off-catalogue discovery proxy</h3>
           <p>USGS State Geologic Map Compilation structure layers rasterised to this grid: 82,151 fault cells, of which
-          <strong>61,664 lie more than 300 m from the competition catalogue</strong>. The only populated fault population
-          in reach that is off-catalogue by construction. <span class="badge badge-green">selection instrument</span></p>
+          <strong>61,664 lie more than 300 m from the competition catalogue</strong>. Historical full-region population;
+          not the current component instrument. <span class="badge">historical proxy, not slot approval</span></p>
           <p class="small">Limit, stated plainly: SGMC faults are state-map faults of mixed age and certainty, not the
           experts' newly mapped Quaternary faults. A proxy can rank arms wrongly, which is why the arm ordering was
           checked at every threshold and both proxies are always printed.</p></div>
@@ -1040,11 +786,10 @@ bash scripts/download_competition_data.sh      # restore + SHA-256 verify the 11
 python scripts/prepare_data.py --verify-only   # grid/hash re-check; add no flag to build features.f32
 python scripts/check_metric.py                 # metric vs brute force -&gt; evidence/metric_check.json
 python scripts/derive_buffer.py                # semivariogram -&gt; evidence/buffer_derivation.json
-python scripts/evaluate_holdout.py             # H31-E/E2 21.3 km holdout, canaries, unique GeoTIFF &amp; Run Card
 python scripts/run_union.py                    # filtering + union tables -&gt; evidence/union_results.json
 python scripts/collect_evidence.py             # hash the artifacts, rebuild registry/*.json
-python scripts/build_site.py                   # regenerate this site from the registers
-python scripts/check_site.py                   # verify all 20 HTML pages, local links, and gates</pre>
+python scripts/build_submission.py --dots &lt;tif&gt; --name &lt;unique-name&gt;
+python scripts/build_site.py                   # regenerate this site from the registers</pre>
       <p class="small">Nothing on this site is typed in by hand: <code>scripts/build_site.py</code> reads the JSON in
       <code>registry/</code> and <code>evidence/</code>, and <code>scripts/collect_evidence.py</code> writes those JSON
       files from the artifacts on disk. One step is <em>not</em> yet reproducible from this snapshot: the training runs
@@ -1068,6 +813,8 @@ def build_sources(sources: dict, experiments: dict) -> str:
     for s in sources["sources"]:
         claims = "".join(f"<li>{e(c)}</li>" for c in s.get("claims_verified", [])) or "<li>No claim verified this session.</li>"
         limits = s.get("limits") or s.get("used_for") or ""
+        if isinstance(limits, list):
+            limits = " ".join(limits)
         items.append(f"""<li>
           <strong><a href="{e(s['url'])}" target="_blank" rel="noopener">{e(s['title'])}</a></strong>
           <span class="badge{' badge-green' if s['class'] == 'OFFICIAL' else ''}">{e(s['class'])}</span>
@@ -1081,7 +828,7 @@ def build_sources(sources: dict, experiments: dict) -> str:
         <p>Every claim carries its class. A class is a statement about where the evidence came from — not about how confident anyone feels.</p>
       </div>
       <ul class="pill-list">
-        <li><strong>OFFICIAL</strong> — read from a government, publisher or competition-administrator page linked here.</li>
+        <li><strong>OFFICIAL</strong> — direct retrieval recorded on the row's accessed date. Only the pinned organizer GitHub reference was freshly retrieved on 2026-10-25; other official links retain historical access dates.</li>
         <li><strong>OWNER-MIRROR</strong> — published in one of this project's own repositories; a hash match proves byte identity to that mirror only.</li>
         <li><strong>COMPUTED</strong> — reproduced by a script in this repository, with the artifact path recorded.</li>
         <li><strong>INFERENCE</strong> — reasoning to be tested, not a measurement.</li>
@@ -1109,8 +856,8 @@ def build_sources(sources: dict, experiments: dict) -> str:
         nothing on this site is derived from it.</p></div>
         <div class="card"><h3>No uploading</h3><p>Nothing in this repository submits a file. A weekly slot is scarce
         and the charter requires a measured margin before one is spent.</p></div>
-        <div class="card"><h3>No unaudited scores</h3><p>A score appears only as <span class="badge">owner-reported</span>
-        with the file's SHA-256 attached, unless an organizer receipt is present. None is.</p></div>
+        <div class="card"><h3>No unaudited competition claims</h3><p>Competition values without exact-byte organizer receipts are <span class="badge">USER-REPORTED</span>.
+        Current local results are separately labelled HOLDOUT-DTI with evaluator, positive count and CI. No organizer receipt is present.</p></div>
       </div>
     </section>
 
@@ -1141,28 +888,12 @@ def build_sources(sources: dict, experiments: dict) -> str:
 
 
 def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> tuple[str, str]:
-    cand = next((f for f in sub["files"] if f["id"] == "candidate-h31e2-scgp-submod"), None)
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
-    rc = load("evidence/h31e/run_card.json", {})
     feed = {
         "schema_version": 1,
         "project": "GEMSDOE31",
         "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
-        "h31e2_unique_candidate": {
-            "name": cand["name"] if cand else None,
-            "tif": cand["file_nan"] if cand else None,
-            "sha256_nan": cand.get("sha256_nan") if cand else None,
-            "sha256_allfinite": cand.get("sha256_allfinite") if cand else None,
-            "positive_pixels": cand["positive_pixels"] if cand else None,
-            "positive_pixels_on_public_catalogue": cand["positive_pixels_on_public_catalogue"] if cand else None,
-            "portal_format_and_range_validated": bool(cand.get("format_ok_nan")) if cand else False,
-            "measured": cand.get("measured") if cand else None,
-            "automated_gates": cand.get("automated_gates") if cand else None,
-            "run_card_verdict": rc.get("verdict"),
-            "slot_approved": False,
-            "score_status": "HOLDOUT-DTI 0.1145 (confirm) / 0.1274 (screen); no organizer receipt exists in this repository",
-        },
         "current_download": {
             "name": primary["name"],
             "tif": primary["file_nan"],
@@ -1210,6 +941,24 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
             "external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated",
         ],
     }
+    current = load("registry/current_run.json")
+    if current:
+        feed["schema_version"] = 2
+        feed["historical_download"] = feed["current_download"]
+        feed["historical_research_union"] = feed.pop("research_candidate")
+        feed["current_download"] = {
+            "name": current["submission_name"], "tif": current["file"], "zip": current["zip_file"],
+            "sha256": current["raster_sha256"], "note": current["note"], "verdict": current["verdict"],
+            "ok_to_download_for_research": current["ok_to_download_for_research"],
+            "ok_to_submit": current["ok_to_submit"], "slot_approved": False,
+            "holdout_dti": current["holdout_dti"], "paired_difference": current["paired_difference"],
+            "registry": current["registry"], "failed_or_unknown_gates": current["failed_or_unknown_gates"],
+        }
+        feed["generated_utc"] = current.get("last_reviewed_utc", current["generated_utc"])
+        feed["source_access"] = "GitHub sources freshly retrieved; non-GitHub official references not re-fetched under host allowlist. No DrivenData contact."
+        feed["automation"]["rule"] = "Deterministic evidence/site build and integrity checks on push/PR. No leaderboard polling, automatic uploads or current-score feed."
+        feed["open_items"] = current["failed_or_unknown_gates"] + ["no organizer receipt for any claimed score"]
+        feed["proxy_scores_scope"] = "Historical 2026-10-04 instruments below lack comparable current masks/CI; never promotion evidence for MAGREST."
     payload = json.dumps(feed, indent=1) + "\n"
     rows = [[e(k), f"<code>{e(json.dumps(v))}</code>"] for section, values in feed.items()
             if isinstance(values, dict) and section not in ("sources", "automation")
@@ -1258,39 +1007,37 @@ python scripts/build_site.py          # regenerate every page and feed.json</pre
 
 def build_ai_disclosure() -> str:
     body = """    <section>
-      <div class="section-head">
-        <div><p class="kicker">Required disclosure</p><h2>How AI was used</h2></div>
-        <p>The competition's rules require entrants to disclose AI use in the submission narrative.</p>
-      </div>
+      <div class="section-head"><div><p class="kicker">Draft, not filed</p><h2>How AI contributed</h2></div>
+      <p>MAGREST is a negative research release. No submission or human inspection is asserted.</p></div>
       <div class="grid grid-2">
-        <div class="card"><h3>What was done with AI assistance</h3>
-          <ul><li>The analysis code, the data-restoration scripts and every page on this site were written by an AI
-          agent working from the owner's written brief.</li>
-          <li>The agent ran the experiments and wrote the numbers here directly from the resulting files.</li>
-          <li>Every quantitative claim is traceable to a script and an artifact in the repository, and carries an
-          evidence class (OFFICIAL / OWNER-MIRROR / COMPUTED / INFERENCE / USER-REPORTED).</li></ul></div>
-        <div class="card"><h3>What is not claimed</h3>
-          <ul><li>No score on this site is organizer-verified. The 0.2708 and 0.2600 figures are owner-reported
-          readings of a public leaderboard, not receipts.</li>
-          <li>Geological hypotheses are labelled INFERENCE and have not been confirmed by field work.</li>
-          <li>The submission file's <em>format</em> is validated locally against the grid template; its live score is
-          not predicted here.</li></ul></div>
+        <div class="card"><h3>Assistance actually used</h3><ul>
+          <li>An AI coding/research agent through Arena assisted hypothesis ranking, preregistration, MAGREST code,
+          source/input/hash audits, evaluation, tests, packaging, interpretation and site/documentation updates.</li>
+          <li>Shared template code and all nineteen cached bands were reused unchanged and attributed with hash pins.</li>
+          <li>Three fixed variants and a physical control ran on CPU. The paired result failed; no confirmation or slot.</li>
+          <li>Exact-file and decision verification is automated. No human inspector is a project-validation dependency.</li></ul></div>
+        <div class="card"><h3>Not asserted</h3><ul>
+          <li>No organizer score, private test access, current quota check, DrivenData login or submission.</li>
+          <li>No field-confirmed fault, geological-slip estimate or demonstrated win over the leaderboard.</li>
+          <li>No human review or authenticated external license is invented. Mirrors are not organizer provenance.</li>
+          <li>The older H31-A pilot is a separate negative historical experiment.</li></ul></div>
       </div>
-      <div class="notice"><strong>Draft wording for the submission narrative — edit to match what you actually did</strong>
-      <pre style="margin-top:12px">This submission's raster was produced with substantial AI assistance (an agentic coding
-workflow), using the competition-provided feature stack plus publicly licensed external
-layers. All quantitative claims, validation protocols and file-format checks are recorded
-in the project repository with sources and evidence classes. No live score is claimed.
-The human entrant reviewed the submission file, its format receipt and this disclosure
-before submitting.</pre></div>
-      <p class="small">The exact disclosure requirements come from the competition rules; this page is a draft for the
-      entrant to review, not a filed disclosure. <a href="sources.html">Sources</a></p>
+      <div class="notice"><strong>Narrative draft — research release only</strong>
+      Generative AI assisted the research, code, audit and documentation. Existing shared tools were reused with attribution.
+      Local validation checks exact TIFF/ZIP bytes, grid/range/mask, registry limits and pooled HOLDOUT-DTI/CI;
+      the automatic decision is research download allowed, upload denied. No file was selected or submitted.</div>
+      <p>Before any future permitted entry, the actual entrant must ensure a truthful description of all human/tool,
+      code/data and AI contributions and current-rule compliance. Do not invent model versions, licenses or human review.
+      This legal/authorship responsibility is separate from the already automatic scientific denial.</p>
+      <p class="small">Full draft: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/AI_DISCLOSURE.md">AI_DISCLOSURE.md</a>.
+      <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">Official rules §3.2</a> is a historical reference,
+      not freshly fetched in this session. See <a href="sources.html">source access dates and limits</a>.</p>
     </section>
 """
-    return shell("", "AI use", "Draft disclosure of AI assistance for the submission narrative, for entrant review.",
-                 "", page_hero("AI use", "Disclose it properly.",
-                              "What the agent did, what is not claimed, and wording you can paste into the submission narrative after checking it."),
-                 body, "Draft for entrant review — not a filed disclosure.")
+    return shell("", "AI use", "Research-only disclosure draft, with actual assistance and limits.",
+                 "", page_hero("AI use", "Disclose it accurately.",
+                               "Actual assistance, unchanged shared-tool attribution, negative result and no invented human review."),
+                 body, "Research narrative draft — not filed; no upload approval.")
 
 
 def build_register(data: dict, sources_doc: dict, buf: dict) -> str:
@@ -1344,8 +1091,7 @@ def build_register(data: dict, sources_doc: dict, buf: dict) -> str:
         <p>No organizer receipt exists for any score in this repository, so none is presented as official.</p>
       </div>
       {table(["claim", "value", "class", "source", "artifact", "organizer verification"], claim_rows)}
-      <p class="small">Full record: <code>registry/score_claims.json</code>. The 0.3195 leaderboard anchor is treated as
-      a real independent team's result and is used only as a target, never as a measurement of ours.</p>
+      <p class="small">Full record: <code>registry/score_claims.json</code>. The prompt contains conflicting 0.3195 / 0.4413 leaderboard anchors. Both are unverified user claims, not confirmed current standings or measurements of ours.</p>
     </section>
 
     <section>
@@ -1417,14 +1163,14 @@ EXPERIMENTS = [
     dict(slug="03-collar-sensitivity", number=3, title="Collar sensitivity of the blocked protocol",
          source="evidence/collar_sweep.json", status="measured",
          question="Is the LiDAR arm's advantage an artefact of short-range leakage from the training region?",
-         verdict="Measured, no: proxy scores are flat from a 0 km to a 30 km collar, so the conclusion is stable under the measured 21.25 km range. It does not license smaller collars used elsewhere.",
+         verdict="Historical sensitivity test: proxy results were flat from 0 to 30 km. This is not proof of no leakage, not MAGREST dependence evidence, and not a license for smaller collars.",
          detail="The same paired comparison was recomputed while deleting every evaluation cell within b km of the training region, for b in 0…30 km."),
     dict(slug="04-incumbent-filter", number=4, title="Corroboration filtering of the incumbent (negative)",
          source="evidence/incumbent_filter_results.json", status="negative result",
          question="Can the incumbent dot set be improved by keeping only the dots this repository's detector also likes?",
          verdict="No. Every quantile tested reduced both proxies monotonically. The incumbent's low-probability dots still carry real off-catalogue credit.",
          detail="Incumbent dots were ranked by the fold-D detector probability and the top 90 %, 75 %, 50 % and 25 % were rescored. "
-                "All four subsets scored below the full dot set, which is why the leaderboard direction is to add detections rather than thin the incumbent."),
+                "All four subsets scored below the full dot set, which suggests an addition hypothesis on this proxy, not a proven leaderboard direction."),
     dict(slug="05-addition-arm", number=5, title="Addition arm: incumbent plus off-catalogue detections",
          source="evidence/union_results.json", status="measured, weak positive",
          question="Does adding high-probability off-catalogue detections to the incumbent improve the off-catalogue proxy?",
@@ -1446,32 +1192,29 @@ EXPERIMENTS = [
          detail="These maps are the input to the union and filter experiments. They are large binary arrays and are published as a release asset "
                 "rather than committed to the repository; their hashes are recorded here. Regenerating them requires the feature matrix and the "
                 "blocked-fold training run.", manifest=True),
-    dict(slug="08-h31a-pilot", number=8, title="H31-A pilot & withdrawn 94.3 km variogram diagnostic",
+    dict(slug="08-h31a-pilot", number=8, title="H31-A pilot + variogram diagnostics (withdrawn 94.3 km rule)",
          source="evidence/h31_a/pilot/results.json", status="stopped",
-         question="Does a cross-scale magnetic local-wavelength feature find faults the catalogue misses, and did its pilot residuals identify a stable buffer?",
-         verdict="Stopped at the pilot gate: mean paired ΔDTI −0.0040 (only 1/4 blocks positive), and both pilot variogram fits failed the 95 %-sill support criterion (withdrawing the 94.3 km exponential bootstrap extrapolation).",
-         detail="The protocol, draw numbers and gate thresholds were frozen before fitting and are published in evidence/h31_a/pilot/results.json and posthoc_variogram_diagnostics.json. "
-                "Full-grid residual semivariogram derivation (experiment 06) subsequently established the 21.25 km empirical decay buffer."),
-    dict(slug="10-submission-format", number=9, title="Submission format validation and the [0,1] error class",
+         question="Does a cross-scale magnetic local-wavelength feature find faults the catalogue misses, and could pilot residuals identify a stable buffer?",
+         verdict="Stopped at the pilot gate (mean paired ΔDTI −0.0040, 1/4 blocks positive); pilot variogram fits were unstable and the 94.3 km rule was withdrawn (evidence/h31_a/pilot/variogram.json).",
+         detail="The protocol, draw numbers and gate thresholds were frozen before fitting. Post-hoc variogram diagnostics (evidence/h31_a/pilot/posthoc_variogram_diagnostics.json) showed lag support did not reach 95 % of the sill, motivating the full-grid 21.25 km derivation in Experiment 06."),
+    dict(slug="10-submission-format", number=10, title="Submission format validation and the [0,1] error class",
          source="docs/downloads", status="measured",
          question="Why did the portal reject a previously downloaded TIFF with “Predicted values must be in range [0, 1]”?",
-         verdict="The traced trigger was non-finite cells inside the scored footprint while every finite value was already in range. The validator now hard-fails on that condition and a regression test pins it.",
+         verdict="A historical local artifact contained footprint NaN, an independently invalid condition. The exact rejected upload and organizer receipt are unavailable, so this does not establish the cause of the reported portal error. Validators reject NaN/Inf/out-of-range before packaging.",
          detail="Two format conventions are written from every dot set (NaN outside the footprint, and an all-finite variant). Each file gets a "
                 "JSON receipt recording grid equality, value range, NaN placement and SHA-256, so a rejection can be diagnosed from the receipt "
                 "instead of by guesswork."),
-    dict(slug="11-score-claims", number=10, title="Score-claim audit and the D2.8 discrepancy",
+    dict(slug="11-score-claims", number=11, title="Score-claim audit and the D2.8 discrepancy",
          source="registry/score_claims.json", status="open irregularity",
          question="Which numbers in this project are receipts, which are reports, and which are derived?",
          verdict="Open and unresolved: the owner reports 0.2600 for D2.8 and 0.2708 for the h27-4 geometry, but the pinned owner mirror marks D2.8 unscored and no organizer receipt exists for any score.",
-         detail="Every score in this repository is therefore labelled USER-REPORTED, and the discrepancy is tracked as an irregularity until the "
+         detail="Every competition-score claim without a receipt is therefore USER-REPORTED (local HOLDOUT-DTI is separate), and the discrepancy is tracked until the "
                 "owner can attach an organizer receipt or a file-to-score identifier. This is why the site never presents a score as official."),
-    dict(slug="12-h31e-scgp-submod", number=11, title="H31-E / H31-E2 SCGP-Submod: multi-physics Dual-Expert + 300 m submodular holdout",
+    dict(slug="12-h31e-scgp-submod", number=12, title="H31-E2 SCGP-Submod: Multi-physics cross-gradient + LiDAR scarp + 300 m submodular DTI",
          source="evidence/h31e/holdout_results.json", status="measured",
-         question="Does translation-invariant multi-physics cross-gradient + 1 m LiDAR scarp-polarity + 300 m submodular allocation beat Baseline-D-Poisson on a 21.3 km buffered whole-segment holdout while staying unique across all GEMSDOE sites?",
-         verdict="Measured: passes G1 ([0,1] format), G2 (86-feature leakage canary max AUC 0.7624 <= 0.90), G3 (max 3-px dot overlap 51.53% <= 70%), G4 (fresh confirmation HOLDOUT-DTI 0.1145 vs 0.0886, +29.3%), and G5a (Piedmont SGMC 0.1233 vs H33-2-B2 0.1091, +13.0%); held from automatic slot spending solely on strict G5b upland SGMC (0.0816 vs 0.0940).",
-         detail="Exp 1 (H31-E v1) reached 0.1788 HOLDOUT-DTI on draw 101 but automated Gate G5 caught lateral flank collapse (75.6% dots in 200-500 m). "
-                "Exp 2 proved +0.0372 gain from the 29-offset 300 m submodular allocator over 2.8 px Poisson thinning. "
-                "Exp 3 (H31-E2, fa735287) trained translation-invariant Dual-Expert trees with zero catalogue-distance inputs, placing 11,864 dots (>1.5 km, 31.5%) in unmapped basins and passing G1-G4 + Piedmont SGMC."),
+         question="Does translation-invariant multi-physics cross-gradient concordance + 1 m LiDAR scarp polarity + submodular 300 m allocation beat Baseline-D on the 21.3 km whole-segment holdout?",
+         verdict="Measured: +0.0352 screen (4/4 folds) and +0.0259 (+29.3%, 95 % CI [+0.0167, +0.0355]) fresh confirmation HOLDOUT-DTI; +13.0 % on Piedmont SGMC over GEMSDOE32 H33-2-B2 (0.1233 vs 0.1091); held from auto-slot by strict G5b mountain SGMC (0.0816 vs 0.0940) and the literal 5x5 calibration-lattice rule.",
+         detail="Evaluated under gemsdoe31-hide-v2.0 (21.3 km buffer, whole fault components withheld). Exp 1 (H31-E v1, 0.1788 screen / 0.1717 confirm) exposed lateral halo collapse from raw vis_d1_clamped_km (evidence/h31e/exp1_exp2_halo_audit.json). Exp 2 isolated +0.0372 from the 29-offset 300 m submodular allocator. Exp 3 (H31-E2, fa735287) places 11,864 dots (31.5 %) beyond 1.5 km and passes all format, [0,1] range, leakage (max AUC 0.7624), and 22-submission uniqueness checks (max 3-px overlap 51.53 %)."),
 ]
 
 
@@ -1562,6 +1305,11 @@ def build_experiment_page(exp: dict) -> str:
 
 
 def main() -> None:
+    if load("registry/current_run.json"):
+        from verify_current_run import verify
+        readiness = verify()
+        (DOCS / "downloads").mkdir(parents=True, exist_ok=True)
+        (DOCS / "downloads/readiness.json").write_text(json.dumps(readiness, indent=1, allow_nan=False) + "\n")
     submissions = load("registry/submissions.json", {"files": [], "current_recommended": {}})
     sources = load("registry/sources.json", {"sources": []})
     experiments = load("registry/experiments.json", {"protocol": {}, "artifacts": {}})

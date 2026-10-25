@@ -1,0 +1,400 @@
+{
+ "schema_version": 1,
+ "hypothesis": "MAGREST: lateral restoration of displaced magnetic texture",
+ "mechanism": "same-sign 2/4px cross-flank patch-correlation gain over unshifted null; no inherited dots",
+ "non_fault_mimic": "volcanic-flow lithologic contacts or airborne magnetic survey-line seams",
+ "holdout_dti": {
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "dti": 0.052972044857535226,
+  "ci95": [
+   0.04131136300815562,
+   0.06532899139157548
+  ],
+  "withheld_positive_pixels": 2901,
+  "tpw": 222.69414398245058,
+  "fpw": 9193.274462229707,
+  "fnw": 2678.3058560175496
+ },
+ "holdout_comparator": {
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "dti": 0.048293608830301336,
+  "ci95": [
+   0.029921573594205237,
+   0.06850647563703088
+  ],
+  "withheld_positive_pixels": 2901,
+  "tpw": 202.735146601352,
+  "fpw": 9183.11749764211,
+  "fnw": 2698.2648533986476
+ },
+ "paired_difference": {
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "delta": 0.00467843602723389,
+  "ci95": [
+   -0.017864202465723577,
+   0.022933167391729445
+  ],
+  "withheld_positive_pixels": 2901
+ },
+ "sgmc_proxy": {
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "dti": 0.06779986408701494,
+  "ci95": [
+   0.05932578205725033,
+   0.07435916542716799
+  ],
+  "withheld_positive_pixels": 16785,
+  "tpw": 1044.7158518756237,
+  "fpw": 8859.380470708851,
+  "fnw": 15740.284148124387
+ },
+ "registry": {
+  "scope": "ALL .tif files under docs/downloads/ (including research subdirectories) in the nine pinned repositories. No claim about private, unlinked, other paths, other sites, or later revisions.",
+  "comparable_files": 118,
+  "distinct_prediction_fields": 50,
+  "surface": {
+   "pass_": true,
+   "duplicate": false,
+   "max_abs_rho": 0.01014651673592438,
+   "max_overlap": 0.3214532320603389
+  },
+  "final": {
+   "pass_": true,
+   "duplicate": false,
+   "max_abs_rho": 0.005421926334620311,
+   "max_overlap": 0.3256493334041536
+  },
+  "global_uniqueness_proven": false
+ },
+ "raster_sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+ "validator": {
+  "zeros": {
+   "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+   "bytes": 153019,
+   "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+   "ok_to_upload_format_only": true,
+   "organizer_acceptance_verified": false,
+   "hard_failures": [],
+   "grid": {
+    "shape": [
+     3730,
+     3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ],
+    "bounds": [
+     243350.0,
+     4135550.0,
+     572550.0,
+     4508550.0
+    ],
+    "dtype": [
+     "float32"
+    ],
+    "bands": 1,
+    "template_footprint_pixels": 5167373,
+    "positive_pixels_inside": 37654,
+    "nodata_tag": null
+   },
+   "checks": {
+    "template_single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "template_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "template_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "template_has_finite_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 finite pixels",
+     "hard": true
+    },
+    "template_expected_shape": {
+     "pass_": true,
+     "detail": "(3730, 3292) (expected (3730, 3292))",
+     "hard": true
+    },
+    "template_expected_transform": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+     "hard": true
+    },
+    "template_expected_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 (expected 5,167,373)",
+     "hard": true
+    },
+    "template_expected_outside": {
+     "pass_": true,
+     "detail": "7,111,787 (expected 7,111,787)",
+     "hard": true
+    },
+    "single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "dtype_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "shape_matches_template": {
+     "pass_": true,
+     "detail": "(3730, 3292) vs (3730, 3292)",
+     "hard": true
+    },
+    "crs_matches_template": {
+     "pass_": true,
+     "detail": "EPSG:32611 vs EPSG:32611",
+     "hard": true
+    },
+    "transform_matches_template": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+     "hard": true
+    },
+    "footprint_all_finite": {
+     "pass_": true,
+     "detail": "0 NaN/Inf inside 5,167,373 template cells",
+     "hard": true
+    },
+    "footprint_values_in_0_1": {
+     "pass_": true,
+     "detail": "min=0.0; max=1.0; required finite [0,1]",
+     "hard": true
+    },
+    "no_infinite_pixels": {
+     "pass_": true,
+     "detail": "0 infinite values",
+     "hard": true
+    },
+    "outside_footprint_nan": {
+     "pass_": true,
+     "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+     "hard": false
+    },
+    "nan_mask_matches_template": {
+     "pass_": true,
+     "detail": "not required under the all-finite convention",
+     "hard": false
+    },
+    "allfinite_values_in_0_1": {
+     "pass_": true,
+     "detail": "finite=True; min=0.0; max=1.0",
+     "hard": true
+    },
+    "outside_footprint_zero": {
+     "pass_": true,
+     "detail": "0 nonzero values outside footprint",
+     "hard": true
+    },
+    "output_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "output_100m_pixels": {
+     "pass_": true,
+     "detail": "xres=100, yres=-100",
+     "hard": true
+    },
+    "nodata_tag_nan_or_none": {
+     "pass_": true,
+     "detail": "nodata=None",
+     "hard": false
+    }
+   }
+  },
+  "nan": {
+   "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+   "bytes": 199200,
+   "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3",
+   "ok_to_upload_format_only": true,
+   "organizer_acceptance_verified": false,
+   "hard_failures": [],
+   "grid": {
+    "shape": [
+     3730,
+     3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ],
+    "bounds": [
+     243350.0,
+     4135550.0,
+     572550.0,
+     4508550.0
+    ],
+    "dtype": [
+     "float32"
+    ],
+    "bands": 1,
+    "template_footprint_pixels": 5167373,
+    "positive_pixels_inside": 37654,
+    "nodata_tag": "NaN"
+   },
+   "checks": {
+    "template_single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "template_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "template_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "template_has_finite_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 finite pixels",
+     "hard": true
+    },
+    "template_expected_shape": {
+     "pass_": true,
+     "detail": "(3730, 3292) (expected (3730, 3292))",
+     "hard": true
+    },
+    "template_expected_transform": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+     "hard": true
+    },
+    "template_expected_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 (expected 5,167,373)",
+     "hard": true
+    },
+    "template_expected_outside": {
+     "pass_": true,
+     "detail": "7,111,787 (expected 7,111,787)",
+     "hard": true
+    },
+    "single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "dtype_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "shape_matches_template": {
+     "pass_": true,
+     "detail": "(3730, 3292) vs (3730, 3292)",
+     "hard": true
+    },
+    "crs_matches_template": {
+     "pass_": true,
+     "detail": "EPSG:32611 vs EPSG:32611",
+     "hard": true
+    },
+    "transform_matches_template": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+     "hard": true
+    },
+    "footprint_all_finite": {
+     "pass_": true,
+     "detail": "0 NaN/Inf inside 5,167,373 template cells",
+     "hard": true
+    },
+    "footprint_values_in_0_1": {
+     "pass_": true,
+     "detail": "min=0.0; max=1.0; required finite [0,1]",
+     "hard": true
+    },
+    "no_infinite_pixels": {
+     "pass_": true,
+     "detail": "0 infinite values",
+     "hard": true
+    },
+    "outside_footprint_nan": {
+     "pass_": true,
+     "detail": "7,111,787/7,111,787 outside pixels are NaN; finite outside pixels are forbidden",
+     "hard": true
+    },
+    "nan_mask_matches_template": {
+     "pass_": true,
+     "detail": "NaN cells exactly match the template's outside-footprint mask",
+     "hard": true
+    },
+    "output_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "output_100m_pixels": {
+     "pass_": true,
+     "detail": "xres=100, yres=-100",
+     "hard": true
+    },
+    "nodata_tag_nan_or_none": {
+     "pass_": true,
+     "detail": "nodata=nan",
+     "hard": false
+    }
+   }
+  }
+ },
+ "submission_name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
+ "note": "MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved",
+ "verdict": "negative",
+ "ok_to_download_for_research": true,
+ "ok_to_submit": false,
+ "slot_approved": false,
+ "submission_slots_used": 0,
+ "failed_or_unknown_gates": [
+  "paired spatial holdout screen failed",
+  "fresh confirmation not passed",
+  "own-method residual range not estimated",
+  "global current-best comparison unavailable on identical instrument",
+  "organizer-authenticated data/template provenance unverified",
+  "outside-footprint organizer convention unresolved",
+  "separate selector has not promoted this artifact; weekly cap not checked"
+ ],
+ "file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+ "zip_file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+ "nan_file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+ "nan_zip": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.zip",
+ "generated_utc": "2026-10-25T21:00:09.421615+00:00",
+ "evaluator_implementation_sha256": {
+  "evaluate_holdout.py": "ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a",
+  "holdout.py": "7a0a84176986190b527aa9c6a84216c2dab4b599f25b1143db5f420e85020ab1",
+  "metric.py": "4afe10cbaa229948520c75194b1ebc32676e72544f05582f0725092b097b4d7f",
+  "spatial.py": "fad7b09db9efc512247b9a176a7e7ce8631e287592b4e07902d0b9c38bed00f8"
+ },
+ "no_organizer_receipt": true
+}

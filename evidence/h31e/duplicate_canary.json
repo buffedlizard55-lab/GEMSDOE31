@@ -220,5 +220,56 @@
       "exact_shared_dots": 1251,
       "duplicate": false
     }
-  ]
+  ],
+  "concurrent_main_lanes_audit": {
+    "checked_count": 6,
+    "discrete_dot_lanes_count": 5,
+    "max_final_dots_within_3px_discrete_lanes": 0.452435,
+    "passed_all_discrete_submissions": true,
+    "rows": [
+      {
+        "file": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+        "is_discrete_dot_raster": true,
+        "ref_positive_pixels": 38000,
+        "cand_dots_within_3px_of_ref": 0.316753,
+        "is_duplicate_discrete": false
+      },
+      {
+        "file": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+        "is_discrete_dot_raster": false,
+        "ref_positive_pixels": 255289,
+        "cand_dots_within_3px_of_ref": 0.095554,
+        "is_duplicate_discrete": false
+      },
+      {
+        "file": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif",
+        "is_discrete_dot_raster": true,
+        "ref_positive_pixels": 37654,
+        "cand_dots_within_3px_of_ref": 0.452435,
+        "is_duplicate_discrete": false
+      },
+      {
+        "file": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif",
+        "is_discrete_dot_raster": true,
+        "ref_positive_pixels": 37654,
+        "cand_dots_within_3px_of_ref": 0.387024,
+        "is_duplicate_discrete": false
+      },
+      {
+        "file": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif",
+        "is_discrete_dot_raster": true,
+        "ref_positive_pixels": 40199,
+        "cand_dots_within_3px_of_ref": 0.369602,
+        "is_duplicate_discrete": false
+      },
+      {
+        "file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+        "is_discrete_dot_raster": true,
+        "ref_positive_pixels": 37654,
+        "cand_dots_within_3px_of_ref": 0.178998,
+        "is_duplicate_discrete": false
+      }
+    ],
+    "shared_registry_57_calibration_lattice_note": "As documented in evidence/magrest/registry_scope_correction.json and registry/shared_registry_57_pin.json, 57GEMSDOE's 695-raster snapshot includes calibration file inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif (a uniform 5x5-pixel lattice across the entire Nevada footprint whose Euclidean covering radius sqrt(2^2+2^2)=2.828 px <= 3.0 px covers 100.0% of all interior Nevada pixels), and TGJ31 emits a dense non-zero continuous surface on >5M pixels. Against all discrete fault-dot submissions across GEMSDOE24..36, 70 and concurrent GEMSDOE31 lanes (AS-1, H31-B, H31-E surfexpr, MAGREST), H31-E2 (fa735287) passes with max 3-px overlap <= 51.53%; under the literal unexempted rule against calibration/continuous rasters, this independently reinforces verdict='negative' / slot_approved=False."
+  }
 }

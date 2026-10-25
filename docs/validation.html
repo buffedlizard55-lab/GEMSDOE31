@@ -25,7 +25,7 @@
   </section>
 
   <main class="wrap">
-    <section>
+<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>    <section>
       <div class="section-head">
         <div><p class="kicker">Buffer</p><h2>A collar measured from the data</h2></div>
         <p>An under-buffered holdout leaks training pixels from the same fault structure and overstates generalisation to a genuinely unmapped fault.</p>
@@ -59,15 +59,15 @@
       </div>
       <div class="table-wrap"><table><caption class="small" style="text-align:left;padding:10px 15px">Each row deletes every evaluation cell within the collar of the training region, then rescores.</caption><thead><tr><th>collar (km)</th><th>A cat / off-cat</th><th>B cat / off-cat</th><th>D cat / off-cat</th></tr></thead><tbody><tr><td>0.00</td><td>0.1219 / 0.0689</td><td>0.1269 / 0.0705</td><td>0.1355 / 0.0644</td></tr><tr><td>0.50</td><td>0.1219 / 0.0690</td><td>0.1270 / 0.0706</td><td>0.1356 / 0.0644</td></tr><tr><td>1.00</td><td>0.1219 / 0.0691</td><td>0.1272 / 0.0707</td><td>0.1358 / 0.0644</td></tr><tr><td>2.00</td><td>0.1219 / 0.0690</td><td>0.1273 / 0.0706</td><td>0.1359 / 0.0642</td></tr><tr><td>5.00</td><td>0.1218 / 0.0693</td><td>0.1273 / 0.0707</td><td>0.1362 / 0.0641</td></tr><tr><td>10.00</td><td>0.1208 / 0.0698</td><td>0.1277 / 0.0708</td><td>0.1363 / 0.0640</td></tr><tr><td>21.25</td><td>0.1211 / 0.0715</td><td>0.1288 / 0.0714</td><td>0.1384 / 0.0641</td></tr><tr><td>30.00</td><td>0.1196 / 0.0674</td><td>0.1292 / 0.0700</td><td>0.1389 / 0.0623</td></tr></tbody></table></div>
       <p class="small">Interpretation, stated conservatively: the quadrant protocol (≈150–190 km blocks) is insensitive
-      to the collar between 0 and 30 km, so the LiDAR arm's advantage is not a short-range leakage artefact. It does
-      <strong>not</strong> license the small collars used elsewhere: those are component-level holdouts whose
+      to the collar between 0 and 30 km in this historical test. This does not prove leakage is absent or establish MAGREST's
+      residual range. It does <strong>not</strong> license the small collars used elsewhere: those are component-level holdouts whose
       geography is one to two orders of magnitude smaller than the measured range.</p>
     </section>
 
     <section id="metric">
       <div class="section-head">
         <div><p class="kicker">Metric</p><h2>The implementation is exact</h2></div>
-        <p>Every score on this site comes from a direct implementation of the official formula, not an approximation.</p>
+        <p>This historical local implementation agrees with a literal transcription of the recorded formula. That is not equivalence testing against the organizer's private scoring engine.</p>
       </div>
       <div class="content">
         <p><code>src/gemsdoe31/metric.py</code> implements the definition directly — the 29 lattice offsets whose
@@ -102,8 +102,8 @@
           <span class="badge badge-red">not usable as a selector</span></p></div>
         <div class="card"><h3>Off-catalogue discovery proxy</h3>
           <p>USGS State Geologic Map Compilation structure layers rasterised to this grid: 82,151 fault cells, of which
-          <strong>61,664 lie more than 300 m from the competition catalogue</strong>. The only populated fault population
-          in reach that is off-catalogue by construction. <span class="badge badge-green">selection instrument</span></p>
+          <strong>61,664 lie more than 300 m from the competition catalogue</strong>. Historical full-region population;
+          not the current component instrument. <span class="badge">historical proxy, not slot approval</span></p>
           <p class="small">Limit, stated plainly: SGMC faults are state-map faults of mixed age and certainty, not the
           experts' newly mapped Quaternary faults. A proxy can rank arms wrongly, which is why the arm ordering was
           checked at every threshold and both proxies are always printed.</p></div>
@@ -129,11 +129,10 @@ bash scripts/download_competition_data.sh      # restore + SHA-256 verify the 11
 python scripts/prepare_data.py --verify-only   # grid/hash re-check; add no flag to build features.f32
 python scripts/check_metric.py                 # metric vs brute force -&gt; evidence/metric_check.json
 python scripts/derive_buffer.py                # semivariogram -&gt; evidence/buffer_derivation.json
-python scripts/evaluate_holdout.py             # H31-E/E2 21.3 km holdout, canaries, unique GeoTIFF &amp; Run Card
 python scripts/run_union.py                    # filtering + union tables -&gt; evidence/union_results.json
 python scripts/collect_evidence.py             # hash the artifacts, rebuild registry/*.json
-python scripts/build_site.py                   # regenerate this site from the registers
-python scripts/check_site.py                   # verify all 20 HTML pages, local links, and gates</pre>
+python scripts/build_submission.py --dots &lt;tif&gt; --name &lt;unique-name&gt;
+python scripts/build_site.py                   # regenerate this site from the registers</pre>
       <p class="small">Nothing on this site is typed in by hand: <code>scripts/build_site.py</code> reads the JSON in
       <code>registry/</code> and <code>evidence/</code>, and <code>scripts/collect_evidence.py</code> writes those JSON
       files from the artifacts on disk. One step is <em>not</em> yet reproducible from this snapshot: the training runs
@@ -148,7 +147,7 @@ python scripts/check_site.py                   # verify all 20 HTML pages, local
   </main>
   <footer class="footer"><div class="wrap footer-inner">
     <p>Reproduce with: scripts/derive_buffer.py, scripts/check_metric.py, scripts/build_site.py.</p>
-    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+    <p><a href="feed.html">Evidence feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
   </div></footer>
 </body>
 </html>

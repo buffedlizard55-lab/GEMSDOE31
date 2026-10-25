@@ -1,0 +1,285 @@
+{
+ "evaluator": "LANE-EVAL-1",
+ "candidate": "AS-1",
+ "candidate_procedure_sha256": "e6b46c50b4d7a3eeb79fe94e7cc6db9d7ab0d7352f86686d354fe2f2906d8337",
+ "budget": 38000,
+ "fresh_seeds": [
+  11,
+  12,
+  13,
+  14,
+  15
+ ],
+ "canary": {
+  "AS-1 surface": {
+   "auc_off_catalogue_sgmc": 0.7372006454055097,
+   "auc_catalogue": 0.5967472591388975
+  },
+  "upface_max": {
+   "auc_off_catalogue_sgmc": 0.7447733956194215,
+   "auc_catalogue": 0.5898075122081227
+  },
+  "antislope_dominant": {
+   "auc_off_catalogue_sgmc": 0.5473502189450372,
+   "auc_catalogue": 0.5254482530176416
+  }
+ },
+ "groups": {
+  "catalogue-gap FRESH seeds 11-15": {
+   "h33-2-b2 (live-best, USER-REPORTED 0.2778)": {
+    "HOLDOUT_DTI": 0.005788133819555603,
+    "ci95": [
+     0.0051648833649460876,
+     0.0064955309781882025
+    ],
+    "dots": 37654,
+    "credit_per_dot": 0.004914230678160224,
+    "withheld_positive_pixels": 152681,
+    "quadrants": {
+     "NW": 0.005187940807809403,
+     "NE": 0.007638692539320325,
+     "SW": 0.006373146715834141,
+     "SE": 0.004357859232446435
+    }
+   },
+   "D28 incumbent (USER-REPORTED 0.2708)": {
+    "HOLDOUT_DTI": 0.04243315951221378,
+    "ci95": [
+     0.03837620622144016,
+     0.0469700501633645
+    ],
+    "dots": 40199,
+    "credit_per_dot": 0.03442034235493479,
+    "withheld_positive_pixels": 152681,
+    "quadrants": {
+     "NW": 0.03748800186293752,
+     "NE": 0.05475189514395063,
+     "SW": 0.04166852864831372,
+     "SE": 0.04038344700079507
+    }
+   },
+   "AS-1 (this lane)": {
+    "HOLDOUT_DTI": 0.07554424904540337,
+    "ci95": [
+     0.06026815638023423,
+     0.08951625998041282
+    ],
+    "dots": 38000,
+    "credit_per_dot": 0.06424412152487752,
+    "withheld_positive_pixels": 152681,
+    "quadrants": {
+     "NW": 0.060017007592814926,
+     "NE": 0.05366918156838286,
+     "SW": 0.10477858860923304,
+     "SE": 0.11097481260490122
+    },
+    "paired_vs": {
+     "h33-2-b2 (live-best, USER-REPORTED 0.2778)": {
+      "mean": 0.06923484042477844,
+      "ci95": [
+       0.05429526287850209,
+       0.08407727497394517
+      ],
+      "p_better": 1.0,
+      "quadrants_won": 4
+     },
+     "D28 incumbent (USER-REPORTED 0.2708)": {
+      "mean": 0.03250794177720809,
+      "ci95": [
+       0.017858853492788627,
+       0.04779400611834643
+      ],
+      "p_better": 1.0,
+      "quadrants_won": 3
+     },
+     "control S0 generic scarp": {
+      "mean": 0.01557961615315614,
+      "ci95": [
+       0.008536182057511834,
+       0.022712632009935414
+      ],
+      "p_better": 1.0,
+      "quadrants_won": 4
+     },
+     "null random score": {
+      "mean": 0.006546093566743505,
+      "ci95": [
+       -0.005481180262375686,
+       0.01845181276622532
+      ],
+      "p_better": 0.868,
+      "quadrants_won": 3
+     }
+    }
+   },
+   "control S0 generic scarp": {
+    "HOLDOUT_DTI": 0.05975596198326986,
+    "ci95": [
+     0.04685628921039425,
+     0.07361501503035665
+    ],
+    "dots": 38000,
+    "credit_per_dot": 0.05070963023764454,
+    "withheld_positive_pixels": 152681,
+    "quadrants": {
+     "NW": 0.04192559266798162,
+     "NE": 0.035017320714103725,
+     "SW": 0.09552140617611544,
+     "SE": 0.09788417282897605
+    }
+   },
+   "null random score": {
+    "HOLDOUT_DTI": 0.06878451769449996,
+    "ci95": [
+     0.060672699360028184,
+     0.07539309816325149
+    ],
+    "dots": 38000,
+    "credit_per_dot": 0.05847110692542402,
+    "withheld_positive_pixels": 152681,
+    "quadrants": {
+     "NW": 0.06707298798732325,
+     "NE": 0.05071183498034507,
+     "SW": 0.08669267688735544,
+     "SE": 0.08012930388805392
+    }
+   }
+  },
+  "off-catalogue SGMC (NOT fresh)": {
+   "h33-2-b2 (live-best, USER-REPORTED 0.2778)": {
+    "HOLDOUT_DTI": 0.09396541728506137,
+    "ci95": [
+     0.08279846409254422,
+     0.10728338440321362
+    ],
+    "dots": 37654,
+    "credit_per_dot": 0.14340528475190986,
+    "withheld_positive_pixels": 61664,
+    "quadrants": {
+     "NW": 0.10189310457911023,
+     "NE": 0.09523515677117887,
+     "SW": 0.10777272442001615,
+     "SE": 0.07357465289126537
+    }
+   },
+   "D28 incumbent (USER-REPORTED 0.2708)": {
+    "HOLDOUT_DTI": 0.09384814898310007,
+    "ci95": [
+     0.08290644498992084,
+     0.1070328723271206
+    ],
+    "dots": 40199,
+    "credit_per_dot": 0.13534336699780797,
+    "withheld_positive_pixels": 61664,
+    "quadrants": {
+     "NW": 0.10163814160318757,
+     "NE": 0.09526446087012153,
+     "SW": 0.10699671323106356,
+     "SE": 0.07351292005333482
+    }
+   },
+   "AS-1 (this lane)": {
+    "HOLDOUT_DTI": 0.1420883218704914,
+    "ci95": [
+     0.1006639489635513,
+     0.18156601122669752
+    ],
+    "dots": 38000,
+    "credit_per_dot": 0.2165670975353993,
+    "withheld_positive_pixels": 61664,
+    "quadrants": {
+     "NW": 0.11616800081426396,
+     "NE": 0.0918580294921559,
+     "SW": 0.1546099838828008,
+     "SE": 0.25524534789623204
+    },
+    "paired_vs": {
+     "h33-2-b2 (live-best, USER-REPORTED 0.2778)": {
+      "mean": 0.04692029758764118,
+      "ci95": [
+       0.000968305178624015,
+       0.09072086228360483
+      ],
+      "p_better": 0.976,
+      "quadrants_won": 3
+     },
+     "D28 incumbent (USER-REPORTED 0.2708)": {
+      "mean": 0.04704765003870556,
+      "ci95": [
+       0.0012461083468000447,
+       0.09078356247630255
+      ],
+      "p_better": 0.977,
+      "quadrants_won": 3
+     },
+     "control S0 generic scarp": {
+      "mean": -0.004858606197126193,
+      "ci95": [
+       -0.015336491085848754,
+       0.006533949968579416
+      ],
+      "p_better": 0.2,
+      "quadrants_won": 1
+     },
+     "null random score": {
+      "mean": 0.07561664528763438,
+      "ci95": [
+       0.048112614981602304,
+       0.10511181000695542
+      ],
+      "p_better": 1.0,
+      "quadrants_won": 4
+     }
+    }
+   },
+   "control S0 generic scarp": {
+    "HOLDOUT_DTI": 0.1471927911277567,
+    "ci95": [
+     0.09944306208261447,
+     0.19043725095709912
+    ],
+    "dots": 38000,
+    "credit_per_dot": 0.2242397646797184,
+    "withheld_positive_pixels": 61664,
+    "quadrants": {
+     "NW": 0.11769505008314904,
+     "NE": 0.0994471338878498,
+     "SW": 0.14241168958355221,
+     "SE": 0.2668276817976367
+    }
+   },
+   "null random score": {
+    "HOLDOUT_DTI": 0.06585322843868857,
+    "ci95": [
+     0.05172721013557677,
+     0.07879567949073744
+    ],
+    "dots": 38000,
+    "credit_per_dot": 0.09949210992853043,
+    "withheld_positive_pixels": 61664,
+    "quadrants": {
+     "NW": 0.060784393442131636,
+     "NE": 0.05449401965371258,
+     "SW": 0.06685945473774471,
+     "SE": 0.09296369965542024
+    }
+   }
+  }
+ },
+ "preregistered_gates": {
+  "per_instrument": {
+   "catalogue-gap FRESH seeds 11-15": {
+    "beats_live_best_lower_bound_positive": true,
+    "quadrants_won_vs_live_best": 4,
+    "beats_null_lower_bound_positive": false
+   },
+   "off-catalogue SGMC (NOT fresh)": {
+    "beats_live_best_lower_bound_positive": true,
+    "quadrants_won_vs_live_best": 3,
+    "beats_null_lower_bound_positive": true
+   }
+  },
+  "leakage_canary_ok": true,
+  "PROMOTE_TO_SELECTOR": false
+ }
+}

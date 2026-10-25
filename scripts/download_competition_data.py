@@ -30,8 +30,44 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _git_fetch_blob(repo: str, ref: str, remote: str, destination: Path) -> bool:
+    """Fetch a single blob via blobless git fetch over github.com (works when raw.githubusercontent.com is blocked)."""
+    if not shutil.which("git"):
+        return False
+    cache_root = Path("/tmp/gemsdoe31_git_blob_cache") / repo.replace("/", "__")
+    try:
+        if not (cache_root / ".git").is_dir():
+            cache_root.mkdir(parents=True, exist_ok=True)
+            subprocess.run(["git", "init", "-q"], cwd=cache_root, check=True, timeout=60)
+            subprocess.run(
+                ["git", "remote", "add", "origin", f"https://github.com/{repo}.git"],
+                cwd=cache_root, check=True, timeout=60,
+            )
+        has_commit = subprocess.run(
+            ["git", "cat-file", "-e", f"{ref}^{{commit}}"],
+            cwd=cache_root, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=30,
+        ).returncode == 0
+        target_ref = ref
+        if not has_commit:
+            subprocess.run(
+                ["git", "fetch", "-q", "--depth", "1", "--filter=blob:none", "origin", ref],
+                cwd=cache_root, check=True, timeout=1800,
+            )
+            target_ref = "FETCH_HEAD"
+        with destination.open("wb") as out:
+            subprocess.run(
+                ["git", "show", f"{target_ref}:{remote}"],
+                cwd=cache_root, stdout=out, stderr=subprocess.PIPE, check=True, timeout=1800,
+            )
+        return destination.is_file() and destination.stat().st_size > 0
+    except Exception:
+        return False
+
+
 def _download(repo: str, ref: str, remote: str, destination: Path) -> None:
-    """Fetch one public GitHub object with the authenticated CLI when present, else HTTPS."""
+    """Fetch one public GitHub object with blobless git, the authenticated CLI, or HTTPS."""
+    if _git_fetch_blob(repo, ref, remote, destination):
+        return
     url = f"https://raw.githubusercontent.com/{repo}/{ref}/{remote}"
     if shutil.which("gh"):
         try:
@@ -85,7 +121,7 @@ def restore(entry: dict, data_dir: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", default="data")
-    parser.add_argument("--group", default="all", help="all | core | external")
+    parser.add_argument("--group", choices=("all", "core", "external"), default="all", help="input group to restore")
     parser.add_argument("--out", default="evidence/data_restore.json")
     args = parser.parse_args()
     manifest = json.loads(MANIFEST.read_text())

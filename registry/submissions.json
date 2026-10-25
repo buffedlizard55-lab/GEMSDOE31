@@ -1,13 +1,117 @@
 {
- "schema_version": 1,
- "generated_utc": "2026-10-04",
- "policy": "Every hash and pixel count below is copied out of the format-check receipt written by scripts/build_submission.py. Local validation is not organizer acceptance and no file here carries an organizer receipt.",
+ "schema_version": 2,
+ "generated_utc": "2026-10-25",
+ "parallel_archived_files": [
+  {
+   "file": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
+   "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
+   "sha256": "28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4",
+   "bytes": 142957,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+   "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+   "sha256": "e84c5a252381294aa0f22aebd765f7b9fa0136c270617bac22d40f48cc7f5f0c",
+   "bytes": 186261,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+   "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+   "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
+   "bytes": 1302840,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
+   "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
+   "sha256": "f9cd56a71550b42f00f3cd37a4bf1464c151a9a2ea0438afb8ceef95868351ab",
+   "bytes": 147178,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif",
+   "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif",
+   "sha256": "6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c",
+   "bytes": 191692,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif",
+   "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif",
+   "sha256": "b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41",
+   "bytes": 141273,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif",
+   "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif",
+   "sha256": "ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb",
+   "bytes": 185607,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif",
+   "name": "gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif",
+   "sha256": "825b67192d451f2d1847a47632b417c43865613df943cfa5e889ff379e809fa6",
+   "bytes": 158771,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif",
+   "name": "gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif",
+   "sha256": "76d58f4a28ef6112a79c8d930ad2c3c87b1f6ba0c062a4780c1207a48b749722",
+   "bytes": 203869,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  }
+ ],
+ "parallel_source_archive": "registry/parallel_main_archive_20261025.json",
+ "active_run_card": "registry/current_run.json",
+ "policy": "Active/historical file metadata comes from its format receipt; parallel archived TIFF hashes are recomputed from served bytes and carry no new scientific/format endorsement. Local validation is not organizer acceptance; no exact-file organizer score receipt is present.",
  "current_recommended": {
-  "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-  "role": "primary download - the best-scoring geometry this project has measured, re-emitted and re-validated here",
+  "name": null,
+  "role": "No submission is recommended; the active run card separately identifies the research-only download.",
+  "historical_reference": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
   "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
   "slot_approved": false,
-  "reason_not_slot_approved": "It is the incumbent, not an improvement: no measured candidate beats it by a margin that justifies spending the weekly slot."
+  "reason_not_slot_approved": "Literal shared-registry overlap STOP and failed MAGREST screen; no comparable global-best evidence, confirmation or separate selector approval."
  },
  "best_research_candidate": {
   "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
@@ -26,11 +130,11 @@
   {
    "id": "candidate-h31e2-scgp-submod",
    "name": "gemsdoe31-scgp-submod-37654-20261025-fa735287",
-   "role": "new unique GEMSDOE31 candidate - H31-E2 translation-invariant SCGP dual-expert + 300 m submodular (format, [0,1] range, leakage, uniqueness, and 21.3 km holdout validated)",
-   "provenance": "100% out-of-sample 21.3 km buffered 4-quadrant Dual-Expert HistGradientBoostingClassifier + unsupervised multi-physics cross-gradient/tilt/LiDAR ridge + strike-tip & 2-component relay continuation + 1D Hessian ridge sharpening + Minoux lazy-greedy 300 m submodular DTI allocator (scripts/evaluate_holdout.py)",
+   "role": "unique H31-E2 SCGP-Submod multi-physics candidate (PASS format/[0,1]/leakage/22-submission uniqueness/21.3 km confirmation +29.3% & Piedmont SGMC +13.0%; held from auto-slot by strict G5b & 5x5 lattice rule)",
+   "provenance": "Experiment 3 (H31-E2) generated by scripts/evaluate_holdout.py: 43-feature multi-physics cross-gradient + FFT upward-continuation + seam-free Dual-Expert 1 m LiDAR scarp + K/Th/U/paleo_sinter + strike-tip/relay continuation + 300 m submodular DTI allocator (37,654 off-catalogue dots)",
    "note_for_portal": "GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287",
    "slot_approved": false,
-   "why_not_slot_approved": "Passed G1 (format & [0,1] range), G2 (86-feature leakage canary max AUC 0.7624 <= 0.90), G3 (cross-site uniqueness max 3-px overlap 51.53% <= 70%), G4 (21.3 km buffered fresh confirmation HOLDOUT-DTI 0.1145 vs 0.0886, +29.3%), and G5a (Piedmont SGMC DTI 0.1233 vs H33-2-B2 0.1091, +13.0%). Held from automatic agent slot spending (slot_approved=false, Run Card verdict=negative) solely by strict fail-closed G5b all-elevation mountain SGMC sub-clause (0.0816 vs 0.0940) and separate human weekly-slot selector sign-off.",
+   "why_not_slot_approved": "Passes G1-G4 and beats H33-2-B2 by +13.0% on Piedmont SGMC (0.1233 vs 0.1091), but strict Gate G5b all-elevation mountain SGMC (0.0816 vs 0.0940) and the literal 5x5 calibration-lattice rule require explicit human weekly-slot selector sign-off.",
    "positive_pixels": 37654,
    "positive_pixels_on_public_catalogue": 0,
    "format_status": "locally validated against the grid template; not organizer acceptance",
@@ -48,28 +152,30 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.zip",
+   "sha256_zip": "2e88e0a34180fbbe8960b3cc87b4cbe0dc7e5640f09508343ef3ece872d518ba",
+   "bytes_zip": 118932,
    "measured": {
     "evaluator_version": "gemsdoe31-hide-v2.0",
     "buffer_m": 21300,
     "screen_holdout_dti": 0.12736169638481507,
     "screen_baseline_dti": 0.0921712554276685,
-    "screen_delta_dti": 0.03519044095714656,
+    "screen_delta": 0.03519044095714656,
     "confirm_holdout_dti": 0.11452142520005439,
-    "confirm_holdout_ci95": [
+    "confirm_ci95": [
      0.10713381048595738,
      0.12316674850225119
     ],
     "confirm_baseline_dti": 0.08859261760645709,
-    "confirm_delta_dti": 0.025928807593597294,
+    "confirm_delta": 0.025928807593597294,
     "confirm_delta_ci95": [
      0.016658768796521624,
      0.035513545849917894
     ],
     "piedmont_sgmc_proxy_DTI": 0.12330626713422095,
-    "h33_piedmont_sgmc_proxy_DTI": 0.10905112828813972,
+    "incumbent_h33_piedmont_sgmc_proxy_DTI": 0.10905112828813972,
     "off_catalogue_proxy_DTI": 0.08162303908333594,
-    "incumbent_off_catalogue_proxy_DTI": 0.09396541728952698,
-    "delta": 0.014255138846081233
+    "baseline_d_off_catalogue_proxy_DTI": 0.07176546660591096,
+    "incumbent_h33_off_catalogue_proxy_DTI": 0.09396541728952698
    },
    "automated_gates": {
     "G1_format_and_range_0_1_pass": true,
@@ -86,11 +192,11 @@
   {
    "id": "primary-h27-4-solo-d28",
    "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-   "role": "primary download - the best-scoring geometry this project has measured, re-emitted and re-validated here",
+   "role": "historical reference only - pixel-identical to an earlier submission; not a unique current candidate",
    "provenance": "re-emission of the dot set published as GEMSDOE28 gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); pixel-identical, freshly written and re-validated in this repository",
    "note_for_portal": "h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template",
    "slot_approved": false,
-   "why_not_slot_approved": "It is the incumbent, not an improvement. Nothing measured in this repository beats it by a margin worth spending a weekly slot.",
+   "why_not_slot_approved": "Historical copied geometry, not a unique current detector or a same-protocol current-best comparison; no slot authority.",
    "positive_pixels": 40199,
    "positive_pixels_on_public_catalogue": 0,
    "format_status": "locally validated against the grid template; not organizer acceptance",
@@ -107,7 +213,9 @@
    "format_ok_allfinite": true,
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
-   "zip": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip"
+   "zip": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip",
+   "sha256_zip": "bb1539bf51f84c8b04e8175bddb23c0269e950a841f6fb6dd812852d4dedf43b",
+   "bytes_zip": 152689
   },
   {
    "id": "research-union-lidar-arm",
@@ -116,7 +224,7 @@
    "provenance": "the incumbent dot set plus every cell where the LiDAR-arm fold-OOF probability is >= 0.60 and the cell is not on the public catalogue (scripts/run_union.py)",
    "note_for_portal": "incumbent h27-4 dot set + 65939 LiDAR-arm detections (p>=0.6, off-catalogue); +0.0060 off-catalogue proxy DTI; research candidate",
    "slot_approved": false,
-   "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live submission has tested it. It is the best-supported next-week candidate.",
+   "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live exact-byte organizer receipt exists. Historical proxy-only result, not a current next-week recommendation.",
    "positive_pixels": 106138,
    "positive_pixels_on_public_catalogue": 0,
    "format_status": "locally validated against the grid template; not organizer acceptance",
@@ -134,6 +242,8 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.zip",
+   "sha256_zip": "553fd9b8ed2d9af2ed0ae2309b4dec78aa06b1a6ddbe5c29d37ad4971844f0d4",
+   "bytes_zip": 201767,
    "measured": {
     "off_catalogue_proxy_DTI": 0.09985654750452583,
     "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
@@ -169,6 +279,8 @@
    "hard_failures_allfinite": [],
    "organizer_acceptance_verified_allfinite": false,
    "zip": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.zip",
+   "sha256_zip": "1903a8f4099cff32bed5b5bad3fccc7da0bed4eec7df704f08de0cc208098d31",
+   "bytes_zip": 166820,
    "measured": {
     "off_catalogue_proxy_DTI": 0.09552698476959738,
     "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
@@ -198,10 +310,52 @@
    "hard_failures_nan": [],
    "organizer_acceptance_verified_nan": false,
    "legacy_receipt": true
+  },
+  {
+   "id": "magrest-current-negative",
+   "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
+   "role": "newly computed research-only MAGREST bytes; literal registry-overlap STOP and negative efficacy screen",
+   "provenance": "computed from raw RTP magnetic texture, no copied prior dots; frozen preregistration",
+   "note_for_portal": "MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved",
+   "slot_approved": false,
+   "why_not_slot_approved": "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.; paired spatial holdout screen failed; fresh confirmation not passed; own-method residual range not estimated; global current-best comparison unavailable on identical instrument; organizer-authenticated data/template provenance unverified; outside-footprint organizer convention unresolved; separate selector has not promoted this artifact; weekly cap not checked",
+   "positive_pixels": 37654,
+   "positive_pixels_on_public_catalogue": 0,
+   "format_status": "locally validated under separately stated outside conventions; not organizer acceptance",
+   "file_nan": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+   "sha256_nan": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3",
+   "bytes_nan": 199200,
+   "file_allfinite": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+   "sha256_allfinite": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+   "bytes_allfinite": 153019,
+   "format_ok_nan": true,
+   "format_ok_allfinite": true,
+   "organizer_acceptance_verified_nan": false,
+   "organizer_acceptance_verified_allfinite": false,
+   "hard_failures_nan": [],
+   "hard_failures_allfinite": [],
+   "receipt": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.json",
+   "zip": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+   "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "dti": 0.052972044857535226,
+    "ci95": [
+     0.04131136300815562,
+     0.06532899139157548
+    ],
+    "withheld_positive_pixels": 2901,
+    "tpw": 222.69414398245058,
+    "fpw": 9193.274462229707,
+    "fnw": 2678.3058560175496
+   },
+   "current_run_card": "docs/downloads/magrest-run-card.json",
+   "sha256_zip": "f0313e7fa0751622f4bcf2db23dba430bbc3467dc1b8b154d4c4ba6450f5fc14",
+   "bytes_zip": 121213
   }
  ],
  "format_conventions": {
-  "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention the official page specifies and the grid template uses",
+  "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention historically recorded problem-page wording; not freshly verified in this session",
   "all-finite": "every cell finite and in [0,1], zeros outside the footprint - a defensive fallback; validated separately in src/gemsdoe31/submission.py"
  }
 }

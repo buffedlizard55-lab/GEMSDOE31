@@ -1,0 +1,23 @@
+{
+ "feature_names": [
+  "magrest_2",
+  "magrest_4",
+  "magrest_concordant"
+ ],
+ "valid_pixels": 5164312,
+ "guarded_pixels": 4850261,
+ "boundary_guard_px": 20,
+ "normalization_epsilon": 0.0015075635045423942,
+ "labelled_inputs_used": false,
+ "diagonals_have_sqrt2_longer_sampling": true,
+ "maximum_by_feature": [
+  0.8805921077728271,
+  0.9861849546432495,
+  0.8282930254936218
+ ],
+ "preregistration_sha256": "4e8aad85f5b99707df31845fd87ccd19fc7c12021b094307d7abab79d7be90f2",
+ "feature_code_sha256": "54db780b742a4d7c72e78875e1be242cddcdeae35877dd66cf56fdad03c1de05",
+ "raw_cached_band_sha256": "032b1f28be6adb74f8fc9a7af00538b669bac86fafc6bb3e28d8d04c86a6fb32",
+ "array_sha256": "22233429509e9e003a7978099be728d7b7a60a93df8ec74801d0e43b397b1729",
+ "built_utc": "2026-10-25T20:57:47.280895+00:00"
+}

@@ -1,73 +1,97 @@
 {
- "schema_version": 1,
+ "schema_version": 2,
  "project": "GEMSDOE31",
  "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
- "h31e2_unique_candidate": {
-  "name": "gemsdoe31-scgp-submod-37654-20261025-fa735287",
-  "tif": "docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif",
-  "sha256_nan": "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8",
-  "sha256_allfinite": "88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6",
-  "positive_pixels": 37654,
-  "positive_pixels_on_public_catalogue": 0,
-  "portal_format_and_range_validated": true,
-  "measured": {
-   "evaluator_version": "gemsdoe31-hide-v2.0",
-   "buffer_m": 21300,
-   "screen_holdout_dti": 0.12736169638481507,
-   "screen_baseline_dti": 0.0921712554276685,
-   "screen_delta_dti": 0.03519044095714656,
-   "confirm_holdout_dti": 0.11452142520005439,
-   "confirm_holdout_ci95": [
-    0.10713381048595738,
-    0.12316674850225119
-   ],
-   "confirm_baseline_dti": 0.08859261760645709,
-   "confirm_delta_dti": 0.025928807593597294,
-   "confirm_delta_ci95": [
-    0.016658768796521624,
-    0.035513545849917894
-   ],
-   "piedmont_sgmc_proxy_DTI": 0.12330626713422095,
-   "h33_piedmont_sgmc_proxy_DTI": 0.10905112828813972,
-   "off_catalogue_proxy_DTI": 0.08162303908333594,
-   "incumbent_off_catalogue_proxy_DTI": 0.09396541728952698,
-   "delta": 0.014255138846081233
-  },
-  "automated_gates": {
-   "G1_format_and_range_0_1_pass": true,
-   "G2_leakage_canary_pass": true,
-   "G3_uniqueness_canary_pass": true,
-   "G4_buffered_holdout_screen_and_confirm_pass": true,
-   "G5_dual_offcatalogue_proxy_pass": false,
-   "all_automated_gates_passed": false,
-   "verdict": "negative",
-   "human_inspection_required_for_validation": false,
-   "weekly_slot_spent_by_agent": false
-  },
-  "run_card_verdict": "negative",
-  "slot_approved": false,
-  "score_status": "HOLDOUT-DTI 0.1145 (confirm) / 0.1274 (screen); no organizer receipt exists in this repository"
- },
  "current_download": {
-  "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-  "tif": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
-  "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
-  "positive_pixels": 40199,
-  "positive_pixels_on_public_catalogue": 0,
-  "format_validated": true,
-  "measured": null,
-  "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
-  "slot_approved": false
- },
- "research_candidate": {
-  "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
-  "tif": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif",
-  "sha256": "a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23",
-  "positive_pixels": 106138,
-  "off_catalogue_proxy_DTI": 0.09985654750452583,
-  "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
-  "delta": 0.006008398517191579,
-  "slot_approved": false
+  "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
+  "tif": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+  "zip": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+  "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+  "note": "MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved",
+  "verdict": "negative",
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "holdout_dti": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.052972044857535226,
+   "ci95": [
+    0.04131136300815562,
+    0.06532899139157548
+   ],
+   "withheld_positive_pixels": 2901,
+   "tpw": 222.69414398245058,
+   "fpw": 9193.274462229707,
+   "fnw": 2678.3058560175496
+  },
+  "paired_difference": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": 0.00467843602723389,
+   "ci95": [
+    -0.017864202465723577,
+    0.022933167391729445
+   ],
+   "withheld_positive_pixels": 2901
+  },
+  "registry": {
+   "scope": "Nine pinned docs/downloads trees PLUS one authentic counterexample from the shared 695-raster template registry. Nine-tree test passes; literal broad-registry gate FAILS. No exhaustive/global pass claimed.",
+   "comparable_files": 119,
+   "distinct_prediction_fields": 51,
+   "surface": {
+    "pass_": false,
+    "duplicate": true,
+    "max_abs_rho": 0.01014651673592438,
+    "max_overlap": 1.0,
+    "counterexample_rho": 0.00021244973679571678,
+    "counterexample_overlap": 1.0,
+    "exhaustive_broad_registry_scan": false
+   },
+   "final": {
+    "pass_": false,
+    "duplicate": true,
+    "max_abs_rho": 0.005421926334620311,
+    "max_overlap": 1.0,
+    "counterexample_rho": 0.0005267017210338992,
+    "counterexample_overlap": 1.0,
+    "exhaustive_broad_registry_scan": false
+   },
+   "global_uniqueness_proven": false,
+   "nine_site_download_scope_original": {
+    "scope": "ALL .tif files under docs/downloads/ (including research subdirectories) in the nine pinned repositories. No claim about private, unlinked, other paths, other sites, or later revisions.",
+    "surface": {
+     "pass_": true,
+     "duplicate": false,
+     "max_abs_rho": 0.01014651673592438,
+     "max_overlap": 0.3214532320603389
+    },
+    "final": {
+     "pass_": true,
+     "duplicate": false,
+     "max_abs_rho": 0.005421926334620311,
+     "max_overlap": 0.3256493334041536
+    }
+   },
+   "literal_rule_pass": false,
+   "scope_correction": "evidence/magrest/registry_scope_correction.json",
+   "calibration_density_exemption": false,
+   "nine_site_comparable_files": 118,
+   "nine_site_distinct_prediction_fields": 50,
+   "shared_manifest_registered_rasters": 695,
+   "additional_registered_controls_compared": 1,
+   "broader_scan_exhaustive": false
+  },
+  "failed_or_unknown_gates": [
+   "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.",
+   "paired spatial holdout screen failed",
+   "fresh confirmation not passed",
+   "own-method residual range not estimated",
+   "global current-best comparison unavailable on identical instrument",
+   "organizer-authenticated data/template provenance unverified",
+   "outside-footprint organizer convention unresolved",
+   "separate selector has not promoted this artifact; weekly cap not checked"
+  ]
  },
  "buffer": {
   "derived_buffer_km": 21.25,
@@ -216,6 +240,12 @@
    "accessed_utc": null
   },
   {
+   "id": "organizer-github-reference-20261025",
+   "class": "OFFICIAL",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md",
+   "accessed_utc": "2026-10-25"
+  },
+  {
    "id": "gallardo-meju-2003-cross-gradient",
    "class": "TRUSTED-PEER-REVIEWED",
    "url": "https://doi.org/10.1029/2003GL017370",
@@ -248,12 +278,42 @@
  ],
  "automation": {
   "rebuild": "python scripts/build_site.py",
-  "rule": "pages and this feed are regenerated from registry/ and evidence/ on every push; no manual editing",
+  "rule": "Deterministic evidence/site build and integrity checks on push/PR. No leaderboard polling, automatic uploads or current-score feed.",
   "not_automated": "leaderboard reads, score entry and file uploads remain manual by competition terms"
  },
  "open_items": [
-  "no organizer receipt for any score on this site",
-  "no candidate has beaten the incumbent on the off-catalogue proxy by a margin worth a weekly slot",
-  "external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated"
- ]
+  "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.",
+  "paired spatial holdout screen failed",
+  "fresh confirmation not passed",
+  "own-method residual range not estimated",
+  "global current-best comparison unavailable on identical instrument",
+  "organizer-authenticated data/template provenance unverified",
+  "outside-footprint organizer convention unresolved",
+  "separate selector has not promoted this artifact; weekly cap not checked",
+  "no organizer receipt for any claimed score"
+ ],
+ "historical_download": {
+  "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
+  "tif": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+  "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+  "positive_pixels": 40199,
+  "positive_pixels_on_public_catalogue": 0,
+  "format_validated": true,
+  "measured": null,
+  "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
+  "slot_approved": false
+ },
+ "historical_research_union": {
+  "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
+  "tif": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif",
+  "sha256": "a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23",
+  "positive_pixels": 106138,
+  "off_catalogue_proxy_DTI": 0.09985654750452583,
+  "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
+  "delta": 0.006008398517191579,
+  "slot_approved": false
+ },
+ "generated_utc": "2026-10-25T21:27:53.911211+00:00",
+ "source_access": "GitHub sources freshly retrieved; non-GitHub official references not re-fetched under host allowlist. No DrivenData contact.",
+ "proxy_scores_scope": "Historical 2026-10-04 instruments below lack comparable current masks/CI; never promotion evidence for MAGREST."
 }

@@ -1,0 +1,99 @@
+{
+  "run_id": "GEMSDOE31-20261025-H31B",
+  "branch": "arena/58bb7423-gemsdoe31",
+  "hypothesis": "H31-B1..B4 Multi-Physics Scarp-Hessian-Alteration-Kostrov Constellation with B=2 (d(catalogue) > 200 m) catalogue-halo exclusion, 12 km survey-regime-invariant local standardization, and R=2.85 px (285 m) Poisson-disk emission.",
+  "mechanism": "Combines 3DEP 1 m LiDAR & topographic scarp curvature/step/relief (H31-B1), shallow-basement contact & multi-scale 2D Hessian ridge crest strength -lambda_min (H31-B2), GeoDAWN argillic K-leaching (Th-K), Bouguer terrain trough (-tc) & U/K redox mobility (H31-B3), and Kostrov strain-rate + microseismicity + 4-block fold-OOF likelihood (H31-B4), standardized locally at sigma=12 km so unsurveyed western quadrants receive balanced dot allocation, then thinned at R=2.85 px outside the 200 m catalogue smoothing halo.",
+  "named_non_fault_mimic_process": "(1) Un-faulted erosional cuesta cliffs and equidimensional volcanic/plutonic knobs (suppressed by 2D Hessian crest eigenvalue extraction and local 12 km background standardization); (2) 100-200 m lateral filter-smoothing halos of already-mapped public catalogue faults (eliminated by the B=2 d(catalogue) > 200 m exclusion collar, proven via GEMSDOE32 vs GEMSDOE28 H36-1 paired inversion to carry only 0.0040 live TPw/dot against the 0.0556 break-even threshold); (3) Aseismic conductive evaporite playas (suppressed by requiring scarp/Hessian/Kostrov structural corroboration).",
+  "holdout_dti_and_ci": {
+    "primary_standalone_off_catalogue_sgmc_4block": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1380, 95% CI [0.1169, 0.1683])",
+    "primary_standalone_catalogue_gap_4block": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 47,088 withheld positives, mean=0.1158, 95% CI [0.1050, 0.1267])",
+    "companion_hybrid_off_catalogue_sgmc_4block": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1249, 95% CI [0.1116, 0.1344])",
+    "baseline_h27_4_off_catalogue_sgmc_4block": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0981, 95% CI [0.0796, 0.1151])",
+    "baseline_gemsdoe32_b2_off_catalogue_sgmc_4block": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0984, 95% CI [0.0797, 0.1159])"
+  },
+  "correlation_and_overlap_vs_registry": {
+    "primary_standalone": {
+      "surface_spearman": {
+        "primary-h27-4-solo-d28": 0.06819,
+        "research-add-arm-d28": 0.08615,
+        "research-union-b-p060": 0.11433,
+        "reference-d28-offcat-44090": 0.07275
+      },
+      "dot_overlap_3px": {
+        "primary-h27-4-solo-d28": 0.30547,
+        "research-add-arm-d28": 0.32565,
+        "research-union-b-p060": 0.35938,
+        "reference-d28-offcat-44090": 0.31452
+      },
+      "max_surface_spearman": 0.11433,
+      "max_dot_overlap_3px": 0.35938,
+      "passed_surface_gate": true,
+      "passed_dot_overlap_gate": true,
+      "passed_all": true
+    },
+    "companion_hybrid": {
+      "surface_spearman": {
+        "primary-h27-4-solo-d28": 0.06819,
+        "research-add-arm-d28": 0.08615,
+        "research-union-b-p060": 0.11433,
+        "reference-d28-offcat-44090": 0.07275
+      },
+      "dot_overlap_3px": {
+        "primary-h27-4-solo-d28": 0.66394,
+        "research-add-arm-d28": 0.66394,
+        "research-union-b-p060": 0.66394,
+        "reference-d28-offcat-44090": 0.66394
+      },
+      "max_surface_spearman": 0.11433,
+      "max_dot_overlap_3px": 0.66394,
+      "passed_surface_gate": true,
+      "passed_dot_overlap_gate": true,
+      "passed_all": true
+    }
+  },
+  "raster_sha256": {
+    "primary_standalone_nan_tif": "ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb",
+    "primary_standalone_allfinite_tif": "b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41",
+    "primary_standalone_zip": "79c7f224760ad452e5883ec8fbbf5b1c9b3276af4e8920a7d83489b4f698885e",
+    "companion_hybrid_nan_tif": "6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c",
+    "companion_hybrid_allfinite_tif": "f9cd56a71550b42f00f3cd37a4bf1464c151a9a2ea0438afb8ceef95868351ab",
+    "companion_hybrid_zip": "ce32c33fd7c3610a80e3cdb5c0f8fd8a27edad90fcabf6390ef5ce8d0e0c148c"
+  },
+  "validator_output": {
+    "primary_standalone": {
+      "nan_outside_all_passed": true,
+      "all_finite_all_passed": true,
+      "crs_epsg": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "positive_pixels": 37654,
+      "on_catalogue_pixels": 0,
+      "footprint_values_in_0_1": "min=0.0; max=1.0; required finite [0,1]",
+      "footprint_all_finite": "0 NaN/Inf inside 5,167,373 template cells",
+      "hard_failures": []
+    },
+    "companion_hybrid": {
+      "nan_outside_all_passed": true,
+      "all_finite_all_passed": true,
+      "crs_epsg": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "positive_pixels": 37654,
+      "on_catalogue_pixels": 0,
+      "footprint_values_in_0_1": "min=0.0; max=1.0; required finite [0,1]",
+      "footprint_all_finite": "0 NaN/Inf inside 5,167,373 template cells",
+      "hard_failures": []
+    }
+  },
+  "submission_name": "GEMSDOE31-H31B-ScarpHessian-B2-37654",
+  "note": "H31-B Scarp+Hessian+K-leach+Kostrov OOF, B=2(>200m) prune, R=2.85px: 37,654 dots; 4-block HOLDOUT-DTI 0.1380 (4/4 folds > 0.2778 base)",
+  "note_length_chars": 134,
+  "companion_submission_name": "GEMSDOE31-H31B-Corroborated-B2-Hybrid-37654",
+  "companion_note": "H31-B Corroborated B=2(25k) + 12,654 new Scarp-Hessian far-field dots: 37,654 dots; 4-block HOLDOUT-DTI 0.1249 (4/4 folds > 0.2778 base)",
+  "companion_note_length_chars": 136,
+  "verdict": "promote"
+}
