@@ -23,6 +23,65 @@ def links(card):
     return link
 
 
+def scgp_download_and_gates() -> str:
+    hr_path = ROOT / "evidence/h31e/holdout_results.json"
+    rc_path = ROOT / "evidence/h31e/run_card.json"
+    if not hr_path.is_file() or not rc_path.is_file():
+        return ""
+    hr = json.loads(hr_path.read_text())
+    rc = json.loads(rc_path.read_text())
+    scr = hr["experiment_1_and_2_screen_draw_101"]
+    conf = hr["experiment_3_fresh_confirmation_draws_202_303"]
+    off = hr["off_catalogue_discovery_proxies"]
+    pied = off["piedmont_sgmc_offcat_det_elev_le_50m"]
+    all_sgmc = off["sgmc_offcat_gt_300m"]
+    cov = rc["correlation_overlap_vs_registry"]
+    sub_name = esc(rc["submission_name"])
+    sha_nan = esc(rc["raster_sha256"]["nan_outside_primary"])
+    sha_fin = esc(rc["raster_sha256"]["allfinite_fallback"])
+    note = esc(rc["note"])
+    return f'''<section id="scgp-submod" aria-labelledby="scgp-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 Multi-Physics + 300 m Submodular Candidate · H31-E2</p>
+        <h2 id="scgp-heading">H31-E2 SCGP-Submod: Portal Format &amp; [0, 1] Validated; Weekly-Slot Selector Hold</h2></div>
+        <p>Passes format/[0, 1] range (G1), single-feature leakage (G2), uniqueness across all 22 discrete fault submissions (G3),
+           21.3 km confirmation (+29.3%, G4), and Piedmont SGMC (+13.0% over GEMSDOE32 H33-2-B2, G5a); held from automatic weekly-slot spending by strict G5b mountain SGMC and the literal 5×5 calibration-lattice rule.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-green">FORMAT &amp; [0, 1] VALIDATED · OK TO DOWNLOAD</span>
+        <span class="badge badge-red" style="margin-left:8px">AUTO-SLOT SELECTOR: HOLD (slot_approved = false)</span>
+        <h3 style="margin-top:18px">{sub_name}</h3>
+        <p>43-feature Gallardo–Meju structural cross-gradient concordance + 2D FFT upward-continuation residuals +
+           seam-free Dual-Expert 1 m 3DEP LiDAR scarp polarity + GeoDAWN K/Th/U &amp; GDR-1391 paleo-sinter +
+           strike-tip/relay bridge + Minoux lazy-greedy 300 m submodular DTI allocator (37,654 off-catalogue dots; 31.5% beyond 1.5 km).</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/{sub_name}-nan.tif" download>Download H31-E2 Primary .tif (NaN-outside)</a>
+          <a class="button" href="downloads/{sub_name}-nan.zip" download>Download Single-TIFF .zip</a>
+          <a class="button" href="downloads/{sub_name}-allfinite.tif" download>All-finite [0, 1] fallback .tif</a>
+          <a class="button" href="downloads/{sub_name}-format-check.json" download>Format receipt .json</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {{0.0, 1.0}} in [0.0, 1.0] · 0 dots on public catalogue.<br>
+          <strong>SHA-256 (NaN primary):</strong> <code>{sha_nan}</code><br>
+          <strong>SHA-256 (All-finite):</strong> <code>{sha_fin}</code><br>
+          <strong>Unique Name:</strong> <code>{sub_name}</code><br>
+          <strong>Note ({rc['submission_note_chars']}/140):</strong> <code>{note}</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated Gate</th><th>Threshold</th><th>Measured H31-E2 Value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {{0.0, 1.0}}; 0 NaN inside; 0 on catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 86 features</td><td>max AUC = {rc['leakage_canary']['max_single_feature_auc']:.4f} across {rc['leakage_canary']['features_tested']} features</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3a · 22 Genuine Submissions</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = {cov['max_surface_spearman_rho']:.4f}; max 3-px overlap = {100*cov['max_final_dots_within_3px']:.2f}% (concurrent lanes ≤ {100*cov['max_final_dots_within_3px_concurrent_discrete_lanes']:.2f}%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>100.00% (5×5 lattice covers 100% of Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G4a · Screen (draw=101, 21.3 km)</code></td><td>Paired ΔDTI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI {scr['h31e_scgp_submod']['pooled_dti']:.4f} vs {scr['baseline_d_poisson']['pooled_dti']:.4f} (+{scr['paired_delta_dti']:.4f}, {scr['folds_won_out_of_4']}/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4b · Fresh Confirm (draws 202,303)</code></td><td>Untouched draws, n = {conf['withheld_positives_pooled']:,}, 95% CI &gt; 0</td><td>HOLDOUT-DTI {conf['h31e_scgp_submod_pooled_dti']:.4f} [{conf['h31e_scgp_submod_ci95'][0]:.4f}, {conf['h31e_scgp_submod_ci95'][1]:.4f}] vs {conf['baseline_d_poisson_pooled_dti']:.4f} (+{conf['paired_delta_dti']:.4f}, +29.3%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Quaternary piedmont habitat (det_elev ≤ +50 m)</td><td>{pied['h31e_scgp_submod_dti']:.4f} vs Baseline-D {pied['baseline_d_poisson_dti']:.4f} and GEMSDOE32 H33-2-B2 {pied['h33_2_b2_reference_dti']:.4f} (+13.0%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5b · All-Elevation Mountain SGMC</code></td><td>Strict pre-declared &gt; H33-2-B2 (0.0940) across mountain SGMC</td><td>{all_sgmc['h31e_scgp_submod_dti']:.4f} vs Baseline-D {all_sgmc['baseline_d_poisson_dti']:.4f} (+13.6%), &lt; H33 {all_sgmc['h33_2_b2_reference_dti']:.4f}</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Full artifact &amp; 3-experiment log (including stopped Exp 1 proximity-halo audit and Exp 2 submodular +0.0372 ablation):
+        <a href="experiments/12-h31e-scgp-submod.html">Experiment 12 · H31-E2 SCGP-Submod</a>.</p>
+    </section>'''
+
+
 def download(card):
     link = links(card)
     return f'''<section id="download" aria-labelledby="download-heading">
@@ -70,6 +129,7 @@ def overview(card):
     final = card["registry"]["final"]
     body = f'''<div class="notice notice-danger"><strong>Not approved for upload.</strong>
       Automated verdict: NEGATIVE. Download for research, not for a weekly competition slot.</div>
+      {scgp_download_and_gates()}
       {download(card)}
       <section><div class="section-head"><div><p class="kicker">Four separate gates</p><h2>What passed, and what did not</h2></div>
         <p>These statuses are rebuilt from the exact file, receipts, holdout terms and registry checks.</p></div>
@@ -108,7 +168,8 @@ def overview(card):
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
-      The new MAGREST artifact is available for research. Automated validation does not approve it for a slot.</div>
+      The new H31-E2 SCGP-Submod and MAGREST artifacts are format-validated and available to download; automated weekly-slot approval remains false without explicit human selector sign-off.</div>
+      {scgp_download_and_gates()}
       {download(card)}
       <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>
         <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
@@ -223,6 +284,6 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
           <a href="https://doi.org/10.5066/P93LGLVQ">USGS GeoDAWN DOI</a> ·
           <a href="https://gdr.openei.org/submissions/1391">GDR 1391</a>.
           Only the GitHub reference code was freshly retrieved here; the others are historical source references, not live verification.</p>
-        <p><a href="downloads/magrest-run-card.json">Complete JSON run card</a> ·
+          <p><a href="downloads/magrest-run-card.json">Complete JSON run card</a> ·
           <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/tree/main/evidence/magrest">All measurements</a>.</p>
-      </section>{parallel_archives()}'''
+      </section>{scgp_download_and_gates()}{parallel_archives()}'''

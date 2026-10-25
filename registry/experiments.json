@@ -24,7 +24,7 @@
   {
    "path": "evidence/browser_magrest_smoke_20261025.json",
    "bytes": 3378,
-   "sha256": "bc597f36149fce4aef25093891ca2fcb7b40f2cce45a88cd9c46129e4e0aa641"
+   "sha256": "df1292da0d0b90c49184654ac5183c6ef52a5154c3356b20b209949578ca8379"
   },
   {
    "path": "evidence/browser_smoke_20261025.json",
@@ -52,6 +52,11 @@
    "sha256": "681a0b87be54553311002850f32c2578ff26f56ac0d1d629aee47c3284893d14"
   },
   {
+   "path": "evidence/data_preparation_review_2026-10-25.json",
+   "bytes": 6643,
+   "sha256": "71a0980ff0695b3763ac89f4e9a27b26bde0458e443709c5a6e70f19802132c2"
+  },
+  {
    "path": "evidence/data_restore.json",
    "bytes": 5829,
    "sha256": "9d555e189013d6494a2145e81168a3af77e86bfd48b5ff8c921981644d829d12"
@@ -65,6 +70,11 @@
    "path": "evidence/data_restore_integration_20261025.json",
    "bytes": 5546,
    "sha256": "7a0a6a9ff635be4d4eb3337298a4839aea5271b1b7eabe01a75c3bd7c34b4325"
+  },
+  {
+   "path": "evidence/data_restore_review_2026-10-25.json",
+   "bytes": 5196,
+   "sha256": "74c283292704688ab5680be10301d07ac4e974ded35909e0ef7c6e03ccde4ad5"
   },
   {
    "path": "evidence/delivery_verification_20261025.json",
@@ -115,6 +125,41 @@
    "path": "evidence/h31b_experiments.json",
    "bytes": 32127,
    "sha256": "6863e771499a7a95b5104c142018e314f3a541801e17e807effe242998413731"
+  },
+  {
+   "path": "evidence/h31e/duplicate_canary.json",
+   "bytes": 10801,
+   "sha256": "69becc95e45e4374561541c2ffc2903373d6137fdbd9240ba194f27ab54d2053"
+  },
+  {
+   "path": "evidence/h31e/exp1_exp2_halo_audit.json",
+   "bytes": 14766,
+   "sha256": "5ea3da5d5659836d267fad2db982c2a9160003e5843c783b025b62ca9752b50e"
+  },
+  {
+   "path": "evidence/h31e/exp1_run_card_negative.json",
+   "bytes": 3491,
+   "sha256": "61def92d871ce37872157b55fd2450372087dda15750658d1b66a492d853fd09"
+  },
+  {
+   "path": "evidence/h31e/forensic_comparison.json",
+   "bytes": 10195,
+   "sha256": "f7c54ac7ffff256fbd4c5153a1eab375b035097b88554168101b0fce74d82d68"
+  },
+  {
+   "path": "evidence/h31e/holdout_results.json",
+   "bytes": 14865,
+   "sha256": "e58b818fe7aa4d5952d930fa383cd3096df81f48b80f8d333b1af2ab457668da"
+  },
+  {
+   "path": "evidence/h31e/leakage_canary.json",
+   "bytes": 16172,
+   "sha256": "fde7bb24418b32bc570b2c146295964535fd4dd0540fade455c0513c681f8f3c"
+  },
+  {
+   "path": "evidence/h31e/run_card.json",
+   "bytes": 4021,
+   "sha256": "3e97dfc62757747d0fb21e2dbf0b16aa43a137bbf29e5ef35927e1b00a151c96"
   },
   {
    "path": "evidence/h31e_results.json",

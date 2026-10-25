@@ -92,6 +92,11 @@ def main() -> None:
     executive = (DOCS / "executive-summary.html").read_text()
     if "do not submit a download from this page yet" not in executive.lower():
         fail("executive-summary.html: the no-upload-approval warning is missing")
+    for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
+        if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in html_text:
+            fail(f"{page_name}: H31-E2 SCGP-Submod candidate name missing")
+        if "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8" not in html_text:
+            fail(f"{page_name}: H31-E2 SCGP-Submod primary SHA-256 missing")
     for name in ("executive-summary.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")

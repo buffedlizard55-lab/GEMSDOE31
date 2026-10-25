@@ -1,0 +1,611 @@
+{
+  "threshold_auc_stop_gt": 0.9,
+  "features_tested": 86,
+  "max_two_sided_auc": 0.762414,
+  "leaked_features": [],
+  "passed": true,
+  "rows": [
+    {
+      "feature": "vis_relay_bridge",
+      "group": "H31E_fold_visible",
+      "single_feature_auc_two_sided": 0.762414,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "vis_d1_clamped_km",
+      "group": "H31E_fold_visible",
+      "single_feature_auc_two_sided": 0.751789,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "vis_belt_annulus_5km",
+      "group": "H31E_fold_visible",
+      "single_feature_auc_two_sided": 0.66469,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "scgp_lahontan_mimic_score",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.611808,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::lappos_max",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.585959,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "lidar_laplacian_dipole",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.584607,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "vis_tip_continuation",
+      "group": "H31E_fold_visible",
+      "single_feature_auc_two_sided": 0.581965,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::lapneg_max",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.580146,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "base::step_max",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.578227,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "lidar_relief",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.5764,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "base::relief",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.5764,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "lidar_ex_max",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.575993,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "base::ex_max",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.575993,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "base::ieq_n100a15",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.572088,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "base::geod_2ndinv",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.571431,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "scgp_topo_grav_300m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.568181,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "strain_shear",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.565902,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::geod_shearrate",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.565696,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "elev_local_relief_500m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.562595,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::upface_max",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.561248,
+      "finite_eval_fraction": 0.6374,
+      "leaked": false
+    },
+    {
+      "feature": "base::ex_mean",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.560537,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "lidar_step_coh",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.558658,
+      "finite_eval_fraction": 0.7613,
+      "leaked": false
+    },
+    {
+      "feature": "base::K",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.554413,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "lidar_signed_polarity_abs",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.554363,
+      "finite_eval_fraction": 0.6374,
+      "leaked": false
+    },
+    {
+      "feature": "raw_det_slope",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.554267,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::det_elev_slope",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.554228,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "piedmont_apron_index",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.553844,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::downface_max",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.553346,
+      "finite_eval_fraction": 0.6374,
+      "leaked": false
+    },
+    {
+      "feature": "k_local_anom_1km",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.553089,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "log_deq_density",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.549188,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::deq_n100a15",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.548831,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "elev_hessian_ridge_200m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.548799,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::tc",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.548075,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "rtp_mid_res_800m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.548014,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::TC",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.548006,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "raw_tc_depth",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.547975,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::Th",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.547285,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "elev_hessian_ridge_500m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.545335,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "lidar_cross_max",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.542673,
+      "finite_eval_fraction": 0.6374,
+      "leaked": false
+    },
+    {
+      "feature": "base::cross_max",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.542673,
+      "finite_eval_fraction": 0.6374,
+      "leaked": false
+    },
+    {
+      "feature": "rtp_shallow_res_200m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.542637,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "k_over_tc_anom",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.542442,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "lidar_polarity_coh",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.541113,
+      "finite_eval_fraction": 0.6374,
+      "leaked": false
+    },
+    {
+      "feature": "strain_extensional_ratio",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.540662,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::tmi_hg",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.540481,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "raw_tmi_hg",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.540337,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "uth_anom",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.540294,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "base::UTh",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.540294,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "dist_paleo_sinter_km",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.539568,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "dist_quat_vent_km",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.535105,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::iso_grav_anom_vg",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.534978,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "base::UK",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.534916,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "base::iso_grav_anom",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.532735,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "lidar_coh100",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.527295,
+      "finite_eval_fraction": 0.7613,
+      "leaked": false
+    },
+    {
+      "feature": "base::coh100",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.527295,
+      "finite_eval_fraction": 0.7613,
+      "leaked": false
+    },
+    {
+      "feature": "strain_dilatation",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.52712,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::geod_dilaterate",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.52685,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "raw_det_elev",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.524469,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::det_elev",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.52427,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "scgp_grav_base_150m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.521209,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "scgp_grav_base_400m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.52115,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::ThK",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.519813,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "dist_2m_probe_km",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.519331,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::U",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.517595,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "thk_edge_grad",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.517492,
+      "finite_eval_fraction": 0.9996,
+      "leaked": false
+    },
+    {
+      "feature": "scgp_rtp_grav_200m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.517266,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "rtp_laplacian_trough",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.516985,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::strike",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.515699,
+      "finite_eval_fraction": 0.7631,
+      "leaked": false
+    },
+    {
+      "feature": "grav_tilt_ridge",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.515329,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::iso_grav_anom_hg",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.515226,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "base::iso_grav_anom_slope",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.514414,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "raw_iso_grav_slope",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.514244,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::TMI_up150",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.511467,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "base::mag_anom",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.508963,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "base::tmi_vg",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.508652,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "base::tmi",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.508477,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "base::depth_to_base_surf",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.507776,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "log_depth_to_base",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.507616,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "grad_log_depth_base",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.506995,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "rtp_tilt_angle",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.505091,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "scgp_cond_base_300m",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.504044,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "raw_cond_surf",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.503328,
+      "finite_eval_fraction": 1.0,
+      "leaked": false
+    },
+    {
+      "feature": "base::cond_surf",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.503143,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "tmi_up150_norm_diff",
+      "group": "H31E_static",
+      "single_feature_auc_two_sided": 0.50118,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "base::rtp",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.500942,
+      "finite_eval_fraction": 0.9993,
+      "leaked": false
+    },
+    {
+      "feature": "base::valid",
+      "group": "Baseline_D",
+      "single_feature_auc_two_sided": 0.500218,
+      "finite_eval_fraction": 0.7634,
+      "leaked": false
+    }
+  ]
+}

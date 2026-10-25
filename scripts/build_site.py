@@ -1192,18 +1192,11 @@ EXPERIMENTS = [
          detail="These maps are the input to the union and filter experiments. They are large binary arrays and are published as a release asset "
                 "rather than committed to the repository; their hashes are recorded here. Regenerating them requires the feature matrix and the "
                 "blocked-fold training run.", manifest=True),
-    dict(slug="08-h31a-pilot", number=8, title="H31-A pilot: multiscale magnetic local-wavelength discontinuity",
+    dict(slug="08-h31a-pilot", number=8, title="H31-A pilot + variogram diagnostics (withdrawn 94.3 km rule)",
          source="evidence/h31_a/pilot/results.json", status="stopped",
-         question="Does a cross-scale magnetic local-wavelength feature find faults the catalogue misses?",
-         verdict="Stopped at the pilot gate: mean paired ΔDTI −0.0040 and only 1/4 blocks positive. Not promoted, not screened, no submission built from it.",
-         detail="The protocol, draw numbers and gate thresholds were frozen before fitting and are published in the repository. A candidate that "
-                "fails a pre-declared gate is stopped rather than rescued with a different measurement."),
-    dict(slug="09-pilot-variogram", number=9, title="Pilot-stage variogram diagnostics and the withdrawn 94.3 km rule",
-         source="evidence/h31_a/pilot/variogram.json", status="diagnostic",
-         question="Could the pilot's own residuals identify a stable buffer range?",
-         verdict="No: both fits were unstable because the observed lag support did not reach 95 % of the fitted sill. The rule that inferred a 94.3 km collar from an exponential bootstrap was withdrawn.",
-         detail="Post-hoc diagnostics recomputed the empirical curve for both arms; the instability is recorded as the reason the later, "
-                "full-grid derivation was run instead. The withdrawn number is kept on the register so it cannot reappear as a buffer."),
+         question="Does a cross-scale magnetic local-wavelength feature find faults the catalogue misses, and could pilot residuals identify a stable buffer?",
+         verdict="Stopped at the pilot gate (mean paired ΔDTI −0.0040, 1/4 blocks positive); pilot variogram fits were unstable and the 94.3 km rule was withdrawn (evidence/h31_a/pilot/variogram.json).",
+         detail="The protocol, draw numbers and gate thresholds were frozen before fitting. Post-hoc variogram diagnostics (evidence/h31_a/pilot/posthoc_variogram_diagnostics.json) showed lag support did not reach 95 % of the sill, motivating the full-grid 21.25 km derivation in Experiment 06."),
     dict(slug="10-submission-format", number=10, title="Submission format validation and the [0,1] error class",
          source="docs/downloads", status="measured",
          question="Why did the portal reject a previously downloaded TIFF with “Predicted values must be in range [0, 1]”?",
@@ -1217,6 +1210,11 @@ EXPERIMENTS = [
          verdict="Open and unresolved: the owner reports 0.2600 for D2.8 and 0.2708 for the h27-4 geometry, but the pinned owner mirror marks D2.8 unscored and no organizer receipt exists for any score.",
          detail="Every competition-score claim without a receipt is therefore USER-REPORTED (local HOLDOUT-DTI is separate), and the discrepancy is tracked until the "
                 "owner can attach an organizer receipt or a file-to-score identifier. This is why the site never presents a score as official."),
+    dict(slug="12-h31e-scgp-submod", number=12, title="H31-E2 SCGP-Submod: Multi-physics cross-gradient + LiDAR scarp + 300 m submodular DTI",
+         source="evidence/h31e/holdout_results.json", status="measured",
+         question="Does translation-invariant multi-physics cross-gradient concordance + 1 m LiDAR scarp polarity + submodular 300 m allocation beat Baseline-D on the 21.3 km whole-segment holdout?",
+         verdict="Measured: +0.0352 screen (4/4 folds) and +0.0259 (+29.3%, 95 % CI [+0.0167, +0.0355]) fresh confirmation HOLDOUT-DTI; +13.0 % on Piedmont SGMC over GEMSDOE32 H33-2-B2 (0.1233 vs 0.1091); held from auto-slot by strict G5b mountain SGMC (0.0816 vs 0.0940) and the literal 5x5 calibration-lattice rule.",
+         detail="Evaluated under gemsdoe31-hide-v2.0 (21.3 km buffer, whole fault components withheld). Exp 1 (H31-E v1, 0.1788 screen / 0.1717 confirm) exposed lateral halo collapse from raw vis_d1_clamped_km (evidence/h31e/exp1_exp2_halo_audit.json). Exp 2 isolated +0.0372 from the 29-offset 300 m submodular allocator. Exp 3 (H31-E2, fa735287) places 11,864 dots (31.5 %) beyond 1.5 km and passes all format, [0,1] range, leakage (max AUC 0.7624), and 22-submission uniqueness checks (max 3-px overlap 51.53 %)."),
 ]
 
 

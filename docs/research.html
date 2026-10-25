@@ -103,9 +103,48 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
           <a href="https://doi.org/10.5066/P93LGLVQ">USGS GeoDAWN DOI</a> ·
           <a href="https://gdr.openei.org/submissions/1391">GDR 1391</a>.
           Only the GitHub reference code was freshly retrieved here; the others are historical source references, not live verification.</p>
-        <p><a href="downloads/magrest-run-card.json">Complete JSON run card</a> ·
+          <p><a href="downloads/magrest-run-card.json">Complete JSON run card</a> ·
           <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/tree/main/evidence/magrest">All measurements</a>.</p>
-      </section><section><div class="section-head"><div><p class="kicker">Concurrent work preserved</p><h2>Other sessions are not a new experiment here</h2></div>
+      </section><section id="scgp-submod" aria-labelledby="scgp-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 Multi-Physics + 300 m Submodular Candidate · H31-E2</p>
+        <h2 id="scgp-heading">H31-E2 SCGP-Submod: Portal Format &amp; [0, 1] Validated; Weekly-Slot Selector Hold</h2></div>
+        <p>Passes format/[0, 1] range (G1), single-feature leakage (G2), uniqueness across all 22 discrete fault submissions (G3),
+           21.3 km confirmation (+29.3%, G4), and Piedmont SGMC (+13.0% over GEMSDOE32 H33-2-B2, G5a); held from automatic weekly-slot spending by strict G5b mountain SGMC and the literal 5×5 calibration-lattice rule.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-green">FORMAT &amp; [0, 1] VALIDATED · OK TO DOWNLOAD</span>
+        <span class="badge badge-red" style="margin-left:8px">AUTO-SLOT SELECTOR: HOLD (slot_approved = false)</span>
+        <h3 style="margin-top:18px">gemsdoe31-scgp-submod-37654-20261025-fa735287</h3>
+        <p>43-feature Gallardo–Meju structural cross-gradient concordance + 2D FFT upward-continuation residuals +
+           seam-free Dual-Expert 1 m 3DEP LiDAR scarp polarity + GeoDAWN K/Th/U &amp; GDR-1391 paleo-sinter +
+           strike-tip/relay bridge + Minoux lazy-greedy 300 m submodular DTI allocator (37,654 off-catalogue dots; 31.5% beyond 1.5 km).</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif" download>Download H31-E2 Primary .tif (NaN-outside)</a>
+          <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.zip" download>Download Single-TIFF .zip</a>
+          <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif" download>All-finite [0, 1] fallback .tif</a>
+          <a class="button" href="downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-format-check.json" download>Format receipt .json</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {0.0, 1.0} in [0.0, 1.0] · 0 dots on public catalogue.<br>
+          <strong>SHA-256 (NaN primary):</strong> <code>d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8</code><br>
+          <strong>SHA-256 (All-finite):</strong> <code>88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6</code><br>
+          <strong>Unique Name:</strong> <code>gemsdoe31-scgp-submod-37654-20261025-fa735287</code><br>
+          <strong>Note (79/140):</strong> <code>GEMSDOE31 H31-E SCGP-Submod 37654d | HOLDOUT-DTI 0.1145 vs 0.0886 | id fa735287</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated Gate</th><th>Threshold</th><th>Measured H31-E2 Value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {0.0, 1.0}; 0 NaN inside; 0 on catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 86 features</td><td>max AUC = 0.7624 across 86 features</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3a · 22 Genuine Submissions</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = 0.1073; max 3-px overlap = 51.53% (concurrent lanes ≤ 45.24%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>100.00% (5×5 lattice covers 100% of Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G4a · Screen (draw=101, 21.3 km)</code></td><td>Paired ΔDTI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI 0.1274 vs 0.0922 (+0.0352, 4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4b · Fresh Confirm (draws 202,303)</code></td><td>Untouched draws, n = 35,599, 95% CI &gt; 0</td><td>HOLDOUT-DTI 0.1145 [0.1071, 0.1232] vs 0.0886 (+0.0259, +29.3%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Quaternary piedmont habitat (det_elev ≤ +50 m)</td><td>0.1233 vs Baseline-D 0.1147 and GEMSDOE32 H33-2-B2 0.1091 (+13.0%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5b · All-Elevation Mountain SGMC</code></td><td>Strict pre-declared &gt; H33-2-B2 (0.0940) across mountain SGMC</td><td>0.0816 vs Baseline-D 0.0718 (+13.6%), &lt; H33 0.0940</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Full artifact &amp; 3-experiment log (including stopped Exp 1 proximity-halo audit and Exp 2 submodular +0.0372 ablation):
+        <a href="experiments/12-h31e-scgp-submod.html">Experiment 12 · H31-E2 SCGP-Submod</a>.</p>
+    </section><section><div class="section-head"><div><p class="kicker">Concurrent work preserved</p><h2>Other sessions are not a new experiment here</h2></div>
       <p>AS-1, TGJ31, H31-B and H31-E artifacts retain their source bytes and original receipts. Their different instruments are not ranked against MAGREST.</p></div>
       <div class="notice"><strong>No approval is imported from an archived card.</strong>The H31-B card's original promote flag is not reproduced or endorsed by this run, and is not selector authority. AS-1/TGJ31 negative records are retained. Main merge #12 removed earlier merged files; this integration restored their source/evidence/TIFF history without another fit or candidate.</div>
       <div class="table-wrap"><table><thead><tr><th>Archived TIFF</th><th>SHA-256 · computed from bytes</th><th>Current authority</th></tr></thead><tbody><tr><td><a href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif">gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif</a></td><td><code>28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4</code></td><td>Archived research · NOT approved</td></tr><tr><td><a href="downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif">gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif</a></td><td><code>e84c5a252381294aa0f22aebd765f7b9fa0136c270617bac22d40f48cc7f5f0c</code></td><td>Archived research · NOT approved</td></tr><tr><td><a href="downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif">gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif</a></td><td><code>41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb</code></td><td>Archived research · NOT approved</td></tr><tr><td><a href="downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif">gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif</a></td><td><code>f9cd56a71550b42f00f3cd37a4bf1464c151a9a2ea0438afb8ceef95868351ab</code></td><td>Archived research · NOT approved</td></tr><tr><td><a href="downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif">gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif</a></td><td><code>6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c</code></td><td>Archived research · NOT approved</td></tr><tr><td><a href="downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif">gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif</a></td><td><code>b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41</code></td><td>Archived research · NOT approved</td></tr><tr><td><a href="downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif">gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif</a></td><td><code>ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb</code></td><td>Archived research · NOT approved</td></tr><tr><td><a href="downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif">gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif</a></td><td><code>825b67192d451f2d1847a47632b417c43865613df943cfa5e889ff379e809fa6</code></td><td>Archived research · NOT approved</td></tr><tr><td><a href="downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif">gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif</a></td><td><code>76d58f4a28ef6112a79c8d930ad2c3c87b1f6ba0c062a4780c1207a48b749722</code></td><td>Archived research · NOT approved</td></tr></tbody></table></div>

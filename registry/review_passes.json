@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-25T22:06:21+00:00",
+ "generated_utc": "2026-10-25",
  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
  "passes": [
   {
@@ -422,6 +422,125 @@
     "data": "11/11 manifest hashes and grids match; 42 feature bands; 2,062,898,880 bytes"
    },
    "decision": "no new TIFF, no experiment, no submission slot. Existing MAGREST TIFF remains research-only and DO NOT SUBMIT."
+  },
+  {
+   "id": "pass-13-2026-10-25-prior-art-and-hypothesis-gate",
+   "status": "complete-with-data-blocker",
+   "scope": [
+    "reread README charter, AGENTS instructions, active H31 preregistration and latest historical status before new work",
+    "inspect public GEMSDOE32 repository archive and H33-2-B2 method/evidence solely for prior-art learning",
+    "rank four unfit hypotheses with layers, physical signature, novelty boundary, access requirement and effort",
+    "apply the required rank-correlation / three-pixel overlap canary to the archived H33-2-B2 raster before any new placement"
+   ],
+   "verification": {
+    "owner_mirror": "GEMSDOE32 main commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc; exact H33-2-B2 TIFF digest and source links recorded in knowledge/session_review_2026-10-25.md",
+    "score_claim": "prompt value 0.2778 retained as USER-REPORTED; inspected owner-mirror submission metadata says UNSCORED; no organizer receipt linked to exact bytes",
+    "duplicate_screen": "against the local H27-4 finite footprint, Spearman rho 0.967587, 100% of H33 positive cells within 3 px, all 37,654 positives exactly shared; duplicate gate exceeded and logged as IR-31-H33-2-B2-DUPLICATE",
+    "hypotheses": "four distinct desk-only candidates documented; none fitted, none declared viable because runtime rasters/cache are absent",
+    "holdout_audit": "Inspected GEMSDOE32 H33-2 code path creates the catalogue-flank mask from full labels before fixed-mask holdout scoring; this does not satisfy fold-visible catalogue processing and is logged as IR-31-H33-B2-HOLDOUT-LABEL-LEAKAGE.",
+    "format_audit": "Inspected H33 -zeros GeoTIFF is finite zero outside the local footprint, has no nodata tag, and conflicts with the official null/NaN outside convention; logged as IR-31-H33-ZERO-OUTSIDE."
+   },
+   "open_gates": [
+    "all 11 hash-pinned manifest inputs are absent from this checkout; no feature-alone leakage canary or spatial holdout possible",
+    "no new candidate TIFF, submission metadata, holdout DTI/CI, or organizer-confirmed score",
+    "the owner-mirror H33 holdout procedure cannot stand in for the requested hide-and-recover evaluator",
+    "the H33 zeros file was not validated against an organizer sample template and does not follow the recorded outside-footprint convention"
+   ]
+  },
+  {
+   "id": "pass-14-2026-10-25-runner-and-upload-safety-fix",
+   "status": "complete",
+   "scope": [
+    "remove the stale H31 runner branch literal while retaining an Arena-session-only default and an optional exact branch override",
+    "make the public home page and executive summary unambiguously label existing downloads as reference/research-only and not approved for upload",
+    "add static assertions so the site fails if the approval warning disappears or the legacy file is relabeled as a submission TIFF"
+   ],
+   "findings_fixed": [
+    "the prior session-ID branch literal would reject the current active Arena branch even before the missing-data guard",
+    "the home page previously led with \u201cDownload the file. Submit it.\u201d while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
+    "the executive summary no longer reserves a submission name or note for a legacy/reference file"
+   ],
+   "verification": {
+    "runner_regression": "test accepts arena/7a0b39fb-gemsdoe31 when no exact override is set, rejects main, and enforces GEMSDOE31_BRANCH when explicitly configured",
+    "site": "20 generated pages; 255 local links; prominent do-not-upload statement and button semantics verified by scripts/check_site.py"
+   }
+  },
+  {
+   "id": "pass-15-2026-10-25-final-charter-and-reproducibility-check",
+   "status": "complete-with-scientific-stop",
+   "scope": [
+    "rerun tests, lint, compile check and exact metric audit after final edits",
+    "rebuild the site and evidence/submission registers from current artifacts and run structural site checks",
+    "cross-check final status against no-slot, no-duplicate, no unvalidated TIFF and user-reported score requirements"
+   ],
+   "verification": {
+    "tests": "33 passed",
+    "ruff": "clean",
+    "compileall": "passed for src, scripts and tests",
+    "metric": "max absolute delta 4.441e-16 against brute-force transcription over 24 grids; exact cases and 29 kernel offsets checked",
+    "evidence_and_site": "collect_evidence completed; build_site generated 20 pages; check_site passed 255 local links",
+    "inputs": "prepare_data --verify-only found all 11 manifest inputs absent and hash verification false; historical committed evidence receipt restored after recording the current absence in the session audit",
+    "decision": "no top-candidate holdout was run, no submission TIFF generated, no slot touched; negative run card recorded in knowledge/session_review_2026-10-25.md",
+    "site": "20 generated pages and 255 local links; do-not-upload warning checked by scripts/check_site.py"
+   },
+   "remaining_risks": [
+    "no feature stack or competition data in workspace prevents model fitting, whole-segment hide-and-recover evaluation, leakage canaries, or confidence intervals",
+    "the 0.2778 user claim has no organizer receipt in inspected archive and cannot be verified without a receipt supplied from a submission-page result",
+    "owner-mirror previous experiments and scores do not establish official competition performance",
+    "the inspected GEMSDOE32 all-finite zeros raster conflicts with the official outside-footprint null/NaN convention; no organizer receipt or sample-template revalidation was available"
+   ]
+  },
+  {
+   "id": "pass-2026-10-25-1-forensic-preregister-implement",
+   "status": "complete",
+   "scope": [
+    "audited GEMSDOE24..36 and GEMSDOE70 sibling rasters byte-for-byte, uncovering the 86.7%-100.0% H19-5 monoculture and proving GEMSDOE32 H33-2-B2 (0.2778 USER-REPORTED) = D2.8 & (d_cat > 200 m)",
+    "restored and SHA-256-verified all 11 competition + external rasters into git-ignored .cache/data/ and preregistered 5 untried hypotheses (H31-E..H31-I) in knowledge/2026-10-25_h31e_preregistration.md",
+    "implemented src/gemsdoe31/scgp_features.py, src/gemsdoe31/submodular_emit.py, scripts/submission_writer.py, scripts/evaluate_holdout.py, and tests/test_h31e_pipeline.py"
+   ],
+   "verification": {
+    "leakage_canary": "86 features tested individually on draw 101; max two-sided ROC-AUC 0.7624 <= 0.90 (PASS)",
+    "uniqueness_canary": "16 local + peer rasters checked before and after placement; max surface rho 0.1073 <= 0.90, max 3-px dot overlap 51.53% <= 70.0% (PASS)",
+    "holdout_dti": "evaluator gemsdoe31-hide-v2.0 (21.3 km buffer): H31-E2 fresh confirmation HOLDOUT-DTI 0.1145 (95% CI 0.1071-0.1232, n=35,599) vs 0.0886 Baseline-D-Poisson (+29.3%)"
+   },
+   "open_scientific_gates": [
+    "strict Gate G5b all-elevation mountain SGMC (0.0816 vs 0.0940 H33-2-B2) held automatic weekly-slot spending (slot_approved=false, Run Card verdict=negative) while G1-G4 and G5a Piedmont SGMC (0.1233 vs 0.1091, +13.0%) passed"
+   ]
+  },
+  {
+   "id": "pass-2026-10-25-2-adversarial-bug-leakage-edge-review",
+   "status": "complete",
+   "scope": [
+    "audited prepared/features.f32 for float32 nodata sentinels and discovered 3,061 in-footprint cells storing -3.4028235e+38 (isfinite=True) plus uint8-scaled TMI_up150",
+    "audited Exp 1 (H31-E v1) distance shells and caught 75.6% lateral flank halo collapse (28,456 dots in 200-500 m, only 60 dots >1.5 km) triggered by raw vis_d1_clamped_km in HGB",
+    "fixed sentinel sanitization, single-precision FFT memory footprint, self-distance leakage, and translation-invariant H31-E2 feature set; pinned all fixes with unit tests"
+   ],
+   "verification": {
+    "pytest": "41 passed without warnings",
+    "ruff": "all checks passed across src/, scripts/, and tests/",
+    "compileall": "passed for src/, scripts/, and tests/",
+    "farfield_allocation": "H31-E2 places 11,864 dots (31.5%) beyond 1.5 km from public catalogue traces and matches Quaternary piedmont physiography (-21.6 m, 8.19 deg)"
+   },
+   "open_scientific_gates": [
+    "no organizer receipt exists in repository; all historical peer scores remain USER-REPORTED"
+   ]
+  },
+  {
+   "id": "pass-2026-10-25-3-full-charter-and-site-crosscheck",
+   "status": "complete",
+   "scope": [
+    "verified README charter preservation, Parallel-Run Protocol rules 1-6, <=3 experiment budget, 140-char note limit, and JSON Run Card completeness",
+    "regenerated all 20 GitHub Pages HTML files and feed.json from registry/*.json + evidence/*.json via scripts/collect_evidence.py and scripts/build_site.py",
+    "verified unmistakable GeoTIFF format/range/uniqueness validation status and weekly-slot selector status on both docs/index.html and docs/executive-summary.html"
+   ],
+   "verification": {
+    "check_site": "20 pages (budget 20) and 257 local links checked; 0 failures",
+    "json_strict_parse": "all JSON files under registry/, evidence/, and docs/ parse cleanly with allow_nan=False invariants",
+    "tiff_sha256": "gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif matches d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8"
+   },
+   "open_scientific_gates": [
+    "human weekly-slot selector sign-off required before uploading gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif to DrivenData"
+   ]
   }
  ],
  "remaining_work": [

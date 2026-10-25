@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "claim_classes": {
   "OFFICIAL": "Direct source retrieval recorded on the row accessed_utc date; not necessarily fresh in the current session. See current_access_audit for this environment.",
   "OWNER-MIRROR": "bytes or claims published in one of this project's own public GitHub repositories; a hash match proves byte identity to that mirror only",
@@ -355,6 +355,66 @@
    ],
    "evidence": "evidence/official_reference_audit_20261025.json",
    "title": "Organizer reference code, commit-pinned and freshly retrieved"
+  },
+  {
+   "id": "gallardo-meju-2003-cross-gradient",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "publisher": "Geophysical Research Letters (AGU)",
+   "title": "Gallardo, L. A., & Meju, M. A. (2003). Characterization of heterogeneous near-surface materials by joint 2D inversion of dc resistivity and seismic data, GRL 30(13), 1658",
+   "url": "https://doi.org/10.1029/2003GL017370",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Defines the structural cross-gradient vector t(x) = grad(m1) x grad(m2) whose vanishing cross product identifies co-aligned structural boundaries regardless of sign reversal across modalities."
+   ],
+   "limits": "Methodological formulation only; supplies no dataset values."
+  },
+  {
+   "id": "miller-singh-1994-tilt-angle",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "publisher": "Journal of Applied Geophysics",
+   "title": "Miller, H. G., & Singh, V. (1994). Potential field tilt \u2014 a new concept for location of potential field sources, J. Appl. Geophys. 32(2-3), 213-217",
+   "url": "https://doi.org/10.1016/0926-9851(94)90022-1",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Defines potential-field tilt angle theta = atan2(dF/dz, |grad_H F|), equalizing shallow and deeper basement edge amplitudes."
+   ],
+   "limits": "Methodological formulation only."
+  },
+  {
+   "id": "nemhauser-minoux-1978-lazy-submodular",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "publisher": "Mathematical Programming / Lecture Notes in Computer Science",
+   "title": "Nemhauser, Wolsey & Fisher (1978) / Minoux (1978): Accelerated lazy-greedy maximization of monotone submodular facility-location coverage",
+   "url": "https://doi.org/10.1007/BF01588971",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Weighted max-kernel coverage TPw(S) = sum_y w(y) max_{x in S} k(d(x,y)) is monotone submodular; Minoux lazy priority-queue evaluation returns the exact greedy sequence with (1 - 1/e) optimality guarantee."
+   ],
+   "limits": "Exact optimization guarantee applies to the estimated weight field w(y), not the unseen hidden truth."
+  },
+  {
+   "id": "gdr-1391-ingeniou-great-basin",
+   "class": "OFFICIAL",
+   "publisher": "DOE Geothermal Data Repository / Nevada Bureau of Mines and Geology",
+   "title": "Great Basin Play Fairway / INGENIOUS Geothermal Datasets (GDR Submission 1391, DOI 10.15121/1841825)",
+   "url": "https://gdr.openei.org/submissions/1391",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Source provenance for 2 m temperature probes, Quaternary volcanic vents, and paleo-geothermal sinter/tufa outflow occurrences rasterized in derived_gdr_*_100m_u8.tif."
+   ],
+   "limits": "Local copies are restored from the hash-pinned repository mirror."
+  },
+  {
+   "id": "dd-gems-reference-solution-repo",
+   "class": "OFFICIAL",
+   "publisher": "DrivenData",
+   "title": "Official GEMS Prize Reference Solution Repository (drivendataorg/gems-prize-reference-solution)",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-25",
+   "claims_verified": [
+    "Inspected commit aebe92f7c8a9 via GitHub API: README documents Prof. John Lipor's U-Net Monte Carlo CV reference workflow; unet-mc-cv-reference-solution.ipynb on main is 0 bytes."
+   ],
+   "limits": "Reference architecture note only; no pre-trained weights or scores included."
   }
  ],
  "current_access_audit": "2026-10-25: only GitHub sources re-fetched; non-GitHub official links remain historically recorded, not fresh verification."

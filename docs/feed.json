@@ -244,6 +244,36 @@
    "class": "OFFICIAL",
    "url": "https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md",
    "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "gallardo-meju-2003-cross-gradient",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1029/2003GL017370",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "miller-singh-1994-tilt-angle",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1016/0926-9851(94)90022-1",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "nemhauser-minoux-1978-lazy-submodular",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1007/BF01588971",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "gdr-1391-ingeniou-great-basin",
+   "class": "OFFICIAL",
+   "url": "https://gdr.openei.org/submissions/1391",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "dd-gems-reference-solution-repo",
+   "class": "OFFICIAL",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "accessed_utc": "2026-10-25"
   }
  ],
  "automation": {

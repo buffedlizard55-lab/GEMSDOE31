@@ -340,6 +340,34 @@
    "owner_mirror_record": "GEMSDOE32 round-5 forensics (owner mirror) state the file contains all 37,654 H33-2-B2 dots plus 1,200 more; not independently re-measured here.",
    "organizer_verification": "not verified",
    "status": "unverified"
+  },
+  {
+   "id": "user-reported-gemsdoe36-anderson-0.2750-20261025",
+   "artifact": "buffedlizard55-lab/GEMSDOE36 gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif (38,854 px)",
+   "reported_dti": 0.275,
+   "claim_source": "user prompt (2026-10-25); no organizer receipt",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt present",
+   "status": "audited: 97.6% 3-px dot overlap with GEMSDOE32 H33-2-B2 (adds 1,200 far-field dots)"
+  },
+  {
+   "id": "user-reported-gemsdoe70-p8-0.2478-20261025",
+   "artifact": "buffedlizard55-lab/GEMSDOE70 gems70-p5-dual-submod300-oof38k-20261020.tif (38,000 px)",
+   "reported_dti": 0.2478,
+   "claim_source": "GEMSDOE70 parallel registry claim; no organizer receipt",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no organizer receipt present",
+   "status": "independent non-H19-5 baseline (24.0% overlap with H33-2-B2); illustrates pre-Quaternary SGMC upslope drift (SGMC_DTI=0.1260 vs live 0.2478)"
+  },
+  {
+   "id": "computed-gemsdoe31-h31e2-holdout-20261025",
+   "artifact": "gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif (37,654 px, sha256 d5ae3715c4ee7271...)",
+   "reported_dti": 0.1145,
+   "reported_dti_text": "HOLDOUT-DTI 0.1145 (95% CI 0.1071-0.1232, evaluator gemsdoe31-hide-v2.0, n=35599)",
+   "claim_source": "scripts/evaluate_holdout.py -> evidence/h31e/holdout_results.json",
+   "evidence_class": "COMPUTED",
+   "organizer_verification": "not submitted; local 21.3 km buffered whole-segment holdout measurement, never a live score projection",
+   "status": "beats same-fold Baseline-D-Poisson (0.0886) by +0.0259 (+29.3%); Piedmont SGMC proxy 0.1233 vs H33-2-B2 0.1091 (+13.0%)"
   }
  ],
  "safe_next_step": "Do not resolve discrepancies by accessing or monitoring DrivenData leaderboard material absent prior written permission. Preserve user-supplied claims as USER-REPORTED and owner-site claims as OWNER-MIRROR until an authorized organizer-generated receipt and exact artifact identity are available.",
