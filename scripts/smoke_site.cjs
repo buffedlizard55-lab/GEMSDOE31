@@ -30,14 +30,14 @@ const card = JSON.parse(fs.readFileSync(path.join(root, 'evidence/tgj31/run_card
   const checked = [];
   page.on('pageerror', (error) => errors.push(error.message));
   try {
-    for (const target of ['', 'executive-summary.html', 'research.html', 'validation.html', 'sources.html', 'register/index.html', 'experiments/index.html', 'feed.html']) {
+    for (const target of ['', 'executive-summary.html', 'research.html', 'validation.html', 'sources.html', 'register/index.html', 'experiments/index.html', 'lane.html', 'feed.html']) {
       const response = await page.goto(base + target, {waitUntil: 'networkidle'});
       assert.equal(response.status(), 200);
       assert.equal(await page.locator('body').getAttribute('data-safe-to-submit'), 'false');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, target + ' horizontal overflow');
       checked.push(target || 'index.html');
     }
-    await page.waitForFunction(() => !document.querySelector('#feed-status').textContent.startsWith('Checking'), {timeout: 30000});
+    await page.waitForFunction(() => { const el = document.querySelector('#feed-status'); return el && !el.textContent.startsWith('Checking'); }, null, {timeout: 30000});
     const feedStatus = await page.locator('#feed-status').innerText();
     await page.goto(base, {waitUntil: 'networkidle'});
     const download = page.locator('a[download]').first();
@@ -51,7 +51,7 @@ const card = JSON.parse(fs.readFileSync(path.join(root, 'evidence/tgj31/run_card
     fs.mkdirSync(path.join(root, '.cache'), {recursive: true});
     await page.screenshot({path: path.join(root, '.cache/site-desktop.png'), fullPage: true});
     await page.setViewportSize({width: 390, height: 844});
-    for (const target of ['', 'executive-summary.html', 'research.html', 'validation.html', 'register/index.html']) {
+    for (const target of ['', 'executive-summary.html', 'research.html', 'validation.html', 'register/index.html', 'lane.html']) {
       await page.goto(base + target, {waitUntil: 'networkidle'});
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, 'mobile ' + target + ' horizontal overflow');
     }

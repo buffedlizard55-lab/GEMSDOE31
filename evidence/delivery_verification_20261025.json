@@ -32,5 +32,19 @@
   "site_local_links": 305,
   "tiff_unchanged": true,
   "outside_encoding_portal_convention": "unverified; local all-finite policy only"
+ },
+ "post_AS1_integration_verification": {
+  "upstream_main": "946558c",
+  "preserved_upstream_pr": 11,
+  "pytest_passed": 76,
+  "ruff": "passed",
+  "site_pages": 21,
+  "site_local_links": 321,
+  "restored_current_manifest_files": 12,
+  "tiff_unchanged": true,
+  "other_lane_experiments_executed_by_this_run": 0,
+  "browser_pages": 9,
+  "mobile_pages": 6,
+  "publication_status": "Requires actual GitHub job status; not inferred from local tests."
  }
 }

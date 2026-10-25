@@ -136,6 +136,28 @@ def inventory() -> list[dict]:
     return rows
 
 
+def lane_candidate_record() -> dict | None:
+    """The lane's unique candidate with the verdict of every automated gate, copied out of the gate receipts."""
+    build_path = ROOT / "evidence" / "lane_candidate_build.json"
+    if not build_path.is_file():
+        return None
+    build = json.loads(build_path.read_text())
+    record = {"id": "lane-as1", "name": build["name"], "note_for_portal": build["note"], "note_chars": build["note_chars"],
+              "role": "archived concurrent AS-1 candidate; separate evaluator; negative, NOT promoted.",
+              "dots": build["dots"], "dot_set_sha256": build["dot_set_sha256"], "slot_approved": False, "files": build["files"],
+              "gate_receipts": {}}
+    for key in ("allfinite", "nan"):
+        receipt_path = Path(build["files"][key]).parent / f"{build['name']}-gate-{key}.json"
+        receipt = json.loads((ROOT / receipt_path).read_text())
+        record["gate_receipts"][key] = {"receipt": str(receipt_path), "sha256": receipt["sha256"], "verdict": receipt["verdict"],
+                                        "hard_failures": receipt["hard_failures"], "evidence_failures": receipt["evidence_failures"],
+                                        "submit_recommended": receipt["submit_recommended"],
+                                        "positive_cells": receipt["positive_cells"]}
+    record["ready_to_submit"] = all(v["submit_recommended"] for v in record["gate_receipts"].values())
+    record["verdict"] = "READY_TO_SUBMIT" if record["ready_to_submit"] else record["gate_receipts"]["allfinite"]["verdict"]
+    return record
+
+
 def submissions_register() -> dict:
     receipts = {}
     for receipt in sorted((ROOT / "docs" / "downloads").glob("*-format-check.json")):
@@ -260,6 +282,9 @@ def submissions_register() -> dict:
             "slot_approved": False,
             "reason_not_slot_approved": "TGJ31 is negative; historical copied references are not new candidates.",
         },
+        "decision": "NO_FILE_CLEARED_FOR_SUBMISSION",
+        "lane_candidate": lane_candidate_record(),
+        "other_lane_scope": "AS-1 is a preserved separate session, not the active TGJ31 experiment or a comparable incumbent.",
         "newly_generated_artifact": {
             "name": card["submission_name"] if card_path.exists() else None,
             "safe_to_download_for_audit": card_path.exists(), "safe_to_submit": False,

@@ -9,8 +9,8 @@
 - Main result: **HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld positive pixels, 95% spatial-cluster CI) 0.00828099 [0.00574098, 0.01123443]**. It loses to the same-input amplitude control; confidence mass differs. No fold-fair current-best reproduction or fresh confirmation exists.
 - Literal forward overlap is 1.0 against a hash-pinned full-support prior. The nine-focus audit measures 86 valid-grid files out of 87 indexed; one off-grid format test and 286 missing extended raster paths remain explicit. Do not invent an exemption or retry the method.
 - Data placement completed autonomously: 11 inputs restored and hash/grid verified; the original template's 19-band feature cache used. This was a no-fit CPU physical pipeline, not supervised reference-model training.
-- Frozen four-hypothesis preregistration, H33 exact pruning forensics, quarantined user/owner score claims, three cumulative review passes, 67 passing tests after concurrent-main integration, dual format checks and a desktop/mobile browser download/hash smoke check.
-- Evidence-generated 20-page site with prominent new TIFF/ZIP and DO NOT SUBMIT decision, executive upload conditions, data/source tables, AI-use disclosure, archives and metadata feed. README retains the entire current owner brief and decision principles.
+- Frozen four-hypothesis preregistration, H33 exact pruning forensics, quarantined user/owner score claims, three cumulative review passes, 76 passing tests after both concurrent-main integrations, dual format checks and a desktop/mobile browser download/hash smoke check.
+- Evidence-generated 21-page site (including the concurrent AS-1 archive) with prominent new TIFF/ZIP and DO NOT SUBMIT decision, executive upload conditions, data/source tables, AI-use disclosure, archives and metadata feed. README retains the entire current owner brief and decision principles.
 
 ## Decisions and unresolved facts
 
@@ -27,3 +27,7 @@ Read the entire README prompt, `knowledge/2026-10-25_three_pass_review.md`, and 
 ## Concurrent upstream audit retained
 
 PRs #8/#9 merged while this audit ran. Their H33 duplicate/full-catalogue-processing/outside-encoding findings and branch-guard regression are preserved in `knowledge/session_review_2026-10-25.md`, `knowledge/upstream_current_status_2026-10-25_pre_TGJ31.md`, the irregularity registry and cumulative reviews. Their missing-data/no-new-TIFF status described another checkout. TGJ31 is newly generated but still negative. The historical official NaN-outside description conflicts with the explicit shared all-finite policy; local format PASS is limited to that declared policy, not verified portal conformity or acceptance. No encoding retuning or upload is authorized.
+
+## Additional concurrent integration (PR #11)
+
+Main advanced again to `946558c`. Its separate AS-1 E1/E2/E3 results, frozen blocked candidate, source/code/tests and registries are retained without running that lane. The expanded manifest now has 12 inputs; the additional road-distance raster was restored and hash/grid verified, but is not a TGJ31 predictor. All 76 tests and 21-page/321-local-link checks pass. Its prior README is archived and live-slot/waiver suggestions explicitly not adopted. Current scientific results, TIFF hash and negative approval remain unchanged.

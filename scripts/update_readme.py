@@ -15,6 +15,7 @@ def content():
     s = card["holdout_dti"]
     delta = decision["paired_metric_result"]
     prompt = (ROOT / "knowledge/owner_request_2026-10-25.md").read_text()
+    site_pages = len(list((ROOT / "docs").rglob("*.html")))
     return f'''# GEMS31 — new fault-mapping research, an honest submission decision
 
 **Read this README, the previous next steps, and the complete standing owner prompt below at the start of every session.** Maximize P(Win). Own the Outcome. Preserve negative evidence rather than spend scarce slots on unsupported claims.
@@ -61,7 +62,8 @@ The owner's **0.2778**, and conflicting claimed current highs **0.3195 / 0.4413*
 - Reused unchanged template57 cache preparation, evaluator, splitter and writer, [pinned at source](registry/shared_template.json), including original evaluator regression tests. Whole-component hide-and-recover, exact visible-pixel masking, pooled alpha .2 / beta .8 / triangular 300 m DTI, six feature canaries and 1,000 paired 30 km cluster resamples.
 - Executed one frozen negative audit, stopped scientific work, and generated a new finite TIFF/ZIP with both local validators. No discrete dot placement or subsequent tuning. [Exact surface reconstruction](evidence/tgj31_exact_reconstruction_20261025.txt) reproduced the raw surface hash and every delivered pixel.
 - Audited the nine requested sources and a broader **101-tree snapshot / 1,005 byte-distinct restored rasters**. **286 missing raster paths** and one off-grid focus format-test remain explicit errors. This is not an organizer-complete registry; the full-support witness independently proves the literal overlap failure.
-- Rebuilt the 20-page site from evidence, removed the stale copied-incumbent "Submit it" recommendation, separated format/science/slot status, retained research and added an automatic public-GitHub source-status feed with a dated, twice-daily scheduled Pages snapshot fallback. The feed never claims live leaderboard access or re-validates changed upstream science.
+- Rebuilt the {site_pages}-page site from evidence, removed the stale copied-incumbent "Submit it" recommendation, separated format/science/slot status, retained research and added an automatic public-GitHub source-status feed with a dated, twice-daily scheduled Pages snapshot fallback. The feed never claims live leaderboard access or re-validates changed upstream science.
+- Concurrent main PR #11 was integrated without running its AS-1 lane. All candidate/evidence/code/registries and its separate negative run card are preserved in a [clearly blocked archive page](docs/lane.html). The expanded 12-input manifest was restored and hash/grid verified; the original TGJ31 still uses only its frozen inputs. Its suggestions for live probes/uniqueness waivers are not adopted.
 - Historical supervised training is **not** claimed ready: the original arm trainer is absent and old OOF maps are not a comparable current best. The quoted older "GPU/data-only blocker" wording in the owner prompt below is superseded by this finding. Direct organizer authentication, private truth, receipts, current cap and an explicit lane assignment are still unavailable.
 
 [Three cumulative review passes and tests](knowledge/2026-10-25_three_pass_review.md) · **[Prioritized next-session work](knowledge/2026-10-25_next_session.md)** · [Historical README preserved](knowledge/README_2026-10-04_archive.md) · [Full research archive](knowledge/)

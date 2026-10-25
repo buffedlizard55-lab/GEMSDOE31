@@ -71,7 +71,7 @@ def test_site_exposes_new_file_and_negative_approval_without_an_old_submit_claim
     homepage = (ROOT / "docs/index.html").read_text()
     assert "<a download " in homepage
     assert Path(card["files"]["tif"]).name in homepage
-    assert len(list((ROOT / "docs").rglob("*.html"))) == 20
+    assert len(list((ROOT / "docs").rglob("*.html"))) == 21
 
 
 def test_website_hypotheses_come_from_the_frozen_preregistration():

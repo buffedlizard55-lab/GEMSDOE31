@@ -9,6 +9,54 @@
   "slot_approved": false,
   "reason_not_slot_approved": "TGJ31 is negative; historical copied references are not new candidates."
  },
+ "decision": "NO_FILE_CLEARED_FOR_SUBMISSION",
+ "lane_candidate": {
+  "id": "lane-as1",
+  "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8",
+  "note_for_portal": "GEMSDOE31 AS-1: LiDAR antislope-scarp dots, 38k px, off-catalogue. UNSCORED. Holdout gate failed: do not rank on this.",
+  "note_chars": 118,
+  "role": "archived concurrent AS-1 candidate; separate evaluator; negative, NOT promoted.",
+  "dots": 38000,
+  "dot_set_sha256": "9b3afbc881f991998da267e10c0b0981e72aea974c176faa003eeaa7e8e7166e",
+  "slot_approved": false,
+  "files": {
+   "nan": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+   "allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
+   "zip": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.zip",
+   "zip_allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.zip"
+  },
+  "gate_receipts": {
+   "allfinite": {
+    "receipt": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-allfinite.json",
+    "sha256": "28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4",
+    "verdict": "BLOCKED",
+    "hard_failures": [
+     "G5_unique_by_overlap_and_rank_correlation"
+    ],
+    "evidence_failures": [
+     "G7_preregistered_holdout_evidence"
+    ],
+    "submit_recommended": false,
+    "positive_cells": 38000
+   },
+   "nan": {
+    "receipt": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-nan.json",
+    "sha256": "e84c5a252381294aa0f22aebd765f7b9fa0136c270617bac22d40f48cc7f5f0c",
+    "verdict": "BLOCKED",
+    "hard_failures": [
+     "G5_unique_by_overlap_and_rank_correlation"
+    ],
+    "evidence_failures": [
+     "G7_preregistered_holdout_evidence"
+    ],
+    "submit_recommended": false,
+    "positive_cells": 38000
+   }
+  },
+  "ready_to_submit": false,
+  "verdict": "BLOCKED"
+ },
+ "other_lane_scope": "AS-1 is a preserved separate session, not the active TGJ31 experiment or a comparable incumbent.",
  "newly_generated_artifact": {
   "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT",
   "safe_to_download_for_audit": true,

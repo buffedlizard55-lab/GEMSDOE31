@@ -20,7 +20,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-MAX_PAGES = 20
+MAX_PAGES = 21
 ALLOWED_STATUS_PICTOGRAMS: set[str] = set()
 
 FAILURES: list[str] = []

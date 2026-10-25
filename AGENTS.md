@@ -36,3 +36,5 @@ Before changing this repository, read the entire `README.md`, `knowledge/2026-10
 ## Closed current lane
 
 TGJ31-v1 is negative and scientifically stopped. Do not alter its frozen preregistration, feature implementation or runner to improve a result. `scripts/verify_tgj31.py --rebuild-surface` is exact integrity reconstruction, not a new experiment. Resolve the universal literal-overlap blocker, lane assignment, organizer provenance and comparable-best reproduction before a new authorized preregistration.
+
+Concurrent AS-1 (upstream PR #11) is preserved as a separate closed negative lane. Do not execute its experiment/calibration/candidate scripts to reopen or tune it during TGJ31 delivery. Its LANE-EVAL-1 results are not comparable to shared57; suggestions for live probes or gate waivers are archival, not current instructions.

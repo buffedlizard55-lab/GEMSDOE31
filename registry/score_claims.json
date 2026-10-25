@@ -129,5 +129,15 @@
   "verification": "individual entries were not independently authenticated in this review",
   "handling": "context only; do not treat any listed historical value as an official organizer score absent an authorized receipt"
  },
- "current_requested_focus_audit": "evidence/h33_forensics_20261025.json; all nine focus values remain unauthenticated user reports"
+ "current_requested_focus_audit": "evidence/h33_forensics_20261025.json; all nine focus values remain unauthenticated user reports",
+ "concurrent_as1_source": "PR #11 at main 946558c; separate-lane artifacts and experiments retained, not run by TGJ31.",
+ "concurrent_as1_additional_notes": {
+  "lane_score_table": {
+   "evidence_class": "USER-REPORTED",
+   "source": "user prompt 2026-10-25",
+   "file": "registry/user_reported_scores.json",
+   "entries": 111,
+   "handling": "calibration context only; matched to registry rasters by exact name fragment; no organizer receipt for any entry"
+  }
+ }
 }

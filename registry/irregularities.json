@@ -261,7 +261,100 @@
    ],
    "impact": "This variant does not match the recorded official outside-footprint convention. No claim is made that zero-filled outside values improve the score or were accepted by the organizer.",
    "action": "Do not use this as a submission format exemplar. For any future candidate use NaN/null outside as specified and validate against an authorized exact sample template; retain all-finite zeros only as a clearly labeled defensive comparison if separately allowed."
+  },
+  {
+   "id": "IR-31-LANE-0.4413-PROXY",
+   "severity": "medium",
+   "status": "open",
+   "summary": "The prompt's 'GEMSDOE high score 0.4413' equals GEMSDOE32's local proxy R2-safe-zeroTPp (0.44127926) and conflicts with 'highest score right now 0.3195'.",
+   "evidence": [
+    "GEMSDOE32 records (SECONDHAND)",
+    "prompt text"
+   ],
+   "impact": "A mislabelled proxy would make a 0.4413 target unreachable and distort gate thresholds.",
+   "action": "Treated as USER-REPORTED and unconfirmed; no gate uses it."
+  },
+  {
+   "id": "IR-31-LANE-PROXY-INVERSION",
+   "severity": "high",
+   "status": "open",
+   "summary": "Local proxies rank geometry families poorly and invert for LiDAR-scarp-led files.",
+   "evidence": [
+    "evidence/instrument_calibration.json: Spearman SGMC +0.32, catalogue-gap +0.11 over 87 files",
+    "nine scarp/LiDAR-led registry files score 0.038-0.159 live (USER-REPORTED) though several have high SGMC DTI",
+    "random Poisson dots beat D28 and b2 on the catalogue-gap proxy (evidence/lane_e3.json)"
+   ],
+   "impact": "A proxy-driven selector would promote the wrong family.",
+   "action": "The evidence gate is preregistered and requires beating the random-score null; no file promoted."
+  },
+  {
+   "id": "IR-31-LANE-UNIQUENESS-VS-VALIDATION",
+   "severity": "high",
+   "status": "open",
+   "summary": "Lane-unique files have no live evidence; live-validated geometry (D28 family) is not unique.",
+   "evidence": [
+    "gate G5 flags 14 registry rasters as >70 % 3 px overlap with AS-1",
+    "D28-derived files fail G5 by construction"
+   ],
+   "impact": "Spending a slot on a unique file is an experiment, not a bet on a validated gain.",
+   "action": "Reported to the owner as a decision; gates never waive silently."
+  },
+  {
+   "id": "IR-31-LANE-RAW-OVERLAP-VACUOUS",
+   "severity": "low",
+   "status": "resolved",
+   "summary": "The raw '>70 % within 3 px' rule is vacuous against dense registry rasters.",
+   "evidence": [
+    "21 of 715 compared rasters cover at least half the footprint within 3 px"
+   ],
+   "impact": "Dense rasters would flag everything as duplicate.",
+   "action": "Gate reports raw, chance and chance-adjusted overlap and applies the adjusted rule when the raw rule is vacuous."
+  },
+  {
+   "id": "IR-31-LANE-REGISTRY-SCORE-INHERITANCE",
+   "severity": "medium",
+   "status": "resolved",
+   "summary": "raster_registry.json assigned user-reported scores by loose fragment, so STRAINBREAK/PRUNE variants inherited 0.2778.",
+   "evidence": [
+    "first neighbour projection returned exactly 0.2778"
+   ],
+   "impact": "Projections and calibration would have used wrong scores.",
+   "action": "Exact-fragment matching with ambiguous fragments skipped (gate.match_scores); 23 fragments remain unmatched because those files are not in the cloned repositories."
+  },
+  {
+   "id": "IR-31-LANE-REGISTRY-OVERWRITE",
+   "severity": "medium",
+   "status": "resolved",
+   "summary": "An API-quota failure overwrote registry/raster_registry.json with 0 rasters.",
+   "evidence": [
+    "intermediate state during the session"
+   ],
+   "impact": "Silent loss of the uniqueness reference set.",
+   "action": "Rewrote the builder to use git partial fetches; registry now 716 unique dot sets, gate fails closed on an empty comparison."
+  },
+  {
+   "id": "IR-31-SAMPLE-SUBMISSION-IS-CATALOGUE",
+   "severity": "low",
+   "status": "open",
+   "summary": "The organizer sample_submission's non-zero cells (60,988) equal the public catalogue.",
+   "evidence": [
+    "labels.tif -1 mask equals the template NaN mask (SECONDHAND, GEMSDOE32 note, re-checked by the footprint count here)"
+   ],
+   "impact": "Using the template's values would leak the catalogue.",
+   "action": "Only the template footprint is used."
+  },
+  {
+   "id": "IR-31-ARCHIVED-AS1-UNVALIDATED-SLOT-SUGGESTIONS",
+   "severity": "high",
+   "status": "archived-not-adopted",
+   "summary": "Concurrent AS-1 notes suggest live probe slots and a uniqueness waiver; these conflict with current fail-closed promotion rules and are not adopted.",
+   "evidence": [
+    "knowledge/2026-10-25_lane_hypotheses.md",
+    "knowledge/upstream_AS1_README_2026-10-25.md"
+   ],
+   "action": "No probe is risk-free; user-reported calibration does not authenticate acceptance. Preserve the blocked candidate, but require actual owner assignment, complete literal gates, comparable-best confirmation and separate cap-aware selector before any slot."
   }
  ],
- "concurrent_upstream_review": "PRs #8/#9, origin/main 4371416; retained as separate-checkout historical findings. TGJ31 current state is in evidence/tgj31/run_card.json."
+ "concurrent_upstream_review": "PRs #8/#9, origin/main 4371416; retained as separate-checkout historical findings. TGJ31 current state is in evidence/tgj31/run_card.json.",
+ "concurrent_as1_source": "PR #11 at main 946558c; separate-lane artifacts and experiments retained, not run by TGJ31."
 }
