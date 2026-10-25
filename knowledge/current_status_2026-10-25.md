@@ -43,3 +43,7 @@ H27 equals D2.8 pruned at catalogue distance >1 pixel; H33 equals D2.8 pruned at
 Keep this negative release immutable. First resolve the dense-control degeneracy explicitly in a future protocol; this session cannot waive the literal 70% rule. Start a new preregistration only after the lane is clarified or an explicit assumption is documented. Priorities: reciprocal across-window consistency and explicit contact/seam nulls; own-method residual-range estimation; shared-protocol reproduction of the strongest available control; independent off-catalogue corroboration and fresh confirmation; exact-file organizer receipt and convention verification before any separate selector approval. Never reuse this negative TIFF as a new submission under another name.
 
 PR/deployment outcome is recorded in the session's final response and GitHub history; do not infer a deployment from an earlier Pages `built` response.
+
+## Concurrent integration
+
+Main advanced to `6b3ec48` during this run. Preserve H31-B source/TIFFs/receipts and restore the 121 earlier merged AS-1/TGJ31 files removed by that later merge. Colliding/obsolete workflow, extra page and homepage assertion are archived, not re-enabled; one legacy value-test fixture is adapted to the stricter grid contract. Current tests cover all retained scientific modules without a new fit. Original H31-B promote metadata is archived evidence, not reproduced or imported approval. All parallel TIFFs have current research-only/no-submit register entries. See `evidence/parallel_history_preservation_20261025.json`.

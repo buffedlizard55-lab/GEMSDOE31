@@ -1,15 +1,95 @@
 {
- "schema_version": 1,
+ "schema_version": 2,
  "generated_utc": "2026-10-25",
+ "parallel_archived_files": [
+  {
+   "file": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
+   "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
+   "sha256": "28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4",
+   "bytes": 142957,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+   "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+   "sha256": "e84c5a252381294aa0f22aebd765f7b9fa0136c270617bac22d40f48cc7f5f0c",
+   "bytes": 186261,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+   "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+   "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
+   "bytes": 1302840,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
+   "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
+   "sha256": "f9cd56a71550b42f00f3cd37a4bf1464c151a9a2ea0438afb8ceef95868351ab",
+   "bytes": 147178,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif",
+   "name": "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif",
+   "sha256": "6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c",
+   "bytes": 191692,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif",
+   "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif",
+   "sha256": "b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41",
+   "bytes": 141273,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif",
+   "name": "gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif",
+   "sha256": "ff1b736337d53d9966248302b6cba0ffbd64bfcfe81a9d0695ef3364e6c53ebb",
+   "bytes": 185607,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  }
+ ],
+ "parallel_source_archive": "registry/parallel_main_archive_20261025.json",
  "active_run_card": "registry/current_run.json",
- "policy": "Every hash and pixel count below is copied out of the format-check receipt written by scripts/build_submission.py. Local validation is not organizer acceptance and no file here carries an organizer receipt.",
+ "policy": "Active/historical file metadata comes from its format receipt; parallel archived TIFF hashes are recomputed from served bytes and carry no new scientific/format endorsement. Local validation is not organizer acceptance; no exact-file organizer score receipt is present.",
  "current_recommended": {
   "name": null,
   "role": "No submission is recommended; the active run card separately identifies the research-only download.",
   "historical_reference": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
   "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
   "slot_approved": false,
-  "reason_not_slot_approved": "The current MAGREST screen failed; confirmation, comparable global-best evidence and separate selector approval are absent."
+  "reason_not_slot_approved": "Literal shared-registry overlap STOP and failed MAGREST screen; no comparable global-best evidence, confirmation or separate selector approval."
  },
  "best_research_candidate": {
   "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
@@ -32,7 +112,7 @@
    "provenance": "re-emission of the dot set published as GEMSDOE28 gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); pixel-identical, freshly written and re-validated in this repository",
    "note_for_portal": "h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template",
    "slot_approved": false,
-   "why_not_slot_approved": "It is the incumbent, not an improvement. Nothing measured in this repository beats it by a margin worth spending a weekly slot.",
+   "why_not_slot_approved": "Historical copied geometry, not a unique current detector or a same-protocol current-best comparison; no slot authority.",
    "positive_pixels": 40199,
    "positive_pixels_on_public_catalogue": 0,
    "format_status": "locally validated against the grid template; not organizer acceptance",
@@ -58,7 +138,7 @@
    "provenance": "the incumbent dot set plus every cell where the LiDAR-arm fold-OOF probability is >= 0.60 and the cell is not on the public catalogue (scripts/run_union.py)",
    "note_for_portal": "incumbent h27-4 dot set + 65939 LiDAR-arm detections (p>=0.6, off-catalogue); +0.0060 off-catalogue proxy DTI; research candidate",
    "slot_approved": false,
-   "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live submission has tested it. It is the best-supported next-week candidate.",
+   "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live exact-byte organizer receipt exists. Historical proxy-only result, not a current next-week recommendation.",
    "positive_pixels": 106138,
    "positive_pixels_on_public_catalogue": 0,
    "format_status": "locally validated against the grid template; not organizer acceptance",
@@ -183,7 +263,7 @@
   }
  ],
  "format_conventions": {
-  "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention the official page specifies and the grid template uses",
+  "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention historically recorded problem-page wording; not freshly verified in this session",
   "all-finite": "every cell finite and in [0,1], zeros outside the footprint - a defensive fallback; validated separately in src/gemsdoe31/submission.py"
  }
 }

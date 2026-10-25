@@ -231,6 +231,104 @@
    "sha256": "96d451d5ffc819fc3834052f22ab66190621f206c0bf8990446082a3363dc2ef",
    "organizer_verification": "not verified; no exact-byte organizer receipt supplied to this run",
    "status": "unverified-claim; never promotion evidence"
+  },
+  {
+   "id": "user-reported-gemsdoe32-h33-2-b2-0.2778-20261025",
+   "artifact": "GEMSDOE32 h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif (37,654 dots, B=2 >200m catalogue-flank prune)",
+   "reported_dti": 0.2778,
+   "reported_dti_text": "0.2778",
+   "claim_source": "user request; sibling repository GEMSDOE32 docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif byte-verified in evidence/nine_site_forensic_audit.json",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+   "local_identity": "SHA-256 c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9; 37,654 positive pixels (0 on catalogue, 0 within 200 m of catalogue); deletes 2,545 dots in 100 m < d(catalogue) <= 200 m from H27-4 (40,199 dots)",
+   "status": "highest user-reported score among the 9 focus repositories; mechanism verified via paired comparison with GEMSDOE28 H36-1 (37,660 dots, 0.2710 USER-REPORTED)"
+  },
+  {
+   "id": "user-reported-gemsdoe36-anderson-pinn-0.2750-20261025",
+   "artifact": "GEMSDOE36 anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif (38,854 dots)",
+   "reported_dti": 0.275,
+   "reported_dti_text": "0.2750",
+   "claim_source": "user request; sibling repository GEMSDOE36 docs/downloads/ byte-verified in evidence/nine_site_forensic_audit.json",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+   "local_identity": "SHA-256 e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a; 38,854 positive pixels (GEMSDOE32 37,654 base + 1,200 GDR thermal/step-over dots)",
+   "status": "user-reported claim; -0.0028 below GEMSDOE32 0.2778 because the 1,200 added thermal halo dots earned ~0.0125 live TPw/dot (< 0.0556 break-even)"
+  },
+  {
+   "id": "user-reported-gemsdoe28-h36-1-0.2710-20261025",
+   "artifact": "GEMSDOE28 h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif (37,660 dots)",
+   "reported_dti": 0.271,
+   "reported_dti_text": "0.2710",
+   "claim_source": "user request; sibling repository GEMSDOE28 byte-verified in evidence/nine_site_forensic_audit.json",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+   "local_identity": "SHA-256 5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641; 37,660 positive pixels (2,353 in 100-200 m flank, 33,283 at d > 300 m)",
+   "status": "user-reported claim; natural-experiment pair with GEMSDOE32 H33-2-B2 (37,654 dots, 0.2778)"
+  },
+  {
+   "id": "user-reported-gemsdoe28-h38-1-0.2707-20261025",
+   "artifact": "GEMSDOE28 h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif (37,860 dots)",
+   "reported_dti": 0.2707,
+   "reported_dti_text": "0.2707",
+   "claim_source": "user request; sibling repository GEMSDOE28 byte-verified in evidence/nine_site_forensic_audit.json",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+   "local_identity": "SHA-256 81d5b87bc8424f162a8f56aa9aac8fbe630c61646b9cac24d5ebbdc1b1951783; 37,860 positive pixels (H36-1 + 200 heat-flow/Euler dots)",
+   "status": "user-reported claim"
+  },
+  {
+   "id": "user-reported-gemsdoe28-h32-1-0.2649-20261025",
+   "artifact": "GEMSDOE28 h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif (42,294 dots)",
+   "reported_dti": 0.2649,
+   "reported_dti_text": "0.2649",
+   "claim_source": "user request; sibling repository GEMSDOE28 byte-verified in evidence/nine_site_forensic_audit.json",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+   "local_identity": "SHA-256 04d31922f5c1ea4016984fc470ab2b0ff8e266c615792f0e86020da3b940d3ff; 42,294 positive pixels (1,542 in 0-100 m flank, 3,095 in 100-200 m flank)",
+   "status": "user-reported claim"
+  },
+  {
+   "id": "user-reported-gemsdoe33-h33d-0.2632-20261025",
+   "artifact": "GEMSDOE33 h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif (41,865 dots)",
+   "reported_dti": 0.2632,
+   "reported_dti_text": "0.2632",
+   "claim_source": "user request; sibling repository GEMSDOE33 byte-verified in evidence/nine_site_forensic_audit.json",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+   "local_identity": "SHA-256 87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757; 41,865 positive pixels (re-introduced 1,377 dots at d <= 100 m)",
+   "status": "user-reported claim"
+  },
+  {
+   "id": "user-reported-gemsdoe30-d28-0.2600-20261025",
+   "artifact": "GEMSDOE30 d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif (44,090 dots)",
+   "reported_dti": 0.26,
+   "reported_dti_text": "0.2600",
+   "claim_source": "user request; sibling repository GEMSDOE30 byte-verified in evidence/nine_site_forensic_audit.json",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+   "local_identity": "SHA-256 8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd; 44,090 positive pixels (pixel-identical to GEMSDOE25 D2.8)",
+   "status": "user-reported claim"
+  },
+  {
+   "id": "user-reported-gemsdoe27-tv2-0.2449-20261025",
+   "artifact": "GEMSDOE27 topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif (61,328 dots)",
+   "reported_dti": 0.2449,
+   "reported_dti_text": "0.2449",
+   "claim_source": "user request; sibling repository GEMSDOE27 byte-verified in evidence/nine_site_forensic_audit.json",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; no DrivenData organizer receipt stored in repository",
+   "local_identity": "SHA-256 33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d; 61,328 positive pixels (D1.5 + 1,259 topographic bridge dots)",
+   "status": "user-reported claim"
+  },
+  {
+   "id": "user-reported-public-leader-0.4413-20261025",
+   "artifact": "Public GEMS leaderboard #1 high, as described in user prompt",
+   "reported_dti": 0.4413,
+   "reported_dti_text": "0.4413",
+   "claim_source": "user request; no team/file/receipt supplied",
+   "evidence_class": "USER-REPORTED",
+   "organizer_verification": "not verified; official leaderboard not accessed",
+   "status": "unverified external leaderboard anchor"
   }
  ],
  "safe_next_step": "Do not resolve discrepancies by accessing or monitoring DrivenData leaderboard material absent prior written permission. Preserve user-supplied claims as USER-REPORTED and owner-site claims as OWNER-MIRROR until an authorized organizer-generated receipt and exact artifact identity are available.",

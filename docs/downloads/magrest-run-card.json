@@ -1,5 +1,5 @@
 {
- "schema_version": 1,
+ "schema_version": 2,
  "hypothesis": "MAGREST: lateral restoration of displaced magnetic texture",
  "mechanism": "same-sign 2/4px cross-flank patch-correlation gain over unshifted null; no inherited dots",
  "non_fault_mimic": "volcanic-flow lithologic contacts or airborne magnetic survey-line seams",
@@ -54,8 +54,8 @@
  },
  "registry": {
   "scope": "Nine pinned docs/downloads trees PLUS one authentic counterexample from the shared 695-raster template registry. Nine-tree test passes; literal broad-registry gate FAILS. No exhaustive/global pass claimed.",
-  "comparable_files": 118,
-  "distinct_prediction_fields": 50,
+  "comparable_files": 119,
+  "distinct_prediction_fields": 51,
   "surface": {
    "pass_": false,
    "duplicate": true,
@@ -92,7 +92,12 @@
   },
   "literal_rule_pass": false,
   "scope_correction": "evidence/magrest/registry_scope_correction.json",
-  "calibration_density_exemption": false
+  "calibration_density_exemption": false,
+  "nine_site_comparable_files": 118,
+  "nine_site_distinct_prediction_fields": 50,
+  "shared_manifest_registered_rasters": 695,
+  "additional_registered_controls_compared": 1,
+  "broader_scan_exhaustive": false
  },
  "raster_sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
  "validator": {

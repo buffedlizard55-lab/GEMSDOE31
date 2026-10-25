@@ -1,0 +1,80 @@
+{
+ "schema_version": 1,
+ "evidence_class": "PUBLIC-GITHUB-METADATA",
+ "checked_utc": "2026-10-25T20:40:48.084341+00:00",
+ "verified_count": 10,
+ "total": 10,
+ "checks": [
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE24",
+   "pin": "05f6f85c695ff25546dcc2cbbfa34b3c2a8f4f4c",
+   "ok": true,
+   "current": "87b76cce63fc2078012bf02227e9d243b7341c48",
+   "date": "2026-10-25T20:17:07Z"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE25",
+   "pin": "0f73c51dc954306468875c02cf98634e64ac0751",
+   "ok": true,
+   "current": "2a279dd0d2a4319c1022567876eb4c97553e2d13",
+   "date": "2026-10-25T20:35:29Z"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE27",
+   "pin": "b8dd298e10884afffa05436673ac73aeaf850b8c",
+   "ok": true,
+   "current": "ea7373b3483c715ea8d612fe5a7b296eb55ca88b",
+   "date": "2026-10-25T20:36:03Z"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE28",
+   "pin": "78e724f95337a6528b1248be5c113c6d6d502891",
+   "ok": true,
+   "current": "51078a139b5e33357a7bc0b8adc578d1d791ed2e",
+   "date": "2026-10-25T20:14:18Z"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE30",
+   "pin": "3d5bec2af5f29291617f97c9e2dfe443be6f55c3",
+   "ok": true,
+   "current": "ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb",
+   "date": "2026-10-25T20:21:08Z"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE31",
+   "pin": "cf13282fcd86290f1539f0a86446c8ba7205a79b",
+   "ok": true,
+   "current": "4371416853904713760b86db0dccd9afe50d776f",
+   "date": "2026-10-25T20:16:09Z"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE32",
+   "pin": "012e17b2a115c3c0d5e7885bea625bf9657c99fc",
+   "ok": true,
+   "current": "6666196cd877bea6e3ef7917b1f999324540abd4",
+   "date": "2026-10-25T20:35:31Z"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE33",
+   "pin": "f52533110fe62cd03e77f1228e9e5ecac412c463",
+   "ok": true,
+   "current": "f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6",
+   "date": "2026-10-25T20:17:28Z"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE36",
+   "pin": "c9ad59ec6f969ed931d089a03044c1567a633e84",
+   "ok": true,
+   "current": "c9ad59ec6f969ed931d089a03044c1567a633e84",
+   "date": "2026-10-04T21:17:21Z"
+  },
+  {
+   "repo": "drivendataorg/gems-prize-reference-solution",
+   "pin": "aebe92f7c8a990f0e3443451b7a825d9afd6336b",
+   "ok": true,
+   "current": "aebe92f7c8a990f0e3443451b7a825d9afd6336b",
+   "date": "2026-06-16T13:55:26Z"
+  }
+ ],
+ "limitation": "Public repository HEAD metadata only; changed sources are not scientifically re-audited. No leaderboard, receipt, weekly-cap or upload access."
+}

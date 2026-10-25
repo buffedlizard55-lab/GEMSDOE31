@@ -48,8 +48,8 @@ PROTOCOL = {
     "truth_proxies": {
         "catalogue_gap": "held-out public catalogue pixels (60,988 px)",
         "off_catalogue": "USGS SGMC state-map fault cells more than 300 m from the public catalogue "
-                         "(61,664 px) - the only populated fault population in reach that is "
-                         "off-catalogue by construction, i.e. the population the competition scores",
+                         "(61,664 px in the historical instrument); a state-map proxy with unverified mapping "
+                         "lineage, not the competition's private truth",
     },
     "metric": "official distance-weighted Tversky index, alpha=0.2, beta=0.8, R=300 m triangular kernel, "
               "verified against a literal transcription of the published sums (scripts/check_metric.py, "
@@ -68,8 +68,8 @@ SUBMISSIONS = [
         "note_for_portal": "h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; "
                            "format re-verified against the competition grid template",
         "slot_approved": False,
-        "why_not_slot_approved": "It is the incumbent, not an improvement. Nothing measured in this "
-                                "repository beats it by a margin worth spending a weekly slot.",
+        "why_not_slot_approved": "Historical copied geometry, not a unique current detector or a "
+                                "same-protocol current-best comparison; no slot authority.",
     },
     {
         "id": "research-union-lidar-arm",
@@ -82,7 +82,7 @@ SUBMISSIONS = [
         "slot_approved": False,
         "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) "
                                 "that resembles but is not the hidden expert-mapped truth, and no live "
-                                "submission has tested it. It is the best-supported next-week candidate.",
+                                "exact-byte organizer receipt exists. Historical proxy-only result, not a current next-week recommendation.",
     },
     {
         "id": "research-union-radiometric-arm",
@@ -256,13 +256,26 @@ def submissions_register() -> dict:
         if record.get("measured") and record["id"].startswith("research"):
             if best_research is None or record["measured"]["delta"] > best_research["measured"]["delta"]:
                 best_research = record
+    registered = {r[k] for r in files for k in ("file_nan", "file_allfinite") if r.get(k)}
+    parallel = []
+    for tif in sorted((ROOT / "docs/downloads").rglob("*.tif")):
+        rel = tif.relative_to(ROOT).as_posix()
+        if rel in registered:
+            continue
+        parallel.append(dict(file=rel, name=tif.name, sha256=sha256(tif), bytes=tif.stat().st_size,
+            role="Archived parallel-session research; not reproduced or endorsed by this run",
+            slot_approved=False, ok_to_submit=False,
+            evidence_class="COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+            warning="Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."))
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "generated_utc": "2026-10-25",
+        "parallel_archived_files": parallel,
+        "parallel_source_archive": "registry/parallel_main_archive_20261025.json",
         "active_run_card": "registry/current_run.json" if current_path.exists() else None,
-        "policy": "Every hash and pixel count below is copied out of the format-check receipt written by "
-                  "scripts/build_submission.py. Local validation is not organizer acceptance and no file "
-                  "here carries an organizer receipt.",
+        "policy": "Active/historical file metadata comes from its format receipt; parallel archived TIFF hashes are "
+                  "recomputed from served bytes and carry no new scientific/format endorsement. Local validation "
+                  "is not organizer acceptance; no exact-file organizer score receipt is present.",
         "current_recommended": {
             "name": None,
             "role": "No submission is recommended; the active run card separately identifies the research-only download.",
@@ -270,7 +283,7 @@ def submissions_register() -> dict:
             "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer "
                             "receipt exists in this repository",
             "slot_approved": False,
-            "reason_not_slot_approved": "The current MAGREST screen failed; confirmation, comparable global-best evidence and separate selector approval are absent.",
+            "reason_not_slot_approved": "Literal shared-registry overlap STOP and failed MAGREST screen; no comparable global-best evidence, confirmation or separate selector approval.",
         },
         "best_research_candidate": {
             "name": best_research["name"] if best_research else None,
@@ -280,7 +293,7 @@ def submissions_register() -> dict:
         "files": files,
         "format_conventions": {
             "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention "
-                   "the official page specifies and the grid template uses",
+                   "historically recorded problem-page wording; not freshly verified in this session",
             "all-finite": "every cell finite and in [0,1], zeros outside the footprint - a defensive "
                           "fallback; validated separately in src/gemsdoe31/submission.py",
         },
@@ -289,11 +302,11 @@ def submissions_register() -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--cache", default="/home/user/work/cache",
-                        help="optional legacy run cache to copy small JSON/NPZ artifacts out of")
+    parser.add_argument("--cache", default=None,
+                        help="explicit optional legacy cache; never discover/copy another session's cache by default")
     args = parser.parse_args()
 
-    copied = copy_legacy_cache(Path(args.cache))
+    copied = copy_legacy_cache(Path(args.cache)) if args.cache else {}
     artifacts = inventory()
     summary = {
         "schema_version": 1,

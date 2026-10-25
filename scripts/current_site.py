@@ -2,7 +2,10 @@
 from __future__ import annotations
 
 import html
-from pathlib import PurePosixPath
+import json
+from pathlib import Path, PurePosixPath
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def esc(value):
@@ -133,6 +136,19 @@ python scripts/validate_submission.py &lt;candidate.tif&gt; --template data/samp
       </section>'''
 
 
+def parallel_archives():
+    sub = json.loads((ROOT / "registry/submissions.json").read_text())
+    rows = "".join(f'<tr><td><a href="{esc(r["file"].removeprefix("docs/"))}">{esc(r["name"])}</a></td>'
+                   f'<td><code>{esc(r["sha256"])}</code></td><td>Archived research · NOT approved</td></tr>'
+                   for r in sub.get("parallel_archived_files", []))
+    return f'''<section><div class="section-head"><div><p class="kicker">Concurrent work preserved</p><h2>Other sessions are not a new experiment here</h2></div>
+      <p>AS-1, TGJ31 and H31-B artifacts retain their source bytes and original receipts. Their different instruments are not ranked against MAGREST.</p></div>
+      <div class="notice"><strong>No approval is imported from an archived card.</strong>The H31-B card's original promote flag is not reproduced or endorsed by this run, and is not selector authority. AS-1/TGJ31 negative records are retained. Main merge #12 removed earlier merged files; this integration restored their source/evidence/TIFF history without another fit or candidate.</div>
+      <div class="table-wrap"><table><thead><tr><th>Archived TIFF</th><th>SHA-256 · computed from bytes</th><th>Current authority</th></tr></thead><tbody>{rows}</tbody></table></div>
+      <p class="small">Restoration manifest: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/parallel_history_preservation_20261025.json">exact source commits and hashes</a>.
+      The old workflow, extra HTML page and obsolete active-homepage assertion are archived rather than re-enabled. The current site remains 20 pages.</p></section>'''
+
+
 def research(card, screen, focus, lineage):
     score_rows = "".join(f"<tr><td>{esc(name)}</td><td>{score_text(row)}</td><td>{row['withheld_positive_pixels']:,}</td></tr>"
                          for name, row in screen["holdout"]["scores"].items())
@@ -208,4 +224,4 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
           Only the GitHub reference code was freshly retrieved here; the others are historical source references, not live verification.</p>
         <p><a href="downloads/magrest-run-card.json">Complete JSON run card</a> ·
           <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/tree/main/evidence/magrest">All measurements</a>.</p>
-      </section>'''
+      </section>{parallel_archives()}'''

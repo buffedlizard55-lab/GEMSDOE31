@@ -11,7 +11,7 @@ Before changing this repository, read the entire `README.md` (including the pres
 - The owner's 2026-10-25 highest-priority instruction supersedes the old blanket ban on packaging negative experiments: a genuinely new, duplicate-screened research TIFF is a deliverable even after a failed efficacy screen. Never package after a duplicate/leakage STOP. Final MAGREST review discovered a broader registered lattice only after packaging; the literal overlap is 100% and the lane is STOP. Retain the already-created research bytes with this disclosed ordering defect; do not generate any new TIFF or silently exempt dense controls. Label research download permission separately from submission permission; a failed/unconfirmed experiment is NOT approved for upload. Keep legacy D2.8/H27 files audit-only; never copy their dots or rename them as new work.
 - MAGREST used exactly three fixed experiments; do not add a fourth or tune after this negative screen. Its 21.3 km collar is inherited from historical residual evidence, not a measured MAGREST range. No claim of beating the global holdout best is established. A fresh scientific continuation needs a new preregistration and lane assignment/assumption disclosure.
 - Reuse the pinned shared template in `vendor/gems57` unchanged, including `evaluate_holdout.py`, `submission_writer.py` and `cache_bands`. All 19 band-cache hashes must match the template receipt. Report a shared-tool defect upstream, never hide a private evaluator fork.
-- Duplicate scope includes ALL comparable downloadable TIFFs in the nine pinned sites, with no dense/sparse or matched-budget exemptions. Check full-footprint ranks and three-pixel positive-support overlap before placement and on final dots; stop above |rho|=0.90 or overlap=0.70. State the scope, not global uniqueness.
+- Duplicate scope includes ALL comparable downloadable TIFFs in the nine pinned sites AND the shared registry/other-path controls; do not repeat the original narrow-preflight defect. The pinned 695-raster template manifest contains a verified spacing-5 counterexample that already forces STOP. No dense/sparse, calibration or matched-budget exemptions. Check full-footprint ranks and three-pixel positive-support overlap before placement and on final dots; stop above |rho|=0.90 or overlap=0.70. State the scope, not global uniqueness.
 - Validate a submission GeoTIFF against the sample template: EPSG:32611, exact shape/transform, one float32 band,
   all footprint values finite in `[0,1]`, and NaN outside the footprint (an all-finite variant is written too and
   validated under its own convention). No silent clipping or zero-filled outside area. `tests/test_submission.py`
@@ -24,8 +24,8 @@ Before changing this repository, read the entire `README.md` (including the pres
 
 ## Execution / Git rules
 
-- Work only on the Arena branch attached to the current session; never switch, create or push another branch. Arena
-  assigns a new branch name per session, so do not hard-code a prior session ID in project instructions or runners.
+- Work only on the branch this session is attached to (`arena/8badeeab-gemsdoe31` at the time of writing);
+  never switch, create or push another branch.
 - Keep large input rasters and regenerable caches out of Git. Pin hashes and provenance in `registry/`.
 - Run the full local check set before any PR: `python -m pytest -q`, `python -m ruff check .`,
   `python scripts/check_metric.py`, `python scripts/verify_current_run.py --restore-small-inputs`,

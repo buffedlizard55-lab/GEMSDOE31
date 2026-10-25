@@ -224,6 +224,15 @@ CI runs the exact-file validator, tamper tests, pooled metric/CI reproduction, t
 site/link checks on push and pull request. It automatically restores only the two small pinned input files
 needed for artifact validation plus the pinned registered lattice; no human inspector or leaderboard polling is part of validation.
 
+### Local delivery checks
+
+Final cumulative checks: **77 tests passed**, Ruff/compileall/metric proof pass, **20 pages / 279 local links** pass.
+Browser checks passed on five key pages at **390 / 820 / 1440 px**; six TIFF/ZIP downloads have the exact reviewed hashes.
+See [verification receipt](evidence/review_verification_20261025.json) and [browser receipt](evidence/browser_magrest_smoke_20261025.json).
+To repeat the optional browser smoke test, serve `docs/` on port 8000, install ignored tooling with
+`npm install --prefix .cache/browser --ignore-scripts playwright-core@1.64.1 @sparticuz/chromium@153.0.0`, then run
+`node scripts/smoke_current_site.cjs`. It uses only the local static server, never DrivenData.
+
 ### Limits and next-session priorities
 
 1. No robust efficacy win, fresh confirmation, own-MAGREST residual range, or same-instrument global-best comparison.
@@ -240,6 +249,16 @@ needed for artifact validation plus the pinned registered lattice; no human insp
 The complete owner prompt below is preserved as requested. Historical claims and quoted access/training
 statements inside it are **user context, not newly verified facts**. In particular, this session restored the data
 and ran on CPU; the quoted “single remaining blocker” / “GPU needed” statements are not current limitations.
+
+## Concurrent-session preservation
+
+While this lane ran, other branches merged AS-1, TGJ31 and H31-B. Main merge #12 subsequently removed earlier
+AS-1/TGJ31 files; this integration restored 121 source/evidence/TIFF files (or archived colliding/obsolete UI/workflow
+files) from commit `1a22d755d5e2d2588c23c66a3ce6db9955cf5fa4`. The exact source revision is authoritative in
+[evidence/parallel_history_preservation_20261025.json](evidence/parallel_history_preservation_20261025.json).
+[Archived artifacts](docs/research.html) remain separately identifiable; no parallel fit is counted as a new experiment
+in this session. H31-B's original promote flag is **not** reproduced, endorsed or imported as selector approval here.
+Different truth populations/CI/buffer instruments cannot be ranked by headline DTI. No current file is approved.
 
 ## Complete owner prompt — reread at every session start
 
