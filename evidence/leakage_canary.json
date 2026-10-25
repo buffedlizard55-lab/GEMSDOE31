@@ -1,0 +1,982 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-25T20:57:04+00:00",
+  "evaluator_version": "evaluator_v2.0_protocol_v1_buffer21250m",
+  "auc_ceiling": 0.9,
+  "flagged_features_excluded": [
+    "dist_cat_km",
+    "dist_sgmc_km"
+  ],
+  "all_used_features_passed": true,
+  "features": [
+    {
+      "index": 0,
+      "feature": "mag_anom",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.50111,
+        "unsigned_auc": 0.50111,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.50086,
+        "unsigned_auc": 0.50086,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 1,
+      "feature": "rtp",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.51054,
+        "unsigned_auc": 0.51054,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.51415,
+        "unsigned_auc": 0.51415,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 2,
+      "feature": "tmi_hg",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.53082,
+        "unsigned_auc": 0.53082,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.47535,
+        "unsigned_auc": 0.52465,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 3,
+      "feature": "geod_2ndinv",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.56307,
+        "unsigned_auc": 0.56307,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.47772,
+        "unsigned_auc": 0.52228,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 4,
+      "feature": "iso_grav_anom_slope",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.5312,
+        "unsigned_auc": 0.5312,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.42264,
+        "unsigned_auc": 0.57736,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 5,
+      "feature": "tc",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.44229,
+        "unsigned_auc": 0.55771,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.36429,
+        "unsigned_auc": 0.63571,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 6,
+      "feature": "geod_shearrate",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.56065,
+        "unsigned_auc": 0.56065,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.47293,
+        "unsigned_auc": 0.52707,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 7,
+      "feature": "geod_dilaterate",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.52979,
+        "unsigned_auc": 0.52979,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.4277,
+        "unsigned_auc": 0.5723,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 8,
+      "feature": "tmi_vg",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.48445,
+        "unsigned_auc": 0.51555,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.50235,
+        "unsigned_auc": 0.50235,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 9,
+      "feature": "deq_n100a15",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.54691,
+        "unsigned_auc": 0.54691,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.48239,
+        "unsigned_auc": 0.51761,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 10,
+      "feature": "iso_grav_anom_vg",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.52438,
+        "unsigned_auc": 0.52438,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.46736,
+        "unsigned_auc": 0.53264,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 11,
+      "feature": "det_elev",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.50088,
+        "unsigned_auc": 0.50088,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.71181,
+        "unsigned_auc": 0.71181,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 12,
+      "feature": "iso_grav_anom",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.47353,
+        "unsigned_auc": 0.52647,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.60025,
+        "unsigned_auc": 0.60025,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 13,
+      "feature": "tmi",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.49921,
+        "unsigned_auc": 0.50079,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.52188,
+        "unsigned_auc": 0.52188,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 14,
+      "feature": "depth_to_base_surf",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.51434,
+        "unsigned_auc": 0.51434,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.34137,
+        "unsigned_auc": 0.65863,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 15,
+      "feature": "ieq_n100a15",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.5639,
+        "unsigned_auc": 0.5639,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.47763,
+        "unsigned_auc": 0.52237,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 16,
+      "feature": "cond_surf",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.49233,
+        "unsigned_auc": 0.50767,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.50627,
+        "unsigned_auc": 0.50627,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 17,
+      "feature": "iso_grav_anom_hg",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.50308,
+        "unsigned_auc": 0.50308,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.49972,
+        "unsigned_auc": 0.50028,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 18,
+      "feature": "det_elev_slope",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.5725,
+        "unsigned_auc": 0.5725,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.75707,
+        "unsigned_auc": 0.75707,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 19,
+      "feature": "ex_max",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.58743,
+        "unsigned_auc": 0.58743,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.73188,
+        "unsigned_auc": 0.73188,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 20,
+      "feature": "ex_mean",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.57256,
+        "unsigned_auc": 0.57256,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.73469,
+        "unsigned_auc": 0.73469,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 21,
+      "feature": "step_max",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.59253,
+        "unsigned_auc": 0.59253,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.75281,
+        "unsigned_auc": 0.75281,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 22,
+      "feature": "lapneg_max",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.59673,
+        "unsigned_auc": 0.59673,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.74617,
+        "unsigned_auc": 0.74617,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 23,
+      "feature": "lappos_max",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.60187,
+        "unsigned_auc": 0.60187,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.75615,
+        "unsigned_auc": 0.75615,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 24,
+      "feature": "downface_max",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.56599,
+        "unsigned_auc": 0.56599,
+        "leakage_flagged": false,
+        "n_eval": 519003
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.71049,
+        "unsigned_auc": 0.71049,
+        "leakage_flagged": false,
+        "n_eval": 519003
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 25,
+      "feature": "upface_max",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.57496,
+        "unsigned_auc": 0.57496,
+        "leakage_flagged": false,
+        "n_eval": 519003
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.69848,
+        "unsigned_auc": 0.69848,
+        "leakage_flagged": false,
+        "n_eval": 519003
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 26,
+      "feature": "cross_max",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.56029,
+        "unsigned_auc": 0.56029,
+        "leakage_flagged": false,
+        "n_eval": 519003
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.72318,
+        "unsigned_auc": 0.72318,
+        "leakage_flagged": false,
+        "n_eval": 519003
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 27,
+      "feature": "relief",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.59369,
+        "unsigned_auc": 0.59369,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.7774,
+        "unsigned_auc": 0.7774,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 28,
+      "feature": "coh100",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.48185,
+        "unsigned_auc": 0.51815,
+        "leakage_flagged": false,
+        "n_eval": 624615
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.4806,
+        "unsigned_auc": 0.5194,
+        "leakage_flagged": false,
+        "n_eval": 624615
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 29,
+      "feature": "strike",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.51181,
+        "unsigned_auc": 0.51181,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.49322,
+        "unsigned_auc": 0.50678,
+        "leakage_flagged": false,
+        "n_eval": 626498
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 30,
+      "feature": "valid",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.49996,
+        "unsigned_auc": 0.50004,
+        "leakage_flagged": false,
+        "n_eval": 626706
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.49963,
+        "unsigned_auc": 0.50037,
+        "leakage_flagged": false,
+        "n_eval": 626706
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 31,
+      "feature": "K",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.43776,
+        "unsigned_auc": 0.56224,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.34245,
+        "unsigned_auc": 0.65755,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 32,
+      "feature": "Th",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.44916,
+        "unsigned_auc": 0.55084,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.42964,
+        "unsigned_auc": 0.57036,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 33,
+      "feature": "U",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.46734,
+        "unsigned_auc": 0.53266,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.37984,
+        "unsigned_auc": 0.62016,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 34,
+      "feature": "TC",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.44256,
+        "unsigned_auc": 0.55744,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.36406,
+        "unsigned_auc": 0.63594,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 35,
+      "feature": "ThK",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.48584,
+        "unsigned_auc": 0.51416,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.53911,
+        "unsigned_auc": 0.53911,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 36,
+      "feature": "UK",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.5277,
+        "unsigned_auc": 0.5277,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.54937,
+        "unsigned_auc": 0.54937,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 37,
+      "feature": "UTh",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.53766,
+        "unsigned_auc": 0.53766,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.50586,
+        "unsigned_auc": 0.50586,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 38,
+      "feature": "TMI_up150",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.50214,
+        "unsigned_auc": 0.50214,
+        "leakage_flagged": false,
+        "n_eval": 848431
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.54469,
+        "unsigned_auc": 0.54469,
+        "leakage_flagged": false,
+        "n_eval": 848431
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 39,
+      "feature": "mean_k_500m",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.43745,
+        "unsigned_auc": 0.56255,
+        "leakage_flagged": false,
+        "n_eval": 849004
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.34074,
+        "unsigned_auc": 0.65926,
+        "leakage_flagged": false,
+        "n_eval": 849004
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 40,
+      "feature": "upface_minus_downface",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.49314,
+        "unsigned_auc": 0.50686,
+        "leakage_flagged": false,
+        "n_eval": 519003
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.46905,
+        "unsigned_auc": 0.53095,
+        "leakage_flagged": false,
+        "n_eval": 519003
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 41,
+      "feature": "th_minus_k",
+      "kind": "prepared_band",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.53307,
+        "unsigned_auc": 0.53307,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.64981,
+        "unsigned_auc": 0.64981,
+        "leakage_flagged": false,
+        "n_eval": 848746
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 42,
+      "feature": "dist_cat_km",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.0,
+        "unsigned_auc": 1.0,
+        "leakage_flagged": true,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.49635,
+        "unsigned_auc": 0.50365,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": true
+    },
+    {
+      "index": 43,
+      "feature": "dist_sgmc_km",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.33836,
+        "unsigned_auc": 0.66164,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.00193,
+        "unsigned_auc": 0.99807,
+        "leakage_flagged": true,
+        "n_eval": 849011
+      },
+      "leakage_flagged": true
+    },
+    {
+      "index": 44,
+      "feature": "dist_vent_km",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.46695,
+        "unsigned_auc": 0.53305,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.41904,
+        "unsigned_auc": 0.58096,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 45,
+      "feature": "dist_probe_km",
+      "kind": "prepared_band",
+      "used_in_h31b": false,
+      "cat_holdout_auc": {
+        "signed_auc": 0.48609,
+        "unsigned_auc": 0.51391,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.54826,
+        "unsigned_auc": 0.54826,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 46,
+      "feature": "H31_B1",
+      "kind": "engineered_hypothesis_surface",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.594,
+        "unsigned_auc": 0.594,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.74015,
+        "unsigned_auc": 0.74015,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 47,
+      "feature": "H31_B2",
+      "kind": "engineered_hypothesis_surface",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.51465,
+        "unsigned_auc": 0.51465,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.65405,
+        "unsigned_auc": 0.65405,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 48,
+      "feature": "H31_B3",
+      "kind": "engineered_hypothesis_surface",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.55687,
+        "unsigned_auc": 0.55687,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.67042,
+        "unsigned_auc": 0.67042,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 49,
+      "feature": "H31_B4",
+      "kind": "engineered_hypothesis_surface",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.65177,
+        "unsigned_auc": 0.65177,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.51481,
+        "unsigned_auc": 0.51481,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    },
+    {
+      "index": 50,
+      "feature": "S_H31",
+      "kind": "engineered_hypothesis_surface",
+      "used_in_h31b": true,
+      "cat_holdout_auc": {
+        "signed_auc": 0.61514,
+        "unsigned_auc": 0.61514,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "off_sgmc_holdout_auc": {
+        "signed_auc": 0.72142,
+        "unsigned_auc": 0.72142,
+        "leakage_flagged": false,
+        "n_eval": 849011
+      },
+      "leakage_flagged": false
+    }
+  ]
+}

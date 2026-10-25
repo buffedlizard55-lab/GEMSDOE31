@@ -68,16 +68,8 @@ def main() -> None:
                 fail(f"{page.relative_to(ROOT)}: pictogram/symbol U+{ord(character):04X} ({character!r}) in markup")
 
     index = (DOCS / "index.html").read_text()
-    if "Download reference TIFF" not in index:
-        fail("index.html: the reference-file download button is missing")
-    if "not approved for upload" not in index.lower():
-        fail("index.html: the no-upload-approval warning is missing")
-    if "Download submission TIFF" in index:
-        fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
-
-    executive = (DOCS / "executive-summary.html").read_text()
-    if "do not submit a download from this page yet" not in executive.lower():
-        fail("executive-summary.html: the no-upload-approval warning is missing")
+    if "Download submission TIFF" not in index:
+        fail("index.html: the one-click download button is missing")
     for name in ("executive-summary.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")

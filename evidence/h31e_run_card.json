@@ -78,5 +78,17 @@
  },
  "verdict": "negative",
  "experiments_used": "3 of 3 (EXP-1 canary/screen, EXP-2 holdout screen+confirm, EXP-3 final emission/build)",
- "organizer_confirmed_score": null
+ "organizer_confirmed_score": null,
+ "post_merge_uniqueness_vs_h31b_2026-10-25": {
+  "note": "computed during PR #13 merge against the two H31-B rasters that landed on main the same day (not in the original 4-raster registry)",
+  "gemsdoe31-h31b-scarp-hessian-20261025-37654": {
+   "within_3px_fraction": 0.2322,
+   "exact_intersection": 600
+  },
+  "gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654": {
+   "within_3px_fraction": 0.3153,
+   "exact_intersection": 1236
+  },
+  "within_limits": true
+ }
 }

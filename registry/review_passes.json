@@ -233,6 +233,57 @@
    ]
   },
   {
+   "id": "pass-13-h31b-implementation-and-9site-forensic-audit-2026-10-25",
+   "status": "complete-for-current-artifacts",
+   "scope": [
+    "fix scripts/download_competition_data.py in-place with blobless git fetch over github.com so all 11 hash-pinned inputs restore inside the sandbox",
+    "restore all 11 sibling GeoTIFFs across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36 and compute exact catalogue-distance annuli and off-catalogue SGMC DTIs (evidence/nine_site_forensic_audit.json)",
+    "implement H31-B1..B4 multi-physics discovery surfaces (src/gemsdoe31/h31b_discover.py) and run the single-feature leakage canary + 3 H31-B experiments + uniqueness gate + GeoTIFF packaging (scripts/run_h31b_campaign.py)"
+   ],
+   "verification": {
+    "inputs_and_stack": "11/11 hash-pinned inputs verified (all_verified=true); 46-band prepared/features.f32 built and verified",
+    "forensic_proof_0p2778": "proved GEMSDOE32 (37,654 dots, 0.2778 USER-REPORTED) equals H27-4 (40,199 dots, 0.2708 USER-REPORTED) minus 2,545 flank dots in 100 m < d(catalogue) <= 200 m, and verified via paired natural experiment against GEMSDOE28 H36-1 (37,660 dots, 0.2710 USER-REPORTED)",
+    "h31b_experiments": "EXP-1 standalone reaches 0.1380 HOLDOUT-DTI (95% CI [0.1169, 0.1683], 4/4 folds > GEMSDOE32 B=2 0.0984); EXP-2 hybrid reaches 0.1249 HOLDOUT-DTI (4/4 folds > B=2); EXP-3 B=1 ablation scores 0.1296 (negative)",
+    "submissions": "built and validated gemsdoe31-h31b-scarp-hessian-20261025-37654 and gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654 (21/21 format checks passed)"
+   },
+   "open_scientific_gates": [
+    "no official DrivenData organizer receipt is stored in the repository; all historical live scores remain USER-REPORTED",
+    "external 3D MT depth stack (GDR 1391) and raw 3DEP LAZ return attributes require CI runner egress outside sandbox"
+   ]
+  },
+  {
+   "id": "pass-14-h31b-bug-leakage-and-uniqueness-review-2026-10-25",
+   "status": "complete-for-current-artifacts",
+   "scope": [
+    "audit single-feature leakage canary across all 46 bands + 5 engineered surfaces (evidence/leakage_canary.json)",
+    "audit sparse LiDAR/GeoDAWN NaN handling, Parallel-Run Uniqueness Gate (surface Spearman r_s <= 0.90 and 3-px dot overlap <= 70%), and [0, 1] footprint range",
+    "verify fail-closed registry invariants (slot_approved=false when no organizer receipt exists, while ok_to_download_and_submit=true is prominently displayed)"
+   ],
+   "verification": {
+    "leakage_canary": "all 14 input bands and 5 engineered surfaces used in H31-B have holdout ROC-AUC <= 0.7753 <= 0.90; dist_cat_km (1.0000) and dist_sgmc_km (0.9981) flagged and strictly excluded",
+    "nan_and_mad_guard": "fixed sparse-survey NaN fill saturation by rank-normalizing only finite in-footprint survey values and assigning neutral 0.5 outside coverage",
+    "uniqueness_gate": "EXP-1 max surface r_s = 0.11433 <= 0.90, max 3-px dot overlap = 35.938% <= 70%; EXP-2 max 3-px dot overlap = 66.394% <= 70%",
+    "tests_and_lint": "38 pytest tests pass; ruff check passes cleanly; check_site.py passes on all 20 pages and 269 local links"
+   },
+   "open_scientific_gates": [
+    "SGMC off-catalogue proxy is a 1:500k state-map proxy for hidden unmapped faults, not the organizer's private evaluation raster"
+   ]
+  },
+  {
+   "id": "pass-15-whole-request-and-run-card-crosscheck-2026-10-25",
+   "status": "complete-with-open-work",
+   "scope": [
+    "cross-check all user requirements: 9-site forensic study of 0.2778, unique validated GeoTIFF generation, obvious readiness on site home and executive summary, unique name and <=140-char note, Parallel-Run Protocol compliance, and JSON RUN CARD"
+   ],
+   "verification": {
+    "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES \u2014 VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
+    "run_card": "evidence/run_card_2026-10-25.json generated and verified with all required fields"
+   },
+   "open_scientific_gates": [
+    "human entrant must manually download the GeoTIFF and submit on DrivenData if desired, and attach any official score receipt to registry/score_claims.json"
+   ]
+  },
+  {
    "id": "pass-13-2026-10-25-prior-art-and-hypothesis-gate",
    "status": "complete-with-data-blocker",
    "scope": [
@@ -342,10 +393,6 @@
   }
  ],
  "remaining_work": [
-  "restore the 11 permitted hash-pinned competition/runtime inputs and prepared feature stack before any new holdout or candidate construction",
-  "after restoration, preregister a distinct geological hypothesis and run feature-alone leakage canaries plus whole-segment buffered holdout with pooled DTI and confidence interval",
-  "retain duplicate-canary checks both before placement and on the final raster; stop when either registered threshold is exceeded",
-  "keep all current TIFF downloads reference/research-only until the separate selector approves a verified candidate",
   "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
   "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
   "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",

@@ -144,3 +144,14 @@ weigh — with eyes open about the GEMSDOE36 live counterexample.
 See [`evidence/h31e_run_card.json`](../evidence/h31e_run_card.json) (single JSON, protocol §5).
 Verdict: **negative**. Submission name reserved for file identity only:
 `gemsdoe31-h31e-surfexpr-20261025-8817f551` — **DO NOT SUBMIT**.
+
+## Post-merge addendum (PR #13)
+
+While this lane ran, a parallel session landed the **H31-B campaign** on `main` (PRs #10–#12),
+including a primary candidate its own gates mark OK TO SUBMIT. Merging #13 therefore required
+union-merging the generators and registers (no lane's artifacts or verdicts were altered). Two
+extra computed facts from the merge: H31-E dots are also lane-unique vs the two H31-B rasters
+(23.2% and 31.5% within 3 px; run card updated), and the two lanes use **different holdout
+instruments** (H31-E: catalogue-gap whole-component hide-and-recover; H31-B: off-catalogue SGMC
+4-block), so their HOLDOUT-DTI values are not cross-comparable. Which file, if any, spends a
+weekly slot is the separate selector step; H31-E's own verdict remains **negative**.
