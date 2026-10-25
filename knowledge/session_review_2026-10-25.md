@@ -32,6 +32,8 @@ The comparison crosses outside-footprint conventions only after masking to the f
 
 SHA-256 of the inspected owner-mirror H33-2-B2 `-zeros.tif`: `c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9`. This hash identifies only the bytes in the inspected public GitHub archive; it does not authenticate a competition upload or receipt.
 
+**Format irregularity:** the inspected `-zeros.tif` has a finite zero at every cell outside the locally recorded footprint, no NaNs, and no nodata tag. The official problem page cited in `registry/sources.json` specifies null/NaN outside the bounds. This owner-mirror file therefore does not follow the recorded official outside-footprint convention. The sample template is absent from this workspace, so an exact-format revalidation could not be performed here; the owner’s own byte receipt is not organizer acceptance. This is logged as `IR-31-H33-ZERO-OUTSIDE`.
+
 ## Candidate hypotheses to consider after runtime restoration
 
 These are **desk-only, unfit hypotheses** already documented as prior-art boundaries in the GEMSDOE31 research register. They are not new results or approved slot ideas. Rank is value-for-effort, not a numerical score forecast. All candidate-derived channels must pass a feature-alone leakage canary and the exact holdout procedure before any emission is made.

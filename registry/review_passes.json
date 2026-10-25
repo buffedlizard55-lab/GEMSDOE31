@@ -246,12 +246,14 @@
     "score_claim": "prompt value 0.2778 retained as USER-REPORTED; inspected owner-mirror submission metadata says UNSCORED; no organizer receipt linked to exact bytes",
     "duplicate_screen": "against the local H27-4 finite footprint, Spearman rho 0.967587, 100% of H33 positive cells within 3 px, all 37,654 positives exactly shared; duplicate gate exceeded and logged as IR-31-H33-2-B2-DUPLICATE",
     "hypotheses": "four distinct desk-only candidates documented; none fitted, none declared viable because runtime rasters/cache are absent",
-    "holdout_audit": "Inspected GEMSDOE32 H33-2 code path creates the catalogue-flank mask from full labels before fixed-mask holdout scoring; this does not satisfy fold-visible catalogue processing and is logged as IR-31-H33-B2-HOLDOUT-LABEL-LEAKAGE."
+    "holdout_audit": "Inspected GEMSDOE32 H33-2 code path creates the catalogue-flank mask from full labels before fixed-mask holdout scoring; this does not satisfy fold-visible catalogue processing and is logged as IR-31-H33-B2-HOLDOUT-LABEL-LEAKAGE.",
+    "format_audit": "Inspected H33 -zeros GeoTIFF is finite zero outside the local footprint, has no nodata tag, and conflicts with the official null/NaN outside convention; logged as IR-31-H33-ZERO-OUTSIDE."
    },
    "open_gates": [
     "all 11 hash-pinned manifest inputs are absent from this checkout; no feature-alone leakage canary or spatial holdout possible",
     "no new candidate TIFF, submission metadata, holdout DTI/CI, or organizer-confirmed score",
-    "the owner-mirror H33 holdout procedure cannot stand in for the requested hide-and-recover evaluator"
+    "the owner-mirror H33 holdout procedure cannot stand in for the requested hide-and-recover evaluator",
+    "the H33 zeros file was not validated against an organizer sample template and does not follow the recorded outside-footprint convention"
    ]
   },
   {
@@ -293,7 +295,8 @@
    "remaining_risks": [
     "no feature stack or competition data in workspace prevents model fitting, whole-segment hide-and-recover evaluation, leakage canaries, or confidence intervals",
     "the 0.2778 user claim has no organizer receipt in inspected archive and cannot be verified without a receipt supplied from a submission-page result",
-    "owner-mirror previous experiments and scores do not establish official competition performance"
+    "owner-mirror previous experiments and scores do not establish official competition performance",
+    "the inspected GEMSDOE32 all-finite zeros raster conflicts with the official outside-footprint null/NaN convention; no organizer receipt or sample-template revalidation was available"
    ]
   }
  ],
