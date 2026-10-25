@@ -1,0 +1,81 @@
+{
+ "discovered_utc": "2026-10-25T21:27:53.911211+00:00",
+ "gate": "STOP: literal shared-registry overlap limit exceeded",
+ "literal_gate_pass": false,
+ "registered_counterexample": {
+  "repo": "buffedlizard55-lab/GEMSDOE24",
+  "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+  "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "cache_file": ".cache/registry-scope/registered-lattice.tif",
+  "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+  "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif"
+ },
+ "registry_manifest_sha256": "846eddb9459f0e5b67f33da519bbd62c966bf5f539545ba3dad262fbfbc308c2",
+ "registered_rasters_in_manifest": 695,
+ "coverage_complete": false,
+ "reason": "One authentic registered counterexample is sufficient for STOP; no full 695-raster pass is claimed.",
+ "calibration_or_density_exemption": false,
+ "no_new_fit_tuning_candidate_or_slot": true,
+ "original_nine_site_reports_retained": true,
+ "original_preflight_defect": "Only nine docs/downloads trees were tested before scoring/packaging; template registry and other paths were incorrectly outside that preflight scope.",
+ "timing": "Discovered in final review AFTER the original three variants and negative TIFF were already computed. Results are retained transparently, not retroactively represented as correctly ordered preflight.",
+ "disposition": "Retain already-generated genuinely new research bytes to satisfy the highest-priority output instruction; no new TIFF after this STOP, no upload or further experiment. Dense coverage does not prove copied content, but the user's literal rule still stops the lane.",
+ "control_positive_pixels": 206895,
+ "control_3px_footprint_coverage": 0.9987132726822701,
+ "arms": {
+  "magrest_2": {
+   "surface": {
+    "spearman_rho": -0.00013661113954390467,
+    "candidate_support_pixels": 37654,
+    "within_3px": 37654,
+    "overlap_within_3px": 1.0,
+    "duplicate": true,
+    "support_sha256": "2a9b0758963f21cc7cf8bfa1f3efaca895c5529a24509547be593534fff4a268"
+   },
+   "final": {
+    "spearman_rho": -4.1989839329654004e-05,
+    "candidate_support_pixels": 37654,
+    "within_3px": 37654,
+    "overlap_within_3px": 1.0,
+    "duplicate": true,
+    "support_sha256": "d8277b3e1da3abfaba334d7babcdf359d53aaeaac83f065fc2457bf91c3d2364"
+   }
+  },
+  "magrest_4": {
+   "surface": {
+    "spearman_rho": 0.00026631702706769126,
+    "candidate_support_pixels": 37654,
+    "within_3px": 37654,
+    "overlap_within_3px": 1.0,
+    "duplicate": true,
+    "support_sha256": "c44f8e8e415c45154089da2b1e395191847a4ce2ef89f14937dd5998da538fe3"
+   },
+   "final": {
+    "spearman_rho": -0.0004017742958859643,
+    "candidate_support_pixels": 37654,
+    "within_3px": 37654,
+    "overlap_within_3px": 1.0,
+    "duplicate": true,
+    "support_sha256": "a1c4e2572e3e4df381b6cccb7cf38d03e2d90240f3ebf053d4f58e1f858f63e6"
+   }
+  },
+  "magrest_concordant": {
+   "surface": {
+    "spearman_rho": 0.00021244973679571678,
+    "candidate_support_pixels": 37654,
+    "within_3px": 37654,
+    "overlap_within_3px": 1.0,
+    "duplicate": true,
+    "support_sha256": "40a2ad0adc1aedeb078589b7768a3fa1d70ccb18caa75483d95f732bdb22f5e9"
+   },
+   "final": {
+    "spearman_rho": 0.0005267017210338992,
+    "candidate_support_pixels": 37654,
+    "within_3px": 37654,
+    "overlap_within_3px": 1.0,
+    "duplicate": true,
+    "support_sha256": "2c800a59ffe558c16f45e32b00eceb504fbd7d9810013662924dba0191107e03"
+   }
+  }
+ }
+}

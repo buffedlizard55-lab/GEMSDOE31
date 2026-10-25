@@ -1,0 +1,14 @@
+{
+ "evidence_class": "REGISTRY-MEASUREMENT",
+ "witness_file": "/home/user/GEMSDOE31/data/prior_audit/GEMSDOE48/docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+ "witness_sha256": "59ef8e7d8374e228bc1e41376f03fc67dd5b8a5e6804885a1ae802f399140b89",
+ "positive_pixels": 5167373,
+ "allowed_pixels": 5167373,
+ "uncovered_allowed_pixels": 0,
+ "covered_allowed_fraction": 1.0,
+ "universal_overlap_blocker": true,
+ "overlap_limit": 0.7,
+ "support_definition": "finite prediction > 0 (inherited literal support rule)",
+ "implication": "Every nonempty candidate dot set in the allowed domain has forward overlap 1.0 with this prior; therefore it cannot pass the 0.70 gate.",
+ "source_repo": "buffedlizard55-lab/GEMSDOE48"
+}

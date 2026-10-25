@@ -1,0 +1,51 @@
+{
+ "evidence_class": "ARITHMETIC-UNIT-TEST-NOT-PERFORMANCE",
+ "date_utc": "2026-10-25",
+ "fixture": {
+  "shape": [
+   12,
+   12
+  ],
+  "prediction_cells": [
+   [
+    5,
+    5
+   ],
+   [
+    5,
+    6
+   ]
+  ],
+  "truth_cells": [
+   [
+    5,
+    5
+   ]
+  ]
+ },
+ "canonical_shared57": {
+  "tp": 1.0,
+  "fp": 0.33333333333333326,
+  "fn": 0.0,
+  "n_truth": 1,
+  "n_emitted": 2,
+  "dti": 0.937499999999121,
+  "coverage": 1.0
+ },
+ "original_gems32_live_mirror": {
+  "dti": 0.7692307692303254,
+  "tp_w": 1.3333333333333335,
+  "tp_p": 1.0,
+  "tp_g": 1.6666666666666667,
+  "n_p": 2,
+  "n_g": 1
+ },
+ "instrument_not_equivalent": true,
+ "source_repo": "buffedlizard55-lab/GEMSDOE32",
+ "source_commit": "012e17b2a115c3c0d5e7885bea625bf9657c99fc",
+ "source_hashes": {
+  "live_mirror.py": "5e8bc74cb70de59e3e38eedce8395ccaa7017d4e2a6edd3fa9f2690d65e69bac",
+  "metric.py": "74266e75e9aee763764cb9a495bda52a459ee56ef83abeeb63437c8261c1bb5e"
+ },
+ "limitation": "Synthetic arithmetic counterexample only: no geological result, no holdout score, no organizer-confirmed performance."
+}
