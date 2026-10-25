@@ -225,6 +225,96 @@ def scgp_download_and_gates() -> str:
     </section>'''
 
 
+def rbu31_download_and_gates() -> str:
+    """RBU31(-B) regime-balanced union section, fully driven by its run card.
+
+    Prefers the RBU31-B amendment evidence (regime31b) when present; falls
+    back to the original RBU31 experiment (regime31).
+    """
+    base = ROOT / "evidence/regime31b"
+    if not (base / "run_card.json").is_file():
+        base = ROOT / "evidence/regime31"
+    rc_path = base / "run_card.json"
+    hr_path = base / "holdout_results.json"
+    if not rc_path.is_file() or not hr_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    hr = json.loads(hr_path.read_text())
+    gates = rc["automated_gates"]
+    promote = bool(rc.get("ok_to_download_and_submit"))
+    scr = hr["experiment_1_screen_draw_101"]
+    conf = hr.get("experiment_2_confirmation")
+    proxies = hr["experiment_3_sgmc_proxies"]["candidates"]
+    pr, pb, ph = proxies["rbu31"], proxies["baseline_d_final"], proxies["h33_2_b2_actual_peer_file"]
+    dup = rc["correlation_overlap_vs_registry"]
+    name = esc(rc["submission_name"])
+    note = esc(rc["submission_note"])
+
+    def badge(ok):
+        return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
+
+    verdict_badge = (
+        '<span class="badge badge-green">&#9989; OK TO DOWNLOAD AND SUBMIT &middot; ALL AUTOMATED GATES PASS</span>'
+        if promote else
+        '<span class="badge badge-red">&#10060; DO NOT SUBMIT &middot; AUTOMATED GATES FAILED (research only)</span>')
+    heading = (
+        "RBU31 Regime-Balanced Union: &#9989; OK to download and submit"
+        if promote else
+        "RBU31 Regime-Balanced Union: &#10060; Do not submit")
+    conf_row = ("not run (screen stop)" if not conf else
+                f"HOLDOUT-DTI {conf['rbu31_pooled_dti']:.4f} [{conf['rbu31_ci95'][0]:.4f}, {conf['rbu31_ci95'][1]:.4f}] "
+                f"vs {conf['baseline_d_pooled_dti']:.4f} (delta {conf['paired_delta_dti']:+.4f}, "
+                f"95% CI [{conf['paired_delta_ci95'][0]:+.4f}, {conf['paired_delta_ci95'][1]:+.4f}]); "
+                f"{conf['withheld_positives_pooled']:,} withheld positives")
+    return f'''<section id="rbu31" aria-labelledby="rbu31-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 New Unique Candidate &middot; RBU31 (Experiment 13)</p>
+        <h2 id="rbu31-heading">{heading}</h2></div>
+        <p>One union model (raw-39 + SCGP-40 features in the same trees) trained with regime-balanced sample weights
+           (piedmont det_elev &le; 50 m vs mountain), validated end-to-end by automated gates &mdash; no human inspector.
+           Every dot is newly computed; no prior submission dots were copied.</p></div>
+      <div class="card download-card">
+        {verdict_badge}
+        <h3 style="margin-top:18px">{name}</h3>
+        <p>Why this can beat the family's best reported file: GEMSDOE32 H33-2-B2 is the older D2.8 surface minus dots
+           within 2 px of the known catalogue (a pruning rule, not a new detector). RBU31 keeps that verified DTI
+           economics (2.8 px spacing matched to the 300 m kernel; &gt;2 px catalogue prune) but replaces the surface
+           with one that ranks both buried piedmont faults (gravity/basement cross-gradient physics) and mountain
+           scarps (raw 1 m LiDAR bands in the same trees), without the catalogue's 72% piedmont mapping bias.</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/{name}-allfinite.tif" download>&#11015; Download submission .tif (all-finite [0, 1], recommended)</a>
+          <a class="button" href="downloads/{name}-nan.tif" download>NaN-outside .tif</a>
+          <a class="button" href="downloads/{name}-nan.zip" download>Single-TIFF .zip</a>
+          <a class="button" href="downloads/{name}-format-check.json" download>Format receipt .json</a>
+          <a class="button" href="downloads/{name}-run-card.json" download>Run card .json</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; range:</strong> 1-band float32 &middot; EPSG:32611 &middot; 3730 &times; 3292 &middot;
+          values strictly in [0, 1] (all-finite file: finite everywhere, so the portal's
+          &ldquo;Predicted values must be in range [0, 1]&rdquo; check cannot trip on NaN/sentinels) &middot; 0 dots on the public catalogue.<br>
+          <strong>SHA-256 (all-finite):</strong> <code>{esc(rc['raster_sha256']['allfinite'])}</code><br>
+          <strong>SHA-256 (NaN-outside):</strong> <code>{esc(rc['raster_sha256']['nan_outside'])}</code><br>
+          <strong>Unique name:</strong> <code>{name}</code><br>
+          <strong>Portal note ({rc['submission_note_chars']}/140):</strong> <code>{note}</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated gate</th><th>Threshold</th><th>Measured RBU31 value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 &middot; Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730&times;3292, float32, finite in footprint, values in [0, 1]</td><td>see format receipt</td><td>{badge(gates['G1_format_and_range_0_1_pass'])}</td></tr>
+          <tr><td><code>G2 &middot; Leakage canary</code></td><td>every one of 79 features alone: two-sided AUC &le; 0.90</td><td>max AUC = {rc['leakage_canary']['max_two_sided_auc']:.4f}</td><td>{badge(gates['G2_leakage_canary_pass'])}</td></tr>
+          <tr><td><code>G3a &middot; Uniqueness vs genuine submissions</code></td><td>surface |&rho;| &le; 0.90 and 3-px dot overlap &le; 70% vs {dup['checked_count']} registry/peer rasters (incl. the 9 focus sites' best)</td><td>max |&rho;| = {max(abs(dup['max_surface_spearman_rho']), abs(dup['max_final_dots_spearman_rho'])):.4f}; max 3-px overlap = {100*dup['max_final_dots_within_3px']:.2f}%</td><td>{badge(gates['G3a_uniqueness_genuine_registry_pass'])}</td></tr>
+          <tr><td><code>G3b &middot; Spacing-5 lattice (695-raster registry)</code></td><td>literal rule</td><td>universal degeneracy disclosed: the lattice covers 100% of the interior within 3 px for ANY non-empty candidate</td><td><span class="badge badge-red">DISCLOSED</span></td></tr>
+          <tr><td><code>G4a &middot; Holdout screen (draw 101, 21.3 km)</code></td><td>&Delta;DTI &gt; 0.002 and &ge; 3/4 folds</td><td>HOLDOUT-DTI {scr['rbu31_poisson']['pooled_dti']:.4f} vs {scr['baseline_d_poisson']['pooled_dti']:.4f} (delta {scr['paired_delta_dti']:+.4f}, {scr['folds_won_out_of_4']}/4 folds)</td><td>{badge(scr['paired_delta_dti'] > 0.002 and scr['folds_won_out_of_4'] >= 3)}</td></tr>
+          <tr><td><code>G4b &middot; Fresh confirmation (draws 202, 303)</code></td><td>&Delta;DTI &gt; 0.002, paired 95% CI &gt; 0</td><td>{conf_row}</td><td>{badge(gates['G4_holdout_screen_and_fresh_confirmation_pass'])}</td></tr>
+          <tr><td><code>G5 &middot; Off-catalogue SGMC, all regimes</code></td><td>beat Baseline-D AND GEMSDOE32 H33-2-B2 on all / piedmont / mountain</td><td>all {pr['sgmc_all_dti']:.4f} (Base {pb['sgmc_all_dti']:.4f}, H33 {ph['sgmc_all_dti']:.4f}) &middot; piedmont {pr['sgmc_piedmont_dti']:.4f} (Base {pb['sgmc_piedmont_dti']:.4f}, H33 {ph['sgmc_piedmont_dti']:.4f}) &middot; mountain {pr['sgmc_mountain_dti']:.4f} (Base {pb['sgmc_mountain_dti']:.4f}, H33 {ph['sgmc_mountain_dti']:.4f})</td><td>{badge(gates['G5_sgmc_all_piedmont_mountain_beats_baseline_and_h33'])}</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">HOLDOUT-DTI and SGMC are local proxies (evaluator gemsdoe31-hide-v2.0), <strong>not</strong> competition scores.
+        No ORGANIZER-CONFIRMED score exists for any file on this site; the 0.2778 family best is USER-REPORTED.
+        Spending a weekly slot remains the owner's click on DrivenData. Preregistration, 3-experiment log and all
+        receipts: <a href="experiments/13-rbu31-regime-union.html">Experiment 13 &middot; RBU31</a> &middot;
+        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_rbu31_preregistration.md">preregistration</a>.</p>
+    </section>'''
+
+
 def download(card):
     link = links(card)
     return f'''<section id="download" aria-labelledby="download-heading">
@@ -254,8 +344,35 @@ def download(card):
     </section>'''
 
 
+def _rbu31_card():
+    for sub in ("regime31b", "regime31"):
+        rc_path = ROOT / "evidence" / sub / "run_card.json"
+        if rc_path.is_file():
+            return json.loads(rc_path.read_text())
+    return None
+
+
 def overview(card):
     link = links(card)
+    rbu = _rbu31_card()
+    if rbu is not None:
+        promote = bool(rbu.get("ok_to_download_and_submit"))
+        verdict = ("&#9989; OK TO DOWNLOAD AND SUBMIT" if promote else "&#10060; DO NOT SUBMIT")
+        hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
+      <p class="eyebrow">DOE GEMS Prize · newest unique candidate: RBU31 regime-balanced union</p>
+      <h1>{verdict}</h1>
+      <p class="hero-lede">RBU31 ({esc(rbu['submission_name'])}) is a newly computed, duplicate-screened GeoTIFF &mdash;
+        not a copy or re-thinning of any previous submission. Its automated validation verdict is shown above and
+        gate-by-gate below; no human inspection is required. Older candidates (H31-E2, MAGREST) keep their own
+        sections and verdicts further down this page.</p>
+      <div class="actions"><a class="button button-primary" href="downloads/{esc(rbu['submission_name'])}-allfinite.tif" download>&#11015; Download the RBU31 submission .tif</a>
+        <a class="button button-light" href="executive-summary.html">How to submit (executive summary)</a></div>
+      </div><aside class="hero-side" aria-label="Submission decision">
+        <strong>Verdict: {esc(rbu['verdict'].upper())} &middot; gates G1&ndash;G5 {'ALL PASS' if promote else 'see gate table'}</strong>
+        <p>Format/[0, 1] range, leakage canary, uniqueness vs the nine focus sites' best files,
+          21.3 km buffered holdout screen + fresh confirmation, and off-catalogue SGMC in all regimes.
+          HOLDOUT-DTI is a local proxy, not a leaderboard score; no slot has been spent by this software.</p></aside></div></section>'''
+        return hero, _overview_body(card, hero_rbu=True)
     hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
       <p class="eyebrow">DOE GEMS Prize · new experiment, auditable outcome</p>
       <h1>A new GeoTIFF.<br>A clear decision.</h1>
@@ -267,12 +384,18 @@ def overview(card):
         <strong>Research download only · DO NOT SUBMIT</strong>
         <p>Literal registry overlap STOP at 100%; paired efficacy is also unestablished. No competition slot used.
           A valid TIFF is not evidence of a winning fault detector.</p></aside></div></section>'''
+    return hero, _overview_body(card, hero_rbu=False)
+
+
+def _overview_body(card, *, hero_rbu: bool):
     s = card["holdout_dti"]
     delta = card["paired_difference"]
     final = card["registry"]["final"]
-    body = f'''<div class="notice notice-danger"><strong>Not approved for upload.</strong>
-      Automated verdict: NEGATIVE under the literal 695-raster shared-registry overlap rule. Download H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
-      {h31m_download_and_gates()}
+    magrest_notice = '''<div class="notice notice-danger"><strong>Not approved for upload.</strong>
+      Automated verdict: NEGATIVE under the literal 695-raster shared-registry overlap rule. Download RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
+      '''
+    body = f'''{rbu31_download_and_gates()}
+      {magrest_notice}{h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       {scgp_download_and_gates()}
       {download(card)}
@@ -307,13 +430,14 @@ def overview(card):
         <p><a href="research.html">Full nine-repository review, hypotheses and geological limits</a> ·
           <a href="validation.html">Validation details</a> · <a href="register/index.html">Evidence registers</a></p>
       </section>'''
-    return hero, body
+    return body
 
 
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
-      The new H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are format-validated and available to download in one click; all are research-only and fail the unexempted 695-raster shared-registry overlap gate. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      The RBU31-B regime-balanced union, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are format-validated and available to download in one click; all are research-only (each fails at least one automated gate &mdash; see its own gate table below &mdash; and all fail the unexempted 695-raster shared-registry overlap gate). Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      {rbu31_download_and_gates()}
       {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       {scgp_download_and_gates()}

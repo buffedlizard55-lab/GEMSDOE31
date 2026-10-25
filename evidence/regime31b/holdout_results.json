@@ -1,0 +1,315 @@
+{
+ "candidate": "RBU31-B locally-standardized regime-balanced union (raw39 + SCGP40)",
+ "variant": "local",
+ "preregistration": "knowledge/2026-10-25_rbu31b_amendment_preregistration.md",
+ "evaluator_version": "gemsdoe31-hide-v2.0",
+ "generated_utc": "2026-10-25T23:21:16Z",
+ "experiments_budget": 3,
+ "fold_training": [
+  {
+   "fold": "NW",
+   "train_positives": 43324,
+   "train_negatives_sampled": 120000,
+   "pos_piedmont": 32082,
+   "pos_mountain": 11165,
+   "fit_seconds": 48.7
+  },
+  {
+   "fold": "NE",
+   "train_positives": 45775,
+   "train_negatives_sampled": 120000,
+   "pos_piedmont": 31854,
+   "pos_mountain": 13844,
+   "fit_seconds": 66.8
+  },
+  {
+   "fold": "SW",
+   "train_positives": 27574,
+   "train_negatives_sampled": 120000,
+   "pos_piedmont": 19507,
+   "pos_mountain": 8030,
+   "fit_seconds": 47.3
+  },
+  {
+   "fold": "SE",
+   "train_positives": 36251,
+   "train_negatives_sampled": 120000,
+   "pos_piedmont": 26487,
+   "pos_mountain": 9702,
+   "fit_seconds": 49.3
+  }
+ ],
+ "union_features": [
+  "raw::mag_anom",
+  "raw::rtp",
+  "raw::tmi_hg",
+  "raw::geod_2ndinv",
+  "raw::iso_grav_anom_slope",
+  "raw::tc",
+  "raw::geod_shearrate",
+  "raw::geod_dilaterate",
+  "raw::tmi_vg",
+  "raw::deq_n100a15",
+  "raw::iso_grav_anom_vg",
+  "raw::det_elev",
+  "raw::iso_grav_anom",
+  "raw::tmi",
+  "raw::depth_to_base_surf",
+  "raw::ieq_n100a15",
+  "raw::cond_surf",
+  "raw::iso_grav_anom_hg",
+  "raw::det_elev_slope",
+  "raw::ex_max",
+  "raw::ex_mean",
+  "raw::step_max",
+  "raw::lapneg_max",
+  "raw::lappos_max",
+  "raw::downface_max",
+  "raw::upface_max",
+  "raw::cross_max",
+  "raw::relief",
+  "raw::coh100",
+  "raw::strike",
+  "raw::valid",
+  "raw::K",
+  "raw::Th",
+  "raw::U",
+  "raw::TC",
+  "raw::ThK",
+  "raw::UK",
+  "raw::UTh",
+  "raw::TMI_up150",
+  "scgp::scgp_grav_base_150m",
+  "scgp::scgp_grav_base_400m",
+  "scgp::scgp_rtp_grav_200m",
+  "scgp::scgp_cond_base_300m",
+  "scgp::scgp_topo_grav_300m",
+  "scgp::scgp_lahontan_mimic_score",
+  "scgp::rtp_shallow_res_200m",
+  "scgp::rtp_mid_res_800m",
+  "scgp::rtp_laplacian_trough",
+  "scgp::rtp_tilt_angle",
+  "scgp::grav_tilt_ridge",
+  "scgp::tmi_up150_norm_diff",
+  "scgp::elev_hessian_ridge_200m",
+  "scgp::elev_hessian_ridge_500m",
+  "scgp::elev_local_relief_500m",
+  "scgp::grad_log_depth_base",
+  "scgp::k_local_anom_1km",
+  "scgp::thk_edge_grad",
+  "scgp::uth_anom",
+  "scgp::k_over_tc_anom",
+  "scgp::dist_paleo_sinter_km",
+  "scgp::dist_2m_probe_km",
+  "scgp::dist_quat_vent_km",
+  "scgp::strain_dilatation",
+  "scgp::strain_shear",
+  "scgp::strain_extensional_ratio",
+  "scgp::log_deq_density",
+  "scgp::raw_det_slope",
+  "scgp::raw_tmi_hg",
+  "scgp::raw_iso_grav_slope",
+  "scgp::raw_cond_surf",
+  "scgp::raw_tc_depth",
+  "scgp::lidar_step_coh",
+  "scgp::lidar_signed_polarity_abs",
+  "scgp::lidar_polarity_coh",
+  "scgp::lidar_laplacian_dipole",
+  "scgp::lidar_ex_max",
+  "scgp::lidar_cross_max",
+  "scgp::lidar_relief",
+  "scgp::lidar_coh100"
+ ],
+ "leakage_canary": {
+  "features_tested": 79,
+  "max_two_sided_auc": 0.611808,
+  "passed": true
+ },
+ "experiment_1_screen_draw_101": {
+  "draw": 101,
+  "withheld_segments_by_fold": [
+   197,
+   221,
+   344,
+   213
+  ],
+  "leakage_canary_summary": {
+   "features_tested": 79,
+   "max_two_sided_auc": 0.611808,
+   "passed": true
+  },
+  "baseline_d_poisson": {
+   "evaluator_version": "gemsdoe31-hide-v2.0",
+   "pooled_dti": 0.0921712554276685,
+   "ci95": [
+    0.07680232955378505,
+    0.10910299542654063
+   ],
+   "withheld_positives": 17900,
+   "withheld_segments": 975,
+   "tpw": 2019.237946219013,
+   "fpw": 35918.054176464684,
+   "fnw": 15880.762053780987,
+   "emitted_dots": 36860,
+   "per_fold": [
+    {
+     "fold": "NW",
+     "dti": 0.07343175145033726,
+     "tpw": 300.3473512591577,
+     "fpw": 8054.434859912716,
+     "withheld_positives": 3024,
+     "emitted_dots": 8202
+    },
+    {
+     "fold": "NE",
+     "dti": 0.09842228329095072,
+     "tpw": 497.8902615448163,
+     "fpw": 10063.683759338735,
+     "withheld_positives": 3683,
+     "emitted_dots": 10305
+    },
+    {
+     "fold": "SW",
+     "dti": 0.07690569689487821,
+     "tpw": 527.9950415224313,
+     "fpw": 9871.43861037827,
+     "withheld_positives": 5982,
+     "emitted_dots": 10114
+    },
+    {
+     "fold": "SE",
+     "dti": 0.11759604270070002,
+     "tpw": 693.0052918926078,
+     "fpw": 7928.496946834965,
+     "withheld_positives": 5211,
+     "emitted_dots": 8239
+    }
+   ]
+  },
+  "rbu31_poisson": {
+   "evaluator_version": "gemsdoe31-hide-v2.0",
+   "pooled_dti": 0.09910617744213443,
+   "ci95": [
+    0.08396370931401916,
+    0.11654313623172013
+   ],
+   "withheld_positives": 17900,
+   "withheld_segments": 975,
+   "tpw": 2172.6723158632467,
+   "fpw": 35840.6924580836,
+   "fnw": 15727.327684136753,
+   "emitted_dots": 36860,
+   "per_fold": [
+    {
+     "fold": "NW",
+     "dti": 0.11828937528978546,
+     "tpw": 485.9572615209895,
+     "fpw": 7959.078665436899,
+     "withheld_positives": 3024,
+     "emitted_dots": 8202
+    },
+    {
+     "fold": "NE",
+     "dti": 0.10192657008301743,
+     "tpw": 515.894539858462,
+     "fpw": 10059.272150743636,
+     "withheld_positives": 3683,
+     "emitted_dots": 10305
+    },
+    {
+     "fold": "SW",
+     "dti": 0.07255898975846069,
+     "tpw": 497.8315076246331,
+     "fpw": 9879.46334845324,
+     "withheld_positives": 5982,
+     "emitted_dots": 10114
+    },
+    {
+     "fold": "SE",
+     "dti": 0.11422132353802086,
+     "tpw": 672.9890068591621,
+     "fpw": 7942.878293449821,
+     "withheld_positives": 5211,
+     "emitted_dots": 8239
+    }
+   ]
+  },
+  "paired_delta_dti": 0.006934922014465925,
+  "paired_delta_ci95": [
+   -0.006530923441524917,
+   0.019219215490855417
+  ],
+  "folds_won_out_of_4": 2
+ },
+ "screen_pass": false,
+ "experiment_3_sgmc_proxies": {
+  "evidence_class": "COMPUTED (off-catalogue SGMC proxy; not a competition score)",
+  "truth_pixels": {
+   "all": 61664,
+   "piedmont": 23135,
+   "mountain": 38492
+  },
+  "candidates": {
+   "rbu31": {
+    "dots": 37654,
+    "sgmc_all_dti": 0.0800969869550875,
+    "sgmc_piedmont_dti": 0.12356479371977941,
+    "sgmc_mountain_dti": 0.034313777323608435
+   },
+   "baseline_d_final": {
+    "dots": 37654,
+    "sgmc_all_dti": 0.07176546660591096,
+    "sgmc_piedmont_dti": 0.1146914942896734,
+    "sgmc_mountain_dti": 0.027656308630841658
+   },
+   "h33_2_b2_actual_peer_file": {
+    "dots": 37654,
+    "sgmc_all_dti": 0.09396541728952698,
+    "sgmc_piedmont_dti": 0.10905112828813972,
+    "sgmc_mountain_dti": 0.06537572606415722
+   },
+   "h31e_scgp_submod_local": {
+    "dots": 37654,
+    "sgmc_all_dti": 0.08162303908333594,
+    "sgmc_piedmont_dti": 0.12330626713422095,
+    "sgmc_mountain_dti": 0.03723230474997055
+   }
+  },
+  "rbu31_piedmont_dot_share": 0.7698518085727943
+ },
+ "duplicate_canary_summary": {
+  "checked_count": 24,
+  "max_surface_spearman_rho": 0.150244,
+  "max_surface_topn_within_3px": 0.655415,
+  "max_final_dots_spearman_rho": 0.044173,
+  "max_final_dots_within_3px": 0.534073,
+  "duplicates": [],
+  "passed": true
+ },
+ "automated_gates": {
+  "G1_format_and_range_0_1_pass": true,
+  "G2_leakage_canary_pass": true,
+  "G3a_uniqueness_genuine_registry_pass": true,
+  "G3b_literal_695_registry_lattice": "UNIVERSAL_DEGENERACY_DISCLOSED (spacing-5 lattice covers 100% of interior within 3px for any candidate; see preregistration \u00a75)",
+  "G4_holdout_screen_and_fresh_confirmation_pass": false,
+  "G5_sgmc_all_piedmont_mountain_beats_baseline_and_h33": false,
+  "human_inspection_required_for_validation": false,
+  "weekly_slot_spent_by_agent": false,
+  "all_automated_gates_passed": false,
+  "verdict": "negative"
+ },
+ "submission": {
+  "name": "gemsdoe31-rbu31b-localunion-37654-20261025-b7585935",
+  "note": "GEMSDOE31 RBU31-B local-standardized union 37654d | HOLDOUT-DTI 0.0991 vs 0.0922 | id b7585935",
+  "note_chars": 94,
+  "dots": 37654,
+  "sha256_nan": "7b57519fdbcf594231043730c9d86042182c968cd2479be63a8c8a5ea9c71e98",
+  "sha256_allfinite": "07c939198a9145ae8281012bcba2c2167e3a6a482dd15c04ce3872b5b94e1041",
+  "files": {
+   "nan": "docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.tif",
+   "allfinite": "docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif",
+   "zip": "docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.zip"
+  }
+ },
+ "elapsed_seconds": 678.7
+}
