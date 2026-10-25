@@ -40,7 +40,7 @@ PREREG_PATH = ROOT / "knowledge" / "2026-10-04_h31_hypotheses_preregistration.md
 # The session branch guard is fail-closed but not hard-coded to one session id: a stale literal would
 # silently stop being a guard the moment the work moved to another arena branch. Override it with
 # GEMSDOE31_BRANCH when a later session runs this runner.
-EXPECTED_BRANCH = os.environ.get("GEMSDOE31_BRANCH", "arena/01a104f4-gemsdoe31")
+EXPECTED_BRANCH = os.environ.get("GEMSDOE31_BRANCH", "arena/94fc8374-gemsdoe31")
 PILOT_DRAWS = [10]
 SCREEN_DRAWS = [11, 12]
 CONFIRM_DRAWS = [13, 14]

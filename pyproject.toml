@@ -24,13 +24,13 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["src", "vendor"]
 addopts = "-ra"
 
 [tool.ruff]
 target-version = "py311"
 line-length = 120
-extend-exclude = ["data", "docs/downloads", "evidence"]
+extend-exclude = ["data", "docs/downloads", "evidence", "vendor"]
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]

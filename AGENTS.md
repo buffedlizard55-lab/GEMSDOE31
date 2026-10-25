@@ -1,6 +1,6 @@
 # GEMSDOE31 agent instructions
 
-Before changing this repository, read the entire `README.md`, the active H31 preregistration in `knowledge/`, and the current outcome/status record. Keep the README as the recurring project charter; update the status record at the end of substantive work.
+Before changing this repository, read the entire `README.md`, `knowledge/2026-10-25_transfer_preregistration.md`, the historical H31 preregistration, and the latest current outcome/status record. Keep the README as the recurring project charter; update the status record at the end of substantive work.
 
 ## Scientific and evidence rules
 
@@ -8,7 +8,7 @@ Before changing this repository, read the entire `README.md`, the active H31 pre
 - Do not scrape, poll, automatically access, or manually monitor/copy DrivenData leaderboard material without prior written permission. A static official leaderboard link is permitted. Never submit/upload automatically.
 - Preregister candidate physics, model, holdout, metric, buffer, seeds, and promotion gates before any fit. Do not use a weekly slot unless the candidate beats the same-run incumbent on an empirically buffered spatial holdout and passes fresh confirmation. A positive screen alone is insufficient.
 - Derive the spatial collar from out-of-fold residual semivariograms on known fault traces. Never substitute an arbitrary pixel buffer or report the temporary pilot collar as an empirical range.
-- Do not create a new candidate TIFF from a failed/unconfirmed experiment. Keep the legacy D2.8 reference file explicitly labeled as an owner-mirror benchmark, not a new or slot-approved candidate.
+- The 2026-10-25 request requires a newly computed TIFF even for a negative result. It may be published ONLY as an audit artifact with `safe_to_submit=false`; do not copy a previous prediction, label it slot-approved, or resume scientific work after a literal duplicate gate fires. Keep all legacy files historical/reference-only.
 - Validate a submission GeoTIFF against the sample template: EPSG:32611, exact shape/transform, one float32 band,
   all footprint values finite in `[0,1]`, and NaN outside the footprint (an all-finite variant is written too and
   validated under its own convention). No silent clipping or zero-filled outside area. `tests/test_submission.py`
@@ -21,7 +21,7 @@ Before changing this repository, read the entire `README.md`, the active H31 pre
 
 ## Execution / Git rules
 
-- Work only on the branch this session is attached to (`arena/01a104f4-gemsdoe31` at the time of writing);
+- Work only on the branch this session is attached to (`arena/94fc8374-gemsdoe31` at the time of writing);
   never switch, create or push another branch.
 - Keep large input rasters and regenerable caches out of Git. Pin hashes and provenance in `registry/`.
 - Run the full local check set before any PR: `python -m pytest -q`, `python -m ruff check .`,
