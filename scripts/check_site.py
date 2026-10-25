@@ -88,10 +88,11 @@ def main() -> None:
         fail("index.html: the no-upload-approval warning is missing")
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
-
     executive = (DOCS / "executive-summary.html").read_text()
     if "do not submit a download from this page yet" not in executive.lower():
-        fail("executive-summary.html: the no-upload-approval warning is missing")
+        fail("executive-summary.html: explicit no-upload-approval warning is missing")
+    if "Human sign-off cannot override a failed gate" not in executive:
+        fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
         if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in html_text:
             fail(f"{page_name}: H31-E2 SCGP-Submod candidate name missing")

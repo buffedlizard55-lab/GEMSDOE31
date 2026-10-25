@@ -41,8 +41,9 @@ Read this README **including the complete normalized owner prompt at the end**, 
 [latest status](knowledge/current_status_2026-10-25.md),
 [MAGREST preregistration](knowledge/2026-10-25_magrest_preregistration.md),
 [latest outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.
-The earlier H31-A STOP remains historical. The old data-absence blocker is resolved: all eleven inputs
-and every template band-cache hash were restored/verified. Do not restart a stopped lane or add a fourth experiment.
+The earlier H31-A STOP remains historical. The prior session has receipts for all-eleven-input and template-cache restoration,
+but this clean runtime did not contain the full ignored production data/cache; only the small validation inputs and pinned
+registry witness were restored for this review. Do not restart a stopped lane or add a fourth experiment.
 
 **Arena core values for this project: Maximize P(Win) · Own the Outcome.**
 
@@ -56,7 +57,8 @@ and every template band-cache hash were restored/verified. Do not restart a stop
 | Inputs, score claims, irregularities, review passes | [register](docs/register/index.html) |
 | Historical experiment log (11 pages); current three-variant result | [archive](docs/experiments/index.html) · [MAGREST research](docs/research.html) |
 | Machine-readable state | [`feed.json`](docs/feed.json) · [`registry/`](registry/) · [`evidence/`](evidence/) |
-| Current repository review, blockers, and next actions | [review record](knowledge/repo_review_2026-10-25.md) |
+| Previous repository review | [2026-10-25 review](knowledge/repo_review_2026-10-25.md) |
+| Latest clean-runtime review | [Arena review](knowledge/repo_review_2026-10-25_arena.md) |
 | Latest status / score audit | [Current status](knowledge/current_status_2026-10-25.md) · [MAGREST review](knowledge/session_review_2026-10-25_magrest.md) · [irregularity register](registry/irregularities.json) |
 | AI-use disclosure draft for the narrative | [ai-disclosure](docs/ai-disclosure.html) |
 

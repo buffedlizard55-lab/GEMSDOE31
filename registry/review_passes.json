@@ -574,6 +574,71 @@
    "new_experiments": 0,
    "new_tiffs": 0,
    "weekly_slots_used": 0
+  },
+  {
+   "id": "arena-2026-10-25-repo-review-pass-1",
+   "status": "complete-current-runtime",
+   "scope": [
+    "read entire README and preserved owner prompt, AGENTS.md, latest status, current run card, review-pass registry, and frozen MAGREST preregistration",
+    "installed pinned requirements; ran pytest, Ruff, compileall, metric proof, exact-file verifier, evidence collector, site generator and site checker"
+   ],
+   "verification": {
+    "ruff": "all checks passed",
+    "compileall": "passed",
+    "metric": "maximum absolute difference 4.441e-16 across 24 grids and two exact cases",
+    "current_run": "verified exact current raster hash; ok_to_download_for_research=true, ok_to_submit=false, verdict=negative",
+    "site": "20 pages; 296 local links; all checks passed",
+    "pytest_initial": "92 passed, 6 skipped before restoring the two small pinned validation inputs",
+    "pytest_final": "101 passed, 0 skipped after restoring validation inputs and integrating the concurrent presentation-safety fixes"
+   },
+   "no_new_experiment_or_tiff": true
+  },
+  {
+   "id": "arena-2026-10-25-repo-review-pass-2",
+   "status": "complete-with-documentation-and-output-label-fixes",
+   "checks": [
+    "found AGENTS.md inaccurately describing recheck_magrest.py as a full broad-registry test; code only covers the original nine downloads trees and requires ignored .cache/magrest/responses.npy",
+    "confirmed clean runtime lacks the full data/cache; verifier restored only the two small validation inputs and pinned registry witness",
+    "found collector console label 'best research candidate' did not identify historical proxy scope",
+    "found archived H31-E2 site wording foregrounded a narrow-subset PASS and implied human selector authority"
+   ],
+   "findings_fixed": [
+    "corrected AGENTS.md scope/cache dependency and README audit command; verify_current_run.py is the clean-checkout broad-counterexample verifier",
+    "corrected stale README claim that full inputs/cache exist in this runtime",
+    "changed collector output wording to identify the best historical proxy candidate as not slot-approved",
+    "integrated upstream submission-safety correction and strengthened site wording/checks: subset uniqueness is not broad approval; no human sign-off overrides a hard stop",
+    "added current-runtime review record and updated current status"
+   ],
+   "no_new_experiment_or_tiff": true
+  },
+  {
+   "id": "arena-2026-10-25-repo-review-pass-3",
+   "status": "complete-negative-no-new-candidate",
+   "criteria": [
+    {
+     "criterion": "Follow locked lane, overlap STOP, experiment/time budget",
+     "status": "no new fit, experiment, TIFF, upload, or slot; existing MAGREST artifact remains research-only"
+    },
+    {
+     "criterion": "Prominent download status and autonomous validator decision",
+     "status": "homepage/executive guide distinguish research download from DO NOT SUBMIT; exact-file verifier independently returns ok_to_submit=false"
+    },
+    {
+     "criterion": "Candidate hypotheses and expected gain",
+     "status": "only desk backlog GRAVREST, RADREST, TERRREST from prior preregistration recorded; all remain unfit, expected DTI gain unknown, and none is authorized in this lane"
+    },
+    {
+     "criterion": "Sources and current claims",
+     "status": "no organizer page/leaderboard/receipt queried; 0.2778/0.3195/0.4413 remain unverified claims; mirror and computed evidence are distinguished"
+    }
+   ],
+   "remaining_blockers": [
+    "literal shared-registry overlap STOP and no preauthorized exception",
+    "full production input/cache absent in clean runtime",
+    "no organizer-authenticated score receipt, current quota, or outside-mask convention verification",
+    "no comparable global-best confirmation on same evaluator and buffer"
+   ],
+   "no_new_experiment_or_tiff": true
   }
  ],
  "remaining_work": [

@@ -368,7 +368,8 @@ def main() -> None:
     print(f"registry/experiments.json: {len(artifacts)} artifacts inventoried, "
           f"{len(copied)} legacy cache files copied")
     print(f"registry/submissions.json: {len(register['files'])} files registered, "
-          f"best research candidate {register['best_research_candidate']['name']}")
+          f"best historical proxy research candidate (not slot-approved) "
+          f"{register['best_research_candidate']['name']}")
 
 
 if __name__ == "__main__":
