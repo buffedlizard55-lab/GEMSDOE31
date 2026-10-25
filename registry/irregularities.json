@@ -178,6 +178,19 @@
    ],
    "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project’s preregistered rules. Bias direction is not assumed.",
    "action": "Do not use the owner-mirror H33 holdout result to promote this method. Any future catalogue-based processing must be rebuilt per fold from visible segments, mask visible faults pixel-exactly, and be tested under the registered evaluator."
+  },
+  {
+   "id": "IR-31-H33-ZERO-OUTSIDE",
+   "severity": "medium",
+   "status": "owner-mirror-format-mismatch",
+   "summary": "The inspected GEMSDOE32 H33-2-B2 -zeros GeoTIFF stores finite zeros outside the submission footprint and has no nodata tag, while the official problem-page format states values outside the bounds must be null/NaN.",
+   "evidence": [
+    "Read-only inspection of the public owner-mirror raster at GEMSDOE32 commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc: one float32 band, EPSG:32611, competition-grid transform/shape, no nodata tag, all 7,111,787 cells outside the local pinned footprint finite and equal to zero.",
+    "registry/sources.json records the official DrivenData problem-page convention: values outside the competition footprint are null/NaN.",
+    "The official sample template is absent in this workspace; the owner-mirror validation receipt is not an organizer validation receipt."
+   ],
+   "impact": "This variant does not match the recorded official outside-footprint convention. No claim is made that zero-filled outside values improve the score or were accepted by the organizer.",
+   "action": "Do not use this as a submission format exemplar. For any future candidate use NaN/null outside as specified and validate against an authorized exact sample template; retain all-finite zeros only as a clearly labeled defensive comparison if separately allowed."
   }
  ]
 }
