@@ -1,0 +1,77 @@
+{
+ "schema_version": 1,
+ "verified_utc": "2026-10-25T22:03:00.089677+00:00",
+ "scope": "Pinned release #14 deployment evidence, recorded after merge. A later wording-only follow-up does not alter the prediction bytes; this receipt does not pretend to self-reference a future commit.",
+ "pull_request": {
+  "number": 14,
+  "url": "https://github.com/buffedlizard55-lab/GEMSDOE31/pull/14",
+  "merged_at": "2026-10-25T21:57:39Z",
+  "merge_commit": "3e8854d6b487f7cf65fac853e4333778cb0f061e"
+ },
+ "checks": [
+  {
+   "url": "https://github.com/buffedlizard55-lab/GEMSDOE31/actions/runs/40237822932/job/121303072563",
+   "conclusion": "SUCCESS"
+  },
+  {
+   "url": "https://github.com/buffedlizard55-lab/GEMSDOE31/actions/runs/40237819401/job/121303061506",
+   "conclusion": "SUCCESS"
+  }
+ ],
+ "main_ci": {
+  "conclusion": "success",
+  "databaseId": 40237914178,
+  "headSha": "3e8854d6b487f7cf65fac853e4333778cb0f061e",
+  "status": "completed",
+  "url": "https://github.com/buffedlizard55-lab/GEMSDOE31/actions/runs/40237914178"
+ },
+ "pages": {
+  "html_url": "https://buffedlizard55-lab.github.io/GEMSDOE31/",
+  "status": "built",
+  "commit": "3e8854d6b487f7cf65fac853e4333778cb0f061e",
+  "updated_at": "2026-10-25T21:58:21Z",
+  "workflow": "https://github.com/buffedlizard55-lab/GEMSDOE31/actions/runs/40237913390",
+  "workflow_conclusion": "success"
+ },
+ "merged_blob_verification": {
+  "merge_commit": "3e8854d6b487f7cf65fac853e4333778cb0f061e",
+  "source": "Fresh GitHub API blob retrieval from merged main commit; not a public Pages HTTP fetch",
+  "records": [
+   {
+    "file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+    "bytes": 153019,
+    "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+    "matches_reviewed_workspace_bytes": true
+   },
+   {
+    "file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+    "bytes": 199200,
+    "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3",
+    "matches_reviewed_workspace_bytes": true
+   },
+   {
+    "file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+    "bytes": 121213,
+    "sha256": "f0313e7fa0751622f4bcf2db23dba430bbc3467dc1b8b154d4c4ba6450f5fc14",
+    "matches_reviewed_workspace_bytes": true
+   },
+   {
+    "file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.zip",
+    "bytes": 153161,
+    "sha256": "4fa02a571674aaa5ddd13b67b26dc5d43c319ba0d20b481d18f491f75869241c",
+    "matches_reviewed_workspace_bytes": true
+   }
+  ],
+  "run_card_matches": true,
+  "upload_denied": true
+ },
+ "local_browser_receipt": "evidence/browser_magrest_smoke_20261025.json",
+ "limitations": [
+  "GitHub Actions/Pages APIs confirm success for the pinned commit. Public Pages HTTP was not fetched: github.io is outside this environment network allowlist.",
+  "CI success is confirmed by API metadata; raw logs redirect to a host outside the allowlist. The 89-test count comes from the local verification receipt, not a fabricated remote log.",
+  "Local browser testing is not organizer validation. No organizer submission, current leaderboard/quota check, weekly slot, or selector approval."
+ ],
+ "ok_to_download_for_research": true,
+ "ok_to_submit": false,
+ "verdict": "negative"
+}
