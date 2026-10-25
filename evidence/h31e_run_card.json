@@ -1,0 +1,82 @@
+{
+ "hypothesis": "H31-E surface-expression conjunction: faults missing from the USGS/INGENIOUS catalogue are preferentially those buried under piedmont alluvium or expressed only as lithologic juxtaposition; they flex the detrended surface and offset radiometric units without a mapped scarp.",
+ "mechanism": "HGB (repo-pinned params) on det_elev multi-scale top-hat + LoG flexure, radiometric ThK/UTh/UK gradient-ridges, and LiDAR upface-downface dipole channels over raw topo/LiDAR/radiometric bands; no magnetics/gravity, no catalogue-derived features; ridge-NMS + score-ordered Poisson thinning d=2.8px at incumbent density (40,199 dots).",
+ "named_non_fault_mimic": "Lake Lahontan paleo-shorelines and alluvial-fan lobe boundaries (flexure/top-hat); lithologic contacts and drainage heavy-mineral concentration (radiometric ratio steps); roads, canals, terrace risers and mine disturbance (LiDAR dipole).",
+ "holdout_dti": {
+  "label": "HOLDOUT-DTI (catalogue-gap hide-and-recover; NOT a competition score)",
+  "evaluator": "gemsdoe31-holdout-v1",
+  "alpha": 0.2,
+  "beta": 0.8,
+  "kernel": "300 m triangular",
+  "withheld_positive_pixels": 58625,
+  "candidate_screen": 0.13404828147016595,
+  "candidate_screen_ci95": [
+   0.12395523291772388,
+   0.1443491138994205
+  ],
+  "base_screen": 0.12729734599416165,
+  "paired_delta_ci95_screen": [
+   6.997144247467976e-05,
+   0.013582900107939576
+  ],
+  "candidate_confirm": 0.1326499349946631,
+  "base_confirm": 0.1255968458680007,
+  "paired_delta_ci95_confirm": [
+   0.001255618317005996,
+   0.012823903613549754
+  ],
+  "controls_same_protocol": {
+   "C3_oof_B_thinned": 0.12555278473797998,
+   "C2_incumbent_h27_4": 0.04843369299454841
+  },
+  "leakage_canary_worst_new_channel_auc": 0.5425444812601914
+ },
+ "discovery_proxy": {
+  "label": "PROXY-DTI (USGS SGMC >300 m off-catalogue; NOT a competition score)",
+  "candidate": 0.07116647227428345,
+  "incumbent_h27_4": 0.09384814898733425,
+  "selector_info_union_candidate_incumbent": 0.12531828965441266
+ },
+ "correlation_overlap_vs_registry": {
+  "surface_spearman_vs_oof_B": 0.527940159269609,
+  "surface_spearman_vs_oof_D": 0.5182756736771935,
+  "dots_within_3px_fraction": {
+   "h27_4": 0.380357720341302,
+   "union_b_p060": 0.43722480658722856,
+   "add_arm_d": 0.39471131122664743,
+   "d28_reference": 0.41366700664195627
+  },
+  "limits": {
+   "rank_correlation_max": 0.9,
+   "within_3px_max": 0.7
+  },
+  "duplicate": false
+ },
+ "raster_sha256": "76d58f4a28ef6112a79c8d930ad2c3c87b1f6ba0c062a4780c1207a48b749722",
+ "raster_sha256_allfinite": "825b67192d451f2d1847a47632b417c43865613df943cfa5e889ff379e809fa6",
+ "validator_output": {
+  "no_nan_inside_footprint": true,
+  "values_in_0_1": true,
+  "crs_shape_transform_match": true,
+  "hard_failures": [],
+  "ok_to_upload_format_only": true,
+  "organizer_acceptance_verified": false
+ },
+ "submission_name": "gemsdoe31-h31e-surfexpr-20261025-8817f551",
+ "submission_note": "H31-E surfexpr 40199d det-flexure+ratio-ridge+lidar-dipole; HOLDOUT 0.1340 vs base 0.1273; offcat 0.0712<0.0938 DO NOT SUBMIT",
+ "submission_note_chars": 125,
+ "gates": {
+  "canary_no_auc_above_0.90": true,
+  "holdout_beats_base_pooled": true,
+  "holdout_paired_delta_ci_excludes_0": true,
+  "holdout_better_in_3_of_4_folds": false,
+  "holdout_worst_fold_delta_ge_-0.010": true,
+  "confirmation_same_sign": true,
+  "discovery_proxy_not_below_incumbent": false,
+  "surface_spearman_le_0.90": true,
+  "dots_within3_le_0.70_all_registry": true
+ },
+ "verdict": "negative",
+ "experiments_used": "3 of 3 (EXP-1 canary/screen, EXP-2 holdout screen+confirm, EXP-3 final emission/build)",
+ "organizer_confirmed_score": null
+}

@@ -127,6 +127,30 @@ def _per_truth_credit(pred: np.ndarray, truth: np.ndarray, offsets: np.ndarray,
     return best
 
 
+def per_truth_credit(pred: np.ndarray, truth: np.ndarray, *, cell_m: float = CELL_M,
+                     radius_m: float = RADIUS_M) -> np.ndarray:
+    """Public wrapper: per-truth-pixel TP credit vector, in ``np.nonzero(truth)`` order.
+
+    Sums exactly to the ``TPw`` returned by :func:`dti` (asserted in the test-suite); used to build
+    spatial-block bootstrap replicates of the pooled index.
+    """
+    finite_pred = np.where(np.isfinite(pred), pred, 0.0)
+    offsets, kernel = _offsets(cell_m, radius_m)
+    return _per_truth_credit(finite_pred, np.asarray(truth).astype(bool), offsets, kernel)
+
+
+def fp_weights(pred: np.ndarray, truth: np.ndarray, *, cell_m: float = CELL_M,
+               radius_m: float = RADIUS_M) -> np.ndarray:
+    """Per-pixel false-positive weight field ``p(x) * (1 - k(d(x, nearest truth)))``.
+
+    Sums exactly to the ``FPw`` returned by :func:`dti`.
+    """
+    finite_pred = np.where(np.isfinite(pred), pred, 0.0).astype(np.float64)
+    distance_m = distance_transform_edt(~np.asarray(truth).astype(bool), sampling=cell_m)
+    nearest_kernel = np.clip(1.0 - distance_m / radius_m, 0.0, 1.0)
+    return finite_pred * (1.0 - nearest_kernel)
+
+
 def brute_force(pred: np.ndarray, truth: np.ndarray, *, alpha: float = ALPHA, beta: float = BETA,
                 cell_m: float = CELL_M, radius_m: float = RADIUS_M, epsilon: float = EPSILON) -> dict:
     """Literal transcription of the published sums, with no vectorisation tricks.

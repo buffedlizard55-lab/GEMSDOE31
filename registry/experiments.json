@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "protocol": {
   "folds": "four equal spatial blocks (NW/NE/SW/SE) of the 3730x3292 competition grid",
   "buffer": "measured from residual autocorrelation, see evidence/buffer_derivation.json; the adopted collar is read from that file rather than restated here",
@@ -69,6 +69,16 @@
    "path": "evidence/h31_a/pilot/variogram.json",
    "bytes": 545,
    "sha256": "64f66b055149ed7b77f557bb777454849333368b404f68761ab6a0dc2c1e1473"
+  },
+  {
+   "path": "evidence/h31e_results.json",
+   "bytes": 17743,
+   "sha256": "ad856ee7b94cbda8140a131f784f94adfd5c3e7262d74a8ab9d82869409b705d"
+  },
+  {
+   "path": "evidence/h31e_run_card.json",
+   "bytes": 3643,
+   "sha256": "9c19f1549b82fd090dd049b1a931c5c13450fa81261cf8fb32c6702384d4a85f"
   },
   {
    "path": "evidence/incumbent_filter_results.json",

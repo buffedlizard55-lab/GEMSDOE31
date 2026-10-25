@@ -1,14 +1,19 @@
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
-> **Current decision (2026-10-25): no new TIFF or slot approval.** The existing one-click artifact is a historical
-> reference, not a recommendation to upload. GEMSDOE32's H33-2-B2 prior-art TIFF exceeds the duplicate-correlation
-> and overlap limits against the local H27-4 raster; the run was stopped and logged. This checkout also lacks the
-> runtime input rasters and prepared feature stack needed to validate a different hypothesis. The prompt's 0.2778
-> claim remains USER-REPORTED: the inspected owner-mirror archive labels the artifact UNSCORED and contains no
-> organizer receipt linking the claim to exact bytes. See [the session review](knowledge/session_review_2026-10-25.md).
+> **Current decision (2026-10-25, H31-E session): a new unique TIFF exists — verdict NEGATIVE, do not submit it.**
+> `gemsdoe31-h31e-surfexpr-20261025-8817f551` was preregistered, trained and gate-checked automatically in this
+> repository after restoring the 11 hash-verified inputs. Catalogue-gap HOLDOUT-DTI 0.1340 [0.1240–0.1443]
+> (confirmation 0.1326) beats its same-run base, and the file is lane-unique (≤44% of dots within 3 px of any
+> registry raster; surface Spearman 0.53 vs OOF-B) and format-valid — **but** its off-catalogue discovery-proxy
+> DTI (0.0712) is below the incumbent's (0.0938) and the screen won only 2/4 folds, so the preregistered
+> promotion gates failed. It is downloadable for audit/selector review only, labelled **NOT OK TO SUBMIT** on
+> the site and in its portal note. See [the H31-E session review](knowledge/session_review_2026-10-25_h31e.md)
+> and `evidence/h31e_run_card.json`.
 >
-> The older H27-4 and union files remain downloadable for audit/format-reference purposes only. **None is approved
-> for a weekly competition slot.**
+> Still in force from the earlier 2026-10-25 session: GEMSDOE32's H33-2-B2 is a strict subset of the local
+> H27-4 raster (duplicate — do not copy); the 0.2778 claim remains USER-REPORTED with no organizer receipt
+> tying it to exact bytes. The older H27-4 and union files remain downloadable for audit/format-reference
+> purposes only. **No file here is approved for a weekly competition slot.**
 
 **Arena core values for this project: Maximize P(Win) · Own the Outcome.**
 
@@ -125,8 +130,17 @@ make the remaining work clear. Prepare a pull request and merge it to `main` if 
 allow; report a PR, merge, deployment, official score, or organizer acceptance only when there is a verifiable
 status/receipt.
 
-## Current verified state (2026-10-04)
+## Current verified state (2026-10-25; 2026-10-04 items retained where still true)
 
+- **H31-E surface-expression lane (2026-10-25, COMPUTED):** preregistered before fitting
+  ([register](knowledge/2026-10-25_h31e_surface_expression_preregistration.md)). No new-channel AUC exceeded
+  0.5425 (leakage canary pass). Hide-and-recover holdout (`gemsdoe31-holdout-v1`: whole components, 21.25 km
+  collar, visible faults masked pixel-exactly, 58,625 withheld positives): candidate HOLDOUT-DTI 0.1340/0.1326
+  (screen/confirm) vs same-run base 0.1273/0.1256 and OOF-B control 0.1256 — but off-catalogue proxy 0.0712 vs
+  incumbent 0.0938, so **verdict negative**. Unique TIFF built and strictly validated
+  (`gemsdoe31-h31e-surfexpr-20261025-8817f551`, 40,199 dots, sha256 `76d58f4a…`), labelled NOT OK TO SUBMIT.
+  A stack-building sentinel bug found by the canary was fixed once in `scripts/prepare_data.py`
+  (IR-31-STACK-SENTINEL) and the stack rebuilt.
 - **Inputs:** all 11 hash-pinned owner-mirror inputs restore and verify (`evidence/data_restore.json`,
   `all_verified: true`; `scripts/prepare_data.py --verify-only` re-checks grid/CRS/shape/dtype). Grid: EPSG:32611,
   3730×3292, 100 m, 5,167,373-cell footprint, 7,111,787 cells outside it.

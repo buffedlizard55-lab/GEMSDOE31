@@ -33,3 +33,27 @@ Read the [project charter](../README.md), [agent rules](../AGENTS.md), [active p
 3. Require a comparable same-run incumbent, fresh confirmation, confidence interval, duplicate checks both before placement and on the final dots, and exact GeoTIFF format audit before any selector/promotion action.
 4. Keep organizer score claims separate from user/owner reports; do not access or automate DrivenData pages absent permission.
 5. Reimplement the absent four-arm trainer so previously reported OOF and union measurements can be independently regenerated.
+
+## Addendum — H31-E session (later on 2026-10-25): data blocker removed; unique candidate measured; verdict still negative
+
+This addendum supersedes the "blocked twice / no data" findings above **only** on data placement; the
+H33-2-B2 duplicate rejection and all score-claim classes are unchanged. Full record:
+[session review H31-E](session_review_2026-10-25_h31e.md),
+[preregistration](2026-10-25_h31e_surface_expression_preregistration.md),
+`evidence/h31e_run_card.json`, `evidence/h31e_results.json`.
+
+- All 11 hash-pinned inputs were restored from the owner GitHub mirrors and SHA-256-verified
+  (`evidence/data_restore.json: all_verified=true`); the 46-band stack was rebuilt after fixing
+  IR-31-STACK-SENTINEL (finite −3.4028235e38 nodata sentinel surviving stack preparation).
+- H31-E (det_elev top-hat/flexure + radiometric ratio-gradient ridges + LiDAR dipole; no magnetics,
+  no catalogue-derived features) was preregistered, canaried (worst AUC 0.5425), and holdout-tested
+  (`gemsdoe31-holdout-v1`, whole components, 21.25 km collar, 58,625 withheld positives):
+  HOLDOUT-DTI 0.1340 (screen) / 0.1326 (confirm) vs same-run base 0.1273 / 0.1256 — but
+  off-catalogue discovery proxy 0.0712 vs incumbent 0.0938 and screen fold-count 2/4.
+  **Verdict negative; `gemsdoe31-h31e-surfexpr-20261025-8817f551` is NOT OK TO SUBMIT.** It is
+  lane-unique (surface Spearman 0.53; ≤44% of dots within 3 px of any registry raster) and passes
+  the strict format validator in both conventions. No weekly slot was touched.
+- Outstanding gates are unchanged except #1 is now satisfied in this workspace state (data restored;
+  mirror-provenance limits still apply). Next highest-value work: 1 m DEM scarp-profile age-bank
+  (H31-F) from an unrestricted machine (USGS 3DEP/TNM); selector review of the H31-E union behaviour
+  against the GEMSDOE36 live counterexample before ever considering a union artifact.

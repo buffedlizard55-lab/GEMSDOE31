@@ -100,7 +100,7 @@
    "scope": [
     "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
     "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
-    "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective ΔDTI planning brackets, cost, and source-access limits",
+    "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective \u0394DTI planning brackets, cost, and source-access limits",
     "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
    ],
    "verification": {
@@ -147,7 +147,7 @@
      "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
     },
     {
-     "criterion": "3–5 distinct ranked hypotheses and official-source/access checks",
+     "criterion": "3\u20135 distinct ranked hypotheses and official-source/access checks",
      "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
     },
     {
@@ -160,7 +160,7 @@
     },
     {
      "criterion": "AI narrative, three cumulative reviews, and delivery record",
-     "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1–3; PR #4 merged from the fixed branch."
+     "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1\u20133; PR #4 merged from the fixed branch."
     }
    ],
    "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate."
@@ -266,7 +266,7 @@
    ],
    "findings_fixed": [
     "the prior session-ID branch literal would reject the current active Arena branch even before the missing-data guard",
-    "the home page previously led with “Download the file. Submit it.” while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
+    "the home page previously led with \u201cDownload the file. Submit it.\u201d while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
     "the executive summary no longer reserves a submission name or note for a legacy/reference file"
    ],
    "verification": {
@@ -298,6 +298,47 @@
     "owner-mirror previous experiments and scores do not establish official competition performance",
     "the inspected GEMSDOE32 all-finite zeros raster conflicts with the official outside-footprint null/NaN convention; no organizer receipt or sample-template revalidation was available"
    ]
+  },
+  {
+   "id": "pass-16-2026-10-25-h31e-implementation",
+   "status": "complete-with-negative-verdict",
+   "scope": [
+    "restore + SHA-256-verify the 11 hash-pinned inputs and rebuild the feature stack",
+    "preregister H31-E (4 ranked hypotheses) before any fit; implement holdout/emission/surface-feature shared tools",
+    "EXP-1 leakage canary + single-channel screen; EXP-2 spatially blocked hide-and-recover screen + confirmation; EXP-3 final emission + strict GeoTIFF validation"
+   ],
+   "verification": {
+    "data": "evidence/data_restore.json all_verified=true; prepare_data --verify-only all_hashes_match=true",
+    "canary": "worst new-channel AUC 0.5425 (stop > 0.90)",
+    "holdout": "candidate HOLDOUT-DTI 0.1340/0.1326 vs base 0.1273/0.1256 (evaluator gemsdoe31-holdout-v1, 58,625 withheld px); discovery proxy 0.0712 < incumbent 0.0938 -> verdict negative",
+    "format": "both TIFF variants pass src/gemsdoe31/submission.py with hard_failures []"
+   }
+  },
+  {
+   "id": "pass-17-2026-10-25-h31e-bug-leakage-review",
+   "status": "complete",
+   "scope": [
+    "nodata-sentinel root-cause and shared-tool fix (IR-31-STACK-SENTINEL) with stack rebuild and census check",
+    "paired-bootstrap block-alignment crash fixed; arm-independent block universe + regression tests",
+    "leakage audit: no catalogue- or SGMC-derived channels; whole-component hides; 21.25 km collar; visible faults masked pixel-exactly; independent rasterio re-validation of both TIFFs; screen fold-count gate kept strict as preregistered"
+   ],
+   "verification": {
+    "tests": "see pass-18 final run",
+    "metric": "check_metric max |delta| 4.441e-16 vs brute force; per-truth/FP helpers sum exactly to TPw/FPw"
+   }
+  },
+  {
+   "id": "pass-18-2026-10-25-h31e-charter-crosscheck",
+   "status": "complete-with-negative-verdict",
+   "scope": [
+    "site home + executive summary lead with the NOT OK TO SUBMIT verdict; registers regenerated from artifacts; run card written",
+    "full local check set rerun after final edits (pytest, ruff, check_metric, collect_evidence, build_site, check_site)",
+    "no slot spent, no DrivenData access, all fleet scores labelled USER-REPORTED, H33-2-B2 not copied"
+   ],
+   "verification": {
+    "site": "build_site 20 pages; check_site passed (260 local links at first build; final count in session log)",
+    "verdict": "negative; promotion remains a separate selector step"
+   }
   }
  ],
  "remaining_work": [
