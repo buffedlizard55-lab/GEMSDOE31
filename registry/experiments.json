@@ -24,7 +24,7 @@
   {
    "path": "evidence/browser_magrest_smoke_20261025.json",
    "bytes": 3378,
-   "sha256": "42904f0403c1f62ce155b4fe7f80780cefd819d7c8d35d89f01d84ada731d892"
+   "sha256": "bc597f36149fce4aef25093891ca2fcb7b40f2cce45a88cd9c46129e4e0aa641"
   },
   {
    "path": "evidence/browser_smoke_20261025.json",
@@ -115,6 +115,16 @@
    "path": "evidence/h31b_experiments.json",
    "bytes": 32127,
    "sha256": "6863e771499a7a95b5104c142018e314f3a541801e17e807effe242998413731"
+  },
+  {
+   "path": "evidence/h31e_results.json",
+   "bytes": 17743,
+   "sha256": "ad856ee7b94cbda8140a131f784f94adfd5c3e7262d74a8ab9d82869409b705d"
+  },
+  {
+   "path": "evidence/h31e_run_card.json",
+   "bytes": 4111,
+   "sha256": "a6c8a24617596e0564ef1ee813153d21265308262eb3627c165502e4bbe64d9c"
   },
   {
    "path": "evidence/h33_forensics_20261025.json",
@@ -273,6 +283,11 @@
   },
   {
    "path": "evidence/review_verification_20261025.json",
+   "bytes": 3819,
+   "sha256": "1d8c0c7c5e2d6ee409ae050773c86643764b2514527f55b699f55cb76c680579"
+  },
+  {
+   "path": "evidence/review_verification_pre_h31e_20261025.json",
    "bytes": 3727,
    "sha256": "5c373d5981a0dcb1cfe703dc7ce318d022840de7c5beb4d5aaf942e75ec837d8"
   },

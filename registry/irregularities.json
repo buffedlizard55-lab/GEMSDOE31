@@ -332,6 +332,55 @@
    ],
    "impact": "H31-B original card says promote in its own instrument; MAGREST does not reproduce or endorse it, import slot approval, compare incompatible DTI values or spend a slot. All parallel TIFFs are registered as archived research with current ok_to_submit=false.",
    "action": "Preserve source history, retain 20 current pages and one current denial policy. Rebuild any future comparator under one shared protocol before ranking methods."
+  },
+  {
+   "id": "IR-31-STACK-SENTINEL",
+   "severity": "high",
+   "status": "fixed-in-shared-tool-2026-10-25",
+   "summary": "scripts/prepare_data.py converted only non-finite cells to NaN, so the competition raster's finite -3.4028235e38 nodata sentinel survived into data/prepared/features.f32 for all 19 competition bands (7,110,247 cells outside the footprint plus 3,061 fringe cells inside it), contradicting the documented conversion policy in features.json. The H31-E canary exposed it (derived channels peaked at 3.4e38).",
+   "evidence": [
+    "COMPUTED 2026-10-25: per-band sentinel census of data/training_features.tif (nodata tag -3.4028234663852886e+38); channel-build log showing tophat_det_3 max 3.403e+38 before the fix.",
+    "Fix: prepare_data.py now converts the tagged sentinel and |x|>1e30 to NaN; stack rebuilt; det_elev NaN count 7,113,308 exactly equals the sentinel census; src/gemsdoe31/surface_features.py also guards |x|>=1e30 as invalid."
+   ],
+   "impact": "Prior arm/OOF artifacts (evidence/arm_results.json, evidence/oof/*) were produced from the pre-fix stack; training and scoring sampled in-footprint cells, so impact is expected negligible but exact equivalence was not re-derived (trainer absent, IR-31-TRAINER-NOT-IN-SNAPSHOT). All H31-E results use the fixed stack.",
+   "action": "Keep the sentinel conversion; any future stack rebuild must re-run the census check."
+  },
+  {
+   "id": "IR-31-LEADERBOARD-ANCHORS",
+   "severity": "medium",
+   "status": "user-reported-inconsistency",
+   "summary": "The session prompt cites two different competition-leaderboard highs (0.4413 and '0.3195 is the highest score right now'). Both are USER-REPORTED; this project does not access the leaderboard. GEMSDOE32's live site (fetched 2026-10-25) also cites a public #1 of 0.4413 'read 2026-10-25', so 0.3195 is treated as the stale anchor.",
+   "evidence": [
+    "Session prompt text (two anchors).",
+    "https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html round-5 section citing 0.4413 (owner mirror, not an organizer receipt)."
+   ],
+   "impact": "Target-setting only; no computed result depends on either anchor.",
+   "action": "Quote leaderboard anchors only as USER-REPORTED with dates; never as verified standings."
+  },
+  {
+   "id": "IR-31-H33-SCORE-CLASS",
+   "severity": "medium",
+   "status": "owner-mirror-claim-class-conflict",
+   "summary": "GEMSDOE32's live site (fetched 2026-10-25) describes the H33-2-B2 0.2778 as 'ORGANIZER-CONFIRMED, owner-reported' in one breath, while the archived repository metadata inspected earlier the same day labels the artifact UNSCORED and no organizer receipt linking the score to exact bytes has been produced in either repository.",
+   "evidence": [
+    "knowledge/session_review_2026-10-25.md (archive UNSCORED at commit 012e17b).",
+    "Live GEMSDOE32 site round-5 text fetched 2026-10-25."
+   ],
+   "impact": "The 0.2778 remains USER-REPORTED in this repository's registers until an exact-byte organizer receipt exists.",
+   "action": "Do not upgrade the claim class; record any future receipt under registry/score_claims.json official_score_receipts."
+  },
+  {
+   "id": "IR-31-LEGACY-METRIC-EMPTY-TRUTH",
+   "severity": "medium",
+   "status": "resolved; current shared MAGREST evaluator unchanged",
+   "summary": "During H31-E integration the legacy common dti/FP helper used EDT on an all-one empty-truth mask, creating phantom boundary truth credit. Public contribution helpers also lacked the main metric input contract.",
+   "evidence": [
+    "src/gemsdoe31/metric.py",
+    "tests/test_metric_edges.py",
+    "evidence/review_verification_20261025.json"
+   ],
+   "impact": "Now no-truth FP equals all emitted weight, and helper shape/range checks agree. Active pinned 57GEMSDOE already handles empty truth correctly; MAGREST receipts and TIFF bytes are unchanged. Historical nonempty-truth results are not recomputed or relabelled.",
+   "action": "Retain regression tests and common helper validation; do not edit or privately fork the pinned shared template."
   }
  ]
 }

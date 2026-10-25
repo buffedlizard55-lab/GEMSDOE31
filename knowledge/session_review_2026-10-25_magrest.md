@@ -110,10 +110,12 @@ First resolve the dense-control degeneracy by an explicit future protocol decisi
 
 ## Completed local acceptance verification
 
-`evidence/review_verification_20261025.json`: 11/11 input hashes and exact grids; 19/19 template-cache hashes; independent file/ZIP/metric/CI/registry-STOP verification; **77 tests passed**; Ruff and compileall pass; 24 random metric grids agree with brute force to 4.441e-16 plus two closed-form cases; 20 site pages / 279 local links pass.
+`evidence/review_verification_20261025.json`: 11/11 input hashes and exact grids; 19/19 template-cache hashes; independent file/ZIP/metric/CI/registry-STOP verification; **89 tests passed**; Ruff and compileall pass; 24 random metric grids agree with brute force to 4.441e-16 plus two closed-form cases; 20 site pages / 281 local links pass.
 
 `evidence/browser_magrest_smoke_20261025.json`: **15 page/viewport checks** at 390 / 820 / 1440 px, no whole-page horizontal overflow or runtime error, and **six** TIFF/ZIP downloads match their exact reviewed hashes. The smoke test caught actual mobile overflow in command blocks/plain SHA strings and the brand mark; CSS was repaired. The Node/Chromium bundle is ignored, not a shipped dependency. This tests the local static preview, not remote Pages HTTP or the organizer portal.
 
 Concurrent integration keeps H31-B code/TIFFs/receipts and restores 121 earlier AS-1/TGJ31 files from Git history after their deletion by main merge #12. Original bytes/source hashes and a single adapted range-test fixture are recorded in `evidence/parallel_history_preservation_20261025.json`. Old workflow, extra page and obsolete active-homepage assertion are archived rather than re-enabled. Different instruments and an archived H31-B promote flag are not current slot authority. No extra experiment or prediction TIFF was produced by integration.
 
 All three MAGREST pass records are appended with explicit historical scoping of earlier reviews in `registry/review_passes.json`. GitHub CI, actual PR merge and the Pages commit/status must be checked externally; this local review does not assert them in advance.
+
+The final integration also preserves H31-E PR #13 (`7619b61`) and its seven unit tests. Five additional legacy metric edge/input tests fix no-truth phantom EDT credit and align public helper validation, taking the final suite to 89 tests. The pinned active 57GEMSDOE evaluator already handles this edge; its code/hashes, MAGREST scientific receipts and TIFF bytes are unchanged. The earlier 77-test receipt is preserved as `evidence/review_verification_pre_h31e_20261025.json`; final receipt and three-pass records reference the 89-test result.

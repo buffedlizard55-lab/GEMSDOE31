@@ -1,79 +1,79 @@
 {
- "started_utc": "2026-10-25T21:40:47.060932+00:00",
- "scope": "Cumulative post-integration verification only: no new feature experiment, fit, tuned candidate, TIFF or slot. Literal registry overlap STOP is independently re-derived, not waived.",
+ "started_utc": "2026-10-25T21:54:35.894313+00:00",
+ "scope": "Final cumulative verification after preserving concurrent H31-E PR #13 and fixing legacy empty-truth FP weights. No new fit, feature experiment, tuned candidate, prediction TIFF or slot. Active shared template remains unchanged; broad literal overlap STOP is re-derived.",
  "branch": "arena/8badeeab-gemsdoe31",
  "commands": [
   {
    "command": "python scripts/prepare_data.py --verify-only --out evidence/session_input_verification_20261025.json",
    "exit_code": 0,
-   "elapsed_seconds": 1.267,
+   "elapsed_seconds": 1.277,
    "stdout": "{\n \"all_hashes_match\": true,\n \"all_grids_match\": true,\n \"files\": 11\n}\nwrote evidence/session_input_verification_20261025.json\n",
    "stderr": ""
   },
   {
    "command": "python scripts/prepare_template_cache.py --verify-only",
    "exit_code": 0,
-   "elapsed_seconds": 1.64,
+   "elapsed_seconds": 1.405,
    "stdout": "Reused template cache: all 19 band hashes match.\n",
    "stderr": ""
   },
   {
    "command": "python scripts/verify_current_run.py --restore-small-inputs",
    "exit_code": 0,
-   "elapsed_seconds": 2.712,
+   "elapsed_seconds": 2.578,
    "stdout": "{\n \"ok_to_download_for_research\": true,\n \"ok_to_submit\": false,\n \"verdict\": \"negative\",\n \"sha256\": \"c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9\"\n}\n",
    "stderr": ""
   },
   {
    "command": "python -m pytest -q",
    "exit_code": 0,
-   "elapsed_seconds": 9.61,
-   "stdout": "........................................................................ [ 93%]\n.....                                                                    [100%]\n77 passed in 9.30s\n",
+   "elapsed_seconds": 9.861,
+   "stdout": "........................................................................ [ 80%]\n.................                                                        [100%]\n89 passed in 9.55s\n",
    "stderr": ""
   },
   {
    "command": "python -m ruff check .",
    "exit_code": 0,
-   "elapsed_seconds": 0.025,
+   "elapsed_seconds": 0.023,
    "stdout": "All checks passed!\n",
    "stderr": ""
   },
   {
    "command": "python scripts/check_metric.py",
    "exit_code": 0,
-   "elapsed_seconds": 3.193,
+   "elapsed_seconds": 3.173,
    "stdout": "max |DTI_fast - DTI_brute| over 24 grids: 4.441e-16\nexact case 1 DTI 0.999999999967 (closed form 1.0); exact case 2 DTI 0.333333333300 (closed form 1/3)\nkernel offsets inside R=300 m at 100 m cells: 29\nwrote evidence/metric_check.json\n",
    "stderr": ""
   },
   {
    "command": "python -m compileall -q src scripts tests",
    "exit_code": 0,
-   "elapsed_seconds": 0.095,
+   "elapsed_seconds": 0.046,
    "stdout": "",
    "stderr": ""
   },
   {
    "command": "python scripts/collect_evidence.py",
    "exit_code": 0,
-   "elapsed_seconds": 0.057,
-   "stdout": "registry/experiments.json: 74 artifacts inventoried, 0 legacy cache files copied\nregistry/submissions.json: 5 files registered, best research candidate gemsdoe31-union-b-p060-20261004-8acb75e1\n",
+   "elapsed_seconds": 0.054,
+   "stdout": "registry/experiments.json: 79 artifacts inventoried, 0 legacy cache files copied\nregistry/submissions.json: 5 files registered, best research candidate gemsdoe31-union-b-p060-20261004-8acb75e1\n",
    "stderr": ""
   },
   {
    "command": "python scripts/build_site.py",
    "exit_code": 0,
-   "elapsed_seconds": 2.384,
+   "elapsed_seconds": 2.415,
    "stdout": "wrote 20 pages and 1 data file(s) under docs\n   docs/ai-disclosure.html\n   docs/executive-summary.html\n   docs/experiments/01-arms.html\n   docs/experiments/02-operating-points.html\n   docs/experiments/03-collar-sensitivity.html\n   docs/experiments/04-incumbent-filter.html\n   docs/experiments/05-addition-arm.html\n   docs/experiments/06-buffer-derivation.html\n   docs/experiments/07-oof-maps.html\n   docs/experiments/08-h31a-pilot.html\n   docs/experiments/09-pilot-variogram.html\n   docs/experiments/10-submission-format.html\n   docs/experiments/11-score-claims.html\n   docs/experiments/index.html\n   docs/feed.html\n   docs/index.html\n   docs/register/index.html\n   docs/research.html\n   docs/sources.html\n   docs/validation.html\n",
    "stderr": ""
   },
   {
    "command": "python scripts/check_site.py",
    "exit_code": 0,
-   "elapsed_seconds": 0.047,
-   "stdout": "checked 20 pages and 279 local links\n  note: 20 pages (budget 20)\nall site checks passed\n",
+   "elapsed_seconds": 0.048,
+   "stdout": "checked 20 pages and 281 local links\n  note: 20 pages (budget 20)\nall site checks passed\n",
    "stderr": ""
   }
  ],
  "all_passed": true,
- "completed_utc": "2026-10-25T21:41:08.092706+00:00"
+ "completed_utc": "2026-10-25T21:54:56.775782+00:00"
 }

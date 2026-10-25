@@ -68,7 +68,7 @@ def shell(prefix: str, title: str, description: str, current: str, hero: str, bo
     current_attr = ' aria-current="page"'
     active_run = load("registry/current_run.json")
     if active_run and current not in {"Overview", "Executive summary", "Research"}:
-        prefix_notice = f'<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="{prefix}executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical instruments, not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>'
+        prefix_notice = f'<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="{prefix}executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>'
         body = prefix_notice + body
     nav = "".join(
         '<a href="{p}{h}"{c}>{l}</a>'.format(p=prefix, h=href, c=current_attr if label == current else "", l=e(label))

@@ -78,6 +78,28 @@
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif",
+   "name": "gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif",
+   "sha256": "825b67192d451f2d1847a47632b417c43865613df943cfa5e889ff379e809fa6",
+   "bytes": 158771,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif",
+   "name": "gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif",
+   "sha256": "76d58f4a28ef6112a79c8d930ad2c3c87b1f6ba0c062a4780c1207a48b749722",
+   "bytes": 203869,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   }
  ],
  "parallel_source_archive": "registry/parallel_main_archive_20261025.json",

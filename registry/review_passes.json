@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-25T21:47:37.999236+00:00",
+ "generated_utc": "2026-10-25T21:54:56.775782+00:00",
  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
  "passes": [
   {
@@ -328,12 +328,12 @@
    ],
    "verification": {
     "receipt": "evidence/review_verification_20261025.json",
-    "receipt_sha256": "5c373d5981a0dcb1cfe703dc7ce318d022840de7c5beb4d5aaf942e75ec837d8",
-    "pytest": "77 passed in 9.30s",
+    "receipt_sha256": "1d8c0c7c5e2d6ee409ae050773c86643764b2514527f55b699f55cb76c680579",
+    "pytest": "89 passed in 9.55s",
     "ruff": "All checks passed!",
     "metric": "24 random grids, max abs fast-vs-brute difference 4.441e-16; two exact closed-form cases",
     "compileall": "exit 0 for src/scripts/tests",
-    "site": "20 pages, 279 local links; all checks passed",
+    "site": "20 pages, 281 local links; all checks passed",
     "browser": "15 page/viewport checks at 390/820/1440 px and 6 exact-byte TIFF/ZIP browser downloads; no page overflow or runtime error",
     "browser_receipt": "evidence/browser_magrest_smoke_20261025.json"
    },
@@ -352,16 +352,17 @@
     "Preserve complete normalized owner prompt, individual 12-artifact focus review, conflicting unverified leaderboard anchors, official-source access dates, disclosure and portal-error uncertainty.",
     "Merge concurrent main; preserve H31-B and restore 121 earlier AS-1/TGJ31 files removed by later main merge; archive obsolete workflow/page/assertion rather than enable or compare them.",
     "Keep 20-page current site; primary download and DO NOT SUBMIT at top; conditional executive upload guide; no human inspector; add CI checks.",
-    "Browser review found and fixed mobile command/hash overflow and brand wrapping; compare actual downloaded TIFF/ZIP SHA across desktop/tablet/mobile."
+    "Browser review found and fixed mobile command/hash overflow and brand wrapping; compare actual downloaded TIFF/ZIP SHA across desktop/tablet/mobile.",
+    "Preserve concurrent H31-E PR #13 code/tests/TIFFs/receipts after main advances to 7619b61; fix legacy root metric empty-truth FP boundary artifact and unify public contribution helper input contracts. Active pinned shared template already handles this edge and is unchanged; no scientific result refit."
    ],
    "verification": {
     "receipt": "evidence/review_verification_20261025.json",
-    "receipt_sha256": "5c373d5981a0dcb1cfe703dc7ce318d022840de7c5beb4d5aaf942e75ec837d8",
-    "pytest": "77 passed in 9.30s",
+    "receipt_sha256": "1d8c0c7c5e2d6ee409ae050773c86643764b2514527f55b699f55cb76c680579",
+    "pytest": "89 passed in 9.55s",
     "ruff": "All checks passed!",
     "metric": "24 random grids, max abs fast-vs-brute difference 4.441e-16; two exact closed-form cases",
     "compileall": "exit 0 for src/scripts/tests",
-    "site": "20 pages, 279 local links; all checks passed",
+    "site": "20 pages, 281 local links; all checks passed",
     "browser": "15 page/viewport checks at 390/820/1440 px and 6 exact-byte TIFF/ZIP browser downloads; no page overflow or runtime error",
     "browser_receipt": "evidence/browser_magrest_smoke_20261025.json"
    },

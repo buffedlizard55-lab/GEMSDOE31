@@ -226,7 +226,7 @@ needed for artifact validation plus the pinned registered lattice; no human insp
 
 ### Local delivery checks
 
-Final cumulative checks: **77 tests passed**, Ruff/compileall/metric proof pass, **20 pages / 279 local links** pass.
+Final cumulative checks: **89 tests passed**, Ruff/compileall/metric proof pass, **20 pages / 281 local links** pass.
 Browser checks passed on five key pages at **390 / 820 / 1440 px**; six TIFF/ZIP downloads have the exact reviewed hashes.
 See [verification receipt](evidence/review_verification_20261025.json) and [browser receipt](evidence/browser_magrest_smoke_20261025.json).
 To repeat the optional browser smoke test, serve `docs/` on port 8000, install ignored tooling with
@@ -252,7 +252,7 @@ and ran on CPU; the quoted “single remaining blocker” / “GPU needed” sta
 
 ## Concurrent-session preservation
 
-While this lane ran, other branches merged AS-1, TGJ31 and H31-B. Main merge #12 subsequently removed earlier
+While this lane ran, other branches merged AS-1, TGJ31, H31-B and H31-E. Main merge #12 subsequently removed earlier
 AS-1/TGJ31 files; this integration restored 121 source/evidence/TIFF files (or archived colliding/obsolete UI/workflow
 files) from commit `1a22d755d5e2d2588c23c66a3ce6db9955cf5fa4`. The exact source revision is authoritative in
 [evidence/parallel_history_preservation_20261025.json](evidence/parallel_history_preservation_20261025.json).

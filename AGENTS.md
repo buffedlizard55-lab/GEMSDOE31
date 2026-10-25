@@ -24,7 +24,7 @@ Before changing this repository, read the entire `README.md` (including the pres
 
 ## Execution / Git rules
 
-- Work only on the branch this session is attached to (`arena/8badeeab-gemsdoe31` at the time of writing);
+- Work only on the Arena branch attached to the current session (read the current session instructions, never an older hard-coded branch ID);
   never switch, create or push another branch.
 - Keep large input rasters and regenerable caches out of Git. Pin hashes and provenance in `registry/`.
 - Run the full local check set before any PR: `python -m pytest -q`, `python -m ruff check .`,

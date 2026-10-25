@@ -47,3 +47,5 @@ PR/deployment outcome is recorded in the session's final response and GitHub his
 ## Concurrent integration
 
 Main advanced to `6b3ec48` during this run. Preserve H31-B source/TIFFs/receipts and restore the 121 earlier merged AS-1/TGJ31 files removed by that later merge. Colliding/obsolete workflow, extra page and homepage assertion are archived, not re-enabled; one legacy value-test fixture is adapted to the stricter grid contract. Current tests cover all retained scientific modules without a new fit. Original H31-B promote metadata is archived evidence, not reproduced or imported approval. All parallel TIFFs have current research-only/no-submit register entries. See `evidence/parallel_history_preservation_20261025.json`.
+
+Main then advanced to `7619b61` (H31-E / PR #13); its code, tests, TIFFs, preregistration, results and negative card are preserved in the same integration. None is a new experiment by this session or a same-instrument MAGREST comparison. Source sentinel fix is reconciled with the already stricter local preparer; active shared-template hashes remain unchanged.

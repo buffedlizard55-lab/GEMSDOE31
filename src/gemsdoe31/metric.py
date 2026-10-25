@@ -73,6 +73,23 @@ def _true_positive_weight(pred: np.ndarray, truth: np.ndarray, offsets: np.ndarr
     return float(best.sum())
 
 
+def _validated_fields(pred, truth):
+    p = np.asarray(pred)
+    g = np.asarray(truth).astype(bool)
+    if p.ndim != 2 or p.shape != g.shape or not p.size:
+        raise ValueError("predictions/truth must be nonempty aligned 2-D grids")
+    if np.iscomplexobj(p):
+        raise ValueError("predictions must be real in [0, 1]")
+    if g.any() and not np.isfinite(p[g]).all():
+        raise ValueError("non-finite prediction inside the truth mask")
+    # Legacy metric contract permits missing background/outside cells as zero;
+    # exact-file validation separately requires a fully finite scored footprint.
+    finite = np.where(np.isfinite(p), p, 0.0)
+    if finite.min() < 0 or finite.max() > 1:
+        raise ValueError("predictions must be in [0, 1]")
+    return finite, g
+
+
 def dti(pred: np.ndarray, truth: np.ndarray, *, alpha: float = ALPHA, beta: float = BETA,
         cell_m: float = CELL_M, radius_m: float = RADIUS_M, epsilon: float = EPSILON,
         weights: np.ndarray | None = None) -> dict:
@@ -83,15 +100,7 @@ def dti(pred: np.ndarray, truth: np.ndarray, *, alpha: float = ALPHA, beta: floa
     mask is an error). ``weights`` optionally multiplies the per-truth-pixel contribution, which is
     how the collars in ``collar_sweep.json`` are applied; leave it None for the plain metric.
     """
-    pred = np.asarray(pred)
-    truth = np.asarray(truth).astype(bool)
-    if pred.shape != truth.shape:
-        raise ValueError(f"shape mismatch: {pred.shape} != {truth.shape}")
-    if truth.any() and not np.isfinite(pred[truth]).all():
-        raise ValueError("non-finite prediction inside the truth mask")
-    finite_pred = np.where(np.isfinite(pred), pred, 0.0)
-    if finite_pred.min() < 0.0 or finite_pred.max() > 1.0:
-        raise ValueError("predictions must be in [0, 1]")
+    finite_pred, truth = _validated_fields(pred, truth)
 
     offsets, kernel = _offsets(cell_m, radius_m)
     tpw = _true_positive_weight(finite_pred, truth, offsets, kernel)
@@ -100,9 +109,7 @@ def dti(pred: np.ndarray, truth: np.ndarray, *, alpha: float = ALPHA, beta: floa
         tpw = float((np.asarray(weights)[rows, cols] * _per_truth_credit(finite_pred, truth, offsets, kernel)).sum())
     fnw = float(truth.sum()) - tpw
 
-    distance_m = distance_transform_edt(~truth, sampling=cell_m)
-    nearest_kernel = np.clip(1.0 - distance_m / radius_m, 0.0, 1.0)
-    fpw = float((finite_pred * (1.0 - nearest_kernel)).sum())
+    fpw = float(fp_weights(finite_pred, truth, cell_m=cell_m, radius_m=radius_m).sum())
 
     denominator = tpw + alpha * fpw + beta * fnw + epsilon
     return {"TPw": tpw, "FPw": fpw, "FNw": fnw, "DTI": tpw / denominator if denominator else 0.0,
@@ -127,6 +134,35 @@ def _per_truth_credit(pred: np.ndarray, truth: np.ndarray, offsets: np.ndarray,
     return best
 
 
+def per_truth_credit(pred: np.ndarray, truth: np.ndarray, *, cell_m: float = CELL_M,
+                     radius_m: float = RADIUS_M) -> np.ndarray:
+    """Public wrapper: per-truth-pixel TP credit vector, in ``np.nonzero(truth)`` order.
+
+    Sums exactly to the ``TPw`` returned by :func:`dti` (asserted in the test-suite); used to build
+    spatial-block bootstrap replicates of the pooled index.
+    """
+    finite_pred, truth = _validated_fields(pred, truth)
+    offsets, kernel = _offsets(cell_m, radius_m)
+    return _per_truth_credit(finite_pred, truth, offsets, kernel)
+
+
+def fp_weights(pred: np.ndarray, truth: np.ndarray, *, cell_m: float = CELL_M,
+               radius_m: float = RADIUS_M) -> np.ndarray:
+    """Per-pixel false-positive weight field ``p(x) * (1 - k(d(x, nearest truth)))``.
+
+    Sums exactly to the ``FPw`` returned by :func:`dti`.
+    """
+    finite_pred, truth = _validated_fields(pred, truth)
+    finite_pred = finite_pred.astype(np.float64)
+    if not truth.any():
+        # SciPy EDT on an all-one array measures an implicit image boundary,
+        # not distance to a real truth pixel. With no truth, every weight is FP.
+        return finite_pred
+    distance_m = distance_transform_edt(~truth, sampling=cell_m)
+    nearest_kernel = np.clip(1.0 - distance_m / radius_m, 0.0, 1.0)
+    return finite_pred * (1.0 - nearest_kernel)
+
+
 def brute_force(pred: np.ndarray, truth: np.ndarray, *, alpha: float = ALPHA, beta: float = BETA,
                 cell_m: float = CELL_M, radius_m: float = RADIUS_M, epsilon: float = EPSILON) -> dict:
     """Literal transcription of the published sums, with no vectorisation tricks.
@@ -134,10 +170,9 @@ def brute_force(pred: np.ndarray, truth: np.ndarray, *, alpha: float = ALPHA, be
     Written for verification only: it is O(|G| * N) and is used by ``scripts/check_metric.py`` on
     small grids.
     """
-    pred = np.asarray(pred, dtype=np.float64)
-    truth = np.asarray(truth).astype(bool)
-    finite_pred = np.where(np.isfinite(pred), pred, 0.0)
-    height, width = pred.shape
+    finite_pred, truth = _validated_fields(pred, truth)
+    finite_pred = finite_pred.astype(np.float64)
+    height, width = finite_pred.shape
     truth_cells = list(zip(*np.nonzero(truth)))
     positive_cells = [(r, c) for r in range(height) for c in range(width) if finite_pred[r, c] > 0]
 
