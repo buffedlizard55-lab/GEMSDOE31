@@ -58,8 +58,8 @@
   },
   {
    "path": "evidence/data_restore.json",
-   "bytes": 5829,
-   "sha256": "9d555e189013d6494a2145e81168a3af77e86bfd48b5ff8c921981644d829d12"
+   "bytes": 5835,
+   "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
   },
   {
    "path": "evidence/data_restore_20261025.json",
@@ -87,9 +87,24 @@
    "sha256": "9195d416f11a37d11aaf0980926e21b605c1993ac715a5fd8be824068e515639"
   },
   {
+   "path": "evidence/h1_antislope_kth.json",
+   "bytes": 1196,
+   "sha256": "15c33b9a11ad34c7b67c55337ea5557fab7e469f997a8fe0c31caf8090fd6325"
+  },
+  {
    "path": "evidence/h27_geometry.json",
    "bytes": 1605,
    "sha256": "10a8edd8e20f62392667f662002b7f10913186698070db08a7d8c77cf47b787b"
+  },
+  {
+   "path": "evidence/h2_wide_spacing.json",
+   "bytes": 804,
+   "sha256": "78de251dfcb49671de42dea66a137307e95d7a15098685564f11133dcf87f035"
+  },
+  {
+   "path": "evidence/h2_wide_spacing_dots.npy",
+   "bytes": 12279288,
+   "sha256": "62f4e8974208f615755c872f298768aa6601adbd4866abf0c8b052f069422cbe"
   },
   {
    "path": "evidence/h31_a/pilot/cells.jsonl",
@@ -185,6 +200,11 @@
    "path": "evidence/h33_forensics_20261025.json",
    "bytes": 9966,
    "sha256": "8a2873d1b5a4c8b0b8c951ac0285ccf2bc5d23841923ddf846e76412c3018448"
+  },
+  {
+   "path": "evidence/h3_unique_submission.json",
+   "bytes": 2539,
+   "sha256": "a42a10f0e41787586d535c49edb144208e58148a72edad320eaf9d6446cf3f83"
   },
   {
    "path": "evidence/hvdc/duplicate_canary_full.json",
