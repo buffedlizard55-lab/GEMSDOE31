@@ -12,6 +12,8 @@
 >   - **SHA-256 (`-nan.tif`):** `6a46e4dbcbaf70d39a54e66a1ce1af051155ce557c326f4545a83537e3d2451c`
 >   - **Validation & Gates:** Passes **21/21 format checks**, **Parallel-Run Uniqueness Gate** (`r_s = 0.11433 <= 0.90`; 3-px dot overlap `66.394% <= 70.0%`), and beats `GEMSDOE32 B=2` (`0.0984`) in **4/4 spatial holdout folds** (`HOLDOUT-DTI = 0.1249`, 95% CI `[0.1116, 0.1344]`).
 
+> **Parallel lane added 2026-10-25 (H31-E, PR #13):** an independent surface-expression candidate (`gemsdoe31-h31e-surfexpr-20261025-8817f551`) was preregistered, validated and built the same day; its preregistered verdict is **negative — NOT OK TO SUBMIT** (discovery proxy below incumbent). It does not change the H31-B primary status above; see `knowledge/session_review_2026-10-25_h31e.md` and `evidence/h31e_run_card.json`.
+>
 **Arena Core Values for this project: Maximize P(Win) · Own the Outcome.**
 - **Maximize P(Win):** Build an end-to-end, scientifically grounded, leakage-free fault-mapping system that maximizes the probability of winning the DOE GEMS Prize on genuinely unmapped Nevada faults rather than gaming unbuffered local proxies.
 - **Own the Outcome:** Verify every claim from primary/official sources, enforce automated format and uniqueness gates without human intervention, report failed hypotheses (`H31-A`, `EXP-3`) plainly on the record, and separate `HOLDOUT-DTI` from `USER-REPORTED` and `ORGANIZER-CONFIRMED` claims.

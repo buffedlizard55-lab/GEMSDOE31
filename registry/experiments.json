@@ -76,6 +76,16 @@
    "sha256": "6863e771499a7a95b5104c142018e314f3a541801e17e807effe242998413731"
   },
   {
+   "path": "evidence/h31e_results.json",
+   "bytes": 17743,
+   "sha256": "ad856ee7b94cbda8140a131f784f94adfd5c3e7262d74a8ab9d82869409b705d"
+  },
+  {
+   "path": "evidence/h31e_run_card.json",
+   "bytes": 4111,
+   "sha256": "a6c8a24617596e0564ef1ee813153d21265308262eb3627c165502e4bbe64d9c"
+  },
+  {
    "path": "evidence/incumbent_filter_results.json",
    "bytes": 3512,
    "sha256": "8450fc3dac29319e8a103c438477287a29582e11799ea68e6423126bb33b029a"

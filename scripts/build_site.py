@@ -246,6 +246,76 @@ def submission_receipts() -> list[dict]:
 
 # --------------------------------------------------------------------------------------- pages
 
+def h31e_candidate_section(sub: dict, h31e: dict) -> str:
+    """The 2026-10-25 H31-E candidate card: verdict-first, numbers from evidence/h31e_results.json."""
+    record = next((f for f in sub["files"] if f["id"] == "research-h31e-surface-expression"), None)
+    if record is None or not h31e:
+        return ""
+    screen = h31e["holdout_screen"]
+    confirm = h31e["holdout_confirm"]
+    boot = screen["bootstrap"]
+    proxies = h31e["proxies_full_footprint"]
+    cand = proxies["candidate"]
+    inc_proxy = proxies["incumbent_h27_4"]
+    uniq = h31e["uniqueness"]["dots_vs_registry"]
+    max_within3 = max(v["within_3px_fraction"] for v in uniq.values())
+    failed = [k for k, v in h31e["gates"].items() if not v]
+    rows = [
+        ["Catalogue-gap HOLDOUT-DTI (screen, pooled)", f"{fmt(screen['arms']['candidate']['pooled_DTI'])} "
+         f"vs same-run base {fmt(screen['arms']['base_C1']['pooled_DTI'])}; paired delta 95% CI "
+         f"[{fmt(boot['paired_delta_ci95']['candidate_minus_base_C1'][0])}, "
+         f"{fmt(boot['paired_delta_ci95']['candidate_minus_base_C1'][1])}]"],
+        ["Catalogue-gap HOLDOUT-DTI (confirmation seed)", f"{fmt(confirm['arms']['candidate']['pooled_DTI'])} "
+         f"vs base {fmt(confirm['arms']['base_C1']['pooled_DTI'])} (same sign, 4/4 folds)"],
+        ["Evaluator / withheld positives", f"{e(h31e['evaluator'])} · "
+         f"{fmt(h31e['canary']['withheld_positive_pixels_total'], 0)} withheld catalogue pixels · "
+         f"whole components, {fmt(h31e['canary']['collar_m'] / 1000, 2)} km collar, visible faults masked"],
+        ["Discovery proxy (off-catalogue SGMC)", f"{fmt(cand['offcatalogue_DTI'])} vs incumbent "
+         f"{fmt(inc_proxy['offcatalogue_DTI'])} — <strong>below the incumbent: promotion gate failed</strong>"],
+        ["Leakage canary (worst new-channel AUC)", f"{fmt(max(v['auc'] for k, v in h31e['canary']['aucs'].items() if k != 'oof_B_reference'))} (stop rule &gt; 0.90)"],
+        ["Uniqueness vs registry rasters", f"max {fmt(100 * max_within3, 1)}% of dots within 3 px of any one "
+         f"registry raster (limit 70%); surface Spearman {fmt(h31e['uniqueness']['surface_spearman_vs_oof_B'])} "
+         f"vs OOF-B (limit 0.90) — lane-unique, not a duplicate"],
+        ["Preregistered gates failed", e(", ".join(failed))],
+    ]
+    return f"""    <section id="h31e">
+      <div class="section-head">
+        <div><p class="kicker">New unique candidate · H31-E surface-expression lane (2026-10-25)</p>
+        <h2>NOT OK TO SUBMIT — unique, format-valid, honestly measured, gates failed</h2></div>
+        <p>A genuinely new detector (detrended-elevation flexure + radiometric ratio ridges + LiDAR dipole;
+        no magnetics, no catalogue-derived features), preregistered before fitting and validated without
+        human inspection by the automated gates in <code>evidence/h31e_results.json</code>. It beat its
+        same-run base on the spatial holdout on both seeds, but it does <strong>not</strong> beat the
+        incumbent on the discovery proxy, so the verdict is <strong>negative: do not spend a weekly slot
+        on this file</strong>. It is downloadable for audit and for the separate selector step only.</p>
+      </div>
+      <div class="card download-card">
+        <h2>{e(record['name'])}</h2>
+        <p>Single-band float32 · EPSG:32611 · 100 m · 3730×3292 · binary dots (0/1) finite in [0,1] inside the
+        footprint · NaN outside · nodata = nan · {fmt(record['positive_pixels'], 0)} dots,
+        {fmt(record['positive_pixels_on_public_catalogue'], 0)} of them on the public catalogue.</p>
+        <div class="actions" style="margin-top:18px">
+          <a class="button button-primary" href="downloads/{e(record['file_nan'].split('/')[-1])}" download>Download H31-E .tif (research only)</a>
+          <a class="button button-light" href="downloads/{e(record['zip'].split('/')[-1])}" download>Download .zip</a>
+          <a class="button button-light" href="downloads/{e(record['file_allfinite'].split('/')[-1])}" download>All-finite fallback</a>
+        </div>
+        <p class="download-meta">SHA-256 <code>{e(record.get('sha256_nan',''))}</code><br>
+        Reserved name/note (file identity only — not a slot assignment): <em>{e(record['note_for_portal'])}</em><br>
+        <a href="downloads/{e(record['receipt'].split('/')[-1])}">format receipt</a> ·
+        <a href="executive-summary.html">how submission works</a></p>
+      </div>
+      {table(["automated gate / measurement", "result (HOLDOUT-DTI / proxy — never a competition score)"], rows)}
+      <p class="small">Selector information only: on the same discovery proxy, the union of this candidate with
+      the incumbent scores {fmt(proxies['selector_info_union_candidate_incumbent']['offcatalogue_DTI'])} with
+      {fmt(proxies['selector_info_union_candidate_incumbent']['dots'], 0)} dots. A union is a different
+      (duplicate-lane) artifact and was not built; whether any union is ever submitted is the selector's
+      decision under the weekly cap, not this page's.</p>
+    </section>
+
+"""
+
+
+
 def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     primary = next(f for f in sub["files"] if f["id"] == "primary-h31b-scarp-hessian-standalone")
     hybrid = next(f for f in sub["files"] if f["id"] == "companion-h31b-corroborated-b2-hybrid")
@@ -253,6 +323,7 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     inc_credit = inc.get("ff_credit_per_dot")
     forensic = load("evidence/nine_site_forensic_audit.json", {"focus_submissions": []})
     h31b_exp = load("evidence/h31b_experiments.json", {"experiments": [], "baselines": {}})
+    h31e = load("evidence/h31e_results.json", {})
 
     forensic_rows = []
     for r in forensic.get("focus_submissions", []):
@@ -296,6 +367,7 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
           <a class="button button-primary" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download submission TIFF ({e(primary['name'])}-nan.tif)</a>
           <a class="button button-light" href="downloads/{e(hybrid['file_nan'].split('/')[-1])}" download>Download Companion Hybrid TIFF</a>
           <a class="button button-light" href="executive-summary.html">How to submit — 5 steps</a>
+          <a class="button button-light" href="#h31e">H31-E lane candidate (verdict: negative)</a>
         </div>
       </div>
       <aside class="hero-side" aria-label="Current state">
@@ -451,7 +523,7 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
           <a href="experiments/index.html">Experiment log</a></p></div>
       </div>
     </section>
-"""
+{h31e_candidate_section(sub, h31e)}"""
     return shell("", "Overview", "Download a format-verified GEMS Prize submission raster and read the measured "
                                  "evidence behind it.", "Overview", hero, body,
                  "Measured artifacts, honest limits. No score on this site is organizer-verified.")
@@ -461,6 +533,7 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     primary = next(f for f in sub["files"] if f["id"] == "primary-h31b-scarp-hessian-standalone")
     hybrid = next(f for f in sub["files"] if f["id"] == "companion-h31b-corroborated-b2-hybrid")
     incumbent_h27 = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
+    candidate = next((f for f in sub["files"] if f["id"] == "research-h31e-surface-expression"), None)
     variants = table(
         ["file", "submission name &amp; note (&le;140 chars)", "when to use it", "bytes", "sha256 (nan convention)", "ready to submit?"],
         [[f"<code>{e(primary['name'])}-nan.tif</code>",
@@ -478,7 +551,13 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
          [f"<code>{e(incumbent_h27['name'])}-nan.tif</code>",
           f"<strong>Name:</strong> <code>{e(incumbent_h27['name'])}</code><br><strong>Note:</strong> <code>{e(incumbent_h27['note_for_portal'])}</code>",
           "ARCHIVE BASELINE: 40,199-dot H27-4 B=1 (>100 m) baseline (0.2708 USER-REPORTED)",
-          fmt(incumbent_h27.get("bytes_nan"), 0), f"<code>{e(incumbent_h27.get('sha256_nan',''))}</code>", "<span class=\"badge\">baseline archive</span>"]])
+          fmt(incumbent_h27.get("bytes_nan"), 0), f"<code>{e(incumbent_h27.get('sha256_nan',''))}</code>", "<span class=\"badge\">baseline archive</span>"],
+         [f"<code>{e(candidate['name'])}-nan.tif</code>" if candidate else "<code>n/a</code>",
+          (f"<strong>Name:</strong> <code>{e(candidate['name'])}</code><br><strong>Note ({len(candidate['note_for_portal'])} chars):</strong> <code>{e(candidate['note_for_portal'])}</code>" if candidate else "n/a"),
+          "RESEARCH ONLY - H31-E surface-expression lane (parallel session, 2026-10-25): unique + format-valid but verdict NEGATIVE on preregistered gates (discovery proxy below incumbent); see overview #h31e",
+          fmt(candidate.get("bytes_nan"), 0) if candidate else "n/a",
+          f"<code>{e(candidate.get('sha256_nan',''))}</code>" if candidate else "n/a",
+          "<span class=\"badge badge-red\">NO - DO NOT SUBMIT</span>"]])
     receipt_rows = []
     for r in receipts:
         for convention in ("nan", "allfinite"):
@@ -983,6 +1062,8 @@ def build_sources(sources: dict, experiments: dict) -> str:
 def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> tuple[str, str]:
     primary = next(f for f in sub["files"] if f["id"] == "primary-h31b-scarp-hessian-standalone")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
+    candidate = next((f for f in sub["files"] if f["id"] == "research-h31e-surface-expression"), None)
+    h31e = load("evidence/h31e_results.json", {})
     feed = {
         "schema_version": 1,
         "project": "GEMSDOE31",
@@ -1011,6 +1092,20 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
             "incumbent_off_catalogue_proxy_DTI": research["measured"]["incumbent_off_catalogue_proxy_DTI"],
             "delta": research["measured"]["delta"],
             "slot_approved": False,
+        },
+        "parallel_lane_h31e_negative": None if candidate is None else {
+            "name": candidate["name"],
+            "tif": candidate["file_nan"],
+            "sha256": candidate.get("sha256_nan"),
+            "positive_pixels": candidate["positive_pixels"],
+            "verdict": h31e.get("verdict"),
+            "ok_to_submit": False,
+            "slot_approved": False,
+            "holdout_dti_screen": h31e.get("holdout_screen", {}).get("arms", {}).get("candidate", {}).get("pooled_DTI"),
+            "holdout_evaluator": h31e.get("evaluator"),
+            "withheld_positive_pixels": h31e.get("canary", {}).get("withheld_positive_pixels_total"),
+            "off_catalogue_proxy_DTI": h31e.get("proxies_full_footprint", {}).get("candidate", {}).get("offcatalogue_DTI"),
+            "note": "HOLDOUT-DTI/proxy are computed instruments, not competition scores; no organizer receipt",
         },
         "buffer": {
             "derived_buffer_km": buf["decision"]["buffer_km"],

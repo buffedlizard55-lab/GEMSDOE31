@@ -71,9 +71,17 @@ def build(data_dir: Path, out_dir: Path, *, include_derived: bool = True) -> dic
     stack = np.memmap(out_dir / "features.f32", dtype=np.float32, mode="w+", shape=(len(names),) + SHAPE)
     with rasterio.open(data_dir / "training_features.tif") as src:
         assert [d.split(" - ")[0] for d in src.descriptions] == COMPETITION_BANDS, "band order drift"
+        nodata_tag = src.nodata
         for i in range(len(COMPETITION_BANDS)):
             band = src.read(i + 1).astype(np.float32)
-            band[~np.isfinite(band)] = np.nan
+            # The competition raster carries a -3.4028235e38 nodata sentinel which is *finite* and
+            # therefore survived the previous non-finite-only conversion (IR-31-STACK-SENTINEL,
+            # found 2026-10-25 by the H31-E canary: derived channels peaked at 3.4e38). Convert the
+            # tagged sentinel and any absurd magnitude to NaN, matching the documented policy.
+            invalid = ~np.isfinite(band) | (np.abs(band) > 1e30)
+            if nodata_tag is not None and np.isfinite(nodata_tag):
+                invalid |= band == np.float32(nodata_tag)
+            band[invalid] = np.nan
             stack[i] = band
     base = len(COMPETITION_BANDS)
     for offset, path in ((0, "external/lidar_scarp_features_u8.tif"), (len(LIDAR_BANDS), "external/geodawn_rad_u8.tif"),

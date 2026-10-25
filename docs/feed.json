@@ -41,6 +41,20 @@
   "delta": 0.026729,
   "slot_approved": false
  },
+ "parallel_lane_h31e_negative": {
+  "name": "gemsdoe31-h31e-surfexpr-20261025-8817f551",
+  "tif": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif",
+  "sha256": "76d58f4a28ef6112a79c8d930ad2c3c87b1f6ba0c062a4780c1207a48b749722",
+  "positive_pixels": 40199,
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "holdout_dti_screen": 0.13404828147016595,
+  "holdout_evaluator": "gemsdoe31-holdout-v1",
+  "withheld_positive_pixels": 58625,
+  "off_catalogue_proxy_DTI": 0.07116647227428345,
+  "note": "HOLDOUT-DTI/proxy are computed instruments, not competition scores; no organizer receipt"
+ },
  "buffer": {
   "derived_buffer_km": 21.25,
   "empirical_decay_range_km": 21.25,

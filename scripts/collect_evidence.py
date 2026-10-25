@@ -129,6 +129,25 @@ SUBMISSIONS = [
         "why_not_slot_approved": "Superseded by the h27-4 geometry; kept only so the audit trail for the "
                                 "owner-reported 0.2600 can be followed.",
     },
+    {
+        "id": "research-h31e-surface-expression",
+        "name": "gemsdoe31-h31e-surfexpr-20261025-8817f551",
+        "role": "research candidate - H31-E surface-expression lane (2026-10-25); unique and format-valid, "
+                "verdict negative on preregistered gates; NOT OK TO SUBMIT",
+        "provenance": "trained and emitted in this repository (scripts/run_h31e.py; design frozen in "
+                      "knowledge/2026-10-25_h31e_surface_expression_preregistration.md): HGB on det_elev "
+                      "top-hat/flexure + radiometric ratio-gradient + LiDAR dipole channels, no magnetics "
+                      "and no catalogue-derived features; ridge-NMS + d=2.8 Poisson emission at incumbent "
+                      "density; packaged by scripts/build_submission.py",
+        "note_for_portal": "H31-E surfexpr 40199d det-flexure+ratio-ridge+lidar-dipole; HOLDOUT 0.1340 vs "
+                           "base 0.1273; offcat 0.0712<0.0938 DO NOT SUBMIT",
+        "slot_approved": False,
+        "why_not_slot_approved": "Preregistered gates failed (evidence/h31e_results.json): discovery-proxy "
+                                "DTI 0.0712 is below the incumbent 0.0938 and the screen beat its base in "
+                                "only 2/4 folds, although pooled catalogue-gap HOLDOUT-DTI beat the same-run "
+                                "base on both seeds (0.1340/0.1326 vs 0.1273/0.1256). A proxy or holdout "
+                                "number is not a competition score; promotion is a separate selector step.",
+    },
 ]
 
 
@@ -289,6 +308,28 @@ def submissions_register() -> dict:
                     "folds_beating_gemsdoe32_b2": e2["folds_beating_gemsdoe32_b2"],
                     "uniqueness_max_surface_spearman": e2["uniqueness_audit"]["max_surface_spearman"],
                     "uniqueness_max_dot_overlap_3px": e2["uniqueness_audit"]["max_dot_overlap_3px"],
+                }
+
+    h31e = ROOT / "evidence" / "h31e_results.json"
+    if h31e.is_file():
+        results = json.loads(h31e.read_text())
+        for record in files:
+            if record["id"] != "research-h31e-surface-expression":
+                continue
+            cand = results["proxies_full_footprint"]["candidate"]
+            inc = results["proxies_full_footprint"]["incumbent_h27_4"]
+            if cand["dots"] == record["positive_pixels"]:
+                record["measured"] = {
+                    "holdout_dti_screen": results["holdout_screen"]["arms"]["candidate"]["pooled_DTI"],
+                    "holdout_dti_screen_ci95": results["holdout_screen"]["bootstrap"]["ci95"]["candidate"],
+                    "holdout_dti_confirm": results["holdout_confirm"]["arms"]["candidate"]["pooled_DTI"],
+                    "evaluator": results["evaluator"],
+                    "withheld_positive_pixels": results["canary"]["withheld_positive_pixels_total"],
+                    "off_catalogue_proxy_DTI": cand["offcatalogue_DTI"],
+                    "incumbent_off_catalogue_proxy_DTI": inc["offcatalogue_DTI"],
+                    "delta": cand["offcatalogue_DTI"] - inc["offcatalogue_DTI"],
+                    "gates": results["gates"],
+                    "verdict": results["verdict"],
                 }
 
     primary = next((r for r in files if r["id"] == "primary-h31b-scarp-hessian-standalone"), None)

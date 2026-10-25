@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
  "passes": [
   {
@@ -226,7 +226,7 @@
     "regression_test": "tests/test_submission.py keeps the inside-NaN case that produces that error class",
     "delivery": "pull request and merge recorded in the repository history; Pages serves docs/"
    },
-    "open_scientific_gates": [
+   "open_scientific_gates": [
     "next-week slot candidate: rerun the union with a better-trained classifier rather than a re-quantiled incumbent",
     "re-implement the arm trainer so the whole chain reruns from a fresh clone",
     "obtain the GDR 1391 depth stack and 3DEP return attributes through the CI runner, or record them as unavailable"
@@ -276,12 +276,120 @@
     "cross-check all user requirements: 9-site forensic study of 0.2778, unique validated GeoTIFF generation, obvious readiness on site home and executive summary, unique name and <=140-char note, Parallel-Run Protocol compliance, and JSON RUN CARD"
    ],
    "verification": {
-    "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES — VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
+    "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES \u2014 VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
     "run_card": "evidence/run_card_2026-10-25.json generated and verified with all required fields"
    },
    "open_scientific_gates": [
     "human entrant must manually download the GeoTIFF and submit on DrivenData if desired, and attach any official score receipt to registry/score_claims.json"
    ]
+  },
+  {
+   "id": "pass-13-2026-10-25-prior-art-and-hypothesis-gate",
+   "status": "complete-with-data-blocker",
+   "scope": [
+    "reread README charter, AGENTS instructions, active H31 preregistration and latest historical status before new work",
+    "inspect public GEMSDOE32 repository archive and H33-2-B2 method/evidence solely for prior-art learning",
+    "rank four unfit hypotheses with layers, physical signature, novelty boundary, access requirement and effort",
+    "apply the required rank-correlation / three-pixel overlap canary to the archived H33-2-B2 raster before any new placement"
+   ],
+   "verification": {
+    "owner_mirror": "GEMSDOE32 main commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc; exact H33-2-B2 TIFF digest and source links recorded in knowledge/session_review_2026-10-25.md",
+    "score_claim": "prompt value 0.2778 retained as USER-REPORTED; inspected owner-mirror submission metadata says UNSCORED; no organizer receipt linked to exact bytes",
+    "duplicate_screen": "against the local H27-4 finite footprint, Spearman rho 0.967587, 100% of H33 positive cells within 3 px, all 37,654 positives exactly shared; duplicate gate exceeded and logged as IR-31-H33-2-B2-DUPLICATE",
+    "hypotheses": "four distinct desk-only candidates documented; none fitted, none declared viable because runtime rasters/cache are absent",
+    "holdout_audit": "Inspected GEMSDOE32 H33-2 code path creates the catalogue-flank mask from full labels before fixed-mask holdout scoring; this does not satisfy fold-visible catalogue processing and is logged as IR-31-H33-B2-HOLDOUT-LABEL-LEAKAGE.",
+    "format_audit": "Inspected H33 -zeros GeoTIFF is finite zero outside the local footprint, has no nodata tag, and conflicts with the official null/NaN outside convention; logged as IR-31-H33-ZERO-OUTSIDE."
+   },
+   "open_gates": [
+    "all 11 hash-pinned manifest inputs are absent from this checkout; no feature-alone leakage canary or spatial holdout possible",
+    "no new candidate TIFF, submission metadata, holdout DTI/CI, or organizer-confirmed score",
+    "the owner-mirror H33 holdout procedure cannot stand in for the requested hide-and-recover evaluator",
+    "the H33 zeros file was not validated against an organizer sample template and does not follow the recorded outside-footprint convention"
+   ]
+  },
+  {
+   "id": "pass-14-2026-10-25-runner-and-upload-safety-fix",
+   "status": "complete",
+   "scope": [
+    "remove the stale H31 runner branch literal while retaining an Arena-session-only default and an optional exact branch override",
+    "make the public home page and executive summary unambiguously label existing downloads as reference/research-only and not approved for upload",
+    "add static assertions so the site fails if the approval warning disappears or the legacy file is relabeled as a submission TIFF"
+   ],
+   "findings_fixed": [
+    "the prior session-ID branch literal would reject the current active Arena branch even before the missing-data guard",
+    "the home page previously led with \u201cDownload the file. Submit it.\u201d while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
+    "the executive summary no longer reserves a submission name or note for a legacy/reference file"
+   ],
+   "verification": {
+    "runner_regression": "test accepts arena/7a0b39fb-gemsdoe31 when no exact override is set, rejects main, and enforces GEMSDOE31_BRANCH when explicitly configured",
+    "site": "20 generated pages; 255 local links; prominent do-not-upload statement and button semantics verified by scripts/check_site.py"
+   }
+  },
+  {
+   "id": "pass-15-2026-10-25-final-charter-and-reproducibility-check",
+   "status": "complete-with-scientific-stop",
+   "scope": [
+    "rerun tests, lint, compile check and exact metric audit after final edits",
+    "rebuild the site and evidence/submission registers from current artifacts and run structural site checks",
+    "cross-check final status against no-slot, no-duplicate, no unvalidated TIFF and user-reported score requirements"
+   ],
+   "verification": {
+    "tests": "33 passed",
+    "ruff": "clean",
+    "compileall": "passed for src, scripts and tests",
+    "metric": "max absolute delta 4.441e-16 against brute-force transcription over 24 grids; exact cases and 29 kernel offsets checked",
+    "evidence_and_site": "collect_evidence completed; build_site generated 20 pages; check_site passed 255 local links",
+    "inputs": "prepare_data --verify-only found all 11 manifest inputs absent and hash verification false; historical committed evidence receipt restored after recording the current absence in the session audit",
+    "decision": "no top-candidate holdout was run, no submission TIFF generated, no slot touched; negative run card recorded in knowledge/session_review_2026-10-25.md",
+    "site": "20 generated pages and 255 local links; do-not-upload warning checked by scripts/check_site.py"
+   },
+   "remaining_risks": [
+    "no feature stack or competition data in workspace prevents model fitting, whole-segment hide-and-recover evaluation, leakage canaries, or confidence intervals",
+    "the 0.2778 user claim has no organizer receipt in inspected archive and cannot be verified without a receipt supplied from a submission-page result",
+    "owner-mirror previous experiments and scores do not establish official competition performance",
+    "the inspected GEMSDOE32 all-finite zeros raster conflicts with the official outside-footprint null/NaN convention; no organizer receipt or sample-template revalidation was available"
+   ]
+  },
+  {
+   "id": "pass-16-2026-10-25-h31e-implementation",
+   "status": "complete-with-negative-verdict",
+   "scope": [
+    "restore + SHA-256-verify the 11 hash-pinned inputs and rebuild the feature stack",
+    "preregister H31-E (4 ranked hypotheses) before any fit; implement holdout/emission/surface-feature shared tools",
+    "EXP-1 leakage canary + single-channel screen; EXP-2 spatially blocked hide-and-recover screen + confirmation; EXP-3 final emission + strict GeoTIFF validation"
+   ],
+   "verification": {
+    "data": "evidence/data_restore.json all_verified=true; prepare_data --verify-only all_hashes_match=true",
+    "canary": "worst new-channel AUC 0.5425 (stop > 0.90)",
+    "holdout": "candidate HOLDOUT-DTI 0.1340/0.1326 vs base 0.1273/0.1256 (evaluator gemsdoe31-holdout-v1, 58,625 withheld px); discovery proxy 0.0712 < incumbent 0.0938 -> verdict negative",
+    "format": "both TIFF variants pass src/gemsdoe31/submission.py with hard_failures []"
+   }
+  },
+  {
+   "id": "pass-17-2026-10-25-h31e-bug-leakage-review",
+   "status": "complete",
+   "scope": [
+    "nodata-sentinel root-cause and shared-tool fix (IR-31-STACK-SENTINEL) with stack rebuild and census check",
+    "paired-bootstrap block-alignment crash fixed; arm-independent block universe + regression tests",
+    "leakage audit: no catalogue- or SGMC-derived channels; whole-component hides; 21.25 km collar; visible faults masked pixel-exactly; independent rasterio re-validation of both TIFFs; screen fold-count gate kept strict as preregistered"
+   ],
+   "verification": {
+    "tests": "see pass-18 final run",
+    "metric": "check_metric max |delta| 4.441e-16 vs brute force; per-truth/FP helpers sum exactly to TPw/FPw"
+   }
+  },
+  {
+   "id": "pass-18-2026-10-25-h31e-charter-crosscheck",
+   "status": "complete-with-negative-verdict",
+   "scope": [
+    "site home + executive summary lead with the NOT OK TO SUBMIT verdict; registers regenerated from artifacts; run card written",
+    "full local check set rerun after final edits (pytest, ruff, check_metric, collect_evidence, build_site, check_site)",
+    "no slot spent, no DrivenData access, all fleet scores labelled USER-REPORTED, H33-2-B2 not copied"
+   ],
+   "verification": {
+    "site": "build_site 20 pages; check_site passed (260 local links at first build; final count in session log)",
+    "verdict": "negative; promotion remains a separate selector step"
+   }
   }
  ],
  "remaining_work": [

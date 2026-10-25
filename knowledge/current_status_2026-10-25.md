@@ -25,3 +25,25 @@
   - `EXP-1 (H31-B Standalone)`: `HOLDOUT-DTI = 0.1380` (`95% CI [0.1169, 0.1683]`, beats `GEMSDOE32 B=2` in **4/4 folds**; `r_s = 0.11433 <= 0.90`, 3-px dot overlap `35.938% <= 70%`) -> **PROMOTE**
   - `EXP-2 (H31-B Corroborated-B=2 Hybrid)`: `HOLDOUT-DTI = 0.1249` (`95% CI [0.1116, 0.1344]`, beats `GEMSDOE32 B=2` in **4/4 folds**; `r_s = 0.11433 <= 0.90`, 3-px dot overlap `66.394% <= 70%`) -> **PROMOTE**
   - `EXP-3 (B=1 Flank-Retained Ablation)`: `HOLDOUT-DTI = 0.1296` (`95% CI [0.1101, 0.1566]`, `-0.0084` below `EXP-1`) -> **NEGATIVE**
+
+## Addendum — parallel H31-E surface-expression lane (2026-10-25, merged via PR #13)
+
+A second parallel session the same day ran an independent lane in this repository; it does not
+change the H31-B verdicts above. Records: [session review](session_review_2026-10-25_h31e.md),
+[preregistration](2026-10-25_h31e_surface_expression_preregistration.md),
+`evidence/h31e_run_card.json`, `evidence/h31e_results.json`.
+
+- Restored the 11 hash-pinned inputs (`evidence/data_restore.json: all_verified=true`) and fixed a
+  stack bug its canary exposed (**IR-31-STACK-SENTINEL**: finite −3.4028235e38 nodata sentinel
+  surviving `scripts/prepare_data.py`; fixed there once, stack rebuilt — note the H31-B campaign
+  artifacts were produced with the pre-fix stack convention; see the irregularity for impact).
+- H31-E (det_elev top-hat/flexure + radiometric ratio-gradient ridges + LiDAR dipole; no magnetics,
+  no catalogue-derived features): leakage canary worst AUC 0.5425; catalogue-gap hide-and-recover
+  (`gemsdoe31-holdout-v1`, 58,625 withheld positives) HOLDOUT-DTI 0.1340/0.1326 vs same-run base
+  0.1273/0.1256 — **but** off-catalogue discovery proxy 0.0712 vs incumbent 0.0938 and screen
+  fold-count 2/4 → **verdict negative**. File `gemsdoe31-h31e-surfexpr-20261025-8817f551`
+  (40,199 dots, sha256 `76d58f4a…`) is unique and format-valid and is labelled **NOT OK TO SUBMIT**
+  on the site; also lane-unique vs the two H31-B rasters (23.2% / 31.5% of dots within 3 px).
+  Different instruments (catalogue-gap whole-component holdout here vs off-SGMC 4-block holdout in
+  the H31-B campaign) — numbers are not cross-comparable; each lane stands on its own preregistered
+  gates. Slot selection between lanes remains the separate selector step.

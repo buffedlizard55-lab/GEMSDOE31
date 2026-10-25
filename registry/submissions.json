@@ -242,6 +242,59 @@
    "hard_failures_nan": [],
    "organizer_acceptance_verified_nan": false,
    "legacy_receipt": true
+  },
+  {
+   "id": "research-h31e-surface-expression",
+   "name": "gemsdoe31-h31e-surfexpr-20261025-8817f551",
+   "submission_name": "gemsdoe31-h31e-surfexpr-20261025-8817f551",
+   "ok_to_download_and_submit": false,
+   "role": "research candidate - H31-E surface-expression lane (2026-10-25); unique and format-valid, verdict negative on preregistered gates; NOT OK TO SUBMIT",
+   "provenance": "trained and emitted in this repository (scripts/run_h31e.py; design frozen in knowledge/2026-10-25_h31e_surface_expression_preregistration.md): HGB on det_elev top-hat/flexure + radiometric ratio-gradient + LiDAR dipole channels, no magnetics and no catalogue-derived features; ridge-NMS + d=2.8 Poisson emission at incumbent density; packaged by scripts/build_submission.py",
+   "note_for_portal": "H31-E surfexpr 40199d det-flexure+ratio-ridge+lidar-dipole; HOLDOUT 0.1340 vs base 0.1273; offcat 0.0712<0.0938 DO NOT SUBMIT",
+   "slot_approved": false,
+   "why_not_slot_approved": "Preregistered gates failed (evidence/h31e_results.json): discovery-proxy DTI 0.0712 is below the incumbent 0.0938 and the screen beat its base in only 2/4 folds, although pooled catalogue-gap HOLDOUT-DTI beat the same-run base on both seeds (0.1340/0.1326 vs 0.1273/0.1256). A proxy or holdout number is not a competition score; promotion is a separate selector step.",
+   "positive_pixels": 40199,
+   "positive_pixels_on_public_catalogue": 1485,
+   "format_status": "locally validated against the grid template; not organizer acceptance",
+   "receipt": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-format-check.json",
+   "file_nan": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif",
+   "bytes_nan": 203869,
+   "sha256_nan": "76d58f4a28ef6112a79c8d930ad2c3c87b1f6ba0c062a4780c1207a48b749722",
+   "format_ok_nan": true,
+   "hard_failures_nan": [],
+   "organizer_acceptance_verified_nan": false,
+   "file_allfinite": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif",
+   "bytes_allfinite": 158771,
+   "sha256_allfinite": "825b67192d451f2d1847a47632b417c43865613df943cfa5e889ff379e809fa6",
+   "format_ok_allfinite": true,
+   "hard_failures_allfinite": [],
+   "organizer_acceptance_verified_allfinite": false,
+   "zip": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.zip",
+   "measured": {
+    "holdout_dti_screen": 0.13404828147016595,
+    "holdout_dti_screen_ci95": [
+     0.12395523291772388,
+     0.1443491138994205
+    ],
+    "holdout_dti_confirm": 0.1326499349946631,
+    "evaluator": "gemsdoe31-holdout-v1",
+    "withheld_positive_pixels": 58625,
+    "off_catalogue_proxy_DTI": 0.07116647227428345,
+    "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
+    "delta": -0.022681676713050797,
+    "gates": {
+     "canary_no_auc_above_0.90": true,
+     "holdout_beats_base_pooled": true,
+     "holdout_paired_delta_ci_excludes_0": true,
+     "holdout_better_in_3_of_4_folds": false,
+     "holdout_worst_fold_delta_ge_-0.010": true,
+     "confirmation_same_sign": true,
+     "discovery_proxy_not_below_incumbent": false,
+     "surface_spearman_le_0.90": true,
+     "dots_within3_le_0.70_all_registry": true
+    },
+    "verdict": "negative"
+   }
   }
  ],
  "format_conventions": {
