@@ -223,9 +223,45 @@
   },
   {
    "id": "tg-repo",
-   "class": "OWNER-MIRROR",
+   "class": "OFFICIAL",
    "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
-   "accessed_utc": "2026-10-04"
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "owner-mirror-gemsdoe32-h33-audit",
+   "class": "OWNER-MIRROR",
+   "url": "https://github.com/buffedlizard55-lab/GEMSDOE32/tree/012e17b2a115c3c0d5e7885bea625bf9657c99fc",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "owner-mirror-gemsdoe70-piedmont-diagnostic",
+   "class": "OWNER-MIRROR",
+   "url": "https://github.com/buffedlizard55-lab/GEMSDOE76",
+   "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "miller-singh-1994-tilt-angle",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1016/0926-9851(94)90022-1",
+   "accessed_utc": null
+  },
+  {
+   "id": "blakely-simpson-1986-horizontal-gradient",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1190/1.1442197",
+   "accessed_utc": null
+  },
+  {
+   "id": "minoux-1978-lazy-greedy",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1007/BFb0006528",
+   "accessed_utc": null
+  },
+  {
+   "id": "hanks-2000-scarp-diffusion",
+   "class": "TRUSTED-PEER-REVIEWED",
+   "url": "https://doi.org/10.1029/RF004p0313",
+   "accessed_utc": null
   },
   {
    "id": "sgmc",

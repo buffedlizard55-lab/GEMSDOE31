@@ -26,7 +26,55 @@
 
   <main class="wrap">
 <div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
-      The new H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are format-validated and available to download in one click; all are research-only and fail the unexempted 695-raster shared-registry overlap gate. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      The new H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are format-validated and available to download in one click; all are research-only and fail the unexempted 695-raster shared-registry overlap gate. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      <section id="h31m-submod" aria-labelledby="h31m-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 Deconfounded Subsurface Concordance + 29-Cell Submodular Candidate · H31-M</p>
+        <h2 id="h31m-heading">H31-M BStep-XMod-Submod: Research Download Only · DO NOT SUBMIT</h2></div>
+        <p>Newly computed in this session from 8 label-free geophysical/structural channels + deconfounded dual-head Bayes OOF HGB +
+           exact 29-cell submodular DTI allocation. Beats GEMSDOE32 H33-2-B2 simultaneously on Piedmont Off-SGMC, 4-Block Off-SGMC,
+           Full Off-SGMC, and 21.25 km hide-and-recover holdout (4/4 folds on both seeds), and passes the 13-submission comparator subset —
+           but is <strong>held as research-only (DO NOT SUBMIT)</strong> under the unexempted 695-raster spacing-5 lattice STOP and inherited 21.25 km collar.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-green">LOCAL FORMAT &amp; 11/11 EFFICACY GATES PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
+        <h3 style="margin-top:18px">gemsdoe31-h31m-bstep-xmod-submod-20261025-37654</h3>
+        <p>8 label-free geophysical channels (<code>bstep_grad_norm</code>, <code>bstep_inflect</code>, Miller–Singh <code>grav_tilt_zero</code>,
+           Blakely–Simpson <code>rtp_bandpass_crest</code>, <code>cond_grad_ridge</code>, <code>sub_tensor_coh</code>, <code>surf_piedmont_ridge</code>,
+           <code>xmod_strike_concordance</code>) + quadrant-deconfounded Dual-Head Bayes OOF HGB (<code>M_sub</code> 37 bands + <code>M_lidar</code> 48 bands) +
+           Minoux lazy-greedy 29-cell submodular DTI allocator with <code>B=2</code> (<code>d_cat &gt; 200 m</code>) hygiene (37,654 off-catalogue dots; 37.2% piedmont).</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif" download>Download H31-M Research .tif (NaN-outside)</a>
+          <a class="button" href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.zip" download>Download Single-TIFF .zip</a>
+          <a class="button" href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif" download>All-finite research encoding .tif</a>
+          <a class="button" href="downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-format-check.json" download>Format receipt .json</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {0.0, 1.0} in [0.0, 1.0] · 0 dots within 200 m of public catalogue.<br>
+          <strong>SHA-256 (NaN primary):</strong> <code>ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6</code><br>
+          <strong>SHA-256 (Single-TIFF ZIP):</strong> <code>c24ea5d55e0ae385c9d04848676159b6afe654be0f0e9dafd5c624f3ab17c624</code><br>
+          <strong>SHA-256 (All-finite):</strong> <code>8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0</code><br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>GEMSDOE31-H31M-BStep-XMod-Submod-37654</code><br>
+          <strong>Note (102/140):</strong> <code>H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated Gate</th><th>Threshold</th><th>Measured H31-M Value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {0.0, 1.0}; 0 NaN inside; 0 within 200 m of catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 48 used features</td><td>max AUC = 0.7740 (new H31-M channels max = 0.6139)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3a · 13-Submission Comparator Subset</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = 0.7204; max 3-px = 53.16% (concurrent lanes ≤ 51.59%; 40.25% vs H33-2-B2)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>99.6255% (37,513 / 37,654 dots within 3 px; |ρ| = 0.0018)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G4a · Screen (seed 20261025, 21.25 km)</code></td><td>Paired 95% CI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI 0.1350 vs 0.1135 (Δ CI [+0.0064, +0.0380], 4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4b · Confirm (seed 20261026, n=58,625)</code></td><td>Fresh draw, paired 95% CI &gt; 0 and ≥ 3/4 folds won</td><td>HOLDOUT-DTI 0.1372 [0.1191, 0.1580] vs 0.1127 (4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Alluvial/piedmont habitat (slope ≤ 6 deg, n=11,573 px)</td><td>HOLDOUT-DTI 0.0641 vs GEMSDOE32 H33-2-B2 0.0586 (+9.4%) and H31-B 0.0052</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5b · All-Elevation &amp; 4-Block Off-SGMC</code></td><td>Strict simultaneous win &gt; H33-2-B2 (0.0940 / 0.0984)</td><td>Full Off-SGMC 0.1010 vs 0.0940 (+7.4%); 4-Block 0.1077 [0.0902, 0.1336] vs 0.0984 (+9.5%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G6 · Own-Method Variogram &amp; Slot Gate</code></td><td>Candidate-specific residual range + unexempted registry pass</td><td>21.25 km collar inherited from historical buffer_derivation.json; r13-lattice-s5 STOP active</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">HOLDOUT-DTI evaluator: <code>gemsdoe31-holdout-v1</code> (n=58,625 withheld positives, 21,250 m spatial collar, 400 block-bootstrap replicates) and
+        <code>usgs-sgmc-offcat-gt300m-v1</code> (n=61,664 full / n=50,470 4-block collared / n=11,573 piedmont). None of these figures is a competition score or projection.
+        Receipts: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/h31m_run_card.json">H31-M JSON run card</a> ·
+        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/h31m_results.json">full EXP-1..3 measurements</a> ·
+        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md">frozen H31-M preregistration</a>.</p>
+    </section>
       <section id="hvdc-submod" aria-labelledby="hvdc-heading">
       <div class="section-head"><div><p class="kicker">2026-10-25 Dual-Specialist + 300 m CELF Submodular Candidate · H31-HVDC</p>
         <h2 id="hvdc-heading">H31-HVDC-Submod300: Research Download · DO NOT SUBMIT</h2></div>

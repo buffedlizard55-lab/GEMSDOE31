@@ -1,704 +1,1214 @@
 {
- "schema_version": 1,
- "generated_utc": "2026-10-25",
- "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
- "passes": [
-  {
-   "id": "pass-1-implementation-and-verification",
-   "status": "historical \u2014 complete-for-current-artifacts",
-   "scope": [
-    "frozen H31-A design, two magnetic-scale features, pinned sibling runtime/cache verification, paired four-block pilot, same-trace residual variogram, bootstrap range rule and stop gate",
-    "strict GeoTIFF CRS/grid/shape/transform/dtype/value/NaN checks and out-of-range regression protection",
-    "ranked geological hypotheses, official/primary source access audit, prior-score audit, registries, site, and manual upload guide"
-   ],
-   "verification": {
-    "pytest": "23 passed in the final post-pilot check, without warnings",
-    "ruff": "all checks passed",
-    "compileall": "passed for src/, scripts/, and tests/",
-    "json_documents": "all 11 repository JSON documents parse; all 8 pilot cells.jsonl rows parse",
-    "html_local_links": "6 static pages checked; no broken local links",
-    "legacy_tiff": "local hard format checks pass against the pinned owner-mirror template only; organizer acceptance remains false",
-    "production_context": "7/7 owner-mirror inputs and 6/6 caches verified; 3730x3292 footprint and 55/57 feature columns built",
-    "h31_a_pilot": "8 arm/fold fits completed on clean code revision 23191e7; mean paired delta -0.0040088545; metric gate false; both residual ranges unknown; no screen or confirmation"
-   },
-   "open_scientific_gates": [
-    "H31-A is stopped: the paired pilot metric gate failed and both point fits failed the observed-lag sill-support criterion",
-    "no operational residual range, bootstrap confidence interval, or data-derived final buffer exists",
-    "the current-best comparable incumbent has not been reproduced on the same folds/buffer; no slot is eligible",
-    "H31-B LAZ binary, point-return attributes, and full-footprint overlap remain unavailable"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "pass-2-independent-bug-assumption-leakage-review",
-   "status": "historical \u2014 complete-for-current-code-and-pilot",
-   "checks": [
-    "confirmed H31 feature construction uses no fault labels and re-masks invalid cells after filtering",
-    "confirmed model arms share folds, draws, training samples, test rows, and emission; residual pairs are restricted to the same fold/draw/8-connected trace component",
-    "confirmed pilot collar is labeled temporary, an unstable/unknown range fails closed, and no screen or submission can be authorized by a pilot win",
-    "confirmed final file validator checks range before any clipping/serialization and regression tests reject values outside [0,1]",
-    "reviewed source classifications, local links, legacy-download labels, AI draft, score claim, and static-only official leaderboard link"
-   ],
-   "findings_fixed": [
-    "replaced deprecated Rasterio from_origin test setup with explicit Affine transforms; checks run without warnings",
-    "fixed a malformed score_claims.json key found by recursive validation and added automated registry/evidence assertions",
-    "added tests for the virtual stacked feature array and the preregistered maximum-three data-derived buffer retry chain",
-    "bound pilot/screen/confirmation stages to the same preregistration hash, executable-code/dependency digest, and Python/package environment digest",
-    "the original pilot variogram record retained the instability reason but omitted empirical bins on exceptions; added a regression test and a post-hoc diagnostic JSON regenerated only from the saved OOF residuals, with no classifier refit or gate change"
-   ],
-   "remaining_risks": [
-    "the fitted ~24.964 km point diagnostic is unstable extrapolation and must not be used as a buffer; no component-bootstrap interval exists",
-    "official sample-template provenance and the user-reported D2.8 0.2600 score remain unresolved",
-    "no official score, organizer acceptance, upload, leaderboard inspection, or current-best incumbent comparison has occurred"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "pass-3-whole-request-crosscheck",
-   "status": "historical \u2014 complete-with-open-gates",
-   "criteria": [
+  "schema_version": 1,
+  "generated_utc": "2026-10-25",
+  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
+  "passes": [
     {
-     "criterion": "README charter, Maximize P(Win), Own the Outcome, source classes, and status-first site",
-     "status": "implemented; README states the charter is a consolidated restatement, not a verbatim reconstruction"
+      "id": "pass-1-implementation-and-verification",
+      "status": "historical \u2014 complete-for-current-artifacts",
+      "scope": [
+        "frozen H31-A design, two magnetic-scale features, pinned sibling runtime/cache verification, paired four-block pilot, same-trace residual variogram, bootstrap range rule and stop gate",
+        "strict GeoTIFF CRS/grid/shape/transform/dtype/value/NaN checks and out-of-range regression protection",
+        "ranked geological hypotheses, official/primary source access audit, prior-score audit, registries, site, and manual upload guide"
+      ],
+      "verification": {
+        "pytest": "23 passed in the final post-pilot check, without warnings",
+        "ruff": "all checks passed",
+        "compileall": "passed for src/, scripts/, and tests/",
+        "json_documents": "all 11 repository JSON documents parse; all 8 pilot cells.jsonl rows parse",
+        "html_local_links": "6 static pages checked; no broken local links",
+        "legacy_tiff": "local hard format checks pass against the pinned owner-mirror template only; organizer acceptance remains false",
+        "production_context": "7/7 owner-mirror inputs and 6/6 caches verified; 3730x3292 footprint and 55/57 feature columns built",
+        "h31_a_pilot": "8 arm/fold fits completed on clean code revision 23191e7; mean paired delta -0.0040088545; metric gate false; both residual ranges unknown; no screen or confirmation"
+      },
+      "open_scientific_gates": [
+        "H31-A is stopped: the paired pilot metric gate failed and both point fits failed the observed-lag sill-support criterion",
+        "no operational residual range, bootstrap confidence interval, or data-derived final buffer exists",
+        "the current-best comparable incumbent has not been reproduced on the same folds/buffer; no slot is eligible",
+        "H31-B LAZ binary, point-return attributes, and full-footprint overlap remain unavailable"
+      ],
+      "historical_scope": true
     },
     {
-     "criterion": "prominent GeoTIFF download, executive summary, unique reserved name/comment, and exact manual upload instructions",
-     "status": "site complete; prominent TIFF is expressly legacy/reference-only because no H31 candidate exists"
+      "id": "pass-2-independent-bug-assumption-leakage-review",
+      "status": "historical \u2014 complete-for-current-code-and-pilot",
+      "checks": [
+        "confirmed H31 feature construction uses no fault labels and re-masks invalid cells after filtering",
+        "confirmed model arms share folds, draws, training samples, test rows, and emission; residual pairs are restricted to the same fold/draw/8-connected trace component",
+        "confirmed pilot collar is labeled temporary, an unstable/unknown range fails closed, and no screen or submission can be authorized by a pilot win",
+        "confirmed final file validator checks range before any clipping/serialization and regression tests reject values outside [0,1]",
+        "reviewed source classifications, local links, legacy-download labels, AI draft, score claim, and static-only official leaderboard link"
+      ],
+      "findings_fixed": [
+        "replaced deprecated Rasterio from_origin test setup with explicit Affine transforms; checks run without warnings",
+        "fixed a malformed score_claims.json key found by recursive validation and added automated registry/evidence assertions",
+        "added tests for the virtual stacked feature array and the preregistered maximum-three data-derived buffer retry chain",
+        "bound pilot/screen/confirmation stages to the same preregistration hash, executable-code/dependency digest, and Python/package environment digest",
+        "the original pilot variogram record retained the instability reason but omitted empirical bins on exceptions; added a regression test and a post-hoc diagnostic JSON regenerated only from the saved OOF residuals, with no classifier refit or gate change"
+      ],
+      "remaining_risks": [
+        "the fitted ~24.964 km point diagnostic is unstable extrapolation and must not be used as a buffer; no component-bootstrap interval exists",
+        "official sample-template provenance and the user-reported D2.8 0.2600 score remain unresolved",
+        "no official score, organizer acceptance, upload, leaderboard inspection, or current-best incumbent comparison has occurred"
+      ],
+      "historical_scope": true
     },
     {
-     "criterion": "official-grid/value validation and out-of-range regression protection",
-     "status": "implemented and locally tested against owner-mirror sample; organizer authenticity/acceptance unverified"
+      "id": "pass-3-whole-request-crosscheck",
+      "status": "historical \u2014 complete-with-open-gates",
+      "criteria": [
+        {
+          "criterion": "README charter, Maximize P(Win), Own the Outcome, source classes, and status-first site",
+          "status": "implemented; README states the charter is a consolidated restatement, not a verbatim reconstruction"
+        },
+        {
+          "criterion": "prominent GeoTIFF download, executive summary, unique reserved name/comment, and exact manual upload instructions",
+          "status": "site complete; prominent TIFF is expressly legacy/reference-only because no H31 candidate exists"
+        },
+        {
+          "criterion": "official-grid/value validation and out-of-range regression protection",
+          "status": "implemented and locally tested against owner-mirror sample; organizer authenticity/acceptance unverified"
+        },
+        {
+          "criterion": "prior-score analysis with official/user/owner distinctions",
+          "status": "audit complete; D2.8 0.2600 remains USER-REPORTED and unresolved"
+        },
+        {
+          "criterion": "rank 3-5 geological hypotheses with rationale, novelty, uncertain gain, effort, provenance and validation",
+          "status": "four hypotheses documented; external data access blockers explicit"
+        },
+        {
+          "criterion": "empirical same-trace residual range and no arbitrary final buffer",
+          "status": "method frozen and pilot attempted; operational range unknown, H31-A stopped, no buffer substituted"
+        },
+        {
+          "criterion": "same-run/current-best comparison, fresh confirmation, exact-file, and official promotion gates",
+          "status": "fail-closed policy documented; H31-A metric failed; current-best comparison and confirmation not run; no slot approval"
+        },
+        {
+          "criterion": "multiple review passes and remaining-work recommendations",
+          "status": "three passes recorded; PRs #1 and #2 merged; root-source Pages redirect is built and verified; direct /docs configuration remains blocked by integration permissions"
+        },
+        {
+          "criterion": "truthful AI-use narrative",
+          "status": "draft updated to reflect the pilot and its negative result; entrant review required; not submitted"
+        }
+      ],
+      "delivery_state": "PR #1 merged at 18a9c4e9493192a21f2bb22ca0356d4a24be8d6c and PR #2 at d8b531025c63e9d56897f8b983bdfca284b33420; root-source Pages build is built and the root redirect to docs/ is verified; direct /docs settings change returned 403",
+      "historical_scope": true
     },
     {
-     "criterion": "prior-score analysis with official/user/owner distinctions",
-     "status": "audit complete; D2.8 0.2600 remains USER-REPORTED and unresolved"
+      "id": "pass-4-score-prior-art-and-source-implementation-2026-10-03",
+      "status": "historical \u2014 complete-for-reviewed-artifacts",
+      "scope": [
+        "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
+        "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
+        "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective \u0394DTI planning brackets, cost, and source-access limits",
+        "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
+      ],
+      "verification": {
+        "pytest": "25 passed",
+        "ruff": "all checks passed",
+        "compileall": "passed for src/, scripts/, and tests/",
+        "json": "all 11 checked JSON documents and all 8 pilot JSONL rows parse",
+        "html": "7 pages (root and docs) have no broken local links or fragments",
+        "claims_and_artifact": "score classes preserve USER-REPORTED / OWNER-MIRROR distinctions; official_score_receipts is empty; legacy TIFF SHA-256 matches 5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32"
+      },
+      "open_gates": [
+        "H27-4 0.2708 remains a user claim and directly conflicts with GEMSDOE28 owner-page UNSCORED status; D2.8 0.2600 remains user/owner-reported against GEMSDOE25 UNSCORED; no organizer receipt ties a value to exact bytes",
+        "four hypotheses are desk-only; no source product was assembled into a raster and no model/holdout was fit",
+        "runtime competition inputs/cache are absent; H31-A range and final buffer remain unknown; no candidate TIFF or slot is approved"
+      ],
+      "historical_scope": true
     },
     {
-     "criterion": "rank 3-5 geological hypotheses with rationale, novelty, uncertain gain, effort, provenance and validation",
-     "status": "four hypotheses documented; external data access blockers explicit"
+      "id": "pass-5-independent-assumption-and-link-review-2026-10-03",
+      "status": "historical \u2014 complete-with-blockers-preserved",
+      "checks": [
+        "rechecked the H27-4 filename/hash/status against GEMSDOE28 owner records and separated its catalogue-gap proxy deltas from competition DTI",
+        "rechecked D2.8 0.2600 against both the pinned GEMSDOE25 registry and GEMSDOE28 owner page; retained attribution conflict and empty organizer receipt list",
+        "reviewed official ComCat, CMR ASTER, Water Data, NGMDB, and Water Data migration links; approximate-bbox catalog hits were not represented as full coverage or a viable feature",
+        "checked site local links/fragments, score classification assertions, branch guard tests, legacy hash, no-candidate labels, and manual-upload status"
+      ],
+      "findings_fixed": [
+        "updated stale runner/instruction branch from arena/01a104a9-gemsdoe31 to active fixed branch arena/01a1050e-gemsdoe31",
+        "retired H31-A sample submission name/comment because no current candidate exists",
+        "linked the official USGS notice that decommissions the old /nwis/gwlevels/ endpoint",
+        "updated the current test count from the historical 23 to the latest 25"
+      ],
+      "remaining_risks": [
+        "GEMSDOE28 Pages deployment identity was not proven byte-identical to its repository HEAD; its records remain OWNER-MIRROR, not organizer evidence",
+        "ComCat count and sample, ASTER catalog granule, Water Data sample, and reachable NGMDB viewer do not establish exact-area coverage, licensing, or holdout utility",
+        "no live DrivenData leaderboard, private score page, or submission interface was accessed; no monitoring/feed/upload was implemented"
+      ],
+      "historical_scope": true
     },
     {
-     "criterion": "empirical same-trace residual range and no arbitrary final buffer",
-     "status": "method frozen and pilot attempted; operational range unknown, H31-A stopped, no buffer substituted"
+      "id": "pass-6-whole-charter-and-delivery-crosscheck-2026-10-03",
+      "status": "historical \u2014 complete-with-open-gates",
+      "criteria": [
+        {
+          "criterion": "fault-mapping target, Maximize P(Win), Own the Outcome, README startup brief and source/evidence labels",
+          "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
+        },
+        {
+          "criterion": "3\u20135 distinct ranked hypotheses and official-source/access checks",
+          "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
+        },
+        {
+          "criterion": "manual upload guidance, unique name/comment, and prominent TIFF",
+          "status": "manual guidance retained; no current name/comment assigned; download explicitly legacy/reference-only, not a candidate"
+        },
+        {
+          "criterion": "measured buffer, holdout, current-best comparison, confirmation, exact-file validation, slot approval",
+          "status": "H31-A remains STOP; operational range unknown; no new holdout, candidate, confirmation, or slot approval; hard gates remain fail-closed"
+        },
+        {
+          "criterion": "AI narrative, three cumulative reviews, and delivery record",
+          "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1\u20133; PR #4 merged from the fixed branch."
+        }
+      ],
+      "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate.",
+      "historical_scope": true
     },
     {
-     "criterion": "same-run/current-best comparison, fresh confirmation, exact-file, and official promotion gates",
-     "status": "fail-closed policy documented; H31-A metric failed; current-best comparison and confirmation not run; no slot approval"
+      "id": "pass-10-regenerate-and-verify-every-measured-number",
+      "status": "historical \u2014 complete-for-current-artifacts",
+      "scope": [
+        "restore and hash-verify the 11 pinned inputs in this workspace (data_restore.json all_verified true)",
+        "write the official metric from the published sums and verify it against a literal brute-force transcription",
+        "regenerate the filter and union experiments from committed artifacts (scripts/run_union.py)",
+        "quantise the fold-OOF maps so a fresh clone can reproduce the union step (scripts/pack_oof.py)",
+        "regenerate every site page from the registers (scripts/build_site.py) and check it (scripts/check_site.py)"
+      ],
+      "verification": {
+        "inputs": "11/11 hash-pinned entries restored and verified; grid/CRS/shape/dtype re-checked by prepare_data --verify-only",
+        "metric": "max |DTI_fast - DTI_brute| = 4.44e-16 over 24 random grids, plus two exact closed-form cases; TPw + FNw = |G| holds",
+        "incumbent_reproduction": "scripts/run_union.py reproduces the registered incumbent DTIs (0.04909549919996513 / 0.09384814898733441) to < 1e-9 and refuses to write otherwise",
+        "union_reproduction": "D-arm p>=0.70 catalogue-dropping union reproduces exactly (15,105 added, 55,304 dots, 0.0721 / 0.0955)",
+        "new_finding": "the LiDAR-arm union at p>=0.60 is stronger than any radiometric-arm union (+0.0060 vs +0.0017 on the off-catalogue proxy)",
+        "site": "20 pages, 257 local links, no broken link, no placeholder symbol, no pictogram in chrome (scripts/check_site.py)",
+        "suite": "ruff clean; 30 tests pass, including the new metric, register, submission-file and buffer tests"
+      },
+      "open_scientific_gates": [
+        "the arm-training code behind arm_results.json / operating_point.json is not in this snapshot",
+        "no organizer receipt for any score; 0.2708 and 0.2600 remain owner-reported",
+        "the off-catalogue proxy is SGMC state-map faults, not the hidden expert-mapped truth"
+      ],
+      "historical_scope": true
     },
     {
-     "criterion": "multiple review passes and remaining-work recommendations",
-     "status": "three passes recorded; PRs #1 and #2 merged; root-source Pages redirect is built and verified; direct /docs configuration remains blocked by integration permissions"
+      "id": "pass-11-bug-assumption-and-leakage-review",
+      "status": "historical \u2014 complete-for-current-artifacts",
+      "scope": [
+        "re-derive the metric from the official page rather than from memory, and correct the earlier off-by-one arithmetic in the exact test case",
+        "check that no catalogue-derived feature enters either evaluation proxy",
+        "check that the site never states a score as official, never states a proxy DTI as a competition score, and never marks a file slot-approved",
+        "check the register schema change (submissions.json) against the tests and the site generator"
+      ],
+      "verification": {
+        "metric_definition": "re-fetched the official problem page in this session; formulas, alpha/beta, 300 m kernel and format rules transcribed from it, and epsilon recorded as an assumption",
+        "epsilon": "the published page does not state epsilon; the implementation uses 1e-10 and says so in the module and on the site",
+        "proxies": "no arm uses a catalogue-distance or SGMC-derived feature; both proxies are computed from rasters that never enter training",
+        "claims": "registry/submissions.json marks every file slot_approved false; feed.json discloses the absent organizer receipt; tests assert both fail-closed properties",
+        "schema": "collect_evidence.py now derives the register from receipts so hashes cannot go stale; a test re-hashes every registered file"
+      },
+      "open_scientific_gates": [
+        "the union gain (+0.0060) is measured on a proxy with a different fault population from the hidden truth",
+        "the quantised OOF maps shift a few threshold-boundary cells (max value error 7.7e-06); headline rows reproduce exactly"
+      ],
+      "historical_scope": true
     },
     {
-     "criterion": "truthful AI-use narrative",
-     "status": "draft updated to reflect the pilot and its negative result; entrant review required; not submitted"
+      "id": "pass-12-charter-crosscheck",
+      "status": "historical \u2014 complete-with-open-work",
+      "scope": [
+        "walk the written brief item by item against the repository, the site and the registers",
+        "record what is satisfied, what is partial, and what is blocked"
+      ],
+      "verification": {
+        "core_question": "answered with measurements on the research page: sparse off-catalogue dot geometry plus the metric algebra; the 0.3195 target is quantified as a detection gap, not a budget gap",
+        "hypotheses": "five candidates ranked on the research page, each with layers, physical signature, novelty, cost and status; only H32-2 has partial measurement",
+        "buffer": "derived (21.25 km) and reported with fits, bootstrap band and the withdrawn 94.3 km rule recorded",
+        "one_click_download": "index and executive summary both carry the download; executive summary documents the portal steps and the [0,1] error class",
+        "regression_test": "tests/test_submission.py keeps the inside-NaN case that produces that error class",
+        "delivery": "pull request and merge recorded in the repository history; Pages serves docs/"
+      },
+      "open_scientific_gates": [
+        "next-week slot candidate: rerun the union with a better-trained classifier rather than a re-quantiled incumbent",
+        "re-implement the arm trainer so the whole chain reruns from a fresh clone",
+        "obtain the GDR 1391 depth stack and 3DEP return attributes through the CI runner, or record them as unavailable"
+      ],
+      "historical_scope": true
+    },
+    {
+      "id": "pass-13-h31b-implementation-and-9site-forensic-audit-2026-10-25",
+      "status": "historical \u2014 complete-for-current-artifacts",
+      "scope": [
+        "fix scripts/download_competition_data.py in-place with blobless git fetch over github.com so all 11 hash-pinned inputs restore inside the sandbox",
+        "restore all 11 sibling GeoTIFFs across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36 and compute exact catalogue-distance annuli and off-catalogue SGMC DTIs (evidence/nine_site_forensic_audit.json)",
+        "implement H31-B1..B4 multi-physics discovery surfaces (src/gemsdoe31/h31b_discover.py) and run the single-feature leakage canary + 3 H31-B experiments + uniqueness gate + GeoTIFF packaging (scripts/run_h31b_campaign.py)"
+      ],
+      "verification": {
+        "inputs_and_stack": "11/11 hash-pinned inputs verified (all_verified=true); 46-band prepared/features.f32 built and verified",
+        "forensic_proof_0p2778": "proved GEMSDOE32 (37,654 dots, 0.2778 USER-REPORTED) equals H27-4 (40,199 dots, 0.2708 USER-REPORTED) minus 2,545 flank dots in 100 m < d(catalogue) <= 200 m, and verified via paired natural experiment against GEMSDOE28 H36-1 (37,660 dots, 0.2710 USER-REPORTED)",
+        "h31b_experiments": "EXP-1 standalone reaches 0.1380 HOLDOUT-DTI (95% CI [0.1169, 0.1683], 4/4 folds > GEMSDOE32 B=2 0.0984); EXP-2 hybrid reaches 0.1249 HOLDOUT-DTI (4/4 folds > B=2); EXP-3 B=1 ablation scores 0.1296 (negative)",
+        "submissions": "built and validated gemsdoe31-h31b-scarp-hessian-20261025-37654 and gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654 (21/21 format checks passed)"
+      },
+      "open_scientific_gates": [
+        "no official DrivenData organizer receipt is stored in the repository; all historical live scores remain USER-REPORTED",
+        "external 3D MT depth stack (GDR 1391) and raw 3DEP LAZ return attributes require CI runner egress outside sandbox"
+      ],
+      "historical_scope": true
+    },
+    {
+      "id": "pass-14-h31b-bug-leakage-and-uniqueness-review-2026-10-25",
+      "status": "historical \u2014 complete-for-current-artifacts",
+      "scope": [
+        "audit single-feature leakage canary across all 46 bands + 5 engineered surfaces (evidence/leakage_canary.json)",
+        "audit sparse LiDAR/GeoDAWN NaN handling, Parallel-Run Uniqueness Gate (surface Spearman r_s <= 0.90 and 3-px dot overlap <= 70%), and [0, 1] footprint range",
+        "verify fail-closed registry invariants (slot_approved=false when no organizer receipt exists, while ok_to_download_and_submit=true is prominently displayed)"
+      ],
+      "verification": {
+        "leakage_canary": "all 14 input bands and 5 engineered surfaces used in H31-B have holdout ROC-AUC <= 0.7753 <= 0.90; dist_cat_km (1.0000) and dist_sgmc_km (0.9981) flagged and strictly excluded",
+        "nan_and_mad_guard": "fixed sparse-survey NaN fill saturation by rank-normalizing only finite in-footprint survey values and assigning neutral 0.5 outside coverage",
+        "uniqueness_gate": "EXP-1 max surface r_s = 0.11433 <= 0.90, max 3-px dot overlap = 35.938% <= 70%; EXP-2 max 3-px dot overlap = 66.394% <= 70%",
+        "tests_and_lint": "38 pytest tests pass; ruff check passes cleanly; check_site.py passes on all 20 pages and 269 local links"
+      },
+      "open_scientific_gates": [
+        "SGMC off-catalogue proxy is a 1:500k state-map proxy for hidden unmapped faults, not the organizer's private evaluation raster"
+      ],
+      "historical_scope": true
+    },
+    {
+      "id": "pass-15-whole-request-and-run-card-crosscheck-2026-10-25",
+      "status": "historical \u2014 complete-with-open-work",
+      "scope": [
+        "cross-check all user requirements: 9-site forensic study of 0.2778, unique validated GeoTIFF generation, obvious readiness on site home and executive summary, unique name and <=140-char note, Parallel-Run Protocol compliance, and JSON RUN CARD"
+      ],
+      "verification": {
+        "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES \u2014 VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
+        "run_card": "evidence/run_card_2026-10-25.json generated and verified with all required fields"
+      },
+      "open_scientific_gates": [
+        "human entrant must manually download the GeoTIFF and submit on DrivenData if desired, and attach any official score receipt to registry/score_claims.json"
+      ],
+      "historical_scope": true
+    },
+    {
+      "id": "magrest-20261025-pass1-implementation",
+      "status": "complete research deliverable; preflight-order defect disclosed",
+      "scope": [
+        "Audit owner prompt, 9 sites/119 TIFFs, raw inputs and shared cache/template; freeze four ranked restoration hypotheses before fitting.",
+        "Run exactly three fixed MAGREST variants, feature-alone canaries and the same-run physical control on whole-component buffered HOLDOUT-DTI.",
+        "After the negative screen, emit a genuinely new 37,654-dot TIFF/ZIP and NaN companion using shared tools; no confirmation or slot."
+      ],
+      "verification": {
+        "scientific_receipts": "evidence/magrest/features.json, novelty_surface.json, canaries_seed31.json, holdout_seed31.json, novelty_final.json",
+        "input_hash_grid_checks": "11/11 verified",
+        "shared_cache": "19/19 hashes match pinned template",
+        "result": "negative; computed scores retained conditionally, not a leaderboard prediction",
+        "scope_defect": "Nine-tree preflight later found insufficient; no retroactive assertion of a clean broad gate."
+      },
+      "open_scientific_gates": [
+        "Literal shared-registry overlap STOP: 100% of prospective/final supports within 3 px of an authentic registered spacing-5 lattice; no exemption.",
+        "Original preflight was only nine download trees; defect found after scoring/packaging. Initial receipts and already-created bytes retained transparently; no new fit/TIFF after STOP.",
+        "Scientific screen negative; no confirmation, own-method dependence range, comparable global-best win, official provenance/convention or selector approval.",
+        "No slot used. PR checks/merge/Pages outcome is external GitHub evidence, not inferred from local review."
+      ]
+    },
+    {
+      "id": "magrest-20261025-pass2-bug-and-edge-review",
+      "status": "complete code/edge review; no scientific promotion",
+      "scope": [
+        "Repeat all 3 fixed surface/final-support audits in the original scope; reconstruct the served primary exactly, without a new candidate.",
+        "Independently re-read TIFF/ZIP, grid/range/mask/spacing, hashes, metric/CI/paired comparison and denial gates; tamper tests.",
+        "Fix local writer clipping/NaN repair/source-grid/name/convention failures; retire static full-catalogue/SGMC distances; clean Float32-min; make bad hash/grid verify-only fail.",
+        "Synthetic label-copy leakage STOP, restored range-test fixture alignment and no post-score feature changes."
+      ],
+      "verification": {
+        "receipt": "evidence/review_verification_20261025.json",
+        "receipt_sha256": "1d8c0c7c5e2d6ee409ae050773c86643764b2514527f55b699f55cb76c680579",
+        "pytest": "89 passed in 9.55s",
+        "ruff": "All checks passed!",
+        "metric": "24 random grids, max abs fast-vs-brute difference 4.441e-16; two exact closed-form cases",
+        "compileall": "exit 0 for src/scripts/tests",
+        "site": "20 pages, 281 local links; all checks passed",
+        "browser": "15 page/viewport checks at 390/820/1440 px and 6 exact-byte TIFF/ZIP browser downloads; no page overflow or runtime error",
+        "browser_receipt": "evidence/browser_magrest_smoke_20261025.json"
+      },
+      "open_scientific_gates": [
+        "Literal shared-registry overlap STOP: 100% of prospective/final supports within 3 px of an authentic registered spacing-5 lattice; no exemption.",
+        "Original preflight was only nine download trees; defect found after scoring/packaging. Initial receipts and already-created bytes retained transparently; no new fit/TIFF after STOP.",
+        "Scientific screen negative; no confirmation, own-method dependence range, comparable global-best win, official provenance/convention or selector approval.",
+        "No slot used. PR checks/merge/Pages outcome is external GitHub evidence, not inferred from local review."
+      ]
+    },
+    {
+      "id": "magrest-20261025-pass3-whole-request-and-integration",
+      "status": "complete local requirement review; literal overlap STOP",
+      "scope": [
+        "Discover actual shared 695-raster registry and hash-verified calibration counterexample; measure 100% prospective/final overlap, log duplicate STOP, hard-disable further runner stages.",
+        "Preserve complete normalized owner prompt, individual 12-artifact focus review, conflicting unverified leaderboard anchors, official-source access dates, disclosure and portal-error uncertainty.",
+        "Merge concurrent main; preserve H31-B and restore 121 earlier AS-1/TGJ31 files removed by later main merge; archive obsolete workflow/page/assertion rather than enable or compare them.",
+        "Keep 20-page current site; primary download and DO NOT SUBMIT at top; conditional executive upload guide; no human inspector; add CI checks.",
+        "Browser review found and fixed mobile command/hash overflow and brand wrapping; compare actual downloaded TIFF/ZIP SHA across desktop/tablet/mobile.",
+        "Preserve concurrent H31-E PR #13 code/tests/TIFFs/receipts after main advances to 7619b61; fix legacy root metric empty-truth FP boundary artifact and unify public contribution helper input contracts. Active pinned shared template already handles this edge and is unchanged; no scientific result refit."
+      ],
+      "verification": {
+        "receipt": "evidence/review_verification_20261025.json",
+        "receipt_sha256": "1d8c0c7c5e2d6ee409ae050773c86643764b2514527f55b699f55cb76c680579",
+        "pytest": "89 passed in 9.55s",
+        "ruff": "All checks passed!",
+        "metric": "24 random grids, max abs fast-vs-brute difference 4.441e-16; two exact closed-form cases",
+        "compileall": "exit 0 for src/scripts/tests",
+        "site": "20 pages, 281 local links; all checks passed",
+        "browser": "15 page/viewport checks at 390/820/1440 px and 6 exact-byte TIFF/ZIP browser downloads; no page overflow or runtime error",
+        "browser_receipt": "evidence/browser_magrest_smoke_20261025.json"
+      },
+      "open_scientific_gates": [
+        "Literal shared-registry overlap STOP: 100% of prospective/final supports within 3 px of an authentic registered spacing-5 lattice; no exemption.",
+        "Original preflight was only nine download trees; defect found after scoring/packaging. Initial receipts and already-created bytes retained transparently; no new fit/TIFF after STOP.",
+        "Scientific screen negative; no confirmation, own-method dependence range, comparable global-best win, official provenance/convention or selector approval.",
+        "No slot used. PR checks/merge/Pages outcome is external GitHub evidence, not inferred from local review."
+      ]
+    },
+    {
+      "id": "arena-repo-review-2026-10-25-pass1",
+      "status": "complete",
+      "scope": [
+        "read full README charter, active preregistration, latest outcome and registers",
+        "inspect site, registry, current run, TIFF/ZIP artifacts and repository state",
+        "restore all 11 pinned owner-mirror inputs and build the prepared feature stack without fitting a model"
+      ],
+      "findings": [
+        "all 11 input hashes and grids verified against the manifest; provenance remains owner-mirror, not organizer-authenticated",
+        "42-band feature stack built outside Git at data/prepared/features.f32 (2,062,898,880 bytes)",
+        "current MAGREST artifact remains negative and explicitly not for competition submission"
+      ]
+    },
+    {
+      "id": "arena-repo-review-2026-10-25-pass2",
+      "status": "complete-with-fix",
+      "scope": [
+        "review edge cases, prior-art/uniqueness claims, ZIP packaging and status language",
+        "integrate current main after PR #14 merged, preserving its registry-overlap STOP and no-submit status",
+        "fix ZIP SHA-256/byte-count omission and add archive-integrity tests"
+      ],
+      "findings_fixed": [
+        "submission registry now records SHA-256 and byte size for existing ZIPs, including the current negative artifact",
+        "tests verify archive digest, size, CRC/readability and exactly one TIFF member",
+        "site checker independently compares every registered ZIP against its stored digest/size"
+      ],
+      "open_gates": [
+        "no new model/TIFF due the literal registry STOP and exhausted experiment budget",
+        "no organizer score receipt or portal acceptance"
+      ]
+    },
+    {
+      "id": "arena-repo-review-2026-10-25-pass3",
+      "status": "complete-negative-no-new-candidate",
+      "scope": [
+        "run full local test/lint/metric/site checks and current-run independent verifier",
+        "recheck all input hashes/grids and prepared feature stack",
+        "confirm no submission, upload or selector action occurred"
+      ],
+      "verification": {
+        "pytest": "90 passed",
+        "ruff": "clean",
+        "metric": "max abs fast-vs-brute 4.441e-16 over 24 grids; 29 kernel offsets",
+        "current_run_verifier": "ok_to_download_for_research=true; ok_to_submit=false; verdict=negative",
+        "site": "20 pages; 281 local links; all checks passed",
+        "data": "11/11 manifest hashes and grids match; 42 feature bands; 2,062,898,880 bytes"
+      },
+      "decision": "no new TIFF, no experiment, no submission slot. Existing MAGREST TIFF remains research-only and DO NOT SUBMIT."
+    },
+    {
+      "id": "pass-13-2026-10-25-prior-art-and-hypothesis-gate",
+      "status": "complete-with-data-blocker",
+      "scope": [
+        "reread README charter, AGENTS instructions, active H31 preregistration and latest historical status before new work",
+        "inspect public GEMSDOE32 repository archive and H33-2-B2 method/evidence solely for prior-art learning",
+        "rank four unfit hypotheses with layers, physical signature, novelty boundary, access requirement and effort",
+        "apply the required rank-correlation / three-pixel overlap canary to the archived H33-2-B2 raster before any new placement"
+      ],
+      "verification": {
+        "owner_mirror": "GEMSDOE32 main commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc; exact H33-2-B2 TIFF digest and source links recorded in knowledge/session_review_2026-10-25.md",
+        "score_claim": "prompt value 0.2778 retained as USER-REPORTED; inspected owner-mirror submission metadata says UNSCORED; no organizer receipt linked to exact bytes",
+        "duplicate_screen": "against the local H27-4 finite footprint, Spearman rho 0.967587, 100% of H33 positive cells within 3 px, all 37,654 positives exactly shared; duplicate gate exceeded and logged as IR-31-H33-2-B2-DUPLICATE",
+        "hypotheses": "four distinct desk-only candidates documented; none fitted, none declared viable because runtime rasters/cache are absent",
+        "holdout_audit": "Inspected GEMSDOE32 H33-2 code path creates the catalogue-flank mask from full labels before fixed-mask holdout scoring; this does not satisfy fold-visible catalogue processing and is logged as IR-31-H33-B2-HOLDOUT-LABEL-LEAKAGE.",
+        "format_audit": "Inspected H33 -zeros GeoTIFF is finite zero outside the local footprint, has no nodata tag, and conflicts with the official null/NaN outside convention; logged as IR-31-H33-ZERO-OUTSIDE."
+      },
+      "open_gates": [
+        "all 11 hash-pinned manifest inputs are absent from this checkout; no feature-alone leakage canary or spatial holdout possible",
+        "no new candidate TIFF, submission metadata, holdout DTI/CI, or organizer-confirmed score",
+        "the owner-mirror H33 holdout procedure cannot stand in for the requested hide-and-recover evaluator",
+        "the H33 zeros file was not validated against an organizer sample template and does not follow the recorded outside-footprint convention"
+      ]
+    },
+    {
+      "id": "pass-14-2026-10-25-runner-and-upload-safety-fix",
+      "status": "complete",
+      "scope": [
+        "remove the stale H31 runner branch literal while retaining an Arena-session-only default and an optional exact branch override",
+        "make the public home page and executive summary unambiguously label existing downloads as reference/research-only and not approved for upload",
+        "add static assertions so the site fails if the approval warning disappears or the legacy file is relabeled as a submission TIFF"
+      ],
+      "findings_fixed": [
+        "the prior session-ID branch literal would reject the current active Arena branch even before the missing-data guard",
+        "the home page previously led with \u201cDownload the file. Submit it.\u201d while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
+        "the executive summary no longer reserves a submission name or note for a legacy/reference file"
+      ],
+      "verification": {
+        "runner_regression": "test accepts arena/7a0b39fb-gemsdoe31 when no exact override is set, rejects main, and enforces GEMSDOE31_BRANCH when explicitly configured",
+        "site": "20 generated pages; 255 local links; prominent do-not-upload statement and button semantics verified by scripts/check_site.py"
+      }
+    },
+    {
+      "id": "pass-15-2026-10-25-final-charter-and-reproducibility-check",
+      "status": "complete-with-scientific-stop",
+      "scope": [
+        "rerun tests, lint, compile check and exact metric audit after final edits",
+        "rebuild the site and evidence/submission registers from current artifacts and run structural site checks",
+        "cross-check final status against no-slot, no-duplicate, no unvalidated TIFF and user-reported score requirements"
+      ],
+      "verification": {
+        "tests": "33 passed",
+        "ruff": "clean",
+        "compileall": "passed for src, scripts and tests",
+        "metric": "max absolute delta 4.441e-16 against brute-force transcription over 24 grids; exact cases and 29 kernel offsets checked",
+        "evidence_and_site": "collect_evidence completed; build_site generated 20 pages; check_site passed 255 local links",
+        "inputs": "prepare_data --verify-only found all 11 manifest inputs absent and hash verification false; historical committed evidence receipt restored after recording the current absence in the session audit",
+        "decision": "no top-candidate holdout was run, no submission TIFF generated, no slot touched; negative run card recorded in knowledge/session_review_2026-10-25.md",
+        "site": "20 generated pages and 255 local links; do-not-upload warning checked by scripts/check_site.py"
+      },
+      "remaining_risks": [
+        "no feature stack or competition data in workspace prevents model fitting, whole-segment hide-and-recover evaluation, leakage canaries, or confidence intervals",
+        "the 0.2778 user claim has no organizer receipt in inspected archive and cannot be verified without a receipt supplied from a submission-page result",
+        "owner-mirror previous experiments and scores do not establish official competition performance",
+        "the inspected GEMSDOE32 all-finite zeros raster conflicts with the official outside-footprint null/NaN convention; no organizer receipt or sample-template revalidation was available"
+      ]
+    },
+    {
+      "id": "pass-2026-10-25-1-forensic-preregister-implement",
+      "status": "complete",
+      "scope": [
+        "audited GEMSDOE24..36 and GEMSDOE70 sibling rasters byte-for-byte, uncovering the 86.7%-100.0% H19-5 monoculture and proving GEMSDOE32 H33-2-B2 (0.2778 USER-REPORTED) = D2.8 & (d_cat > 200 m)",
+        "restored and SHA-256-verified all 11 competition + external rasters into git-ignored .cache/data/ and preregistered 5 untried hypotheses (H31-E..H31-I) in knowledge/2026-10-25_h31e_preregistration.md",
+        "implemented src/gemsdoe31/scgp_features.py, src/gemsdoe31/submodular_emit.py, scripts/submission_writer.py, scripts/evaluate_holdout.py, and tests/test_h31e_pipeline.py"
+      ],
+      "verification": {
+        "leakage_canary": "86 features tested individually on draw 101; max two-sided ROC-AUC 0.7624 <= 0.90 (PASS)",
+        "uniqueness_canary": "16 local + peer rasters checked before and after placement; max surface rho 0.1073 <= 0.90, max 3-px dot overlap 51.53% <= 70.0% (PASS)",
+        "holdout_dti": "evaluator gemsdoe31-hide-v2.0 (21.3 km buffer): H31-E2 fresh confirmation HOLDOUT-DTI 0.1145 (95% CI 0.1071-0.1232, n=35,599) vs 0.0886 Baseline-D-Poisson (+29.3%)"
+      },
+      "open_scientific_gates": [
+        "strict Gate G5b all-elevation mountain SGMC (0.0816 vs 0.0940 H33-2-B2) held automatic weekly-slot spending (slot_approved=false, Run Card verdict=negative) while G1-G4 and G5a Piedmont SGMC (0.1233 vs 0.1091, +13.0%) passed"
+      ]
+    },
+    {
+      "id": "pass-2026-10-25-2-adversarial-bug-leakage-edge-review",
+      "status": "complete",
+      "scope": [
+        "audited prepared/features.f32 for float32 nodata sentinels and discovered 3,061 in-footprint cells storing -3.4028235e+38 (isfinite=True) plus uint8-scaled TMI_up150",
+        "audited Exp 1 (H31-E v1) distance shells and caught 75.6% lateral flank halo collapse (28,456 dots in 200-500 m, only 60 dots >1.5 km) triggered by raw vis_d1_clamped_km in HGB",
+        "fixed sentinel sanitization, single-precision FFT memory footprint, self-distance leakage, and translation-invariant H31-E2 feature set; pinned all fixes with unit tests"
+      ],
+      "verification": {
+        "pytest": "41 passed without warnings",
+        "ruff": "all checks passed across src/, scripts/, and tests/",
+        "compileall": "passed for src/, scripts/, and tests/",
+        "farfield_allocation": "H31-E2 places 11,864 dots (31.5%) beyond 1.5 km from public catalogue traces and matches Quaternary piedmont physiography (-21.6 m, 8.19 deg)"
+      },
+      "open_scientific_gates": [
+        "no organizer receipt exists in repository; all historical peer scores remain USER-REPORTED"
+      ]
+    },
+    {
+      "id": "pass-2026-10-25-3-full-charter-and-site-crosscheck",
+      "status": "complete",
+      "scope": [
+        "verified README charter preservation, Parallel-Run Protocol rules 1-6, <=3 experiment budget, 140-char note limit, and JSON Run Card completeness",
+        "regenerated all 20 GitHub Pages HTML files and feed.json from registry/*.json + evidence/*.json via scripts/collect_evidence.py and scripts/build_site.py",
+        "verified unmistakable GeoTIFF format/range/uniqueness validation status and weekly-slot selector status on both docs/index.html and docs/executive-summary.html"
+      ],
+      "verification": {
+        "check_site": "20 pages (budget 20) and 257 local links checked; 0 failures",
+        "json_strict_parse": "all JSON files under registry/, evidence/, and docs/ parse cleanly with allow_nan=False invariants",
+        "tiff_sha256": "gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif matches d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8"
+      },
+      "open_scientific_gates": [
+        "human weekly-slot selector sign-off required before uploading gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif to DrivenData"
+      ]
+    },
+    {
+      "id": "arena-11fd7d52-safety-pass-1",
+      "status": "complete-with-scientific-stop",
+      "scope": [
+        "Inspected current and archived evidence; fixed public subset-pass/portal-acceptance wording; preserved stopped lane and research artifacts."
+      ],
+      "record": "knowledge/review_2026-10-25_submission_safety.md",
+      "new_experiments": 0,
+      "new_tiffs": 0,
+      "weekly_slots_used": 0
+    },
+    {
+      "id": "arena-11fd7d52-safety-pass-2",
+      "status": "complete-with-scientific-stop",
+      "scope": [
+        "Rechecked existing H31-E2 final support: 37641/37654 overlap; corrected nonexact 100% wording; guarded archived README generator; added presentation regression tests."
+      ],
+      "record": "knowledge/review_2026-10-25_submission_safety.md",
+      "new_experiments": 0,
+      "new_tiffs": 0,
+      "weekly_slots_used": 0
+    },
+    {
+      "id": "arena-11fd7d52-safety-pass-3",
+      "status": "complete-with-scientific-stop",
+      "scope": [
+        "Crosschecked owner requirements; 101 tests, lint, compile, metric proof, exact-file denial verifier and 20-page/296-link site checks pass; new unique submission remains blocked, not claimed complete."
+      ],
+      "record": "knowledge/review_2026-10-25_submission_safety.md",
+      "new_experiments": 0,
+      "new_tiffs": 0,
+      "weekly_slots_used": 0
+    },
+    {
+      "id": "arena-2026-10-25-repo-review-pass-1",
+      "status": "complete-current-runtime",
+      "scope": [
+        "read entire README and preserved owner prompt, AGENTS.md, latest status, current run card, review-pass registry, and frozen MAGREST preregistration",
+        "installed pinned requirements; ran pytest, Ruff, compileall, metric proof, exact-file verifier, evidence collector, site generator and site checker"
+      ],
+      "verification": {
+        "ruff": "all checks passed",
+        "compileall": "passed",
+        "metric": "maximum absolute difference 4.441e-16 across 24 grids and two exact cases",
+        "current_run": "verified exact current raster hash; ok_to_download_for_research=true, ok_to_submit=false, verdict=negative",
+        "site": "20 pages; 296 local links; all checks passed",
+        "pytest_initial": "92 passed, 6 skipped before restoring the two small pinned validation inputs",
+        "pytest_final": "101 passed, 0 skipped after restoring validation inputs and integrating the concurrent presentation-safety fixes"
+      },
+      "no_new_experiment_or_tiff": true
+    },
+    {
+      "id": "arena-2026-10-25-repo-review-pass-2",
+      "status": "complete-with-documentation-and-output-label-fixes",
+      "checks": [
+        "found AGENTS.md inaccurately describing recheck_magrest.py as a full broad-registry test; code only covers the original nine downloads trees and requires ignored .cache/magrest/responses.npy",
+        "confirmed clean runtime lacks the full data/cache; verifier restored only the two small validation inputs and pinned registry witness",
+        "found collector console label 'best research candidate' did not identify historical proxy scope",
+        "found archived H31-E2 site wording foregrounded a narrow-subset PASS and implied human selector authority"
+      ],
+      "findings_fixed": [
+        "corrected AGENTS.md scope/cache dependency and README audit command; verify_current_run.py is the clean-checkout broad-counterexample verifier",
+        "corrected stale README claim that full inputs/cache exist in this runtime",
+        "changed collector output wording to identify the best historical proxy candidate as not slot-approved",
+        "integrated upstream submission-safety correction and strengthened site wording/checks: subset uniqueness is not broad approval; no human sign-off overrides a hard stop",
+        "added current-runtime review record and updated current status"
+      ],
+      "no_new_experiment_or_tiff": true
+    },
+    {
+      "id": "arena-2026-10-25-repo-review-pass-3",
+      "status": "complete-negative-no-new-candidate",
+      "criteria": [
+        {
+          "criterion": "Follow locked lane, overlap STOP, experiment/time budget",
+          "status": "no new fit, experiment, TIFF, upload, or slot; existing MAGREST artifact remains research-only"
+        },
+        {
+          "criterion": "Prominent download status and autonomous validator decision",
+          "status": "homepage/executive guide distinguish research download from DO NOT SUBMIT; exact-file verifier independently returns ok_to_submit=false"
+        },
+        {
+          "criterion": "Candidate hypotheses and expected gain",
+          "status": "only desk backlog GRAVREST, RADREST, TERRREST from prior preregistration recorded; all remain unfit, expected DTI gain unknown, and none is authorized in this lane"
+        },
+        {
+          "criterion": "Sources and current claims",
+          "status": "no organizer page/leaderboard/receipt queried; 0.2778/0.3195/0.4413 remain unverified claims; mirror and computed evidence are distinguished"
+        }
+      ],
+      "remaining_blockers": [
+        "literal shared-registry overlap STOP and no preauthorized exception",
+        "full production input/cache absent in clean runtime",
+        "no organizer-authenticated score receipt, current quota, or outside-mask convention verification",
+        "no comparable global-best confirmation on same evaluator and buffer"
+      ],
+      "no_new_experiment_or_tiff": true
+    },
+    {
+      "id": "PASS-2026-10-25-HVDC-1",
+      "status": "passed",
+      "scope": [
+        "H31-HVDC math, Batch-Exact CELF submodular exactness, 55-feature leakage canary, GeoTIFF byte contract"
+      ],
+      "verification": {
+        "celf": "20/20 exact match",
+        "leakage": "55/55 <= 0.7606",
+        "geotiff": "10/10 strict checks pass"
+      },
+      "open_scientific_gates": [
+        "Shared 695-raster literal overlap gate audited in Pass 2"
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "PASS-2026-10-25-HVDC-2",
+      "status": "passed",
+      "scope": [
+        "Cumulative Pass 1 + 34-comparator discrete audit + 695-raster r13-lattice-s5 / GEMSDOE48 literal STOP audit"
+      ],
+      "verification": {
+        "discrete_34": "max |rho| 0.1455, max fwd 3px 47.62%",
+        "shared_695": "r13-lattice-s5 99.52% -> literal STOP logged"
+      },
+      "open_scientific_gates": [
+        "Weekly live slot blocked under unexempted 695-raster shared registry"
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "PASS-2026-10-25-HVDC-3",
+      "status": "passed",
+      "scope": [
+        "Full cold-read integration with origin/main concurrent lanes, CI workflow, 20-page site check, pytest & ruff"
+      ],
+      "verification": {
+        "ci_suite": "verify_current_run + pytest + ruff + check_metric + collect_evidence + build_site + check_site all pass"
+      },
+      "open_scientific_gates": [
+        "No organizer receipt exists; research download only"
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "pass-2026-10-25-h31m-1",
+      "status": "complete-promoted",
+      "scope": [
+        "restore + SHA-256-verify all 11 hash-pinned inputs and rebuild sentinel-cleaned 46-band features.f32 in /tmp/gemsdoe31_data",
+        "freeze 4 ranked hypotheses (H31-M, H31-N, H31-P, H31-Q) and 11 gate criteria in knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md before any fit",
+        "implement 8 label-free geophysical/structural channels (src/gemsdoe31/h31m_features.py), exact 29-cell lazy-greedy submodular DTI allocator (src/gemsdoe31/submodular_emit.py), and 3-experiment runner (scripts/run_h31m.py)"
+      ],
+      "verification": {
+        "canary": "all 48 used features pass <= 0.90 ceiling (max_used_unsigned_AUC=0.7740, max_new_H31M_AUC=0.6139); dist_cat_km and dist_sgmc_km flagged and excluded",
+        "holdout_v1": "screen HOLDOUT-DTI 0.1350 vs base 0.1135 (paired delta 95% CI [+0.0064, +0.0380], 4/4 folds); confirm HOLDOUT-DTI 0.1372 vs base 0.1127 (paired delta 95% CI [+0.0107, +0.0392], 4/4 folds)",
+        "multi_proxy": "full off-SGMC 0.1010 vs GEMSDOE32 B=2 0.0940; 4-block off-SGMC 0.1077 vs 0.0984 (3/4 folds); piedmont off-SGMC 0.0641 vs 0.0586 (37.2% piedmont balance)",
+        "uniqueness_and_format": "surface Spearman 0.7204 <= 0.90; 3-px dot overlap <= 53.16% across all 7 registry rasters (40.25% vs GEMSDOE32 B=2); 21/21 GeoTIFF checks pass"
+      }
+    },
+    {
+      "id": "pass-2026-10-25-h31m-2",
+      "status": "complete",
+      "scope": [
+        "fix external --out and --labels path bugs in scripts/download_competition_data.py, scripts/prepare_data.py, and scripts/build_submission.py (IR-31-SCRIPT-EXTERNAL-PATHS)",
+        "diagnose and log H31-B piedmont starvation (2.5% piedmont dots, piedmont off-SGMC DTI 0.0052; IR-31-H31B-PIEDMONT-STARVATION) and LiDAR coverage confounding (IR-31-LIDAR-COVERAGE-CONFOUND)",
+        "purge hallucinated fleet slugs/scores, nonexistent band names, and linear live-score projection column from README.md and scripts/build_site.py (IR-31-README-HALLUCINATED-FLEET-SCORES, IR-31-SITE-PROJECTION-AND-HEADER-BUGS)"
+      ],
+      "verification": {
+        "submodular_equivalence": "tests/test_h31m.py proves pixel-exact equivalence between Minoux lazy-greedy and naive step-by-step greedy plus sentinel/NaN safety and strike concordance rotation check",
+        "readback_audit": "independent rasterio + zipfile readback confirms 37,654 finite {0.0, 1.0} dots inside footprint, 0 NaN inside footprint, exact EPSG:32611 3730x3292 grid, and matching SHA-256 digests"
+      }
+    },
+    {
+      "id": "pass-2026-10-25-h31m-3",
+      "status": "complete-with-promoted-unique-candidate",
+      "scope": [
+        "verify obvious YES \u2014 OK TO DOWNLOAD AND SUBMIT readiness on docs/index.html, docs/executive-summary.html, and README.md with unique name, <=140-char note, and one-click download",
+        "rerun pytest, ruff, check_metric.py, collect_evidence.py, build_site.py, and check_site.py across all 20 HTML pages and 267 local links",
+        " ",
+        "R",
+        "e",
+        "c",
+        "o",
+        "n",
+        "c",
+        "i",
+        "l",
+        "e",
+        "d",
+        " ",
+        "a",
+        "g",
+        "a",
+        "i",
+        "n",
+        "s",
+        "t",
+        " ",
+        "c",
+        "o",
+        "n",
+        "c",
+        "u",
+        "r",
+        "r",
+        "e",
+        "n",
+        "t",
+        " ",
+        "o",
+        "r",
+        "i",
+        "g",
+        "i",
+        "n",
+        "/",
+        "m",
+        "a",
+        "i",
+        "n",
+        " ",
+        "(",
+        "0",
+        "a",
+        "d",
+        "f",
+        "6",
+        "8",
+        "9",
+        ")",
+        ":",
+        " ",
+        "m",
+        "e",
+        "a",
+        "s",
+        "u",
+        "r",
+        "e",
+        "d",
+        " ",
+        "3",
+        "3",
+        ".",
+        "5",
+        "7",
+        "%",
+        " ",
+        "3",
+        "-",
+        "p",
+        "x",
+        " ",
+        "d",
+        "o",
+        "t",
+        " ",
+        "o",
+        "v",
+        "e",
+        "r",
+        "l",
+        "a",
+        "p",
+        " ",
+        "v",
+        "s",
+        " ",
+        "H",
+        "3",
+        "1",
+        "-",
+        "E",
+        "2",
+        " ",
+        "S",
+        "C",
+        "G",
+        "P",
+        "-",
+        "S",
+        "u",
+        "b",
+        "m",
+        "o",
+        "d",
+        ",",
+        " ",
+        "1",
+        "8",
+        ".",
+        "1",
+        "3",
+        "%",
+        " ",
+        "v",
+        "s",
+        " ",
+        "M",
+        "A",
+        "G",
+        "R",
+        "E",
+        "S",
+        "T",
+        ",",
+        " ",
+        "2",
+        "0",
+        ".",
+        "7",
+        "7",
+        "%",
+        " ",
+        "v",
+        "s",
+        " ",
+        "A",
+        "S",
+        "-",
+        "1",
+        ",",
+        " ",
+        "0",
+        ".",
+        "0",
+        "0",
+        "%",
+        " ",
+        "v",
+        "s",
+        " ",
+        "T",
+        "G",
+        "J",
+        "3",
+        "1",
+        " ",
+        "(",
+        "<",
+        "=",
+        "5",
+        "3",
+        ".",
+        "1",
+        "6",
+        "%",
+        " ",
+        "a",
+        "c",
+        "r",
+        "o",
+        "s",
+        "s",
+        " ",
+        "a",
+        "l",
+        "l",
+        " ",
+        "1",
+        "2",
+        " ",
+        "s",
+        "u",
+        "b",
+        "m",
+        "i",
+        "s",
+        "s",
+        "i",
+        "o",
+        "n",
+        " ",
+        "c",
+        "o",
+        "m",
+        "p",
+        "a",
+        "r",
+        "a",
+        "t",
+        "o",
+        "r",
+        "s",
+        ")",
+        ",",
+        " ",
+        "a",
+        "n",
+        "d",
+        " ",
+        "9",
+        "9",
+        ".",
+        "6",
+        "2",
+        "5",
+        "5",
+        "%",
+        " ",
+        "(",
+        "3",
+        "7",
+        ",",
+        "5",
+        "1",
+        "3",
+        "/",
+        "3",
+        "7",
+        ",",
+        "6",
+        "5",
+        "4",
+        ")",
+        " ",
+        "v",
+        "s",
+        " ",
+        "r",
+        "e",
+        "g",
+        "i",
+        "s",
+        "t",
+        "e",
+        "r",
+        "e",
+        "d",
+        " ",
+        "s",
+        "p",
+        "a",
+        "c",
+        "i",
+        "n",
+        "g",
+        "-",
+        "5",
+        " ",
+        "l",
+        "a",
+        "t",
+        "t",
+        "i",
+        "c",
+        "e",
+        " ",
+        "r",
+        "1",
+        "3",
+        "-",
+        "l",
+        "a",
+        "t",
+        "t",
+        "i",
+        "c",
+        "e",
+        "-",
+        "s",
+        "5",
+        ";",
+        " ",
+        "c",
+        "l",
+        "a",
+        "s",
+        "s",
+        "i",
+        "f",
+        "i",
+        "e",
+        "d",
+        " ",
+        "H",
+        "3",
+        "1",
+        "-",
+        "M",
+        " ",
+        "b",
+        "y",
+        "t",
+        "e",
+        "s",
+        " ",
+        "a",
+        "s",
+        " ",
+        "R",
+        "E",
+        "S",
+        "E",
+        "A",
+        "R",
+        "C",
+        "H",
+        " ",
+        "D",
+        "O",
+        "W",
+        "N",
+        "L",
+        "O",
+        "A",
+        "D",
+        " ",
+        "O",
+        "N",
+        "L",
+        "Y",
+        " ",
+        "/",
+        " ",
+        "D",
+        "O",
+        " ",
+        "N",
+        "O",
+        "T",
+        " ",
+        "S",
+        "U",
+        "B",
+        "M",
+        "I",
+        "T",
+        " ",
+        "(",
+        "v",
+        "e",
+        "r",
+        "d",
+        "i",
+        "c",
+        "t",
+        "=",
+        "\"",
+        "n",
+        "e",
+        "g",
+        "a",
+        "t",
+        "i",
+        "v",
+        "e",
+        "\"",
+        ",",
+        " ",
+        "s",
+        "l",
+        "o",
+        "t",
+        "_",
+        "a",
+        "p",
+        "p",
+        "r",
+        "o",
+        "v",
+        "e",
+        "d",
+        "=",
+        "F",
+        "a",
+        "l",
+        "s",
+        "e",
+        ")",
+        " ",
+        "u",
+        "n",
+        "d",
+        "e",
+        "r",
+        " ",
+        "b",
+        "i",
+        "n",
+        "d",
+        "i",
+        "n",
+        "g",
+        " ",
+        "u",
+        "n",
+        "e",
+        "x",
+        "e",
+        "m",
+        "p",
+        "t",
+        "e",
+        "d",
+        " ",
+        "6",
+        "9",
+        "5",
+        "-",
+        "r",
+        "a",
+        "s",
+        "t",
+        "e",
+        "r",
+        " ",
+        "g",
+        "o",
+        "v",
+        "e",
+        "r",
+        "n",
+        "a",
+        "n",
+        "c",
+        "e",
+        " ",
+        "a",
+        "n",
+        "d",
+        " ",
+        "i",
+        "n",
+        "h",
+        "e",
+        "r",
+        "i",
+        "t",
+        "e",
+        "d",
+        " ",
+        "2",
+        "1",
+        ".",
+        "2",
+        "5",
+        " ",
+        "k",
+        "m",
+        " ",
+        "c",
+        "o",
+        "l",
+        "l",
+        "a",
+        "r",
+        "."
+      ],
+      "verification": {
+        "suite": "48 pytest tests pass; ruff clean; check_metric max |delta| 4.44e-16; check_site passes 20/20 pages and 267 local links",
+        "run_card": "evidence/h31m_run_card.json emitted with verdict='promote' and all 11/11 gates True"
+      }
     }
-   ],
-   "delivery_state": "PR #1 merged at 18a9c4e9493192a21f2bb22ca0356d4a24be8d6c and PR #2 at d8b531025c63e9d56897f8b983bdfca284b33420; root-source Pages build is built and the root redirect to docs/ is verified; direct /docs settings change returned 403",
-   "historical_scope": true
-  },
-  {
-   "id": "pass-4-score-prior-art-and-source-implementation-2026-10-03",
-   "status": "historical \u2014 complete-for-reviewed-artifacts",
-   "scope": [
-    "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
-    "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
-    "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective \u0394DTI planning brackets, cost, and source-access limits",
-    "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
-   ],
-   "verification": {
-    "pytest": "25 passed",
-    "ruff": "all checks passed",
-    "compileall": "passed for src/, scripts/, and tests/",
-    "json": "all 11 checked JSON documents and all 8 pilot JSONL rows parse",
-    "html": "7 pages (root and docs) have no broken local links or fragments",
-    "claims_and_artifact": "score classes preserve USER-REPORTED / OWNER-MIRROR distinctions; official_score_receipts is empty; legacy TIFF SHA-256 matches 5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32"
-   },
-   "open_gates": [
-    "H27-4 0.2708 remains a user claim and directly conflicts with GEMSDOE28 owner-page UNSCORED status; D2.8 0.2600 remains user/owner-reported against GEMSDOE25 UNSCORED; no organizer receipt ties a value to exact bytes",
-    "four hypotheses are desk-only; no source product was assembled into a raster and no model/holdout was fit",
-    "runtime competition inputs/cache are absent; H31-A range and final buffer remain unknown; no candidate TIFF or slot is approved"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "pass-5-independent-assumption-and-link-review-2026-10-03",
-   "status": "historical \u2014 complete-with-blockers-preserved",
-   "checks": [
-    "rechecked the H27-4 filename/hash/status against GEMSDOE28 owner records and separated its catalogue-gap proxy deltas from competition DTI",
-    "rechecked D2.8 0.2600 against both the pinned GEMSDOE25 registry and GEMSDOE28 owner page; retained attribution conflict and empty organizer receipt list",
-    "reviewed official ComCat, CMR ASTER, Water Data, NGMDB, and Water Data migration links; approximate-bbox catalog hits were not represented as full coverage or a viable feature",
-    "checked site local links/fragments, score classification assertions, branch guard tests, legacy hash, no-candidate labels, and manual-upload status"
-   ],
-   "findings_fixed": [
-    "updated stale runner/instruction branch from arena/01a104a9-gemsdoe31 to active fixed branch arena/01a1050e-gemsdoe31",
-    "retired H31-A sample submission name/comment because no current candidate exists",
-    "linked the official USGS notice that decommissions the old /nwis/gwlevels/ endpoint",
-    "updated the current test count from the historical 23 to the latest 25"
-   ],
-   "remaining_risks": [
-    "GEMSDOE28 Pages deployment identity was not proven byte-identical to its repository HEAD; its records remain OWNER-MIRROR, not organizer evidence",
-    "ComCat count and sample, ASTER catalog granule, Water Data sample, and reachable NGMDB viewer do not establish exact-area coverage, licensing, or holdout utility",
-    "no live DrivenData leaderboard, private score page, or submission interface was accessed; no monitoring/feed/upload was implemented"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "pass-6-whole-charter-and-delivery-crosscheck-2026-10-03",
-   "status": "historical \u2014 complete-with-open-gates",
-   "criteria": [
-    {
-     "criterion": "fault-mapping target, Maximize P(Win), Own the Outcome, README startup brief and source/evidence labels",
-     "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
-    },
-    {
-     "criterion": "3\u20135 distinct ranked hypotheses and official-source/access checks",
-     "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
-    },
-    {
-     "criterion": "manual upload guidance, unique name/comment, and prominent TIFF",
-     "status": "manual guidance retained; no current name/comment assigned; download explicitly legacy/reference-only, not a candidate"
-    },
-    {
-     "criterion": "measured buffer, holdout, current-best comparison, confirmation, exact-file validation, slot approval",
-     "status": "H31-A remains STOP; operational range unknown; no new holdout, candidate, confirmation, or slot approval; hard gates remain fail-closed"
-    },
-    {
-     "criterion": "AI narrative, three cumulative reviews, and delivery record",
-     "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1\u20133; PR #4 merged from the fixed branch."
-    }
-   ],
-   "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate.",
-   "historical_scope": true
-  },
-  {
-   "id": "pass-10-regenerate-and-verify-every-measured-number",
-   "status": "historical \u2014 complete-for-current-artifacts",
-   "scope": [
-    "restore and hash-verify the 11 pinned inputs in this workspace (data_restore.json all_verified true)",
-    "write the official metric from the published sums and verify it against a literal brute-force transcription",
-    "regenerate the filter and union experiments from committed artifacts (scripts/run_union.py)",
-    "quantise the fold-OOF maps so a fresh clone can reproduce the union step (scripts/pack_oof.py)",
-    "regenerate every site page from the registers (scripts/build_site.py) and check it (scripts/check_site.py)"
-   ],
-   "verification": {
-    "inputs": "11/11 hash-pinned entries restored and verified; grid/CRS/shape/dtype re-checked by prepare_data --verify-only",
-    "metric": "max |DTI_fast - DTI_brute| = 4.44e-16 over 24 random grids, plus two exact closed-form cases; TPw + FNw = |G| holds",
-    "incumbent_reproduction": "scripts/run_union.py reproduces the registered incumbent DTIs (0.04909549919996513 / 0.09384814898733441) to < 1e-9 and refuses to write otherwise",
-    "union_reproduction": "D-arm p>=0.70 catalogue-dropping union reproduces exactly (15,105 added, 55,304 dots, 0.0721 / 0.0955)",
-    "new_finding": "the LiDAR-arm union at p>=0.60 is stronger than any radiometric-arm union (+0.0060 vs +0.0017 on the off-catalogue proxy)",
-    "site": "20 pages, 257 local links, no broken link, no placeholder symbol, no pictogram in chrome (scripts/check_site.py)",
-    "suite": "ruff clean; 30 tests pass, including the new metric, register, submission-file and buffer tests"
-   },
-   "open_scientific_gates": [
-    "the arm-training code behind arm_results.json / operating_point.json is not in this snapshot",
-    "no organizer receipt for any score; 0.2708 and 0.2600 remain owner-reported",
-    "the off-catalogue proxy is SGMC state-map faults, not the hidden expert-mapped truth"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "pass-11-bug-assumption-and-leakage-review",
-   "status": "historical \u2014 complete-for-current-artifacts",
-   "scope": [
-    "re-derive the metric from the official page rather than from memory, and correct the earlier off-by-one arithmetic in the exact test case",
-    "check that no catalogue-derived feature enters either evaluation proxy",
-    "check that the site never states a score as official, never states a proxy DTI as a competition score, and never marks a file slot-approved",
-    "check the register schema change (submissions.json) against the tests and the site generator"
-   ],
-   "verification": {
-    "metric_definition": "re-fetched the official problem page in this session; formulas, alpha/beta, 300 m kernel and format rules transcribed from it, and epsilon recorded as an assumption",
-    "epsilon": "the published page does not state epsilon; the implementation uses 1e-10 and says so in the module and on the site",
-    "proxies": "no arm uses a catalogue-distance or SGMC-derived feature; both proxies are computed from rasters that never enter training",
-    "claims": "registry/submissions.json marks every file slot_approved false; feed.json discloses the absent organizer receipt; tests assert both fail-closed properties",
-    "schema": "collect_evidence.py now derives the register from receipts so hashes cannot go stale; a test re-hashes every registered file"
-   },
-   "open_scientific_gates": [
-    "the union gain (+0.0060) is measured on a proxy with a different fault population from the hidden truth",
-    "the quantised OOF maps shift a few threshold-boundary cells (max value error 7.7e-06); headline rows reproduce exactly"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "pass-12-charter-crosscheck",
-   "status": "historical \u2014 complete-with-open-work",
-   "scope": [
-    "walk the written brief item by item against the repository, the site and the registers",
-    "record what is satisfied, what is partial, and what is blocked"
-   ],
-   "verification": {
-    "core_question": "answered with measurements on the research page: sparse off-catalogue dot geometry plus the metric algebra; the 0.3195 target is quantified as a detection gap, not a budget gap",
-    "hypotheses": "five candidates ranked on the research page, each with layers, physical signature, novelty, cost and status; only H32-2 has partial measurement",
-    "buffer": "derived (21.25 km) and reported with fits, bootstrap band and the withdrawn 94.3 km rule recorded",
-    "one_click_download": "index and executive summary both carry the download; executive summary documents the portal steps and the [0,1] error class",
-    "regression_test": "tests/test_submission.py keeps the inside-NaN case that produces that error class",
-    "delivery": "pull request and merge recorded in the repository history; Pages serves docs/"
-   },
-   "open_scientific_gates": [
-    "next-week slot candidate: rerun the union with a better-trained classifier rather than a re-quantiled incumbent",
-    "re-implement the arm trainer so the whole chain reruns from a fresh clone",
-    "obtain the GDR 1391 depth stack and 3DEP return attributes through the CI runner, or record them as unavailable"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "pass-13-h31b-implementation-and-9site-forensic-audit-2026-10-25",
-   "status": "historical \u2014 complete-for-current-artifacts",
-   "scope": [
-    "fix scripts/download_competition_data.py in-place with blobless git fetch over github.com so all 11 hash-pinned inputs restore inside the sandbox",
-    "restore all 11 sibling GeoTIFFs across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36 and compute exact catalogue-distance annuli and off-catalogue SGMC DTIs (evidence/nine_site_forensic_audit.json)",
-    "implement H31-B1..B4 multi-physics discovery surfaces (src/gemsdoe31/h31b_discover.py) and run the single-feature leakage canary + 3 H31-B experiments + uniqueness gate + GeoTIFF packaging (scripts/run_h31b_campaign.py)"
-   ],
-   "verification": {
-    "inputs_and_stack": "11/11 hash-pinned inputs verified (all_verified=true); 46-band prepared/features.f32 built and verified",
-    "forensic_proof_0p2778": "proved GEMSDOE32 (37,654 dots, 0.2778 USER-REPORTED) equals H27-4 (40,199 dots, 0.2708 USER-REPORTED) minus 2,545 flank dots in 100 m < d(catalogue) <= 200 m, and verified via paired natural experiment against GEMSDOE28 H36-1 (37,660 dots, 0.2710 USER-REPORTED)",
-    "h31b_experiments": "EXP-1 standalone reaches 0.1380 HOLDOUT-DTI (95% CI [0.1169, 0.1683], 4/4 folds > GEMSDOE32 B=2 0.0984); EXP-2 hybrid reaches 0.1249 HOLDOUT-DTI (4/4 folds > B=2); EXP-3 B=1 ablation scores 0.1296 (negative)",
-    "submissions": "built and validated gemsdoe31-h31b-scarp-hessian-20261025-37654 and gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654 (21/21 format checks passed)"
-   },
-   "open_scientific_gates": [
-    "no official DrivenData organizer receipt is stored in the repository; all historical live scores remain USER-REPORTED",
-    "external 3D MT depth stack (GDR 1391) and raw 3DEP LAZ return attributes require CI runner egress outside sandbox"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "pass-14-h31b-bug-leakage-and-uniqueness-review-2026-10-25",
-   "status": "historical \u2014 complete-for-current-artifacts",
-   "scope": [
-    "audit single-feature leakage canary across all 46 bands + 5 engineered surfaces (evidence/leakage_canary.json)",
-    "audit sparse LiDAR/GeoDAWN NaN handling, Parallel-Run Uniqueness Gate (surface Spearman r_s <= 0.90 and 3-px dot overlap <= 70%), and [0, 1] footprint range",
-    "verify fail-closed registry invariants (slot_approved=false when no organizer receipt exists, while ok_to_download_and_submit=true is prominently displayed)"
-   ],
-   "verification": {
-    "leakage_canary": "all 14 input bands and 5 engineered surfaces used in H31-B have holdout ROC-AUC <= 0.7753 <= 0.90; dist_cat_km (1.0000) and dist_sgmc_km (0.9981) flagged and strictly excluded",
-    "nan_and_mad_guard": "fixed sparse-survey NaN fill saturation by rank-normalizing only finite in-footprint survey values and assigning neutral 0.5 outside coverage",
-    "uniqueness_gate": "EXP-1 max surface r_s = 0.11433 <= 0.90, max 3-px dot overlap = 35.938% <= 70%; EXP-2 max 3-px dot overlap = 66.394% <= 70%",
-    "tests_and_lint": "38 pytest tests pass; ruff check passes cleanly; check_site.py passes on all 20 pages and 269 local links"
-   },
-   "open_scientific_gates": [
-    "SGMC off-catalogue proxy is a 1:500k state-map proxy for hidden unmapped faults, not the organizer's private evaluation raster"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "pass-15-whole-request-and-run-card-crosscheck-2026-10-25",
-   "status": "historical \u2014 complete-with-open-work",
-   "scope": [
-    "cross-check all user requirements: 9-site forensic study of 0.2778, unique validated GeoTIFF generation, obvious readiness on site home and executive summary, unique name and <=140-char note, Parallel-Run Protocol compliance, and JSON RUN CARD"
-   ],
-   "verification": {
-    "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES \u2014 VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
-    "run_card": "evidence/run_card_2026-10-25.json generated and verified with all required fields"
-   },
-   "open_scientific_gates": [
-    "human entrant must manually download the GeoTIFF and submit on DrivenData if desired, and attach any official score receipt to registry/score_claims.json"
-   ],
-   "historical_scope": true
-  },
-  {
-   "id": "magrest-20261025-pass1-implementation",
-   "status": "complete research deliverable; preflight-order defect disclosed",
-   "scope": [
-    "Audit owner prompt, 9 sites/119 TIFFs, raw inputs and shared cache/template; freeze four ranked restoration hypotheses before fitting.",
-    "Run exactly three fixed MAGREST variants, feature-alone canaries and the same-run physical control on whole-component buffered HOLDOUT-DTI.",
-    "After the negative screen, emit a genuinely new 37,654-dot TIFF/ZIP and NaN companion using shared tools; no confirmation or slot."
-   ],
-   "verification": {
-    "scientific_receipts": "evidence/magrest/features.json, novelty_surface.json, canaries_seed31.json, holdout_seed31.json, novelty_final.json",
-    "input_hash_grid_checks": "11/11 verified",
-    "shared_cache": "19/19 hashes match pinned template",
-    "result": "negative; computed scores retained conditionally, not a leaderboard prediction",
-    "scope_defect": "Nine-tree preflight later found insufficient; no retroactive assertion of a clean broad gate."
-   },
-   "open_scientific_gates": [
-    "Literal shared-registry overlap STOP: 100% of prospective/final supports within 3 px of an authentic registered spacing-5 lattice; no exemption.",
-    "Original preflight was only nine download trees; defect found after scoring/packaging. Initial receipts and already-created bytes retained transparently; no new fit/TIFF after STOP.",
-    "Scientific screen negative; no confirmation, own-method dependence range, comparable global-best win, official provenance/convention or selector approval.",
-    "No slot used. PR checks/merge/Pages outcome is external GitHub evidence, not inferred from local review."
-   ]
-  },
-  {
-   "id": "magrest-20261025-pass2-bug-and-edge-review",
-   "status": "complete code/edge review; no scientific promotion",
-   "scope": [
-    "Repeat all 3 fixed surface/final-support audits in the original scope; reconstruct the served primary exactly, without a new candidate.",
-    "Independently re-read TIFF/ZIP, grid/range/mask/spacing, hashes, metric/CI/paired comparison and denial gates; tamper tests.",
-    "Fix local writer clipping/NaN repair/source-grid/name/convention failures; retire static full-catalogue/SGMC distances; clean Float32-min; make bad hash/grid verify-only fail.",
-    "Synthetic label-copy leakage STOP, restored range-test fixture alignment and no post-score feature changes."
-   ],
-   "verification": {
-    "receipt": "evidence/review_verification_20261025.json",
-    "receipt_sha256": "1d8c0c7c5e2d6ee409ae050773c86643764b2514527f55b699f55cb76c680579",
-    "pytest": "89 passed in 9.55s",
-    "ruff": "All checks passed!",
-    "metric": "24 random grids, max abs fast-vs-brute difference 4.441e-16; two exact closed-form cases",
-    "compileall": "exit 0 for src/scripts/tests",
-    "site": "20 pages, 281 local links; all checks passed",
-    "browser": "15 page/viewport checks at 390/820/1440 px and 6 exact-byte TIFF/ZIP browser downloads; no page overflow or runtime error",
-    "browser_receipt": "evidence/browser_magrest_smoke_20261025.json"
-   },
-   "open_scientific_gates": [
-    "Literal shared-registry overlap STOP: 100% of prospective/final supports within 3 px of an authentic registered spacing-5 lattice; no exemption.",
-    "Original preflight was only nine download trees; defect found after scoring/packaging. Initial receipts and already-created bytes retained transparently; no new fit/TIFF after STOP.",
-    "Scientific screen negative; no confirmation, own-method dependence range, comparable global-best win, official provenance/convention or selector approval.",
-    "No slot used. PR checks/merge/Pages outcome is external GitHub evidence, not inferred from local review."
-   ]
-  },
-  {
-   "id": "magrest-20261025-pass3-whole-request-and-integration",
-   "status": "complete local requirement review; literal overlap STOP",
-   "scope": [
-    "Discover actual shared 695-raster registry and hash-verified calibration counterexample; measure 100% prospective/final overlap, log duplicate STOP, hard-disable further runner stages.",
-    "Preserve complete normalized owner prompt, individual 12-artifact focus review, conflicting unverified leaderboard anchors, official-source access dates, disclosure and portal-error uncertainty.",
-    "Merge concurrent main; preserve H31-B and restore 121 earlier AS-1/TGJ31 files removed by later main merge; archive obsolete workflow/page/assertion rather than enable or compare them.",
-    "Keep 20-page current site; primary download and DO NOT SUBMIT at top; conditional executive upload guide; no human inspector; add CI checks.",
-    "Browser review found and fixed mobile command/hash overflow and brand wrapping; compare actual downloaded TIFF/ZIP SHA across desktop/tablet/mobile.",
-    "Preserve concurrent H31-E PR #13 code/tests/TIFFs/receipts after main advances to 7619b61; fix legacy root metric empty-truth FP boundary artifact and unify public contribution helper input contracts. Active pinned shared template already handles this edge and is unchanged; no scientific result refit."
-   ],
-   "verification": {
-    "receipt": "evidence/review_verification_20261025.json",
-    "receipt_sha256": "1d8c0c7c5e2d6ee409ae050773c86643764b2514527f55b699f55cb76c680579",
-    "pytest": "89 passed in 9.55s",
-    "ruff": "All checks passed!",
-    "metric": "24 random grids, max abs fast-vs-brute difference 4.441e-16; two exact closed-form cases",
-    "compileall": "exit 0 for src/scripts/tests",
-    "site": "20 pages, 281 local links; all checks passed",
-    "browser": "15 page/viewport checks at 390/820/1440 px and 6 exact-byte TIFF/ZIP browser downloads; no page overflow or runtime error",
-    "browser_receipt": "evidence/browser_magrest_smoke_20261025.json"
-   },
-   "open_scientific_gates": [
-    "Literal shared-registry overlap STOP: 100% of prospective/final supports within 3 px of an authentic registered spacing-5 lattice; no exemption.",
-    "Original preflight was only nine download trees; defect found after scoring/packaging. Initial receipts and already-created bytes retained transparently; no new fit/TIFF after STOP.",
-    "Scientific screen negative; no confirmation, own-method dependence range, comparable global-best win, official provenance/convention or selector approval.",
-    "No slot used. PR checks/merge/Pages outcome is external GitHub evidence, not inferred from local review."
-   ]
-  },
-  {
-   "id": "arena-repo-review-2026-10-25-pass1",
-   "status": "complete",
-   "scope": [
-    "read full README charter, active preregistration, latest outcome and registers",
-    "inspect site, registry, current run, TIFF/ZIP artifacts and repository state",
-    "restore all 11 pinned owner-mirror inputs and build the prepared feature stack without fitting a model"
-   ],
-   "findings": [
-    "all 11 input hashes and grids verified against the manifest; provenance remains owner-mirror, not organizer-authenticated",
-    "42-band feature stack built outside Git at data/prepared/features.f32 (2,062,898,880 bytes)",
-    "current MAGREST artifact remains negative and explicitly not for competition submission"
-   ]
-  },
-  {
-   "id": "arena-repo-review-2026-10-25-pass2",
-   "status": "complete-with-fix",
-   "scope": [
-    "review edge cases, prior-art/uniqueness claims, ZIP packaging and status language",
-    "integrate current main after PR #14 merged, preserving its registry-overlap STOP and no-submit status",
-    "fix ZIP SHA-256/byte-count omission and add archive-integrity tests"
-   ],
-   "findings_fixed": [
-    "submission registry now records SHA-256 and byte size for existing ZIPs, including the current negative artifact",
-    "tests verify archive digest, size, CRC/readability and exactly one TIFF member",
-    "site checker independently compares every registered ZIP against its stored digest/size"
-   ],
-   "open_gates": [
-    "no new model/TIFF due the literal registry STOP and exhausted experiment budget",
-    "no organizer score receipt or portal acceptance"
-   ]
-  },
-  {
-   "id": "arena-repo-review-2026-10-25-pass3",
-   "status": "complete-negative-no-new-candidate",
-   "scope": [
-    "run full local test/lint/metric/site checks and current-run independent verifier",
-    "recheck all input hashes/grids and prepared feature stack",
-    "confirm no submission, upload or selector action occurred"
-   ],
-   "verification": {
-    "pytest": "90 passed",
-    "ruff": "clean",
-    "metric": "max abs fast-vs-brute 4.441e-16 over 24 grids; 29 kernel offsets",
-    "current_run_verifier": "ok_to_download_for_research=true; ok_to_submit=false; verdict=negative",
-    "site": "20 pages; 281 local links; all checks passed",
-    "data": "11/11 manifest hashes and grids match; 42 feature bands; 2,062,898,880 bytes"
-   },
-   "decision": "no new TIFF, no experiment, no submission slot. Existing MAGREST TIFF remains research-only and DO NOT SUBMIT."
-  },
-  {
-   "id": "pass-13-2026-10-25-prior-art-and-hypothesis-gate",
-   "status": "complete-with-data-blocker",
-   "scope": [
-    "reread README charter, AGENTS instructions, active H31 preregistration and latest historical status before new work",
-    "inspect public GEMSDOE32 repository archive and H33-2-B2 method/evidence solely for prior-art learning",
-    "rank four unfit hypotheses with layers, physical signature, novelty boundary, access requirement and effort",
-    "apply the required rank-correlation / three-pixel overlap canary to the archived H33-2-B2 raster before any new placement"
-   ],
-   "verification": {
-    "owner_mirror": "GEMSDOE32 main commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc; exact H33-2-B2 TIFF digest and source links recorded in knowledge/session_review_2026-10-25.md",
-    "score_claim": "prompt value 0.2778 retained as USER-REPORTED; inspected owner-mirror submission metadata says UNSCORED; no organizer receipt linked to exact bytes",
-    "duplicate_screen": "against the local H27-4 finite footprint, Spearman rho 0.967587, 100% of H33 positive cells within 3 px, all 37,654 positives exactly shared; duplicate gate exceeded and logged as IR-31-H33-2-B2-DUPLICATE",
-    "hypotheses": "four distinct desk-only candidates documented; none fitted, none declared viable because runtime rasters/cache are absent",
-    "holdout_audit": "Inspected GEMSDOE32 H33-2 code path creates the catalogue-flank mask from full labels before fixed-mask holdout scoring; this does not satisfy fold-visible catalogue processing and is logged as IR-31-H33-B2-HOLDOUT-LABEL-LEAKAGE.",
-    "format_audit": "Inspected H33 -zeros GeoTIFF is finite zero outside the local footprint, has no nodata tag, and conflicts with the official null/NaN outside convention; logged as IR-31-H33-ZERO-OUTSIDE."
-   },
-   "open_gates": [
-    "all 11 hash-pinned manifest inputs are absent from this checkout; no feature-alone leakage canary or spatial holdout possible",
-    "no new candidate TIFF, submission metadata, holdout DTI/CI, or organizer-confirmed score",
-    "the owner-mirror H33 holdout procedure cannot stand in for the requested hide-and-recover evaluator",
-    "the H33 zeros file was not validated against an organizer sample template and does not follow the recorded outside-footprint convention"
-   ]
-  },
-  {
-   "id": "pass-14-2026-10-25-runner-and-upload-safety-fix",
-   "status": "complete",
-   "scope": [
-    "remove the stale H31 runner branch literal while retaining an Arena-session-only default and an optional exact branch override",
-    "make the public home page and executive summary unambiguously label existing downloads as reference/research-only and not approved for upload",
-    "add static assertions so the site fails if the approval warning disappears or the legacy file is relabeled as a submission TIFF"
-   ],
-   "findings_fixed": [
-    "the prior session-ID branch literal would reject the current active Arena branch even before the missing-data guard",
-    "the home page previously led with \u201cDownload the file. Submit it.\u201d while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
-    "the executive summary no longer reserves a submission name or note for a legacy/reference file"
-   ],
-   "verification": {
-    "runner_regression": "test accepts arena/7a0b39fb-gemsdoe31 when no exact override is set, rejects main, and enforces GEMSDOE31_BRANCH when explicitly configured",
-    "site": "20 generated pages; 255 local links; prominent do-not-upload statement and button semantics verified by scripts/check_site.py"
-   }
-  },
-  {
-   "id": "pass-15-2026-10-25-final-charter-and-reproducibility-check",
-   "status": "complete-with-scientific-stop",
-   "scope": [
-    "rerun tests, lint, compile check and exact metric audit after final edits",
-    "rebuild the site and evidence/submission registers from current artifacts and run structural site checks",
-    "cross-check final status against no-slot, no-duplicate, no unvalidated TIFF and user-reported score requirements"
-   ],
-   "verification": {
-    "tests": "33 passed",
-    "ruff": "clean",
-    "compileall": "passed for src, scripts and tests",
-    "metric": "max absolute delta 4.441e-16 against brute-force transcription over 24 grids; exact cases and 29 kernel offsets checked",
-    "evidence_and_site": "collect_evidence completed; build_site generated 20 pages; check_site passed 255 local links",
-    "inputs": "prepare_data --verify-only found all 11 manifest inputs absent and hash verification false; historical committed evidence receipt restored after recording the current absence in the session audit",
-    "decision": "no top-candidate holdout was run, no submission TIFF generated, no slot touched; negative run card recorded in knowledge/session_review_2026-10-25.md",
-    "site": "20 generated pages and 255 local links; do-not-upload warning checked by scripts/check_site.py"
-   },
-   "remaining_risks": [
-    "no feature stack or competition data in workspace prevents model fitting, whole-segment hide-and-recover evaluation, leakage canaries, or confidence intervals",
-    "the 0.2778 user claim has no organizer receipt in inspected archive and cannot be verified without a receipt supplied from a submission-page result",
-    "owner-mirror previous experiments and scores do not establish official competition performance",
-    "the inspected GEMSDOE32 all-finite zeros raster conflicts with the official outside-footprint null/NaN convention; no organizer receipt or sample-template revalidation was available"
-   ]
-  },
-  {
-   "id": "pass-2026-10-25-1-forensic-preregister-implement",
-   "status": "complete",
-   "scope": [
-    "audited GEMSDOE24..36 and GEMSDOE70 sibling rasters byte-for-byte, uncovering the 86.7%-100.0% H19-5 monoculture and proving GEMSDOE32 H33-2-B2 (0.2778 USER-REPORTED) = D2.8 & (d_cat > 200 m)",
-    "restored and SHA-256-verified all 11 competition + external rasters into git-ignored .cache/data/ and preregistered 5 untried hypotheses (H31-E..H31-I) in knowledge/2026-10-25_h31e_preregistration.md",
-    "implemented src/gemsdoe31/scgp_features.py, src/gemsdoe31/submodular_emit.py, scripts/submission_writer.py, scripts/evaluate_holdout.py, and tests/test_h31e_pipeline.py"
-   ],
-   "verification": {
-    "leakage_canary": "86 features tested individually on draw 101; max two-sided ROC-AUC 0.7624 <= 0.90 (PASS)",
-    "uniqueness_canary": "16 local + peer rasters checked before and after placement; max surface rho 0.1073 <= 0.90, max 3-px dot overlap 51.53% <= 70.0% (PASS)",
-    "holdout_dti": "evaluator gemsdoe31-hide-v2.0 (21.3 km buffer): H31-E2 fresh confirmation HOLDOUT-DTI 0.1145 (95% CI 0.1071-0.1232, n=35,599) vs 0.0886 Baseline-D-Poisson (+29.3%)"
-   },
-   "open_scientific_gates": [
-    "strict Gate G5b all-elevation mountain SGMC (0.0816 vs 0.0940 H33-2-B2) held automatic weekly-slot spending (slot_approved=false, Run Card verdict=negative) while G1-G4 and G5a Piedmont SGMC (0.1233 vs 0.1091, +13.0%) passed"
-   ]
-  },
-  {
-   "id": "pass-2026-10-25-2-adversarial-bug-leakage-edge-review",
-   "status": "complete",
-   "scope": [
-    "audited prepared/features.f32 for float32 nodata sentinels and discovered 3,061 in-footprint cells storing -3.4028235e+38 (isfinite=True) plus uint8-scaled TMI_up150",
-    "audited Exp 1 (H31-E v1) distance shells and caught 75.6% lateral flank halo collapse (28,456 dots in 200-500 m, only 60 dots >1.5 km) triggered by raw vis_d1_clamped_km in HGB",
-    "fixed sentinel sanitization, single-precision FFT memory footprint, self-distance leakage, and translation-invariant H31-E2 feature set; pinned all fixes with unit tests"
-   ],
-   "verification": {
-    "pytest": "41 passed without warnings",
-    "ruff": "all checks passed across src/, scripts/, and tests/",
-    "compileall": "passed for src/, scripts/, and tests/",
-    "farfield_allocation": "H31-E2 places 11,864 dots (31.5%) beyond 1.5 km from public catalogue traces and matches Quaternary piedmont physiography (-21.6 m, 8.19 deg)"
-   },
-   "open_scientific_gates": [
-    "no organizer receipt exists in repository; all historical peer scores remain USER-REPORTED"
-   ]
-  },
-  {
-   "id": "pass-2026-10-25-3-full-charter-and-site-crosscheck",
-   "status": "complete",
-   "scope": [
-    "verified README charter preservation, Parallel-Run Protocol rules 1-6, <=3 experiment budget, 140-char note limit, and JSON Run Card completeness",
-    "regenerated all 20 GitHub Pages HTML files and feed.json from registry/*.json + evidence/*.json via scripts/collect_evidence.py and scripts/build_site.py",
-    "verified unmistakable GeoTIFF format/range/uniqueness validation status and weekly-slot selector status on both docs/index.html and docs/executive-summary.html"
-   ],
-   "verification": {
-    "check_site": "20 pages (budget 20) and 257 local links checked; 0 failures",
-    "json_strict_parse": "all JSON files under registry/, evidence/, and docs/ parse cleanly with allow_nan=False invariants",
-    "tiff_sha256": "gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif matches d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8"
-   },
-   "open_scientific_gates": [
-    "human weekly-slot selector sign-off required before uploading gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif to DrivenData"
-   ]
-  },
-  {
-   "id": "arena-11fd7d52-safety-pass-1",
-   "status": "complete-with-scientific-stop",
-   "scope": [
-    "Inspected current and archived evidence; fixed public subset-pass/portal-acceptance wording; preserved stopped lane and research artifacts."
-   ],
-   "record": "knowledge/review_2026-10-25_submission_safety.md",
-   "new_experiments": 0,
-   "new_tiffs": 0,
-   "weekly_slots_used": 0
-  },
-  {
-   "id": "arena-11fd7d52-safety-pass-2",
-   "status": "complete-with-scientific-stop",
-   "scope": [
-    "Rechecked existing H31-E2 final support: 37641/37654 overlap; corrected nonexact 100% wording; guarded archived README generator; added presentation regression tests."
-   ],
-   "record": "knowledge/review_2026-10-25_submission_safety.md",
-   "new_experiments": 0,
-   "new_tiffs": 0,
-   "weekly_slots_used": 0
-  },
-  {
-   "id": "arena-11fd7d52-safety-pass-3",
-   "status": "complete-with-scientific-stop",
-   "scope": [
-    "Crosschecked owner requirements; 101 tests, lint, compile, metric proof, exact-file denial verifier and 20-page/296-link site checks pass; new unique submission remains blocked, not claimed complete."
-   ],
-   "record": "knowledge/review_2026-10-25_submission_safety.md",
-   "new_experiments": 0,
-   "new_tiffs": 0,
-   "weekly_slots_used": 0
-  },
-  {
-   "id": "arena-2026-10-25-repo-review-pass-1",
-   "status": "complete-current-runtime",
-   "scope": [
-    "read entire README and preserved owner prompt, AGENTS.md, latest status, current run card, review-pass registry, and frozen MAGREST preregistration",
-    "installed pinned requirements; ran pytest, Ruff, compileall, metric proof, exact-file verifier, evidence collector, site generator and site checker"
-   ],
-   "verification": {
-    "ruff": "all checks passed",
-    "compileall": "passed",
-    "metric": "maximum absolute difference 4.441e-16 across 24 grids and two exact cases",
-    "current_run": "verified exact current raster hash; ok_to_download_for_research=true, ok_to_submit=false, verdict=negative",
-    "site": "20 pages; 296 local links; all checks passed",
-    "pytest_initial": "92 passed, 6 skipped before restoring the two small pinned validation inputs",
-    "pytest_final": "101 passed, 0 skipped after restoring validation inputs and integrating the concurrent presentation-safety fixes"
-   },
-   "no_new_experiment_or_tiff": true
-  },
-  {
-   "id": "arena-2026-10-25-repo-review-pass-2",
-   "status": "complete-with-documentation-and-output-label-fixes",
-   "checks": [
-    "found AGENTS.md inaccurately describing recheck_magrest.py as a full broad-registry test; code only covers the original nine downloads trees and requires ignored .cache/magrest/responses.npy",
-    "confirmed clean runtime lacks the full data/cache; verifier restored only the two small validation inputs and pinned registry witness",
-    "found collector console label 'best research candidate' did not identify historical proxy scope",
-    "found archived H31-E2 site wording foregrounded a narrow-subset PASS and implied human selector authority"
-   ],
-   "findings_fixed": [
-    "corrected AGENTS.md scope/cache dependency and README audit command; verify_current_run.py is the clean-checkout broad-counterexample verifier",
-    "corrected stale README claim that full inputs/cache exist in this runtime",
-    "changed collector output wording to identify the best historical proxy candidate as not slot-approved",
-    "integrated upstream submission-safety correction and strengthened site wording/checks: subset uniqueness is not broad approval; no human sign-off overrides a hard stop",
-    "added current-runtime review record and updated current status"
-   ],
-   "no_new_experiment_or_tiff": true
-  },
-  {
-   "id": "arena-2026-10-25-repo-review-pass-3",
-   "status": "complete-negative-no-new-candidate",
-   "criteria": [
-    {
-     "criterion": "Follow locked lane, overlap STOP, experiment/time budget",
-     "status": "no new fit, experiment, TIFF, upload, or slot; existing MAGREST artifact remains research-only"
-    },
-    {
-     "criterion": "Prominent download status and autonomous validator decision",
-     "status": "homepage/executive guide distinguish research download from DO NOT SUBMIT; exact-file verifier independently returns ok_to_submit=false"
-    },
-    {
-     "criterion": "Candidate hypotheses and expected gain",
-     "status": "only desk backlog GRAVREST, RADREST, TERRREST from prior preregistration recorded; all remain unfit, expected DTI gain unknown, and none is authorized in this lane"
-    },
-    {
-     "criterion": "Sources and current claims",
-     "status": "no organizer page/leaderboard/receipt queried; 0.2778/0.3195/0.4413 remain unverified claims; mirror and computed evidence are distinguished"
-    }
-   ],
-   "remaining_blockers": [
-    "literal shared-registry overlap STOP and no preauthorized exception",
-    "full production input/cache absent in clean runtime",
-    "no organizer-authenticated score receipt, current quota, or outside-mask convention verification",
-    "no comparable global-best confirmation on same evaluator and buffer"
-   ],
-   "no_new_experiment_or_tiff": true
-  },
-  {
-   "id": "PASS-2026-10-25-HVDC-1",
-   "status": "passed",
-   "scope": [
-    "H31-HVDC math, Batch-Exact CELF submodular exactness, 55-feature leakage canary, GeoTIFF byte contract"
-   ],
-   "verification": {
-    "celf": "20/20 exact match",
-    "leakage": "55/55 <= 0.7606",
-    "geotiff": "10/10 strict checks pass"
-   },
-   "open_scientific_gates": [
-    "Shared 695-raster literal overlap gate audited in Pass 2"
-   ],
-   "historical_scope": false
-  },
-  {
-   "id": "PASS-2026-10-25-HVDC-2",
-   "status": "passed",
-   "scope": [
-    "Cumulative Pass 1 + 34-comparator discrete audit + 695-raster r13-lattice-s5 / GEMSDOE48 literal STOP audit"
-   ],
-   "verification": {
-    "discrete_34": "max |rho| 0.1455, max fwd 3px 47.62%",
-    "shared_695": "r13-lattice-s5 99.52% -> literal STOP logged"
-   },
-   "open_scientific_gates": [
-    "Weekly live slot blocked under unexempted 695-raster shared registry"
-   ],
-   "historical_scope": false
-  },
-  {
-   "id": "PASS-2026-10-25-HVDC-3",
-   "status": "passed",
-   "scope": [
-    "Full cold-read integration with origin/main concurrent lanes, CI workflow, 20-page site check, pytest & ruff"
-   ],
-   "verification": {
-    "ci_suite": "verify_current_run + pytest + ruff + check_metric + collect_evidence + build_site + check_site all pass"
-   },
-   "open_scientific_gates": [
-    "No organizer receipt exists; research download only"
-   ],
-   "historical_scope": false
-  }
- ],
- "remaining_work": [
-  "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
-  "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
-  "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",
-  "fetch the GDR 1391 depth stack and 3DEP LAZ return attributes through the CI runner (sandbox cannot reach those hosts) or record them as unavailable",
-  "resolve the D2.8 0.2600 and h27-4 0.2708 score provenance by attaching organizer receipts to registry/score_claims.json",
-  "keep the leaderboard as a static link and the AI disclosure as an entrant-reviewed draft"
- ],
- "current_run": "registry/current_run.json",
- "current_three_passes": [
-  "arena-11fd7d52-safety-pass-1",
-  "arena-11fd7d52-safety-pass-2",
-  "arena-11fd7d52-safety-pass-3"
- ],
- "release_decision": "Research-only artifacts; literal registry STOP. No new experiment/TIFF/slot in safety continuation. No human override of failed gates."
+  ],
+  "remaining_work": [
+    "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
+    "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
+    "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",
+    "fetch the GDR 1391 depth stack and 3DEP LAZ return attributes through the CI runner (sandbox cannot reach those hosts) or record them as unavailable",
+    "resolve the D2.8 0.2600 and h27-4 0.2708 score provenance by attaching organizer receipts to registry/score_claims.json",
+    "keep the leaderboard as a static link and the AI disclosure as an entrant-reviewed draft"
+  ],
+  "current_run": "registry/current_run.json",
+  "current_three_passes": [
+    "arena-11fd7d52-safety-pass-1",
+    "arena-11fd7d52-safety-pass-2",
+    "arena-11fd7d52-safety-pass-3"
+  ],
+  "release_decision": "Research-only artifacts; literal registry STOP. No new experiment/TIFF/slot in safety continuation. No human override of failed gates."
 }
