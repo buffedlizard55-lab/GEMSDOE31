@@ -1,35 +1,45 @@
-# Current status — 2026-10-25
+# Current status — 2026-10-25, MAGREST negative research deliverable
 
-Read the [project charter](../README.md), [agent rules](../AGENTS.md), [active preregistration](2026-10-04_h31_hypotheses_preregistration.md), [latest review](session_review_2026-10-25.md), and `registry/review_passes.json` before further experimentation.
+Read the complete owner prompt at the end of README, AGENTS, the frozen MAGREST preregistration, this record and `registry/review_passes.json` before continuing.
 
-## Decision
+## Current decision
 
-**Negative / stop. No unique submission GeoTIFF was generated; no weekly slot was touched.** The GEMSDOE32 H33-2-B2 prior-art TIFF triggers the duplicate canary against the local H27-4 raster, and this checkout has no local `data/` inputs or prepared feature stack from which a different candidate can be fit and validated.
+**Newly computed research TIFF exists. Literal registry-overlap STOP. OK TO DOWNLOAD FOR RESEARCH. DO NOT SUBMIT.**
 
-## New findings
+- Primary: `docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif`.
+- SHA-256: `c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9`.
+- A one-TIFF ZIP and explicitly named NaN-outside counterpart are alongside it. Both use the same new predictions.
+- Independent 37,654-dot emitter used no old dot field. All 118 comparable files in the nine pinned download trees pass the surface and final-support thresholds. One 32×48 test fixture is grid-incomparable. That original preflight scope was insufficient. Final review found an authentic registered spacing-5 lattice outside those download trees; surface/prospective and final overlaps are 100% for all three variants. The literal shared-registry rule FAILS. No dense/calibration exemption and no exhaustive 695-raster pass claimed. See `evidence/magrest/registry_scope_correction.json`.
+- HOLDOUT-DTI `gems57-pooled-hide-v2`, **2,901 withheld positives**, **0.052972044857535226**, 95% CI **[0.04131136300815562, 0.06532899139157548]**.
+- Same-run physical HGB control: HOLDOUT-DTI under that evaluator/n, **0.048293608830301336**, 95% CI **[0.029921573594205237, 0.06850647563703088]**.
+- Paired Δ **+0.00467843602723389**, 95% CI **[-0.017864202465723577, +0.022933167391729445]**. Three quadrant wins; southwest loss **-0.01822816838479043**, exceeding the permitted .010 loss. **Screen failed.**
+- Three frozen variants exhausted the experiment budget before the registry scope defect was discovered. No new fit/tuning/TIFF after the STOP. Already-generated genuinely new bytes are retained per the highest-priority output request, not promoted as a lane-approved unique submission. No confirmation, no fourth experiment, no selector action, no weekly slot. A format pass is not science approval or organizer acceptance.
 
-- The public GEMSDOE32 repository archive was inspected at commit `012e17b2a115c3c0d5e7885bea625bf9657c99fc`. Its H33-2-B2 artifact is described as a catalogue-flank deletion on the H27-4-style dot set; this is prior art, not a distinct detection mechanism. Its archived score metadata says `UNSCORED`. The user-provided `0.2778` claim remains USER-REPORTED and has no organizer receipt tied to exact bytes in the inspected archive.
-- Locally computed duplicate-canary diagnostics against the H27-4 `allfinite` registry raster: Spearman rank correlation `0.967587`, H33 positives within three pixels `100.0000%`, exact shared positive cells `37,654`. The method is recorded as `IR-31-H33-2-B2-DUPLICATE` and rejected. These are duplicate diagnostics, not DTI scores.
-- The inspected GEMSDOE32 H33 holdout path appears to construct its catalogue-flank deletion using full labels before evaluating a fixed mask against hidden components. That is not fold-visible catalogue processing under this project's protocol; an irregularity is registered and the owner holdout is not accepted as promotion evidence.
-- The archived H33 `-zeros.tif` has finite zeros outside the local footprint and no nodata tag, conflicting with the official null/NaN outside-footprint convention recorded in `registry/sources.json`. It is logged as `IR-31-H33-ZERO-OUTSIDE`; no exact sample-template validation was possible in this checkout.
-- The model/holdout remains blocked. `data/` does not exist in this checkout, the 11 pinned manifest inputs are absent, and cached OOF probabilities are insufficient for feature-alone leakage canaries or a new hide-and-recover model fit.
-- Four distinct, unfit desk hypotheses and their official-source/access limits are documented in the session audit. The first-ranked scarp-degradation profile bank is conditional only; its input coverage is inaccessible here, so it is not marked viable.
-- The H31 runner previously hard-coded a prior Arena session branch ID. It now accepts an `arena/*` session branch by default and supports an exact `GEMSDOE31_BRANCH` override. Tests cover both cases.
-- The generated home page and executive summary now state prominently that currently downloadable rasters are reference/research-only and not approved for upload. No submission name or portal note is reserved.
+## Resolved engineering blockers
 
-## Verification performed
+- Eleven manifest inputs restored and hash/grid-verified; no manual placement needed.
+- All nineteen regenerated raw feature-cache bands exactly match the pinned shared 57GEMSDOE receipt. `prepare_template_cache.py` reuses them and calls the unchanged shared builder only if absent.
+- Whole 8-connected fault components withheld with an inherited 213-pixel collar; visible faults masked pixel-exactly. Active predictors use no catalogue/SGMC features or coordinate planes.
+- 136 feature/missingness leakage tests pass; highest bidirectional AUC .8048414150943396. Synthetic label-copy regression demonstrates the leakage STOP.
+- Shared evaluator, grid, mask, inference and writer files are unchanged and hash-pinned. The separate old local writer no longer clips invalid input, repairs footprint NaN or substitutes an unverified grid.
+- The older common data preparer no longer caches full-catalogue/SGMC distances; Float32-min sentinel cleaning and verify-only failure semantics were repaired. No historical result is rewritten.
+- Exact-file verification reopens both TIFFs, checks ZIP membership/bytes, template/catalogue hashes, spacing, supports, code/prereg pins, independent registry thresholds and frozen pooled DTI/CI/paired delta; re-derives the literal 100% overlap STOP and `ok_to_submit=false`. CI restores two small competition inputs plus that registered control.
+- README contains the complete normalized current owner prompt. Site home/executive show the new download and DO NOT SUBMIT; historical pages are scoped as archives.
 
-- `.venv/bin/python -m pytest -q`: **33 passed** after all code/UI changes.
-- `.venv/bin/python -m ruff check .`: passed after all code changes; `.venv/bin/python -m compileall -q src scripts tests` also passed.
-- `.venv/bin/python scripts/check_metric.py`: maximum absolute difference from the brute-force metric transcription `4.441e-16`; exact cases and 300 m kernel geometry verified.
-- `.venv/bin/python scripts/prepare_data.py --verify-only`: all 11 manifest inputs absent, `all_hashes_match=false`. Its generated failure report was restored to the committed historical evidence receipt to avoid replacing prior successful-run evidence with an ephemeral environment result; present absence is captured in the audit.
-- `scripts/collect_evidence.py`, `scripts/build_site.py`, and `scripts/check_site.py` passed; 20 pages and 255 local links checked. The home page and executive summary now explicitly label downloads as not approved for upload.
-- No new holdout, AUC/leakage canary, DTI/CI, TIFF validator receipt, or organizer-confirmed score exists for this session.
+## Findings about the reported winner
 
-## Outstanding gates
+H27 equals D2.8 pruned at catalogue distance >1 pixel; H33 equals D2.8 pruned at >2 pixels. H33 removes 2,545 H27 dots and retains the same 35,483 dots farther than 300 m. This is geometry/pruning, not evidence of new fault discovery. Equal far support does not imply equal kernel credit: removed near-catalogue dots can still cover off-catalogue truth. Reported .2778, .3195 and .4413 values remain user reports without exact-byte organizer receipts. See the 12-artifact, nine-site claim-separated review and lineage receipt.
 
-1. Restore permitted, hash-verified competition/runtime rasters and the required cached feature stack, including the authorized sample submission template; document exact provenance.
-2. Preregister a genuinely distinct geological candidate, then test each feature alone for leakage, withhold whole fault segments plus empirical spatial buffer, and evaluate pooled DTI with alpha 0.2 / beta 0.8 / 300 m triangular kernel.
-3. Require a comparable same-run incumbent, fresh confirmation, confidence interval, duplicate checks both before placement and on the final dots, and exact GeoTIFF format audit before any selector/promotion action.
-4. Keep organizer score claims separate from user/owner reports; do not access or automate DrivenData pages absent permission.
-5. Reimplement the absent four-arm trainer so previously reported OOF and union measurements can be independently regenerated.
+## Remaining scientific/access limits
+
+- A global same-protocol current-best comparison is not established; the stronger historical holdout best uses a different truth/buffer instrument and its older full trainer is unavailable.
+- MAGREST's own residual correlation range is unknown. The inherited 21.3 km collar and 20 km bootstrap blocks do not prove independence or transfer.
+- The negative result does not establish a valuable fault-slip map. Volcanic contacts, undisturbed anisotropic magnetic fabric and flight-line seams are named mimics.
+- Only GitHub/package hosts are reachable. Official organizer reference code was freshly retrieved and pinned; official non-GitHub rule/data pages, the live leaderboard, submission page/quota and outside-mask convention were not freshly verified. Mirrors are not organizer-authenticated.
+- No human inspection or external manual input is needed to get the present decision: it is already automatically negative. Scientific/data/access shortcomings are not delegated to an inspector.
+
+## Next session
+
+Keep this negative release immutable. First resolve the dense-control degeneracy explicitly in a future protocol; this session cannot waive the literal 70% rule. Start a new preregistration only after the lane is clarified or an explicit assumption is documented. Priorities: reciprocal across-window consistency and explicit contact/seam nulls; own-method residual-range estimation; shared-protocol reproduction of the strongest available control; independent off-catalogue corroboration and fresh confirmation; exact-file organizer receipt and convention verification before any separate selector approval. Never reuse this negative TIFF as a new submission under another name.
+
+PR/deployment outcome is recorded in the session's final response and GitHub history; do not infer a deployment from an earlier Pages `built` response.

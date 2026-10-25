@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Emit a submission-ready GeoTIFF (and its fallbacks) from a binary dot set or a probability map.
+"""Emit locally format-checked research GeoTIFFs; this never grants submission approval.
 
 Variants produced for every candidate:
 
-* ``<name>-nan.tif``       — the official convention: finite values in ``[0,1]`` inside the footprint,
+* ``<name>-nan.tif``       — historically recorded official wording: finite ``[0,1]`` in the footprint,
                              ``NaN`` outside it, ``nodata=nan`` (identical layout to the sample template).
 * ``<name>-allfinite.tif`` — every cell finite, zeros outside the footprint; a fallback for portals that
                              evaluate the whole array instead of the masked footprint.
@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import zipfile
 from pathlib import Path
@@ -49,9 +50,20 @@ def load_dots(path: Path) -> np.ndarray:
 
 def write_variants(dots: np.ndarray, footprint: np.ndarray, out_stem: Path, *, name: str,
                    values: np.ndarray | None = None) -> dict:
+    dots = np.asarray(dots, dtype=bool)
+    footprint = np.asarray(footprint, dtype=bool)
+    if dots.shape != footprint.shape or dots.shape != (PROFILE["height"], PROFILE["width"]):
+        raise ValueError("dots/footprint must match the exact output grid")
+    if np.any(dots & ~footprint):
+        raise ValueError("dots outside the footprint; no silent masking")
+    strength = np.ones(dots.shape, dtype=np.float32) if values is None else np.asarray(values)
+    if strength.shape != dots.shape or np.iscomplexobj(strength):
+        raise ValueError("prediction strengths must be real and grid-aligned")
+    active = strength[footprint]
+    if not np.isfinite(active).all() or (active < 0).any() or (active > 1).any():
+        raise ValueError("predictions must already be finite in [0,1]; no clipping or repair")
     out_stem.parent.mkdir(parents=True, exist_ok=True)
-    strength = np.ones(dots.shape, dtype=np.float32) if values is None else values.astype(np.float32)
-    inside = np.where(dots, np.clip(strength, 0.0, 1.0), 0.0).astype(np.float32)
+    inside = np.where(dots, strength, 0.0).astype(np.float32)
     nan_variant = np.where(footprint, inside, np.nan).astype(np.float32)
     finite_variant = np.where(footprint, inside, 0.0).astype(np.float32)
     nan_path = out_stem.with_name(out_stem.name + "-nan.tif")
@@ -82,15 +94,21 @@ def main() -> None:
 
     template = ROOT / args.template
     footprint = footprint_mask(template)
-    if args.dots:
-        dots = load_dots(Path(args.dots))
-        values = None
-    else:
-        with rasterio.open(Path(args.prob)) as src:
-            prob = src.read(1)
-        dots = np.nan_to_num(prob, nan=0.0) >= args.threshold
-        values = np.nan_to_num(prob, nan=0.0)
-    dots &= footprint
+    source_path = Path(args.dots or args.prob)
+    with rasterio.open(source_path) as src, rasterio.open(template) as ref:
+        if src.count != 1 or src.shape != ref.shape or src.crs != ref.crs or src.transform != ref.transform:
+            raise ValueError("input predictions do not match the single-band template grid")
+        prob = src.read(1)
+    if not np.isfinite(prob[footprint]).all() or (prob[footprint] < 0).any() or (prob[footprint] > 1).any():
+        raise ValueError("input footprint predictions must already be finite in [0,1]; no silent repair")
+    if len(args.note) > 140 or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,139}", args.name):
+        raise ValueError("name must be a path-safe 1..140 character slug; note at most 140")
+    if args.dots and np.any(np.isfinite(prob[~footprint]) & (prob[~footprint] > 0)):
+        raise ValueError("input dots outside the footprint; no silent masking")
+    if not np.isfinite(args.threshold) or not 0 <= args.threshold <= 1:
+        raise ValueError("threshold must be finite in [0,1]")
+    dots = ((prob > 0) if args.dots else (prob >= args.threshold)) & footprint
+    values = None if args.dots else prob
 
     stem = Path(args.outdir) / args.name
     paths = write_variants(dots, footprint, stem, name=args.name, values=values)
@@ -102,18 +120,21 @@ def main() -> None:
     payload = {
         "schema_version": 1,
         "name": args.name,
-        "note": args.note[:200],
+        "note": args.note,
         "dots": int(dots.sum()),
         "dots_on_catalogue": int((dots & (rasterio.open(ROOT / "data/labels.tif").read(1) == 1)).sum()),
         "files": {k: str(v if v.is_absolute() else v) for k, v in paths.items()},
         "validation": receipts,
         "warnings": [
             "Format validation is local. It cannot prove organizer acceptance and is not a score.",
-            "The score of any file here is owner-reported unless a DrivenData receipt is attached.",
+            "Competition claims without exact-file organizer receipts are USER-REPORTED; local metrics are separate HOLDOUT-DTI.",
+            "Outside-footprint convention and organizer acceptance are unresolved; no scientific/slot approval is granted.",
         ],
     }
     receipt_path = stem.with_name(stem.name + "-format-check.json")
     receipt_path.write_text(json.dumps(payload, indent=1) + "\n")
+    if not all(r["ok_to_upload_format_only"] for r in receipts.values()):
+        raise ValueError("written artifact failed local format validation; see receipt")
     print(json.dumps({"name": args.name, "dots": payload["dots"],
                       "nan_ok": receipts.get("nan", {}).get("ok_to_upload_format_only"),
                       "allfinite_ok": receipts.get("allfinite", {}).get("ok_to_upload_format_only"),

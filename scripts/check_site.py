@@ -10,6 +10,8 @@ Run after ``scripts/build_site.py``. Exits non-zero on any failure.
 
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 import sys
 import unicodedata
@@ -68,8 +70,20 @@ def main() -> None:
                 fail(f"{page.relative_to(ROOT)}: pictogram/symbol U+{ord(character):04X} ({character!r}) in markup")
 
     index = (DOCS / "index.html").read_text()
-    if "Download reference TIFF" not in index:
-        fail("index.html: the reference-file download button is missing")
+    active_run = (ROOT / "registry/current_run.json").exists()
+    required_button = "Download new research TIFF" if active_run else "Download reference TIFF"
+    if required_button not in index:
+        fail(f"index.html: the {required_button!r} button is missing")
+    if active_run:
+        card = json.loads((ROOT / "registry/current_run.json").read_text())
+        readiness = json.loads((DOCS / "downloads/readiness.json").read_text())
+        actual = hashlib.sha256((ROOT / card["file"]).read_bytes()).hexdigest()
+        if actual != card["raster_sha256"] or actual != readiness["sha256"]:
+            fail("readiness/current run is stale relative to the served TIFF")
+        if readiness["ok_to_submit"] or card["ok_to_submit"]:
+            fail("unsupported upload approval for this negative MAGREST run")
+        if "DO NOT SUBMIT" not in index or "downloads/" + Path(card["file"]).name not in index:
+            fail("index does not prominently expose the new artifact with DO NOT SUBMIT")
     if "not approved for upload" not in index.lower():
         fail("index.html: the no-upload-approval warning is missing")
     if "Download submission TIFF" in index:

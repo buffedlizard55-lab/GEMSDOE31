@@ -1,6 +1,7 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
+ "protocol_scope": "Historical 2026-10-04 arms only; current MAGREST protocol is in its frozen preregistration and run card.",
  "protocol": {
   "folds": "four equal spatial blocks (NW/NE/SW/SE) of the 3730x3292 competition grid",
   "buffer": "measured from residual autocorrelation, see evidence/buffer_derivation.json; the adopted collar is read from that file rather than restated here",
@@ -34,6 +35,11 @@
    "path": "evidence/data_restore.json",
    "bytes": 5835,
    "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
+  },
+  {
+   "path": "evidence/feature_cache.json",
+   "bytes": 6237,
+   "sha256": "9195d416f11a37d11aaf0980926e21b605c1993ac715a5fd8be824068e515639"
   },
   {
    "path": "evidence/h27_geometry.json",
@@ -76,9 +82,64 @@
    "sha256": "8450fc3dac29319e8a103c438477287a29582e11799ea68e6423126bb33b029a"
   },
   {
+   "path": "evidence/magrest/canaries_seed31.json",
+   "bytes": 37110,
+   "sha256": "16a82ed5188aa01d4e1a624540b81c47a36ae5764661d6af6ceaeeaa045b7fd3"
+  },
+  {
+   "path": "evidence/magrest/features.json",
+   "bytes": 799,
+   "sha256": "ea6d00c9a497430e9589ebd335fe4a1c81b6140bd4690f566337c5eaaa1f7458"
+  },
+  {
+   "path": "evidence/magrest/holdout_seed31.json",
+   "bytes": 158759,
+   "sha256": "172217864d1ecf5d1856eb771a734634f3d434f67ecc546504394f7f860b9ce0"
+  },
+  {
+   "path": "evidence/magrest/independent_novelty_recheck.json",
+   "bytes": 235122,
+   "sha256": "3f89435f461ea6e0ce0e4dea56c448fc75f73de4da7a4afa1d7134d43088bdf5"
+  },
+  {
+   "path": "evidence/magrest/novelty_final.json",
+   "bytes": 38798,
+   "sha256": "5eb1b4d3fccf0a38c455df5671219d0b094bdde8c94ced7ecb073a65bd983ce8"
+  },
+  {
+   "path": "evidence/magrest/novelty_surface.json",
+   "bytes": 114854,
+   "sha256": "82bcf29b763a584533da1071c665e724289a175b6c5a4cbec6dca2059d489159"
+  },
+  {
+   "path": "evidence/magrest/registry_scope_correction.json",
+   "bytes": 3596,
+   "sha256": "8f2963da9c71dad38e9daddba96bce37dc78bb2e8006948bd41fe85a91c8a33b"
+  },
+  {
+   "path": "evidence/magrest/run_card.json",
+   "bytes": 12410,
+   "sha256": "26d948fde0f68641c4de7a24f7fb6c3d0e103a26926abcb9deca5444663fe18b"
+  },
+  {
+   "path": "evidence/magrest/run_card_initial_nine_site_scope.json",
+   "bytes": 10980,
+   "sha256": "862d09c928eca7cc39d34a4d7804840c94cc4e48540270a7270e7eaa56e7713d"
+  },
+  {
+   "path": "evidence/magrest_registry_index.json",
+   "bytes": 47875,
+   "sha256": "cd643025a871c905f509bc18a80b5f0115e133090076b2ac748bc344d3717730"
+  },
+  {
    "path": "evidence/metric_check.json",
    "bytes": 5940,
    "sha256": "75a556851de64739ebf438647383415a1112ef99c342d95fedeac1a0d9830aee"
+  },
+  {
+   "path": "evidence/official_reference_audit_20261025.json",
+   "bytes": 2105,
+   "sha256": "a0d92f964a00bd3e4328f87260ae14dbe56e42f483be645f3f5540804efcbe0d"
   },
   {
    "path": "evidence/oof/oof_B_19_plus_lidar_u16.npz",
@@ -104,6 +165,36 @@
    "path": "evidence/operating_point.json",
    "bytes": 12723,
    "sha256": "013d71048e3800b8d4a32adf765d5a50df50269fe834b1dadbcab8a5f6e2f596"
+  },
+  {
+   "path": "evidence/owner_prompt_preservation.json",
+   "bytes": 821,
+   "sha256": "50118a0ea685f5b62326e167831e17a892501d8e88a09b9c16589abb789e6a23"
+  },
+  {
+   "path": "evidence/prior_lineage_20261025.json",
+   "bytes": 2389,
+   "sha256": "cc13c4467cb7d6c34ce6777d6efac7e947d56ed1de7e858da5e5d44f13f9a01e"
+  },
+  {
+   "path": "evidence/session_core_restore_20261025.json",
+   "bytes": 1651,
+   "sha256": "844629bccc1ba4d8dd2378e427f17aad947535ee87c13a3d5513dfd5750fed77"
+  },
+  {
+   "path": "evidence/session_external_restore_20261025.json",
+   "bytes": 4435,
+   "sha256": "824e4efa986449271bebe32b96392f1458d1e3eda135aeac3d7a69167d683802"
+  },
+  {
+   "path": "evidence/session_input_verification_20261025.json",
+   "bytes": 4108,
+   "sha256": "6e4edf3d625a0caf5364daa3623b6d3a1dc5dcc6b1844a95346cea3fc356e539"
+  },
+  {
+   "path": "evidence/sibling_inventory_20261025.json",
+   "bytes": 158255,
+   "sha256": "6d81a3e1e12314b8181449666a1ed25b7fd1b5b900750767ba58efe4cf5db1d6"
   },
   {
    "path": "evidence/union_results.json",

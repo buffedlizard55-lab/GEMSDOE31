@@ -61,8 +61,7 @@ SUBMISSIONS = [
     {
         "id": "primary-h27-4-solo-d28",
         "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-        "role": "primary download - the best-scoring geometry this project has measured, re-emitted and "
-                "re-validated here",
+        "role": "historical reference only - pixel-identical to an earlier submission; not a unique current candidate",
         "provenance": "re-emission of the dot set published as GEMSDOE28 "
                       "gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); pixel-identical, "
                       "freshly written and re-validated in this repository",
@@ -193,6 +192,30 @@ def submissions_register() -> dict:
             record["measured"] = entry["measured"]
         files.append(record)
 
+    current_path = ROOT / "registry/current_run.json"
+    if current_path.exists():
+        current = json.loads(current_path.read_text())
+        v0, vn = current["validator"]["zeros"], current["validator"]["nan"]
+        # Do not put this on the historical union leaderboard: different masks,
+        # withheld population and evaluator, with no comparable legacy best.
+        files.append({
+            "id": "magrest-current-negative", "name": current["submission_name"],
+            "role": "newly computed research-only MAGREST bytes; literal registry-overlap STOP and negative efficacy screen",
+            "provenance": "computed from raw RTP magnetic texture, no copied prior dots; frozen preregistration",
+            "note_for_portal": current["note"], "slot_approved": False,
+            "why_not_slot_approved": "; ".join(current["failed_or_unknown_gates"]),
+            "positive_pixels": v0["grid"]["positive_pixels_inside"],
+            "positive_pixels_on_public_catalogue": 0,
+            "format_status": "locally validated under separately stated outside conventions; not organizer acceptance",
+            "file_nan": current["nan_file"], "sha256_nan": vn["sha256"], "bytes_nan": vn["bytes"],
+            "file_allfinite": current["file"], "sha256_allfinite": v0["sha256"], "bytes_allfinite": v0["bytes"],
+            "format_ok_nan": vn["ok_to_upload_format_only"], "format_ok_allfinite": v0["ok_to_upload_format_only"],
+            "organizer_acceptance_verified_nan": False, "organizer_acceptance_verified_allfinite": False,
+            "hard_failures_nan": vn["hard_failures"], "hard_failures_allfinite": v0["hard_failures"],
+            "receipt": current["file"].replace(".tif", ".json"), "zip": current["zip_file"],
+            "holdout_dti": current["holdout_dti"], "current_run_card": "docs/downloads/magrest-run-card.json",
+        })
+
     union = ROOT / "evidence" / "union_results.json"
     if union.is_file():
         data = json.loads(union.read_text())
@@ -235,18 +258,19 @@ def submissions_register() -> dict:
                 best_research = record
     return {
         "schema_version": 1,
-        "generated_utc": "2026-10-04",
+        "generated_utc": "2026-10-25",
+        "active_run_card": "registry/current_run.json" if current_path.exists() else None,
         "policy": "Every hash and pixel count below is copied out of the format-check receipt written by "
                   "scripts/build_submission.py. Local validation is not organizer acceptance and no file "
                   "here carries an organizer receipt.",
         "current_recommended": {
-            "name": primary["name"] if primary else None,
-            "role": primary["role"] if primary else None,
+            "name": None,
+            "role": "No submission is recommended; the active run card separately identifies the research-only download.",
+            "historical_reference": primary["name"] if primary else None,
             "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer "
                             "receipt exists in this repository",
             "slot_approved": False,
-            "reason_not_slot_approved": "It is the incumbent, not an improvement: no measured candidate beats "
-                                        "it by a margin that justifies spending the weekly slot.",
+            "reason_not_slot_approved": "The current MAGREST screen failed; confirmation, comparable global-best evidence and separate selector approval are absent.",
         },
         "best_research_candidate": {
             "name": best_research["name"] if best_research else None,
@@ -273,7 +297,8 @@ def main() -> None:
     artifacts = inventory()
     summary = {
         "schema_version": 1,
-        "generated_utc": "2026-10-04",
+        "generated_utc": "2026-10-25",
+        "protocol_scope": "Historical 2026-10-04 arms only; current MAGREST protocol is in its frozen preregistration and run card.",
         "protocol": PROTOCOL,
         "legacy_cache_copied": copied,
         "artifacts": artifacts,

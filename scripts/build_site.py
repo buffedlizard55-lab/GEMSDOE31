@@ -14,6 +14,8 @@ import html
 import json
 from pathlib import Path
 
+import current_site
+
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 REPO = "https://github.com/buffedlizard55-lab/GEMSDOE31"
@@ -64,6 +66,10 @@ def table(headers: list[str], rows: list[list[str]], caption: str = "") -> str:
 def shell(prefix: str, title: str, description: str, current: str, hero: str, body: str,
           footer_left: str = "") -> str:
     current_attr = ' aria-current="page"'
+    active_run = load("registry/current_run.json")
+    if active_run and current not in {"Overview", "Executive summary", "Research"}:
+        prefix_notice = f'<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="{prefix}executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical instruments, not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>'
+        body = prefix_notice + body
     nav = "".join(
         '<a href="{p}{h}"{c}>{l}</a>'.format(p=prefix, h=href, c=current_attr if label == current else "", l=e(label))
         for _, href, label in NAV
@@ -92,7 +98,7 @@ def shell(prefix: str, title: str, description: str, current: str, hero: str, bo
   </main>
   <footer class="footer"><div class="wrap footer-inner">
     <p>{footer_left or "Every figure on this site is generated from measured artifacts in the repository."}</p>
-    <p><a href="{prefix}feed.html">Live feed</a> · <a href="{prefix}ai-disclosure.html">AI use</a> · <a href="{REPO}">Repository</a></p>
+    <p><a href="{prefix}feed.html">Evidence feed</a> · <a href="{prefix}ai-disclosure.html">AI use</a> · <a href="{REPO}">Repository</a></p>
   </div></footer>
 </body>
 </html>
@@ -247,6 +253,12 @@ def submission_receipts() -> list[dict]:
 # --------------------------------------------------------------------------------------- pages
 
 def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
+    current = load("registry/current_run.json")
+    if current:
+        hero, body = current_site.overview(current)
+        body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
+        return shell("", "Overview", "Download the new MAGREST research TIFF. Format-valid; not approved for upload.",
+                     "Overview", hero, body, "Maximize P(Win) · Own the Outcome · negative results preserved.")
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
     inc = union.get("incumbent", {})
@@ -373,6 +385,12 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
 
 
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
+    current = load("registry/current_run.json")
+    if current:
+        return shell("", "Executive summary", "New research TIFF, exact validation status, and portal workflow for a future approved file.",
+                     "Executive summary", page_hero("Download + submission guide", "Download for research. Do not submit.",
+                     "The file, unique name, note and automated decision are together below. No weekly slot is authorized."),
+                     current_site.executive(current))
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
     variants = table(
@@ -436,20 +454,19 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     <section>
       <div class="section-head">
         <div><p class="kicker">Troubleshooting</p><h2>“Predicted values must be in range [0, 1]”</h2></div>
-        <p>This is the error class the project owner hit. Here is the traced root cause and what to do about it.</p>
+        <p>The exact rejected upload and organizer receipt are unavailable; the error message alone does not identify a root cause.</p>
       </div>
-      <div class="notice notice-danger"><strong>It is not a rescaling problem</strong>
-      Rescaling the file will not fix it. In this project's own records the trigger was <em>NaN cells inside the
-      scored footprint</em> while every finite value was already in [0,1] — so a portal that treats NaN as a value
-      rather than as background reports it as out of range.</div>
+      <div class="notice notice-danger"><strong>Validate, do not silently repair or resubmit</strong>
+      A historical local artifact had NaN inside its footprint, independently invalid even when all finite values
+      are in [0,1]. That observation does not prove it was the exact rejected upload or explain the private portal's implementation.</div>
       <div class="grid grid-2">
         <div class="card"><h3>What the repository does about it</h3>
           <p><code>src/gemsdoe31/submission.py</code> hard-fails any file with a non-finite cell inside the template's
-          valid region, any value outside [0,1], or any finite cell outside the footprint. <code>tests/test_submission.py</code>
+          valid region or a value outside [0,1]. NaN-outside requires NaN there; all-finite requires explicit zeros outside. <code>tests/test_submission.py</code>
           keeps a regression test for exactly this error class, so a future build cannot silently reintroduce it.</p></div>
         <div class="card"><h3>If a receipt-passing file is still refused</h3>
           <ol><li>Confirm you selected the single-band GeoTIFF (not the 19-band feature stack, not a folder).</li>
-          <li>Try the <code>-allfinite</code> fallback: zeros outside the footprint, every value finite in [0,1].</li>
+          <li>Compare the explicit outside-mask encodings locally; do not spend a slot testing an unapproved fallback.</li>
           <li>Stop and send the format receipt JSON to the organizers instead of resubmitting modified bytes.</li></ol></div>
       </div>
       <h3>Format receipts written by this repository</h3>
@@ -465,8 +482,8 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
         <p>Read this before uploading anything; it is the difference between a claim and a measurement.</p>
       </div>
       <div class="table-wrap"><table><tbody>
-        <tr><th style="width:220px">What it is</th><td>A freshly written, re-validated raster carrying the best-scoring
-        geometry this project has measured ({fmt(primary['positive_pixels'], 0)} pixels, none on the public catalogue).</td></tr>
+        <tr><th style="width:220px">What it is</th><td>A historical reference encoding of prior geometry, not a newly discovered detector
+        or new submission ({fmt(primary['positive_pixels'], 0)} pixels, none on the public catalogue).</td></tr>
         <tr><th>Owner-reported score</th><td>0.2708 for the underlying GEMSDOE28 artifact, as reported by the project
         owner. No organizer receipt exists in this repository, and the owner's own page lists the artifact as
         <strong>unscored</strong>, so every reference to it here is labelled
@@ -490,6 +507,13 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
 
 
 def build_research(sub: dict, buf: dict, union: dict) -> str:
+    current = load("registry/current_run.json")
+    if current:
+        body = current_site.research(current, load("evidence/magrest/holdout_seed31.json"),
+                                    load("registry/focus_review.json"), load("evidence/prior_lineage_20261025.json"))
+        return shell("", "Research", "Nine-repository score-claim audit, H33 geometry, frozen hypotheses, and the MAGREST negative result.",
+                     "Research", page_hero("Geological mechanism · falsifiable evidence", "New information, not new filenames.",
+                     "What the prior sparse-dot family does, what a texture-restoration hypothesis changes, and why this run is not promoted."), body)
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     geom = load("evidence/h27_geometry.json", {"prune_test": {}, "counts": {},
                                                "nearest_neighbour_spacing_m": {},
@@ -692,15 +716,15 @@ def build_validation(buf: dict, buffer_derivation: dict, experiments: dict, metr
       </div>
       {collar_table(collar)}
       <p class="small">Interpretation, stated conservatively: the quadrant protocol (≈150–190 km blocks) is insensitive
-      to the collar between 0 and 30 km, so the LiDAR arm's advantage is not a short-range leakage artefact. It does
-      <strong>not</strong> license the small collars used elsewhere: those are component-level holdouts whose
+      to the collar between 0 and 30 km in this historical test. This does not prove leakage is absent or establish MAGREST's
+      residual range. It does <strong>not</strong> license the small collars used elsewhere: those are component-level holdouts whose
       geography is one to two orders of magnitude smaller than the measured range.</p>
     </section>
 
     <section id="metric">
       <div class="section-head">
         <div><p class="kicker">Metric</p><h2>The implementation is exact</h2></div>
-        <p>Every score on this site comes from a direct implementation of the official formula, not an approximation.</p>
+        <p>This historical local implementation agrees with a literal transcription of the recorded formula. That is not equivalence testing against the organizer's private scoring engine.</p>
       </div>
       <div class="content">
         <p><code>src/gemsdoe31/metric.py</code> implements the definition directly — the {fmt(offsets, 0)} lattice offsets whose
@@ -735,8 +759,8 @@ def build_validation(buf: dict, buffer_derivation: dict, experiments: dict, metr
           <span class="badge badge-red">not usable as a selector</span></p></div>
         <div class="card"><h3>Off-catalogue discovery proxy</h3>
           <p>USGS State Geologic Map Compilation structure layers rasterised to this grid: 82,151 fault cells, of which
-          <strong>61,664 lie more than 300 m from the competition catalogue</strong>. The only populated fault population
-          in reach that is off-catalogue by construction. <span class="badge badge-green">selection instrument</span></p>
+          <strong>61,664 lie more than 300 m from the competition catalogue</strong>. Historical full-region population;
+          not the current component instrument. <span class="badge">historical proxy, not slot approval</span></p>
           <p class="small">Limit, stated plainly: SGMC faults are state-map faults of mixed age and certainty, not the
           experts' newly mapped Quaternary faults. A proxy can rank arms wrongly, which is why the arm ordering was
           checked at every threshold and both proxies are always printed.</p></div>
@@ -789,6 +813,8 @@ def build_sources(sources: dict, experiments: dict) -> str:
     for s in sources["sources"]:
         claims = "".join(f"<li>{e(c)}</li>" for c in s.get("claims_verified", [])) or "<li>No claim verified this session.</li>"
         limits = s.get("limits") or s.get("used_for") or ""
+        if isinstance(limits, list):
+            limits = " ".join(limits)
         items.append(f"""<li>
           <strong><a href="{e(s['url'])}" target="_blank" rel="noopener">{e(s['title'])}</a></strong>
           <span class="badge{' badge-green' if s['class'] == 'OFFICIAL' else ''}">{e(s['class'])}</span>
@@ -802,7 +828,7 @@ def build_sources(sources: dict, experiments: dict) -> str:
         <p>Every claim carries its class. A class is a statement about where the evidence came from — not about how confident anyone feels.</p>
       </div>
       <ul class="pill-list">
-        <li><strong>OFFICIAL</strong> — read from a government, publisher or competition-administrator page linked here.</li>
+        <li><strong>OFFICIAL</strong> — direct retrieval recorded on the row's accessed date. Only the pinned organizer GitHub reference was freshly retrieved on 2026-10-25; other official links retain historical access dates.</li>
         <li><strong>OWNER-MIRROR</strong> — published in one of this project's own repositories; a hash match proves byte identity to that mirror only.</li>
         <li><strong>COMPUTED</strong> — reproduced by a script in this repository, with the artifact path recorded.</li>
         <li><strong>INFERENCE</strong> — reasoning to be tested, not a measurement.</li>
@@ -830,8 +856,8 @@ def build_sources(sources: dict, experiments: dict) -> str:
         nothing on this site is derived from it.</p></div>
         <div class="card"><h3>No uploading</h3><p>Nothing in this repository submits a file. A weekly slot is scarce
         and the charter requires a measured margin before one is spent.</p></div>
-        <div class="card"><h3>No unaudited scores</h3><p>A score appears only as <span class="badge">owner-reported</span>
-        with the file's SHA-256 attached, unless an organizer receipt is present. None is.</p></div>
+        <div class="card"><h3>No unaudited competition claims</h3><p>Competition values without exact-byte organizer receipts are <span class="badge">USER-REPORTED</span>.
+        Current local results are separately labelled HOLDOUT-DTI with evaluator, positive count and CI. No organizer receipt is present.</p></div>
       </div>
     </section>
 
@@ -915,6 +941,24 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
             "external layers needing the CI runner (GDR 1391 MT depth stack, 3DEP LAZ returns) are not yet validated",
         ],
     }
+    current = load("registry/current_run.json")
+    if current:
+        feed["schema_version"] = 2
+        feed["historical_download"] = feed["current_download"]
+        feed["historical_research_union"] = feed.pop("research_candidate")
+        feed["current_download"] = {
+            "name": current["submission_name"], "tif": current["file"], "zip": current["zip_file"],
+            "sha256": current["raster_sha256"], "note": current["note"], "verdict": current["verdict"],
+            "ok_to_download_for_research": current["ok_to_download_for_research"],
+            "ok_to_submit": current["ok_to_submit"], "slot_approved": False,
+            "holdout_dti": current["holdout_dti"], "paired_difference": current["paired_difference"],
+            "registry": current["registry"], "failed_or_unknown_gates": current["failed_or_unknown_gates"],
+        }
+        feed["generated_utc"] = current.get("last_reviewed_utc", current["generated_utc"])
+        feed["source_access"] = "GitHub sources freshly retrieved; non-GitHub official references not re-fetched under host allowlist. No DrivenData contact."
+        feed["automation"]["rule"] = "Deterministic evidence/site build and integrity checks on push/PR. No leaderboard polling, automatic uploads or current-score feed."
+        feed["open_items"] = current["failed_or_unknown_gates"] + ["no organizer receipt for any claimed score"]
+        feed["proxy_scores_scope"] = "Historical 2026-10-04 instruments below lack comparable current masks/CI; never promotion evidence for MAGREST."
     payload = json.dumps(feed, indent=1) + "\n"
     rows = [[e(k), f"<code>{e(json.dumps(v))}</code>"] for section, values in feed.items()
             if isinstance(values, dict) and section not in ("sources", "automation")
@@ -963,39 +1007,37 @@ python scripts/build_site.py          # regenerate every page and feed.json</pre
 
 def build_ai_disclosure() -> str:
     body = """    <section>
-      <div class="section-head">
-        <div><p class="kicker">Required disclosure</p><h2>How AI was used</h2></div>
-        <p>The competition's rules require entrants to disclose AI use in the submission narrative.</p>
-      </div>
+      <div class="section-head"><div><p class="kicker">Draft, not filed</p><h2>How AI contributed</h2></div>
+      <p>MAGREST is a negative research release. No submission or human inspection is asserted.</p></div>
       <div class="grid grid-2">
-        <div class="card"><h3>What was done with AI assistance</h3>
-          <ul><li>The analysis code, the data-restoration scripts and every page on this site were written by an AI
-          agent working from the owner's written brief.</li>
-          <li>The agent ran the experiments and wrote the numbers here directly from the resulting files.</li>
-          <li>Every quantitative claim is traceable to a script and an artifact in the repository, and carries an
-          evidence class (OFFICIAL / OWNER-MIRROR / COMPUTED / INFERENCE / USER-REPORTED).</li></ul></div>
-        <div class="card"><h3>What is not claimed</h3>
-          <ul><li>No score on this site is organizer-verified. The 0.2708 and 0.2600 figures are owner-reported
-          readings of a public leaderboard, not receipts.</li>
-          <li>Geological hypotheses are labelled INFERENCE and have not been confirmed by field work.</li>
-          <li>The submission file's <em>format</em> is validated locally against the grid template; its live score is
-          not predicted here.</li></ul></div>
+        <div class="card"><h3>Assistance actually used</h3><ul>
+          <li>An AI coding/research agent through Arena assisted hypothesis ranking, preregistration, MAGREST code,
+          source/input/hash audits, evaluation, tests, packaging, interpretation and site/documentation updates.</li>
+          <li>Shared template code and all nineteen cached bands were reused unchanged and attributed with hash pins.</li>
+          <li>Three fixed variants and a physical control ran on CPU. The paired result failed; no confirmation or slot.</li>
+          <li>Exact-file and decision verification is automated. No human inspector is a project-validation dependency.</li></ul></div>
+        <div class="card"><h3>Not asserted</h3><ul>
+          <li>No organizer score, private test access, current quota check, DrivenData login or submission.</li>
+          <li>No field-confirmed fault, geological-slip estimate or demonstrated win over the leaderboard.</li>
+          <li>No human review or authenticated external license is invented. Mirrors are not organizer provenance.</li>
+          <li>The older H31-A pilot is a separate negative historical experiment.</li></ul></div>
       </div>
-      <div class="notice"><strong>Draft wording for the submission narrative — edit to match what you actually did</strong>
-      <pre style="margin-top:12px">This submission's raster was produced with substantial AI assistance (an agentic coding
-workflow), using the competition-provided feature stack plus publicly licensed external
-layers. All quantitative claims, validation protocols and file-format checks are recorded
-in the project repository with sources and evidence classes. No live score is claimed.
-The human entrant reviewed the submission file, its format receipt and this disclosure
-before submitting.</pre></div>
-      <p class="small">The exact disclosure requirements come from the competition rules; this page is a draft for the
-      entrant to review, not a filed disclosure. <a href="sources.html">Sources</a></p>
+      <div class="notice"><strong>Narrative draft — research release only</strong>
+      Generative AI assisted the research, code, audit and documentation. Existing shared tools were reused with attribution.
+      Local validation checks exact TIFF/ZIP bytes, grid/range/mask, registry limits and pooled HOLDOUT-DTI/CI;
+      the automatic decision is research download allowed, upload denied. No file was selected or submitted.</div>
+      <p>Before any future permitted entry, the actual entrant must ensure a truthful description of all human/tool,
+      code/data and AI contributions and current-rule compliance. Do not invent model versions, licenses or human review.
+      This legal/authorship responsibility is separate from the already automatic scientific denial.</p>
+      <p class="small">Full draft: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/AI_DISCLOSURE.md">AI_DISCLOSURE.md</a>.
+      <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">Official rules §3.2</a> is a historical reference,
+      not freshly fetched in this session. See <a href="sources.html">source access dates and limits</a>.</p>
     </section>
 """
-    return shell("", "AI use", "Draft disclosure of AI assistance for the submission narrative, for entrant review.",
-                 "", page_hero("AI use", "Disclose it properly.",
-                              "What the agent did, what is not claimed, and wording you can paste into the submission narrative after checking it."),
-                 body, "Draft for entrant review — not a filed disclosure.")
+    return shell("", "AI use", "Research-only disclosure draft, with actual assistance and limits.",
+                 "", page_hero("AI use", "Disclose it accurately.",
+                               "Actual assistance, unchanged shared-tool attribution, negative result and no invented human review."),
+                 body, "Research narrative draft — not filed; no upload approval.")
 
 
 def build_register(data: dict, sources_doc: dict, buf: dict) -> str:
@@ -1049,8 +1091,7 @@ def build_register(data: dict, sources_doc: dict, buf: dict) -> str:
         <p>No organizer receipt exists for any score in this repository, so none is presented as official.</p>
       </div>
       {table(["claim", "value", "class", "source", "artifact", "organizer verification"], claim_rows)}
-      <p class="small">Full record: <code>registry/score_claims.json</code>. The 0.3195 leaderboard anchor is treated as
-      a real independent team's result and is used only as a target, never as a measurement of ours.</p>
+      <p class="small">Full record: <code>registry/score_claims.json</code>. The prompt contains conflicting 0.3195 / 0.4413 leaderboard anchors. Both are unverified user claims, not confirmed current standings or measurements of ours.</p>
     </section>
 
     <section>
@@ -1122,14 +1163,14 @@ EXPERIMENTS = [
     dict(slug="03-collar-sensitivity", number=3, title="Collar sensitivity of the blocked protocol",
          source="evidence/collar_sweep.json", status="measured",
          question="Is the LiDAR arm's advantage an artefact of short-range leakage from the training region?",
-         verdict="Measured, no: proxy scores are flat from a 0 km to a 30 km collar, so the conclusion is stable under the measured 21.25 km range. It does not license smaller collars used elsewhere.",
+         verdict="Historical sensitivity test: proxy results were flat from 0 to 30 km. This is not proof of no leakage, not MAGREST dependence evidence, and not a license for smaller collars.",
          detail="The same paired comparison was recomputed while deleting every evaluation cell within b km of the training region, for b in 0…30 km."),
     dict(slug="04-incumbent-filter", number=4, title="Corroboration filtering of the incumbent (negative)",
          source="evidence/incumbent_filter_results.json", status="negative result",
          question="Can the incumbent dot set be improved by keeping only the dots this repository's detector also likes?",
          verdict="No. Every quantile tested reduced both proxies monotonically. The incumbent's low-probability dots still carry real off-catalogue credit.",
          detail="Incumbent dots were ranked by the fold-D detector probability and the top 90 %, 75 %, 50 % and 25 % were rescored. "
-                "All four subsets scored below the full dot set, which is why the leaderboard direction is to add detections rather than thin the incumbent."),
+                "All four subsets scored below the full dot set, which suggests an addition hypothesis on this proxy, not a proven leaderboard direction."),
     dict(slug="05-addition-arm", number=5, title="Addition arm: incumbent plus off-catalogue detections",
          source="evidence/union_results.json", status="measured, weak positive",
          question="Does adding high-probability off-catalogue detections to the incumbent improve the off-catalogue proxy?",
@@ -1166,7 +1207,7 @@ EXPERIMENTS = [
     dict(slug="10-submission-format", number=10, title="Submission format validation and the [0,1] error class",
          source="docs/downloads", status="measured",
          question="Why did the portal reject a previously downloaded TIFF with “Predicted values must be in range [0, 1]”?",
-         verdict="The traced trigger was non-finite cells inside the scored footprint while every finite value was already in range. The validator now hard-fails on that condition and a regression test pins it.",
+         verdict="A historical local artifact contained footprint NaN, an independently invalid condition. The exact rejected upload and organizer receipt are unavailable, so this does not establish the cause of the reported portal error. Validators reject NaN/Inf/out-of-range before packaging.",
          detail="Two format conventions are written from every dot set (NaN outside the footprint, and an all-finite variant). Each file gets a "
                 "JSON receipt recording grid equality, value range, NaN placement and SHA-256, so a rejection can be diagnosed from the receipt "
                 "instead of by guesswork."),
@@ -1174,7 +1215,7 @@ EXPERIMENTS = [
          source="registry/score_claims.json", status="open irregularity",
          question="Which numbers in this project are receipts, which are reports, and which are derived?",
          verdict="Open and unresolved: the owner reports 0.2600 for D2.8 and 0.2708 for the h27-4 geometry, but the pinned owner mirror marks D2.8 unscored and no organizer receipt exists for any score.",
-         detail="Every score in this repository is therefore labelled USER-REPORTED, and the discrepancy is tracked as an irregularity until the "
+         detail="Every competition-score claim without a receipt is therefore USER-REPORTED (local HOLDOUT-DTI is separate), and the discrepancy is tracked until the "
                 "owner can attach an organizer receipt or a file-to-score identifier. This is why the site never presents a score as official."),
 ]
 
@@ -1266,6 +1307,11 @@ def build_experiment_page(exp: dict) -> str:
 
 
 def main() -> None:
+    if load("registry/current_run.json"):
+        from verify_current_run import verify
+        readiness = verify()
+        (DOCS / "downloads").mkdir(parents=True, exist_ok=True)
+        (DOCS / "downloads/readiness.json").write_text(json.dumps(readiness, indent=1, allow_nan=False) + "\n")
     submissions = load("registry/submissions.json", {"files": [], "current_recommended": {}})
     sources = load("registry/sources.json", {"sources": []})
     experiments = load("registry/experiments.json", {"protocol": {}, "artifacts": {}})

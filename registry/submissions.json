@@ -1,13 +1,15 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
+ "active_run_card": "registry/current_run.json",
  "policy": "Every hash and pixel count below is copied out of the format-check receipt written by scripts/build_submission.py. Local validation is not organizer acceptance and no file here carries an organizer receipt.",
  "current_recommended": {
-  "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-  "role": "primary download - the best-scoring geometry this project has measured, re-emitted and re-validated here",
+  "name": null,
+  "role": "No submission is recommended; the active run card separately identifies the research-only download.",
+  "historical_reference": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
   "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
   "slot_approved": false,
-  "reason_not_slot_approved": "It is the incumbent, not an improvement: no measured candidate beats it by a margin that justifies spending the weekly slot."
+  "reason_not_slot_approved": "The current MAGREST screen failed; confirmation, comparable global-best evidence and separate selector approval are absent."
  },
  "best_research_candidate": {
   "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
@@ -26,7 +28,7 @@
   {
    "id": "primary-h27-4-solo-d28",
    "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-   "role": "primary download - the best-scoring geometry this project has measured, re-emitted and re-validated here",
+   "role": "historical reference only - pixel-identical to an earlier submission; not a unique current candidate",
    "provenance": "re-emission of the dot set published as GEMSDOE28 gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); pixel-identical, freshly written and re-validated in this repository",
    "note_for_portal": "h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template",
    "slot_approved": false,
@@ -138,6 +140,46 @@
    "hard_failures_nan": [],
    "organizer_acceptance_verified_nan": false,
    "legacy_receipt": true
+  },
+  {
+   "id": "magrest-current-negative",
+   "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
+   "role": "newly computed research-only MAGREST bytes; literal registry-overlap STOP and negative efficacy screen",
+   "provenance": "computed from raw RTP magnetic texture, no copied prior dots; frozen preregistration",
+   "note_for_portal": "MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved",
+   "slot_approved": false,
+   "why_not_slot_approved": "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.; paired spatial holdout screen failed; fresh confirmation not passed; own-method residual range not estimated; global current-best comparison unavailable on identical instrument; organizer-authenticated data/template provenance unverified; outside-footprint organizer convention unresolved; separate selector has not promoted this artifact; weekly cap not checked",
+   "positive_pixels": 37654,
+   "positive_pixels_on_public_catalogue": 0,
+   "format_status": "locally validated under separately stated outside conventions; not organizer acceptance",
+   "file_nan": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+   "sha256_nan": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3",
+   "bytes_nan": 199200,
+   "file_allfinite": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+   "sha256_allfinite": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+   "bytes_allfinite": 153019,
+   "format_ok_nan": true,
+   "format_ok_allfinite": true,
+   "organizer_acceptance_verified_nan": false,
+   "organizer_acceptance_verified_allfinite": false,
+   "hard_failures_nan": [],
+   "hard_failures_allfinite": [],
+   "receipt": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.json",
+   "zip": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+   "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "dti": 0.052972044857535226,
+    "ci95": [
+     0.04131136300815562,
+     0.06532899139157548
+    ],
+    "withheld_positive_pixels": 2901,
+    "tpw": 222.69414398245058,
+    "fpw": 9193.274462229707,
+    "fnw": 2678.3058560175496
+   },
+   "current_run_card": "docs/downloads/magrest-run-card.json"
   }
  ],
  "format_conventions": {

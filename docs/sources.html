@@ -25,13 +25,13 @@
   </section>
 
   <main class="wrap">
-    <section>
+<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical instruments, not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>    <section>
       <div class="section-head">
         <div><p class="kicker">Provenance</p><h2>How to read a claim on this site</h2></div>
         <p>Every claim carries its class. A class is a statement about where the evidence came from — not about how confident anyone feels.</p>
       </div>
       <ul class="pill-list">
-        <li><strong>OFFICIAL</strong> — read from a government, publisher or competition-administrator page linked here.</li>
+        <li><strong>OFFICIAL</strong> — direct retrieval recorded on the row's accessed date. Only the pinned organizer GitHub reference was freshly retrieved on 2026-10-25; other official links retain historical access dates.</li>
         <li><strong>OWNER-MIRROR</strong> — published in one of this project's own repositories; a hash match proves byte identity to that mirror only.</li>
         <li><strong>COMPUTED</strong> — reproduced by a script in this repository, with the artifact path recorded.</li>
         <li><strong>INFERENCE</strong> — reasoning to be tested, not a measurement.</li>
@@ -177,6 +177,12 @@
           <span class="small"> · U.S. Geological Survey / ScienceBase · not fetched this session</span>
           <ul class="small" style="margin:8px 0 0"><li>DOI 10.5066/P93LGLVQ; the release provides contractor K, Th, U, total-count radiometric grids and derived ratio grids plus an upward-continued TMI grid.</li><li>The derived layers used here were built by this project&#x27;s earlier CI runs from that release (GEMSDOE24 data/external/geodawn_rad.json, geodawn_extensions.json).</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched in the current session (sciencebase.gov is unreachable from the sandbox); the DOI, item id and derived layers are taken from this project&#x27;s own GEMSDOE24 descriptors.</p>
+        </li><li>
+          <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md" target="_blank" rel="noopener">Organizer reference code, commit-pinned and freshly retrieved</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData / John Lipor reference-solution repository · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>The reference notebook labels its feature visualization EPSG:32611, 100m resolution. This does not authenticate our mirror bytes.</li><li>The reference notebook trains a U-Net with Monte Carlo train/test splits and ordinary TverskyLoss(alpha=0.2,beta=0.8). This is training loss, NOT proof of the distance-weighted organizer scorer.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> No DrivenData website, organizer score receipt, private truth or account quota was accessed. The full official problem-page metric and outside-footprint wording remain historically recorded references, not re-fetched under the current network allowlist. No correspondence is asserted between the reference notebook training loss and the distance-weighted evaluation kernel.</p>
         </li></ul>
     </section>
 
@@ -191,8 +197,8 @@
         nothing on this site is derived from it.</p></div>
         <div class="card"><h3>No uploading</h3><p>Nothing in this repository submits a file. A weekly slot is scarce
         and the charter requires a measured margin before one is spent.</p></div>
-        <div class="card"><h3>No unaudited scores</h3><p>A score appears only as <span class="badge">owner-reported</span>
-        with the file's SHA-256 attached, unless an organizer receipt is present. None is.</p></div>
+        <div class="card"><h3>No unaudited competition claims</h3><p>Competition values without exact-byte organizer receipts are <span class="badge">USER-REPORTED</span>.
+        Current local results are separately labelled HOLDOUT-DTI with evaluator, positive count and CI. No organizer receipt is present.</p></div>
       </div>
     </section>
 
@@ -218,7 +224,7 @@
   </main>
   <footer class="footer"><div class="wrap footer-inner">
     <p>Reported irregularities, including the D2.8 score discrepancy, are listed on the register page.</p>
-    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+    <p><a href="feed.html">Evidence feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
   </div></footer>
 </body>
 </html>

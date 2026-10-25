@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portal workflow for a future approved file; current downloads are reference or research only.">
+  <meta name="description" content="New research TIFF, exact validation status, and portal workflow for a future approved file.">
   <title>Executive summary · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -18,104 +18,68 @@
   </header>
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Executive summary</p>
-      <h1>Submission workflow and status.</h1>
-      <p class="hero-lede">Where to click after a candidate is approved, what to paste, what to do when the portal complains, and why no current file is approved.</p>
+      <p class="eyebrow">Download + submission guide</p>
+      <h1>Download for research. Do not submit.</h1>
+      <p class="hero-lede">The file, unique name, note and automated decision are together below. No weekly slot is authorized.</p>
     </div>
   </section>
 
   <main class="wrap">
-    <div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong> The available primary TIFF is a legacy reference, and the union is research-only. Neither has passed the current holdout/confirmation/selector gates. The steps below explain the portal workflow for a future approved file; they do not authorize uploading an existing file.</div>
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Submission guide</p><h2>Portal workflow — only after approval</h2></div>
-        <p>Once a candidate is explicitly marked approved for upload, the portal steps take about two minutes.</p>
+<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
+      The new MAGREST artifact is available for research. Automated validation does not approve it for a slot.</div>
+      <section id="download" aria-labelledby="download-heading">
+      <div class="section-head"><div><p class="kicker">New artifact · 2026-10-25</p>
+        <h2 id="download-heading">OK to download. Not approved for upload.</h2></div>
+        <p>Research-only. Automated scientific gates failed; no human inspection is needed to reach that decision.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-red">DO NOT SUBMIT · negative result</span>
+        <h3 style="margin-top:18px">MAGREST · magnetic texture restoration</h3>
+        <p>Newly computed from magnetic data, not copied or thinned from a prior submission.</p>
+        <div class="actions">
+          <a class="button button-dark" href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif" download>Download new research TIFF</a>
+          <a class="button" href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip" download>One-TIFF ZIP</a>
+          <a class="button" href="downloads/magrest-run-card.json" download>Validation + run card</a>
+        </div>
+        <p class="download-meta"><strong>Primary encoding:</strong> float32 · one band · EPSG:32611 · 3730 × 3292 · 100 m ·
+          values exactly 0 or 1 · finite everywhere · zero outside footprint · no nodata tag.<br>
+          <strong>SHA-256:</strong> <code>c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9</code><br>
+          <strong>Name:</strong> <code>gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff</code><br>
+          <strong>Note (128/140):</strong> <code>MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved</code></p>
+        <p class="small" style="margin-top:18px"><a href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif" download>NaN-outside version</a> ·
+          <a href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.zip" download>NaN one-TIFF ZIP</a>.
+          Same predictions inside the footprint. The recorded problem-page wording uses NaN/null outside;
+          the all-finite primary is a defensive range-check encoding, not proof of organizer acceptance.
+          Both are research-only while the convention and submission gates remain unresolved.</p>
       </div>
-      <div class="card">
-        <ol>
-          <li><strong>Download only the approved candidate</strong> from the overview page. At present, no file is approved; the available TIFF is labeled reference-only.</li>
-          <li><strong>Check the candidate's SHA-256</strong> against the receipt generated for that exact TIFF before upload.</li>
-          <li><strong>Open the submit page</strong> at
-          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306</a>
-          and sign in.</li>
-          <li><strong>Choose the approved file</strong> under “File to submit”. It must be a single-band GeoTIFF, or a zip containing one GeoTIFF, matching the submission format's CRS, shape and geotransform. No file currently linked here is approved.</li>
-          <li><strong>Paste the note</strong> supplied with that approved candidate into “Note (optional)”, then submit. No candidate-specific note is assigned here yet.</li>
-        </ol>
-      </div>
-      <div class="table-wrap"><table><tbody>
-        <tr><th style="width:190px">Submission name</th><td>Not assigned — no candidate is approved for a slot.</td></tr>
-        <tr><th>Note (copy-paste)</th><td>Not assigned — do not use the legacy or research-only file metadata.</td></tr>
-      </tbody></table></div>
-        <p class="small">When a candidate passes the registered gates, its name and short note will be generated from
-      that candidate's receipt. This page intentionally reserves neither metadata field for the legacy downloads.</p>
     </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Format reference</p><h2>Available files — none approved for a slot</h2></div>
-        <p>The local format receipts establish grid/value compatibility only. They do not establish scientific validity,
-        uniqueness, organizer acceptance, or slot approval.</p>
-      </div>
-      <div class="table-wrap"><table><thead><tr><th>file</th><th>when to use it</th><th>bytes</th><th>sha256 (nan convention)</th><th>format check</th></tr></thead><tbody><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</code></td><td>default: the official convention, identical layout to the sample template</td><td>199,214</td><td><code>07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40</code></td><td><span class="badge badge-green">passes</span></td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif</code></td><td>fallback: only if the portal evaluates the whole array and rejects NaN</td><td>154,580</td><td><code>acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6</code></td><td><span class="badge badge-green">passes</span></td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif</code></td><td>research only: the best-measured union — read its caveat before uploading</td><td>247,886</td><td><code>a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23</code></td><td><span class="badge badge-green">passes</span></td></tr></tbody></table></div>
-      <p class="small">Both conventions are written from the same dot set by <code>scripts/build_submission.py</code>;
-      only the cell values outside the footprint differ (NaN vs 0.0). <code>nodata</code> is NaN in both. Every file
-      in the register — including the smaller radiometric union kept for the audit trail — is listed with its
-      SHA-256 on the <a href="register/index.html">register page</a>.</p>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Troubleshooting</p><h2>“Predicted values must be in range [0, 1]”</h2></div>
-        <p>This is the error class the project owner hit. Here is the traced root cause and what to do about it.</p>
-      </div>
-      <div class="notice notice-danger"><strong>It is not a rescaling problem</strong>
-      Rescaling the file will not fix it. In this project's own records the trigger was <em>NaN cells inside the
-      scored footprint</em> while every finite value was already in [0,1] — so a portal that treats NaN as a value
-      rather than as background reports it as out of range.</div>
-      <div class="grid grid-2">
-        <div class="card"><h3>What the repository does about it</h3>
-          <p><code>src/gemsdoe31/submission.py</code> hard-fails any file with a non-finite cell inside the template's
-          valid region, any value outside [0,1], or any finite cell outside the footprint. <code>tests/test_submission.py</code>
-          keeps a regression test for exactly this error class, so a future build cannot silently reintroduce it.</p></div>
-        <div class="card"><h3>If a receipt-passing file is still refused</h3>
-          <ol><li>Confirm you selected the single-band GeoTIFF (not the 19-band feature stack, not a folder).</li>
-          <li>Try the <code>-allfinite</code> fallback: zeros outside the footprint, every value finite in [0,1].</li>
-          <li>Stop and send the format receipt JSON to the organizers instead of resubmitting modified bytes.</li></ol></div>
-      </div>
-      <h3>Format receipts written by this repository</h3>
-      <div class="table-wrap"><table>
-        <thead><tr><th>file</th><th>convention</th><th>bytes</th><th>sha256</th><th>passes local format checks</th><th>hard failures</th></tr></thead>
-        <tbody><tr><td><code>gemsdoe31-add-arm-d28-20261004-8acb75e1</code></td><td>nan</td><td>212,925</td><td><code>5987d5051a76a8a28e8a31106936413d…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-add-arm-d28-20261004-8acb75e1</code></td><td>allfinite</td><td>169,213</td><td><code>deda0533e4aa041e3877f58a8d6b9d0f…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code></td><td>nan</td><td>199,214</td><td><code>07b6db440535404bb41ec8ddc797713e…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code></td><td>allfinite</td><td>154,580</td><td><code>acd853936e5a7170b207f23411b1844c…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1</code></td><td>nan</td><td>247,886</td><td><code>a4b8ffa59655d2e4ca1bf77fa27a53c8…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1</code></td><td>allfinite</td><td>204,922</td><td><code>b44248ee7ca46405326b81998c5e4c41…</code></td><td><span class="badge badge-green">passes</span></td><td>none</td></tr></tbody>
-      </table></div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div><p class="kicker">Honesty box</p><h2>What this file is, and what it is not</h2></div>
-        <p>Read this before uploading anything; it is the difference between a claim and a measurement.</p>
-      </div>
-      <div class="table-wrap"><table><tbody>
-        <tr><th style="width:220px">What it is</th><td>A freshly written, re-validated raster carrying the best-scoring
-        geometry this project has measured (40,199 pixels, none on the public catalogue).</td></tr>
-        <tr><th>Owner-reported score</th><td>0.2708 for the underlying GEMSDOE28 artifact, as reported by the project
-        owner. No organizer receipt exists in this repository, and the owner's own page lists the artifact as
-        <strong>unscored</strong>, so every reference to it here is labelled
-        <span class="badge">owner-reported</span> (<code>registry/score_claims.json</code>).</td></tr>
-        <tr><th>Is it slot-approved?</th><td>No. It is the incumbent. Nothing measured here beat it by a margin worth
-        a weekly slot, and the charter forbids spending a slot on an unvalidated idea.</td></tr>
-        <tr><th>Format status</th><td><span class="badge badge-green">locally validated</span> against the grid
-        template in <code>docs/downloads/*-format-check.json</code>. Local validation is not organizer acceptance.</td></tr>
-        <tr><th>Validation buffer</th><td>Every holdout comparison uses a <strong>21.25 km</strong>
-        collar derived from the data. <a href="validation.html">Derivation and sensitivity</a>.</td></tr>
-        <tr><th>AI use</th><td>Substantial, and required to be disclosed: see <a href="ai-disclosure.html">AI use</a>
-        for wording you can paste into the submission narrative.</td></tr>
-      </tbody></table></div>
-    </section>
-
+      <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>
+        <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
+        <div class="card"><ul><li>Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.</li><li>paired spatial holdout screen failed</li><li>fresh confirmation not passed</li><li>own-method residual range not estimated</li><li>global current-best comparison unavailable on identical instrument</li><li>organizer-authenticated data/template provenance unverified</li><li>outside-footprint organizer convention unresolved</li><li>separate selector has not promoted this artifact; weekly cap not checked</li></ul></div>
+      </section>
+      <section><div class="section-head"><div><p class="kicker">For a future approved candidate</p><h2>How to enter a submission</h2></div>
+        <p>These are portal instructions, not permission to submit the current research file.</p></div>
+        <div class="card"><ol>
+          <li>Confirm the generated readiness receipt says <code>ok_to_submit: true</code> for the exact file. Today it says <code>false</code>.</li>
+          <li>Download the approved <code>.tif</code> or the ZIP containing that single TIFF. Do not upload a report, run-card JSON, input feature stack or multi-file ZIP.</li>
+          <li>Use your own <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData competition page</a> to open New submission, accept the rules and check the remaining weekly quota. This project does not know or spend your current quota.</li>
+          <li>Under File to submit, select that approved file. Use its generated unique name and paste its note (at most 140 characters) into Note (optional).</li>
+          <li>Only after approval and quota checks, submit. Keep the organizer's receipt, exact SHA-256, name and reported result together. Until that receipt exists, no result is ORGANIZER-CONFIRMED.</li>
+        </ol></div>
+      </section>
+      <section><div class="section-head"><div><p class="kicker">Range-error prevention</p><h2>“Predicted values must be in range [0, 1]”</h2></div>
+        <p>No silent clipping. No hidden NaN inside the footprint. Read-back validation before download.</p></div>
+        <div class="grid grid-2"><div class="card"><h3>What is checked automatically</h3><p>One float32 band; exact CRS, shape and transform; finite footprint values in [0,1]; no positive catalogue pixels; outside policy; hash; exact one-TIFF ZIP roundtrip.</p></div>
+          <div class="card"><h3>What cannot be inferred</h3><p>The portal implementation is private. An error message alone does not identify its cause. The all-finite version avoids NaN/range failures over the whole array, but does not establish organizer acceptance or settle the outside-footprint rule.</p></div></div>
+        <pre><code>python scripts/verify_current_run.py
+python scripts/validate_submission.py &lt;candidate.tif&gt; --template data/sample_submission.tif --convention all-finite</code></pre>
+        <p class="small">Geoscience/format validation is automated, not delegated to a human inspector.
+          Entrant identity, rules, final-slot selection and portal upload are outside this software.
+          AI-use disclosure: <a href="ai-disclosure.html">draft and limitations</a>.</p>
+      </section>
   </main>
   <footer class="footer"><div class="wrap footer-inner">
-    <p>This page is the operator's guide; the science is on the research and validation pages.</p>
-    <p><a href="feed.html">Live feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+    <p>Every figure on this site is generated from measured artifacts in the repository.</p>
+    <p><a href="feed.html">Evidence feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
   </div></footer>
 </body>
 </html>
