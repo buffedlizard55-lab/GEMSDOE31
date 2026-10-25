@@ -1,10 +1,14 @@
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
-> **Current decision: download the incumbent, do not spend the weekly slot yet.** The one-click file is
-> `gemsdoe31-h27-4-solo-d28-20261004-8acb75e1` — the re-emitted, re-validated geometry behind the owner-reported
-> 0.2708 row (40,199 pixels, none on the public catalogue). Two research candidates that *add* detector
-> detections beat it on the off-catalogue discovery proxy (best: +0.0060) but are **not** slot-approved: the gain is
-> measured on a proxy, never live, and no organizer receipt exists for any score in this repository.
+> **Current decision (2026-10-25): no new TIFF or slot approval.** The existing one-click artifact is a historical
+> reference, not a recommendation to upload. GEMSDOE32's H33-2-B2 prior-art TIFF exceeds the duplicate-correlation
+> and overlap limits against the local H27-4 raster; the run was stopped and logged. This checkout also lacks the
+> runtime input rasters and prepared feature stack needed to validate a different hypothesis. The prompt's 0.2778
+> claim remains USER-REPORTED: the inspected owner-mirror archive labels the artifact UNSCORED and contains no
+> organizer receipt linking the claim to exact bytes. See [the session review](knowledge/session_review_2026-10-25.md).
+>
+> The older H27-4 and union files remain downloadable for audit/format-reference purposes only. **None is approved
+> for a weekly competition slot.**
 
 **Arena core values for this project: Maximize P(Win) · Own the Outcome.**
 
@@ -12,12 +16,13 @@
 
 | what | where |
 | --- | --- |
-| One-click submission download + how to submit | [site home](docs/index.html) · [executive summary](docs/executive-summary.html) |
+| Reference TIFF download + upload status | [site home](docs/index.html) · [executive summary](docs/executive-summary.html) |
 | Why the 0.2708 geometry scores, and what would beat it | [research](docs/research.html) |
 | Buffer derivation, collar control, metric proof, truth proxies | [validation](docs/validation.html) |
 | Inputs, score claims, irregularities, review passes | [register](docs/register/index.html) |
 | Experiment log (11 experiments, including the stopped one) | [experiments](docs/experiments/index.html) |
 | Machine-readable state | [`feed.json`](docs/feed.json) · [`registry/`](registry/) · [`evidence/`](evidence/) |
+| Latest status / score audit | [Current status](knowledge/current_status_2026-10-25.md) · [2026-10-25 review](knowledge/session_review_2026-10-25.md) · [irregularity register](registry/irregularities.json) |
 | AI-use disclosure draft for the narrative | [ai-disclosure](docs/ai-disclosure.html) |
 
 GitHub Pages serves [`docs/`](docs/index.html); the root [`index.html`](index.html) redirects there.

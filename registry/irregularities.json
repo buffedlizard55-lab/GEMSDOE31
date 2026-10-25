@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-04",
+ "generated_utc": "2026-10-25",
  "items": [
   {
    "id": "IR-31-SCORE-2600-D28",
@@ -82,7 +82,7 @@
    "status": "open-stop-condition",
    "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
    "evidence": [
-    "Mean paired catalogue-gap \u0394DTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
+    "Mean paired catalogue-gap ΔDTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
     "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
     "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
    ],
@@ -145,13 +145,39 @@
    "id": "IR-31-RUNNER-BRANCH-GUARD",
    "severity": "medium",
    "status": "resolved",
-   "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session\u2019s fixed arena/01a1050e-gemsdoe31 branch.",
+   "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session’s fixed arena/01a1050e-gemsdoe31 branch.",
    "evidence": [
     "Before correction, AGENTS.md and scripts/run_h31.py hard-coded arena/01a104a9-gemsdoe31.",
     "Developer session branch is arena/01a1050e-gemsdoe31."
    ],
    "impact": "A correctly pinned current-session worktree could not pass the runner branch guard.",
    "action": "Updated AGENTS.md and scripts/run_h31.py to use one EXPECTED_BRANCH constant for arena/01a1050e-gemsdoe31; added tests for accept/reject behavior."
+  },
+  {
+   "id": "IR-31-H33-2-B2-DUPLICATE",
+   "severity": "high",
+   "status": "duplicate-stop",
+   "summary": "The GEMSDOE32 H33-2-B2 prior-art geometry exceeds the registered duplicate canary against a GEMSDOE31 registry raster and must not be regenerated or treated as a unique candidate.",
+   "evidence": [
+    "Inspected public owner-mirror GEMSDOE32 main at commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc; artifact SHA-256 c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9.",
+    "Against the finite footprint of the local H27-4 raster, computed Spearman rho=0.967587, 37,654/37,654 candidate-positive cells within 3 pixels, and 37,654 exact shared positives.",
+    "The owner-mirror archive labels the artifact UNSCORED; the user-provided 0.2778 score claim is not linked to an organizer receipt in the inspected archive."
+   ],
+   "impact": "This method is not unique relative to the local registered raster set under the preregistered correlation/overlap rule. No new TIFF can be created from it or submitted.",
+   "action": "Stop the duplicate lane. Preserve the source only as learning/prior-art evidence; choose and validate a distinct geological mechanism only after restoring the hash-pinned runtime data and cached stack."
+  },
+  {
+   "id": "IR-31-H33-B2-HOLDOUT-LABEL-LEAKAGE",
+   "severity": "high",
+   "status": "owner-mirror-protocol-warning",
+   "summary": "The inspected GEMSDOE32 H33 holdout path builds the H33-2 catalogue-flank removal from full labels before evaluating fixed candidate masks against hidden components; it does not appear to recompute the catalogue-derived removal using only fold-visible faults.",
+   "evidence": [
+    "Owner-mirror code at commit 012e17b2a115c3c0d5e7885bea625bf9657c99fc: scripts/run_h33_validation.py reads labels and calls compute_h33_2_flank_sweep(base, labels, d_cat, buffers=(2,3)).",
+    "src/gems32/hypotheses33.py compute_h33_2_flank_sweep derives d_cat from labels when not supplied and removes base cells using d_cat.",
+    "src/gems32/holdout.py load_holdout_context hides components for the scoring context, but evaluate_candidate_holdout receives a prebuilt static candidate mask."
+   ],
+   "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project’s preregistered rules. Bias direction is not assumed.",
+   "action": "Do not use the owner-mirror H33 holdout result to promote this method. Any future catalogue-based processing must be rebuilt per fold from visible segments, mask visible faults pixel-exactly, and be tested under the registered evaluator."
   }
  ]
 }

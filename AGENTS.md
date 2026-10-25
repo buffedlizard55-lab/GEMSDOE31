@@ -21,8 +21,8 @@ Before changing this repository, read the entire `README.md`, the active H31 pre
 
 ## Execution / Git rules
 
-- Work only on the branch this session is attached to (`arena/01a104f4-gemsdoe31` at the time of writing);
-  never switch, create or push another branch.
+- Work only on the Arena branch attached to the current session; never switch, create or push another branch. Arena
+  assigns a new branch name per session, so do not hard-code a prior session ID in project instructions or runners.
 - Keep large input rasters and regenerable caches out of Git. Pin hashes and provenance in `registry/`.
 - Run the full local check set before any PR: `python -m pytest -q`, `python -m ruff check .`,
   `python scripts/check_metric.py`, `python scripts/collect_evidence.py`, `python scripts/build_site.py`,

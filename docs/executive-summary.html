@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The exact steps to turn the download into a submitted entry, plus the format-error fix and the honesty box.">
+  <meta name="description" content="Portal workflow for a future approved file; current downloads are reference or research only.">
   <title>Executive summary · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -19,45 +19,42 @@
   <section class="page-hero">
     <div class="wrap">
       <p class="eyebrow">Executive summary</p>
-      <h1>Submit in five steps.</h1>
-      <p class="hero-lede">Where to click, what to paste, what to do when the portal complains, and what the file does and does not claim.</p>
+      <h1>Submission workflow and status.</h1>
+      <p class="hero-lede">Where to click after a candidate is approved, what to paste, what to do when the portal complains, and why no current file is approved.</p>
     </div>
   </section>
 
   <main class="wrap">
+    <div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong> The available primary TIFF is a legacy reference, and the union is research-only. Neither has passed the current holdout/confirmation/selector gates. The steps below explain the portal workflow for a future approved file; they do not authorize uploading an existing file.</div>
     <section>
       <div class="section-head">
-        <div><p class="kicker">Submission</p><h2>Submit in five steps</h2></div>
-        <p>Total time: about two minutes. No tooling beyond a browser is required.</p>
+        <div><p class="kicker">Submission guide</p><h2>Portal workflow — only after approval</h2></div>
+        <p>Once a candidate is explicitly marked approved for upload, the portal steps take about two minutes.</p>
       </div>
       <div class="card">
         <ol>
-          <li><strong>Download</strong> <a href="downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif" download>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</a>
-          from this page (or the green button on the <a href="index.html">overview page</a>).</li>
-          <li><strong>Check the hash</strong> (optional but cheap):
-          <code>sha256sum gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</code> must print
-          <code>07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40</code>.</li>
+          <li><strong>Download only the approved candidate</strong> from the overview page. At present, no file is approved; the available TIFF is labeled reference-only.</li>
+          <li><strong>Check the candidate's SHA-256</strong> against the receipt generated for that exact TIFF before upload.</li>
           <li><strong>Open the submit page</strong> at
           <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306</a>
           and sign in.</li>
-          <li><strong>Choose the file</strong> under “File to submit”. A single-band GeoTIFF, or a zip containing one
-          GeoTIFF, that matches the submission format's CRS, shape and geotransform. This file matches the template
-          exactly.</li>
-          <li><strong>Paste the note</strong> below into “Note (optional)”, then submit.</li>
+          <li><strong>Choose the approved file</strong> under “File to submit”. It must be a single-band GeoTIFF, or a zip containing one GeoTIFF, matching the submission format's CRS, shape and geotransform. No file currently linked here is approved.</li>
+          <li><strong>Paste the note</strong> supplied with that approved candidate into “Note (optional)”, then submit. No candidate-specific note is assigned here yet.</li>
         </ol>
       </div>
       <div class="table-wrap"><table><tbody>
-        <tr><th style="width:190px">Submission name</th><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1</code></td></tr>
-        <tr><th>Note (copy-paste)</th><td><code>h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template</code></td></tr>
+        <tr><th style="width:190px">Submission name</th><td>Not assigned — no candidate is approved for a slot.</td></tr>
+        <tr><th>Note (copy-paste)</th><td>Not assigned — do not use the legacy or research-only file metadata.</td></tr>
       </tbody></table></div>
-      <p class="small">The name is unique to this repository's file. The note is what lets you tell submissions apart
-      on the results page later; keep it under a few hundred characters.</p>
+        <p class="small">When a candidate passes the registered gates, its name and short note will be generated from
+      that candidate's receipt. This page intentionally reserves neither metadata field for the legacy downloads.</p>
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Which file</p><h2>Three files, two conventions</h2></div>
-        <p>The default is the convention the official page specifies and the sample template uses. The fallback exists only for portal behaviour we cannot see from here.</p>
+        <div><p class="kicker">Format reference</p><h2>Available files — none approved for a slot</h2></div>
+        <p>The local format receipts establish grid/value compatibility only. They do not establish scientific validity,
+        uniqueness, organizer acceptance, or slot approval.</p>
       </div>
       <div class="table-wrap"><table><thead><tr><th>file</th><th>when to use it</th><th>bytes</th><th>sha256 (nan convention)</th><th>format check</th></tr></thead><tbody><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</code></td><td>default: the official convention, identical layout to the sample template</td><td>199,214</td><td><code>07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40</code></td><td><span class="badge badge-green">passes</span></td></tr><tr><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif</code></td><td>fallback: only if the portal evaluates the whole array and rejects NaN</td><td>154,580</td><td><code>acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6</code></td><td><span class="badge badge-green">passes</span></td></tr><tr><td><code>gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif</code></td><td>research only: the best-measured union — read its caveat before uploading</td><td>247,886</td><td><code>a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23</code></td><td><span class="badge badge-green">passes</span></td></tr></tbody></table></div>
       <p class="small">Both conventions are written from the same dot set by <code>scripts/build_submission.py</code>;

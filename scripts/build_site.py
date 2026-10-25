@@ -257,13 +257,12 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">DOE GEMS Prize · competition 306 · auditable fault mapping</p>
-        <h1>Download the file. Submit it.</h1>
-        <p class="hero-lede">A verified, format-checked submission raster built from the best-scoring geometry this
-        project has measured, next to the measured evidence for why it scores — and what would have to change to
-        beat the leaderboard.</p>
+        <h1>Review the reference file. Do not submit it.</h1>
+        <p class="hero-lede">The downloadable incumbent is format-checked, but no new candidate has passed the
+        required holdout, duplicate, confirmation and selector gates. This site is not offering an approved entry.</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download submission TIFF</a>
-          <a class="button button-light" href="executive-summary.html">How to submit — 5 steps</a>
+          <a class="button button-primary" href="downloads/{e(primary['file_nan'].split('/')[-1])}" download>Download reference TIFF — not approved</a>
+          <a class="button button-light" href="executive-summary.html">Submission instructions and status</a>
         </div>
       </div>
       <aside class="hero-side" aria-label="Current state">
@@ -275,11 +274,12 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     </div>
   </section>
 """
-    body = f"""    <section>
+    body = f"""    <div class="notice notice-danger"><strong>Not approved for upload.</strong> The TIFF below is a legacy incumbent for research and format-reference purposes only. The separate union file is research-only, and the inspected GEMSDOE32 H33-2-B2 geometry fails the project's duplicate canary. No unique candidate has passed holdout validation and confirmation, so do not spend a competition slot on any download from this site.</div>
+    <section>
       <div class="section-head">
-        <div><p class="kicker">Submission</p><h2>One click to a valid file</h2></div>
-        <p>The portal wants a single-band GeoTIFF (or a zip of one) matching the template's CRS, shape and
-        geotransform. This is exactly that, validated against the template in this repository.</p>
+        <div><p class="kicker">Reference artifact</p><h2>Format-valid does not mean slot-approved</h2></div>
+        <p>The file matches the local template and its value-range checks, but is not a new validated candidate.
+        It is deliberately retained as a reproducibility reference, not recommended for competition upload.</p>
       </div>
       <div class="card download-card">
         <h2>{e(primary['name'])}</h2>
@@ -367,8 +367,8 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
       </div>
     </section>
 """
-    return shell("", "Overview", "Download a format-verified GEMS Prize submission raster and read the measured "
-                                 "evidence behind it.", "Overview", hero, body,
+    return shell("", "Overview", "Download a format-checked legacy reference raster; no candidate is approved for upload.",
+                 "Overview", hero, body,
                  "Measured artifacts, honest limits. No score on this site is organizer-verified.")
 
 
@@ -395,39 +395,36 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
                                      '<span class="badge badge-green">passes</span>' if ok
                                      else '<span class="badge badge-red">fails</span>',
                                      failures])
-    body = f"""    <section>
+    body = f"""    <div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong> The available primary TIFF is a legacy reference, and the union is research-only. Neither has passed the current holdout/confirmation/selector gates. The steps below explain the portal workflow for a future approved file; they do not authorize uploading an existing file.</div>
+    <section>
       <div class="section-head">
-        <div><p class="kicker">Submission</p><h2>Submit in five steps</h2></div>
-        <p>Total time: about two minutes. No tooling beyond a browser is required.</p>
+        <div><p class="kicker">Submission guide</p><h2>Portal workflow — only after approval</h2></div>
+        <p>Once a candidate is explicitly marked approved for upload, the portal steps take about two minutes.</p>
       </div>
       <div class="card">
         <ol>
-          <li><strong>Download</strong> {f'<a href="downloads/{e(primary["file_nan"].split("/")[-1])}" download>'}{e(primary['file_nan'].split('/')[-1])}</a>
-          from this page (or the green button on the <a href="index.html">overview page</a>).</li>
-          <li><strong>Check the hash</strong> (optional but cheap):
-          <code>sha256sum {e(primary['file_nan'].split('/')[-1])}</code> must print
-          <code>{e(primary.get('sha256_nan',''))}</code>.</li>
+          <li><strong>Download only the approved candidate</strong> from the overview page. At present, no file is approved; the available TIFF is labeled reference-only.</li>
+          <li><strong>Check the candidate's SHA-256</strong> against the receipt generated for that exact TIFF before upload.</li>
           <li><strong>Open the submit page</strong> at
           <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">drivendata.org/competitions/306</a>
           and sign in.</li>
-          <li><strong>Choose the file</strong> under “File to submit”. A single-band GeoTIFF, or a zip containing one
-          GeoTIFF, that matches the submission format's CRS, shape and geotransform. This file matches the template
-          exactly.</li>
-          <li><strong>Paste the note</strong> below into “Note (optional)”, then submit.</li>
+          <li><strong>Choose the approved file</strong> under “File to submit”. It must be a single-band GeoTIFF, or a zip containing one GeoTIFF, matching the submission format's CRS, shape and geotransform. No file currently linked here is approved.</li>
+          <li><strong>Paste the note</strong> supplied with that approved candidate into “Note (optional)”, then submit. No candidate-specific note is assigned here yet.</li>
         </ol>
       </div>
       <div class="table-wrap"><table><tbody>
-        <tr><th style="width:190px">Submission name</th><td><code>{e(primary['name'])}</code></td></tr>
-        <tr><th>Note (copy-paste)</th><td><code>{e(primary['note_for_portal'])}</code></td></tr>
+        <tr><th style="width:190px">Submission name</th><td>Not assigned — no candidate is approved for a slot.</td></tr>
+        <tr><th>Note (copy-paste)</th><td>Not assigned — do not use the legacy or research-only file metadata.</td></tr>
       </tbody></table></div>
-      <p class="small">The name is unique to this repository's file. The note is what lets you tell submissions apart
-      on the results page later; keep it under a few hundred characters.</p>
+        <p class="small">When a candidate passes the registered gates, its name and short note will be generated from
+      that candidate's receipt. This page intentionally reserves neither metadata field for the legacy downloads.</p>
     </section>
 
     <section>
       <div class="section-head">
-        <div><p class="kicker">Which file</p><h2>Three files, two conventions</h2></div>
-        <p>The default is the convention the official page specifies and the sample template uses. The fallback exists only for portal behaviour we cannot see from here.</p>
+        <div><p class="kicker">Format reference</p><h2>Available files — none approved for a slot</h2></div>
+        <p>The local format receipts establish grid/value compatibility only. They do not establish scientific validity,
+        uniqueness, organizer acceptance, or slot approval.</p>
       </div>
       {variants}
       <p class="small">Both conventions are written from the same dot set by <code>scripts/build_submission.py</code>;
@@ -485,10 +482,10 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
       </tbody></table></div>
     </section>
 """
-    return shell("", "Executive summary", "The exact steps to turn the download into a submitted entry, plus the "
-                                           "format-error fix and the honesty box.", "Executive summary",
-                 page_hero("Executive summary", "Submit in five steps.",
-                           "Where to click, what to paste, what to do when the portal complains, and what the file does and does not claim."),
+    return shell("", "Executive summary", "Portal workflow for a future approved file; current downloads are reference or research only.",
+                 "Executive summary",
+                 page_hero("Executive summary", "Submission workflow and status.",
+                           "Where to click after a candidate is approved, what to paste, what to do when the portal complains, and why no current file is approved."),
                  body, "This page is the operator's guide; the science is on the research and validation pages.")
 
 
