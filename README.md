@@ -1,23 +1,27 @@
-> **PGR31 (2026-10-26, newest lane): unique GeoTIFF generated and automatically validated. DOWNLOAD FOR RESEARCH: YES — SUBMIT TO DRIVENDATA: NO (`DO NOT SUBMIT`, holdout screen failed, `ok_to_submit = false`).**
-> Download: [gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif](docs/downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif) (37,654 dots, SHA-256 `9dcc2e0c…d4b628`, all-finite `{0,1}` in `[0,1]`) · [run card](docs/downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-run-card.json) · [executive summary (9 focus sites, read first)](knowledge/2026-10-26_pgr31_executive_summary.md) · [preregistration](knowledge/2026-10-26_pgr31_preregistration.md) · verify with `python scripts/verify_pgr31_run.py` (no human inspector).
-> HOLDOUT-DTI (`gems57-pooled-hide-v2`, 2,778 withheld positives): candidate 0.0764 [0.0449, 0.1102] vs same-run base-38 control 0.0761, paired Δ +0.0003 [−0.0202, +0.0240], SGMC proxy Δ −0.0080 → verdict **negative**, confirmation gated off, no weekly slot. Uniqueness vs 48 genuine submission rasters: surface max |ρ| 0.1506, final-dots max 3-px overlap 48.6% (33.2% vs H33-2-B2). Named mimic: unfaulted pluton/caldera contacts. **No file in this repo is slot-approved; best nine-site claim remains H33-2-B2 0.2778 USER-REPORTED (a D2.8 catalogue-prune, not submittable as new).**
+> **H31-N (2026-10-26, this lane): unique research GeoTIFF generated. OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO.**
+> [Download zeros .tif (do not submit)](docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif) ·
+> [one-TIFF zip](docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.zip) ·
+> [NaN-outside twin](docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-nan.tif) ·
+> [run card](docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-run-card.json) ·
+> [site](docs/index.html) · [nine-site executive summary](docs/executive-summary.html)
 >
-
-# GEMSDOE31 — auditable GEMS Prize fault-mapping research
-
-## Current status — 2026-10-26 (read first)
-
-**Parallel unique candidate on main: CSDU concealed stepover-dilation upflow (`gemsdoe31-csdu-stepover-8cf9dc27`).**
-- **OK to download for research:** YES — format-valid GeoTIFF, 4,000 binary dots, 0 on public catalogue, finite [0,1] inside footprint, EPSG:32611, 3730×3292, 100 m. One-click downloads, validation receipt and run card on the [executive-summary page](docs/executive-summary.html).
-- **OK to submit to DrivenData:** NO — holdout efficacy and registry uniqueness cannot be verified offline (no competition truth); `slot_approved = false`, `verdict = negative`. Not uploaded.
-
-**Nine focus sites (GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36):** the highest listed claim is GEMSDOE32 H33-2-B2 at USER-REPORTED 0.2778, but every listed "best" is >86% within 3 px of H33 — a duplicate lane, not a submittable new entry. **No file is slot-approved.**
-
-> **Review 2026-10-26 (main branch):** no new submission approved and no new TIFF generated on that review continuation; the latest candidate remains H31-S (`UDAP-SSLIC`), research download only and **DO NOT SUBMIT**. No experiment, upload, leaderboard access, or weekly slot was used in that review.
-
-See `docs/executive-summary.html` for the full per-site table, the H33-2-B2 analysis, the portal submission how-to, and five new hypotheses. All claims are labelled OFFICIAL / OWNER-MIRROR / COMPUTED / USER-REPORTED; no organizer receipt exists for any score.
-
-> **XFCOH31 (2026-10-26, this lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**
+> Name `gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538`. SHA-256 zeros `fecb586e84f48609379df8943dfc12059b2fd4a851b38cf232faab5ce3da9b6c`. 37,654 dots in {0, 1}, 0 on the public catalogue. Local validator `all_checks_passed` true. That is format preflight, not organizer acceptance. `slot_approved = false`.
+>
+> HOLDOUT-DTI (`gems57-pooled-hide-v2`, screen seed 41, 11,360 withheld positives): candidate 0.0747 vs same-run base-19 0.0768, paired delta −0.0021, 95% CI [−0.0078, +0.0033]. Did not beat the control. Not a leaderboard score.
+>
+> Scientific uniqueness in the checked set passed (|Spearman| 0.157, worst 3 px overlap 65.9% vs XFCOH31, 27.2% vs H33-2-B2). Literal spacing-5 lattice overlap of the final dots is 99.75%. No exemption. That alone blocks upload.
+>
+> Nine sites: no file is approved to submit. The owner prompt’s highest listed claim, H33-2-B2 0.2778, is USER-REPORTED, not organizer-confirmed. This session measured those H33 bytes as an exact subset of D2.8 beyond 2 px of the public catalogue. Do not resubmit it as a new unique entry. User-stated 0.4413 and 0.3195 remain unverified claims.
+>
+> Open flags, not resolved: local B10 says “Distance to earthquake”; the official problem page (fetched 2026-10-26) says “Density of earthquakes”. Local B06 says tilt/total curvature; the same page’s `tc` figure caption says radiometric counts. An older rho +0.996 radiometric claim was not recomputed. H31-N used neither band.
+>
+> The complete owner prompt is preserved at the end of this file. Reread it before the next session. Do not refit H31-N or spend a weekly slot.
+>
+> **PGR31 (concurrent lane already on main): research download only, do not submit.** `gemsdoe31-pgr31-poisson-pseudograv-37654-20261026`. Its own card reports HOLDOUT-DTI 0.0764 versus base-38 0.0761 on 2,778 withheld positives, paired interval including zero. Not re-scored here.
+>
+> **CSDU (concurrent lane already on main): research download only, do not submit.** `gemsdoe31-csdu-stepover-8cf9dc27`, 4,000 dots, `slot_approved = false`. Its holdout was not verified in this lane.
+>
+> **XFCOH31 (2026-10-26, prior lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**
 > Download: [gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif) · [run card](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-run-card.json) · [decision page](docs/xfcoh31.html) · [executive summary](knowledge/2026-10-26_xfcoh31_executive_summary.md)
 > HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld): candidate 0.04588 vs same-run base-19 control 0.04812, paired Δ −0.00224 [−0.00483, +0.00012] → verdict **negative**, no weekly slot. Uniqueness vs genuine focus submissions: max ρ 0.087, max 3-px overlap 30.7%. Validator: no hard failures, values in [0,1] (fixes the reported range-error class).
 > **2026-10-26 EXECUTIVE SUMMARY (read first):** `knowledge/2026-10-26_executive_summary_and_hypotheses.md` — 9-site verdict: best claim H33-2-B2 0.2778 (USER-REPORTED, a D2.8 catalogue-prune, NOT submittable as new); new unique CONCORD31 TIF download-for-research / DO NOT SUBMIT (holdout not run). No file is slot-approved.
@@ -173,6 +177,7 @@ See `docs/executive-summary.html` for the full per-site table, the H33-2-B2 anal
 ## Read first every session
 
 Read this README **including the complete normalized owner prompt at the end**, `AGENTS.md`,
+[H31-N review](knowledge/2026-10-26_h31n_review.md),
 [latest status](knowledge/current_status_2026-10-25.md),
 [MAGREST preregistration](knowledge/2026-10-25_magrest_preregistration.md),
 [latest outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.

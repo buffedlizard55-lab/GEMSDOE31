@@ -556,6 +556,31 @@
       "action": "Preserved EXP-1 verbatim as Experiment 1 of 3, restricted H31-T in EXP-2 and EXP-3 to 100% label-free static crustal-mechanics channels, and logged the self-inclusion failure mode for future lanes."
     },
     {
+      "id": "IR-31-B10-DISTANCE-VS-DENSITY",
+      "severity": "medium",
+      "status": "open-unresolved",
+      "summary": "Local training_features.tif band B10 (deq_n100a15) describes itself as 'Distance to earthquake (n=100km radius, a=15 deg azimuth parameters)'. The official problem page, re-fetched 2026-10-26, lists 'Density of earthquakes' and does not say distance. Local B16 (ieq_n100a15) says 'Earthquake intensity or density'. Which local band matches the official phrase is unresolved. H31-N did not use either band.",
+      "evidence": [
+        "COMPUTED 2026-10-26: rasterio descriptions[9] == \"deq_n100a15 - Distance to earthquake (n=100km radius, a=15 deg azimuth parameters)\"; descriptions[15] == \"ieq_n100a15 - Earthquake intensity or density (n=100km radius, a=15 deg parameters)\".",
+        "FETCHED 2026-10-26 https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/ provided-features list includes the phrase 'Density of earthquakes' and does not say distance."
+      ],
+      "impact": "A model that treats B10 as density, or B16 as distance, would be using the wrong physical quantity. H31-N did not use either band, so this does not change the H31-N holdout.",
+      "action": "Flag in the generated H31-N banner. Do not resolve by renaming the band. Do not refit H31-N."
+    },
+    {
+      "id": "IR-31-B06-TILT-VS-RADIOMETRIC",
+      "severity": "medium",
+      "status": "open-unresolved",
+      "summary": "Local band B06 is named tc and described as 'Tilt angle or total curvature - magnetic field derivative for edge detection'. The same official page captions gems_tc_tmi.png as total radiometric counts (left) and total magnetic intensity (right). Older generated site text claims B06 is GeoDAWN radiometric total count with Spearman rho +0.996; that correlation was not recomputed this session. The tilt-versus-radiometric conflict is unreverified and unresolved. H31-N did not use B06.",
+      "evidence": [
+        "COMPUTED 2026-10-26: rasterio descriptions[5] band_name tc, description 'Tilt angle or total curvature - magnetic field derivative for edge detection'.",
+        "FETCHED 2026-10-26 official problem page captions the figure gems_tc_tmi.png as total radiometric counts per second (left) and total magnetic intensity (right).",
+        "The generated H31-J block previously asserted that registry/data_provenance.json proves B06 is GeoDAWN_Radiometric_TotalCount at rho +0.996. That sentence was removed on 2026-10-26. registry/data_provenance.json has no B06 match, and the correlation was not recomputed."
+      ],
+      "impact": "Do not cite the rho +0.996 claim as re-verified. Do not treat B06 as either tilt or radiometric counts until the bytes are compared with an official radiometric grid.",
+      "action": "Flag in the generated H31-N banner. Do not resolve by renaming the band. Do not refit H31-N."
+    },
+    {
       "id": "IR-31-MARGINAL-PROSE-20261026",
       "severity": "high",
       "status": "corrected-prose-shared-evaluator-unchanged",

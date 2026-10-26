@@ -1424,6 +1424,36 @@
       "historical_scope": false
     },
     {
+      "id": "h31n-pass-1-implementation-and-source-2026-10-26",
+      "status": "complete-negative",
+      "historical_scope": false,
+      "checks": [
+        "Read back gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif: EPSG:32611, 3730x3292, float32, values only {0,1}, 37654 dots, 0 on catalogue, SHA-256 fecb586e84f48609379df8943dfc12059b2fd4a851b38cf232faab5ce3da9b6c.",
+        "Wrote post-pack measurements into evidence/h31n/run_card.json without rerunning the screen: lattice final-dot overlap 0.9974504700695809; SGMC off-catalogue proxy DTI 0.07853396263587775 on 61664 pixels; H33 exact subset of D2.8 beyond 2 px.",
+        "Re-fetched https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/ on 2026-10-26. Provided-features list says Density of earthquakes. No organizer score on that page."
+      ]
+    },
+    {
+      "id": "h31n-pass-2-bug-assumption-leakage-2026-10-26",
+      "status": "complete-with-open-flags",
+      "historical_scope": false,
+      "checks": [
+        "Removed unused OVERLAP_LIMIT and RHO_LIMIT imports from scripts/finish_h31n.py. Ruff passed on the H31-N scripts and tests/test_h31n.py (6 passed).",
+        "Removed the generated claim that registry/data_provenance.json proves B06 is radiometric at rho +0.996. That correlation was not recomputed. B06 and B10 label conflicts remain open.",
+        "Banner is generated from the run card. A degree sign that failed the site pictogram check was rewritten. scripts/run_h31n.py was not rerun; it differs from the scored process only in the pre-placement stop."
+      ]
+    },
+    {
+      "id": "h31n-pass-3-charter-acceptance-2026-10-26",
+      "status": "complete-do-not-submit",
+      "historical_scope": false,
+      "checks": [
+        "scripts/build_site.py wrote 22 pages. scripts/check_site.py checked 22 pages and 445 local links: all site checks passed. Required strings kept: Download new research TIFF, DO NOT SUBMIT, H31-J name before SCGP.",
+        "Decision is obvious: download for research yes, submit no, slot_approved false. Nine-site answer: no approved file. H33 0.2778 remains USER-REPORTED. 0.4413 and 0.3195 were not treated as scores.",
+        "Owner prompt remains at the end of README. No weekly slot. No fourth H31-N experiment. No H31-K start."
+      ]
+    },
+    {
       "id": "1028355f-review-pass-1-2026-10-26",
       "status": "complete-with-disclosed-blockers",
       "scope": [
@@ -1553,11 +1583,11 @@
   ],
   "current_run": "registry/current_run.json",
   "current_three_passes": [
-    "1028355f-review-pass-1-2026-10-26",
-    "1028355f-review-pass-2-2026-10-26",
-    "1028355f-review-pass-3-2026-10-26"
+    "arena-review-pass-1-2026-10-26",
+    "arena-review-pass-2-2026-10-26",
+    "arena-review-pass-3-2026-10-26"
   ],
-  "release_decision": "2026-10-26 audit 1028355f: no new TIFF, experiment or slot; existing artifacts remain research-only. Corrected marginal DTI prose, provenance and causal claims. See knowledge/2026-10-26_metric_and_release_review.md.",
+  "release_decision": "2026-10-26: H31-N research TIFF is downloadable and not slot-approved (lattice overlap 0.99745; holdout did not beat base-19). Concurrent main reviews corrected marginal DTI prose and left H31-S and CSDU research-only. No weekly slot.",
   "rbu31_session_2026_10_25": {
     "branch": "arena/84287da3-gemsdoe31",
     "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",
@@ -1573,6 +1603,13 @@
     "h31s-pass-3-full-acceptance-and-ci-verification-2026-10-26"
   ],
   "latest_h31s_run": "registry/h31s_current_run.json",
+  "h31n_three_passes_2026_10_26": [
+    "h31n-pass-1-implementation-and-source-2026-10-26",
+    "h31n-pass-2-bug-assumption-leakage-2026-10-26",
+    "h31n-pass-3-charter-acceptance-2026-10-26"
+  ],
+  "latest_h31n_run": "evidence/h31n/run_card.json",
+  "h31n_release_decision": "2026-10-26 H31-N: research download allowed, submission blocked. Lattice overlap 0.99745 and holdout did not beat base-19. No slot.",
   "pgr31_three_passes_2026_10_26": [
     "pgr31-pass-1-implementation-and-execution-2026-10-26",
     "pgr31-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
