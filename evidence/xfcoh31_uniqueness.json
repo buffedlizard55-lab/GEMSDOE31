@@ -1,0 +1,86 @@
+[
+ {
+  "site": "GEMSDOE24",
+  "score_user_reported": 0.2477,
+  "dot_overlap_within_3px": 0.2990917299622882,
+  "surface_spearman_sample": 0.0861201739728638,
+  "other_dots": 60069
+ },
+ {
+  "site": "GEMSDOE25",
+  "score_user_reported": 0.26,
+  "dot_overlap_within_3px": 0.2887077070165188,
+  "surface_spearman_sample": 0.07454407932177926,
+  "other_dots": 44090
+ },
+ {
+  "site": "GEMSDOE27",
+  "score_user_reported": 0.2449,
+  "dot_overlap_within_3px": 0.30652785892601053,
+  "surface_spearman_sample": 0.08703089800245252,
+  "other_dots": 61328
+ },
+ {
+  "site": "GEMSDOE28-h27-4",
+  "score_user_reported": 0.2708,
+  "dot_overlap_within_3px": 0.2844850480692622,
+  "surface_spearman_sample": 0.06520778962446429,
+  "other_dots": 40199
+ },
+ {
+  "site": "GEMSDOE28-h32-1",
+  "score_user_reported": 0.2649,
+  "dot_overlap_within_3px": 0.287884421309821,
+  "surface_spearman_sample": 0.0692807913665602,
+  "other_dots": 42294
+ },
+ {
+  "site": "GEMSDOE28-h36-1",
+  "score_user_reported": 0.271,
+  "dot_overlap_within_3px": 0.28018271631168,
+  "surface_spearman_sample": 0.06006272146336478,
+  "other_dots": 37660
+ },
+ {
+  "site": "GEMSDOE28-h38-1",
+  "score_user_reported": 0.2707,
+  "dot_overlap_within_3px": 0.28225420938014556,
+  "surface_spearman_sample": 0.060564509655129585,
+  "other_dots": 37860
+ },
+ {
+  "site": "GEMSDOE30",
+  "score_user_reported": 0.26,
+  "dot_overlap_within_3px": 0.2887077070165188,
+  "surface_spearman_sample": 0.07454407932177926,
+  "other_dots": 44090
+ },
+ {
+  "site": "GEMSDOE32-h33-2-b2",
+  "score_user_reported": 0.2778,
+  "dot_overlap_within_3px": 0.27473840760609763,
+  "surface_spearman_sample": 0.059346224982847216,
+  "other_dots": 37654
+ },
+ {
+  "site": "GEMSDOE33-h33d",
+  "score_user_reported": 0.2632,
+  "dot_overlap_within_3px": 0.2878578637063791,
+  "surface_spearman_sample": 0.06790732799437013,
+  "other_dots": 41865
+ },
+ {
+  "site": "GEMSDOE36-pinn",
+  "score_user_reported": 0.275,
+  "dot_overlap_within_3px": 0.279598449035959,
+  "surface_spearman_sample": 0.06001126070577362,
+  "other_dots": 38854
+ },
+ {
+  "site": "GEMSDOE31-local-h27-4",
+  "score_user_reported": 0.2708,
+  "dot_overlap_within_3px": 0.2844850480692622,
+  "surface_spearman_sample": 0.06520778962446429,
+  "other_dots": 40199
+ }
+]
