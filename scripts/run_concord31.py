@@ -12,7 +12,9 @@ Holdout/leakage gates need labels/catalogue rasters in data/ (absent; Dropbox
 host not reachable from this sandbox) -> recorded NOT RUN, verdict stays negative.
 """
 from __future__ import annotations
-import hashlib, json, zipfile
+import hashlib
+import json
+import zipfile
 from pathlib import Path
 import numpy as np
 import rasterio
@@ -34,11 +36,13 @@ def main() -> None:
     with rasterio.open(templ) as ds:
         prof, t = ds.profile.copy(), ds.read(1)
     foot = np.isfinite(t)
-    surf = np.minimum(b, d); surf[~foot] = 0.0
+    surf = np.minimum(b, d)
+    surf[~foot] = 0.0
     # Poisson-disk emission: rank by concordance, accept if >=SPACING from accepted
     cand = np.flatnonzero((surf >= 0.35) & foot)
     cand = cand[np.argsort(-surf.ravel()[cand])]
-    dots = np.zeros(surf.shape, bool); occ = np.zeros(surf.shape, bool)
+    dots = np.zeros(surf.shape, bool)
+    occ = np.zeros(surf.shape, bool)
     r = int(np.ceil(SPACING))
     for f in cand:
         y, x = divmod(int(f), surf.shape[1])
@@ -50,15 +54,19 @@ def main() -> None:
         dots[y, x] = True
         if dots.sum() >= BUDGET:
             break
-    n = int(dots.sum()); print("dots", n)
+    n = int(dots.sum())
+    print("dots", n)
     # --- registry gates: Spearman (surface & dots) + 3px overlap vs every local registry tif ---
-    rng = np.random.default_rng(31); sample = rng.choice(np.flatnonzero(foot), 200_000, replace=False)
+    rng = np.random.default_rng(31)
+    sample = rng.choice(np.flatnonzero(foot), 200_000, replace=False)
     reg = {}
     for p in sorted(DL.rglob("*.tif")):
-        if NAME in p.name: continue
+        if NAME in p.name:
+            continue
         with rasterio.open(p) as ds:
             a = ds.read(1)
-        if a.shape != surf.shape: continue
+        if a.shape != surf.shape:
+            continue
         regdots = (a == 1) & foot
         dist = distance_transform_edt(~regdots)
         ov = float((dist[dots] <= 3).mean()) if n else 0.0
@@ -70,19 +78,25 @@ def main() -> None:
     worst_rho = max((abs(v["surface_spearman_rho"]) for v in reg.values()), default=0)
     duplicate = (worst_ov["final_3px_overlap"] > 0.70) or (worst_rho > 0.90)
     # --- write portal-safe all-finite primary (zeros outside) + NaN variant + zip ---
-    out = np.where(dots, 1.0, 0.0).astype(np.float32); out[~foot] = 0.0
+    out = np.where(dots, 1.0, 0.0).astype(np.float32)
+    out[~foot] = 0.0
     prof.update(dtype="float32", count=1, nodata=None)
     p_fin = DL / f"{NAME}-allfinite.tif"
-    with rasterio.open(p_fin, "w", **prof) as ds: ds.write(out, 1)
-    outn = out.copy(); outn[~foot] = np.nan
+    with rasterio.open(p_fin, "w", **prof) as ds:
+        ds.write(out, 1)
+    outn = out.copy()
+    outn[~foot] = np.nan
     prof.update(nodata=float("nan"))
     p_nan = DL / f"{NAME}-nan.tif"
-    with rasterio.open(p_nan, "w", **prof) as ds: ds.write(outn, 1)
+    with rasterio.open(p_nan, "w", **prof) as ds:
+        ds.write(outn, 1)
     p_zip = DL / f"{NAME}-allfinite.zip"
-    with zipfile.ZipFile(p_zip, "w", zipfile.ZIP_DEFLATED) as z: z.write(p_fin, p_fin.name)
+    with zipfile.ZipFile(p_zip, "w", zipfile.ZIP_DEFLATED) as z:
+        z.write(p_fin, p_fin.name)
     # --- validator (no human inspection) ---
     def validate(path, outside):
-        with rasterio.open(path) as ds: a, pr = ds.read(1), ds.profile
+        with rasterio.open(path) as ds:
+            a, pr = ds.read(1), ds.profile
         inside = a[foot]
         return {"file": path.name, "sha256": sha(path), "bytes": path.stat().st_size,
                 "crs": str(pr["crs"]), "shape": list(a.shape), "dtype": str(a.dtype),
@@ -104,7 +118,8 @@ def main() -> None:
         "submission_name": NAME, "note_max_140": "CONCORD31 min(B,D) concordance dots 37.6k, no incumbent dots; UNVALIDATED holdout - research only"[:140],
         "verdict": "negative", "ok_to_download_for_research": True, "ok_to_submit": False,
         "experiments_used_this_session": "1 of 3 (protocol budget)", "organizer_confirmed_score": None}
-    outdir = ROOT / "evidence/concord31"; outdir.mkdir(exist_ok=True)
+    outdir = ROOT / "evidence/concord31"
+    outdir.mkdir(exist_ok=True)
     (outdir / "run_card.json").write_text(json.dumps(card, indent=1) + "\n")
     (DL / f"{NAME}-format-check.json").write_text(json.dumps({"allfinite": v_fin, "nan": v_nan, "duplicate_stop": duplicate}, indent=1) + "\n")
     print(json.dumps({"dots": n, "duplicate_stop": duplicate, "worst_overlap": worst_ov, "sha": v_fin["sha256"]}, indent=1))

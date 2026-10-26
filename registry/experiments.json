@@ -42,6 +42,11 @@
    "sha256": "422e6dd594db85c7b72b013806b57721311e447ee1fee6ff8d4fb23e4a1b84fe"
   },
   {
+   "path": "evidence/concord31/run_card.json",
+   "bytes": 9277,
+   "sha256": "9af10550b19fe607e8d72772f3d7a5f1f26febfa2ebf41a9c42ef62b45e620b0"
+  },
+  {
    "path": "evidence/data_preparation_20261025.json",
    "bytes": 4069,
    "sha256": "0d9f135d152786bb8e2b69fbaedffc550e06a1897bb4ee417038061ac53b8bbb"
@@ -92,6 +97,11 @@
    "sha256": "040756475225c9afb9a8c04a60b672a984085cf2e510c483e58410255f0fe912"
   },
   {
+   "path": "evidence/download_this_session.json",
+   "bytes": 5835,
+   "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
+  },
+  {
    "path": "evidence/feature_cache.json",
    "bytes": 6237,
    "sha256": "9195d416f11a37d11aaf0980926e21b605c1993ac715a5fd8be824068e515639"
@@ -110,11 +120,6 @@
    "path": "evidence/h2_wide_spacing.json",
    "bytes": 804,
    "sha256": "78de251dfcb49671de42dea66a137307e95d7a15098685564f11133dcf87f035"
-  },
-  {
-   "path": "evidence/h2_wide_spacing_dots.npy",
-   "bytes": 12279288,
-   "sha256": "62f4e8974208f615755c872f298768aa6601adbd4866abf0c8b052f069422cbe"
   },
   {
    "path": "evidence/h31_a/pilot/cells.jsonl",
@@ -195,6 +200,56 @@
    "path": "evidence/h31e_run_card.json",
    "bytes": 4111,
    "sha256": "a6c8a24617596e0564ef1ee813153d21265308262eb3627c165502e4bbe64d9c"
+  },
+  {
+   "path": "evidence/h31j/discrete_registry_index.json",
+   "bytes": 59191,
+   "sha256": "b2108760c0d1d755f6df23ba68d170295f5a1a928931381d72ef50d6d18c51ea"
+  },
+  {
+   "path": "evidence/h31j/holdout_confirm_seed32.json",
+   "bytes": 32338,
+   "sha256": "ffcfb397e63533d5179195599365eaec3fddd5de82ffd1ac1a91c32fcbdb9c98"
+  },
+  {
+   "path": "evidence/h31j/holdout_screen_seed31.json",
+   "bytes": 45278,
+   "sha256": "e0f48627d83d9f31dbdf20d8d629ef565ca1480035bfc499f0a75c9b4dbbbf46"
+  },
+  {
+   "path": "evidence/h31j/leakage_canary_seed31.json",
+   "bytes": 74913,
+   "sha256": "6b10ddea97e33d1b0f653c6d97caf4207ec87fef2f97bfa42135780964c6afcb"
+  },
+  {
+   "path": "evidence/h31j/novelty_final_dots.json",
+   "bytes": 49247,
+   "sha256": "60037a7a2492dd268a66889f92e2b39ae74c412ddb6d7818b5949303fc548ac0"
+  },
+  {
+   "path": "evidence/h31j/novelty_preplacement.json",
+   "bytes": 49542,
+   "sha256": "a2e38ebb954df1886cf1385e508641bd5cdc2062e858a815c01cc0c8c37a494a"
+  },
+  {
+   "path": "evidence/h31j/novelty_shared_registry_g3b.json",
+   "bytes": 1774,
+   "sha256": "a8ae6b9e6253d69a1adb39f87a4e235caab8d59a458504f87fba48386b45bf33"
+  },
+  {
+   "path": "evidence/h31j/oof_residual_variogram.json",
+   "bytes": 4788,
+   "sha256": "5b3166a1aae19f26e0a11df3ed0060c891f115698e0c47a45e354ae0866badcc"
+  },
+  {
+   "path": "evidence/h31j/run_card.json",
+   "bytes": 15635,
+   "sha256": "975c7a07c257eb7ef48a6965e6f6fd13b4d42fd4270e669eebe3010439153af9"
+  },
+  {
+   "path": "evidence/h31j/sgmc_off_catalogue_audit.json",
+   "bytes": 1438,
+   "sha256": "8f80d97b39679457fa070cf9d61133f5496342a9b5b29bd4dfa433d920673232"
   },
   {
    "path": "evidence/h31m_results.json",
@@ -640,6 +695,36 @@
    "path": "evidence/union_results.json",
    "bytes": 18831,
    "sha256": "c9706f0ed0b4764566204eb87d556b66d84550047be6ea65a50c71f5f8a85a2e"
+  },
+  {
+   "path": "evidence/xfcoh31_focus_fetch.json",
+   "bytes": 18888,
+   "sha256": "d0d8782f5b87a28b873c9e0112cf6bd5ae984125ada65707bc9c78051fb16fba"
+  },
+  {
+   "path": "evidence/xfcoh31_results.json",
+   "bytes": 1855,
+   "sha256": "d05eb5164a7d8d4f82b1c399a4bd1754aa5a7cb5134252f242da3f1a4dd7c553"
+  },
+  {
+   "path": "evidence/xfcoh31_run_card.json",
+   "bytes": 5795,
+   "sha256": "75e2157219cca8cabd1ec6764b425b2e4ed11c6ab243dc4c55528d553b862f9e"
+  },
+  {
+   "path": "evidence/xfcoh31_uniqueness.json",
+   "bytes": 2246,
+   "sha256": "ce6614d20280cb97e7835c11d99b502b0f8fdc761b708bb44f7ba4ea28e9faf8"
+  },
+  {
+   "path": "evidence/xfcoh31_validate_all-finite.json",
+   "bytes": 3362,
+   "sha256": "a2a7d3c3fa01d87b019b8c51549dee253549ac8bc13e2f1b3ae13b4c71aa2715"
+  },
+  {
+   "path": "evidence/xfcoh31_validate_nan-outside.json",
+   "bytes": 3149,
+   "sha256": "601d8412089495664e564192dd1c10f25b1b9c462354e5057aa3f91e258f2011"
   }
  ]
 }

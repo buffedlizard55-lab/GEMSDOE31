@@ -543,6 +543,57 @@
    ]
   },
   {
+   "id": "pass-2026-10-25-h31j-1-forensic-preregister-implement",
+   "status": "complete",
+   "scope": [
+    "audited all 119 downloadable GeoTIFFs across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36 plus GEMSDOE70 and concurrent lanes (142 comparable discrete rasters / 63 distinct fields), confirming GEMSDOE32 H33-2-B2 (0.2778 USER-REPORTED) = D2.8 & (d_cat > 200 m) and identifying why H31-E2 lost far-field (>1.5 km) coverage (31.5%)",
+    "preregistered 5 untried geological hypotheses (H31-J..H31-N) in knowledge/2026-10-25_h31j_tgtd_preregistration.md before model fitting and implemented Lane H31-J (src/gemsdoe31/tgtd_features.py + scripts/run_h31j.py + scripts/verify_h31j.py + tests/test_h31j.py) reusing immutable vendor/gems57",
+    "executed strictly <=3 preregistered experiments (H31-J1 pure subsurface+geotherm, H31-J2 dual-regime Poisson, H31-J3 dual-regime 300 m ridge-submodular) on screen seed=31 and untouched confirmation seed=32 (21.3 km buffer)"
+   ],
+   "verification": {
+    "leakage_canary": "260 fold-feature checks (65 features x 4 folds); max symmetric AUC = 0.8059 <= 0.90, max missingness AUC = 0.5646 <= 0.90, dist_known_fault_px excluded (PASS)",
+    "discrete_subset_separation": "142 comparable discrete files across GEMSDOE24..36+31+70 (subset only, not broad uniqueness approval): pre-placement continuous |rho| = 0.1563 <= 0.90 (unspaced d=0 clump diagnostic 80.13% disclosed); final 37,654 dots |rho| = 0.0370 <= 0.90 and max 3-px overlap = 65.14% <= 70.0% (PASS)",
+    "holdout_dti": "gems57-pooled-hide-v2 (21.3 km buffer): H31-J3 screen seed=31 = 0.0897 [0.0627, 0.1149] vs physical_hgb 0.0483 (+0.0414 [+0.0168, +0.0649], +85.7%, 4/4 quadrants); untouched confirmation seed=32 = 0.0772 [0.0456, 0.1076] vs 0.0482 (+0.0290 [+0.0123, +0.0475], +60.2%, 4/4 quadrants = 8/8 total)",
+    "own_method_variogram": "5,709 hidden trace residuals (122,132 pairs across 332 components): exponential 95%-sill practical range = 10,719.8 m <= 21,300 m buffer (99.74% sill decay inside collar, R^2 = 0.7911)",
+    "off_catalogue_sgmc_proxy": "HOLDOUT-PROXY-SGMC at matched 37,654 dots: All-elevation = 0.1064 vs GEMSDOE32 H33-2-B2 0.0923 (+15.2%) & H31-E2 0.0816 (+30.4%); Piedmont <100 m = 0.1474 vs H33-2-B2 0.1130 (+30.5%); far-field >1.5 km = 57.59%"
+   },
+   "open_scientific_gates": [
+    "slot_approved remains false per Parallel-Run Rule 6 (no auto-upload) and binding literal G3b shared-registry 5x5 synthetic calibration-lattice coverage (99.99% within 2.83 <= 3 px)"
+   ]
+  },
+  {
+   "id": "pass-2026-10-25-h31j-2-adversarial-bug-leakage-edge-review",
+   "status": "complete",
+   "scope": [
+    "reviewed memory ceiling (<3.6 GiB RAM), GeoTIFF/ZIP packaging, submodular candidate pool sizing, baseline feature parity, B06 metadata mislabeling, and GDR #1391 column hygiene",
+    "caught and fixed full-map submodular_dti_emit max_pool=260,000 pool-exhaustion bug (which truncated 37,654-dot emission to 34,948 dots) via effective_pool = max(max_pool, n_dots * 24) + unit test",
+    "caught and fixed physical_hgb control feature parity (LiDAR 0->NaN u8 convention reproducing 0.048294 to 16 decimal places), self-comparison idempotency in discrete novelty index, and README -nan.zip SHA-256 synchronization + automated hash lock test"
+   ],
+   "verification": {
+    "verify_h31j": "scripts/verify_h31j.py passed standalone GeoTIFF/ZIP/[0,1]/leakage/uniqueness/variogram/holdout checks",
+    "pedersen_rasmussen_invariant": "analytical synthetic test proved T_2D > 0.97 on 2-D vertical fault step and T_2D < 0.05 on 3-D axisymmetric pluton apex",
+    "range_0_1_guard": "-zeros.tif verified all 12,279,160 cells finite in [0.0, 1.0]; -nan.tif verified all 5,167,373 footprint cells finite in [0.0, 1.0] and NaN outside"
+   },
+   "open_scientific_gates": [
+    "outside-footprint portal convention (all-finite -zeros.zip vs NaN-outside -nan.zip) and absent organizer score receipts remain external to offline workspace"
+   ]
+  },
+  {
+   "id": "pass-2026-10-25-h31j-3-full-charter-and-ci-crosscheck",
+   "status": "complete",
+   "scope": [
+    "crosschecked every requirement of the owner prompt, AGENTS.md, and Parallel-Run Protocol: unique non-copied GeoTIFFs + single-file ZIPs, top-of-page unmistakable status on docs/index.html & docs/executive-summary.html, <=21 HTML pages, zero Unicode So pictograms, <=140-char note, complete JSON Run Card, preserved README owner prompt, and CI verification",
+    "merged concurrent main branches (CONCORD31, RBU31/RBU31-B, H31-M, HVDC, H3, 9-site review), re-verified H31-J discrete separation across all 142 files, and verified all pytest tests, ruff, compileall, check_metric.py, collect_evidence.py, build_site.py, check_site.py, verify_current_run.py, verify_h31j.py, and git-ignore hygiene"
+   ],
+   "verification": {
+    "pytest_and_ruff": "all tests passed; ruff 0 errors; compileall clean",
+    "site_and_links": "21 pages (budget 21) and all local links verified with 0 failures; H31-J banner verified at top of docs/index.html and docs/executive-summary.html"
+   },
+   "open_scientific_gates": [
+    "slot_approved=false remains binding under Rule 6 and the unexempted 695-raster r13-lattice-s5 overlap gate"
+   ]
+  },
+  {
    "id": "arena-11fd7d52-safety-pass-1",
    "status": "complete-with-scientific-stop",
    "scope": [

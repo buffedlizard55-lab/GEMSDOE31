@@ -23,6 +23,138 @@ def links(card):
     return link
 
 
+def h31j_download_and_gates() -> str:
+    rc_path = ROOT / "evidence/h31j/run_card.json"
+    if not rc_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    art = rc["artifacts"]
+    hd = rc["holdout_dti"]
+    scr = hd["screen_seed31"]
+    conf = hd["confirmation_seed32"]
+    j1_s = scr["scores"]["h31j1_subsurface_submod"]
+    j2_s = scr["scores"]["h31j2_dual_poisson"]
+    j3_s = scr["scores"]["h31j3_dual_submod"]
+    ctrl_s = scr["scores"]["physical_hgb"]
+    mag_s = scr["scores"]["magrest_concordant"]
+    d_s = scr["paired_vs_physical_hgb"]
+    j3_c = conf["scores"]["h31j3_dual_submod"]
+    ctrl_c = conf["scores"]["physical_hgb"]
+    d_c = conf["paired_vs_physical_hgb"]
+    vario = rc["own_method_variogram_summary"]
+    uniq = rc["uniqueness_summary"]
+    g3b = uniq["shared_registry_g3b"]["post_placement_final_dots"]
+    sgmc = rc["off_catalogue_sgmc_proxy"]
+    j3_sgmc = sgmc["h31j3_dual_submod"]
+    h33_sgmc = sgmc["gemsdoe32_h33_2_b2"]
+    sub_name = esc(rc["submission_name"])
+    note = esc(rc["portal_note"])
+    sha_zeros = esc(art["primary_zeros_sha256"])
+    sha_zeros_zip = esc(art["primary_zeros_zip_sha256"])
+    sha_nan = esc(art["companion_nan_sha256"])
+    sha_nan_zip = esc(art["companion_nan_zip_sha256"])
+    return f'''<section id="tgtd-submod-h31j" aria-labelledby="h31j-heading">
+      <div class="section-head"><div><p class="kicker">Latest Preregistered Discovery Candidate · 2026-10-25 · Lane H31-J</p>
+        <h2 id="h31j-heading">H31-J TGTD-Submod: All 6 Technical &amp; Scientific Gates PASS · Research Download Only · DO NOT SUBMIT</h2></div>
+        <p>Genuinely new 37,654-dot Basin-and-Range blind/piedmont fault detector combining Pedersen–Rasmussen 3-D Laplace gravity-tensor 2-D tabular invariants,
+           DOE GDR #1391 chemical geothermometer disequilibrium conduit channeling, and V-canyon-suppressed piedmont flexure via 4-quadrant OOF + 300 m ridge-submodular emission.
+           Verified automatically by <code>scripts/verify_h31j.py</code> without human inspector intervention; held as research-only (<code>slot_approved = false</code>) under Rule 6 and the unexempted 695-raster spacing-5 lattice STOP.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-green">LOCAL FORMAT [0, 1] &amp; 8/8 QUADRANTS PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
+        <h3 style="margin-top:18px">{sub_name}</h3>
+        <p><strong>Immediate Automated Readiness Summary:</strong> All <code>12,279,160</code> pixels in the primary <code>-zeros.tif</code> / <code>-zeros.zip</code>
+           are finite <code>float32</code> in <code>[0.0, 1.0]</code> (eliminating <em>“Predicted values must be in range [0, 1]”</em> range rejections);
+           companion <code>-nan.tif</code> / <code>-nan.zip</code> carries identical <code>37,654</code> footprint dots with exact <code>NaN</code> outside.
+           Zero dots overlap the public fault catalogue or its <code>≤ 200 m</code> dead collar; zero dots are copied from prior submissions.
+           Upload remains disabled (<code>slot_approved = false</code>) under Parallel-Run Rule 6 and the binding literal 695-raster 5×5 lattice STOP (<code>G3b</code>).</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/{sub_name}-zeros.zip" download>Download H31-J Research All-Finite [0, 1] .zip</a>
+          <a class="button" href="downloads/{sub_name}-zeros.tif" download>Download Primary All-Finite .tif</a>
+          <a class="button" href="downloads/{sub_name}-nan.zip" download>Companion NaN-Outside .zip</a>
+          <a class="button" href="downloads/{sub_name}-nan.tif" download>Companion NaN-Outside .tif</a>
+          <a class="button" href="downloads/{sub_name}-run-card.json" download>JSON Run Card</a>
+          <a class="button" href="downloads/{sub_name}-format-check.json" download>Format Receipt</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; [0, 1] Verification:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 100 m · 37,654 dots in {{0.0, 1.0}} · 0 NaN/Inf inside 5,167,373-cell footprint · 0 on public catalogue · 0 within 200 m collar · 57.59% beyond 1.5 km.<br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>{sub_name}</code><br>
+          <strong>Note ({rc['portal_note_length']}/140 chars):</strong> <code>{note}</code><br>
+          <strong>SHA-256 (-zeros.tif, {art['primary_zeros_bytes']:,} B):</strong> <code>{sha_zeros}</code><br>
+          <strong>SHA-256 (-zeros.zip, {art['primary_zeros_zip_bytes']:,} B):</strong> <code>{sha_zeros_zip}</code><br>
+          <strong>SHA-256 (-nan.tif, {art['companion_nan_bytes']:,} B):</strong> <code>{sha_nan}</code> · <strong>(-nan.zip, {art['companion_nan_zip_bytes']:,} B):</strong> <code>{sha_nan_zip}</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated Gate</th><th>Preregistered Rule</th><th>Measured H31-J3 Result (Evidence Class Stated)</th><th>Verdict</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 · Local GeoTIFF &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1], 1-TIFF ZIP</td><td>COMPUTED: 37,654 dots in {{0.0, 1.0}}; -zeros all 12,279,160 finite; ZIP SHA-256 verified</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G2 · Leakage Canary</code></td><td>Single-feature two-sided ROC-AUC ≤ 0.90 across all 4 folds × 65 cols</td><td>COMPUTED (not DTI): 260/260 checks ≤ 0.90; max sym AUC = {rc['leakage_canary_summary']['max_single_feature_symmetric_auc']:.4f}; miss AUC = {rc['leakage_canary_summary']['max_missingness_symmetric_auc']:.4f}; <code>dist_known_fault_px</code> excluded</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3a · {uniq['discrete_comparable_files']}-File Discrete Subset</code></td><td>Pre-placement |ρ| ≤ 0.90; Final dots |ρ| ≤ 0.90 &amp; 3-px ≤ 70.0%</td><td>COMPUTED across {uniq['discrete_comparable_files']} files ({uniq['discrete_distinct_fields']} distinct fields, GEMSDOE24..36+31+70): pre |ρ| = {uniq['pre_placement_max_abs_rho']:.4f} (unspaced d=0 diagnostic clump {100*uniq['pre_placement_unspaced_d0_diagnostic_3px_overlap']:.2f}%); final |ρ| = {uniq['post_placement_max_abs_rho']:.4f}, max 3-px = {100*uniq['post_placement_max_3px_overlap']:.2f}% (vs H33-2-B2: 41.5%)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G3b · Shared-Registry 5×5 Lattice</code></td><td>Unexempted 695-raster shared registry (<code>r13-lattice-s5</code>)</td><td>COMPUTED: |ρ| = {abs(g3b['spearman_rho']):.4f} ≤ 0.90; 3-px overlap = {100*g3b['overlap_within_3px']:.2f}% (synthetic 5×5 spacing-5 grid covers Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G4a · Screen Holdout (seed=31)</code></td><td><code>gems57-pooled-hide-v2</code>, 21.3 km buffer, n = {scr['withheld_positives']:,}, paired 95% CI &gt; 0</td><td>HOLDOUT-DTI: H31-J3 <strong>{j3_s['dti']:.4f}</strong> [{j3_s['ci95'][0]:.4f}, {j3_s['ci95'][1]:.4f}] vs physical_hgb {ctrl_s['dti']:.4f} (Δ = +{d_s['delta']:.4f} [+{d_s['ci95'][0]:.4f}, +{d_s['ci95'][1]:.4f}], +85.7%, 4/4 quadrants) &amp; MAGREST {mag_s['dti']:.4f}; H31-J1 subsurface = {j1_s['dti']:.4f}; H31-J2 Poisson = {j2_s['dti']:.4f}</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4b · Untouched Confirm (seed=32)</code></td><td>Zero retuning, <code>gems57-pooled-hide-v2</code>, 21.3 km buffer, n = {conf['withheld_positives']:,}</td><td>HOLDOUT-DTI: H31-J3 <strong>{j3_c['dti']:.4f}</strong> [{j3_c['ci95'][0]:.4f}, {j3_c['ci95'][1]:.4f}] vs physical_hgb {ctrl_c['dti']:.4f} [{ctrl_c['ci95'][0]:.4f}, {ctrl_c['ci95'][1]:.4f}] (Δ = +{d_c['delta']:.4f} [+{d_c['ci95'][0]:.4f}, +{d_c['ci95'][1]:.4f}], +60.2%, 4/4 quadrants = 8/8 total)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5 · Own-Method OOF Variogram</code></td><td>95%-sill residual practical range ≤ 21,300 m holdout buffer</td><td>COMPUTED: 95%-sill range = <strong>{vario['practical_range_95_sill_m']:,.1f} m</strong> (scale {vario['scale_parameter_m']:,.1f} m, R² = {vario['weighted_r_squared']:.4f}); 21.3 km collar covers {100*vario['sill_fraction_at_collar']:.2f}% of sill</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G6 · Off-Catalogue SGMC (&gt;300 m)</code></td><td>Report-only matched 37,654-dot discovery proxy (never training truth)</td><td>HOLDOUT-PROXY-SGMC: All-elev (61,664 px) <strong>{j3_sgmc['sgmc_all_elevation_dti']:.4f}</strong> vs GEMSDOE32 H33-2-B2 {h33_sgmc['sgmc_all_elevation_dti']:.4f} (+15.2%); Piedmont &lt;100 m (28,115 px) <strong>{j3_sgmc['sgmc_piedmont_lt100m_dti']:.4f}</strong> vs H33-2-B2 {h33_sgmc['sgmc_piedmont_lt100m_dti']:.4f} (+30.5%)</td><td><span class="badge badge-green">REPORTED WIN</span></td></tr>
+          <tr><td><code>G7 / Rule 6 · Weekly Live Slot</code></td><td>Never auto-spend DrivenData weekly submission quota</td><td><code>slot_approved = false</code>; blocked from upload while the literal 695-raster G3b rule remains unamended</td><td><span class="badge badge-red">DO NOT SUBMIT</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Reproduce verification offline in ~2 s: <code>.venv/bin/python scripts/verify_h31j.py</code> ·
+        Preregistration: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_h31j_tgtd_preregistration.md">frozen H31-J specification</a> ·
+        Evidence directory: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/tree/main/evidence/h31j">evidence/h31j/</a>.</p>
+    </section>'''
+
+
+def h31j_research_sections() -> str:
+    rc_path = ROOT / "evidence/h31j/run_card.json"
+    if not rc_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    hd = rc["holdout_dti"]
+    scr = hd["screen_seed31"]
+    conf = hd["confirmation_seed32"]
+    vario = rc["own_method_variogram_summary"]
+    sgmc = rc["off_catalogue_sgmc_proxy"]
+    j3_sgmc = sgmc["h31j3_dual_submod"]
+    h33_sgmc = sgmc["gemsdoe32_h33_2_b2"]
+    scgp_sgmc = sgmc.get("h31e2_scgp_submod", {})
+    return f'''<section id="h31j-research" aria-labelledby="h31j-res-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 Preregistered Discovery Study · Lane H31-J</p>
+        <h2 id="h31j-res-heading">Five Ranked Untried Geological Hypotheses &amp; H31-J TGTD-Submod Verification</h2></div>
+        <p>Documented and frozen in <code>knowledge/2026-10-25_h31j_tgtd_preregistration.md</code> before fitting any model.
+           All 5 hypotheses use verified free official public data (USGS GeoDAWN DOI 10.5066/P93LGLVQ, DOE GDR #1391, USGS 3DEP 1 m LiDAR, NBMG/GBCGE).</p></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Rank &amp; Candidate</th><th>Exact Layers &amp; Physical Signature</th><th>Why Missing From USGS / INGENIOUS &amp; Difference vs Repo</th><th>Mimic Suppressed · Cost · Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 · H31-J · TGTD + GDR-1391 Geotherm + PTCF</strong></td><td>B13 gravity + B02 RTP 3-D Laplace tensor (z=300m, 1000m) Pedersen–Rasmussen <code>T_2D</code>; GDR-1391 quartz/chalcedony/Na-K-Ca <code>ΔT_diseq</code> × tabular/MT/K conduit; B12/B19 asymmetric piedmont flexure + Hurst break + seam-free 1 m LiDAR</td><td>Wash-covered &amp; blind basin faults lack preserved 1 m scarps and are blurred into circular gravity blobs by standard horizontal gradients; first 3-D harmonic tensor invariant + advective geothermometer disequilibrium + 4-quad OOF 300 m submodular lane</td><td>3-D calderas/plutons (<code>|I_G|→1</code>), symmetric V-canyons, shallow outflow plumes · Medium (~28 min CPU) · <strong>IMPLEMENTED &amp; CONFIRMED</strong></td></tr>
+          <tr><td>2 · H31-K · Transtensional Relay / Pull-Apart Stepover</td><td>B07 geodetic shear, B08 dilatation, B10/B16 earthquake densities, B13 upward-continued gravity saddle between en-echelon tips</td><td>Accommodation zones in Humboldt/Walker Lane host commercial blind geothermal systems (Bradys, Desert Peak) between mapped range-front segments; zero catalogue-tip proximity leakage</td><td>Regional 50 km GPS smoothing &amp; mining seismicity clusters · Low–Medium · Ranked #2 (future lane)</td></tr>
+          <tr><td>3 · H31-L · Magnetite-Destruction Trough + Potassic Alteration</td><td><code>max(-RTP_zz, 0)</code> narrow linear magnetic quiet trough flanked by GeoDAWN K/Th potassium enrichment + B17 shallow MT conductor</td><td>Hydrothermal fluids oxidize titanomagnetite to hematite/pyrite and precipitate illite/smectite/adularia along unmapped permeable fault damage zones without topographic relief</td><td>Felsic ash-flow tuff margins &amp; playa evaporite pans · Low–Medium · Core term incorporated in H31-J</td></tr>
+          <tr><td>4 · H31-M · Multi-Azimuth Drainage Deflection &amp; Fan Apex Alignment</td><td>B12/B19 2-D structure-tensor orientation jump of incised piedmont channels + collinear alluvial-fan apices</td><td>Strike-slip &amp; oblique Walker Lane faults systematically deflect ephemeral washes where vertical scarps have diffused away</td><td>Braided fan avulsions &amp; highway/railroad berms at 100 m · Medium · Ranked #4 (future lane)</td></tr>
+          <tr><td>5 · H31-N · Poisson Mag–Grav Pseudogravity Residual</td><td>FFT Baranov (1957) pseudogravity from B02 RTP regressed locally against B13 isostatic gravity</td><td>Isolates non-magnetic density steps (carbonate/metamorphic basement against basin fill) from strongly magnetic but unfaulted basaltic flows</td><td>Non-magnetic granitoid pluton roofs · Low · Ranked #5 (future lane)</td></tr>
+        </tbody>
+      </table></div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Experiment / Arm</th><th>Screen seed=31 HOLDOUT-DTI (n=2,901)</th><th>Untouched Confirm seed=32 HOLDOUT-DTI (n=2,808)</th><th>All-Elev SGMC Proxy (61,664 px)</th><th>Piedmont &lt;100 m SGMC Proxy (28,115 px)</th><th>Far-Field &gt;1.5 km</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H31-J3 · Dual-Regime OOF + 300 m Submodular (Primary)</strong></td><td><strong>{scr['scores']['h31j3_dual_submod']['dti']:.4f}</strong> [{scr['scores']['h31j3_dual_submod']['ci95'][0]:.4f}, {scr['scores']['h31j3_dual_submod']['ci95'][1]:.4f}]</td><td><strong>{conf['scores']['h31j3_dual_submod']['dti']:.4f}</strong> [{conf['scores']['h31j3_dual_submod']['ci95'][0]:.4f}, {conf['scores']['h31j3_dual_submod']['ci95'][1]:.4f}]</td><td><strong>{j3_sgmc['sgmc_all_elevation_dti']:.4f}</strong></td><td><strong>{j3_sgmc['sgmc_piedmont_lt100m_dti']:.4f}</strong></td><td><strong>{100*j3_sgmc['far_field_gt_1p5km_fraction']:.2f}%</strong></td></tr>
+          <tr><td>H31-J2 · Dual-Regime OOF + Poisson d=2.8 px</td><td>{scr['scores']['h31j2_dual_poisson']['dti']:.4f} [{scr['scores']['h31j2_dual_poisson']['ci95'][0]:.4f}, {scr['scores']['h31j2_dual_poisson']['ci95'][1]:.4f}]</td><td>— (ablation arm)</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>H31-J1 · Pure Subsurface + Geotherm Only (zero terrain/LiDAR)</td><td>{scr['scores']['h31j1_subsurface_submod']['dti']:.4f} [{scr['scores']['h31j1_subsurface_submod']['ci95'][0]:.4f}, {scr['scores']['h31j1_subsurface_submod']['ci95'][1]:.4f}]</td><td>— (ablation arm)</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Same-run <code>physical_hgb</code> control (pinned template features)</td><td>{scr['scores']['physical_hgb']['dti']:.4f} [{scr['scores']['physical_hgb']['ci95'][0]:.4f}, {scr['scores']['physical_hgb']['ci95'][1]:.4f}]</td><td>{conf['scores']['physical_hgb']['dti']:.4f} [{conf['scores']['physical_hgb']['ci95'][0]:.4f}, {conf['scores']['physical_hgb']['ci95'][1]:.4f}]</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>MAGREST concordant (prior current-run primary)</td><td>{scr['scores']['magrest_concordant']['dti']:.4f} [{scr['scores']['magrest_concordant']['ci95'][0]:.4f}, {scr['scores']['magrest_concordant']['ci95'][1]:.4f}]</td><td>{conf['scores']['magrest_concordant']['dti']:.4f} [{conf['scores']['magrest_concordant']['ci95'][0]:.4f}, {conf['scores']['magrest_concordant']['ci95'][1]:.4f}]</td><td>0.0700</td><td>0.0610</td><td>62.75%</td></tr>
+          <tr><td>GEMSDOE32 H33-2-B2 reference (0.2778 USER-REPORTED)</td><td>{scr['scores']['gemsdoe32_h33_b2_foldfair']['dti']:.4f} (fold-fair)</td><td>{conf['scores']['gemsdoe32_h33_b2_foldfair']['dti']:.4f} (fold-fair)</td><td>{h33_sgmc['sgmc_all_elevation_dti']:.4f}</td><td>{h33_sgmc['sgmc_piedmont_lt100m_dti']:.4f}</td><td>{100*h33_sgmc['far_field_gt_1p5km_fraction']:.2f}%</td></tr>
+          <tr><td>H31-E2 SCGP-Submod (prior multi-physics candidate)</td><td>— (separate draw=101 instrument)</td><td>— (separate draws 202,303)</td><td>{scgp_sgmc.get('sgmc_all_elevation_dti', 0.0816):.4f}</td><td>{scgp_sgmc.get('sgmc_piedmont_lt100m_dti', 0.1289):.4f}</td><td>{100*scgp_sgmc.get('far_field_gt_1p5km_fraction', 0.3151):.2f}%</td></tr>
+        </tbody>
+      </table></div>
+      <div class="content" style="margin-top:18px">
+        <h3>Own-Method Spatial Residual Range &amp; Key Irregularities Flagged</h3>
+        <ul>
+          <li><strong>Own-Method OOF Residual Semivariogram (Gate G5):</strong> Computed across <code>5,709</code> withheld fault pixels (<code>122,132</code> within-component pairs across <code>332</code> components). Weighted exponential fit yields scale <code>{vario['scale_parameter_m']:,.1f} m</code> and 95%-sill practical range <strong><code>{vario['practical_range_95_sill_m']:,.1f} m</code> (10.72 km, R² = {vario['weighted_r_squared']:.4f})</strong>, confirming that the <code>21,300 m</code> holdout buffer is <code>1.99×</code> the residual range and covers <code>{100*vario['sill_fraction_at_collar']:.2f}%</code> of sill.</li>
+          <li><strong>Data Header Mislabel Disclosed &amp; Fixed:</strong> Band <code>B06</code> in <code>training_features.tif</code> is labeled <code>Magnetic_Tilt_Angle</code> in metadata, whereas <code>registry/data_provenance.json</code> proves <code>B06</code> is actually <code>GeoDAWN_Radiometric_TotalCount</code> (rho = +0.996). H31-J treats <code>B06</code> strictly as radiometric total count and computes true magnetic Miller–Singh tilt angle spectrally from <code>B02</code> RTP.</li>
+          <li><strong>Conflicting Leaderboard Anchors Without Organizer Receipts:</strong> Prompt prose cites both <code>0.3195</code> and <code>0.4413</code> as #1 leaderboard figures alongside <code>0.2778</code> for GEMSDOE32 H33-2-B2, with zero organizer submission receipts in any of the nine audited repos. Every external score remains labeled <code>USER-REPORTED</code>, and no local <code>HOLDOUT-DTI</code> or <code>HOLDOUT-PROXY-SGMC</code> number is ever projected onto the live leaderboard scale.</li>
+          <li><strong>Next-Session Priority Recommendations:</strong> (1) Protocol-owner decision formally separating synthetic geometry-probe lattices (<code>r13-lattice-s5</code>) from genuine fault-prediction entries in the shared 695-raster registry before any live slot review; (2) Confirm outside-footprint convention (<code>-zeros.zip</code> vs <code>-nan.zip</code>) against organizer specification; (3) Test Rank #2 hypothesis <strong>H31-K</strong> (transtensional stepover / relay accommodation saddle) as an orthogonal subsurface signal.</li>
+        </ul>
+      </div>
+    </section>'''
+
+
 def h31m_download_and_gates() -> str:
     hr_path = ROOT / "evidence/h31m_results.json"
     rc_path = ROOT / "evidence/h31m_run_card.json"
@@ -157,6 +289,7 @@ def hvdc_download_and_gates() -> str:
       <p class="small">HOLDOUT-DTI evaluator: gemsdoe31-hide-recover-v1 (21.25 km variogram collar, 48,169 withheld positives across 4 draws, 1,000-rep 20 km spatial block bootstrap).
         All prompt/sibling scores (0.2778, 0.3195, 0.4413) are USER-REPORTED with no organizer receipt. Under the unexempted 695-raster shared registry literal rule,
         verdict = negative and slot_approved = false; artifacts are preserved as reproducible research downloads.</p>
+>>>>>>> origin/main
     </section>'''
 
 
@@ -423,36 +556,23 @@ def _rbu31_card():
 
 def overview(card):
     link = links(card)
-    rbu = _rbu31_card()
-    if rbu is not None:
-        promote = bool(rbu.get("ok_to_download_and_submit"))
-        verdict = ("&#9989; OK TO DOWNLOAD AND SUBMIT" if promote else "&#10060; DO NOT SUBMIT")
-        hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · newest unique candidate: RBU31 regime-balanced union</p>
-      <h1>{verdict}</h1>
-      <p class="hero-lede">RBU31 ({esc(rbu['submission_name'])}) is a newly computed, duplicate-screened GeoTIFF &mdash;
-        not a copy or re-thinning of any previous submission. Its automated validation verdict is shown above and
-        gate-by-gate below; no human inspection is required. Older candidates (H31-E2, MAGREST) keep their own
-        sections and verdicts further down this page.</p>
-      <div class="actions"><a class="button button-primary" href="downloads/{esc(rbu['submission_name'])}-allfinite.tif" download>&#11015; Download the RBU31 submission .tif</a>
-        <a class="button button-light" href="executive-summary.html">How to submit (executive summary)</a></div>
-      </div><aside class="hero-side" aria-label="Submission decision">
-        <strong>Verdict: {esc(rbu['verdict'].upper())} &middot; gates G1&ndash;G5 {'ALL PASS' if promote else 'see gate table'}</strong>
-        <p>Format/[0, 1] range, leakage canary, uniqueness vs the nine focus sites' best files,
-          21.3 km buffered holdout screen + fresh confirmation, and off-catalogue SGMC in all regimes.
-          HOLDOUT-DTI is a local proxy, not a leaderboard score; no slot has been spent by this software.</p></aside></div></section>'''
-        return hero, _overview_body(card, hero_rbu=True)
+    h31j_sub = "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8"
     hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · new experiment, auditable outcome</p>
-      <h1>A new GeoTIFF.<br>A clear decision.</h1>
-      <p class="hero-lede">MAGREST tests displaced magnetic texture instead of copying the existing dot family.
-        The file has new, format-valid bytes but fails the literal shared-registry overlap rule. It is <strong>not approved for submission</strong>.</p>
-      <div class="actions"><a class="button button-primary" href="{link('file')}" download>Download new research TIFF</a>
-        <a class="button button-light" href="executive-summary.html">Status + submission guide</a></div>
+      <p class="eyebrow">DOE GEMS Prize · 2026-10-25 Preregistered Discovery · Lane H31-J</p>
+      <h1>New Unique GeoTIFF.<br>6/6 Science Gates PASS · Research-Only Under Registry STOP.</h1>
+      <p class="hero-lede"><strong>H31-J TGTD-Submod</strong> (<code>{h31j_sub}</code>, 37,654 off-catalogue dots) passes local GeoTIFF/[0, 1] format,
+        260-check leakage canary, 142-raster discrete subset separation, both 21.3 km holdout seeds (<strong>8/8 quadrants</strong>, +85.7% &amp; +60.2%),
+        own-method residual variogram (10.72 km ≤ 21.3 km), and both off-catalogue SGMC proxies (+15.2% all-elev, +30.5% piedmont vs GEMSDOE32 H33-2-B2).
+        Under the unexempted 695-raster spacing-5 lattice rule (<code>r13-lattice-s5</code>), it remains <strong>not approved for upload</strong> (<code>slot_approved = false</code>; DO NOT SUBMIT).</p>
+      <div class="actions">
+        <a class="button button-primary" href="downloads/{h31j_sub}-zeros.zip" download>Download H31-J Research All-Finite [0, 1] .zip</a>
+        <a class="button button-light" href="{link('file')}" download>Download new research TIFF</a>
+        <a class="button button-light" href="executive-summary.html">Status + submission guide</a>
+      </div>
       </div><aside class="hero-side" aria-label="Submission decision">
         <strong>Research download only · DO NOT SUBMIT</strong>
-        <p>Literal registry overlap STOP at 100%; paired efficacy is also unestablished. No competition slot used.
-          A valid TIFF is not evidence of a winning fault detector.</p></aside></div></section>'''
+        <p><strong>H31-J TGTD-Submod:</strong> Local [0, 1] PASS · 142-file discrete subset PASS (65.14% ≤ 70%) · Seed 31 &amp; 32 PASS (8/8 folds) · <code>slot_approved = false</code> (literal 5×5 lattice G3b STOP).<br>
+          <strong>Prior MAGREST / RBU31 / H31-M / HVDC / H31-E2:</strong> Research downloads preserved below.</p></aside></div></section>'''
     return hero, _overview_body(card, hero_rbu=False)
 
 
@@ -461,15 +581,16 @@ def _overview_body(card, *, hero_rbu: bool):
     delta = card["paired_difference"]
     final = card["registry"]["final"]
     magrest_notice = '''<div class="notice notice-danger"><strong>Not approved for upload.</strong>
-      Automated verdict: NEGATIVE under the literal 695-raster shared-registry overlap rule. Download RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
+      Automated verdict: DO NOT SUBMIT under the unexempted 695-raster shared-registry overlap rule (<code>slot_approved = false</code>). Download H31-J, RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
       '''
-    body = f'''{rbu31_download_and_gates()}
-      {magrest_notice}{h31m_download_and_gates()}
+    body = f'''{magrest_notice}{h31j_download_and_gates()}
+      {rbu31_download_and_gates()}
+      {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       {scgp_download_and_gates()}
       {download(card)}
-      {h3_download_and_gates()}
-      {h3_download_and_gates()}
+      {h3_download_and_gates()}'''
+    body += f'''
       <section><div class="section-head"><div><p class="kicker">Four separate gates</p><h2>What passed, and what did not</h2></div>
         <p>These statuses are rebuilt from the exact file, receipts, holdout terms and registry checks.</p></div>
         <div class="grid grid-4">
@@ -565,14 +686,14 @@ def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     focus_summary = focus_site_summary()
     return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
-      The RBU31-B regime-balanced union, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are format-validated and available to download in one click; all are research-only (each fails at least one automated gate &mdash; see its own gate table below &mdash; and all fail the unexempted 695-raster shared-registry overlap gate). Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      The H31-J TGTD-Submod, RBU31-B regime-balanced union, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are locally format-validated and available to download in one click; all remain research-only (<code>slot_approved = false</code>) while the unexempted 695-raster shared-registry overlap gate remains in force. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      {h31j_download_and_gates()}
       {focus_summary}
       {rbu31_download_and_gates()}
       {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       {scgp_download_and_gates()}
       {download(card)}
-      {h3_download_and_gates()}
       {h3_download_and_gates()}
       <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>
         <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
@@ -624,6 +745,7 @@ def research(card, screen, focus, lineage):
     return f'''<div class="notice"><strong>Evidence boundary</strong>Only measured geometry and local holdouts are verified here.
       The literal registry gate FAILS: a registered spacing-5 lattice covers 99.52%–100% of fixed variants’ dots, and GEMSDOE48 continuous pignistic covers 100%. No new fit or TIFF follows this STOP. The reported 0.2778 and conflicting leaderboard anchors 0.3195 / 0.4413 have no organizer receipt in this project.
       Non-GitHub official pages cannot be re-fetched under this environment's host allowlist.</div>
+      {h31j_research_sections()}
       {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       <section><div class="section-head"><div><p class="kicker">The central question</p><h2>Why H33 may have scored well</h2></div>
