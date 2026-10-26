@@ -1,0 +1,20 @@
+{
+  "evidence_class": "OFFICIAL-REPOSITORY",
+  "retrieved_date": "2026-10-26",
+  "repository": "drivendataorg/gems-prize-reference-solution",
+  "commit": "aebe92f7c8a990f0e3443451b7a825d9afd6336b",
+  "path": "README.md",
+  "url": "https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md",
+  "sha256": "cfa4d55559c9128313beb9417eae7e0a94c31677132afb1120f9e86222804239",
+  "verified_claims": [
+    "README supplies CPU-only and GPU setup options. GPU is recommended for speed, not mandatory.",
+    "README instructs entrants to obtain data from the competition website."
+  ],
+  "not_verified": [
+    "Private scoring implementation",
+    "Current leaderboard",
+    "Weekly quota",
+    "Organizer acceptance of any local TIFF",
+    "Current external geological-data availability"
+  ]
+}

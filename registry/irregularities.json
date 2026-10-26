@@ -554,6 +554,19 @@
       ],
       "impact": "Proves that fold-visible catalogue features create severe train/test distribution mismatch in GBDT splits even when withheld faults are zero-leakage.",
       "action": "Preserved EXP-1 verbatim as Experiment 1 of 3, restricted H31-T in EXP-2 and EXP-3 to 100% label-free static crustal-mechanics channels, and logged the self-inclusion failure mode for future lanes."
+    },
+    {
+      "id": "IR-31-MARGINAL-PROSE-20261026",
+      "severity": "high",
+      "status": "corrected-prose-shared-evaluator-unchanged",
+      "summary": "README and current_site H31-T explanation used alpha*S/(1-S), rather than alpha*S/(1-(1-beta)*S), and overstated private-score causality. User-reported H29 claims were called confirmed.",
+      "evidence": [
+        "evidence/marginal_dti_audit_20261026.json",
+        "tests/test_marginal_dti.py",
+        "knowledge/2026-10-26_metric_and_release_review.md"
+      ],
+      "impact": "Incorrect emission-economics explanation, not a discovered defect in shared scoring arithmetic. No model was rerun and no existing scientific result changed.",
+      "resolution": "Corrected denominator, isolated-kernel-credit interpretation, score evidence wording and private-truth causal limits; added CI regression checks."
     }
   ]
 }
