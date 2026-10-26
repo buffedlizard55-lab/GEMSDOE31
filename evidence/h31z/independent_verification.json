@@ -1,0 +1,26 @@
+{
+ "name": "gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9",
+ "failures": [],
+ "ok": true,
+ "results": {
+  "zeros": {
+   "sha256": "e79f17ff5fab297e27e4e3793a4ec9ea55fe470804e2beaf5bd18f0e911304b0",
+   "validator_hard_failures": [],
+   "dots": 37654
+  },
+  "nan": {
+   "sha256": "07bf241e75d7cd30d9aaf6539c8dde6cb39c53d9cf93815f9b73a2a29b256b85",
+   "validator_hard_failures": [],
+   "dots": 37654
+  }
+ },
+ "checks": {
+  "min_spacing_px": 2.8284271247461903,
+  "dots": 37654,
+  "min_catalogue_distance_px": 2.23606797749979,
+  "sgmc_dti_recomputed": 0.11507728661426529,
+  "sgmc_dti_card": 0.11507728661426529
+ },
+ "verdict": "negative",
+ "organizer_acceptance_verified": false
+}

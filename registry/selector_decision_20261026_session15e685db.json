@@ -1,0 +1,102 @@
+{
+  "decision_id": "selector_decision_20261026_session15e685db_protocol",
+  "generated_utc": "2026-10-26T22:31:43.392674+00:00",
+  "session_branch": "arena/15e685db-gemsdoe31",
+  "evidence_class": "COMPUTED (selector audit + run-card registry measurements)",
+  "supersedes": [
+    "evidence/selector_decision_superseded_9883b598.json (protocol-review denial)",
+    "evidence/selector_decision_frozen_only_session15e685db.json (frozen-selector-only output: primary H31-Y, not adopted because H31-Y fails the owner two-stage uniqueness rule)"
+  ],
+  "inputs": {
+    "frozen_selector_audit": "evidence/selector_audit_20261026_session15e685db.json",
+    "frozen_selector_promoted": [
+      "H31-Y",
+      "H31-Z",
+      "H31-T",
+      "H31-J",
+      "H31-M"
+    ],
+    "frozen_selector_primary": null
+  },
+  "owner_protocol_stage1_screen": {
+    "H31-Y": {
+      "measured": true,
+      "pass_": false,
+      "topk_overlap_3px": 0.904684761247145,
+      "max_abs_spearman_surface": 0.09851466691008164,
+      "card": "registry/h31y_current_run.json",
+      "reason": "stage-1 (surface top-K) exceeds owner-protocol limits"
+    },
+    "H31-Z": {
+      "measured": true,
+      "pass_": true,
+      "topk_overlap_3px": 0.6198544643331386,
+      "max_abs_spearman_surface": 0.1385201739918866,
+      "card": "registry/h31z_current_run.json",
+      "reason": ""
+    },
+    "H31-T": {
+      "measured": false,
+      "pass_": false,
+      "reason": "no two-stage registry measurement on record (fail closed)"
+    },
+    "H31-J": {
+      "measured": false,
+      "pass_": false,
+      "reason": "no two-stage registry measurement on record (fail closed)"
+    },
+    "H31-M": {
+      "measured": false,
+      "pass_": false,
+      "reason": "no two-stage registry measurement on record (fail closed)"
+    }
+  },
+  "h31x_demotion_disclosure": {
+    "stage1": {
+      "measured": true,
+      "pass_": false,
+      "topk_overlap_3px": 0.8630955542571839,
+      "max_abs_spearman_surface": 0.12545129515361136,
+      "card": "registry/h31x_current_run.json",
+      "reason": "stage-1 (surface top-K) exceeds owner-protocol limits"
+    },
+    "frozen_g5_failure_peer": "local:gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-nan.tif",
+    "frozen_g5_max_overlap": 0.703032878313061,
+    "explanation": "H31-X fails the owner two-stage rule on its own card (top-K 0.8631 > 0.70). Its frozen-G5 final-dot failure (0.7030 vs 0.70) occurs only against H31-Z, this session's derivative union lane; against the registry as it stood when H31-X was selected, its final-dot max was 0.6305. Recorded so the demotion is not misread as new evidence against the incumbent geometry."
+  },
+  "primary": {
+    "lane": "H31-Z",
+    "file": "docs/downloads/gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros.tif",
+    "sha256": "e79f17ff5fab297e27e4e3793a4ec9ea55fe470804e2beaf5bd18f0e911304b0",
+    "n_dots": 37654,
+    "projection": 0.33735432329332465,
+    "projection_interval": [
+      0.33179258807979345,
+      0.34291605850685586
+    ],
+    "projection_is_not_a_score": true,
+    "sgmc_dti": 0.11507728661426529,
+    "holdout_dti": 0.16209804638931175,
+    "holdout_evaluator": "gems57-pooled-hide-v2",
+    "submission_name": "gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros"
+  },
+  "approved_submissions": [
+    "docs/downloads/gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros.tif"
+  ],
+  "approved_alternates": [],
+  "do_not_submit": {
+    "H31-Y": "frozen-selector primary but owner-protocol duplicate: stage-1 top-K overlap 0.9047 > 0.70 (own card). Weakest holdout among promoted (0.0973).",
+    "H31-X": "owner-protocol duplicate: stage-1 top-K 0.8631 > 0.70; final-dot 0.7030 vs derivative H31-Z. Remains the strongest incumbent geometry on evidence.",
+    "H31-T": "no stage-1 surface measurement on record -> fail closed.",
+    "H31-J": "no stage-1 surface measurement on record -> fail closed.",
+    "H31-M": "no stage-1 surface measurement on record -> fail closed.",
+    "all_others": "failed at least one frozen selector gate G1--G6 (see audit)."
+  },
+  "ok_to_submit_primary": true,
+  "conditions": [
+    "Owner verifies the DrivenData weekly submission cap before uploading; this project cannot observe the account quota.",
+    "PROJECTION (0.337) is a TPw-affine model calibrated to USER-REPORTED anchor scores. It is not a score. No 0.3195 or 0.4413 claim is organizer-confirmed.",
+    "Literal broad-registry reading: any grid-conforming dot field exceeds 70% within 3 px of the registered spacing-5 lattice (witness in run card); approval holds only under the disclosed discrete-peer scope frozen in knowledge/2026-10-26_h31z_preregistration.md section 2. If the owner re-imposes the literal reading, this approval reverts to STOP.",
+    "Lane verdict for H31-Z is negative under its stricter lane gate G3 (must beat the JUNC incumbent); promotion is the separate selector step under owner protocol rule 6 and does not rewrite the lane verdict."
+  ]
+}
