@@ -258,7 +258,8 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
         hero, body = current_site.overview(current)
         body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
         rbu = load("evidence/regime31b/run_card.json") or load("evidence/regime31/run_card.json")
-        desc = ("Download the new MAGREST research TIFF. Format-valid; not approved for upload."
+        desc = ("Download the selector-approved H31-Z primary TIFF (conditions in the decision); "
+                "all other files are research-only."
                 if not rbu else
                 ("RBU31 regime-balanced union: newly computed, duplicate-screened GeoTIFF passing every automated "
                  "validation gate. OK to download and submit." if rbu.get("ok_to_download_and_submit") else
@@ -394,7 +395,15 @@ def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     current = load("registry/current_run.json")
     if current:
         rbu = load("evidence/regime31b/run_card.json") or load("evidence/regime31/run_card.json")
-        if rbu and rbu.get("ok_to_download_and_submit"):
+        decision = load("registry/selector_decision_20261026.json", {})
+        prim = (decision or {}).get("primary_submission") or {}
+        if prim.get("lane"):
+            hero = page_hero("Download + submission guide",
+                             f"Approved primary: {prim['lane']}. Everything else: do not submit.",
+                             "The selector decision below names the only approved file, its unique name, "
+                             "portal note, estimated score (a projection, never a score) and conditions. "
+                             "All other artifacts keep their do-not-submit verdicts.")
+        elif rbu and rbu.get("ok_to_download_and_submit"):
             hero = page_hero("Download + submission guide", "OK to download and submit: RBU31.",
                              "The approved file, its unique name, portal note and gate-by-gate automated decision "
                              "are together below. Older artifacts keep their own do-not-submit verdicts.")

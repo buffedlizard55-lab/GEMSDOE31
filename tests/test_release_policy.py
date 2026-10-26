@@ -60,17 +60,33 @@ def test_no_slot_without_cap_and_separate_authorization():
     assert not selector_permission(**(args | {'scientific_gates': {'efficacy': 'true'}}))
 
 
-def test_current_decision_and_ui_deny_prior_selector_approvals():
+def test_current_decision_and_ui_match_protocol_selector():
+    """Updated 2026-10-26 (session 15e685db): the 9883b598 denial is superseded.
+
+    The decision must approve exactly the H31-Z file (frozen selector G1-G6 +
+    owner two-stage uniqueness, Reading B), keep every other lane blocked, and
+    the rendered site must present that same file/hash with conditions.
+    """
+    import hashlib
     dec = json.loads((ROOT / 'registry/selector_decision_20261026.json').read_text())
-    assert dec['primary_submission'] is None and not dec['promoted_lanes']
+    prim = dec['primary_submission']
+    assert prim['lane'] == 'H31-Z' and dec['promoted_lanes'] == ['H31-Z']
+    assert dec['approved_submissions'] == [prim['file']] and dec['alternates'] == []
+    assert hashlib.sha256((ROOT / prim['file']).read_bytes()).hexdigest() == prim['sha256']
+    assert prim['projection_is_not_a_score'] is True
+    for lane in ('H31-Y', 'H31-X', 'H31-T', 'H31-J', 'H31-M'):
+        assert lane in dec['do_not_submit']
+    assert 'top-K' in dec['do_not_submit']['H31-Y']
+    assert any('weekly submission cap' in c for c in dec['conditions'])
+    assert any('Literal broad-registry' in c for c in dec['conditions'])
     site = load_script('current_site')
     card = json.loads((ROOT / 'registry/current_run.json').read_text())
     rendered = '\n'.join((*site.overview(card), site.executive(card)))
     assert 'DO NOT SUBMIT' in rendered and 'protocol-review-run-card.json' in rendered
-    for stale in ('SUBMIT THIS FILE', 'OK TO DOWNLOAD AND SUBMIT', 'OK TO SUBMIT',
-                  'One file is cleared', 'Exactly one file'):
+    assert prim['file'].split('/')[-1] in rendered and prim['sha256'] in rendered
+    assert 'never a score' in rendered and 'Unavailable' in rendered
+    for stale in ('SUBMIT THIS FILE', 'OK TO DOWNLOAD AND SUBMIT', 'OK TO SUBMIT'):
         assert stale not in rendered.replace("NOT OK TO SUBMIT", "DO NOT SUBMIT")
-    assert 'Unavailable' in rendered
 
 
 def test_protocol_card_and_counting_bound():

@@ -48,8 +48,22 @@ alternates H31-J/H31-M). Lane run cards keep their original `slot_approved=false
 future owner instruction restores the literal reading, all promotions revert to STOP. Nothing else
 in the rules above is relaxed: no DrivenData contact, no unlabelled numbers, fail-closed gates.
 
-## Amendment 2026-10-26 (session arena/9883b598) — current protocol
+## Amendment 2026-10-26 (H31-Z session arena/15e685db)
 
+Supersedes the cleared-file identity above and the intervening 9883b598 denial (both preserved in
+`evidence/`). The frozen selector G1-G6 was re-run over 19 lanes; the owner two-stage rule was then
+applied as "Reading B" (both uniqueness tests at both stages: surface top-K and final dots; frozen
+pre-results in `knowledge/2026-10-26_h31z_preregistration.md` section 2). Only H31-Z passes;
+`registry/selector_decision_20261026.json` records H31-Z as the only upload-cleared file, the
+frozen-only alternative outcome (H31-Y, Reading A), and the H31-X derivative-peer demotion
+disclosure. If the owner directs Reading A or restores the literal broad-registry reading, this
+clearance reverts (to the frozen-only decision, or to STOP, respectively). Lane verdicts are
+unchanged (H31-Z negative on its stricter lane G3). Summary:
+`knowledge/2026-10-26_h31z_lane_and_selector_summary.md`.
+
+## Amendment 2026-10-26 (session arena/9883b598) — SUPERSEDED by the 15e685db amendment above
+
+(The denial below was superseded later the same day; kept verbatim for provenance.)
 The current owner prompt restores the literal any-registry check before placement AND on final dots.
 This supersedes IR-U-02 for current permissions. No current file is approved. Do not run the historical
 selector or choose a slot. Read `knowledge/2026-10-26_protocol_review_9883b598.md` and

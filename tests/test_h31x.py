@@ -59,10 +59,15 @@ def test_lane_vs_selector_disclosure(card):
     assert x is not None
     assert x["lane_card_verdict"] == card["verdict"]
     u = card["correlation_overlap_vs_registry"]
-    # owner's duplicate rule on the submitted dots and the surface rank correlation
-    owner_rule_unique = (u["discrete_max_final_overlap_3px"] <= 0.70
-                         and u["max_abs_spearman_surface"] <= 0.90 and u["max_abs_spearman_dots"] <= 0.90)
-    assert owner_rule_unique
+    # Reading A (H31-X-era): final dots + rank correlations only -> unique.
+    reading_a_unique = (u["discrete_max_final_overlap_3px"] <= 0.70
+                        and u["max_abs_spearman_surface"] <= 0.90 and u["max_abs_spearman_dots"] <= 0.90)
+    assert reading_a_unique
+    # Reading B (both tests at both stages, applied 2026-10-26 session 15e685db):
+    # the pre-placement surface top-K test fails, so H31-X is not conforming now.
+    assert u["discrete_max_topk_overlap_3px"] > 0.70
+    assert "H31-X" in dec["do_not_submit"] and "H31-X" not in dec["promoted_lanes"]
+    assert dec["readings_disclosure"]["reading_applied"].startswith("B")
     if card["gates"]["G5_uniqueness_discrete"] is False:
         # the stricter lane gate can only fail through the pre-placement top-K diagnostic
         assert u["discrete_max_topk_overlap_3px"] > 0.70

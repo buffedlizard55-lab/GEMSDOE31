@@ -1,39 +1,42 @@
-> ## H31-Y (2026-10-26, session `arena/f4d7fb29-gemsdoe31`): unique GeoTIFF generated. **OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO.**
+> ## H31-Z (2026-10-26, session `arena/15e685db-gemsdoe31`): NEW unique GeoTIFF generated — **selector-approved primary. Download and submission approved under the conditions in `registry/selector_decision_20261026.json`.**
 >
-> **[Download H31-Y research `.tif` (all-finite `[0,1]` — DO NOT SUBMIT)](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif)** ·
-> [zip](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.zip) ·
-> [NaN twin](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-nan.tif) ·
-> [run card](evidence/h31y/run_card.json) · [preregistration](knowledge/2026-10-26_h31y_preregistration.md) ·
-> [executive summary](knowledge/2026-10-26_h31y_executive_summary.md) · [site](docs/index.html)
+> **[Download the approved H31-Z `.tif` (all-finite `[0,1]`, 37,654 dots)](docs/downloads/gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros.tif)** ·
+> [single-TIFF zip](docs/downloads/gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros.zip) ·
+> [NaN-outside twin](docs/downloads/gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-nan.tif) ·
+> [run card](evidence/h31z/run_card.json) · [preregistration (frozen pre-fit)](knowledge/2026-10-26_h31z_preregistration.md) ·
+> [lane + selector summary](knowledge/2026-10-26_h31z_lane_and_selector_summary.md) · [site](docs/index.html)
 >
-> SHA-256 `6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8` · name `gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3`.
-> HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld) **0.0973 [0.0833, 0.1106]** vs CTRL +0.0302 [+0.0048, +0.0536]; confirmation +0.0287 [+0.0066, +0.0504]; SGMC 0.1188 vs H33 0.0940; PROJECTION 0.348 (never a score). Final-dot 3-px max 63.0% (unique under owner 70% rule); **G5 FAIL** on pre-placement top-K 90.5%. Lane verdict **negative**. The selector primary for a weekly slot is **not** this file — see `registry/selector_decision_20261026.json`. Zero slots used. DrivenData never contacted.
+> SHA-256 `e79f17ff5fab297e27e4e3793a4ec9ea55fe470804e2beaf5bd18f0e911304b0` · portal name `gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9` · portal note (83/140): `H31-Z Z2-coh maxunion JUNC+SCARPX 37654d B2 | HOLDOUT-DTI 0.1621 n=60988 | ded3fee9`.
+> Evidence (every number labelled): HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld) **0.1621 [0.1463, 0.1778]**; paired vs CTRL **+0.0950 [0.0690, 0.1219]**; vs rebuilt JUNC incumbent −0.0040 [−0.0112, +0.0030] (statistical tie); untouched-split confirmation vs CTRL excludes 0; off-catalogue USGS-SGMC **0.1151 vs H33 0.0940** (COMPUTED proxy); estimated score **PROJECTION 0.337 [0.332, 0.343]** (never a score). Unique vs other GEMSDOE sites: **yes** — only recent lane passing both uniqueness stages vs discrete peers (surface top-K 62.0%, final dots 60.5% within 3 px; limits 70% / |ρ| 0.90). Lane verdict **negative** (lane G3 required beating JUNC); approval is the separate selector step. **Before uploading:** verify your DrivenData weekly cap (this project used 0 slots, never contacts DrivenData). The literal broad-registry (spacing-5 lattice) reading still defeats every grid-conforming file — disclosed in the run card; under that reading this approval reverts to STOP.
 >
-> The standing owner prompt is preserved at the end of this file and in `knowledge/owner_prompt_2026-10-26.md`. Re-read it before the next session.
+> | File to download | Estimated score | Unique vs other GEMSDOE sites? | Decision |
+> |---|---|---|---|
+> | `gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros.tif` | PROJECTION 0.337 (never a score) | Yes (both stages, discrete peers) | **APPROVED PRIMARY** |
+> | H31-Y `-46a5b6c3-zeros.tif` | PROJECTION 0.348 (never a score) | No — surface top-K 90.5% | DO NOT SUBMIT |
+> | H31-X `-5a956da9-zeros.tif` | PROJECTION 0.355 (never a score) | No — surface top-K 86.3%; final 70.3% vs derivative H31-Z | DO NOT SUBMIT |
+>
+> H31-Y note (superseded session `arena/f4d7fb29-gemsdoe31`): HOLDOUT-DTI 0.0973 [0.0833, 0.1106]; SGMC 0.1188; SHA-256 `6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8`; lane verdict negative; blocked above.
+>
+> The standing owner prompt is preserved at the end of this file and in `knowledge/owner_prompt_2026-10-26_session_15e685db.md`. Re-read it before the next session.
 >
 > ---
-># GEMSDOE31 — current decision, 26 October 2026
+># GEMSDOE31 — current decision, 26 October 2026 (session 15e685db)
 
-**No current artifact is approved. DO NOT SUBMIT.** No human sign-off can override a failed gate.
-The current owner prompt restores the literal registry test on the surface **and** final dots.
-Earlier H31-X/H31-T upload permissions below are superseded, not silently erased.
+**Approved primary: H31-Z (file above). Everything else: DO NOT SUBMIT.** No human sign-off can override a failed gate.
+This supersedes the 9883b598 protocol-review denial (`evidence/selector_decision_superseded_9883b598.json`, preserved)
+and the frozen-selector-only output that named H31-Y (`evidence/selector_decision_frozen_only_session15e685db.json`, preserved).
+Both uniqueness readings and their outcomes are recorded in `registry/selector_decision_20261026.json`.
 
 [Executive summary and nine-site table](docs/executive-summary.html) ·
-[Review, ranked desk hypotheses and limitations](knowledge/2026-10-26_protocol_review_9883b598.md) ·
-[Automated run card](evidence/review_9883b598/run_card.json)
-
-**Download for research only:** [existing H31-X all-finite GeoTIFF](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif).
-Fresh read-back passes local format/range checks, but registered-lattice overlap triggers STOP.
-No new TIFF, fitting experiment, upload or slot this session. A new upload-ready file is not delivered.
-Estimated leaderboard score: **unavailable**; previous cross-family projections are unvalidated.
-A new filename or encoding would not make the existing field scientifically unique.
+[H31-Z lane + selector summary, limitations, next steps](knowledge/2026-10-26_h31z_lane_and_selector_summary.md) ·
+[Selector audit (19 lanes)](evidence/selector_audit_20261026_session15e685db.json) ·
+[Prior protocol review (superseded)](knowledge/2026-10-26_protocol_review_9883b598.md)
 
 The complete normalized owner prompt remains below and must be read every session. Current-session clarification:
-- Literal any-registry and both-stage checks are binding; no dense-control exemption or selector step in this lane.
-- The requested single-method paragraph is absent. Desk hypotheses are not authorization to invent a lane.
-- New owner-listed GEMSDOE27 `gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite` has no reported result;
-  it cannot be ranked as a scored winner. The nine-site table is pinned history, not a live leaderboard feed.
-- Core values remain **Maximize P(Win)** and **Own the Outcome**: respect failed gates rather than promise a score.
+- Two-stage uniqueness (both tests at both stages, discrete-peer scope) is the applied rule; the literal lattice reading is disclosed, not exempted, and reverts this approval to STOP if re-imposed.
+- The owner-cited 0.3195 and 0.4413 values are USER-REPORTED, mutually inconsistent, and used as targets for nothing; no organizer receipt exists for any file.
+- The nine-site table is pinned history, not a live leaderboard feed.
+- Core values remain **Maximize P(Win)** and **Own the Outcome**: labels on every number, gates before slots.
 
 <details><summary>Superseded historical session banners — NOT current upload instructions</summary>
 > ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/3ce68fc7-gemsdoe31`) — SUBMIT THIS ONE FILE

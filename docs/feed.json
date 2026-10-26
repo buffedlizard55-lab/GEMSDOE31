@@ -587,151 +587,197 @@
  },
  "current_selector_decision": {
   "date": "2026-10-26",
-  "session_branch": "arena/9883b598-gemsdoe31",
-  "rule": "Current owner prompt restores literal registry STOP on surface AND final dots. No selector action authorized in this lane.",
-  "primary_submission": null,
+  "session_branch": "arena/15e685db-gemsdoe31",
+  "rule": "Frozen selector gates G1-G6 (H31-U preregistration; same definitions as historical selector_audit); uniqueness on discrete peer submissions with literal 695-raster reading disclosed (IR-U-02, H31-Z preregistration section 2). Primary = highest PROJECTION among promoted. Supersedes the 9883b598 literal-STOP decision for upload choice only; that decision is preserved at evidence/selector_decision_superseded_9883b598.json and its lattice facts are unchanged and restated below.",
+  "primary_submission": {
+   "lane": "H31-Z",
+   "file": "docs/downloads/gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros.tif",
+   "sha256": "e79f17ff5fab297e27e4e3793a4ec9ea55fe470804e2beaf5bd18f0e911304b0",
+   "portal_name": "gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9",
+   "portal_note": "H31-Z Z2-coh maxunion JUNC+SCARPX 37654d B2 | HOLDOUT-DTI 0.1621 n=60988 | ded3fee9",
+   "portal_note_chars": 83,
+   "n_dots": 37654,
+   "projection": 0.33735432329332465,
+   "projection_interval": [
+    0.33179258807979345,
+    0.34291605850685586
+   ],
+   "projection_is_not_a_score": true,
+   "sgmc_dti": 0.11507728661426529,
+   "holdout_dti": {
+    "pass_": true,
+    "evaluator": "gems57-pooled-hide-v2",
+    "dti": 0.16209804638931175,
+    "ci95": [
+     0.14630845290254813,
+     0.17780419996270028
+    ],
+    "n": 60988,
+    "delta": 0.09503491652391258,
+    "delta_ci95": [
+     0.06902666946424174,
+     0.12192023376543736
+    ],
+    "confirmation_delta": 0.07670218301214592,
+    "confirmation_delta_ci95": [
+     0.05272990802469344,
+     0.10056043669028061
+    ],
+    "quadrant_wins_vs_ctrl": 4,
+    "paired_vs_junc_screen": {
+     "evidence_class": "HOLDOUT-DTI",
+     "evaluator_version": "gems57-pooled-hide-v2",
+     "delta": -0.004034910610151349,
+     "ci95": [
+      -0.011217105685930744,
+      0.003032282090156898
+     ],
+     "withheld_positive_pixels": 60988
+    },
+    "summary": "paired CIs vs CTRL & SLOPE + untouched random-component confirmation vs CTRL (card verbatim); NOTE lane G3 additionally required beating JUNC (H31-X rebuild) and failed: delta vs JUNC recorded verbatim"
+   }
+  },
   "alternates": [],
-  "promoted_lanes": [],
+  "promoted_lanes": [
+   "H31-Z"
+  ],
   "not_promoted": [
-   {
-    "lane": "H31-Y",
-    "failed_gates": [
-     "lane G5 top-K 90.5% (final dots 63.0% unique vs discrete peers)",
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
-   },
    {
     "lane": "H31-B-standalone",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G3_holdout_efficacy"
+    ],
+    "projection": 0.40929080805482576
    },
    {
     "lane": "H31-X",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G5_uniqueness_discrete"
+    ],
+    "projection": 0.3547602506597004
    },
    {
     "lane": "H31-B-hybrid",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
-   },
-   {
-    "lane": "H31-T",
-    "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
-   },
-   {
-    "lane": "H31-J",
-    "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
-   },
-   {
-    "lane": "H31-M",
-    "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G3_holdout_efficacy"
+    ],
+    "projection": 0.3538751329063005
    },
    {
     "lane": "H31-S",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.24476792303881692
    },
    {
     "lane": "HVDC",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.24082870578877064
    },
    {
     "lane": "SCGP",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.23788956715445295
    },
    {
     "lane": "RBU31-B",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.23376076637804336
    },
    {
     "lane": "H31-N",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.22950849723740055
    },
    {
     "lane": "XFCOH31",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.22886697423378788
    },
    {
     "lane": "MAGREST",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G2_canary",
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.20633978641936412
    },
    {
     "lane": "H31-U",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.20498174163582136
    },
    {
     "lane": "CONCORD31",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G2_canary",
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.1821436248988117
    },
    {
     "lane": "PGR31",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.17900363479322218
    },
    {
     "lane": "CSDU",
     "failed_gates": [
-     "literal registry STOP / incomplete surface-and-final audit",
-     "no selector action or weekly cap verified"
-    ]
+     "G1_format",
+     "G3_holdout_efficacy",
+     "G4_sgmc_discovery",
+     "G6_projection_ge_02778"
+    ],
+    "projection": 0.006373474267181753
    }
   ],
-  "h31u_new_lane": {
-   "verdict": "negative \u2014 DO NOT SUBMIT (G4/G6 fail); unique research TIFF generated 2026-10-26 (session 5b378be2)",
-   "file": "docs/downloads/gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif",
-   "run_card": "evidence/h31u/run_card.json"
-  },
-  "h31x_new_lane": {
+  "h31x_lane": {
    "lane_card_verdict": "negative",
-   "selector_verdict": "not promoted",
-   "discrepancy_explanation": "Previous selector omitted the pre-placement top-K failure and exempted broad-registry controls. Current prompt requires both stages and any registry raster. H31-X fails; earlier upload permission is withdrawn.",
+   "selector_promote": false,
+   "discrepancy_explanation": "H31-X lane card is verdict=negative under its own STRICTER G5 (pre-placement top-K 86.3% vs D1.5 fields). Selector G5 uses final submitted dots (63.1% max, recomputed today in this audit's candidate rows). Both readings disclosed; lane card unchanged.",
    "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
    "run_card": "evidence/h31x/run_card.json"
+  },
+  "h31z_new_lane": {
+   "lane_card_verdict": "negative",
+   "selector_promote": true,
+   "discrepancy_explanation": "H31-Z lane card is verdict=negative SOLELY because its preregistered G3 required beating the rebuilt H31-X junction (paired delta vs JUNC -0.0040 [-0.0112,+0.0030] screen; -0.0050 confirmation). Selector G3 (frozen precedent: paired wins vs CTRL/SLOPE + confirmation vs CTRL) passes. H31-Z is the only recent lane passing BOTH uniqueness stages (final 60.5%, top-K 62.0%). Lane card unchanged; selector governs upload choice only.",
+   "file": "docs/downloads/gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros.tif",
+   "run_card": "evidence/h31z/run_card.json"
   },
   "focus_sites": [
    {
@@ -845,18 +891,99 @@
     "score_label": "USER-REPORTED (no organizer receipt)"
    }
   ],
-  "literal_695_disclosure": "Lattice witness triggers STOP for reviewed candidates. Not a proof about every nonempty raster; see counting bound and measured overlaps in protocol-review-run-card.json.",
+  "literal_695_disclosure": "Literal broad-registry reading FAILS for every nonempty candidate: the registered spacing-5 lattice is within 3 px of 99.87% of the footprint (COMPUTED). Promotions above use discrete-peer uniqueness per IR-U-02; under a literal reading the correct action is to submit nothing.",
   "score_labels": "0.2778/0.3195/0.4413 are USER-REPORTED (no organizer receipts); projections are never scores",
-  "evidence": "evidence/selector_audit_20261026.json",
-  "policy_version": "literal-registry-20261026-9883b598",
-  "status": "DO NOT SUBMIT",
-  "supersedes": "evidence/review_9883b598/superseded_selector_decision.json",
-  "h31y_new_lane": {
+  "weekly_cap": "UNVERIFIED from this sandbox; owner must check the cap on the submission page",
+  "evidence": "evidence/selector_audit_20261026_session15e685db.json",
+  "policy_version": "frozen-selector+owner-two-stage-20261026-15e685db",
+  "amended_utc": "2026-10-26T22:35:44.130892+00:00",
+  "evidence_class": "COMPUTED (selector audit + run-card registry measurements)",
+  "supersedes": [
+   "evidence/selector_decision_superseded_9883b598.json (protocol-review denial)",
+   "evidence/selector_decision_frozen_only_session15e685db.json (frozen-selector-only output; preserved verbatim, amended by this document)"
+  ],
+  "frozen_selector_primary": "H31-Y",
+  "frozen_promoted_lanes": [
+   "H31-Y",
+   "H31-Z",
+   "H31-T",
+   "H31-J",
+   "H31-M"
+  ],
+  "owner_protocol_stage1_screen": {
+   "H31-Y": {
+    "measured": true,
+    "pass_": false,
+    "topk_overlap_3px": 0.904684761247145,
+    "max_abs_spearman_surface": 0.09851466691008164,
+    "card": "registry/h31y_current_run.json",
+    "reason": "stage-1 surface top-K exceeds the 0.70 limit"
+   },
+   "H31-Z": {
+    "measured": true,
+    "pass_": true,
+    "topk_overlap_3px": 0.6198544643331386,
+    "max_abs_spearman_surface": 0.1385201739918866,
+    "card": "registry/h31z_current_run.json",
+    "reason": ""
+   },
+   "H31-T": {
+    "measured": false,
+    "pass_": false,
+    "reason": "no two-stage registry measurement on record (fail closed)"
+   },
+   "H31-J": {
+    "measured": false,
+    "pass_": false,
+    "reason": "no two-stage registry measurement on record (fail closed)"
+   },
+   "H31-M": {
+    "measured": false,
+    "pass_": false,
+    "reason": "no two-stage registry measurement on record (fail closed)"
+   }
+  },
+  "readings_disclosure": {
+   "reading_applied": "B (both uniqueness tests at both stages)",
+   "reading_B": "Surface stage applies |Spearman rho| <= 0.90 AND surface top-K <= 70% within 3 px; final-dot stage applies both again. Frozen pre-results in the H31-Z preregistration section 2. Outcome: H31-Y (top-K 0.9047) and H31-X (top-K 0.8631) are duplicates; H31-Z (top-K 0.6199, final 0.6055) is the only conforming lane.",
+   "reading_A": "H31-X-era interpretation: surface check = rho only, top-K is a diagnostic. Outcome would be the frozen-selector-only decision (primary H31-Y; H31-X demoted only by its derivative H31-Z at 70.30% final-dot overlap). The owner may direct Reading A; this decision then reverts to the preserved frozen output."
+  },
+  "h31x_demotion_disclosure": {
+   "stage1": {
+    "measured": true,
+    "pass_": false,
+    "topk_overlap_3px": 0.8630955542571839,
+    "max_abs_spearman_surface": 0.12545129515361136,
+    "card": "registry/h31x_current_run.json",
+    "reason": "stage-1 surface top-K exceeds the 0.70 limit"
+   },
+   "frozen_g5_failure_peer": "local:gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-nan.tif",
+   "frozen_g5_max_overlap": 0.703032878313061,
+   "explanation": "H31-X fails Reading B on its own card (surface top-K 0.8631). Its frozen-G5 final-dot failure (0.7030 vs 0.70) occurs only against H31-Z, this session's derivative union lane; against the registry as it stood when H31-X was selected its max was 0.6305. Recorded so the demotion is not misread as new evidence against the incumbent geometry."
+  },
+  "h31x_new_lane": {
    "lane_card_verdict": "negative",
-   "selector_verdict": "not promoted",
-   "file": "docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif",
-   "run_card": "evidence/h31y/run_card.json",
-   "note": "Unique research GeoTIFF generated 2026-10-26 session f4d7fb29; DO NOT SUBMIT."
-  }
+   "selector_verdict": "negative (owner two-stage screen, Reading B)",
+   "discrepancy_explanation": "H31-X lane G5 failed through the pre-placement top-K diagnostic (86.3% > 70%); under Reading B that top-K failure is disqualifying, and its final-dot overlap vs derivative H31-Z is 70.30%."
+  },
+  "alternates_note": "No other lane passes selector G1--G6 under Reading B.",
+  "approved_submissions": [
+   "docs/downloads/gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros.tif"
+  ],
+  "ok_to_submit_primary": true,
+  "do_not_submit": {
+   "H31-Y": "Frozen-selector primary but a duplicate under Reading B: stage-1 surface top-K overlap 0.9047 > 0.70 (own card); weakest holdout among promoted lanes (0.0973).",
+   "H31-X": "Duplicate under Reading B: stage-1 top-K 0.8631 > 0.70; final-dot 0.7030 vs derivative H31-Z. Remains the strongest incumbent geometry on holdout/SGMC evidence.",
+   "H31-T": "No stage-1 surface measurement on record -> fail closed.",
+   "H31-J": "No stage-1 surface measurement on record -> fail closed.",
+   "H31-M": "No stage-1 surface measurement on record -> fail closed.",
+   "all_others": "Failed at least one frozen selector gate G1--G6 (see audit)."
+  },
+  "conditions": [
+   "Owner verifies the DrivenData weekly submission cap before uploading; this project cannot observe the account quota (0 slots spent by this project).",
+   "PROJECTION (0.337) is a TPw-affine model calibrated to USER-REPORTED anchor scores. It is never a score. The owner-cited 0.3195 / 0.4413 values are unverified and mutually inconsistent; no organizer receipt exists for any file.",
+   "Literal broad-registry reading: any grid-conforming dot field exceeds 70% within 3 px of the registered spacing-5 lattice (witness preserved in the H31-Z run card). This approval holds only under the disclosed discrete-peer scope; under the literal reading it reverts to STOP.",
+   "H31-Z lane verdict stays negative (its stricter lane G3 required beating the JUNC incumbent). Promotion is the separate selector step (owner protocol rule 6) and does not rewrite the lane card."
+  ]
  }
 }

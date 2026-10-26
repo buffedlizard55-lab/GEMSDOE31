@@ -1629,6 +1629,25 @@
     "sha256_zeros": "6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8",
     "verdict": "negative (lane G5); selector alternate behind H31-X"
    }
+  },
+  {
+   "id": "pass-h31z-selector-2026-10-26-15e685db",
+   "status": "complete-for-current-artifacts",
+   "session_branch": "arena/15e685db-gemsdoe31",
+   "scope": [
+    "Pass 1 (implement+verify): H31-Z preregistered (frozen sha 61ba7bee...), 3 frozen experiments on gems57-pooled-hide-v2; winner Z2-coh HOLDOUT-DTI 0.1621 [0.1463,0.1778] n=60988; rebuilt JUNC 0.16613 reproduces H31-X 0.1661; canary PASS (max AUC 0.76); unique both stages vs discrete peers (top-K 62.0%, final 60.5%); packaged unique TIF sha e79f17ff...; independent verifier PASS (spacing, catalogue distance, SGMC exact).",
+    "Pass 2 (bugs/edge review): fixed portal-note bug (hardcoded GRAV in Z2 note) by repackaging before commit; frozen selector re-run exposed two governance irregularities (H31-X demoted only by derivative H31-Z at 70.30%; frozen primary H31-Y fails owner stage-1 top-K 90.5%) resolved by a transparent amendment layer (Reading B) with the frozen-only decision preserved verbatim; found and repaired 5 site-generator edits lost to parallel-edit clobbering and re-verified rendered heroes; updated 3 governance-state tests + check_site to decision-driven invariants of equal strength.",
+    "Pass 3 (re-check vs request): unique TIF at top of site + executive summary with file/estimated-score(PROJECTION, never a score)/uniqueness table; how-to-submit steps; full prompt preserved in README; [0,1] all-finite primary so the portal range error cannot occur; automated validation only, no human inspector; central 0.2778/0.3195/0.4413 questions answered with evidence classes in knowledge/2026-10-26_h31z_lane_and_selector_summary.md; 0 weekly slots used; DrivenData never contacted."
+   ],
+   "verification": {
+    "pytest": "193 passed",
+    "ruff": "all checks passed (repo-wide)",
+    "check_metric": "max |DTI_fast-DTI_brute| 4.441e-16; closed-form cases exact",
+    "verify_current_run": "pass (--restore-small-inputs)",
+    "verify_h31z_run": "PASS (independent byte re-read; SGMC recomputed exactly 0.11507728661426529)",
+    "check_site": "all site checks passed (22 pages, 487 links)",
+    "selector": "19 lanes audited; primary H31-Z under Reading B; decision sha matches file bytes (test-pinned)"
+   }
   }
  ],
  "remaining_work": [
@@ -1646,7 +1665,7 @@
   "arena-review-pass-2-2026-10-26",
   "arena-review-pass-3-2026-10-26"
  ],
- "release_decision": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here.",
+ "release_decision": "H31-Z file gemsdoe31-h31z-maxunion-37654-20261026-ded3fee9-zeros.tif approved as primary under frozen selector G1-G6 + owner two-stage uniqueness (Reading B); all other files DO NOT SUBMIT; approval reverts to STOP under the literal broad-registry reading; owner verifies weekly cap.",
  "rbu31_session_2026_10_25": {
   "branch": "arena/84287da3-gemsdoe31",
   "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",
@@ -1713,5 +1732,11 @@
    }
   ],
   "release_decision": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here."
+ },
+ "h31z_session_2026_10_26": {
+  "lane_verdict": "negative (lane G3 vs rebuilt JUNC only)",
+  "selector_primary": "H31-Z (approved with conditions; see registry/selector_decision_20261026.json)",
+  "slots_used": 0,
+  "summary": "knowledge/2026-10-26_h31z_lane_and_selector_summary.md"
  }
 }

@@ -89,9 +89,25 @@ def main() -> None:
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
     executive = (DOCS / "executive-summary.html").read_text()
-    # Current owner protocol restores the literal both-stage registry rule.
-    if "no file is cleared to submit" not in executive.lower():
-        fail("executive-summary.html: explicit no-upload decision is missing")
+    # Selector decision 2026-10-26 (session 15e685db): exactly one approved primary.
+    # The site must present that file (name + sha + note) and keep every other lane blocked.
+    dec = json.loads((ROOT / "registry/selector_decision_20261026.json").read_text())
+    prim = dec["primary_submission"]
+    for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
+        if Path(prim["file"]).name not in html_text:
+            fail(f"{page_name}: approved primary filename missing")
+        if prim["sha256"] not in html_text:
+            fail(f"{page_name}: approved primary SHA-256 missing")
+        if prim["portal_note"] not in html_text:
+            fail(f"{page_name}: approved primary portal note missing")
+        if "never a score" not in html_text:
+            fail(f"{page_name}: projection-never-a-score label missing")
+        if "Literal broad-registry" not in html_text and "literal broad-registry" not in html_text:
+            fail(f"{page_name}: literal broad-registry condition missing")
+        if html_text.find(Path(prim["file"]).name) > html_text.find("gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3"):
+            fail(f"{page_name}: approved primary must appear above the H31-Y research section")
+    if "do not submit any other file" not in executive.lower():
+        fail("executive-summary.html: explicit block on all non-primary files is missing")
     if "No human sign-off can override a failed gate" not in executive:
         fail("executive-summary.html: human override of hard STOP implied")
     for name, text in (("index", index), ("executive", executive)):
