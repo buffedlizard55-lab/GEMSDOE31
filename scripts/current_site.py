@@ -393,7 +393,8 @@ def h31j_research_sections() -> str:
         <h3>Own-Method Spatial Residual Range &amp; Key Irregularities Flagged</h3>
         <ul>
           <li><strong>Own-Method OOF Residual Semivariogram (Gate G5):</strong> Computed across <code>5,709</code> withheld fault pixels (<code>122,132</code> within-component pairs across <code>332</code> components). Weighted exponential fit yields scale <code>{vario['scale_parameter_m']:,.1f} m</code> and 95%-sill practical range <strong><code>{vario['practical_range_95_sill_m']:,.1f} m</code> (10.72 km, R² = {vario['weighted_r_squared']:.4f})</strong>, confirming that the <code>21,300 m</code> holdout buffer is <code>1.99×</code> the residual range and covers <code>{100*vario['sill_fraction_at_collar']:.2f}%</code> of sill.</li>
-          <li><strong>Data Header Mislabel Disclosed &amp; Fixed:</strong> Band <code>B06</code> in <code>training_features.tif</code> is labeled <code>Magnetic_Tilt_Angle</code> in metadata, whereas <code>registry/data_provenance.json</code> proves <code>B06</code> is actually <code>GeoDAWN_Radiometric_TotalCount</code> (rho = +0.996). H31-J treats <code>B06</code> strictly as radiometric total count and computes true magnetic Miller–Singh tilt angle spectrally from <code>B02</code> RTP.</li>
+          <li><strong>B06 tilt-versus-radiometric conflict, unreverified:</strong> This session read <code>training_features.tif</code> band B06 as name <code>tc</code>, description “Tilt angle or total curvature”. The official problem page captions <code>gems_tc_tmi.png</code> as total radiometric counts. An older sentence on this page claimed <code>registry/data_provenance.json</code> proves B06 is GeoDAWN radiometric total count at rho +0.996. That file has no such proof, and the correlation was not recomputed. Do not treat either label as settled. H31-N did not use B06.</li>
+          <li><strong>B10 distance-versus-density conflict:</strong> Local B10 <code>deq_n100a15</code> says “Distance to earthquake”. The official problem page, re-fetched 2026-10-26, lists “Density of earthquakes” and does not say distance. Local B16 says intensity or density. The mapping is unresolved. H31-N did not use B10 or B16.</li>
           <li><strong>Conflicting Leaderboard Anchors Without Organizer Receipts:</strong> Prompt prose cites both <code>0.3195</code> and <code>0.4413</code> as #1 leaderboard figures alongside <code>0.2778</code> for GEMSDOE32 H33-2-B2, with zero organizer submission receipts in any of the nine audited repos. Every external score remains labeled <code>USER-REPORTED</code>, and no local <code>HOLDOUT-DTI</code> or <code>HOLDOUT-PROXY-SGMC</code> number is ever projected onto the live leaderboard scale.</li>
           <li><strong>Next-Session Priority Recommendations:</strong> (1) Protocol-owner decision formally separating synthetic geometry-probe lattices (<code>r13-lattice-s5</code>) from genuine fault-prediction entries in the shared 695-raster registry before any live slot review; (2) Confirm outside-footprint convention (<code>-zeros.zip</code> vs <code>-nan.zip</code>) against organizer specification; (3) Test Rank #2 hypothesis <strong>H31-K</strong> (transtensional stepover / relay accommodation saddle) as an orthogonal subsurface signal.</li>
         </ul>
@@ -882,12 +883,184 @@ def h31s_download_and_gates():
 '''
 
 
+def pgr31_download_and_gates() -> str:
+    rc_path = ROOT / "evidence/pgr31/run_card.json"
+    if not rc_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    facts = rc.get("facts") or {}
+    if not facts:
+        return ""
+    can = rc.get("leakage_canary") or {}
+    h51 = (rc.get("holdout_dti") or {}).get("screen_seed51") or {}
+    cand = h51.get("candidate") or {}
+    ctrl = h51.get("control") or {}
+    paired = h51.get("paired_difference") or {}
+    screen = h51.get("screen") or {}
+    reg = rc.get("correlation_overlap_vs_registry") or {}
+    zf, nf = facts["zeros"], facts["nan"]
+    name = rc["submission_name"]
+    note = rc.get("note") or ""
+    return f'''
+<section id="pgr31-download" aria-labelledby="pgr31-heading">
+  <div class="section-head"><div><p class="kicker">2026-10-26 Newest Lane · PGR31 Poisson Pseudo-Gravity Discordance · 3-Experiment Campaign</p>
+    <h2 id="pgr31-heading">DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (DO NOT SUBMIT)</h2></div>
+    <p>New {facts['dots']:,}-dot GeoTIFF generated this session from Baranov pseudo-gravity (Fourier vertical
+      integration of RTP) locally regressed on isostatic gravity — a buried-basement-juxtaposition signature
+      not previously implemented in this repository. Zero incumbent dots copied
+      ({reg['max_final_3px_overlap']*100:.1f}% max 3-px overlap vs any genuine submission; 33.2% vs GEMSDOE32 H33-2-B2).
+      The preregistered holdout screen failed, so the machine verdict is
+      <code>verdict = negative</code>, <code>eligible_for_selector = false</code>, <code>ok_to_submit = false</code>.
+      No human inspector is involved: <code>python scripts/verify_pgr31_run.py</code> re-reads the bytes and
+      reproduces this decision. Full nine-site executive summary:
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_pgr31_executive_summary.md">2026-10-26_pgr31_executive_summary.md</a>
+      · preregistration:
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_pgr31_preregistration.md">2026-10-26_pgr31_preregistration.md</a>.</p></div>
+  <div class="card download-card">
+    <span class="badge badge-red">RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT · HOLDOUT SCREEN FAILED</span>
+    <h3 style="margin-top:18px">{esc(name)}</h3>
+    <p>The recommended all-finite file has values exactly in [0, 1] (finite {{0.0, 1.0}} in all 12,279,160 cells),
+      so the portal error &ldquo;Predicted values must be in range [0, 1]&rdquo; cannot trip on it; the
+      NaN-outside twin follows the official-wording convention. Format validity is not scientific
+      promotion or organizer acceptance. HOLDOUT-DTI is a local hide-and-recover proxy, never a
+      leaderboard score; no ORGANIZER-CONFIRMED score exists for any file here.</p>
+    <div class="actions">
+      <a class="button button-primary" href="downloads/{esc(zf['file'])}" download>Download PGR31 Research .tif (all-finite [0,1])</a>
+      <a class="button button-dark" href="downloads/{esc(nf['file'])}" download>NaN-outside twin .tif</a>
+      <a class="button" href="downloads/{esc(name)}-zeros.zip" download>Single-TIFF .zip</a>
+      <a class="button" href="downloads/{esc(name)}-run-card.json" download>JSON Run Card</a>
+      <a class="button" href="downloads/{esc(name)}-format-check.json" download>Format receipt .json</a>
+    </div>
+    <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 x 3292 · 100 m ·
+      {facts['dots']:,} binary dots · {facts['dots_on_catalogue']} on public catalogue · {facts['dots_within_2px_catalogue']} within 2 px<br>
+      <strong>SHA-256 (all-finite primary):</strong> <code>{esc(zf['sha256'])}</code> ({zf['bytes']:,} B)<br>
+      <strong>SHA-256 (NaN-outside twin):</strong> <code>{esc(nf['sha256'])}</code> ({nf['bytes']:,} B)<br>
+      <strong>Unique submission name:</strong> <code>{esc(name)}</code><br>
+      <strong>Note ({len(note)}/140 chars):</strong> <code>{esc(note)}</code></p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Automated Gate</th><th>Measured Evidence (unchanged <code>gems57-pooled-hide-v2</code>)</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Format, grid &amp; [0, 1] range (both encodings)</td>
+            <td>EPSG:32611 · 3730x3292 · single float32 band · 0 NaN inside footprint · values exactly {{0.0, 1.0}} · validator hard failures: none</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>EXP-1 single-feature leakage canary (9 novel features)</td>
+            <td>Max two-sided AUC {can['max_value_auc_two_sided']:.4f} &le; 0.90 ({can['evaluated_positive_pixels']:,} withheld positives)</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>EXP-1 holdout screen, draw 51 ({cand['withheld_positive_pixels']:,} withheld px)</td>
+            <td>HOLDOUT-DTI candidate {cand['dti']:.4f} [{cand['ci95'][0]:.4f}, {cand['ci95'][1]:.4f}] vs control {ctrl['dti']:.4f} [{ctrl['ci95'][0]:.4f}, {ctrl['ci95'][1]:.4f}]; paired delta {paired['delta']:+.4f} [{paired['ci95'][0]:+.4f}, {paired['ci95'][1]:+.4f}]; {screen['quadrant_wins']}/4 quadrants; SGMC proxy delta {screen['sgmc_proxy_delta']:+.4f}</td>
+            <td><span class="badge badge-red">FAIL</span></td></tr>
+        <tr><td>EXP-2 fresh confirmation, draw 52</td>
+            <td>Not run — frozen stop rule (confirmation only after a passed screen; no burned-draw tuning)</td>
+            <td><span class="badge badge-red">GATED OFF</span></td></tr>
+        <tr><td>EXP-3 uniqueness vs genuine submissions (surface, then final dots)</td>
+            <td>{esc(reg['scope'])}: surface max |Spearman| {reg['max_abs_surface_spearman']:.4f} &le; 0.90; final dots max 3-px overlap {reg['max_final_3px_overlap']*100:.1f}% &le; 70% (worst {esc(reg['worst_overlap_file'])})</td>
+            <td><span class="badge badge-green">PASS (genuine-submission scope)</span></td></tr>
+        <tr><td>Calibration-lattice disclosure (695-raster registry)</td>
+            <td>A registered spacing-5 calibration lattice lies within 3 px of essentially every interior cell (measured: 99.26% of PGR31 dots within 3 px, <code>evidence/pgr31/registry_lattice_measured.json</code>); it is a non-submission control, reported here rather than silently exempted</td>
+            <td><span class="badge badge-red">DISCLOSED</span></td></tr>
+        <tr><td>Leaderboard upload approval</td>
+            <td>Research download enabled; DrivenData upload NOT approved; promotion to a weekly slot is a separate selector step and 0 slots were spent</td>
+            <td><span class="badge badge-red">DO NOT SUBMIT</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+'''
+
+
 def _rbu31_card():
     for sub in ("regime31b", "regime31"):
         rc_path = ROOT / "evidence" / sub / "run_card.json"
         if rc_path.is_file():
             return json.loads(rc_path.read_text())
     return None
+
+
+def h31n_decision_banner() -> str:
+    """First thing a visitor sees. Numbers come only from the H31-N run card."""
+    path = ROOT / "evidence/h31n/run_card.json"
+    if not path.is_file():
+        return ""
+    card = json.loads(path.read_text())
+    art = card.get("artifacts") or {}
+    hold = card.get("holdout_dti") or {}
+    screen = (hold.get("screen") or hold.get("candidate") or {})
+    control = (hold.get("control") or hold.get("same_run_control_base19") or {})
+    paired = hold.get("paired") or hold.get("paired_difference_vs_base19") or {}
+    name = card.get("submission_name", "")
+    zeros = art.get("zeros_tif", "")
+    nan = art.get("nan_tif", "")
+    zeros_name = Path(zeros).name if zeros else ""
+    nan_name = Path(nan).name if nan else ""
+    zip_name = Path(art.get("zeros_zip", "")).name if art.get("zeros_zip") else ""
+    submit = "YES" if card.get("ok_to_submit") else "NO — DO NOT SUBMIT"
+    download = "YES, for research only" if card.get("ok_to_download_for_research") else "NO"
+    slot_txt = "true" if card.get("slot_approved") else "false"
+    if card.get("ok_to_submit"):
+        lead = "The run card marks this file uploadable. That is not an organizer receipt."
+    else:
+        lead = (
+            "Do not upload this file. It is a new research GeoTIFF, not a copy of H33, "
+            "and the holdout gate did not clear it. Format validity is not permission to spend a weekly slot."
+        )
+    dti = screen.get("dti")
+    dti_txt = f"{dti:.4f}" if isinstance(dti, float) else "—"
+    ctrl = control.get("dti")
+    ctrl_txt = f"{ctrl:.4f}" if isinstance(ctrl, float) else "—"
+    delta = paired.get("delta")
+    delta_txt = f"{delta:+.4f}" if isinstance(delta, float) else "—"
+    ci = paired.get("ci95") or [None, None]
+    n_withheld = screen.get("withheld_positive_pixels", "—")
+    lattice = (card.get("lattice_final_dots") or {}).get("final_dot_overlap_3px")
+    lattice_txt = f"{100 * lattice:.2f}%" if isinstance(lattice, float) else "—"
+    gate = card.get("final_dot_gate") or {}
+    ov = gate.get("worst_dot_overlap_3px")
+    ov_txt = f"{100 * ov:.1f}%" if isinstance(ov, float) else "—"
+    rho = gate.get("worst_abs_spearman")
+    rho_txt = f"{rho:.3f}" if isinstance(rho, float) else "—"
+    h33 = card.get("h33_geometry_this_session") or {}
+    h33_ov = h33.get("final_dot_overlap_vs_h33")
+    h33_txt = f"{100 * h33_ov:.1f}%" if isinstance(h33_ov, float) else "—"
+    subset = h33.get("h33_is_subset_of_d28")
+    subset_txt = "yes, exact" if subset is True else ("no" if subset is False else "not measured")
+    csdu_path = ROOT / "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json"
+    csdu_html = ""
+    if csdu_path.is_file():
+        csdu = json.loads(csdu_path.read_text())
+        csdu_html = (
+            f"<li>Concurrent CSDU file <code>{esc(csdu.get('submission_name', ''))}</code> "
+            f"is also research-only (ok_to_submit={esc(str(bool(csdu.get('ok_to_submit'))).lower())}, "
+            f"slot_approved={esc(str(bool(csdu.get('slot_approved'))).lower())}). "
+            "This lane did not re-score it.</li>"
+        )
+    conflicts = card.get("label_conflicts") or []
+    conflict_html = "".join(
+        f"<li><strong>{esc(item.get('id', 'flag'))}:</strong> {esc(item.get('summary', ''))}</li>"
+        for item in conflicts
+    )
+    ci_txt = "—"
+    if isinstance(ci, list) and len(ci) == 2 and all(isinstance(x, float) for x in ci):
+        ci_txt = f"[{ci[0]:+.4f}, {ci[1]:+.4f}]"
+    return f'''<div class="notice notice-danger" id="download-decision">
+      <p class="kicker">Read this first · automated decision · no human inspector</p>
+      <h2>OK to download: {esc(download)}<br>OK to submit to DrivenData: {esc(submit)}</h2>
+      <p><strong>{esc(lead)}</strong> <code>slot_approved = {esc(slot_txt)}</code>.</p>
+      <p><a class="button button-primary" href="downloads/{esc(zeros_name)}" download>Download research .tif (all-finite [0, 1], do not submit)</a>
+      <a class="button" href="downloads/{esc(zip_name)}" download>Download one-TIFF .zip</a>
+      <a class="button button-light" href="downloads/{esc(nan_name)}" download>NaN-outside twin (written spec, also do not submit)</a></p>
+      <ul>
+        <li>Name: <code>{esc(name)}</code></li>
+        <li>Note ({card.get("note_chars", "—")}/140): {esc(card.get("note", ""))}</li>
+        <li>SHA-256 zeros: <code>{esc(card.get("raster_sha256", ""))}</code></li>
+        <li>HOLDOUT-DTI ({esc((hold.get("evaluator_version") or "gems57-pooled-hide-v2"))}, {esc(n_withheld)} withheld positives): candidate {esc(dti_txt)} vs same-run base-19 {esc(ctrl_txt)}, paired delta {esc(delta_txt)} CI {esc(ci_txt)}. Not a leaderboard score.</li>
+        <li>Scientific uniqueness in the checked set: max |Spearman| {esc(rho_txt)} (limit 0.90), max 3 px dot overlap {esc(ov_txt)} (limit 70%). Overlap vs H33-2-B2 measured this session: {esc(h33_txt)}.</li>
+        <li>Literal spacing-5 lattice overlap: {esc(lattice_txt)} (limit 70%). This alone blocks upload. No exemption.</li>
+        <li>If a <em>future approved</em> file is rejected with “Predicted values must be in range [0, 1]”, upload the all-finite zeros file, not a report. The written problem page also asks for NaN outside the footprint; both encodings are provided. Neither encoding is approved today.</li>
+        <li>Nine-site file to submit: none. H33-2-B2 is the owner-prompt’s highest USER-REPORTED claim (0.2778, not organizer-confirmed). This session measured H33 as an exact subset of D2.8 beyond 2 px of the public catalogue ({esc(subset_txt)}; H33 dots {esc(h33.get("h33_dots", "—"))}, D2.8 dots {esc(h33.get("d28_dots", "—"))}). Do not resubmit that file as new. A catalogue-segment holdout of those fixed rasters is anti-aligned with the 2 px prune and is not a leaderboard score.</li>
+        {csdu_html}
+      </ul>
+      {('<p><strong>Open label conflicts (not resolved, not used to change the score):</strong></p><ul>' + conflict_html + '</ul>') if conflicts else ''}
+    </div>'''
 
 
 def overview(card):
@@ -917,7 +1090,7 @@ def overview(card):
           Everything else on this page — including H31-U, H31-S, MAGREST — is <strong>DO NOT SUBMIT</strong>
           (research download only) for the stated gate failures. No score is ORGANIZER-CONFIRMED;
           projections are estimates, never scores.</p></aside></div></section>'''
-    return hero, _overview_body(card, hero_rbu=False)
+    return h31n_decision_banner() + hero, _overview_body(card, hero_rbu=False)
 
 
 def _overview_body(card, *, hero_rbu: bool):
@@ -928,7 +1101,8 @@ def _overview_body(card, *, hero_rbu: bool):
       earlier blanket “DO NOT SUBMIT” banners for upload choice only. MAGREST itself remains DO NOT SUBMIT
       (failed efficacy screen). Per-lane sections retain their original run-card verdicts for the audit trail.</div>
       '''
-    body = f'''{selector_decision_section()}{magrest_notice}{h31s_download_and_gates()}
+    body = f'''{selector_decision_section()}{magrest_notice}{pgr31_download_and_gates()}
+      {h31s_download_and_gates()}
       {h31t_download_and_gates()}
       {h31j_download_and_gates()}
       {focus_site_summary()}
@@ -1085,7 +1259,7 @@ def review_notice():
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     focus_summary = focus_site_summary()
-    return f'''<div class="notice"><strong>Exactly one file on this site is cleared to submit: H31-T
+    return h31n_decision_banner() + f'''<div class="notice"><strong>Exactly one file on this site is cleared to submit: H31-T
       (<code>gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif</code>)</strong> — see the selector
       decision directly below for its hash, portal name/note, estimated (projected) score and uniqueness.
       H31-J and H31-M pass the same gates as alternates. Every other download — including the new H31-U lane,
@@ -1095,6 +1269,7 @@ def executive(card):
       promotions use discrete-peer uniqueness under owner-directed rescope IR-U-02.</div>
       {selector_decision_section()}
       {review_notice()}
+      {pgr31_download_and_gates()}
       {focus_summary}
       {h31s_download_and_gates()}
       {h31t_download_and_gates()}

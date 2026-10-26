@@ -54,6 +54,12 @@ CANDIDATES = [
          card="evidence/xfcoh31_run_card.json"),
     dict(lane="CONCORD31", file="docs/downloads/gemsdoe31-concord31-minbd-concordance-28115-20261026-allfinite.tif",
          card="evidence/concord31/run_card.json"),
+    dict(lane="H31-N", file="docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif",
+         card="evidence/h31n/run_card.json"),
+    dict(lane="PGR31", file="docs/downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif",
+         card="evidence/pgr31/run_card.json"),
+    dict(lane="CSDU", file="docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+         card="docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json"),
     dict(lane="H31-U", file="docs/downloads/gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif",
          card="evidence/h31u/run_card.json"),
 ]

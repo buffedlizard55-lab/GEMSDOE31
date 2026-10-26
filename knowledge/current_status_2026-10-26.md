@@ -1,5 +1,25 @@
 # Current project status — 2026-10-26
 
+## PGR31 session update (2026-10-26 · branch `arena/71e9be2c-gemsdoe31`)
+
+**Decision unchanged: no competition submission is approved.** A new lane (PGR31, Poisson
+pseudo-gravity discordance) was preregistered (`knowledge/2026-10-26_pgr31_preregistration.md`,
+SHA-256 `a161635f…`), run within the 3-experiment budget, and produced a unique research GeoTIFF:
+[`gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif`](../docs/downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif)
+(37,654 dots, SHA-256 `9dcc2e0c4da3f40c17796cfd4ab306cd6aa0ab218d98f83f3b5cbeb406d4b628`).
+**DOWNLOAD FOR RESEARCH: YES · SUBMIT: NO** (`verdict: negative`, `ok_to_submit: false`;
+`python scripts/verify_pgr31_run.py` reproduces the decision with no human inspector).
+
+- Canary PASS (max two-sided AUC 0.5766). HOLDOUT-DTI (`gems57-pooled-hide-v2`, 2,778 withheld):
+  candidate 0.0764 [0.0449, 0.1102] vs control 0.0761; paired Δ +0.0003 [−0.0202, +0.0240],
+  2/4 quadrants; SGMC proxy Δ −0.0080 → screen **FAIL**; fresh confirmation (draw 52) gated off.
+- Uniqueness (genuine-submission scope, 48 rasters incl. fetched nine-focus bests): surface
+  max |ρ| 0.1506; final-dots max 3-px overlap 48.6% (33.2% vs H33-2-B2). The calibration-lattice
+  degeneracy is disclosed in the run card, not exempted. Full record:
+  `knowledge/2026-10-26_pgr31_executive_summary.md`, `evidence/pgr31/run_card.json`.
+- Inputs were restored hash-verified from owner mirrors (`evidence/pgr31_data_restore_*.json`);
+  DrivenData was not contacted; 0 slots spent; no ORGANIZER-CONFIRMED score exists.
+
 ## Latest audit continuation (`arena/1028355f-gemsdoe31`)
 
 See [metric and release review](2026-10-26_metric_and_release_review.md).

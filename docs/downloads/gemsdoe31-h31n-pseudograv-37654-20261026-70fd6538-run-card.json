@@ -1,0 +1,251 @@
+{
+ "hypothesis": "Poisson pseudogravity residual edge of isostatic gravity against RTP",
+ "mechanism": "Baranov |k|^{-1} pseudogravity, local residual horizontal-gradient ridges",
+ "non_fault_mimic": "non-magnetic pluton roofs and FFT survey-boundary leakage",
+ "verdict": "negative",
+ "stop": null,
+ "leakage_canary": {
+  "pg_resid_s30": 0.5207453087650308,
+  "pg_resid_hg_s30": 0.5279355688165557,
+  "pg_resid_hg_s12": 0.5286371565782166,
+  "pg_quiet_edge": 0.5027887083642257,
+  "control_rtp_band02": 0.5038849710334278
+ },
+ "holdout_dti": {
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "screen": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.07469356241228257,
+   "ci95": [
+    0.06556700017977132,
+    0.08388531358849331
+   ],
+   "withheld_positive_pixels": 11360,
+   "tpw": 1222.003824672575,
+   "fpw": 35139.14377139048,
+   "fnw": 10137.996175327426
+  },
+  "control": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.07675503436887676,
+   "ci95": [
+    0.06781346265881709,
+    0.08541429315985333
+   ],
+   "withheld_positive_pixels": 11360,
+   "tpw": 1255.9833683106692,
+   "fpw": 35121.67059003056,
+   "fnw": 10104.016631689326
+  },
+  "paired": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": -0.002061471956594188,
+   "ci95": [
+    -0.007810316781382192,
+    0.003319376890058354
+   ],
+   "withheld_positive_pixels": 11360
+  }
+ },
+ "preplacement": {
+  "compared": 56,
+  "worst_abs_spearman": 0.15635830730581457,
+  "worst_dot_overlap_3px": 0.9493280926329208,
+  "rho_limit": 0.9,
+  "overlap_limit": 0.7,
+  "scientific_duplicate": true
+ },
+ "ok_to_download_for_research": true,
+ "ok_to_submit": false,
+ "slot_approved": false,
+ "experiments_run": 3,
+ "submission_model": {
+  "seed": 31026,
+  "note": "Explicit seed 31026. Not the RNG state left after the screen folds."
+ },
+ "final_dot_gate": {
+  "worst_abs_spearman": 0.15658698752731662,
+  "worst_dot_overlap_3px": 0.6592128326339831,
+  "scientific_duplicate": false,
+  "top": [
+   {
+    "file": "docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-nan.tif",
+    "sha256": "359227961da5f8b88b9b8d7ff851f427e8413df2952a15e7dff153570ea207c6",
+    "abs_spearman": 0.0868740922166301,
+    "dot_overlap_3px": 0.6592128326339831
+   },
+   {
+    "file": "docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif",
+    "sha256": "857dd662430c0130c46f920666d70dae5df6148951ad76d42d31a8d540c32972",
+    "abs_spearman": 0.0868740922166301,
+    "dot_overlap_3px": 0.6592128326339831
+   },
+   {
+    "file": "data/prior_audit/peers/GEMSDOE36/gemsdoe36-h36-gps-graben-pair-20261026-bb29ce2a4bb4-zeros.tif",
+    "sha256": "e3800971b44116bca8ef8f996c3b2796b4d316962f797975f17d643abfac379b",
+    "abs_spearman": 0.10358936520807788,
+    "dot_overlap_3px": 0.379242577149838
+   },
+   {
+    "file": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.tif",
+    "sha256": "1df2c5fb2e5735e120bd59c241fabcced6cdf671fd20ae5c265034235fbfa65e",
+    "abs_spearman": 0.059383141456113314,
+    "dot_overlap_3px": 0.36774313485951027
+   },
+   {
+    "file": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif",
+    "sha256": "83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298",
+    "abs_spearman": 0.059383141456113314,
+    "dot_overlap_3px": 0.36774313485951027
+   },
+   {
+    "file": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif",
+    "sha256": "825b67192d451f2d1847a47632b417c43865613df943cfa5e889ff379e809fa6",
+    "abs_spearman": 0.06310596206390903,
+    "dot_overlap_3px": 0.36747755882509164
+   },
+   {
+    "file": "docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif",
+    "sha256": "76d58f4a28ef6112a79c8d930ad2c3c87b1f6ba0c062a4780c1207a48b749722",
+    "abs_spearman": 0.06310596206390903,
+    "dot_overlap_3px": 0.36747755882509164
+   },
+   {
+    "file": "docs/downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-nan.tif",
+    "sha256": "2dcc3a5be6545b51823b9c4385fa436eb19bcde9b21b663156b85e8bcfe79027",
+    "abs_spearman": 0.06407980133207597,
+    "dot_overlap_3px": 0.3605194667233229
+   }
+  ]
+ },
+ "submission_name": "gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538",
+ "note": "H31-N pseudogravity residual 37654d | HOLDOUT-DTI 0.0747 vs base 0.0768 | DO NOT SUBMIT 70fd6538",
+ "note_chars": 96,
+ "raster_sha256": "fecb586e84f48609379df8943dfc12059b2fd4a851b38cf232faab5ce3da9b6c",
+ "validator": {
+  "file": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif",
+  "bytes": 151651,
+  "sha256": "fecb586e84f48609379df8943dfc12059b2fd4a851b38cf232faab5ce3da9b6c",
+  "meta": {
+   "crs": "EPSG:32611",
+   "shape": [
+    3730,
+    3292
+   ],
+   "dtype": "float32",
+   "count": 1,
+   "nodata": null,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "profile_compress": "deflate"
+  },
+  "band_description": [
+   null
+  ],
+  "n_finite": 12279160,
+  "n_nan": 0,
+  "n_infinite": 0,
+  "min": 0.0,
+  "max": 1.0,
+  "mean": 0.0030664964579045773,
+  "emitted_positive_pixels": 37654,
+  "checks": {
+   "single_band": true,
+   "dtype_float32": true,
+   "dimensions_3730x3292": true,
+   "crs_epsg_32611": true,
+   "transform_matches_sample_submission": true,
+   "no_nan_anywhere": true,
+   "no_inf_anywhere": true,
+   "no_sentinel_values": true,
+   "range_0_1_guaranteed": true,
+   "min_ge_0": true,
+   "max_le_1": true,
+   "in_footprint_all_finite": true,
+   "in_footprint_range_0_1": true,
+   "outside_footprint_zero": true,
+   "zero_dots_on_mapped_catalogue": true
+  },
+  "all_checks_passed": true,
+  "validation_class": "local format/range preflight; not organizer acceptance or uniqueness clearance",
+  "on_catalogue_positive_pixels": 0,
+  "in_footprint_positive_pixels": 37654,
+  "footprint_fraction": 0.007286874781441169
+ },
+ "artifacts": {
+  "zeros_tif": "docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif",
+  "zeros_zip": "docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.zip",
+  "zeros_sha256": "fecb586e84f48609379df8943dfc12059b2fd4a851b38cf232faab5ce3da9b6c",
+  "nan_tif": "docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-nan.tif",
+  "nan_sha256": "1228d597e7609e45a4623a0cdf57903a75f682d58c035e38a868e522ca169468",
+  "dots": 37654,
+  "dots_on_catalogue": 0
+ },
+ "why_not_submit": [
+  "HOLDOUT-DTI gems57-pooled-hide-v2 screen seed 41: candidate 0.0747 vs same-run base-19 0.0768, paired delta -0.0021, 95% CI [-0.0078, +0.0033], 2/4 quadrants, 11360 withheld positives. Did not beat the control.",
+  "Own-method residual variogram was unstable (32/50 bootstrap fits). The 25 km collar is not an empirical range.",
+  "Literal r13-lattice-s5 overlap of final dots is 0.9975 > 0.70. No exemption applied. slot_approved false.",
+  "No ORGANIZER-CONFIRMED score. Do not upload."
+ ],
+ "lattice_final_dots": {
+  "evidence_class": "REGISTRY-MEASUREMENT",
+  "footprint_fraction_within_3px": 0.9987132726822701,
+  "final_dot_overlap_3px": 0.9974504700695809,
+  "literal_stop": true,
+  "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+ },
+ "sgmc_proxy": {
+  "evidence_class": "HOLDOUT-PROXY-SGMC",
+  "evaluator_version": "gems57-metric-dti_exact",
+  "off_catalogue_pixels_gt_300m": 61664,
+  "dti": 0.07853396263587775,
+  "caveat": "SGMC state-map faults are not competition truth and do not promote an arm."
+ },
+ "h33_geometry_this_session": {
+  "evidence_class": "COMPUTED",
+  "h33_dots": 37654,
+  "d28_dots": 44090,
+  "h33_is_subset_of_d28": true,
+  "d28_dots_within_2px_of_catalogue": 6436,
+  "h33_equals_d28_beyond_2px": true,
+  "same_instrument_holdout_seed41": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "withheld_positive_pixels": 11360,
+   "h33_dti": 0.0043,
+   "d28_dti": 0.0964,
+   "h29_dti": 0.0154,
+   "caveat": "These fixed rasters were built with the full public catalogue visible, so a catalogue-segment holdout punishes the 2px prune. This is not a leaderboard score and does not explain or contradict USER-REPORTED 0.2778."
+  },
+  "final_dot_overlap_vs_h33": 0.2722154352791204
+ },
+ "download_decision": {
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "primary_file": "docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif",
+  "primary_reason": "All-finite zeros-outside float32 in {0,1}. Use this file only if a future approved candidate hits the portal error Predicted values must be in range [0, 1]. This file is not approved.",
+  "nan_file": "docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-nan.tif",
+  "nan_reason": "Matches the written problem-page sentence that cells outside the bounds are null or NaN. Also not approved."
+ },
+ "label_conflicts": [
+  {
+   "id": "IR-31-B10-DISTANCE-VS-DENSITY",
+   "summary": "Local training_features.tif band B10 (deq_n100a15) describes itself as 'Distance to earthquake (n=100km radius, a=15 deg azimuth parameters)'. The official problem page, re-fetched 2026-10-26, lists 'Density of earthquakes' and does not say distance. Local B16 (ieq_n100a15) says 'Earthquake intensity or density'. Which local band matches the official phrase is unresolved. H31-N did not use either band."
+  },
+  {
+   "id": "IR-31-B06-TILT-VS-RADIOMETRIC",
+   "summary": "Local band B06 is named tc and described as 'Tilt angle or total curvature - magnetic field derivative for edge detection'. The same official page captions gems_tc_tmi.png as total radiometric counts (left) and total magnetic intensity (right). Older generated site text claims B06 is GeoDAWN radiometric total count with Spearman rho +0.996; that correlation was not recomputed this session. The tilt-versus-radiometric conflict is unreverified and unresolved. H31-N did not use B06."
+  }
+ ]
+}

@@ -116,6 +116,15 @@
    "projection": 0.23376076637804336
   },
   {
+   "lane": "H31-N",
+   "failed_gates": [
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.22950849723740055
+  },
+  {
    "lane": "XFCOH31",
    "failed_gates": [
     "G3_holdout_efficacy",
@@ -151,6 +160,25 @@
     "G6_projection_ge_02778"
    ],
    "projection": 0.1821436248988117
+  },
+  {
+   "lane": "PGR31",
+   "failed_gates": [
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.17900363479322218
+  },
+  {
+   "lane": "CSDU",
+   "failed_gates": [
+    "G1_format",
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.006373474267181753
   }
  ],
  "h31u_new_lane": {

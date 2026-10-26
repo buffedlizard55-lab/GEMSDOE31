@@ -1,0 +1,10 @@
+{
+ "measured_against": ".cache/registry-scope/registered-lattice.tif as restored by scripts/verify_current_run.py --restore-small-inputs (git-ignored pinned small input)",
+ "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+ "lattice_positive_pixels": 206895,
+ "candidate": "gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif",
+ "candidate_sha256": "9dcc2e0c4da3f40c17796cfd4ab306cd6aa0ab218d98f83f3b5cbeb406d4b628",
+ "candidate_dots": 37654,
+ "fraction_candidate_dots_within_3px_of_lattice": 0.9925904286397196,
+ "interpretation": "Literal >70% rule against ALL registry entries incl. this calibration lattice: FAIL/STOP for any non-empty candidate; disclosed, not exempted. Genuine-submission scope result is in registry_final.json."
+}

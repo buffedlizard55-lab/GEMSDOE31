@@ -1,0 +1,13 @@
+{
+ "scope": "post-merge concurrent candidate merged to main after the PGR31 EXP-3 registry run (PR #37 CSDU); additional verification only, not a fourth experiment",
+ "csdu_file": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+ "csdu_sha256": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
+ "csdu_positive_pixels_total": 4000,
+ "csdu_positive_pixels_inside_competition_footprint": 2101,
+ "candidate": "gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif",
+ "candidate_sha256": "9dcc2e0c4da3f40c17796cfd4ab306cd6aa0ab218d98f83f3b5cbeb406d4b628",
+ "surface_spearman_rho_sample": 0.01370417244306082,
+ "final_dots_spearman_rho_sample": 0.012526073774078245,
+ "fraction_pgr31_dots_within_3px_of_csdu_all_positive_pixels": 0.024937589631911616,
+ "pass_": true
+}
