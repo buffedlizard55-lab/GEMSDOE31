@@ -71,6 +71,31 @@ The complete normalized owner prompt remains below and must be read every sessio
   it cannot be ranked as a scored winner. The nine-site table is pinned history, not a live leaderboard feed.
 - Core values remain **Maximize P(Win)** and **Own the Outcome**: respect failed gates rather than promise a score.
 
+---
+
+# Session record 2026-10-26 (arena/579233d5) — H31-YR / H31-Z regime-split lanes: RESEARCH ONLY
+
+**Current permission is unchanged by this record: NO FILE IS APPROVED (see `registry/release_status.json` above).**
+In parallel with the reviews above, this session ran two preregistered science lanes under the earlier
+IR-U-02 selector semantics. Both are measured negatives and are retained as research artifacts only:
+
+- **H31-YR** (filed as "H31-Y" by this session; renamed at merge — parallel session arena/f4d7fb29
+  independently used H31-Y for its KIN-PIED lane): slope-routed recombination of the H31-X junction line
+  with a buried-basement piedmont specialist (ASIG+BASE+GRAV). Winner ROUTE: HOLDOUT-DTI 0.1626,
+  off-catalogue SGMC 0.1312 (above H31-X 0.1209), but 92.4% of dots within 3 px of H31-X → duplicate.
+  [card](evidence/h31y_regimesplit/run_card.json) · [preregistration](knowledge/2026-10-26_h31y_regime_split_preregistration.md)
+- **H31-Z**: hard 50/50 piedmont quota (SPLIT50): discrete-unique (max 54.1%), HOLDOUT-DTI 0.1473,
+  seed-3105 confirmed, but SGMC 0.0749 < H33 0.0940 → discovery fail.
+  [card](evidence/h31z/run_card.json) · [preregistration](knowledge/2026-10-26_h31z_quota_split_preregistration.md)
+
+Measured science: ROUTE's SGMC gain sits in the mountain/transition slice (31/37,654 dots at slope ≤6°),
+not the flat piedmont; H31-Z's 21,322 piedmont dots earn the same piedmont slice DTI as H31-X's 6,449
+while starving the mountain pool. Blend/quota recombination of JUNC+PIED is closed; the next lead is a
+kernel-scale (σ≈3 px) transition-corroborated junction. Full record:
+[executive summary](knowledge/2026-10-26_h31yz_executive_summary.md) (its IR-U-02 "primary" language is
+superseded for permissions by the release audit above). All numbers HOLDOUT-DTI / SGMC-proxy /
+PROJECTION labelled; no DrivenData contact; no slot used.
+
 <details><summary>Superseded historical session banners — NOT current upload instructions</summary>
 
 Concurrent review #47 (also NO SUBMIT; preserved):

@@ -66,6 +66,19 @@ small inputs. The lattice gives a counting bound for the stated budget, NOT ever
 Preserve historic receipts; do not present cited holdouts as freshly reproduced. A method paragraph
 is absent, so no new scientific lane was assigned in this review.
 
+## Amendment 2026-10-26 (H31-YR/H31-Z session arena/579233d5, merged after the reviews above)
+
+Two preregistered regime-split lanes ran in parallel under IR-U-02-era semantics; both are research-only
+negatives under the current release STOP — do not refit or slot them: **H31-YR** (ROUTE blend; SGMC
+0.1312 but 92.4% dots within 3 px of H31-X) and **H31-Z** (SPLIT50 quota; discrete-unique but SGMC
+0.0749 < H33). Measured conclusion: potential-field corroboration helps in the 3–9° transition band;
+forcing flat-piedmont quotas starves discovery. Lane-id collision rule: two parallel sessions
+self-assigned "H31-Y" (KIN-PIED vs regime-split) — before self-assigning any lane id, fetch
+origin/main and check for collisions; regime-split artifacts live under `*_regimesplit` paths.
+IR-U-03 (chronological duplicate priority in the disabled historical selector) is recorded in
+`registry/selector_decision_20261026_regimesplit_579233d5.json` as research ranking evidence only.
+Tooling rule: never edit the same file from parallel tool calls in one block (edits raced twice in
+that session; verify with `git diff` before launching processes).
 ## Amendment 2026-10-26 (parallel session arena/a111fe50, integrated after 9883b598)
 
 Quantified cross-family audit (`evidence/cross_family_calibration_20261026.json`): the retired

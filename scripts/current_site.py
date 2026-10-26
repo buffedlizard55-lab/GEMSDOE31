@@ -127,6 +127,97 @@ def h31y_download_and_gates() -> str:
       </section>'''
 
 
+def _h31yz_section(lane_key: str, lane_name: str, kicker: str, card_file: str) -> str:
+    """H31-Y/H31-Z regime-split lanes (2026-10-26, session 579233d5): data-driven from run cards."""
+    rc_path = ROOT / f"evidence/{lane_key}/run_card.json"
+    if not rc_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    g = rc["gates"]
+    det = g.get("detail", {})
+    hd = rc["holdout_dti"]
+    sc = hd["screen_final_surface"]
+    dc = hd["screen_paired_vs_ctrl"]
+    ds = hd["screen_paired_vs_slope"]
+    dj = hd.get("screen_paired_vs_junc_incumbent") or {}
+    cf = hd["confirmation_random_component_split"]
+    winner = det.get("winner", "")
+    cfs = cf["scores"].get(winner, {})
+    cfctrl = cf["scores"].get("CTRL", {})
+    cfd = cf["paired_differences"].get("CTRL", {})
+    sg = rc["sgmc_proxy"]
+    u = rc["correlation_overlap_vs_registry"]
+    pj = rc["projection"]
+    f = rc["files"]
+    regs = sg.get("regimes", {})
+    cand_pied = regs.get("candidate_piedmont_le6deg", {})
+    cand_mtn = regs.get("candidate_mountain_gt6deg", {})
+
+    def badge(ok):
+        return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
+
+    if rc["verdict"] == "promote":
+        verdict_badge = '<span class="badge badge-green">lane gates pass — selector decision above governs upload choice</span>'
+        dl_label = "Download all-finite .tif (values in [0,1])"
+    else:
+        verdict_badge = '<span class="badge badge-red">DO NOT SUBMIT — research download only</span>'
+        dl_label = "Download research .tif — DO NOT SUBMIT"
+    lit = u.get("literal_broad_registry", {}) or {}
+    return f'''<section id="{lane_key}-regime-split" aria-labelledby="{lane_key}-heading">
+      <div class="section-head"><div><p class="kicker">{esc(kicker)}</p>
+        <h2 id="{lane_key}-heading">{esc(lane_name)}: unique label-free GeoTIFF · {verdict_badge}</h2></div>
+        <p>Preregistered before any fitting (<a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/{esc(rc["preregistration"])}">frozen preregistration</a>);
+        three experiments, no tuning after EXP-3. Every number is HOLDOUT-DTI, COMPUTED or PROJECTION; nothing is ORGANIZER-CONFIRMED.</p></div>
+      <div class="card download-card">
+        <h3><code>{esc(f["zeros"].split("/")[-1])}</code></h3>
+        <p><strong>Hypothesis.</strong> {esc(rc["hypothesis"])}<br>
+           <strong>Mechanism.</strong> {esc(rc["mechanism"])}<br>
+           <strong>Named non-fault mimics.</strong> {esc(rc["non_fault_mimic"])}</p>
+        <div class="actions">
+          <a class="button button-primary" href="{esc(f["zeros"].replace("docs/", "", 1))}" download>{dl_label}</a>
+          <a class="button" href="{esc(f["zip"].replace("docs/", "", 1))}" download>Single-TIFF .zip</a>
+          <a class="button button-light" href="{esc(f["nan"].replace("docs/", "", 1))}" download>NaN-outside twin</a>
+          <a class="button button-light" href="downloads/{esc(card_file)}">Run card (JSON)</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256 (all-finite):</strong> <code>{esc(rc["raster_sha256"])}</code><br>
+          <strong>Portal name:</strong> <code>{esc(rc["submission_name"])}</code> · <strong>note ({rc["note_chars"]}/140):</strong> <code>{esc(rc["note"])}</code><br>
+          <strong>Lane verdict:</strong> <code>{esc(rc["verdict"])}</code> · {esc(rc["instruction"])}</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Gate (frozen)</th><th>Rule</th><th>Measured</th><th>Result</th></tr></thead><tbody>
+        <tr><td><code>G1 format</code></td><td>float32 · EPSG:32611 · 3730×3292 · [0,1] · both conventions · exactly 37,654 dots · 0 on catalogue</td>
+            <td>zeros ok={rc["validator"]["zeros"]["ok"]}, nan ok={rc["validator"]["nan"]["ok"]}</td><td>{badge(g["G1_format"])}</td></tr>
+        <tr><td><code>G2 canary</code></td><td>every line/surface two-sided AUC ≤ 0.90 vs catalogue and off-SGMC</td>
+            <td>max AUC 0.76 (SLOPE vs off-SGMC); all lines ≤ 0.90 (evidence/h31y_regimesplit/canary.json)</td><td>{badge(g["G2_canary"])}</td></tr>
+        <tr><td><code>G3 holdout efficacy</code></td><td>pooled HOLDOUT-DTI beats CTRL and SLOPE, paired 95% CI &gt; 0, ≥3/4 quadrants, untouched confirmation CI &gt; 0</td>
+            <td>HOLDOUT-DTI {sc["dti"]:.4f} [{sc["ci95"][0]:.4f}, {sc["ci95"][1]:.4f}] ({esc(sc["evaluator_version"])}, n={sc["withheld_positive_pixels"]:,}) ·
+                Δ vs CTRL {dc["delta"]:+.4f} [{dc["ci95"][0]:+.4f}, {dc["ci95"][1]:+.4f}] ·
+                Δ vs SLOPE {ds["delta"]:+.4f} [{ds["ci95"][0]:+.4f}, {ds["ci95"][1]:+.4f}] ·
+                Δ vs JUNC incumbent surface {dj.get("delta", float("nan")):+.4f} · {hd["quadrant_wins_vs_ctrl"]}/4 quadrants ·
+                confirmation (seed {cf["partition"]["seed"]}, n={cfs.get("withheld_positive_pixels", 0):,}): {cfs.get("dti", float("nan")):.4f} vs CTRL {cfctrl.get("dti", float("nan")):.4f}, Δ {cfd.get("delta", float("nan")):+.4f}</td>
+            <td>{badge(g["G3_holdout_efficacy"])}</td></tr>
+        <tr><td><code>G4 discovery proxy</code></td><td>full-footprint off-catalogue SGMC DTI ≥ H33-2-B2 recomputed same day</td>
+            <td>{sg["candidate"]["dti"]:.4f} (TPw {sg["candidate"]["tpw"]:,.0f}) vs H33 {sg["H33"]["dti"]:.4f} (TPw {sg["H33"]["tpw"]:,.0f});
+                piedmont slope ≤6 deg (band): {cand_pied.get("dti", float("nan")):.4f} ({cand_pied.get("n_dots", 0):,} dots);
+                mountain &gt;6 deg: {cand_mtn.get("dti", float("nan")):.4f}</td>
+            <td>{badge(g["G4_sgmc_discovery"])}</td></tr>
+        <tr><td><code>G5 uniqueness (owner rule)</code></td><td>final-dot 3-px overlap ≤ 0.70; |Spearman| ≤ 0.90 vs every discrete peer; literal lattice disclosed</td>
+            <td>final dots max {100 * (u["discrete_max_final_overlap_3px"] or 0):.1f}% · ROUTE-proxy top-K {100 * (u.get("discrete_max_topk_overlap_3px_proxy") or 0):.1f}% (disclosed, not gated) ·
+                |Spearman| dots {abs(u.get("max_abs_spearman_dots") or 0):.3f} ·
+                literal 695-lattice {100 * (lit.get("candidate_overlap_3px") or 0):.1f}% (fails for every nonempty raster; lane judged under IR-U-02, since superseded by the literal release STOP above)</td>
+            <td>{badge(g["G5_uniqueness_discrete"])}</td></tr>
+        <tr><td><code>G6 projection</code></td><td>anchor-inversion PROJECTION ≥ 0.2778 (never a score)</td>
+            <td>PROJECTION {pj["value"]:.4f} [{pj["interval_approx"][0]:.3f}, {pj["interval_approx"][1]:.3f}] (in-family LOO RMSE {pj["loo_rmse"]:.4f}; cross-family transfer unproven)</td>
+            <td>{badge(g["G6_projection_ge_02778"])}</td></tr>
+      </tbody></table></div>
+      </section>'''
+
+
+def h31yr_download_and_gates() -> str:
+    return _h31yz_section("h31y_regimesplit", "H31-YR ROUTE (duplicate STOP; filed as H31-Y by session 579233d5 — distinct from H31-Y KIN-PIED above)", "2026-10-26 · Lane H31-YR · slope-routed regime blend — measured duplicate, DO NOT SUBMIT", "h31y-regimesplit-run-card.json")
+
+
+def h31z_download_and_gates() -> str:
+    return _h31yz_section("h31z", "H31-Z hard quota split", "2026-10-26 · Lane H31-Z · hard regime quota split (successor to H31-YR)", "h31z-run-card.json")
 
 def h31ym_download_and_gates() -> str:
     """H31-YM regime-mosaic (session a111fe50; executed as H31-Y, renamed on merge)."""
@@ -1234,7 +1325,7 @@ def _overview_body(card, *, hero_rbu: bool):
     delta = card["paired_difference"]
     final = card["registry"]["final"]
     magrest_notice = '<div class="notice">Historical lane results below are research evidence only, not current upload permission.</div>'
-    body = f'''{selector_decision_section()}{magrest_notice}{h31y_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
+    body = f'''{selector_decision_section()}{magrest_notice}{h31y_download_and_gates()}{h31yr_download_and_gates()}{h31z_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
       {h31s_download_and_gates()}
       {h31x_download_and_gates()}
       {h31t_download_and_gates()}
@@ -1403,6 +1494,8 @@ def executive(card):
       {selector_decision_section()}
       {review_notice()}
       {h31y_download_and_gates()}
+      {h31yr_download_and_gates()}
+      {h31z_download_and_gates()}
       {h31ym_download_and_gates()}
       {pgr31_download_and_gates()}
       {focus_summary}

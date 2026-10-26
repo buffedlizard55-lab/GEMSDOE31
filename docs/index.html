@@ -91,6 +91,98 @@
         <tr><td>G5 uniqueness (incl. top-K)</td><td><span class="badge badge-red">FAIL</span></td></tr>
         <tr><td>G6 projection ge 0.2778</td><td><span class="badge badge-green">PASS</span></td></tr>
       </tbody></table></div>
+      </section><section id="h31y_regimesplit-regime-split" aria-labelledby="h31y_regimesplit-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-26 · Lane H31-YR · slope-routed regime blend — measured duplicate, DO NOT SUBMIT</p>
+        <h2 id="h31y_regimesplit-heading">H31-YR ROUTE (duplicate STOP; filed as H31-Y by session 579233d5 — distinct from H31-Y KIN-PIED above): unique label-free GeoTIFF · <span class="badge badge-red">DO NOT SUBMIT — research download only</span></h2></div>
+        <p>Preregistered before any fitting (<a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_h31y_regime_split_preregistration.md">frozen preregistration</a>);
+        three experiments, no tuning after EXP-3. Every number is HOLDOUT-DTI, COMPUTED or PROJECTION; nothing is ORGANIZER-CONFIRMED.</p></div>
+      <div class="card download-card">
+        <h3><code>gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.tif</code></h3>
+        <p><strong>Hypothesis.</strong> H31-Y: the catalogue-missing fault population is regime-composite - range-bounding faults at the piedmont-junction slope break plus buried piedmont faults with no terrain expression that offset magnetic basement / basin thickness; a fixed-quota budget split between a terrain specialist and a potential-field specialist covers more distinct hidden truth per dot than either full field (kernel-max TPw).<br>
+           <strong>Mechanism.</strong> ROUTE: JUNC (H31-X X1 piedmont-junction line verbatim, recomputed) + PIED (geometric mean x second-line gate of ASIG analytic signal, BASE basement/conductance gradients, GRAV gravity HG ranks); slope-routed log-blend w=clip((slope-3)/6,0,1); shared Poisson 2.8 px exclusion, 37654 dots, d(catalogue) &gt; 2 px; emit receipt {&#x27;emitted_total&#x27;: 37654, &#x27;routed&#x27;: True}<br>
+           <strong>Named non-fault mimics.</strong> JUNC: erosional pediment edges, Lahontan shorelines, fan-terrace risers, lava-flow snouts. PIED: tabular basalt-flow margins/caldera rims (analytic-signal highs with no basement step), unfaulted volcanic lithologic contacts, conductive playa edges, magnetic survey seams.</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.tif" download>Download research .tif — DO NOT SUBMIT</a>
+          <a class="button" href="downloads/gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.zip" download>Single-TIFF .zip</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-nan.tif" download>NaN-outside twin</a>
+          <a class="button button-light" href="downloads/h31y-regimesplit-run-card.json">Run card (JSON)</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256 (all-finite):</strong> <code>89a5fc01789c8fb3499cf79cd7d5193724af3c18827041b7a54de8da9d7b1f35</code><br>
+          <strong>Portal name:</strong> <code>gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42</code> · <strong>note (84/140):</strong> <code>H31-Y ROUTE regime-split JUNC+PIED 37654d B2 | HOLDOUT-DTI 0.1626 n=60988 | 8f16cb42</code><br>
+          <strong>Lane verdict:</strong> <code>negative</code> · DO NOT SUBMIT: at least one automated gate failed (see gates); research download only.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Gate (frozen)</th><th>Rule</th><th>Measured</th><th>Result</th></tr></thead><tbody>
+        <tr><td><code>G1 format</code></td><td>float32 · EPSG:32611 · 3730×3292 · [0,1] · both conventions · exactly 37,654 dots · 0 on catalogue</td>
+            <td>zeros ok=True, nan ok=True</td><td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td><code>G2 canary</code></td><td>every line/surface two-sided AUC ≤ 0.90 vs catalogue and off-SGMC</td>
+            <td>max AUC 0.76 (SLOPE vs off-SGMC); all lines ≤ 0.90 (evidence/h31y_regimesplit/canary.json)</td><td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td><code>G3 holdout efficacy</code></td><td>pooled HOLDOUT-DTI beats CTRL and SLOPE, paired 95% CI &gt; 0, ≥3/4 quadrants, untouched confirmation CI &gt; 0</td>
+            <td>HOLDOUT-DTI 0.1626 [0.1470, 0.1780] (gems57-pooled-hide-v2, n=60,988) ·
+                Δ vs CTRL +0.0955 [+0.0690, +0.1217] ·
+                Δ vs SLOPE +0.1137 [+0.0995, +0.1274] ·
+                Δ vs JUNC incumbent surface -0.0036 · 4/4 quadrants ·
+                confirmation (seed 3104, n=30,424): 0.1464 vs CTRL 0.0573, Δ +0.0891</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td><code>G4 discovery proxy</code></td><td>full-footprint off-catalogue SGMC DTI ≥ H33-2-B2 recomputed same day</td>
+            <td>0.1312 (TPw 7,573) vs H33 0.0940 (TPw 5,400);
+                piedmont slope ≤6 deg (band): 0.0003 (31 dots);
+                mountain &gt;6 deg: 0.1388</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td><code>G5 uniqueness (owner rule)</code></td><td>final-dot 3-px overlap ≤ 0.70; |Spearman| ≤ 0.90 vs every discrete peer; literal lattice disclosed</td>
+            <td>final dots max 92.4% · ROUTE-proxy top-K 92.8% (disclosed, not gated) ·
+                |Spearman| dots 0.548 ·
+                literal 695-lattice 99.4% (fails for every nonempty raster; lane judged under IR-U-02, since superseded by the literal release STOP above)</td>
+            <td><span class="badge badge-red">FAIL</span></td></tr>
+        <tr><td><code>G6 projection</code></td><td>anchor-inversion PROJECTION ≥ 0.2778 (never a score)</td>
+            <td>PROJECTION 0.3854 [0.380, 0.391] (in-family LOO RMSE 0.0028; cross-family transfer unproven)</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+      </tbody></table></div>
+      </section><section id="h31z-regime-split" aria-labelledby="h31z-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-26 · Lane H31-Z · hard regime quota split (successor to H31-YR)</p>
+        <h2 id="h31z-heading">H31-Z hard quota split: unique label-free GeoTIFF · <span class="badge badge-red">DO NOT SUBMIT — research download only</span></h2></div>
+        <p>Preregistered before any fitting (<a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_h31z_quota_split_preregistration.md">frozen preregistration</a>);
+        three experiments, no tuning after EXP-3. Every number is HOLDOUT-DTI, COMPUTED or PROJECTION; nothing is ORGANIZER-CONFIRMED.</p></div>
+      <div class="card download-card">
+        <h3><code>gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif</code></h3>
+        <p><strong>Hypothesis.</strong> H31-Z: the catalogue-missing fault population is regime-composite (piedmont-junction range fronts + buried piedmont basement faults); a HARD quota split between the terrain specialist and a piedmont potential-field specialist covers more distinct hidden truth per dot than either full field, and - unlike H31-Y&#x27;s blended ROUTE surface (92.4% dot overlap vs H31-X, duplicate STOP) - structurally bounds the identical-dot share at the JUNC quota fraction.<br>
+           <strong>Mechanism.</strong> SPLIT50: JUNC quota frac=0.5 (H31-X X1 junction line verbatim) emitted first, then PIED quota (ASIG+BASE+GRAV geometric mean x second-line gate) restricted to slope&lt;=6deg, excluding pixels within 2.8 px of JUNC dots; shared Poisson 2.8 px, 37654 dots, d(catalogue) &gt; 2 px; emit receipt {&#x27;quota_junc&#x27;: 18827, &#x27;quota_pied&#x27;: 18827, &#x27;emitted_junc&#x27;: 18827, &#x27;emitted_pied&#x27;: 18827, &#x27;topup_junc&#x27;: 0, &#x27;topup_pied&#x27;: 0, &#x27;emitted_total&#x27;: 37654}<br>
+           <strong>Named non-fault mimics.</strong> JUNC: erosional pediment edges, Lahontan shorelines, fan-terrace risers, lava-flow snouts. PIED: tabular basalt-flow margins/caldera rims, unfaulted volcanic lithologic contacts, conductive playa edges, magnetic survey seams.</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif" download>Download research .tif — DO NOT SUBMIT</a>
+          <a class="button" href="downloads/gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.zip" download>Single-TIFF .zip</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-nan.tif" download>NaN-outside twin</a>
+          <a class="button button-light" href="downloads/h31z-run-card.json">Run card (JSON)</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256 (all-finite):</strong> <code>5a7e3b3e8d56e505e329bf7043db648785afa1c392cdc27c7e12296af21a910f</code><br>
+          <strong>Portal name:</strong> <code>gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67</code> · <strong>note (94/140):</strong> <code>H31-Z SPLIT50 hard quota JUNC+PIED(piedmont) 37654d B2 | HOLDOUT-DTI 0.1473 n=60988 | de0eae67</code><br>
+          <strong>Lane verdict:</strong> <code>negative</code> · DO NOT SUBMIT: at least one automated gate failed (see gates); research download only.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Gate (frozen)</th><th>Rule</th><th>Measured</th><th>Result</th></tr></thead><tbody>
+        <tr><td><code>G1 format</code></td><td>float32 · EPSG:32611 · 3730×3292 · [0,1] · both conventions · exactly 37,654 dots · 0 on catalogue</td>
+            <td>zeros ok=True, nan ok=True</td><td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td><code>G2 canary</code></td><td>every line/surface two-sided AUC ≤ 0.90 vs catalogue and off-SGMC</td>
+            <td>max AUC 0.76 (SLOPE vs off-SGMC); all lines ≤ 0.90 (evidence/h31y_regimesplit/canary.json)</td><td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td><code>G3 holdout efficacy</code></td><td>pooled HOLDOUT-DTI beats CTRL and SLOPE, paired 95% CI &gt; 0, ≥3/4 quadrants, untouched confirmation CI &gt; 0</td>
+            <td>HOLDOUT-DTI 0.1473 [0.1334, 0.1613] (gems57-pooled-hide-v2, n=60,988) ·
+                Δ vs CTRL +0.0802 [+0.0548, +0.1056] ·
+                Δ vs SLOPE +0.0984 [+0.0853, +0.1114] ·
+                Δ vs JUNC incumbent surface -0.0189 · 4/4 quadrants ·
+                confirmation (seed 3105, n=30,484): 0.1266 vs CTRL 0.0621, Δ +0.0645</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td><code>G4 discovery proxy</code></td><td>full-footprint off-catalogue SGMC DTI ≥ H33-2-B2 recomputed same day</td>
+            <td>0.0749 (TPw 4,295) vs H33 0.0940 (TPw 5,400);
+                piedmont slope ≤6 deg (band): 0.0431 (21,322 dots);
+                mountain &gt;6 deg: 0.0670</td>
+            <td><span class="badge badge-red">FAIL</span></td></tr>
+        <tr><td><code>G5 uniqueness (owner rule)</code></td><td>final-dot 3-px overlap ≤ 0.70; |Spearman| ≤ 0.90 vs every discrete peer; literal lattice disclosed</td>
+            <td>final dots max 54.1% · ROUTE-proxy top-K 92.8% (disclosed, not gated) ·
+                |Spearman| dots 0.499 ·
+                literal 695-lattice 99.2% (fails for every nonempty raster; lane judged under IR-U-02, since superseded by the literal release STOP above)</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td><code>G6 projection</code></td><td>anchor-inversion PROJECTION ≥ 0.2778 (never a score)</td>
+            <td>PROJECTION 0.2186 [0.213, 0.224] (in-family LOO RMSE 0.0028; cross-family transfer unproven)</td>
+            <td><span class="badge badge-red">FAIL</span></td></tr>
+      </tbody></table></div>
       </section><section id="h31ym"><div class="section-head"><div>
       <p class="kicker">Parallel lane · 2026-10-26 session a111fe50 · preregistered, automated gates</p>
       <h2>H31-YM regime-mosaic — unique research TIFF, verdict negative (DO NOT SUBMIT)</h2></div>

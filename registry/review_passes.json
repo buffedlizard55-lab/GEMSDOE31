@@ -5,7 +5,7 @@
  "passes": [
   {
    "id": "pass-1-implementation-and-verification",
-   "status": "historical \u2014 complete-for-current-artifacts",
+   "status": "historical — complete-for-current-artifacts",
    "scope": [
     "frozen H31-A design, two magnetic-scale features, pinned sibling runtime/cache verification, paired four-block pilot, same-trace residual variogram, bootstrap range rule and stop gate",
     "strict GeoTIFF CRS/grid/shape/transform/dtype/value/NaN checks and out-of-range regression protection",
@@ -31,7 +31,7 @@
   },
   {
    "id": "pass-2-independent-bug-assumption-leakage-review",
-   "status": "historical \u2014 complete-for-current-code-and-pilot",
+   "status": "historical — complete-for-current-code-and-pilot",
    "checks": [
     "confirmed H31 feature construction uses no fault labels and re-masks invalid cells after filtering",
     "confirmed model arms share folds, draws, training samples, test rows, and emission; residual pairs are restricted to the same fold/draw/8-connected trace component",
@@ -55,7 +55,7 @@
   },
   {
    "id": "pass-3-whole-request-crosscheck",
-   "status": "historical \u2014 complete-with-open-gates",
+   "status": "historical — complete-with-open-gates",
    "criteria": [
     {
      "criterion": "README charter, Maximize P(Win), Own the Outcome, source classes, and status-first site",
@@ -99,11 +99,11 @@
   },
   {
    "id": "pass-4-score-prior-art-and-source-implementation-2026-10-03",
-   "status": "historical \u2014 complete-for-reviewed-artifacts",
+   "status": "historical — complete-for-reviewed-artifacts",
    "scope": [
     "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
     "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
-    "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective \u0394DTI planning brackets, cost, and source-access limits",
+    "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective ΔDTI planning brackets, cost, and source-access limits",
     "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
    ],
    "verification": {
@@ -123,7 +123,7 @@
   },
   {
    "id": "pass-5-independent-assumption-and-link-review-2026-10-03",
-   "status": "historical \u2014 complete-with-blockers-preserved",
+   "status": "historical — complete-with-blockers-preserved",
    "checks": [
     "rechecked the H27-4 filename/hash/status against GEMSDOE28 owner records and separated its catalogue-gap proxy deltas from competition DTI",
     "rechecked D2.8 0.2600 against both the pinned GEMSDOE25 registry and GEMSDOE28 owner page; retained attribution conflict and empty organizer receipt list",
@@ -145,14 +145,14 @@
   },
   {
    "id": "pass-6-whole-charter-and-delivery-crosscheck-2026-10-03",
-   "status": "historical \u2014 complete-with-open-gates",
+   "status": "historical — complete-with-open-gates",
    "criteria": [
     {
      "criterion": "fault-mapping target, Maximize P(Win), Own the Outcome, README startup brief and source/evidence labels",
      "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
     },
     {
-     "criterion": "3\u20135 distinct ranked hypotheses and official-source/access checks",
+     "criterion": "3–5 distinct ranked hypotheses and official-source/access checks",
      "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
     },
     {
@@ -165,7 +165,7 @@
     },
     {
      "criterion": "AI narrative, three cumulative reviews, and delivery record",
-     "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1\u20133; PR #4 merged from the fixed branch."
+     "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1–3; PR #4 merged from the fixed branch."
     }
    ],
    "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate.",
@@ -173,7 +173,7 @@
   },
   {
    "id": "pass-10-regenerate-and-verify-every-measured-number",
-   "status": "historical \u2014 complete-for-current-artifacts",
+   "status": "historical — complete-for-current-artifacts",
    "scope": [
     "restore and hash-verify the 11 pinned inputs in this workspace (data_restore.json all_verified true)",
     "write the official metric from the published sums and verify it against a literal brute-force transcription",
@@ -199,7 +199,7 @@
   },
   {
    "id": "pass-11-bug-assumption-and-leakage-review",
-   "status": "historical \u2014 complete-for-current-artifacts",
+   "status": "historical — complete-for-current-artifacts",
    "scope": [
     "re-derive the metric from the official page rather than from memory, and correct the earlier off-by-one arithmetic in the exact test case",
     "check that no catalogue-derived feature enters either evaluation proxy",
@@ -221,7 +221,7 @@
   },
   {
    "id": "pass-12-charter-crosscheck",
-   "status": "historical \u2014 complete-with-open-work",
+   "status": "historical — complete-with-open-work",
    "scope": [
     "walk the written brief item by item against the repository, the site and the registers",
     "record what is satisfied, what is partial, and what is blocked"
@@ -243,7 +243,7 @@
   },
   {
    "id": "pass-13-h31b-implementation-and-9site-forensic-audit-2026-10-25",
-   "status": "historical \u2014 complete-for-current-artifacts",
+   "status": "historical — complete-for-current-artifacts",
    "scope": [
     "fix scripts/download_competition_data.py in-place with blobless git fetch over github.com so all 11 hash-pinned inputs restore inside the sandbox",
     "restore all 11 sibling GeoTIFFs across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36 and compute exact catalogue-distance annuli and off-catalogue SGMC DTIs (evidence/nine_site_forensic_audit.json)",
@@ -263,7 +263,7 @@
   },
   {
    "id": "pass-14-h31b-bug-leakage-and-uniqueness-review-2026-10-25",
-   "status": "historical \u2014 complete-for-current-artifacts",
+   "status": "historical — complete-for-current-artifacts",
    "scope": [
     "audit single-feature leakage canary across all 46 bands + 5 engineered surfaces (evidence/leakage_canary.json)",
     "audit sparse LiDAR/GeoDAWN NaN handling, Parallel-Run Uniqueness Gate (surface Spearman r_s <= 0.90 and 3-px dot overlap <= 70%), and [0, 1] footprint range",
@@ -282,12 +282,12 @@
   },
   {
    "id": "pass-15-whole-request-and-run-card-crosscheck-2026-10-25",
-   "status": "historical \u2014 complete-with-open-work",
+   "status": "historical — complete-with-open-work",
    "scope": [
     "cross-check all user requirements: 9-site forensic study of 0.2778, unique validated GeoTIFF generation, obvious readiness on site home and executive summary, unique name and <=140-char note, Parallel-Run Protocol compliance, and JSON RUN CARD"
    ],
    "verification": {
-    "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES \u2014 VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
+    "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES — VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
     "run_card": "evidence/run_card_2026-10-25.json generated and verified with all required fields"
    },
    "open_scientific_gates": [
@@ -457,7 +457,7 @@
    ],
    "findings_fixed": [
     "the prior session-ID branch literal would reject the current active Arena branch even before the missing-data guard",
-    "the home page previously led with \u201cDownload the file. Submit it.\u201d while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
+    "the home page previously led with “Download the file. Submit it.” while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
     "the executive summary no longer reserves a submission name or note for a legacy/reference file"
    ],
    "verification": {
@@ -768,7 +768,7 @@
    "id": "pass-2026-10-25-h31m-3",
    "status": "complete-with-promoted-unique-candidate",
    "scope": [
-    "verify obvious YES \u2014 OK TO DOWNLOAD AND SUBMIT readiness on docs/index.html, docs/executive-summary.html, and README.md with unique name, <=140-char note, and one-click download",
+    "verify obvious YES — OK TO DOWNLOAD AND SUBMIT readiness on docs/index.html, docs/executive-summary.html, and README.md with unique name, <=140-char note, and one-click download",
     "rerun pytest, ruff, check_metric.py, collect_evidence.py, build_site.py, and check_site.py across all 20 HTML pages and 267 local links",
     " ",
     "R",
@@ -1618,7 +1618,7 @@
    "session_branch": "arena/f4d7fb29-gemsdoe31",
    "scope": [
     "H31-Y KIN-PIED preregistered before fit; 3 experiments; unique GeoTIFF packaged",
-    "lane G5 fail (top-K 90.5%); selector G1-G6 pass on submitted dots (63.0%) \u2014 alternate not primary",
+    "lane G5 fail (top-K 90.5%); selector G1-G6 pass on submitted dots (63.0%) — alternate not primary",
     "site/README make download and submit/do-not-submit obvious; no DrivenData contact; 0 slots"
    ],
    "verification": {
@@ -1689,6 +1689,58 @@
     "All nine HEADs differ from old raster inventory; no exhaustive refreshed uniqueness pass.",
     "Official non-GitHub sources restricted by network; no organizer receipt, private truth or current weekly quota."
    ]
+  },
+  {
+   "id": "pass-2026-10-26-h31yz-1-implementation",
+   "status": "complete-for-current-artifacts",
+   "session": "arena/579233d5-gemsdoe31",
+   "scope": [
+    "owner-mirror data restore (all_verified true, evidence/data_restore_20261026_session579233d5.json); feature stack rebuilt 42 bands; 8 peer rasters hash-verified",
+    "H31-Y preregistered regime-split lane (SPLIT50/SPLIT35/ROUTE/JUNC/PIED/CTRL/SLOPE): EXP1 winner ROUTE HOLDOUT-DTI 0.1626; seed-3104 confirmation 0.1464; SGMC 0.1312; packaged negative - G5 duplicate vs H31-X 92.4%",
+    "H31-Z preregistered successor (hard quota SPLIT50): EXP1 replicated H31-Y arms exactly; winner SPLIT50 HOLDOUT-DTI 0.1473; seed-3105 confirmation 0.1266; SGMC 0.0749; packaged negative - G4/G6 discovery fail",
+    "selector re-run with H31-Y/H31-Z added; promoted set unchanged {H31-X,H31-T,H31-J,H31-M}; primary H31-X; site hero/executive banner made data-driven from the selector decision; Y/Z sections added to overview/executive/research pages"
+   ],
+   "verification": {
+    "pytest": "166 passed",
+    "ruff": "all checks passed (after fixes below)",
+    "check_metric": "max |DTI_fast-DTI_brute| 4.441e-16",
+    "verify_current_run": "MAGREST historical negative reproduced ok",
+    "check_site": "22 pages, 545 links, all checks passed (after fixes below)",
+    "replication": "JUNC pooled HOLDOUT-DTI identical across H31-X/H31-Y/H31-Z (|delta|=0.0); SPLIT50/SPLIT35 identical H31-Y vs H31-Z; selector anchor fit D0=10694.6 scale=0.9275 matches H31-U exp3 asserts"
+   }
+  },
+  {
+   "id": "pass-2026-10-26-h31yz-2-bug-review",
+   "status": "complete-for-current-artifacts",
+   "session": "arena/579233d5-gemsdoe31",
+   "scope": [
+    "independent bug/assumption/leakage/edge review of run_h31y.py, run_h31z.py, selector_audit.py, current_site.py and all new artifacts"
+   ],
+   "findings": [
+    "F1 (fixed): stale site hero - overview()/executive() hardcoded 'SUBMIT THIS FILE: H31-T' and submission-step SHA 83fbc267 while the selector decision said H31-X (eff2b18e); both made data-driven from registry/selector_decision_20261026.json. H31-N historical top banner rescoped to its lane.",
+    "F2 (fixed, IR-U-03): selector peer-priority flaw - adding duplicate H31-Y's raster to docs/downloads made it a peer that retroactively demoted original H31-X (94.2% of X dots within 3px of later-copy Y). Chronological priority added: a later candidate is excluded as peer against an earlier candidate only where overlap>0.70; both directions recorded per row (first unconditional version loosened old lanes H31-B 0.650->0.531 and was tightened before acceptance; v3 restores pre-rule values).",
+    "F3 (process, disclosed): parallel edit_file calls in one tool block raced twice - selector canary/session_branch edits reported success but did not persist, and the first selector re-run raced ahead of them on stale code (output discarded). All edits re-applied sequentially and verified with git diff; selector re-run twice more (v2, v3) from verified code. AGENTS.md amended with the rule.",
+    "F4 (found by check_site, fixed in generator): degree-sign pictograms in new Y/Z sections violated the site charset rule (replaced with 'deg'); required literal 'exactly one file on this site is cleared to submit' phrase restored in executive banner.",
+    "F5 (ruff F821, fixed): executive() referenced prim_lane/prim_sha before definition after a lost parallel edit; definitions re-applied sequentially.",
+    "F6 (independent re-validation): validate_submission.py re-run standalone on H31-X/H31-Y/H31-Z (zeros all-finite; nan nan-outside) - all hard_failures empty, sha256 match run cards; KDTree min nearest-neighbour dot distance 2.828px (>=2.8 required); zips contain exactly one TIFF; values strictly {0,1} finite (owner portal-range error cannot recur on these files).",
+    "F7 (fragility noted, fail-closed): selector lane_holdout('H31-Y') reads exp2 key 'route' - correct for the measured winner ROUTE but would fail-closed rather than misread if a split arm had won; H31-Z reads exp1 SPLIT50 directly.",
+    "F8 (assumption): regime-split attribution in the H31-Y preregistration (piedmont budget share) was falsified by regime slices and corrected on the record; no post-hoc winner/parameter switching was done in either lane (blends and splits reported as ablations only)."
+   ]
+  },
+  {
+   "id": "pass-2026-10-26-h31yz-3-charter-crosscheck",
+   "status": "complete-for-current-artifacts",
+   "session": "arena/579233d5-gemsdoe31",
+   "scope": [
+    "whole-request acceptance cross-check vs knowledge/owner_prompt_2026-10-26_session_579233d5.md and AGENTS.md"
+   ],
+   "findings": [
+    "Executive summary with required file|PROJECTION|unique table: knowledge/2026-10-26_h31yz_executive_summary.md (linked at README top); single submittable file H31-X obvious at site hero (docs/index.html 'SUBMIT THIS FILE: H31-X'), executive banner ('exactly one file ... cleared to submit: H31-X'), README top block.",
+    "Two new unique TIFFs generated this session (never copies: hashes/lineage on run cards) - both honestly gated DO NOT SUBMIT (Y duplicate-of-X, Z discovery-fail); no slot spent on a gated file; primary H31-X unchanged. No score claim beyond labelled HOLDOUT-DTI (evaluator gems57-pooled-hide-v2, n, 95% CI) / PROJECTION / USER-REPORTED; no DrivenData contact; owner uploads manually.",
+    "Hypotheses: five ranked lanes carried in executive summary section 5 (sigma=3px transition-corroborated junction [this session's measured lead], KIN, TEX, H31-B paired re-test, broader family); geological basis cited to verified papers already in sources registry.",
+    "Parallel-Run Protocol: 3 experiments per lane, shared evaluator/writer/stack unchanged, canary AUC<=0.90 both lanes, JSON run cards with verdicts negative; budgets respected; promotion decided only by the separate uniform selector.",
+    "Remaining limitations: no organizer receipt for any number; literal 695-raster reading still STOP for everything (IR-U-02 disclosed); 0.4413/0.3195 leaderboard figures remain USER-REPORTED and mutually inconsistent; H31-X projection 0.355 is a 4-anchor inversion, not a score."
+   ]
   }
  ],
  "remaining_work": [
@@ -1706,7 +1758,7 @@
   "bf9d261d-pass-2-2026-10-26",
   "bf9d261d-pass-3-2026-10-26"
  ],
- "release_decision": "DO NOT SUBMIT \u2014 literal registry STOP",
+ "release_decision": "DO NOT SUBMIT — literal registry STOP",
  "rbu31_session_2026_10_25": {
   "branch": "arena/84287da3-gemsdoe31",
   "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",

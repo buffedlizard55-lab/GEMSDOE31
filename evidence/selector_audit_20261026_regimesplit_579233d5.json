@@ -1,0 +1,1527 @@
+{
+ "evidence_class": "COMPUTED selector audit (no fitting; holdout/canary cited from lane run cards)",
+ "projection_fit": {
+  "d0": 10694.644444444453,
+  "scale": 0.9275488479808367,
+  "loo_rmse": 0.0027808676067655985,
+  "anchors": [
+   {
+    "tag": "GEMSDOE24",
+    "live": 0.2477,
+    "n": 60069,
+    "tpw": 6089.847331529805,
+    "sgmc_dti": 0.09838854407962805
+   },
+   {
+    "tag": "GEMSDOE25",
+    "live": 0.26,
+    "n": 44090,
+    "tpw": 5448.406693134413,
+    "sgmc_dti": 0.09273846081357219
+   },
+   {
+    "tag": "GEMSDOE27",
+    "live": 0.2449,
+    "n": 61328,
+    "tpw": 6192.232959857725,
+    "sgmc_dti": 0.0996226832426806
+   },
+   {
+    "tag": "GEMSDOE28-h27-4",
+    "live": 0.2708,
+    "n": 40199,
+    "tpw": 5440.668009944881,
+    "sgmc_dti": 0.0938481489873344
+   },
+   {
+    "tag": "GEMSDOE28-h32-1",
+    "live": 0.2649,
+    "n": 42294,
+    "tpw": 5448.8668257690315,
+    "sgmc_dti": 0.09331671648383115
+   },
+   {
+    "tag": "GEMSDOE28-h36-1",
+    "live": 0.271,
+    "n": 37660,
+    "tpw": 5278.897070659178,
+    "sgmc_dti": 0.09186668228418525
+   },
+   {
+    "tag": "GEMSDOE28-h38-1",
+    "live": 0.2707,
+    "n": 37860,
+    "tpw": 5297.398323096142,
+    "sgmc_dti": 0.0921216104400928
+   },
+   {
+    "tag": "GEMSDOE30",
+    "live": 0.26,
+    "n": 44090,
+    "tpw": 5448.406693134413,
+    "sgmc_dti": 0.09273846081357219
+   },
+   {
+    "tag": "GEMSDOE32-h33-2-b2",
+    "live": 0.2778,
+    "n": 37654,
+    "tpw": 5399.782592048414,
+    "sgmc_dti": 0.09396541728952715
+   },
+   {
+    "tag": "GEMSDOE33-h33d",
+    "live": 0.2632,
+    "n": 41865,
+    "tpw": 5495.738563599329,
+    "sgmc_dti": 0.09424537701961515
+   },
+   {
+    "tag": "GEMSDOE36-pinn",
+    "live": 0.275,
+    "n": 38854,
+    "tpw": 5504.1357640934675,
+    "sgmc_dti": 0.09536457384413603
+   }
+  ],
+  "method": "identical to scripts/run_h31u.py projection(); asserted vs exp3.json",
+  "label": "PROJECTION \u2014 never a score; anchors USER-REPORTED"
+ },
+ "h33_reference": {
+  "sgmc_dti": 0.09396541728952715,
+  "user_reported": 0.2778,
+  "peer": "focus:GEMSDOE32:gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif"
+ },
+ "phi_spearman_crosscheck": {
+  "phi": 0.020883572829927626,
+  "vendor_spearman": 0.020883572829926554
+ },
+ "peers_checked": 58,
+ "candidates": [
+  {
+   "lane": "H31-B-standalone",
+   "file": "docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif",
+   "card": "evidence/run_card_2026-10-25.json",
+   "sha256": "b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.13914380940247614,
+    "tpw": 8042.171471684173,
+    "fpw": 34289.58537569514,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.06095996115534865,
+    "tpw": 1375.6524295596578,
+    "fpw": 36788.803783296484,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.15628856960586807,
+    "tpw": 6666.519042124516,
+    "fpw": 34621.444098887325,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif (identical bytes)",
+    "local:gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif (identical support twin)"
+   ],
+   "projection": 0.40929080805482576,
+   "projection_interval": [
+    0.40372907284129456,
+    0.41485254326835697
+   ],
+   "overlap_vs_h33": 0.29595793275614807,
+   "phi_vs_h33": 0.006597713322596317,
+   "max_discrete_overlap": 0.6500504594465395,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
+   "max_overlap_incl_later_peers": 0.6500504594465395,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "evaluator": "evaluator_v2.0_protocol_v1_buffer21250m (card)",
+    "summary": "fail-closed: card records HOLDOUT-DTI means/CIs but no paired delta CI vs a same-run control; card verdict=promote under its own gate set. {'primary_standalone_off_catalogue_sgmc_4block': 'HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1380, 95% CI [0.1169, 0.1683])', 'primary_standalone_catalogue_gap_4block': 'HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 47,088 withheld positives, mean=0.1158, 95% CI [0.1050, 0.1267])', 'companion_hybrid_off_catalogue_sgmc_4block': 'HOLDOUT-DTI (eval"
+   },
+   "canary_from_card": true,
+   "card_verdict": "promote",
+   "card_slot_approved": null,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": true,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": true
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "H31-Y",
+   "file": "docs/downloads/gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.tif",
+   "card": "evidence/h31y_regimesplit/run_card.json",
+   "sha256": "89a5fc01789c8fb3499cf79cd7d5193724af3c18827041b7a54de8da9d7b1f35",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.13117575398662182,
+    "tpw": 7573.48252639282,
+    "fpw": 34447.437415886096,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.05293041072615081,
+    "tpw": 1193.4511499336077,
+    "fpw": 36876.305232520725,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.1497150383120287,
+    "tpw": 6380.031376459212,
+    "fpw": 34704.46449273549,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-nan.tif (identical support twin)",
+    "local:gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.3854377880315547,
+   "projection_interval": [
+    0.3798760528180235,
+    0.3909995232450859
+   ],
+   "overlap_vs_h33": 0.5384288521803793,
+   "phi_vs_h33": 0.03896829385418973,
+   "max_discrete_overlap": 0.9239124661390556,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-nan.tif",
+   "max_overlap_incl_later_peers": 0.9239124661390556,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": true,
+    "evaluator": "gems57-pooled-hide-v2",
+    "dti": 0.16256104026163884,
+    "ci95": [
+     0.1470288866416671,
+     0.17797444401112358
+    ],
+    "n": 60988,
+    "delta": 0.09549791039623967,
+    "delta_ci95": [
+     0.06895471095377799,
+     0.12172572547508008
+    ],
+    "confirmation_delta": 0.08906576119805955,
+    "confirmation_delta_ci95": [
+     0.062355898957005954,
+     0.11395392454864647
+    ],
+    "summary": "paired CIs vs CTRL & SLOPE (213-px quadrant folds) + untouched random-component split confirmation vs CTRL; all exclude 0 (card verbatim)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": true,
+    "G4_sgmc_discovery": true,
+    "G5_uniqueness_discrete": false,
+    "G6_projection_ge_02778": true
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "H31-X",
+   "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+   "card": "evidence/h31x/run_card.json",
+   "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.12091518330462997,
+    "tpw": 6970.69836652866,
+    "fpw": 34620.73987978726,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.0633903582151335,
+    "tpw": 1430.8250718217735,
+    "fpw": 36759.4322490988,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.13033092687081463,
+    "tpw": 5539.873294706886,
+    "fpw": 35003.15935106205,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-nan.tif (identical support twin)",
+    "local:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.3547602506597004,
+   "projection_interval": [
+    0.3491985154461692,
+    0.3603219858732316
+   ],
+   "overlap_vs_h33": 0.5701386306899665,
+   "phi_vs_h33": 0.047395345810761574,
+   "max_discrete_overlap": 0.6699421044244968,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-nan.tif",
+   "max_overlap_incl_later_peers": 0.9417060604451054,
+   "later_candidate_peers_excluded_ir_u_03": [
+    {
+     "peer": "local:gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-nan.tif",
+     "peer_lane": "H31-Y",
+     "overlap": 0.9417060604451054
+    },
+    {
+     "peer": "local:gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.tif",
+     "peer_lane": "H31-Y",
+     "overlap": 0.9417060604451054
+    }
+   ],
+   "holdout_from_card": {
+    "pass_": true,
+    "evaluator": "gems57-pooled-hide-v2",
+    "dti": 0.1661329569994631,
+    "ci95": [
+     0.14985841711445055,
+     0.18210651085093407
+    ],
+    "n": 60988,
+    "delta": 0.09906982713406393,
+    "delta_ci95": [
+     0.07201119527777565,
+     0.1257786119402916
+    ],
+    "confirmation_delta": 0.08036155418820407,
+    "confirmation_delta_ci95": [
+     0.05356359232144407,
+     0.10814623608677554
+    ],
+    "summary": "paired CIs vs CTRL & SLOPE (213-px quadrant folds) + untouched random-component split confirmation vs CTRL; all exclude 0 (card verbatim)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": true,
+    "G4_sgmc_discovery": true,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": true
+   },
+   "selector_promote": true
+  },
+  {
+   "lane": "H31-B-hybrid",
+   "file": "docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
+   "card": "evidence/run_card_2026-10-25.json",
+   "sha256": "f9cd56a71550b42f00f3cd37a4bf1464c151a9a2ea0438afb8ceef95868351ab",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.12057858545580694,
+    "tpw": 6953.306652360184,
+    "fpw": 34721.603271468215,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.06691832410732118,
+    "tpw": 1511.3626480976006,
+    "fpw": 36746.556243246116,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.127990106859925,
+    "tpw": 5441.944004262583,
+    "fpw": 35162.42495978385,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif (identical bytes)",
+    "local:gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif (identical support twin)"
+   ],
+   "projection": 0.3538751329063005,
+   "projection_interval": [
+    0.3483133976927693,
+    0.3594368681198317
+   ],
+   "overlap_vs_h33": 0.6639400860466351,
+   "phi_vs_h33": 0.6614732842588569,
+   "max_discrete_overlap": 0.6856642056620811,
+   "max_discrete_overlap_peer": "focus:GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+   "max_overlap_incl_later_peers": 0.6856642056620811,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "evaluator": "evaluator_v2.0_protocol_v1_buffer21250m (card)",
+    "summary": "fail-closed: card records HOLDOUT-DTI means/CIs but no paired delta CI vs a same-run control; card verdict=promote under its own gate set. {'primary_standalone_off_catalogue_sgmc_4block': 'HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1380, 95% CI [0.1169, 0.1683])', 'primary_standalone_catalogue_gap_4block': 'HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 47,088 withheld positives, mean=0.1158, 95% CI [0.1050, 0.1267])', 'companion_hybrid_off_catalogue_sgmc_4block': 'HOLDOUT-DTI (eval"
+   },
+   "canary_from_card": true,
+   "card_verdict": "promote",
+   "card_slot_approved": null,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": true,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": true
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "H31-T",
+   "file": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif",
+   "card": "evidence/h31t/run_card.json",
+   "sha256": "83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.10817003352547121,
+    "tpw": 6235.747813594021,
+    "fpw": 35346.48279237438,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.09908484221977905,
+    "tpw": 2248.935747837503,
+    "fpw": 36568.42172233751,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.09403383215131646,
+    "tpw": 3986.8120657565178,
+    "fpw": 36013.36147486114,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.tif (identical support twin)",
+    "local:gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.31735635958997116,
+   "projection_interval": [
+    0.31179462437643995,
+    0.32291809480350236
+   ],
+   "overlap_vs_h33": 0.3408402825729006,
+   "phi_vs_h33": 0.020883572829927626,
+   "max_discrete_overlap": 0.43915653051468634,
+   "max_discrete_overlap_peer": "local:gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+   "max_overlap_incl_later_peers": 0.43915653051468634,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": true,
+    "evaluator": "gems57-pooled-hide-v2",
+    "dti": 0.13001,
+    "ci95": [
+     0.114652,
+     0.145559
+    ],
+    "n": 60988,
+    "delta": 0.020461,
+    "delta_ci95": [
+     0.00454,
+     0.03653
+    ],
+    "summary": "screen+untouched-confirm paired CIs exclude 0 (card verbatim)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": true,
+    "G4_sgmc_discovery": true,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": true
+   },
+   "selector_promote": true
+  },
+  {
+   "lane": "H31-J",
+   "file": "docs/downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.tif",
+   "card": "evidence/h31j/run_card.json",
+   "sha256": "04e886cd8f7759e05d5fabb5d7222aaed0d16fda59fdf81e5934c5508eaf3fa3",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.10639372766657704,
+    "tpw": 6131.8919922497425,
+    "fpw": 35381.91494722647,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.08710948047260926,
+    "tpw": 1974.450315099631,
+    "fpw": 36689.08974158099,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.09801169062809845,
+    "tpw": 4157.441677150112,
+    "fpw": 35943.629050410505,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-nan.tif (identical support twin)",
+    "local:gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.3120708178443292,
+   "projection_interval": [
+    0.306509082630798,
+    0.3176325530578604
+   ],
+   "overlap_vs_h33": 0.3950709088011898,
+   "phi_vs_h33": 0.02390661051593594,
+   "max_discrete_overlap": 0.498619004621023,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif",
+   "max_overlap_incl_later_peers": 0.498619004621023,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": true,
+    "evaluator": "gems57-pooled-hide-v2",
+    "summary": "card scientific_screen_pass & confirmation_pass flags",
+    "screen": "{'withheld_positives': 2901, 'scores': {'h31j1_subsurface_submod': {'evidence_class': 'HOLDOUT-DTI', 'evaluator_version': 'gems57-pooled-hide-v2', 'dti': 0.06530524209530748, 'ci95': [0.041105536781890134, 0.08723998032462836], 'withheld_positive_pixels': 2901, 'tpw': 274.76438026675913, 'fpw': 9158.167070485977, 'fnw': 2626.2356197332406}, 'h31j2_dual_poisson': {'evidence_class': 'HOLDOUT-DTI', '"
+   },
+   "canary_from_card": true,
+   "card_verdict": "promote",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": true,
+    "G4_sgmc_discovery": true,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": true
+   },
+   "selector_promote": true
+  },
+  {
+   "lane": "H31-M",
+   "file": "docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif",
+   "card": "evidence/h31m_run_card.json",
+   "sha256": "8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.1009548443296572,
+    "tpw": 5806.746814192933,
+    "fpw": 35128.544755314346,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.08448397360747115,
+    "tpw": 1911.7726459530663,
+    "fpw": 36564.32820064839,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.09200829732103033,
+    "tpw": 3894.9741682398676,
+    "fpw": 35781.31490395852,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif (identical bytes)",
+    "local:gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif (identical support twin)"
+   ],
+   "projection": 0.29552318103621567,
+   "projection_interval": [
+    0.28996144582268446,
+    0.30108491624974687
+   ],
+   "overlap_vs_h33": 0.40245392255802837,
+   "phi_vs_h33": 0.022140942486939937,
+   "max_discrete_overlap": 0.5991926488553673,
+   "max_discrete_overlap_peer": "local:gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-nan.tif",
+   "max_overlap_incl_later_peers": 0.5991926488553673,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": true,
+    "evaluator": "gemsdoe31-holdout-v1 (card)",
+    "summary": "card gates G2a-G2e + scientific_efficacy_all_11_ok true; paired delta 95% CI [+0.0064,+0.0380] (card verbatim); card verdict negative ONLY for literal-695/variogram/convention"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": null,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": true,
+    "G4_sgmc_discovery": true,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": true
+   },
+   "selector_promote": true
+  },
+  {
+   "lane": "H31-S",
+   "file": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif",
+   "card": "docs/downloads/h31s-run-card.json",
+   "sha256": "186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.08372509197891873,
+    "tpw": 4809.4547180313875,
+    "fpw": 35751.59123292245,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.07615327672348299,
+    "tpw": 1723.7528654034684,
+    "fpw": 36784.78658033281,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.07299876156657867,
+    "tpw": 3085.701852627919,
+    "fpw": 36279.32567877737,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif (identical support twin)",
+    "local:gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.24476792303881692,
+   "projection_interval": [
+    0.23920618782528572,
+    0.2503296582523481
+   ],
+   "overlap_vs_h33": 0.4052690285228661,
+   "phi_vs_h33": 0.023184291776801216,
+   "max_discrete_overlap": 0.5478302437987996,
+   "max_discrete_overlap_peer": "local:gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-nan.tif",
+   "max_overlap_incl_later_peers": 0.5478302437987996,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "evaluator": "gems57-pooled-hide-v2",
+    "summary": "seed-41 vs H31-M paired CI crosses 0 (1/4 quads); preregistered gate failed (card/status verbatim)"
+   },
+   "canary_from_card": true,
+   "card_verdict": null,
+   "card_slot_approved": null,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "HVDC",
+   "file": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+   "card": "evidence/hvdc/run_card.json",
+   "sha256": "1cce914c6daa274ce84cfe215540cdb03bef88f880c952e528807378b826262d",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.08244130993599746,
+    "tpw": 4732.052880595437,
+    "fpw": 35607.197696398194,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.08513308702781953,
+    "tpw": 1927.3895668775199,
+    "fpw": 36603.22886497221,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.06642755457211862,
+    "tpw": 2804.6633137179174,
+    "fpw": 36314.25848881276,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif (identical bytes)",
+    "local:gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif (identical support twin)"
+   ],
+   "projection": 0.24082870578877064,
+   "projection_interval": [
+    0.23526697057523943,
+    0.24639044100230184
+   ],
+   "overlap_vs_h33": 0.3688585542040686,
+   "phi_vs_h33": 0.025618773453144183,
+   "max_discrete_overlap": 0.5116056727040952,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif",
+   "max_overlap_incl_later_peers": 0.5116056727040952,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "evaluator": "gemsdoe31-hide-recover-v1",
+    "dti": 0.124688,
+    "ci95": [
+     0.11278,
+     0.138135
+    ],
+    "summary": "card verdict=negative; delta_vs_baseline=0.046754"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "SCGP",
+   "file": "docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif",
+   "card": "evidence/h31e/run_card.json",
+   "sha256": "88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.0816230390833361,
+    "tpw": 4674.301627913826,
+    "fpw": 35004.39507098164,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.07047027069471228,
+    "tpw": 1589.1405192082887,
+    "fpw": 36495.40772150178,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.07317383866670975,
+    "tpw": 3085.161108705537,
+    "fpw": 35737.22993540428,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif (identical bytes)",
+    "local:gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif (identical support twin)"
+   ],
+   "projection": 0.23788956715445295,
+   "projection_interval": [
+    0.23232783194092174,
+    0.24345130236798415
+   ],
+   "overlap_vs_h33": 0.41297073352100705,
+   "phi_vs_h33": 0.018475843699478533,
+   "max_discrete_overlap": 0.6813087586976151,
+   "max_discrete_overlap_peer": "local:gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-nan.tif",
+   "max_overlap_incl_later_peers": 0.6813087586976151,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "summary": "card verdict=negative (fail-closed default extractor)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": null,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "RBU31-B",
+   "file": "docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif",
+   "card": "evidence/regime31b/run_card.json",
+   "sha256": "07c939198a9145ae8281012bcba2c2167e3a6a482dd15c04ce3872b5b94e1041",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.08009698695508764,
+    "tpw": 4593.174656179194,
+    "fpw": 35476.633067068906,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.06832735453966193,
+    "tpw": 1543.0763484610197,
+    "fpw": 36706.82884903285,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.07224831187771011,
+    "tpw": 3050.098307718174,
+    "fpw": 36046.301344475214,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif (identical bytes)",
+    "local:gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.tif (identical support twin)"
+   ],
+   "projection": 0.23376076637804336,
+   "projection_interval": [
+    0.22819903116451215,
+    0.23932250159157456
+   ],
+   "overlap_vs_h33": 0.4537100972008286,
+   "phi_vs_h33": 0.025806041274401337,
+   "max_discrete_overlap": 0.5873479577202954,
+   "max_discrete_overlap_peer": "local:gemsdoe31-rbu31-regimeunion-37654-20261025-1788ff29-allfinite.tif",
+   "max_overlap_incl_later_peers": 0.5873479577202954,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "summary": "card verdict=negative (fail-closed default extractor)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": null,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "H31-N",
+   "file": "docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif",
+   "card": "evidence/h31n/run_card.json",
+   "sha256": "fecb586e84f48609379df8943dfc12059b2fd4a851b38cf232faab5ce3da9b6c",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.07853396263587775,
+    "tpw": 4509.621649613214,
+    "fpw": 35947.20815384691,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.08417750980994877,
+    "tpw": 1907.5022198260845,
+    "fpw": 36726.86465540787,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.06162368231774378,
+    "tpw": 2602.119429787129,
+    "fpw": 36539.70370948026,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-nan.tif (identical support twin)",
+    "local:gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.22950849723740055,
+   "projection_interval": [
+    0.22394676202386934,
+    0.23507023245093175
+   ],
+   "overlap_vs_h33": 0.2722154352791204,
+   "phi_vs_h33": 0.012777551424082333,
+   "max_discrete_overlap": 0.6592128326339831,
+   "max_discrete_overlap_peer": "local:gems31-xfcoh31-xfield-coherence-37654-20261026-nan.tif",
+   "max_overlap_incl_later_peers": 0.6592128326339831,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "summary": "card verdict=negative (fail-closed default extractor)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "XFCOH31",
+   "file": "docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif",
+   "card": "evidence/xfcoh31_run_card.json",
+   "sha256": "857dd662430c0130c46f920666d70dae5df6148951ad76d42d31a8d540c32972",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.07832134223618728,
+    "tpw": 4497.016338434586,
+    "fpw": 35934.52647162735,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.08667242773189686,
+    "tpw": 1964.5699512364658,
+    "fpw": 36700.4704773445,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.05998810910046446,
+    "tpw": 2532.4463871981197,
+    "fpw": 36558.58453849178,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gems31-xfcoh31-xfield-coherence-37654-20261026-nan.tif (identical support twin)",
+    "local:gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.22886697423378788,
+   "projection_interval": [
+    0.22330523902025667,
+    0.23442870944731908
+   ],
+   "overlap_vs_h33": 0.27473840760609763,
+   "phi_vs_h33": 0.014275693994139551,
+   "max_discrete_overlap": 0.6607266160301695,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-nan.tif",
+   "max_overlap_incl_later_peers": 0.6607266160301695,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "evaluator": "gemsdoe31-holdout-v1",
+    "dti": 0.04588144093319451,
+    "delta": -0.0022402978982932822,
+    "delta_ci95": [
+     -0.004828358381309972,
+     0.00011539974396825053
+    ],
+    "summary": "paired delta vs base19 control"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": null,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "H31-Z",
+   "file": "docs/downloads/gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif",
+   "card": "evidence/h31z/run_card.json",
+   "sha256": "5a7e3b3e8d56e505e329bf7043db648785afa1c392cdc27c7e12296af21a910f",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.07490984960450527,
+    "tpw": 4295.41503334411,
+    "fpw": 35754.20886139218,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.049106626097184164,
+    "tpw": 1107.418742380804,
+    "fpw": 36981.13066799547,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.07542604275032361,
+    "tpw": 3187.9962909633064,
+    "fpw": 36156.60016489601,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-nan.tif (identical support twin)",
+    "local:gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.21860686459102388,
+   "projection_interval": [
+    0.21304512937749268,
+    0.22416859980455509
+   ],
+   "overlap_vs_h33": 0.4142454984862166,
+   "phi_vs_h33": 0.03206613701356898,
+   "max_discrete_overlap": 0.5410314973176821,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-nan.tif",
+   "max_overlap_incl_later_peers": 0.5410314973176821,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": true,
+    "evaluator": "gems57-pooled-hide-v2",
+    "dti": 0.14726294053798147,
+    "ci95": [
+     0.13340556113142935,
+     0.16130714799173437
+    ],
+    "n": 60988,
+    "delta": 0.0801998106725823,
+    "delta_ci95": [
+     0.05478429305124468,
+     0.10558851281827165
+    ],
+    "confirmation_delta": 0.06448905297589895,
+    "confirmation_delta_ci95": [
+     0.04085196160370049,
+     0.08742524930031544
+    ],
+    "summary": "paired CIs vs CTRL & SLOPE (213-px quadrant folds) + untouched random-component split confirmation vs CTRL; all exclude 0 (card verbatim)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": true,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "MAGREST",
+   "file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+   "card": "registry/current_run.json",
+   "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.07068187517740421,
+    "tpw": 4054.3787232889213,
+    "fpw": 36094.31576966627,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.053788290033135636,
+    "tpw": 1214.6917520333504,
+    "fpw": 37031.45287731385,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.06719472238197025,
+    "tpw": 2839.6869712555717,
+    "fpw": 36475.140884278466,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif (identical support twin)",
+    "local:gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.20633978641936412,
+   "projection_interval": [
+    0.20077805120583292,
+    0.21190152163289533
+   ],
+   "overlap_vs_h33": 0.1518563764805864,
+   "phi_vs_h33": 0.00028411249164090745,
+   "max_discrete_overlap": 0.20470600732989855,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif",
+   "max_overlap_incl_later_peers": 0.20470600732989855,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "summary": "card verdict=negative (fail-closed default extractor)"
+   },
+   "canary_from_card": false,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": false,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "H31-U",
+   "file": "docs/downloads/gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif",
+   "card": "evidence/h31u/run_card.json",
+   "sha256": "e9befc533069ad98b1c44764c89161398c61c3109560173ce96ba296040fe3b0",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.07030534531939105,
+    "tpw": 4027.694446973549,
+    "fpw": 35759.2800292974,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.06113005675091173,
+    "tpw": 1379.7185875310186,
+    "fpw": 36803.36162273235,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.06277806786900497,
+    "tpw": 2647.9758594425302,
+    "fpw": 36263.78175717397,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [],
+   "projection": 0.20498174163582136,
+   "projection_interval": [
+    0.19942000642229016,
+    0.21054347684935257
+   ],
+   "overlap_vs_h33": 0.26467307590163064,
+   "phi_vs_h33": 0.009808018829861782,
+   "max_discrete_overlap": 0.37695862325383755,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif",
+   "max_overlap_incl_later_peers": 0.37695862325383755,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": true,
+    "evaluator": "gems57-pooled-hide-v2",
+    "dti": 0.09517322540399578,
+    "ci95": [
+     0.08021998796174314,
+     0.1094076291282853
+    ],
+    "n": 60988,
+    "delta": 0.028110095538596613,
+    "delta_ci95": [
+     0.005204053441846256,
+     0.05077602715644697
+    ],
+    "summary": "paired CIs vs CTRL & best single-line"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": true,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "CONCORD31",
+   "file": "docs/downloads/gemsdoe31-concord31-minbd-concordance-28115-20261026-allfinite.tif",
+   "card": "evidence/concord31/run_card.json",
+   "sha256": "e7463b56aedc30263a08e9318bd8f336ab424f2c236734017e5b5cba75b89882",
+   "n_dots": 28115,
+   "on_catalogue_dots": 819,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.05788673087249025,
+    "tpw": 3204.3109270105783,
+    "fpw": 26913.90647255724,
+    "n_truth": 61664,
+    "n_dots": 28115
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.06252037453263595,
+    "tpw": 1293.8490715706973,
+    "fpw": 27512.344840631587,
+    "n_truth": 18667,
+    "n_dots": 28115
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.047476048392265345,
+    "tpw": 1910.4618554398808,
+    "fpw": 27304.241416630204,
+    "n_truth": 42997,
+    "n_dots": 28115
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-concord31-minbd-concordance-28115-20261026-allfinite.tif (identical bytes)",
+    "local:gemsdoe31-concord31-minbd-concordance-28115-20261026-nan.tif (identical support twin)"
+   ],
+   "projection": 0.1821436248988117,
+   "projection_interval": [
+    0.1765818896852805,
+    0.1877053601123429
+   ],
+   "overlap_vs_h33": 0.30254312644495823,
+   "phi_vs_h33": 0.016119214767756563,
+   "max_discrete_overlap": 0.5043215365463276,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.tif",
+   "max_overlap_incl_later_peers": 0.5043215365463276,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "summary": "HOLDOUT-DTI: NOT RUN - labels/catalogue/SGMC rasters absent from data/ (Dropbox host unreachable from sandbox); no number claimed"
+   },
+   "canary_from_card": false,
+   "card_verdict": "negative",
+   "card_slot_approved": null,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": false,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "PGR31",
+   "file": "docs/downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif",
+   "card": "evidence/pgr31/run_card.json",
+   "sha256": "9dcc2e0c4da3f40c17796cfd4ab306cd6aa0ab218d98f83f3b5cbeb406d4b628",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.061491202613398965,
+    "tpw": 3517.2495857004146,
+    "fpw": 35822.9121590696,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.06913073894746767,
+    "tpw": 1561.1498175610457,
+    "fpw": 36683.70496527014,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.04646547733917729,
+    "tpw": 1956.0997681393687,
+    "fpw": 36545.48090061302,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-nan.tif (identical support twin)",
+    "local:gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.17900363479322218,
+   "projection_interval": [
+    0.17344189957969097,
+    0.18456537000675338
+   ],
+   "overlap_vs_h33": 0.3323684070749456,
+   "phi_vs_h33": 0.01992048117774799,
+   "max_discrete_overlap": 0.4857120093482764,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+   "max_overlap_incl_later_peers": 0.4857120093482764,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "summary": "card verdict=negative (fail-closed default extractor)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": null,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  },
+  {
+   "lane": "CSDU",
+   "file": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+   "card": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json",
+   "sha256": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
+   "n_dots": 2101,
+   "on_catalogue_dots": 32,
+   "format_ok": false,
+   "hard_failures": [
+    "outside_footprint_zero"
+   ],
+   "sgmc": {
+    "dti": 0.0015348253647194774,
+    "tpw": 76.37352491419229,
+    "fpw": 2069.6291972365266,
+    "n_truth": 61664,
+    "n_dots": 2101
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.0028909156964182633,
+    "tpw": 44.400236615577356,
+    "fpw": 2080.2863688561583,
+    "n_truth": 18667,
+    "n_dots": 2101
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.0009182137559222778,
+    "tpw": 31.973288298614925,
+    "fpw": 2085.9366503960314,
+    "n_truth": 42997,
+    "n_dots": 2101
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif (identical bytes)",
+    "local:gemsdoe31-csdu-stepover-8cf9dc27-nan.tif (identical support twin)"
+   ],
+   "projection": 0.006373474267181753,
+   "projection_interval": [
+    0.0008117390536505559,
+    0.01193520948071295
+   ],
+   "overlap_vs_h33": 0.0709186101856259,
+   "phi_vs_h33": -0.0005992799951470439,
+   "max_discrete_overlap": 0.3188957639219419,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+   "max_overlap_incl_later_peers": 0.3188957639219419,
+   "later_candidate_peers_excluded_ir_u_03": [],
+   "holdout_from_card": {
+    "pass_": false,
+    "summary": "card verdict=negative (fail-closed default extractor)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": false,
+    "G2_canary": true,
+    "G3_holdout_efficacy": false,
+    "G4_sgmc_discovery": false,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": false
+   },
+   "selector_promote": false
+  }
+ ],
+ "focus_sites": [
+  {
+   "site_tag": "GEMSDOE32-h33-2-b2",
+   "artifact": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+   "user_reported": 0.2778,
+   "dots": 37654,
+   "overlap_vs_h33_3px": 1.0,
+   "sgmc_dti": 0.09396541728952715,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE36-pinn",
+   "artifact": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+   "user_reported": 0.275,
+   "dots": 38854,
+   "overlap_vs_h33_3px": 0.9740309878004839,
+   "sgmc_dti": 0.09536457384413603,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE28-h36-1",
+   "artifact": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+   "user_reported": 0.271,
+   "dots": 37660,
+   "overlap_vs_h33_3px": 0.9547265002655337,
+   "sgmc_dti": 0.09186668228418525,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE28-h27-4",
+   "artifact": "docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+   "user_reported": 0.2708,
+   "dots": 40199,
+   "overlap_vs_h33_3px": 0.9539043259782581,
+   "sgmc_dti": 0.0938481489873344,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE28-h38-1",
+   "artifact": "docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+   "user_reported": 0.2707,
+   "dots": 37860,
+   "overlap_vs_h33_3px": 0.9501320655044903,
+   "sgmc_dti": 0.0921216104400928,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE28-h32-1",
+   "artifact": "docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+   "user_reported": 0.2649,
+   "dots": 42294,
+   "overlap_vs_h33_3px": 0.9158982361564288,
+   "sgmc_dti": 0.09331671648383115,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE33-h33d",
+   "artifact": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+   "user_reported": 0.2632,
+   "dots": 41865,
+   "overlap_vs_h33_3px": 0.9264301922847247,
+   "sgmc_dti": 0.09424537701961515,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE25",
+   "artifact": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+   "user_reported": 0.26,
+   "dots": 44090,
+   "overlap_vs_h33_3px": 0.8817192107053754,
+   "sgmc_dti": 0.09273846081357219,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE30",
+   "artifact": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+   "user_reported": 0.26,
+   "dots": 44090,
+   "overlap_vs_h33_3px": 0.8817192107053754,
+   "sgmc_dti": 0.09273846081357219,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE24",
+   "artifact": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+   "user_reported": 0.2477,
+   "dots": 60069,
+   "overlap_vs_h33_3px": 0.88476585260284,
+   "sgmc_dti": 0.09838854407962805,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE27",
+   "artifact": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+   "user_reported": 0.2449,
+   "dots": 61328,
+   "overlap_vs_h33_3px": 0.8671895382207149,
+   "sgmc_dti": 0.0996226832426806,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  }
+ ],
+ "promoted": [
+  "H31-X",
+  "H31-T",
+  "H31-J",
+  "H31-M"
+ ],
+ "caveats": [
+  "Projections extrapolate an SGMC-TPw calibration fitted on one dot family (H19-5 descendants); cross-family live transfer is unproven (instrument calibration Spearman ~0.32).",
+  "G5 surface (pre-placement) checks for legacy lanes are cited from their run cards; final-dot overlap/phi recomputed here vs deduplicated discrete peers in scope.",
+  "Literal 695-raster reading remains failed for every candidate (spacing-5 lattice covers 99.87% of footprint within 3 px); disclosed per preregistration IR-U-02.",
+  "IR-U-03 chronological priority (clarified session arena/579233d5): duplicate status is judged against lanes generated EARLIER in GENERATION_ORDER. H31-Y (later) is a duplicate of H31-X (92.4% of Y dots within 3 px of X) and fails G5; H31-X is not retroactively made a duplicate by Y's copy (94.2% the other direction, recorded per row as max_overlap_incl_later_peers with the excluded later peers listed)."
+ ],
+ "permission_supersession": "SUPERSEDED FOR PERMISSIONS by registry/release_status.json (policy literal-registry-20261026-9883b598, merged via PRs #45/#47/#49): under the restored literal any-registry reading NO file is cleared to submit. This IR-U-02 discrete-peer selector re-run is retained as research ranking evidence only."
+}
