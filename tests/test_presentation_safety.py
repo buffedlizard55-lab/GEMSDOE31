@@ -33,7 +33,7 @@ def test_h31t_component_exposes_binding_stop_and_no_portal_acceptance():
     assert '83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298' in rendered
 
 
-def test_current_home_and_summary_do_not_misstate_h31s_screen_or_rbu31_as_latest():
+def test_current_home_and_summary_surface_csdU_failure_and_h31s_screen_gate():
     import json
     import sys
 
@@ -41,13 +41,20 @@ def test_current_home_and_summary_do_not_misstate_h31s_screen_or_rbu31_as_latest
     current_site = load_script('current_site')
     current_card = json.loads((ROOT / 'registry/current_run.json').read_text())
     hero, _ = current_site.overview(current_card)
+    assert 'fails exact-footprint validation' in hero
     assert '1/4 quadrants on seed 41' in hero
-    assert 'overall efficacy gate is therefore negative' in hero
-    assert 'winning 4/4 quadrants vs Physical-HGB &amp; H31-M' not in hero
+    assert 'misses the preregistered H31-M screen gate' in hero
+    assert 'DO NOT SUBMIT' in hero
+
+    csdu = current_site.csdu_download_and_audit()
+    assert '1,899 positive cells outside' in csdu
+    assert '2,610,312 NaNs inside' in csdu
+    assert 'Holdout-DTI, leakage canaries, and registry similarity were not tested' in csdu
+    assert 'UNIQUE BY CONSTRUCTION' not in csdu
 
     build_site = load_script('build_site')
     summary = build_site.build_executive_summary({}, {}, [])
-    assert 'H31-S: research download only' in summary
+    assert 'No upload-ready file' in summary
     assert 'RBU31 failed' not in summary
     assert 'OK to download and submit: RBU31' not in summary
 

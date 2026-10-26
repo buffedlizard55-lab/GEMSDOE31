@@ -1,6 +1,12 @@
 # Current project status — 2026-10-26
 
-## Latest audit continuation (`arena/1028355f-gemsdoe31`)
+## Current Arena integration status — `arena/e40c3412-gemsdoe31`
+
+The current branch preserves the concurrent `origin/main` CSDU artifacts and independently records that both fail exact-footprint validation against the pinned owner-mirror sample. They remain forensic files, **DO NOT SUBMIT**; holdout-DTI, leakage canaries, and registry uniqueness remain untested. H31-S remains negative and not slot-approved. No experiment, TIFF generation, upload, leaderboard access, or slot use occurred.
+
+Latest validation after merge conflict resolution: **145 pytest tests passed**, Ruff and compileall passed, CSDU/H31-S/current-run exact-file verifiers retain their negative verdicts, and the generated site check passed (22 pages, 445 local links). PR #40 remains open. The `origin/main` merge is resolved in the working tree but is not yet committed or pushed; do not treat the PR or merge as complete. See [branch review](repo_review_2026-10-26_arena_e40c3412.md).
+
+## Historical audit continuation (`arena/1028355f-gemsdoe31`)
 
 See [metric and release review](2026-10-26_metric_and_release_review.md).
 Zero new geological experiments, TIFFs or slots in this continuation. Corrected marginal DTI prose
@@ -90,3 +96,16 @@ This review fixed stale public-facing status text and verified the existing deni
 - Installed pinned requirements in ignored `.venv/`, restored only the small test rasters and registered-lattice witness, verified H31-S and legacy MAGREST exact-file denials, ran the metric proof, Ruff, compileall and the full test suite. See [session review](repo_review_2026-10-26_arena_e40c3412.md) for final counts and exact outcomes.
 - Three desk hypotheses are recorded in that review. They are not assigned to the current lane, have no numeric DTI forecast, and are not authorized to run.
 - Full production feature/cache stack, live organizer receipts, and exhaustive global registry proof remain unavailable. No current file is approved to submit.
+
+## Arena branch integration and CSDU audit — `arena/e40c3412-gemsdoe31`, 2026-10-26
+
+During PR preparation, `origin/main` advanced and contained a concurrent CSDU stepover raster. It was preserved in the integration, but not treated as this review's candidate or experiment. A read-only exact-footprint audit against the pinned owner-mirror `data/sample_submission.tif` found both CSDU variants fail:
+
+- The all-finite file has 1,899 positive cells outside the true footprint (`outside_footprint_zero` fails).
+- The NaN-outside twin has 2,610,312 NaNs inside the actual footprint and fails footprint finiteness/range/mask checks.
+- The originating script uses an approximate synthetic ellipse and synthetic zero-label raster; its own receipt reports 5,281,049 footprint cells, while the pinned sample has 5,167,373. The sample is an owner mirror, not organizer-authenticated.
+- CSDU HOLDOUT-DTI, feature-alone leakage canaries, and registry similarity are not run. “New geometry” or zero copied dots by construction does not prove the protocol's registry uniqueness.
+
+The new exact-mask audit is `evidence/csdu_owner_mirror_validation_20261026.json`; `IR-31-CSDU-SYNTHETIC-FOOTPRINT-FAIL` is in `registry/irregularities.json`. The original generator is quarantined and exits before writing. CSDU remains audit-only; **DO NOT SUBMIT**. No re-masking, regenerated TIFF, or CSDU experiment was performed. H31-S remains the latest fully evaluated candidate, but it too is negative and not approved.
+
+PR #40 is still open. The merge conflict from the advancing `main` branch has been resolved locally while preserving the incoming artifact and clearly surfacing its failures. The merge is not yet committed or pushed; final checks pass, but PR merge completion remains pending.

@@ -80,6 +80,28 @@
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
+   "file": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+   "name": "gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+   "sha256": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
+   "bytes": 66550,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
+   "name": "gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
+   "sha256": "774c7c5aa3784d7c52dc67870e1cc8b0e0a34d1697092ad9f3b08c33dcaf2546",
+   "bytes": 104818,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
    "file": "docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
    "name": "gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
    "sha256": "7906d5744a8456f09cb17193f4a3f7169a893d3c5ccddcb75b1c28fdb68e662a",
@@ -382,6 +404,44 @@
    },
    "sgmc_regime_proxies": null,
    "current_run_card": "docs/downloads/h31s-run-card.json"
+  },
+  {
+   "id": "candidate-csdu-stepover-20261026",
+   "name": "gemsdoe31-csdu-stepover-8cf9dc27",
+   "role": "CSDU speculative research raster inherited from concurrent main update; exact-footprint format fails; holdout/leakage/registry tests not run; audit-only, DO NOT SUBMIT",
+   "provenance": "scripts/run_unique_stepover_submission.py creates an approximate synthetic ellipse and zero-label raster with hard-coded stepover centers; the original format receipt is not validation against the pinned sample footprint; see evidence/csdu_owner_mirror_validation_20261026.json",
+   "note_for_portal": "CSDU speculative stepover halo 4,000d; exact-footprint format, holdout and registry checks failed or not run; research-only 8cf9dc27",
+   "slot_approved": false,
+   "why_not_slot_approved": "Both variants fail exact-footprint validation against the pinned owner-mirror sample; holdout/leakage and registry uniqueness were not run; no organizer receipt.",
+   "positive_pixels": 4000,
+   "positive_pixels_on_public_catalogue": null,
+   "format_status": "fails exact-footprint validation against pinned sample; all-finite has 1,899 outside dots; NaN-outside has 2,610,312 NaNs inside; not organizer acceptance",
+   "receipt": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-format-check.json",
+   "positive_pixels_within_pinned_template": 2101,
+   "public_catalogue_status": "not tested against actual public catalogue; original labels were synthetic zeros",
+   "format_ok_allfinite": false,
+   "format_ok_nan": false,
+   "hard_failures_allfinite": [
+    "outside_footprint_zero"
+   ],
+   "hard_failures_nan": [
+    "footprint_all_finite",
+    "footprint_values_in_0_1",
+    "outside_footprint_nan",
+    "nan_mask_matches_template"
+   ],
+   "audit_receipt": "evidence/csdu_owner_mirror_validation_20261026.json",
+   "file_nan": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
+   "bytes_nan": 104818,
+   "sha256_nan": "774c7c5aa3784d7c52dc67870e1cc8b0e0a34d1697092ad9f3b08c33dcaf2546",
+   "organizer_acceptance_verified_nan": false,
+   "file_allfinite": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+   "bytes_allfinite": 66550,
+   "sha256_allfinite": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
+   "organizer_acceptance_verified_allfinite": false,
+   "zip": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.zip",
+   "sha256_zip": "e1a79938f99391ad2e278eed9d77544527b7c050e8f51f76fdc5068b6932524a",
+   "bytes_zip": 36102
   },
   {
    "id": "candidate-h31t-transtension-dinkelbach",

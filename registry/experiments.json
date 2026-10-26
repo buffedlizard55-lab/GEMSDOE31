@@ -47,6 +47,11 @@
    "sha256": "9af10550b19fe607e8d72772f3d7a5f1f26febfa2ebf41a9c42ef62b45e620b0"
   },
   {
+   "path": "evidence/csdu_owner_mirror_validation_20261026.json",
+   "bytes": 2837,
+   "sha256": "30845487f387d3cb6dce573f645f9ab99a7a4176bd11d7ac1cf6ac2c983afc67"
+  },
+  {
    "path": "evidence/data_preparation_20261025.json",
    "bytes": 4069,
    "sha256": "0d9f135d152786bb8e2b69fbaedffc550e06a1897bb4ee417038061ac53b8bbb"

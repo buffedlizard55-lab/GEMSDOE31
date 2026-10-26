@@ -71,11 +71,10 @@ def shell(prefix: str, title: str, description: str, current: str, hero: str, bo
     if active_run and current not in {"Overview", "Executive summary", "Research"}:
         if latest_h31s:
             prefix_notice = (
-                f'<div class="notice"><strong>Latest reviewed candidate: H31-S UDAP-SSLIC — research download only; '
-                f'no upload is approved.</strong> Its exact-file verdict and failed gates are on the '
-                f'<a href="{prefix}executive-summary.html">executive summary</a>. Earlier experiment tables are '
-                'historical results and are not comparable unless evaluator, holdout population and uncertainty '
-                'are aligned.</div>'
+                f'<div class="notice"><strong>No candidate is approved for upload.</strong> The executive '
+                f'<a href="{prefix}executive-summary.html">summary</a> distinguishes the CSDU footprint failure '
+                'from H31-S efficacy/registry failures. Earlier experiment tables are historical results and are '
+                'not comparable unless evaluator, holdout population and uncertainty are aligned.</div>'
             )
         else:
             prefix_notice = (
@@ -270,9 +269,13 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     current = load("registry/current_run.json")
     if current:
         hero, body = current_site.overview(current)
+        body = current_site.csdu_download_and_audit() + body
         body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
+        csdu = load("docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json")
         h31s = load("evidence/h31s/run_card.json")
-        desc = ("H31-S UDAP-SSLIC research TIFF; format checks pass, but scientific and registry gates fail. Do not submit."
+        desc = ("CSDU TIFF is forensic-only and fails the pinned sample footprint; H31-S also fails submission gates. Do not submit."
+                if csdu and h31s else
+                "H31-S UDAP-SSLIC research TIFF; format checks pass, but scientific and registry gates fail. Do not submit."
                 if h31s else
                 "No current candidate is approved for upload. See the executive summary for the exact decision.")
         return shell("", "Overview", desc,
@@ -405,8 +408,13 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     current = load("registry/current_run.json")
     if current:
+        csdu = load("docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json")
         h31s = load("evidence/h31s/run_card.json")
-        if h31s:
+        if csdu and h31s:
+            hero = page_hero("Download + submission guide", "No upload-ready file · DO NOT SUBMIT.",
+                             "The newest inherited CSDU TIFF fails exact-footprint checks; H31-S fails its preregistered "
+                             "efficacy and literal-registry gates. Research/audit downloads are clearly separated below.")
+        elif h31s:
             hero = page_hero("Download + submission guide", "H31-S: research download only · DO NOT SUBMIT.",
                              "The exact-file evidence is below. Format validation passes, but the preregistered efficacy "
                              "gate and literal shared-registry uniqueness gate fail; no weekly slot is authorized.")
@@ -1377,6 +1385,8 @@ def main() -> None:
     pages[DOCS / "feed.html"] = feed_html
 
     for path, text in pages.items():
+        if path.suffix == ".html":
+            text = "\n".join(line.rstrip() for line in text.splitlines()) + "\n"
         path.write_text(text)
     (DOCS / ".nojekyll").write_text("")
     html_pages = sorted(p for p in DOCS.rglob("*.html"))

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="H31-S UDAP-SSLIC research TIFF; format checks pass, but scientific and registry gates fail. Do not submit.">
+  <meta name="description" content="CSDU TIFF is forensic-only and fails the pinned sample footprint; H31-S also fails submission gates. Do not submit.">
   <title>Overview · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -19,7 +19,7 @@
 <section class="hero"><div class="wrap hero-grid"><div>
       <p class="eyebrow">DOE GEMS Prize · 2026-10-26 Preregistered Discovery · Lanes H31-S, H31-T &amp; H31-J</p>
       <h1>DOWNLOAD FOR RESEARCH: YES<br>DO NOT SUBMIT (Registry STOP)</h1>
-      <p class="hero-lede"><strong>H31-S UDAP-SSLIC</strong> (<code>gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f</code>, 37,654 dots; HOLDOUT-DTI 0.0948 on screen seed 41 and 0.0980 on untouched seed 42). It beats Physical-HGB on both seeds, but the preregistered comparison with H31-M fails the screen gate: 1/4 quadrants on seed 41, then 4/4 on confirmation seed 42. The overall efficacy gate is therefore negative. H31-T and H31-J are older research candidates with their own separate receipts. H31-S passes local file-format validation, but fails the literal unexempted 695-raster shared-registry gate (<code>r13-lattice-s5</code>); no candidate is approved for upload.</p>
+      <p class="hero-lede"><strong>Current decision: no upload-ready TIFF.</strong> The most recently added CSDU research raster is inherited from a concurrent main-branch update and fails exact-footprint validation against the pinned sample; its holdout and registry uniqueness were not tested. The latest fully evaluated candidate, <strong>H31-S UDAP-SSLIC</strong> (<code>gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f</code>), has HOLDOUT-DTI 0.0948 on screen seed 41 and 0.0980 on untouched seed 42. It beats Physical-HGB on both seeds, but misses the preregistered H31-M screen gate (1/4 quadrants on seed 41 vs 4/4 on confirmation seed 42), so its overall efficacy verdict remains negative. H31-S also fails the literal unexempted 695-raster registry gate (<code>r13-lattice-s5</code>). Do not submit any file shown here.</p>
       <div class="actions">
         <a class="button button-primary" href="downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif" download>Download H31-S Research All-Finite [0, 1] .tif (DO NOT SUBMIT)</a>
         <a class="button" href="downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif" download>Download H31-T Research All-Finite [0, 1] .tif</a>
@@ -32,9 +32,26 @@
         <p><strong>H31-S (UDAP-SSLIC):</strong> Local [0, 1] PASS · 57/57 canaries &le; 0.6479 · untouched seed 42 HOLDOUT-DTI 0.0980 (4/4 quads) · 40.8%&ndash;46.9% 3-px vs XFCOH31/CONCORD31/H31-T · <code>slot_approved = false</code>.<br>
           <strong>H31-T / H31-J / XFCOH31 / CONCORD31 / MAGREST / RBU31 / H31-M / HVDC / H31-E2:</strong> Research downloads preserved below.</p></aside></div></section>
   <main class="wrap">
-<div class="notice notice-danger"><strong>Not approved for upload.</strong>
+<section id="csdu-audit" aria-labelledby="csdu-audit-heading">
+      <div class="section-head"><div><p class="kicker">Concurrent main-branch artifact · forensic review only</p>
+        <h2 id="csdu-audit-heading">CSDU stepover raster: DO NOT SUBMIT</h2></div>
+        <p>This file was inherited during branch integration; it was not generated or promoted by this review. The published validation used a synthetic approximate footprint rather than the pinned sample mask.</p></div>
+      <div class="notice notice-danger"><strong>Exact-footprint validation FAILS for both TIFF encodings.</strong>
+        The all-finite file has 1,899 positive cells outside the pinned footprint. The NaN-outside file has 2,610,312 NaNs inside the true footprint and fails the outside-mask check. Holdout-DTI, leakage canaries, and registry similarity were not tested. A “new geometry” claim does not establish uniqueness.</div>
+      <div class="card download-card"><span class="badge badge-red">FORENSIC DOWNLOAD ONLY · NOT FORMAT-VALID FOR THE PINNED MASK · DO NOT SUBMIT</span>
+        <h3 style="margin-top:16px">gemsdoe31-csdu-stepover-8cf9dc27</h3>
+        <p>The generator writes an approximate ellipse and synthetic all-zero labels; it does not derive the exact footprint or public-fault mask from the competition inputs. No corrected file has been made.</p>
+        <div class="actions">
+          <a class="button" href="downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif" download>Download failed all-finite TIFF (audit only)</a>
+          <a class="button" href="downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif" download>Download failed NaN-outside TIFF (audit only)</a>
+          <a class="button" href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/csdu_owner_mirror_validation_20261026.json">Independent exact-mask audit JSON</a>
+          <a class="button" href="downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json" download>Original run card (unverified uniqueness)</a>
+        </div>
+        <p class="small"><strong>Pinned owner-mirror template SHA-256:</strong> <code>2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc</code>. It is not organizer-authenticated. Full byte-level and mask counts: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/csdu_owner_mirror_validation_20261026.json">audit receipt</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/irregularities.json">irregularity register</a>.</p>
+      </div>
+    </section><div class="notice notice-danger"><strong>Not approved for upload.</strong>
       Automated verdict: DO NOT SUBMIT under the unexempted 695-raster shared-registry overlap rule (<code>slot_approved = false</code>). Download H31-S, H31-T, H31-J, XFCOH31, CONCORD31, RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
-      
+
 <section id="h31s-download" aria-labelledby="h31s-heading">
   <div class="section-head"><div><p class="kicker">2026-10-26 Featured Lane · H31-S (UDAP-SSLIC) · 3-Experiment Campaign</p>
     <h2 id="h31s-heading">DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (DO NOT SUBMIT)</h2></div>
@@ -432,7 +449,7 @@
           Both are research-only while the convention and submission gates remain unresolved.</p>
       </div>
     </section>
-      
+
 <section id="h3-download" aria-labelledby="h3-heading">
   <div class="section-head"><div><p class="kicker">New artifact · H3 LiDAR scarp · 2026-10-25</p>
     <h2 id="h3-heading">OK to download for research. NOT approved for upload.</h2></div>

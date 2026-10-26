@@ -39,7 +39,16 @@ def test_submissions_register_never_marks_a_file_slot_approved():
     assert submissions["files"], "the register must list the built files"
     for record in submissions["files"]:
         assert record["slot_approved"] is False, f"{record['name']} is slot-approved without a gate record"
-        assert record["format_status"].startswith("locally validated")
+        if record["id"] == "candidate-csdu-stepover-20261026":
+            assert "fails exact-footprint validation" in record["format_status"]
+            assert "1,899 outside dots" in record["format_status"]
+            assert record["format_ok_allfinite"] is False
+            assert record["format_ok_nan"] is False
+            assert record["positive_pixels_within_pinned_template"] == 2101
+            assert record["positive_pixels_on_public_catalogue"] is None
+            assert record["slot_approved"] is False
+        else:
+            assert record["format_status"].startswith("locally validated")
         if "sha256_nan" in record:
             assert len(record["sha256_nan"]) == 64
             assert record["file_nan"].endswith(".tif")

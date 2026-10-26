@@ -1604,7 +1604,7 @@
     "1028355f-review-pass-2-2026-10-26",
     "1028355f-review-pass-3-2026-10-26"
   ],
-  "release_decision": "2026-10-26 Arena e40c3412 review: no new experiment or TIFF; H31-S remains research-only/negative. Corrected stale site wording and verified exact-file denial. No slot or upload.",
+  "release_decision": "No file is approved. H31-S remains fully evaluated but negative; inherited CSDU artifact fails exact owner-mirror footprint and has no holdout or registry uniqueness result. No new experiment or TIFF was generated in this review.",
   "rbu31_session_2026_10_25": {
     "branch": "arena/84287da3-gemsdoe31",
     "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",
@@ -1625,5 +1625,20 @@
     "arena-e40c3412-review-pass-2-bug-edge-2026-10-26",
     "arena-e40c3412-review-pass-3-acceptance-2026-10-26"
   ],
-  "latest_review": "knowledge/repo_review_2026-10-26_arena_e40c3412.md"
+  "latest_review": "knowledge/repo_review_2026-10-26_arena_e40c3412.md",
+  "integration_followup_2026_10_26": {
+    "incoming_main_commit": "784d3ae (origin/main advanced after PR creation)",
+    "scope": "Preserve concurrent CSDU artifact and audit it; no model/feature computation or TIFF generation.",
+    "findings": [
+      "CSDU original format receipt used a synthetic approximate ellipse footprint (5,281,049 cells) and synthetic zero labels, with require_competition_grid=false.",
+      "Against pinned owner-mirror sample SHA-256 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc, all-finite file has 1,899 dots outside and NaN-outside file has 2,610,312 NaNs inside the actual footprint; both fail.",
+      "HOLDOUT-DTI, feature-alone leakage canaries, and registry uniqueness were not run; uniqueness cannot be claimed from zero dots copied by construction."
+    ],
+    "artifacts": [
+      "evidence/csdu_owner_mirror_validation_20261026.json",
+      "scripts/verify_csdu_footprint_audit.py",
+      "registry/irregularities.json:IR-31-CSDU-SYNTHETIC-FOOTPRINT-FAIL"
+    ],
+    "decision": "forensic research only; DO NOT SUBMIT; no corrected raster generated"
+  }
 }

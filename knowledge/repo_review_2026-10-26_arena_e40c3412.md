@@ -9,6 +9,7 @@ This is the only protocol-compliant decision for this continuation:
 - The requested assigned-method paragraph is absent; the prompt has only an unexpanded placeholder. The earlier H31-S preregistration discloses that it self-declared a lane rather than receiving an assigned paragraph.
 - H31-S already used the allowed three experiments. Its frozen card records `experiments_run=3` and `max_experiments=3` (843.1 seconds; the experiment-count limit was reached).
 - The literal broad-registry rule has a measured counterexample: H31-S has 99.931% 3-pixel overlap with the registered spacing-5 lattice, exceeding the 70% stop threshold. Do not waive this by treating a dense or calibration raster as exempt.
+- During PR preparation, the concurrent update to `origin/main` added a CSDU raster. We preserved that commit rather than discarding concurrent work, then independently rechecked its bytes against the pinned sample. Both CSDU encodings fail exact-footprint validation; its holdout, leakage canary and registry comparisons were not run. It is not a candidate to submit or promote.
 - Consequently, new hypotheses below are desk-only research proposals. They are not an authorization to compute features, fit a model, emit a raster, or select a submission.
 
 ## What H33-2-B2's reported 0.2778 does and does not tell us
@@ -55,7 +56,20 @@ The site generator had stale status text:
 - The overview hero overstated H31-S's H31-M screen result as 4/4 quadrant wins. Its card records only 1/4 quadrants against H31-M on screen seed 41; the fresh seed-42 confirmation is 4/4, but that later confirmation does not erase the failed preregistered screen criterion.
 - The overview's generic “latest” description and internal-page notice were keyed to the old MAGREST/RBU31 history, not the current H31-S receipt.
 
-Updated the generator (`scripts/build_site.py`, `scripts/current_site.py`) to show the current H31-S status accurately and added a presentation regression test. Regenerated Pages from the source. No TIFF, score receipt, or scientific result was changed.
+Updated the generator (`scripts/build_site.py`, `scripts/current_site.py`) to show the current H31-S status accurately and added a presentation regression test. Regenerated Pages from the source. No H31-S or historical TIFF, score receipt, or scientific result was changed. The concurrent CSDU files from the advancing `origin/main` were preserved, then explicitly marked as failed audit artifacts; their bytes were not repaired or regenerated.
+
+## Concurrent CSDU artifact audit
+
+The exact-file run card for `gemsdoe31-csdu-stepover-8cf9dc27` says its holdout and registry comparisons were not run. Its generator script writes a synthetic approximate ellipse footprint and synthetic all-zero labels, while its own local validation sets `require_competition_grid=False`. Treating its original format receipt as validation against the real sample would therefore be a false claim. The generator is now quarantined: its CLI exits before writing files, and a regression test protects that guard.
+
+Using the pinned owner-mirror `data/sample_submission.tif` (SHA-256 `2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc`; not organizer-authenticated), ran the shared `validate_submission` on the exact committed CSDU bytes:
+
+| CSDU file | Pinned sample check | Result |
+|---|---|---|
+| `...-allfinite.tif` | footprint finite/range: PASS; exact sample mask has 5,167,373 pixels; 2,101 dots inside and 1,899 outside, violating the all-finite zero-outside rule | **FAIL**, `outside_footprint_zero` |
+| `...-nan.tif` | 2,610,312 NaN/Inf cells inside the true footprint; 4,387,799/7,111,787 outside cells are NaN, so outside mask also mismatches | **FAIL**, footprint finiteness/range/outside/mask |
+
+Thus the CSDU files do not meet the exact-footprint submission gate even before science or uniqueness. The audit is recorded in `evidence/csdu_owner_mirror_validation_20261026.json`, and `IR-31-CSDU-SYNTHETIC-FOOTPRINT-FAIL` flags it. Do not upload, silently repair, or call the file unique: no registry comparison or HOLDOUT-DTI exists. The all-finite and NaN twins remain only for forensic reproducibility.
 
 ## Validation performed in this checkout
 
@@ -66,8 +80,8 @@ Updated the generator (`scripts/build_site.py`, `scripts/current_site.py`) to sh
 - `python scripts/check_metric.py`: maximum fast/brute DTI difference `4.441e-16` over 24 grids; two exact cases checked; 29 offsets inside the 300 m kernel. This verifies implementation arithmetic, not leaderboard performance.
 - `.venv/bin/python -m ruff check .`: PASS.
 - `.venv/bin/python -m compileall -q src scripts tests`: PASS.
-- `.venv/bin/python scripts/build_site.py` and `scripts/check_site.py`: PASS, 22 pages and 439 local links.
-- The first full test pass before restoring small validation fixtures produced **133 passed, 7 skipped, 2 failures** because the small TIFF prerequisites were missing, plus one new test setup failure from calling the overview without its run card. Restored the inputs and fixed the test to supply the actual card. Final `.venv/bin/python -m pytest -q`: **143 passed**.
+- `.venv/bin/python scripts/build_site.py` and `scripts/check_site.py`: PASS, 22 pages and 445 local links.
+- The first full test pass before restoring small validation fixtures produced **133 passed, 7 skipped, 2 failures** because the small TIFF prerequisites were missing, plus one new test setup failure from calling the overview without its run card. Restored the inputs and fixed the test to supply the actual card. Final `.venv/bin/python -m pytest -q`: **145 passed**.
 
 ## Three cumulative passes
 

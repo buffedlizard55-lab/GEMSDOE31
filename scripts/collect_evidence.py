@@ -59,6 +59,15 @@ PROTOCOL = {
 
 SUBMISSIONS = [
     {
+        "id": "candidate-csdu-stepover-20261026",
+        "name": "gemsdoe31-csdu-stepover-8cf9dc27",
+        "role": "CSDU speculative research raster inherited from concurrent main update; exact-footprint format fails; holdout/leakage/registry tests not run; audit-only, DO NOT SUBMIT",
+        "provenance": "scripts/run_unique_stepover_submission.py creates an approximate synthetic ellipse and zero-label raster with hard-coded stepover centers; the original format receipt is not validation against the pinned sample footprint; see evidence/csdu_owner_mirror_validation_20261026.json",
+        "note_for_portal": "CSDU speculative stepover halo 4,000d; exact-footprint format, holdout and registry checks failed or not run; research-only 8cf9dc27",
+        "slot_approved": False,
+        "why_not_slot_approved": "Both variants fail exact-footprint validation against the pinned owner-mirror sample; holdout/leakage and registry uniqueness were not run; no organizer receipt.",
+    },
+    {
         "id": "candidate-h31t-transtension-dinkelbach",
         "name": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654",
         "submission_name": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654",
@@ -240,6 +249,20 @@ def submissions_register() -> dict:
             "format_status": "locally validated against the grid template; not organizer acceptance",
             "receipt": f'docs/downloads/{entry["name"]}-format-check.json',
         }
+        if entry["id"] == "candidate-csdu-stepover-20261026":
+            audit = json.loads((ROOT / "evidence/csdu_owner_mirror_validation_20261026.json").read_text())
+            record["format_status"] = (
+                "fails exact-footprint validation against pinned sample; all-finite has 1,899 outside dots; "
+                "NaN-outside has 2,610,312 NaNs inside; not organizer acceptance"
+            )
+            record["positive_pixels_within_pinned_template"] = audit["variants"]["all_finite"]["positive_pixels_inside"]
+            record["positive_pixels_on_public_catalogue"] = None
+            record["public_catalogue_status"] = "not tested against actual public catalogue; original labels were synthetic zeros"
+            record["format_ok_allfinite"] = audit["variants"]["all_finite"]["ok_to_upload_format_only"]
+            record["format_ok_nan"] = audit["variants"]["nan_outside"]["ok_to_upload_format_only"]
+            record["hard_failures_allfinite"] = audit["variants"]["all_finite"]["hard_failures"]
+            record["hard_failures_nan"] = audit["variants"]["nan_outside"]["hard_failures"]
+            record["audit_receipt"] = "evidence/csdu_owner_mirror_validation_20261026.json"
         if legacy:
             legacy_file = str(receipt["file"])
             record["file_nan"] = legacy_file if "/" in legacy_file else f"docs/downloads/{legacy_file}"
@@ -256,8 +279,13 @@ def submissions_register() -> dict:
             record[f"file_{short}"] = receipt["files"][short]
             record[f"bytes_{short}"] = validated["bytes"]
             record[f"sha256_{short}"] = validated["sha256"]
-            record[f"format_ok_{short}"] = validated["ok_to_upload_format_only"]
-            record[f"hard_failures_{short}"] = validated.get("hard_failures", [])
+            if entry["id"] == "candidate-csdu-stepover-20261026":
+                audit_variant = "nan_outside" if short == "nan" else "all_finite"
+                record[f"format_ok_{short}"] = audit["variants"][audit_variant]["ok_to_upload_format_only"]
+                record[f"hard_failures_{short}"] = audit["variants"][audit_variant]["hard_failures"]
+            else:
+                record[f"format_ok_{short}"] = validated["ok_to_upload_format_only"]
+                record[f"hard_failures_{short}"] = validated.get("hard_failures", [])
             record[f"organizer_acceptance_verified_{short}"] = validated.get("organizer_acceptance_verified", False)
         if "zip" in receipt.get("files", {}):
             record["zip"] = receipt["files"]["zip"]

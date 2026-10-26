@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "evidence_class": "COMPUTED-LOCAL-FORMAT-AUDIT",
+  "generated_utc": "2026-10-26",
+  "candidate": "gemsdoe31-csdu-stepover-8cf9dc27",
+  "pinned_template": "data/sample_submission.tif",
+  "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "template_provenance": "owner-mirror pinned sample; not organizer-authenticated in this environment",
+  "candidate_generator_observation": "scripts/run_unique_stepover_submission.py creates a synthetic ellipse footprint (commented approximate footprint ratio) and zero-filled synthetic labels; it does not derive the actual competition footprint from data/sample_submission.tif.",
+  "result": "FAIL \u2014 neither encoding matches the pinned sample footprint; research-only audit artifact; DO NOT SUBMIT",
+  "variants": {
+    "all_finite": {
+      "sha256": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
+      "template_footprint_pixels": 5167373,
+      "positive_pixels_inside": 2101,
+      "ok_to_upload_format_only": false,
+      "hard_failures": [
+        "outside_footprint_zero"
+      ],
+      "outside_footprint_zero": {
+        "pass_": false,
+        "detail": "1,899 nonzero values outside footprint",
+        "hard": true
+      },
+      "footprint_all_finite": {
+        "pass_": true,
+        "detail": "0 NaN/Inf inside 5,167,373 template cells",
+        "hard": true
+      },
+      "outside_footprint_nan": {
+        "pass_": true,
+        "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+        "hard": false
+      },
+      "nan_mask_matches_template": {
+        "pass_": true,
+        "detail": "not required under the all-finite convention",
+        "hard": false
+      }
+    },
+    "nan_outside": {
+      "sha256": "774c7c5aa3784d7c52dc67870e1cc8b0e0a34d1697092ad9f3b08c33dcaf2546",
+      "template_footprint_pixels": 5167373,
+      "positive_pixels_inside": 2101,
+      "ok_to_upload_format_only": false,
+      "hard_failures": [
+        "footprint_all_finite",
+        "footprint_values_in_0_1",
+        "outside_footprint_nan",
+        "nan_mask_matches_template"
+      ],
+      "outside_footprint_zero": null,
+      "footprint_all_finite": {
+        "pass_": false,
+        "detail": "2,610,312 NaN/Inf inside 5,167,373 template cells",
+        "hard": true
+      },
+      "outside_footprint_nan": {
+        "pass_": false,
+        "detail": "4,387,799/7,111,787 outside pixels are NaN; finite outside pixels are forbidden",
+        "hard": true
+      },
+      "nan_mask_matches_template": {
+        "pass_": false,
+        "detail": "NaN cells exactly match the template's outside-footprint mask",
+        "hard": true
+      }
+    }
+  },
+  "uniqueness_and_efficacy": "NOT TESTED; no registry comparison or HOLDOUT-DTI canary/holdout in candidate card"
+}

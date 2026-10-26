@@ -1,11 +1,17 @@
-> **Review 2026-10-26: no new submission approved and no new TIFF generated.** The latest candidate remains H31-S (`UDAP-SSLIC`), research download only and **DO NOT SUBMIT**: its preregistered screen and literal broad-registry uniqueness gate fail. No experiment, upload, leaderboard access, or weekly slot was used in this review continuation.
-> [Current metric/release audit](knowledge/2026-10-26_metric_and_release_review.md) · [current status](knowledge/current_status_2026-10-26.md) · [nine-site executive summary](docs/executive-summary.html).
-> **Existing H31-S research TIFF:** [all-finite download](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) · [run card](docs/downloads/h31s-run-card.json) · [automated verifier](scripts/verify_h31s_run.py). It is not approved for upload.
-> The marginal DTI gain/false-positive derivation below is corrected and regression-tested; no historical raster results were changed.
-
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
-> **Latest reviewed session (2026-10-26): unique `H31-S` (`UDAP-SSLIC`) GeoTIFF generated and automatically validated. Current decision: research download only; DO NOT SUBMIT.**
+## Current decision — 2026-10-26 (read first)
+
+**No TIFF is approved for submission. Do not upload any file in this repository.**
+
+- **CSDU stepover artifact inherited from a concurrent `main` update:** forensic review only. It was generated against a synthetic approximate footprint. Independent validation against the pinned owner-mirror sample found **1,899 all-finite dots outside** the actual footprint; the NaN-outside twin has **2,610,312 NaNs inside** it. Both files fail exact-footprint checks. Holdout-DTI, feature leakage canaries and registry uniqueness were not run. Reproduce the read-only audit with `python scripts/verify_csdu_footprint_audit.py`; the original synthetic generator is quarantined and its command-line entry point exits before writing anything. See [computed audit receipt](evidence/csdu_owner_mirror_validation_20261026.json) and [irregularity record](registry/irregularities.json). No corrected CSDU file was generated.
+- **H31-S (`UDAP-SSLIC`):** latest fully evaluated candidate; research download only, **DO NOT SUBMIT**. `HOLDOUT-DTI` (`gems57-pooled-hide-v2`): screen seed 41, 2,820 withheld positives, 0.0948 [95% CI 0.0612–0.1292]; versus H31-M it won 1/4 quadrants and failed the preregistered screen. Confirmation seed 42, 2,823 positives, 0.0980 [95% CI 0.0728–0.1249]; 4/4 quadrants does not cure the failed screen. The literal broad-registry overlap gate also fails (99.93% within 3 px of the registered spacing-5 lattice). See [run card](evidence/h31s/run_card.json) and [verifier](scripts/verify_h31s_run.py).
+- **Nine-site history:** the highest supplied claim is GEMSDOE32 H33-2-B2 at 0.2778 (**USER-REPORTED; no organizer receipt**). Its geometry is D2.8 support pruned near the public catalogue, not a new detector. Exact causal leaderboard improvement is not proven; no supported score estimate for a new candidate exists. See the [nine-site executive summary](docs/executive-summary.html#focus-sites).
+- **Protocol:** the assigned method paragraph is missing and the prior H31-S lane already used all three allowed experiments. No new geological experiment, TIFF, upload, leaderboard access or submission slot was used in this review.
+
+**Arena core values: Maximize P(Win) · Own the Outcome.** Preserve negative results and fail closed when validation is incomplete.
+
+> **H31-S (`UDAP-SSLIC`) — latest fully evaluated candidate, generated in the prior review and automatically format-checked. Research download only; DO NOT SUBMIT.**
 > **DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (`DO NOT SUBMIT`, `slot_approved = false`).**
 > [**Download H31-S Research `.tif` (all-finite `[0, 1]` zeros-outside)**](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) ·
 > [NaN-outside twin `.tif`](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif) ·

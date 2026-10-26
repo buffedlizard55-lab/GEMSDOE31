@@ -806,7 +806,7 @@ def overview(card):
     hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
       <p class="eyebrow">DOE GEMS Prize · 2026-10-26 Preregistered Discovery · Lanes H31-S, H31-T &amp; H31-J</p>
       <h1>DOWNLOAD FOR RESEARCH: YES<br>DO NOT SUBMIT (Registry STOP)</h1>
-      <p class="hero-lede"><strong>H31-S UDAP-SSLIC</strong> (<code>{esc(h31s_sub)}</code>, 37,654 dots; HOLDOUT-DTI 0.0948 on screen seed 41 and 0.0980 on untouched seed 42). It beats Physical-HGB on both seeds, but the preregistered comparison with H31-M fails the screen gate: 1/4 quadrants on seed 41, then 4/4 on confirmation seed 42. The overall efficacy gate is therefore negative. H31-T and H31-J are older research candidates with their own separate receipts. H31-S passes local file-format validation, but fails the literal unexempted 695-raster shared-registry gate (<code>r13-lattice-s5</code>); no candidate is approved for upload.</p>
+      <p class="hero-lede"><strong>Current decision: no upload-ready TIFF.</strong> The most recently added CSDU research raster is inherited from a concurrent main-branch update and fails exact-footprint validation against the pinned sample; its holdout and registry uniqueness were not tested. The latest fully evaluated candidate, <strong>H31-S UDAP-SSLIC</strong> (<code>{esc(h31s_sub)}</code>), has HOLDOUT-DTI 0.0948 on screen seed 41 and 0.0980 on untouched seed 42. It beats Physical-HGB on both seeds, but misses the preregistered H31-M screen gate (1/4 quadrants on seed 41 vs 4/4 on confirmation seed 42), so its overall efficacy verdict remains negative. H31-S also fails the literal unexempted 695-raster registry gate (<code>r13-lattice-s5</code>). Do not submit any file shown here.</p>
       <div class="actions">
         <a class="button button-primary" href="downloads/{esc(h31s_sub)}-zeros.tif" download>Download H31-S Research All-Finite [0, 1] .tif (DO NOT SUBMIT)</a>
         <a class="button" href="downloads/{h31t_sub}-zeros.tif" download>Download H31-T Research All-Finite [0, 1] .tif</a>
@@ -979,16 +979,44 @@ def _focus_unique_2026_html() -> str:
 
 
 def review_notice():
-    return '<div class="notice"><strong>26 October audit: no new TIFF or submission approval.</strong> The literal registry STOP remains binding. Corrected marginal DTI algebra and score-provenance wording; existing downloads are research-only. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_metric_and_release_review.md">Review, limitations and next steps</a>.</div>'
+    return '<div class="notice notice-danger"><strong>No file is approved for submission.</strong> The CSDU TIFF inherited from a concurrent main update fails an independent check against the pinned sample footprint; H31-S fails its preregistered efficacy gate and the literal broad-registry uniqueness gate. Do not submit either. See the <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/csdu_owner_mirror_validation_20261026.json">CSDU validation audit</a> and <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_metric_and_release_review.md">review / limitations</a>.</div>'
+
+
+def csdu_download_and_audit() -> str:
+    """Expose the inherited CSDU bytes only as a clearly failed forensic artifact."""
+    path = ROOT / "evidence/csdu_owner_mirror_validation_20261026.json"
+    if not path.is_file():
+        return ""
+    audit = json.loads(path.read_text())
+    name = "gemsdoe31-csdu-stepover-8cf9dc27"
+    return f'''<section id="csdu-audit" aria-labelledby="csdu-audit-heading">
+      <div class="section-head"><div><p class="kicker">Concurrent main-branch artifact · forensic review only</p>
+        <h2 id="csdu-audit-heading">CSDU stepover raster: DO NOT SUBMIT</h2></div>
+        <p>This file was inherited during branch integration; it was not generated or promoted by this review. The published validation used a synthetic approximate footprint rather than the pinned sample mask.</p></div>
+      <div class="notice notice-danger"><strong>Exact-footprint validation FAILS for both TIFF encodings.</strong>
+        The all-finite file has 1,899 positive cells outside the pinned footprint. The NaN-outside file has 2,610,312 NaNs inside the true footprint and fails the outside-mask check. Holdout-DTI, leakage canaries, and registry similarity were not tested. A “new geometry” claim does not establish uniqueness.</div>
+      <div class="card download-card"><span class="badge badge-red">FORENSIC DOWNLOAD ONLY · NOT FORMAT-VALID FOR THE PINNED MASK · DO NOT SUBMIT</span>
+        <h3 style="margin-top:16px">{name}</h3>
+        <p>The generator writes an approximate ellipse and synthetic all-zero labels; it does not derive the exact footprint or public-fault mask from the competition inputs. No corrected file has been made.</p>
+        <div class="actions">
+          <a class="button" href="downloads/{name}-allfinite.tif" download>Download failed all-finite TIFF (audit only)</a>
+          <a class="button" href="downloads/{name}-nan.tif" download>Download failed NaN-outside TIFF (audit only)</a>
+          <a class="button" href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/csdu_owner_mirror_validation_20261026.json">Independent exact-mask audit JSON</a>
+          <a class="button" href="downloads/{name}-run-card.json" download>Original run card (unverified uniqueness)</a>
+        </div>
+        <p class="small"><strong>Pinned owner-mirror template SHA-256:</strong> <code>{audit['template_sha256']}</code>. It is not organizer-authenticated. Full byte-level and mask counts: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/csdu_owner_mirror_validation_20261026.json">audit receipt</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/irregularities.json">irregularity register</a>.</p>
+      </div>
+    </section>'''
 
 
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     focus_summary = focus_site_summary()
     return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet (DOWNLOAD FOR RESEARCH = YES · SUBMIT TO DRIVENDATA = NO).</strong>
-      The new 2026-10-26 H31-S (UDAP-SSLIC) GeoTIFF, H31-T Transtension-Dinkelbach, H31-J TGTD-Submod, XFCOH31, CONCORD31, RBU31-B, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts pass automated EPSG:32611 and strict [0, 1] range checks with zero human intervention and are available to download in one click; all remain research-only (<code>slot_approved = false</code>) while the unexempted 695-raster shared-registry overlap gate remains in force. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      No current file is upload-ready. H31-S passes its local format validator but fails the preregistered efficacy and broad-registry uniqueness gates. The CSDU TIFF inherited from a concurrent main update fails exact-footprint validation against the pinned sample, and its holdout, leakage and registry tests were not run. Every file remains <code>slot_approved = false</code>; Human sign-off cannot override a failed gate. Do not upload or spend a weekly slot.</div>
       {review_notice()}
       {focus_summary}
+      {csdu_download_and_audit()}
       {h31s_download_and_gates()}
       {h31t_download_and_gates()}
       {h31j_download_and_gates()}
