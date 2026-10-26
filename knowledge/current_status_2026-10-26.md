@@ -4,7 +4,7 @@
 
 The current branch preserves the concurrent `origin/main` CSDU artifacts and independently records that both fail exact-footprint validation against the pinned owner-mirror sample. They remain forensic files, **DO NOT SUBMIT**; holdout-DTI, leakage canaries, and registry uniqueness remain untested. H31-S remains negative and not slot-approved. No experiment, TIFF generation, upload, leaderboard access, or slot use occurred.
 
-Latest validation after merge conflict resolution: **145 pytest tests passed**, Ruff and compileall passed, CSDU/H31-S/current-run exact-file verifiers retain their negative verdicts, and the generated site check passed (22 pages, 445 local links). PR #40 remains open. The `origin/main` merge is resolved in the working tree but is not yet committed or pushed; do not treat the PR or merge as complete. See [branch review](repo_review_2026-10-26_arena_e40c3412.md).
+Latest local validation after merge conflict resolution: **145 pytest tests passed**, Ruff and compileall passed, CSDU/H31-S/current-run exact-file verifiers retain their negative verdicts, and the generated site check passed (22 pages, 445 local links). The `origin/main` merge was committed and pushed to this branch as `5895788`. PR #40 remains open and unmerged. The remote Actions run `40358930573` failed in its unit/regression-test step; the exact failing assertion is unknown because GitHub's log download returned EOF. Local CI-equivalent checks pass, but do not merge until the remote failure is diagnosed or a successful check completes. See [branch review](repo_review_2026-10-26_arena_e40c3412.md).
 
 ## Historical audit continuation (`arena/1028355f-gemsdoe31`)
 
@@ -108,4 +108,4 @@ During PR preparation, `origin/main` advanced and contained a concurrent CSDU st
 
 The new exact-mask audit is `evidence/csdu_owner_mirror_validation_20261026.json`; `IR-31-CSDU-SYNTHETIC-FOOTPRINT-FAIL` is in `registry/irregularities.json`. The original generator is quarantined and exits before writing. CSDU remains audit-only; **DO NOT SUBMIT**. No re-masking, regenerated TIFF, or CSDU experiment was performed. H31-S remains the latest fully evaluated candidate, but it too is negative and not approved.
 
-PR #40 is still open. The merge conflict from the advancing `main` branch has been resolved locally while preserving the incoming artifact and clearly surfacing its failures. The merge is not yet committed or pushed; final checks pass, but PR merge completion remains pending.
+PR #40 remains open and unmerged. The `origin/main` integration commit `5895788` is pushed on the fixed Arena branch, preserving the incoming artifact and surfacing its failures. Local checks pass; the latest remote Actions run failed in the unit/regression-test step and its exact failure is not available from the log endpoint, so PR merge completion remains blocked pending diagnosis or a passing remote run.
