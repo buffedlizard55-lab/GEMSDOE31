@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # Values transcribed from the USER REQUEST, not inferred from a model or page.
 FOCUS = [
     ("GEMSDOE24", "h25-1-dotted-h19-5-d1-5", "0.2477", "Sparse H19-5 D1.5 emission; prior-art only"),
-    ("GEMSDOE25", "dotted-h19-5-d2-8", "0.2600", "D2.8 sparse emission; same NaN TIFF bytes as GEMSDOE24"),
+    ("GEMSDOE25", "dotted-h19-5-d2-8", "0.2600", "D2.8 sparse emission; exact identity with other site files not asserted"),
     ("GEMSDOE27", "topo-gap-closure-t-v2-on-d1-5", "0.2449", "Filename/owner method: topological gap closure on D1.5; not refitted here"),
     ("GEMSDOE28", "h36-1-rung30-blind-r1", "0.2710", "Highest user-listed GEMSDOE28 claim; owner-described rung/bridge variant"),
     ("GEMSDOE28", "h27-4-r1-solo-d2-8", "0.2708", "Byte geometry: D2.8 with <=1px catalogue-flank dots deleted"),

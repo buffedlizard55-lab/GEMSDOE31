@@ -504,10 +504,69 @@ def _overview_body(card, *, hero_rbu: bool):
     return body
 
 
+def focus_site_summary() -> str:
+    """Show the highest owner-reported artifact per requested site, never as upload advice."""
+    path = ROOT / "registry/focus_review.json"
+    if not path.is_file():
+        return ""
+    rows = json.loads(path.read_text()).get("rows", [])
+    best = {}
+    for row in rows:
+        try:
+            score = float(row["claim_value"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        site = row.get("repository")
+        if site and (site not in best or score > best[site][0]):
+            best[site] = (score, row)
+
+    site_order = ["GEMSDOE24", "GEMSDOE25", "GEMSDOE27", "GEMSDOE28",
+                  "GEMSDOE30", "GEMSDOE31", "GEMSDOE32", "GEMSDOE33", "GEMSDOE36"]
+    rendered = []
+    for site in site_order:
+        result = best.get(site)
+        if result is None:
+            rendered.append(f"<tr><td>{esc(site)}</td><td colspan=\"4\">No pinned candidate record in the current audit.</td></tr>")
+            continue
+        score, row = result
+        overlap = row.get("fraction_within_3px_of_h33")
+        overlap_text = "not available" if overlap is None else f"{100 * overlap:.1f}% of dots within 3 px of H33"
+        artifact = esc(row["artifact"])
+        url = esc(row["source_url"])
+        method = esc(row.get("method", "Not established in the current audit"))
+        sha = esc(row.get("sha256", ""))
+        rendered.append(
+            f'<tr><td><strong>{esc(site)}</strong></td>'
+            f'<td><a href="{url}" target="_blank" rel="noopener">{artifact}</a>'
+            f'<br><span class="small">SHA-256 <code>{sha[:12]}…</code></span></td>'
+            f'<td>{score:.4f}<br><span class="badge">USER-REPORTED · no organizer receipt</span></td>'
+            f'<td>{method}</td><td>{overlap_text}</td></tr>'
+        )
+    return f'''<section id="focus-sites"><div class="section-head"><div>
+      <p class="kicker">Nine requested repositories · highest claim per site</p>
+      <h2>Prior-art comparison — not a list of upload recommendations</h2></div>
+      <p>Scores below are the claims supplied by the owner and pinned to repository artifacts where available.
+        They are not organizer-confirmed scores. The highest listed claim is GEMSDOE32 H33-2-B2 (0.2778),
+        but H33 is a D2.8 catalogue-distance prune, not a new detector, and is not eligible as a unique new submission.</p></div>
+      <div class="notice notice-danger"><strong>Decision: none of these historical files is cleared to submit as a new unique candidate.</strong>
+        The selected files are prior art; each has &gt;70% of its positive dots within 3 px of the pinned H33 raster
+        (the reference itself is 100%). Do not copy or rename them. Every score in this table remains USER-REPORTED.</div>
+      <div class="table-wrap"><table><thead><tr><th>Site</th><th>Highest listed artifact (pinned mirror)</th>
+        <th>Claimed score</th><th>Method / interpretation</th><th>Measured relation to H33</th></tr></thead>
+        <tbody>{''.join(rendered)}</tbody></table></div>
+      <p class="small">The table shortens each SHA-256 for readability; full digests and evidence classes are in the <a href="register/index.html">submission register</a> and <code>registry/focus_review.json</code>.</p>
+      <p class="small"><strong>GEMSDOE31 irregularity:</strong> the user-listed 0.2708 H27-4 claim conflicts with the pinned owner-page status
+        recorded in <code>registry/irregularities.json</code> (listed as unscored); exact organizer receipt-to-file attribution is absent.
+        This table is a forensic index, not a live leaderboard snapshot or a recommendation to spend a slot.</p>
+    </section>'''
+
+
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
+    focus_summary = focus_site_summary()
     return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
       The RBU31-B regime-balanced union, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are format-validated and available to download in one click; all are research-only (each fails at least one automated gate &mdash; see its own gate table below &mdash; and all fail the unexempted 695-raster shared-registry overlap gate). Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      {focus_summary}
       {rbu31_download_and_gates()}
       {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
