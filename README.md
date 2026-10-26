@@ -1,3 +1,18 @@
+> ## H31-Y (2026-10-26, session `arena/f4d7fb29-gemsdoe31`): unique GeoTIFF generated. **OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO.**
+>
+> **[Download H31-Y research `.tif` (all-finite `[0,1]` — DO NOT SUBMIT)](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif)** ·
+> [zip](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.zip) ·
+> [NaN twin](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-nan.tif) ·
+> [run card](evidence/h31y/run_card.json) · [preregistration](knowledge/2026-10-26_h31y_preregistration.md) ·
+> [executive summary](knowledge/2026-10-26_h31y_executive_summary.md) · [site](docs/index.html)
+>
+> SHA-256 `6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8` · name `gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3`.
+> HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld) **0.0973 [0.0833, 0.1106]** vs CTRL +0.0302 [+0.0048, +0.0536]; confirmation +0.0287 [+0.0066, +0.0504]; SGMC 0.1188 vs H33 0.0940; PROJECTION 0.348 (never a score). Final-dot 3-px max 63.0% (unique under owner 70% rule); **G5 FAIL** on pre-placement top-K 90.5%. Lane verdict **negative**. The selector primary for a weekly slot is **not** this file — see `registry/selector_decision_20261026.json`. Zero slots used. DrivenData never contacted.
+>
+> The standing owner prompt is preserved at the end of this file and in `knowledge/owner_prompt_2026-10-26.md`. Re-read it before the next session.
+>
+> ---
+>
 > ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/3ce68fc7-gemsdoe31`) — SUBMIT THIS ONE FILE
 >
 > **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**

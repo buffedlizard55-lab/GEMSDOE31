@@ -95,7 +95,7 @@
   "phi": 0.020883572829927626,
   "vendor_spearman": 0.020883572829926554
  },
- "peers_checked": 54,
+ "peers_checked": 56,
  "candidates": [
   {
    "lane": "H31-B-standalone",
@@ -298,6 +298,84 @@
     "G6_projection_ge_02778": true
    },
    "selector_promote": false
+  },
+  {
+   "lane": "H31-Y",
+   "file": "docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif",
+   "card": "evidence/h31y/run_card.json",
+   "sha256": "6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.11876498681568061,
+    "tpw": 6845.247246423627,
+    "fpw": 34683.31918001094,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.07116325776319703,
+    "tpw": 1607.6382591320044,
+    "fpw": 36678.59610725858,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.12331724729163747,
+    "tpw": 5237.608987291622,
+    "fpw": 35137.58846979271,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-nan.tif (identical support twin)",
+    "local:gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.3483756578292744,
+   "projection_interval": [
+    0.34281392261574317,
+    0.3539373930428056
+   ],
+   "overlap_vs_h33": 0.24820736176767408,
+   "phi_vs_h33": 0.01127940885402512,
+   "max_discrete_overlap": 0.6303712752961173,
+   "max_discrete_overlap_peer": "local:gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
+   "holdout_from_card": {
+    "pass_": true,
+    "evaluator": "gems57-pooled-hide-v2",
+    "dti": 0.09730039921314955,
+    "ci95": [
+     0.08332097430022337,
+     0.1106427380736741
+    ],
+    "n": 60988,
+    "delta": 0.03023726934775038,
+    "delta_ci95": [
+     0.004805829047495654,
+     0.05356643089957091
+    ],
+    "confirmation_delta": 0.02867439487404848,
+    "confirmation_delta_ci95": [
+     0.00659191464117568,
+     0.05039901231790772
+    ],
+    "summary": "paired CIs vs CTRL & SLOPE (213-px quadrant folds) + untouched random-component split confirmation vs CTRL; all exclude 0 (card verbatim)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": true,
+    "G4_sgmc_discovery": true,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": true
+   },
+   "selector_promote": true
   },
   {
    "lane": "H31-T",
@@ -1308,6 +1386,7 @@
  ],
  "promoted": [
   "H31-X",
+  "H31-Y",
   "H31-T",
   "H31-J",
   "H31-M"
