@@ -3,7 +3,7 @@
   "scope": "Release audit only; no new scientific experiment, TIFF or weekly slot.",
   "tests": {
     "baseline": 187,
-    "final": 200,
+    "final": 202,
     "failed": 0
   },
   "ruff": "passed",
@@ -39,5 +39,10 @@
     "files_compared": 24,
     "all_byte_identical": true,
     "scope": "HTML, feed JSON and canonical public status; generated readiness timestamp excluded"
+  },
+  "integration": {
+    "concurrent_main_pr": 47,
+    "preserved": "no-submit navigation and presentation test",
+    "portability_checks": "OPENBLAS_NUM_THREADS=1,2,4 canonical --check passed; displayed final rho only rounded after raw gates"
   }
 }

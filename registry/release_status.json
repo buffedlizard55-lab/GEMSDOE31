@@ -29,7 +29,7 @@
       "provenance": "CITED from frozen H31-X card; array not replayed"
     },
     "final": {
-      "max_abs_rho": 0.0009096980780139884,
+      "max_abs_rho": 0.000909698078,
       "max_overlap": 0.9934402719498593,
       "coverage_complete": false,
       "provenance": "RECOMPUTED against hash-pinned registered lattice only"
@@ -224,6 +224,7 @@
   "leaderboard_estimate": null,
   "estimate_reason": "Cross-family calibration unvalidated; no defensible numerical forecast",
   "verdict": "negative",
+  "diagnostic_serialization": "Final rank correlation rounded to 12 decimals after raw-value gate evaluation; no threshold rounding.",
   "schema_version": 1,
   "review_date": "2026-10-26",
   "review_id": "release-review-bf9d261d",

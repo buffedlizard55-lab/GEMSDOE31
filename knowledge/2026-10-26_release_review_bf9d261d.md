@@ -142,3 +142,14 @@ Pass 2 found and blocked the legacy approval bypass, checked strict thresholds/i
 scientific claims as cited rather than fresh evidence. Pass 3 reruns full tests, metric proofs, byte checks, deterministic
 site build and browser download checks. Actual receipts and results are in `registry/review_passes.json` and
 `evidence/review_bf9d261d/`; passing code checks does not fulfil the blocked new-submission requirement.
+
+
+### Integration / portability follow-up
+
+Integrated concurrent main PR #47 without losing its no-submit clarification, navigation warning or regression test.
+Final local suite: **202 tests passed** (including its inherited test and a new BLAS-drift test).
+The first GitHub verify run failed; REST log retrieval was temporarily rate-limited. During investigation a
+last-bit BLAS/thread-count correlation serialization difference was reproduced locally. The canonical report now
+rounds only the displayed final rank correlation to 12 decimals **after** the verifier evaluates unrounded gates.
+`--check` passes with OpenBLAS thread counts 1, 2 and 4; no overlap/score, threshold or permission is rounded or relaxed.
+Historical shared evaluator/writer code remains unchanged. GitHub CI/merge status is reported separately, not assumed.

@@ -1830,6 +1830,8 @@
  "integration_bf9d261d": {
   "main_merge": "e14b466",
   "preserved_concurrent_review": "PR #47, no-submit banner/navigation notice and presentation regression retained",
-  "scope": "No scientific experiments, TIFFs or permission changes"
+  "scope": "No scientific experiments, TIFFs or permission changes",
+  "final_tests": "202 passed after merging PR #47 (one inherited regression) and adding BLAS-drift regression",
+  "portability_fix": "Canonical release report rounds final rho to 12 decimals AFTER raw gate evaluation. --check passes with OPENBLAS_NUM_THREADS=1,2,4; no scientific threshold changes."
  }
 }

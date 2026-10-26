@@ -86,3 +86,19 @@ def test_public_feed_uses_current_status_not_historical_magrest():
     assert feed['current_download']['ok_to_submit'] is False
     assert feed['historical_magrest_download']['name'] != feed['current_download']['name']
     assert feed['current_download']['holdout_provenance'].startswith('CITED')
+
+
+def test_canonical_status_ignores_last_bit_blas_drift(monkeypatch):
+    if not (ROOT / 'data/sample_submission.tif').exists():
+        pytest.skip('restore small inputs for exact-byte integration')
+    import copy
+    spec = importlib.util.spec_from_file_location('build_release_status', ROOT / 'scripts/build_release_status.py')
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    raw = m.verify()
+    monkeypatch.setattr(m, 'verify', lambda root: copy.deepcopy(raw))
+    first = m.build()
+    raw['correlation_overlap_vs_registry']['final']['max_abs_rho'] += 1e-16
+    second = m.build()
+    assert first == second
+    assert first['uniqueness_gate']['duplicate'] and not first['ok_to_submit']

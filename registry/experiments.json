@@ -839,12 +839,12 @@
   {
    "path": "evidence/review_bf9d261d/browser_checks.json",
    "bytes": 1786,
-   "sha256": "6f2190ecf592bc9f11fe1b61b59cdcd3f8b0e376b4b77ccbb3b3c1ef40194590"
+   "sha256": "9909e6dd7199214b685328bfc1e88db9c6c206a8f57c5566528c787ac2e0e670"
   },
   {
    "path": "evidence/review_bf9d261d/checks.json",
-   "bytes": 1206,
-   "sha256": "c43b0f30c5a54fa768eb3c46009606db127044bde22f425c8437d86b6c24aaea"
+   "bytes": 1453,
+   "sha256": "11d6da898fd7708778ebe44fe007568e1d174132a17ab87dc241b0f743b7cfbc"
   },
   {
    "path": "evidence/review_bf9d261d/official_reference_README.md",

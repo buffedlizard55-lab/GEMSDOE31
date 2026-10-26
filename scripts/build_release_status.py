@@ -26,6 +26,13 @@ PUBLIC_PATH = "docs/downloads/current-release-status.json"
 def build(root=ROOT):
     root = Path(root)
     card = verify(root)
+    # BLAS thread count/backend can change the last bits of a dot product.
+    # The verifier has already applied the gate to unrounded diagnostics.
+    # Canonicalize only the displayed correlation, never thresholds/permissions.
+    final = card["correlation_overlap_vs_registry"]["final"]
+    if final["max_abs_rho"] is not None:
+        final["max_abs_rho"] = round(final["max_abs_rho"], 12)
+    card["diagnostic_serialization"] = "Final rank correlation rounded to 12 decimals after raw-value gate evaluation; no threshold rounding."
     selector = json.loads((root / "registry/selector_decision_20261026.json").read_text())
     review = json.loads((root / "registry/review_passes.json").read_text())
     if (selector["primary_submission"] is not None or selector["alternates"]
