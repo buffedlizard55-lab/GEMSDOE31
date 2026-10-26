@@ -1422,6 +1422,34 @@
         "Verified automated non-human GeoTIFF validation (scripts/verify_h31s_run.py & scripts/verify_current_run.py), 22-page static site + feed.json build, Ruff lint, check_metric.py, and full pytest suite"
       ],
       "historical_scope": false
+    },
+    {
+      "id": "1028355f-review-pass-1-2026-10-26",
+      "status": "complete-with-disclosed-blockers",
+      "scope": [
+        "Reviewed preserved prompt, lane history, nine-site claim registry and binding duplicate STOP; no assigned method paragraph exists in the request.",
+        "Restored pinned small validation inputs and reproduced MAGREST denial; inspected official reference README at pinned aebe92f7c8a990f0e3443451b7a825d9afd6336b.",
+        "Fixed README and generated-site marginal DTI denominator; shared evaluator was correct and unchanged."
+      ]
+    },
+    {
+      "id": "1028355f-review-pass-2-2026-10-26",
+      "status": "complete-with-disclosed-blockers",
+      "scope": [
+        "Added 10000-case finite-change algebra audit and six regression cases covering formula, zero cost, no-op and public wording.",
+        "Removed unsupported confirmed-score language and private-truth causal certainty; moved nine-site summary ahead of detailed lane downloads.",
+        "Preserved existing TIFF bytes, all scientific receipts and owner prompt; no new geological experiment or submission."
+      ]
+    },
+    {
+      "id": "1028355f-review-pass-3-2026-10-26",
+      "status": "complete-with-disclosed-blockers",
+      "scope": [
+        "142 pytest tests pass; ruff and compileall pass; fast/brute metric max difference 4.441e-16.",
+        "MAGREST, H31-S, H31-J and H31-T verifiers all complete with no slot approval.",
+        "collect_evidence and build_site pass; check_site passes 22 pages and 439 local links; git diff --check passes.",
+        "New high-performing unique TIFF remains blocked; no claim of full task completion or global novelty."
+      ]
     }
   ],
   "remaining_work": [
@@ -1435,11 +1463,11 @@
   ],
   "current_run": "registry/current_run.json",
   "current_three_passes": [
-    "arena-review-pass-1-2026-10-26",
-    "arena-review-pass-2-2026-10-26",
-    "arena-review-pass-3-2026-10-26"
+    "1028355f-review-pass-1-2026-10-26",
+    "1028355f-review-pass-2-2026-10-26",
+    "1028355f-review-pass-3-2026-10-26"
   ],
-  "release_decision": "2026-10-26 review: no new experiment/TIFF/slot. Existing MAGREST artifact remains research-download-only and blocked from submission by recorded overlap and efficacy gates. Executive summary now includes the nine-site USER-REPORTED highest-claim matrix. See knowledge/repo_review_2026-10-26.md.",
+  "release_decision": "2026-10-26 audit 1028355f: no new TIFF, experiment or slot; existing artifacts remain research-only. Corrected marginal DTI prose, provenance and causal claims. See knowledge/2026-10-26_metric_and_release_review.md.",
   "rbu31_session_2026_10_25": {
     "branch": "arena/84287da3-gemsdoe31",
     "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",

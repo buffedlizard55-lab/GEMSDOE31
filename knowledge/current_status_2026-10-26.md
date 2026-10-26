@@ -1,8 +1,15 @@
 # Current project status — 2026-10-26
 
+## Latest audit continuation (`arena/1028355f-gemsdoe31`)
+
+See [metric and release review](2026-10-26_metric_and_release_review.md).
+Zero new geological experiments, TIFFs or slots. Fixed incorrect marginal DTI prose and unsupported
+confirmed-score/causal claims. Revalidated MAGREST, H31-S, H31-J and H31-T files; no slot approved.
+The check counts below are historical; current checks are recorded in `registry/review_passes.json`.
+
 ## Decision
 
-**No competition submission is currently approved.** No experiment, TIFF, upload, leaderboard access, or weekly slot was used in this review continuation. The only highlighted current artifact remains the existing MAGREST all-finite research TIFF, [downloadable for research only](../docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif) and **NOT approved to submit**. Its machine decision receipt is [here](../docs/downloads/magrest-run-card.json).
+**No competition submission is currently approved.** No experiment, TIFF, upload, leaderboard access, or weekly slot was used in this review continuation. The canonical `registry/current_run.json` still describes the existing MAGREST all-finite research TIFF; the site also preserves H31-S, H31-T, H31-J and other separately identified research downloads. MAGREST is, [downloadable for research only](../docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif) and **NOT approved to submit**. Its machine decision receipt is [here](../docs/downloads/magrest-run-card.json).
 
 The TIFF has passed local format checks against the owner-mirror sample template, but the exact file fails the active literal registry-overlap gate; format validity is not submission authorization, organizer acceptance, nor uniqueness. The registry witness covers every allowed cell, giving any nonempty in-footprint dot set 100% forward 3-pixel overlap, above the protocol's 70% stop threshold. The broader registry scan is not exhaustive, but that one valid witness is sufficient to fail the gate.
 

@@ -1,0 +1,375 @@
+{
+  "hypothesis": "MAGREST: lateral restoration of displaced magnetic texture",
+  "mechanism": "same-sign 2/4px cross-flank patch-correlation gain over unshifted null; no inherited dots",
+  "non_fault_mimic": "volcanic-flow lithologic contacts or airborne magnetic survey-line seams",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "dti": 0.052972044857535226,
+    "ci95": [
+      0.04131136300815562,
+      0.06532899139157548
+    ],
+    "withheld_positive_pixels": 2901,
+    "tpw": 222.69414398245058,
+    "fpw": 9193.274462229707,
+    "fnw": 2678.3058560175496
+  },
+  "raster_sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+  "validator": {
+    "zeros": {
+      "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+      "bytes": 153019,
+      "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+      "ok_to_upload_format_only": true,
+      "organizer_acceptance_verified": false,
+      "hard_failures": [],
+      "grid": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bounds": [
+          243350.0,
+          4135550.0,
+          572550.0,
+          4508550.0
+        ],
+        "dtype": [
+          "float32"
+        ],
+        "bands": 1,
+        "template_footprint_pixels": 5167373,
+        "positive_pixels_inside": 37654,
+        "nodata_tag": null
+      },
+      "checks": {
+        "template_single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "template_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "template_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "template_has_finite_footprint": {
+          "pass_": true,
+          "detail": "5,167,373 finite pixels",
+          "hard": true
+        },
+        "template_expected_shape": {
+          "pass_": true,
+          "detail": "(3730, 3292) (expected (3730, 3292))",
+          "hard": true
+        },
+        "template_expected_transform": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+          "hard": true
+        },
+        "template_expected_footprint": {
+          "pass_": true,
+          "detail": "5,167,373 (expected 5,167,373)",
+          "hard": true
+        },
+        "template_expected_outside": {
+          "pass_": true,
+          "detail": "7,111,787 (expected 7,111,787)",
+          "hard": true
+        },
+        "single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "dtype_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "shape_matches_template": {
+          "pass_": true,
+          "detail": "(3730, 3292) vs (3730, 3292)",
+          "hard": true
+        },
+        "crs_matches_template": {
+          "pass_": true,
+          "detail": "EPSG:32611 vs EPSG:32611",
+          "hard": true
+        },
+        "transform_matches_template": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+          "hard": true
+        },
+        "footprint_all_finite": {
+          "pass_": true,
+          "detail": "0 NaN/Inf inside 5,167,373 template cells",
+          "hard": true
+        },
+        "footprint_values_in_0_1": {
+          "pass_": true,
+          "detail": "min=0.0; max=1.0; required finite [0,1]",
+          "hard": true
+        },
+        "no_infinite_pixels": {
+          "pass_": true,
+          "detail": "0 infinite values",
+          "hard": true
+        },
+        "outside_footprint_nan": {
+          "pass_": true,
+          "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+          "hard": false
+        },
+        "nan_mask_matches_template": {
+          "pass_": true,
+          "detail": "not required under the all-finite convention",
+          "hard": false
+        },
+        "allfinite_values_in_0_1": {
+          "pass_": true,
+          "detail": "finite=True; min=0.0; max=1.0",
+          "hard": true
+        },
+        "outside_footprint_zero": {
+          "pass_": true,
+          "detail": "0 nonzero values outside footprint",
+          "hard": true
+        },
+        "output_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "output_100m_pixels": {
+          "pass_": true,
+          "detail": "xres=100, yres=-100",
+          "hard": true
+        },
+        "nodata_tag_nan_or_none": {
+          "pass_": true,
+          "detail": "nodata=None",
+          "hard": false
+        }
+      }
+    },
+    "nan": {
+      "file": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+      "bytes": 199200,
+      "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3",
+      "ok_to_upload_format_only": true,
+      "organizer_acceptance_verified": false,
+      "hard_failures": [],
+      "grid": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bounds": [
+          243350.0,
+          4135550.0,
+          572550.0,
+          4508550.0
+        ],
+        "dtype": [
+          "float32"
+        ],
+        "bands": 1,
+        "template_footprint_pixels": 5167373,
+        "positive_pixels_inside": 37654,
+        "nodata_tag": "NaN"
+      },
+      "checks": {
+        "template_single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "template_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "template_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "template_has_finite_footprint": {
+          "pass_": true,
+          "detail": "5,167,373 finite pixels",
+          "hard": true
+        },
+        "template_expected_shape": {
+          "pass_": true,
+          "detail": "(3730, 3292) (expected (3730, 3292))",
+          "hard": true
+        },
+        "template_expected_transform": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+          "hard": true
+        },
+        "template_expected_footprint": {
+          "pass_": true,
+          "detail": "5,167,373 (expected 5,167,373)",
+          "hard": true
+        },
+        "template_expected_outside": {
+          "pass_": true,
+          "detail": "7,111,787 (expected 7,111,787)",
+          "hard": true
+        },
+        "single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "dtype_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "shape_matches_template": {
+          "pass_": true,
+          "detail": "(3730, 3292) vs (3730, 3292)",
+          "hard": true
+        },
+        "crs_matches_template": {
+          "pass_": true,
+          "detail": "EPSG:32611 vs EPSG:32611",
+          "hard": true
+        },
+        "transform_matches_template": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+          "hard": true
+        },
+        "footprint_all_finite": {
+          "pass_": true,
+          "detail": "0 NaN/Inf inside 5,167,373 template cells",
+          "hard": true
+        },
+        "footprint_values_in_0_1": {
+          "pass_": true,
+          "detail": "min=0.0; max=1.0; required finite [0,1]",
+          "hard": true
+        },
+        "no_infinite_pixels": {
+          "pass_": true,
+          "detail": "0 infinite values",
+          "hard": true
+        },
+        "outside_footprint_nan": {
+          "pass_": true,
+          "detail": "7,111,787/7,111,787 outside pixels are NaN; finite outside pixels are forbidden",
+          "hard": true
+        },
+        "nan_mask_matches_template": {
+          "pass_": true,
+          "detail": "NaN cells exactly match the template's outside-footprint mask",
+          "hard": true
+        },
+        "output_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "output_100m_pixels": {
+          "pass_": true,
+          "detail": "xres=100, yres=-100",
+          "hard": true
+        },
+        "nodata_tag_nan_or_none": {
+          "pass_": true,
+          "detail": "nodata=nan",
+          "hard": false
+        }
+      }
+    }
+  },
+  "session": "arena/1028355f-gemsdoe31",
+  "kind": "audit of existing negative artifact; not a new submission",
+  "new_geological_experiments": 0,
+  "new_tif_generated": false,
+  "correlation_overlap_vs_registry": {
+    "scope": "Nine pinned docs/downloads trees PLUS one authentic counterexample from the shared 695-raster template registry. Nine-tree test passes; literal broad-registry gate FAILS. No exhaustive/global pass claimed.",
+    "comparable_files": 119,
+    "distinct_prediction_fields": 51,
+    "surface": {
+      "pass_": false,
+      "duplicate": true,
+      "max_abs_rho": 0.01014651673592438,
+      "max_overlap": 1.0,
+      "counterexample_rho": 0.00021244973679571678,
+      "counterexample_overlap": 1.0,
+      "exhaustive_broad_registry_scan": false
+    },
+    "final": {
+      "pass_": false,
+      "duplicate": true,
+      "max_abs_rho": 0.005421926334620311,
+      "max_overlap": 1.0,
+      "counterexample_rho": 0.0005267017210338992,
+      "counterexample_overlap": 1.0,
+      "exhaustive_broad_registry_scan": false
+    },
+    "global_uniqueness_proven": false,
+    "nine_site_download_scope_original": {
+      "scope": "ALL .tif files under docs/downloads/ (including research subdirectories) in the nine pinned repositories. No claim about private, unlinked, other paths, other sites, or later revisions.",
+      "surface": {
+        "pass_": true,
+        "duplicate": false,
+        "max_abs_rho": 0.01014651673592438,
+        "max_overlap": 0.3214532320603389
+      },
+      "final": {
+        "pass_": true,
+        "duplicate": false,
+        "max_abs_rho": 0.005421926334620311,
+        "max_overlap": 0.3256493334041536
+      }
+    },
+    "literal_rule_pass": false,
+    "scope_correction": "evidence/magrest/registry_scope_correction.json",
+    "calibration_density_exemption": false,
+    "nine_site_comparable_files": 118,
+    "nine_site_distinct_prediction_fields": 50,
+    "shared_manifest_registered_rasters": 695,
+    "additional_registered_controls_compared": 1,
+    "broader_scan_exhaustive": false
+  },
+  "submission_name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
+  "submission_note": "Existing MAGREST audit only; no new TIFF. Literal registry STOP; DO NOT SUBMIT.",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "ok_to_download_for_research": true,
+  "limits": "Historical HOLDOUT-DTI reproduced from frozen terms, not retrained. No organizer score receipt or new-lane authorization.",
+  "report": "knowledge/2026-10-26_metric_and_release_review.md"
+}
