@@ -257,12 +257,8 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     if current:
         hero, body = current_site.overview(current)
         body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
-        rbu = load("evidence/regime31b/run_card.json") or load("evidence/regime31/run_card.json")
-        desc = ("Download the new MAGREST research TIFF. Format-valid; not approved for upload."
-                if not rbu else
-                ("RBU31 regime-balanced union: newly computed, duplicate-screened GeoTIFF passing every automated "
-                 "validation gate. OK to download and submit." if rbu.get("ok_to_download_and_submit") else
-                 "Newest candidate RBU31 failed an automated validation gate; research only, do not submit."))
+        desc = ("Exactly one file is cleared to submit (selector primary H31-X); every other download "
+                "including the newest H31-Y lane is research only — do not submit. Automated gates, no human inspector.")
         return shell("", "Overview", desc,
                      "Overview", hero, body, "Maximize P(Win) · Own the Outcome · negative results preserved.")
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
@@ -393,18 +389,10 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     current = load("registry/current_run.json")
     if current:
-        rbu = load("evidence/regime31b/run_card.json") or load("evidence/regime31/run_card.json")
-        if rbu and rbu.get("ok_to_download_and_submit"):
-            hero = page_hero("Download + submission guide", "OK to download and submit: RBU31.",
-                             "The approved file, its unique name, portal note and gate-by-gate automated decision "
-                             "are together below. Older artifacts keep their own do-not-submit verdicts.")
-        elif rbu:
-            hero = page_hero("Download + submission guide", "Do not submit.",
-                             "The newest candidate RBU31 failed an automated gate; its file, unique name, note and "
-                             "exact failed gates are together below for research only.")
-        else:
-            hero = page_hero("Download + submission guide", "Download for research. Do not submit.",
-                             "The file, unique name, note and automated decision are together below. No weekly slot is authorized.")
+        hero = page_hero("Download + submission guide", "Submit exactly one file: the selector primary (H31-X).",
+                         "The approved file, its unique name, portal note, labelled estimates and the gate-by-gate "
+                         "automated decision are together below. The newest H31-Y lane and every other artifact keep "
+                         "their own do-not-submit verdicts.")
         return shell("", "Executive summary", "New candidate TIFF, exact automated validation status, and the portal workflow.",
                      "Executive summary", hero, current_site.executive(current))
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")

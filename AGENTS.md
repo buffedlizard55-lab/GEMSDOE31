@@ -47,3 +47,19 @@ deduplicated), while the literal 695-raster reading is still computed and disclo
 alternates H31-J/H31-M). Lane run cards keep their original `slot_approved=false` verdicts. If a
 future owner instruction restores the literal reading, all promotions revert to STOP. Nothing else
 in the rules above is relaxed: no DrivenData contact, no unlabelled numbers, fail-closed gates.
+
+## Amendment 2026-10-26 (H31-Y session arena/a111fe50)
+
+Cross-family calibration audit (`evidence/cross_family_calibration_20261026.json`,
+`knowledge/2026-10-26_h31y_projection_audit.md`): the selector's M1 in-family SGMC projection
+has out-of-family RMSE 0.196 / bias +0.135 (n=67) and the best cross-family calibration barely
+beats the mean (RMSE 0.090). **Never present an M1-style in-family projection (e.g. the old
+H31-X "0.355 [0.349, 0.360]") as an estimated live score, and never gate promotion on one.**
+Labelled estimates must include the cross-family ±2·LOO-RMSE interval. H31-X remains selector
+primary on catalogue hide-and-recover evidence only (`registry/selector_update_20261026_a111fe50.json`
+supersedes the estimate language of the 3ce68fc7/5b378be2 decisions; the primary file is
+unchanged and the AGENTS note above naming H31-T as "the only upload-cleared file" is stale —
+the selector records H31-X primary with H31-T/J/M alternates). H31-Y (regime-mosaic 50/50) is a
+negative lane: do not re-tune its split post hoc; a marginal-credit allocation lane needs a
+fresh preregistration. The site's first banner, hero, selector section and how-to-submit steps
+must always name the same single primary file (they previously named three different files).

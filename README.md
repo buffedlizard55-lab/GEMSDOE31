@@ -1,3 +1,34 @@
+> ## 🔎 AUDIT UPDATE 2026-10-26 (session `arena/a111fe50-gemsdoe31`) — PRIMARY FILE UNCHANGED, ITS 0.355 PROJECTION WITHDRAWN; NEW LANE H31-Y NEGATIVE
+>
+> **Still submit exactly this one file (owner uploads manually; this repo never contacts DrivenData):**
+> [`gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif`](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif)
+> — SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9` · portal note (88/140):
+> `H31-X X1 piedmont-junction slope-break 37654d B2 | HOLDOUT-DTI 0.1661 n=60988 | 5a956da9`
+>
+> **What changed and why (read once):** a cross-family calibration audit over all 67 matched USER-REPORTED
+> submissions (`scripts/cross_family_calibration.py`, `evidence/cross_family_calibration_20261026.json`,
+> `knowledge/2026-10-26_h31y_projection_audit.md`) shows the selector's in-family SGMC projection formula fails
+> out-of-family (RMSE 0.196, bias +0.135; counterexamples project to 0.36–0.48 where the reported live values are
+> 0.02–0.24). **All M1 projections below (0.355, 0.317, 0.312, 0.296, 0.409…) are WITHDRAWN as live-score estimates.**
+> Even the best cross-family calibration has LOO RMSE ≈0.090 — barely better than the mean — so no candidate here has a
+> defensible point estimate of its live score; H31-X's corrected PROJECTION is 0.125, interval [-0.061, 0.311].
+> H31-X remains primary on its catalogue hide-and-recover evidence (HOLDOUT-DTI 0.1661, independently reproduced
+> this session), *not* on a predicted score. Beating 0.2778 is possible, not established.
+>
+> **New lane H31-Y (this session): unique research TIFF — ⛔ DO NOT SUBMIT.**
+> [`gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif`](docs/downloads/gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif)
+> (SHA-256 `41f1e63a803950db1f621321d5a26c5d3fbbfcc3999923035f0de8a253f7901e`; [run card](evidence/h31y/run_card.json) ·
+> [preregistration](knowledge/2026-10-26_h31y_preregistration.md) · [executive summary](knowledge/2026-10-26_h31y_executive_summary.md)).
+> Regime-mosaic 50/50 (junction line in mountains, LiDAR fan-scarp specialist on piedmont): HOLDOUT-DTI 0.1550
+> [0.1401, 0.1701] — beats controls, loses to the junction comparator (paired -0.0112 [-0.0191, -0.0024]) while
+> tripling piedmont-truth kernel credit (2,172 vs 642); SGMC 0.0873 < H33 0.0940; verdict **negative** (G3/G4 fail).
+> Unique: max 59.4% dots within 3 px of any discrete peer, 45.9% vs H33, |ρ| ≤ 0.135. It would only win overall if
+> hidden truth were >57% piedmont (catalogue: 48%) — the recorded next lane is marginal-credit allocation (~70–80%
+> mountain), which needs its own preregistration. The site's first banner/hero/selector section now name the same
+> single primary file (they previously disagreed). Zero slots spent; DrivenData never contacted.
+>
+> ---
+>
 > ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/3ce68fc7-gemsdoe31`) — SUBMIT THIS ONE FILE
 >
 > **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**

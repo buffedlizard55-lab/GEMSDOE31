@@ -1,0 +1,38 @@
+{
+ "date": "2026-10-26",
+ "session_branch": "arena/a111fe50-gemsdoe31",
+ "supersedes_in_part": "registry/selector_decision_20261026.json (estimate language only; primary file unchanged)",
+ "projection_withdrawal": {
+  "finding": "The selector audit's M1 anchor-inversion projections (H31-X 0.3548, H31-T 0.3174, H31-J 0.3121, H31-M 0.2955, H31-B 0.4093) are WITHDRAWN as live-score estimates. Cross-family test on 67 matched USER-REPORTED submissions: M1 frozen-formula RMSE 0.1963, MAE 0.1355, bias +0.1350; best cross-family linear calibration (M3) LOO RMSE 0.0897 vs 0.0917 for predict-the-mean.",
+  "evidence": "evidence/cross_family_calibration_20261026.json (scripts/cross_family_calibration.py); knowledge/2026-10-26_h31y_projection_audit.md",
+  "consequence": "No candidate in this repository has a defensible point estimate of its live score. Gate G6 in its original form (M1 projection >= 0.2778) is retired as invalid. Promotions recorded earlier now rest on format/canary/holdout/SGMC/uniqueness evidence only."
+ },
+ "primary_submission_unchanged": {
+  "lane": "H31-X",
+  "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+  "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
+  "portal_name": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9",
+  "portal_note": "H31-X X1 piedmont-junction slope-break 37654d B2 | HOLDOUT-DTI 0.1661 n=60988 | 5a956da9",
+  "evidence_standing": "HOLDOUT-DTI 0.1661 [0.1499, 0.1821] (gems57-pooled-hide-v2, 60,988 withheld positives), paired delta vs CTRL +0.0991 [0.0720, 0.1258], untouched component-split confirmation +0.0804 [0.0536, 0.1081]; SGMC DTI 0.1209 vs H33 0.0940 (COMPUTED); discrete-unique (57.0% vs H33, max 63.1%). This session independently re-derived the junction surface and reproduced pooled HOLDOUT-DTI 0.1661 exactly (arm Y2 in evidence/h31y/exp1_screen.json).",
+  "corrected_estimate": {
+   "label": "PROJECTION — never a score",
+   "M1_in_family_diagnostic_withdrawn": 0.3547602506597004,
+   "M3_cross_family_central": 0.12489870311113044,
+   "M3_interval_pm2rmse": [-0.0607856337752479, 0.3105830399975088],
+   "reading": "Beating the 0.2778 USER-REPORTED incumbent is possible within the honest interval but is NOT established. The file remains primary because its catalogue hide-and-recover evidence is the strongest in the repository, not because a live score above 0.2778 is predicted."
+  },
+  "verdict": "OK TO DOWNLOAD AND SUBMIT (owner uploads manually; repo never contacts DrivenData). Lane card verdict=negative under its stricter top-K G5 remains disclosed; selector governance IR-U-02 unchanged."
+ },
+ "new_lane_this_session": {
+  "lane": "H31-Y",
+  "file": "docs/downloads/gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif",
+  "sha256": "41f1e63a803950db1f621321d5a26c5d3fbbfcc3999923035f0de8a253f7901e",
+  "verdict": "negative — DO NOT SUBMIT",
+  "failed_gates": ["G3_holdout_efficacy", "G4_sgmc_discovery"],
+  "holdout_dti": {"evaluator": "gems57-pooled-hide-v2", "dti": 0.154963, "n": 60988,
+                  "note": "see evidence/h31y/run_card.json for exact CI/paired deltas; beats CTRL and SLOPE with CIs excluding 0, loses to junction comparator Y2 (-0.0112 [-0.0191, -0.0024]); piedmont subgroup 0.0684 vs 0.0203"},
+  "uniqueness": "discrete-peer max final-dot overlap 0.5939 (vs H31-X), vs H33 0.459, max |surface Spearman| 0.135; literal 695-lattice reading fails as for every nonempty raster (IR-U-02)",
+  "run_card": "evidence/h31y/run_card.json"
+ },
+ "site_corrections": "docs/index.html and docs/executive-summary.html regenerated so the first banner, hero, selector section and how-to-submit steps name the same single primary file (previously the top banner named H31-N DO-NOT-SUBMIT, the hero named H31-T, and the selector section named H31-X)."
+}
