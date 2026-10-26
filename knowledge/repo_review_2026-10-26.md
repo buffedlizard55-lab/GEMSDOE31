@@ -78,3 +78,16 @@ A future candidate would have to preregister its one method paragraph, data hash
 - User score claims and conflicts: `registry/score_claims.json`, `registry/irregularities.json`.
 - Current negative run: `registry/current_run.json`, `evidence/magrest/run_card.json`, `evidence/tgj31/registry_universal_blocker.json`.
 - Existing ranked desk hypotheses and their access limitations: `knowledge/repo_review_2026-10-25_arena_followup.md`.
+
+
+## Independent verification continuation — 2026-10-26
+
+This continuation re-ran the checks from `AGENTS.md` in a clean checkout after installing the pinned `requirements.txt` into ignored `.venv`. It did not change code, fit a model, create or modify a submission raster, inspect the DrivenData leaderboard, or use a slot.
+
+- `python -m pytest -q`: **118 passed** after the exact-input verifier restored the two small pinned inputs; there were no remaining skips. The pre-restore run was 112 passed / 6 expected skips.
+- `python -m ruff check .`: passed.
+- `python scripts/check_metric.py`: maximum fast/brute pooled-DTI absolute difference **4.441e-16** across 24 grids; exact cases passed; 29 kernel offsets are inside the 300 m radius.
+- `python scripts/verify_current_run.py --restore-small-inputs`: returned `verdict=negative`, `ok_to_download_for_research=true`, `ok_to_submit=false`; unchanged MAGREST all-finite raster SHA-256 `c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9`.
+- `python scripts/collect_evidence.py`, `build_site.py`, and `check_site.py`: reported 124 experiment artifacts, 10 submission records, and a passing generated site with 21 pages and 364 local links. The collector's unrelated generated changes to readiness/experiment registers were restored; they are not review findings.
+
+The independent rerun confirms the prior decision, not the scientific validity of a competition score: no new TIFF is approved to submit. The all-finite research raster remains explicitly **OK TO DOWNLOAD FOR RESEARCH ONLY — DO NOT SUBMIT**. The lane still fails the literal 70% duplicate test against a registered full-footprint witness (100% forward overlap), the three-experiment cap is exhausted, and no newly assigned method paragraph is present. No user-reported leaderboard number was accessed or upgraded to ORGANIZER-CONFIRMED.
