@@ -4,31 +4,31 @@
  "auc_ceiling": 0.9,
  "rows": [
   {
-   "feature": "JUNC_RAW",
+   "feature": "SYNTH",
    "kind": "line",
-   "auc_catalogue": 0.640432667082049,
-   "auc_off_sgmc": 0.5886451889676311,
+   "auc_catalogue": 0.5687854450875584,
+   "auc_off_sgmc": 0.5074545453587183,
    "leakage_flagged": false
   },
   {
-   "feature": "ASIG",
+   "feature": "ANTI",
    "kind": "line",
-   "auc_catalogue": 0.5273116379451696,
-   "auc_off_sgmc": 0.4917008812272963,
+   "auc_catalogue": 0.5013462318816816,
+   "auc_off_sgmc": 0.533421504929943,
    "leakage_flagged": false
   },
   {
-   "feature": "BASE",
+   "feature": "GRAVPIED",
    "kind": "line",
-   "auc_catalogue": 0.5396571264429068,
-   "auc_off_sgmc": 0.3949216478820706,
+   "auc_catalogue": 0.49248592776447825,
+   "auc_off_sgmc": 0.28381509677445504,
    "leakage_flagged": false
   },
   {
-   "feature": "GRAV",
+   "feature": "BASEPIED",
    "kind": "line",
-   "auc_catalogue": 0.5287957660523381,
-   "auc_off_sgmc": 0.439243253235275,
+   "auc_catalogue": 0.4643040198481669,
+   "auc_off_sgmc": 0.26814093778379605,
    "leakage_flagged": false
   },
   {
@@ -46,17 +46,31 @@
    "leakage_flagged": false
   },
   {
-   "feature": "PIED",
+   "feature": "Y1",
    "kind": "surface",
-   "auc_catalogue": 0.5427656810766053,
-   "auc_off_sgmc": 0.4206847147444214,
+   "auc_catalogue": 0.49248592776447825,
+   "auc_off_sgmc": 0.28381509677445504,
    "leakage_flagged": false
   },
   {
-   "feature": "ROUTE",
+   "feature": "Y2",
    "kind": "surface",
-   "auc_catalogue": 0.6011359055469928,
-   "auc_off_sgmc": 0.6159206211890244,
+   "auc_catalogue": 0.5013462318816816,
+   "auc_off_sgmc": 0.533421504929943,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Y3",
+   "kind": "surface",
+   "auc_catalogue": 0.5687854450875584,
+   "auc_off_sgmc": 0.5074545453587183,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Y4",
+   "kind": "surface",
+   "auc_catalogue": 0.49545822932380135,
+   "auc_off_sgmc": 0.2940785963852491,
    "leakage_flagged": false
   }
  ],

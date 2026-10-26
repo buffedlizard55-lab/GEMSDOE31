@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-26",
+  "scope": "Release audit only; no new scientific experiment, TIFF or weekly slot.",
+  "tests": {
+    "baseline": 187,
+    "final": 202,
+    "failed": 0
+  },
+  "ruff": "passed",
+  "compileall": "passed",
+  "check_metric": {
+    "random_grids": 24,
+    "max_abs_delta": 4.440892098500626e-16,
+    "kernel_offsets": 29
+  },
+  "marginal_sign_checks": 10000,
+  "byte_checks": [
+    "verify_current_run.py --restore-small-inputs",
+    "verify_protocol_review.py",
+    "build_release_status.py --check",
+    "verify_h31j.py",
+    "verify_h31t.py"
+  ],
+  "site": {
+    "pages": 22,
+    "local_links_before_final_register_rebuild": 485,
+    "status": "passed"
+  },
+  "browser_receipt": "evidence/review_bf9d261d/browser_checks.json",
+  "shared_vendor_unchanged": true,
+  "unfulfilled": [
+    "New unique submission TIFF",
+    "Top desk hypothesis holdout validation",
+    "Validated leaderboard estimate",
+    "Official organizer score receipt",
+    "Fresh exhaustive nine-site registry audit"
+  ],
+  "deterministic_site": {
+    "files_compared": 24,
+    "all_byte_identical": true,
+    "scope": "HTML, feed JSON and canonical public status; generated readiness timestamp excluded"
+  },
+  "integration": {
+    "concurrent_main_pr": 47,
+    "preserved": "no-submit navigation and presentation test",
+    "portability_checks": "OPENBLAS_NUM_THREADS=1,2,4 canonical --check passed; displayed final rho only rounded after raw gates"
+  }
+}

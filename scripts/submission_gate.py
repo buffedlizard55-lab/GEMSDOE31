@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Run every automated gate on one candidate GeoTIFF and write a machine-readable receipt (no human step).
+"""Legacy diagnostic receipt only; cannot approve uploads under the current literal protocol.
 
     python scripts/submission_gate.py docs/downloads/<name>-allfinite.tif --convention all-finite \
         --name <name> --note "<=140 characters" --json-out docs/downloads/<name>-gate-allfinite.json
 
-Exit code: 0 READY_TO_SUBMIT, 3 FORMAT_VALID_NOT_PROMOTED, 2 BLOCKED.
+Exit code: 3 FORMAT_VALID_NOT_PROMOTED, 2 BLOCKED. No READY_TO_SUBMIT path.
+Current permission is registry/release_status.json, not a legacy diagnostic pass.
 """
 
 from __future__ import annotations
@@ -61,7 +62,7 @@ def main() -> int:
         print(f"  {'PASS' if value['pass'] else 'FAIL':4s} {key}: {value['detail']}")
     proj = receipt["neighbour_projection"]
     print("  neighbour projection (NOT a score):", proj.get("mean_user_reported_live_score_of_neighbours", proj.get("reason")))
-    return {"READY_TO_SUBMIT": 0, "FORMAT_VALID_NOT_PROMOTED": 3, "BLOCKED": 2}[receipt["verdict"]]
+    return {"FORMAT_VALID_NOT_PROMOTED": 3, "BLOCKED": 2}[receipt["verdict"]]
 
 
 if __name__ == "__main__":

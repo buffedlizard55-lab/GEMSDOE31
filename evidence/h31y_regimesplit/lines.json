@@ -1,0 +1,57 @@
+{
+ "lane": "H31-Y",
+ "lines": [
+  "JUNC_RAW",
+  "ASIG",
+  "BASE",
+  "GRAV",
+  "CTRL",
+  "SLOPE"
+ ],
+ "shape": [
+  3730,
+  3292
+ ],
+ "piedmont_max_deg": 6.0,
+ "piedmont_pixels": 3116673,
+ "footprint_pixels": 5167373,
+ "receipts": {
+  "JUNC_RAW": {
+   "min": 0.22041049599647522,
+   "max": 1.0,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "ASIG": {
+   "min": 6.773269092263945e-07,
+   "max": 0.9998766183853149,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "BASE": {
+   "min": 0.006117676850408316,
+   "max": 0.9973086714744568,
+   "mean": 0.44457337260246277,
+   "frac_zero": 0.0
+  },
+  "GRAV": {
+   "min": 0.0,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 1.9352193077604424e-07
+  },
+  "CTRL": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "SLOPE": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  }
+ },
+ "note": "label-free footprint percentile-rank lines; JUNC_RAW = H31-X X1 verbatim; see preregistration"
+}

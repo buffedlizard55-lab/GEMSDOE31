@@ -1,3 +1,11 @@
+# Current review/permission front door (2026-10-26 bf9d261d)
+
+Read `registry/release_status.json` and `knowledge/2026-10-26_release_review_bf9d261d.md` first.
+No file is approved. `registry/current_run.json` is historical MAGREST evidence, not the latest release decision.
+Run `python scripts/build_release_status.py --check` after restoring small inputs. Never use the legacy
+`submission_gate.py` diagnostic to approve a slot. It cannot implement the binding two-stage literal registry gate.
+Preserve historical run cards; do not interpret their promotion flags as current authorization.
+
 # GEMSDOE31 agent instructions
 
 Before changing this repository, read the entire `README.md` (including the preserved owner prompt), the latest status, `registry/current_run.json`, `registry/review_passes.json`, and `knowledge/2026-10-25_magrest_preregistration.md`. H31-A remains a historical STOP, not an active experiment. Keep the README as the recurring project charter; update the status record at the end of substantive work.
@@ -48,15 +56,26 @@ alternates H31-J/H31-M). Lane run cards keep their original `slot_approved=false
 future owner instruction restores the literal reading, all promotions revert to STOP. Nothing else
 in the rules above is relaxed: no DrivenData contact, no unlabelled numbers, fail-closed gates.
 
-## Amendment 2026-10-26 (H31-Y/Z session arena/579233d5)
+## Amendment 2026-10-26 (session arena/9883b598) — current protocol
 
-Selector primary is H31-X (superseded H31-T in session arena/3ce68fc7; re-confirmed this session with
-H31-Y/H31-Z added to `scripts/selector_audit.py`). **IR-U-03 chronological priority:** duplicate status
-is judged against lanes generated earlier (GENERATION_ORDER in `scripts/selector_audit.py`); a later
-lane whose dots duplicate an earlier lane beyond the 0.70 threshold (H31-Y vs H31-X, 92.4%) fails G5
-itself and is excluded as a uniqueness peer against that earlier lane (both directions recorded per row
-in `evidence/selector_audit_20261026.json`). H31-Y (ROUTE blend) and H31-Z (SPLIT50 quota) are measured
-negatives — do not refit, retune, or spend slots on them. Measured regime-split conclusion: blending or
-quota-forcing the ASIG+BASE+GRAV piedmont line into JUNC cannot beat H31-X on both proxies; the
-corroboration signal lives in the 3–9° transition band. Do not edit the same file from parallel tool
-calls in one block (edits raced twice this session; verify with `git diff` before launching processes).
+The current owner prompt restores the literal any-registry check before placement AND on final dots.
+This supersedes IR-U-02 for current permissions. No current file is approved. Do not run the historical
+selector or choose a slot. Read `knowledge/2026-10-26_protocol_review_9883b598.md` and
+`evidence/review_9883b598/run_card.json`. Run `python scripts/verify_protocol_review.py` after restoring
+small inputs. The lattice gives a counting bound for the stated budget, NOT every nonempty raster.
+Preserve historic receipts; do not present cited holdouts as freshly reproduced. A method paragraph
+is absent, so no new scientific lane was assigned in this review.
+
+## Amendment 2026-10-26 (H31-YR/H31-Z session arena/579233d5, merged after the reviews above)
+
+Two preregistered regime-split lanes ran in parallel under IR-U-02-era semantics; both are research-only
+negatives under the current release STOP — do not refit or slot them: **H31-YR** (ROUTE blend; SGMC
+0.1312 but 92.4% dots within 3 px of H31-X) and **H31-Z** (SPLIT50 quota; discrete-unique but SGMC
+0.0749 < H33). Measured conclusion: potential-field corroboration helps in the 3–9° transition band;
+forcing flat-piedmont quotas starves discovery. Lane-id collision rule: two parallel sessions
+self-assigned "H31-Y" (KIN-PIED vs regime-split) — before self-assigning any lane id, fetch
+origin/main and check for collisions; regime-split artifacts live under `*_regimesplit` paths.
+IR-U-03 (chronological duplicate priority in the disabled historical selector) is recorded in
+`registry/selector_decision_20261026_regimesplit_579233d5.json` as research ranking evidence only.
+Tooling rule: never edit the same file from parallel tool calls in one block (edits raced twice in
+that session; verify with `git diff` before launching processes).

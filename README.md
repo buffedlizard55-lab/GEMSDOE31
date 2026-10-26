@@ -1,36 +1,107 @@
-> ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/579233d5-gemsdoe31`) — SUBMIT THIS ONE FILE (unchanged: H31-X)
+# Current release review — 26 October 2026 (bf9d261d)
+
+**OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO. No new TIFF is delivered in this review.**
+The literal any-registry STOP remains binding. Do not copy or rename a historical file as a new submission.
+
+[Executive summary / nine-site comparison](docs/executive-summary.html) ·
+[Current machine-readable release status and run card](registry/release_status.json) ·
+[Review, ranked desk hypotheses and next steps](knowledge/2026-10-26_release_review_bf9d261d.md) ·
+[Existing H31-X research TIFF — DO NOT SUBMIT](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif)
+
+Fresh local format and final-dot checks pass the range/grid requirements but reproduce **99.344%** overlap
+with the registered lattice (COMPUTED; duplicate STOP). A new before-fit counting preflight proves that any
+37,654-dot placement has at least **82.342%** overlap at this budget. This is not a claim about every nonempty raster.
+Estimated leaderboard score: **unavailable**. HOLDOUT-DTI is cited history, not newly reproduced in this review.
+No method paragraph was supplied, so no new scientific lane, fit, raster or weekly slot was used.
+
+`registry/release_status.json` is the current release/permission front door. `registry/current_run.json` remains
+historical MAGREST evidence; archived lane cards and selector promotions are not current upload permission.
+The full owner prompt remains preserved below and in `knowledge/owner_prompt_2026-10-26.md`; reread it every session.
+The current prompt reasserts both-stage, any-registry uniqueness and a separate selector; no exemption is inferred.
+
+---
+
+# GEMSDOE31 — current decision, 26 October 2026
+
+**No current artifact is approved. DO NOT SUBMIT.** No human sign-off can override a failed gate.
+The current owner prompt restores the literal registry test on the surface **and** final dots.
+Earlier H31-X/H31-T upload permissions below are superseded, not silently erased.
+
+[Executive summary and nine-site table](docs/executive-summary.html) ·
+[Review, ranked desk hypotheses and limitations](knowledge/2026-10-26_protocol_review_9883b598.md) ·
+[Automated run card](evidence/review_9883b598/run_card.json)
+
+**Download for research only:** [existing H31-X all-finite GeoTIFF](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif).
+Fresh read-back passes local format/range checks, but registered-lattice overlap triggers STOP.
+No new TIFF, fitting experiment, upload or slot this session. A new upload-ready file is not delivered.
+Estimated leaderboard score: **unavailable**; previous cross-family projections are unvalidated.
+A new filename or encoding would not make the existing field scientifically unique.
+
+The complete normalized owner prompt remains below and must be read every session. Current-session clarification:
+- Literal any-registry and both-stage checks are binding; no dense-control exemption or selector step in this lane.
+- The requested single-method paragraph is absent. Desk hypotheses are not authorization to invent a lane.
+- New owner-listed GEMSDOE27 `gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite` has no reported result;
+  it cannot be ranked as a scored winner. The nine-site table is pinned history, not a live leaderboard feed.
+- Core values remain **Maximize P(Win)** and **Own the Outcome**: respect failed gates rather than promise a score.
+
+---
+
+# Session record 2026-10-26 (arena/579233d5) — H31-YR / H31-Z regime-split lanes: RESEARCH ONLY
+
+**Current permission is unchanged by this record: NO FILE IS APPROVED (see `registry/release_status.json` above).**
+In parallel with the reviews above, this session ran two preregistered science lanes under the earlier
+IR-U-02 selector semantics. Both are measured negatives and are retained as research artifacts only:
+
+- **H31-YR** (filed as "H31-Y" by this session; renamed at merge — parallel session arena/f4d7fb29
+  independently used H31-Y for its KIN-PIED lane): slope-routed recombination of the H31-X junction line
+  with a buried-basement piedmont specialist (ASIG+BASE+GRAV). Winner ROUTE: HOLDOUT-DTI 0.1626,
+  off-catalogue SGMC 0.1312 (above H31-X 0.1209), but 92.4% of dots within 3 px of H31-X → duplicate.
+  [card](evidence/h31y_regimesplit/run_card.json) · [preregistration](knowledge/2026-10-26_h31y_regime_split_preregistration.md)
+- **H31-Z**: hard 50/50 piedmont quota (SPLIT50): discrete-unique (max 54.1%), HOLDOUT-DTI 0.1473,
+  seed-3105 confirmed, but SGMC 0.0749 < H33 0.0940 → discovery fail.
+  [card](evidence/h31z/run_card.json) · [preregistration](knowledge/2026-10-26_h31z_quota_split_preregistration.md)
+
+Measured science: ROUTE's SGMC gain sits in the mountain/transition slice (31/37,654 dots at slope ≤6°),
+not the flat piedmont; H31-Z's 21,322 piedmont dots earn the same piedmont slice DTI as H31-X's 6,449
+while starving the mountain pool. Blend/quota recombination of JUNC+PIED is closed; the next lead is a
+kernel-scale (σ≈3 px) transition-corroborated junction. Full record:
+[executive summary](knowledge/2026-10-26_h31yz_executive_summary.md) (its IR-U-02 "primary" language is
+superseded for permissions by the release audit above). All numbers HOLDOUT-DTI / SGMC-proxy /
+PROJECTION labelled; no DrivenData contact; no slot used.
+
+<details><summary>Superseded historical session banners — NOT current upload instructions</summary>
+
+Concurrent review #47 (also NO SUBMIT; preserved):
+
+> ## Current decision — 26 October 2026: **DO NOT SUBMIT**
 >
-> **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**
-> [`gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif`](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif)
-> ([single-TIFF zip](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.zip) ·
-> [NaN-outside twin](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-nan.tif) ·
-> [run card](evidence/h31x/run_card.json) · [this session's executive summary](knowledge/2026-10-26_h31yz_executive_summary.md) ·
-> [site](docs/index.html))
-> — SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9` · portal name
-> `gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9` · portal note (88/140):
-> `H31-X X1 piedmont-junction slope-break 37654d B2 | HOLDOUT-DTI 0.1661 n=60988 | 5a956da9`
+> No current TIFF is cleared under the literal duplicate rule. At the project's 37,654-dot reference budget, the computed minimum 3-pixel overlap with a registered spacing-5 lattice is 82.34%, above the 70% gate. No new raster or experiment was run in this review; the method paragraph is missing. Earlier TIFFs, including H31-X and H31-Y, are research-only artifacts and must not be relabeled or submitted.
 >
-> **What this session did (two new preregistered lanes, both ⛔ DO NOT SUBMIT):** the previous session's named
-> next step — regime budget-splitting the junction line with a buried-basement piedmont specialist
-> (analytic signal + basement/conductance/gravity edges) — was run as **H31-Y** (quota splits + slope-routed
-> blend) and successor **H31-Z** (hard 50/50 quota), 3 experiments each, same evaluator/folds as H31-X
-> (JUNC replication exact: HOLDOUT-DTI 0.166133, |Δ| = 0.0). Measured verdicts: H31-Y ROUTE *beat* H31-X on
-> the off-catalogue SGMC proxy (0.1312 vs 0.1209, COMPUTED; HOLDOUT-DTI 0.1626) but 92.4% of its dots lie
-> within 3 px of H31-X — a **duplicate-lane STOP**, verdict negative ([card](evidence/h31y/run_card.json)).
-> H31-Z SPLIT50 is genuinely unique (max 54.1% vs H31-X) and holdout-strong (0.1473) but its forced
-> piedmont half-budget earns SGMC 0.0749 < H33 0.0940 — verdict negative ([card](evidence/h31z/run_card.json)).
-> The uniform selector was re-run with both lanes added (`scripts/selector_audit.py`,
-> `registry/selector_decision_20261026.json`): promoted set unchanged {H31-X, H31-T, H31-J, H31-M},
-> **primary remains H31-X** (PROJECTION 0.355 — never a score; re-run max discrete overlap 67.0%, worst peer
-> now H31-Z). New governance clarification **IR-U-03**: duplicate status is chronological — later H31-Y
-> copies earlier H31-X and fails; it cannot retroactively demote the original (both directions recorded).
-> Key scientific correction recorded line-by-line: ROUTE's SGMC gain sits in the mountain/transition slice
-> (only 31/37,654 dots at slope ≤ 6°), not the flat piedmont — the next lane should be a kernel-scale
-> transition-corroborated junction designed for novelty (see the executive summary §5). Submit at most one
-> file per weekly slot. Everything else on this site is ⛔ DO NOT SUBMIT.
+> [Executive summary and nine-site table](docs/executive-summary.html) · [current protocol review and ranked hypotheses](knowledge/2026-10-26_protocol_review_9883b598.md) · [machine run card](evidence/review_9883b598/run_card.json)
+>
+> **Existing H31-X for research only:** [download `.tif` — DO NOT SUBMIT](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif) · SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9`. Its local file-format checks pass, but registry uniqueness fails; no validated leaderboard estimate is available. The prior H31-X holdout is cited, not freshly reproduced.
+>
+> The complete owner prompt remains preserved at the end of this file and must be reread each session.
 >
 > ---
+
+
+
+> ## H31-Y (2026-10-26, session `arena/f4d7fb29-gemsdoe31`): unique GeoTIFF generated. **OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO.**
 >
+> **[Download H31-Y research `.tif` (all-finite `[0,1]` — DO NOT SUBMIT)](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif)** ·
+> [zip](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.zip) ·
+> [NaN twin](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-nan.tif) ·
+> [run card](evidence/h31y/run_card.json) · [preregistration](knowledge/2026-10-26_h31y_preregistration.md) ·
+> [executive summary](knowledge/2026-10-26_h31y_executive_summary.md) · [site](docs/index.html)
+>
+> SHA-256 `6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8` · name `gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3`.
+> HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld) **0.0973 [0.0833, 0.1106]** vs CTRL +0.0302 [+0.0048, +0.0536]; confirmation +0.0287 [+0.0066, +0.0504]; SGMC 0.1188 vs H33 0.0940; PROJECTION 0.348 (never a score). Final-dot 3-px max 63.0% (unique under owner 70% rule); **G5 FAIL** on pre-placement top-K 90.5%. Lane verdict **negative**. The selector primary for a weekly slot is **not** this file — see `registry/selector_decision_20261026.json`. Zero slots used. DrivenData never contacted.
+>
+> The standing owner prompt is preserved at the end of this file and in `knowledge/owner_prompt_2026-10-26.md`. Re-read it before the next session.
+>
+> ---
+
 > ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/3ce68fc7-gemsdoe31`) — SUBMIT THIS ONE FILE
 >
 > **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**
@@ -282,6 +353,9 @@
 >
 > SHA-256 `c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9`. Name `gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff`.
 > Note (128/140): `MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved`.
+
+
+</details>
 
 ## Read first every session
 

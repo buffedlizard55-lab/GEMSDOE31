@@ -89,13 +89,17 @@ def main() -> None:
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
     executive = (DOCS / "executive-summary.html").read_text()
-    # Governance updated 2026-10-26 (owner-directed selector decision, IR-U-02):
-    # the page must state the single cleared file explicitly instead of the old
-    # blanket no-upload warning; the anti-override sentence below is retained.
-    if "exactly one file on this site is cleared to submit" not in executive.lower():
-        fail("executive-summary.html: explicit single-file upload decision is missing")
-    if "Human sign-off cannot override a failed gate" not in executive:
-        fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
+    # Current owner protocol restores the literal both-stage registry rule.
+    if "no file is cleared to submit" not in executive.lower():
+        fail("executive-summary.html: explicit no-upload decision is missing")
+    if "No human sign-off can override a failed gate" not in executive:
+        fail("executive-summary.html: human override of hard STOP implied")
+    for name, text in (("index", index), ("executive", executive)):
+        for stale in ("SUBMIT THIS FILE", "OK TO DOWNLOAD AND SUBMIT", "OK TO SUBMIT"):
+            if stale in text.replace("NOT OK TO SUBMIT", "DO NOT SUBMIT"):
+                fail(f"{name}: stale selector approval: {stale}")
+        if "protocol-review-run-card.json" not in text:
+            fail(f"{name}: current protocol receipt missing")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
         if "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8" not in html_text:
             fail(f"{page_name}: H31-J TGTD-Submod candidate name missing")
@@ -164,6 +168,24 @@ def main() -> None:
         fail(f"cannot verify submission ZIP metadata: {exc}")
 
     feed = (DOCS / "feed.json").read_text()
+    # Current permissions/downloads must agree across every public entry point.
+    try:
+        release = json.loads((ROOT / "registry/release_status.json").read_text())
+        public = json.loads((DOCS / "downloads/current-release-status.json").read_text())
+        feed_data = json.loads(feed)
+        if public != release or feed_data.get("current_release_status") != release:
+            fail("current release status differs between register, public copy and feed")
+        if feed_data["current_download"]["raster_sha256"] != release["raster_sha256"]:
+            fail("feed current download differs from current release artifact")
+        if release["ok_to_submit"] is not False or release["slot_approved"] is not False:
+            fail("current STOP review cannot approve submission")
+        if hashlib.sha256((ROOT / release["file"]).read_bytes()).hexdigest() != release["raster_sha256"]:
+            fail("current release download changed since byte audit")
+        for name, text in (("index", index), ("executive", executive)):
+            if "current-release-status.json" not in text or Path(release["file"]).name not in text:
+                fail(f"{name}: current release artifact/receipt missing")
+    except (OSError, KeyError, TypeError, ValueError) as exc:
+        fail(f"cannot verify canonical current release: {exc}")
     if "no organizer receipt" not in feed:
         fail("feed.json does not disclose the absent organizer receipt")
 

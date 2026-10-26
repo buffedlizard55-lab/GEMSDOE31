@@ -1,5 +1,16 @@
 # Executive summary — 2026-10-26, session `arena/579233d5-gemsdoe31` (lanes H31-Y, H31-Z; selector re-run)
 
+> **⚠️ SUPERSESSION NOTICE (added at merge, 2026-10-26).** While this session ran, two parallel owner-prompt
+> sessions (arena/9883b598 → PR #45, arena/bf9d261d → PR #49) merged a stricter reading of the same prompt:
+> the **literal any-registry uniqueness test is restored** (IR-U-02 superseded), and
+> `registry/release_status.json` is now the permission front door. Under that merged policy **NO file is
+> currently cleared to submit** — including the "primary" named below — because the registered spacing-5
+> lattice forces ≥82.34% 3-px overlap for *any* 37,654-dot placement (their computed counting bound) and
+> 99.34% for H31-X's actual dots. Read everything below as the IR-U-02-era *research ranking record* of this
+> session, not as upload permission. Whether the literal or the discrete-peer reading governs a future slot
+> is an owner decision; this repo takes no slot either way. Lane-id note: this session's "H31-Y" is cited as
+> **H31-YR** after a collision with the parallel H31-Y KIN-PIED lane (arena/f4d7fb29); bytes/hashes unchanged.
+
 Labels: **HOLDOUT-DTI** (evaluator, withheld positives, 95% CI) · **COMPUTED** · **USER-REPORTED**
 (owner-typed, no organizer receipt) · **PROJECTION** (estimate, never a score). No ORGANIZER-CONFIRMED
 score exists in this repository. This repository never contacts DrivenData; uploading is a manual owner
@@ -116,7 +127,7 @@ emission are bit-stable across sessions.
 ## 4. This session's lanes (preregistered, 3 experiments each, gates automated)
 
 ### H31-Y — regime budget-split family; winner ROUTE → **negative (duplicate STOP)**
-Preregistration `knowledge/2026-10-26_h31y_regime_split_preregistration.md`; card `evidence/h31y/run_card.json`;
+Preregistration `knowledge/2026-10-26_h31y_regime_split_preregistration.md`; card `evidence/h31y_regimesplit/run_card.json`;
 file `gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.tif` (SHA-256 `89a5fc01…`).
 G1 format PASS · G2 canary PASS (max two-sided AUC 0.76) · G3 PASS (0.1626 [0.1470, 0.1780];
 Δ vs CTRL +0.0955 [0.0690, 0.1217]; Δ vs SLOPE +0.1137 [0.0995, 0.1274]; confirmation seed 3104:

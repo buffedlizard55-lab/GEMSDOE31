@@ -80,3 +80,9 @@ H31-Y and H31-Z added). No fourth experiment; a negative result is a deliverable
 ## Data
 
 No new data. Cached 42-band stack and H31-Y line cache reused (formulas frozen in the Y preregistration).
+
+---
+*Post-merge note (2026-10-26): lane id "H31-Y" collided with parallel session arena/f4d7fb29's
+H31-Y KIN-PIED lane; this lane is cited as H31-YR and its code/evidence live under
+`scripts/run_h31y_regimesplit.py` / `evidence/h31y_regimesplit/`. Permissions are governed by
+`registry/release_status.json` (literal registry STOP): everything here is research-only.*

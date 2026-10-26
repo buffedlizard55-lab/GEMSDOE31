@@ -94,3 +94,26 @@ def test_shipped_candidate_receipts_match_the_files_and_are_never_recommended():
     assert card["verdict"] == "negative" and card["organizer_confirmed"] is False
     with pytest.raises(KeyError):
         card["holdout_dti"]["catalogue_gap_fresh_seeds_11_15"]["score"]
+
+
+def test_legacy_tool_cannot_approve_even_if_older_gates_all_pass(tmp_path, monkeypatch):
+    """Its density exemptions are archival diagnostics, never current permission."""
+    dots = np.zeros((30, 30), bool)
+    dots[10, 10] = True
+    footprint = _scene(tmp_path, dots)
+    _write(tmp_path / 'candidate.tif', np.where(footprint, dots, np.nan))
+    _write(tmp_path / 'labels.tif', np.zeros_like(dots, dtype=float))
+    (tmp_path / 'registry.json').write_text('{"rasters": []}')
+    original_gate = gate.gate
+
+    def optimistic_legacy_checks(kind, passed, detail, hard=True):
+        # Even a hypothetical pass of EVERY earlier gate must not bypass G8.
+        return original_gate(kind, passed if kind == 'protocol' else True, detail, hard=hard)
+
+    monkeypatch.setattr(gate, 'gate', optimistic_legacy_checks)
+    receipt = gate.run_gate(tif=tmp_path / 'candidate.tif', template=tmp_path / 'template.tif',
+                            labels=tmp_path / 'labels.tif', registry_path=tmp_path / 'registry.json',
+                            cache_dir=tmp_path, convention='nan-outside', name='new-lane-name', note='research only',
+                            evidence_path=None, procedure_sha256=None, used_names=set())
+    assert receipt['hard_failures'] == ['G8_literal_registry_protocol']
+    assert receipt['verdict'] == 'BLOCKED' and receipt['submit_recommended'] is False

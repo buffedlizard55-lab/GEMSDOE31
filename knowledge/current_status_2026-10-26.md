@@ -1,3 +1,21 @@
+# Current release review — bf9d261d
+
+**DO NOT SUBMIT.** [Current release JSON](../registry/release_status.json) and
+[review / next work](2026-10-26_release_review_bf9d261d.md) supersede historical upload permissions below.
+Fresh H31-X byte/range/grid/lattice checks only; no fit, new TIFF or slot. Estimated leaderboard score unavailable.
+The current review register and website feed now agree; the legacy density-exempt approval path is disabled.
+
+---
+
+# Current override — session 9883b598
+
+**DO NOT SUBMIT.** Current literal owner protocol supersedes prior discrete-only selector approvals.
+[Current review](2026-10-26_protocol_review_9883b598.md). No new TIFF or fit after duplicate STOP.
+`evidence/review_9883b598/run_card.json` rechecks existing H31-X format and lattice overlap.
+All remaining text below is historical, not current upload permission.
+
+---
+
 # Current project status — 2026-10-26
 
 ## H31-X session update (2026-10-26 · branch `arena/3ce68fc7-gemsdoe31`) — READ FIRST

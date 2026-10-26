@@ -4,7 +4,7 @@
  "evaluator_version": "gems57-pooled-hide-v2",
  "buffer_px": 213,
  "canary_cited": {
-  "source": "evidence/h31y/canary.json",
+  "source": "evidence/h31y_regimesplit/canary.json",
   "all_pass": true,
   "rows": [
    {

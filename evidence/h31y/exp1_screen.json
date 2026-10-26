@@ -62,134 +62,108 @@
   }
  ],
  "per_fold": {
-  "JUNC": [
+  "Y1": [
    {
     "fold": 0,
-    "dti": 0.1453890856086343,
+    "dti": 0.051414720358400154,
     "n_truth": 29319,
-    "emitted_active": 18695
+    "emitted_active": 18744
    },
    {
     "fold": 1,
-    "dti": 0.21989377812297783,
+    "dti": 0.06925145491753405,
     "n_truth": 12596,
-    "emitted_active": 9852
+    "emitted_active": 10719
    },
    {
     "fold": 2,
-    "dti": 0.16501590412776249,
+    "dti": 0.04361756618777496,
     "n_truth": 9473,
-    "emitted_active": 5638
+    "emitted_active": 3266
    },
    {
     "fold": 3,
-    "dti": 0.15732492433338213,
+    "dti": 0.07886800732750796,
     "n_truth": 9600,
-    "emitted_active": 6233
+    "emitted_active": 6247
    }
   ],
-  "PIED": [
+  "Y2": [
    {
     "fold": 0,
-    "dti": 0.07836451429660346,
+    "dti": 0.054366185151298256,
     "n_truth": 29319,
-    "emitted_active": 22218
+    "emitted_active": 16467
    },
    {
     "fold": 1,
-    "dti": 0.052473541952890695,
+    "dti": 0.03812840399136132,
     "n_truth": 12596,
-    "emitted_active": 5834
+    "emitted_active": 7477
    },
    {
     "fold": 2,
-    "dti": 0.060310443790315596,
+    "dti": 0.14119834367432754,
     "n_truth": 9473,
-    "emitted_active": 4606
+    "emitted_active": 7188
    },
    {
     "fold": 3,
-    "dti": 0.07810512294971012,
+    "dti": 0.05572661925821765,
     "n_truth": 9600,
-    "emitted_active": 6339
+    "emitted_active": 7778
    }
   ],
-  "SPLIT50": [
+  "Y3": [
    {
     "fold": 0,
-    "dti": 0.13331087296976693,
+    "dti": 0.07887346586679705,
     "n_truth": 29319,
-    "emitted_active": 20444
+    "emitted_active": 16312
    },
    {
     "fold": 1,
-    "dti": 0.1908080321639255,
+    "dti": 0.0718995844530343,
     "n_truth": 12596,
-    "emitted_active": 7533
+    "emitted_active": 7710
    },
    {
     "fold": 2,
-    "dti": 0.13278376407346484,
+    "dti": 0.13757953209332013,
     "n_truth": 9473,
-    "emitted_active": 5429
+    "emitted_active": 6231
    },
    {
     "fold": 3,
-    "dti": 0.14746622409031712,
+    "dti": 0.14197029403342223,
     "n_truth": 9600,
-    "emitted_active": 6692
+    "emitted_active": 9265
    }
   ],
-  "SPLIT35": [
+  "Y4": [
    {
     "fold": 0,
-    "dti": 0.1240923802169924,
+    "dti": 0.05599919700148672,
     "n_truth": 29319,
-    "emitted_active": 20826
+    "emitted_active": 18957
    },
    {
     "fold": 1,
-    "dti": 0.17292300187592366,
+    "dti": 0.03875614574676987,
     "n_truth": 12596,
-    "emitted_active": 7021
+    "emitted_active": 5369
    },
    {
     "fold": 2,
-    "dti": 0.1150102788676991,
+    "dti": 0.09847162837267392,
     "n_truth": 9473,
-    "emitted_active": 5272
+    "emitted_active": 6795
    },
    {
     "fold": 3,
-    "dti": 0.13856054940457044,
+    "dti": 0.06137604609113916,
     "n_truth": 9600,
-    "emitted_active": 6848
-   }
-  ],
-  "ROUTE": [
-   {
-    "fold": 0,
-    "dti": 0.14119504594615664,
-    "n_truth": 29319,
-    "emitted_active": 18496
-   },
-   {
-    "fold": 1,
-    "dti": 0.21622860047834125,
-    "n_truth": 12596,
-    "emitted_active": 10027
-   },
-   {
-    "fold": 2,
-    "dti": 0.1573040847123876,
-    "n_truth": 9473,
-    "emitted_active": 5628
-   },
-   {
-    "fold": 3,
-    "dti": 0.15946508736100343,
-    "n_truth": 9600,
-    "emitted_active": 6413
+    "emitted_active": 7749
    }
   ],
   "CTRL": [
@@ -243,300 +217,6 @@
     "n_truth": 9600,
     "emitted_active": 5380
    }
-  ],
-  "SPLIT65REF": [
-   {
-    "fold": 0,
-    "dti": 0.14109222514781813,
-    "n_truth": 29319,
-    "emitted_active": 20053
-   },
-   {
-    "fold": 1,
-    "dti": 0.19996649215336898,
-    "n_truth": 12596,
-    "emitted_active": 8094
-   },
-   {
-    "fold": 2,
-    "dti": 0.1456090157120588,
-    "n_truth": 9473,
-    "emitted_active": 5564
-   },
-   {
-    "fold": 3,
-    "dti": 0.1532602036553732,
-    "n_truth": 9600,
-    "emitted_active": 6540
-   }
-  ],
-  "REF_H33": [
-   {
-    "fold": 0,
-    "dti": 0.006132145639580956,
-    "n_truth": 29319,
-    "emitted_active": 18028
-   },
-   {
-    "fold": 1,
-    "dti": 0.008543890092317609,
-    "n_truth": 12596,
-    "emitted_active": 9588
-   },
-   {
-    "fold": 2,
-    "dti": 0.00753185629331855,
-    "n_truth": 9473,
-    "emitted_active": 4795
-   },
-   {
-    "fold": 3,
-    "dti": 0.005093592089763346,
-    "n_truth": 9600,
-    "emitted_active": 5243
-   }
-  ],
-  "REF_H31X": [
-   {
-    "fold": 0,
-    "dti": 0.015803985662616253,
-    "n_truth": 29319,
-    "emitted_active": 17773
-   },
-   {
-    "fold": 1,
-    "dti": 0.028123861660032976,
-    "n_truth": 12596,
-    "emitted_active": 9006
-   },
-   {
-    "fold": 2,
-    "dti": 0.016771422295222698,
-    "n_truth": 9473,
-    "emitted_active": 5118
-   },
-   {
-    "fold": 3,
-    "dti": 0.0152888493449234,
-    "n_truth": 9600,
-    "emitted_active": 5757
-   }
-  ],
-  "REF_H31T": [
-   {
-    "fold": 0,
-    "dti": 2.6823349892722404e-05,
-    "n_truth": 29319,
-    "emitted_active": 10652
-   },
-   {
-    "fold": 1,
-    "dti": 2.7653393898104497e-05,
-    "n_truth": 12596,
-    "emitted_active": 11660
-   },
-   {
-    "fold": 2,
-    "dti": 9.04039955536448e-05,
-    "n_truth": 9473,
-    "emitted_active": 3228
-   },
-   {
-    "fold": 3,
-    "dti": 0.00022279780367251152,
-    "n_truth": 9600,
-    "emitted_active": 12114
-   }
-  ]
- },
- "emit_receipts": {
-  "JUNC": [
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   }
-  ],
-  "PIED": [
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   }
-  ],
-  "SPLIT50": [
-   {
-    "quota_junc": 18827,
-    "quota_pied": 18827,
-    "emitted_junc": 18827,
-    "emitted_pied": 18827,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   },
-   {
-    "quota_junc": 18827,
-    "quota_pied": 18827,
-    "emitted_junc": 18827,
-    "emitted_pied": 18827,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   },
-   {
-    "quota_junc": 18827,
-    "quota_pied": 18827,
-    "emitted_junc": 18827,
-    "emitted_pied": 18827,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   },
-   {
-    "quota_junc": 18827,
-    "quota_pied": 18827,
-    "emitted_junc": 18827,
-    "emitted_pied": 18827,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   }
-  ],
-  "SPLIT35": [
-   {
-    "quota_junc": 13179,
-    "quota_pied": 24475,
-    "emitted_junc": 13179,
-    "emitted_pied": 24475,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   },
-   {
-    "quota_junc": 13179,
-    "quota_pied": 24475,
-    "emitted_junc": 13179,
-    "emitted_pied": 24475,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   },
-   {
-    "quota_junc": 13179,
-    "quota_pied": 24475,
-    "emitted_junc": 13179,
-    "emitted_pied": 24475,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   },
-   {
-    "quota_junc": 13179,
-    "quota_pied": 24475,
-    "emitted_junc": 13179,
-    "emitted_pied": 24475,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   }
-  ],
-  "ROUTE": [
-   {
-    "emitted_total": 37654,
-    "routed": true
-   },
-   {
-    "emitted_total": 37654,
-    "routed": true
-   },
-   {
-    "emitted_total": 37654,
-    "routed": true
-   },
-   {
-    "emitted_total": 37654,
-    "routed": true
-   }
-  ],
-  "CTRL": [
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   }
-  ],
-  "SLOPE": [
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   },
-   {
-    "emitted_total": 37654
-   }
-  ],
-  "SPLIT65REF": [
-   {
-    "quota_junc": 24475,
-    "quota_pied": 13179,
-    "emitted_junc": 24475,
-    "emitted_pied": 13179,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   },
-   {
-    "quota_junc": 24475,
-    "quota_pied": 13179,
-    "emitted_junc": 24475,
-    "emitted_pied": 13179,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   },
-   {
-    "quota_junc": 24475,
-    "quota_pied": 13179,
-    "emitted_junc": 24475,
-    "emitted_pied": 13179,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   },
-   {
-    "quota_junc": 24475,
-    "quota_pied": 13179,
-    "emitted_junc": 24475,
-    "emitted_pied": 13179,
-    "topup_junc": 0,
-    "topup_pied": 0,
-    "emitted_total": 37654
-   }
   ]
  },
  "pooled": {
@@ -547,78 +227,65 @@
   "triangular_radius_m": 300.0,
   "pooled": true,
   "scores": {
-   "JUNC": {
+   "Y1": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 0.1661329569994631,
+    "dti": 0.05848060994785145,
     "ci95": [
-     0.15041176662133124,
-     0.18263404451592735
+     0.04400402255706645,
+     0.07408147617618531
     ],
     "withheld_positive_pixels": 60988,
-    "tpw": 9624.430506279157,
-    "fpw": 36084.052281319084,
-    "fnw": 51363.56949372086
+    "tpw": 3327.08270483088,
+    "fpw": 37181.245923557086,
+    "fnw": 57660.91729516913
    },
-   "PIED": {
+   "Y2": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 0.07047904386260789,
+    "dti": 0.06523523954852758,
     "ci95": [
-     0.05881409443711649,
-     0.0823845109903054
+     0.04976146969675666,
+     0.08085848840581103
     ],
     "withheld_positive_pixels": 60988,
-    "tpw": 4015.0285182609323,
-    "fpw": 36871.43538654477,
-    "fnw": 56972.97148173908
+    "tpw": 3716.9683541598138,
+    "fpw": 37220.63884923002,
+    "fnw": 57271.0316458402
    },
-   "SPLIT50": {
+   "Y3": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 0.14726294053798147,
+    "dti": 0.09730039921314955,
     "ci95": [
-     0.13340556113142935,
-     0.16130714799173437
+     0.08294792645481283,
+     0.11053597498214361
     ],
     "withheld_positive_pixels": 60988,
-    "tpw": 8504.604488379602,
-    "fpw": 36299.156374147926,
-    "fnw": 52483.39551162042
+    "tpw": 5578.206259585795,
+    "fpw": 37118.47682371727,
+    "fnw": 55409.79374041419
    },
-   "SPLIT35": {
+   "Y4": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 0.13494181043284448,
+    "dti": 0.060225664547902305,
     "ci95": [
-     0.12152050899672376,
-     0.14860891961633474
+     0.048193639043994034,
+     0.07277226561802544
     ],
     "withheld_positive_pixels": 60988,
-    "tpw": 7777.637083380625,
-    "fpw": 36455.21305434836,
-    "fnw": 53210.36291661938
-   },
-   "ROUTE": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 0.16256104026163884,
-    "ci95": [
-     0.14734916128658784,
-     0.17850419613409402
-    ],
-    "withheld_positive_pixels": 60988,
-    "tpw": 9425.067494714573,
-    "fpw": 36516.11599947044,
-    "fnw": 51562.93250528542
+    "tpw": 3427.904142154514,
+    "fpw": 37208.41612685844,
+    "fnw": 57560.09585784551
    },
    "CTRL": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
     "dti": 0.06706312986539917,
     "ci95": [
-     0.04997425435847064,
-     0.0844938048343867
+     0.04999480790944085,
+     0.08527997824345072
     ],
     "withheld_positive_pixels": 60988,
     "tpw": 3816.413688518337,
@@ -630,173 +297,71 @@
     "evaluator_version": "gems57-pooled-hide-v2",
     "dti": 0.048830293633613055,
     "ci95": [
-     0.04109215183598922,
-     0.05649814469998971
+     0.0408440175923371,
+     0.0567817106002495
     ],
     "withheld_positive_pixels": 60988,
     "tpw": 2775.648653207777,
     "fpw": 37486.150472619986,
     "fnw": 58212.35134679221
-   },
-   "SPLIT65REF": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 0.15588118732853,
-    "ci95": [
-     0.14168690031744582,
-     0.17075776248495714
-    ],
-    "withheld_positive_pixels": 60988,
-    "tpw": 9015.734872139936,
-    "fpw": 36218.37625038651,
-    "fnw": 51972.265127860126
-   },
-   "REF_H33": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 0.006697041784474405,
-    "ci95": [
-     0.005977841913977067,
-     0.007433398676533965
-    ],
-    "withheld_positive_pixels": 60988,
-    "tpw": 377.3190358808101,
-    "fpw": 37376.43107272676,
-    "fnw": 60610.68096411921
-   },
-   "REF_H31X": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 0.018470633071166767,
-    "ci95": [
-     0.0164386675358815,
-     0.020622081260175205
-    ],
-    "withheld_positive_pixels": 60988,
-    "tpw": 1041.398874082138,
-    "fpw": 36913.25534552715,
-    "fnw": 59946.60112591786
-   },
-   "REF_H31T": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 7.144398436099864e-05,
-    "ci95": [
-     3.963676844369826e-05,
-     0.0001123062711850354
-    ],
-    "withheld_positive_pixels": 60988,
-    "tpw": 4.023816652322592,
-    "fpw": 37650.376520056605,
-    "fnw": 60983.97618334768
    }
   },
-  "best_comparable_control": "JUNC",
+  "best_comparable_control": "CTRL",
   "paired_differences": {
-   "JUNC": {
+   "Y1": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": -0.0035719167378242545,
+    "delta": 0.038819789265298096,
     "ci95": [
-     -0.006118408009472569,
-     -0.0011674771326547042
+     0.017671635939987634,
+     0.05793076653856055
     ],
     "withheld_positive_pixels": 60988
    },
-   "PIED": {
+   "Y2": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": 0.09208199639903095,
+    "delta": 0.032065159664621964,
     "ci95": [
-     0.07121048518170757,
-     0.11312221092979978
+     0.01147193256429947,
+     0.05322277313858052
     ],
     "withheld_positive_pixels": 60988
    },
-   "SPLIT50": {
+   "Y4": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": 0.015298099723657366,
+    "delta": 0.037074734665247244,
     "ci95": [
-     0.005586672297993584,
-     0.024298717224874092
-    ],
-    "withheld_positive_pixels": 60988
-   },
-   "SPLIT35": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": 0.02761922982879436,
-    "ci95": [
-     0.015827676351585652,
-     0.038725464176347764
+     0.01758822046476053,
+     0.05527859639927797
     ],
     "withheld_positive_pixels": 60988
    },
    "CTRL": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": 0.09549791039623967,
+    "delta": 0.03023726934775038,
     "ci95": [
-     0.06866260164478563,
-     0.12229040994109826
+     0.005925853203571632,
+     0.05365355023112862
     ],
     "withheld_positive_pixels": 60988
    },
    "SLOPE": {
     "evidence_class": "HOLDOUT-DTI",
     "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": 0.11373074662802579,
+    "delta": 0.048470105579536495,
     "ci95": [
-     0.10082223035955674,
-     0.1274736368821807
-    ],
-    "withheld_positive_pixels": 60988
-   },
-   "SPLIT65REF": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": 0.006679852933108826,
-    "ci95": [
-     -0.0009865087158253169,
-     0.014007894222193187
-    ],
-    "withheld_positive_pixels": 60988
-   },
-   "REF_H33": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": 0.15586399847716442,
-    "ci95": [
-     0.14108808538797185,
-     0.1715885877296979
-    ],
-    "withheld_positive_pixels": 60988
-   },
-   "REF_H31X": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": 0.14409040719047206,
-    "ci95": [
-     0.13047265165464225,
-     0.1583064077680502
-    ],
-    "withheld_positive_pixels": 60988
-   },
-   "REF_H31T": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "delta": 0.16248959627727785,
-    "ci95": [
-     0.14725022020868342,
-     0.17843263673621831
+     0.03416808201853773,
+     0.06179808324861085
     ],
     "withheld_positive_pixels": 60988
    }
   },
   "bootstrap": {
    "method": "paired physical spatial-cluster percentile",
-   "clusters": 161,
+   "clusters": 160,
    "draws": 2000,
    "seed": 520810,
    "confidence": 0.95,
@@ -809,23 +374,5 @@
    "spatial.py": "fad7b09db9efc512247b9a176a7e7ce8631e287592b4e07902d0b9c38bed00f8"
   }
  },
- "winner": "ROUTE",
- "replication_check": {
-  "expected_dti": 0.1661329569994631,
-  "expected_ci95": [
-   0.14985841711445055,
-   0.18210651085093407
-  ],
-  "got_dti": 0.1661329569994631,
-  "got_ci95": [
-   0.15041176662133124,
-   0.18263404451592735
-  ],
-  "withheld": 60988,
-  "abs_diff": 0.0,
-  "reproduced": true,
-  "source": "evidence/h31x/run_card.json screen_final_surface (EXP-2 raw variant, same folds)"
- },
- "split65ref_note": "SPLIT65REF is a reference arm only (65% JUNC quota risks the 70% duplicate rule vs H31-X); never eligible for promotion in this lane.",
- "fixed_reference_caveat": "REF_* dots were B2-pruned by their authors against the FULL catalogue (including withheld segments): handicapped references only, never a promotion comparator."
+ "winner": "Y3"
 }

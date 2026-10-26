@@ -825,8 +825,8 @@
  },
  "preregistration": "knowledge/2026-10-26_h31z_quota_split_preregistration.md",
  "evidence": {
-  "lines": "evidence/h31y/lines.json (reused cache)",
-  "canary": "evidence/h31y/canary.json (cited)",
+  "lines": "evidence/h31y_regimesplit/lines.json (reused cache)",
+  "canary": "evidence/h31y_regimesplit/canary.json (cited)",
   "exp1": "evidence/h31z/exp1_screen.json",
   "exp2": "evidence/h31z/exp2.json",
   "exp3": "evidence/h31z/exp3.json"

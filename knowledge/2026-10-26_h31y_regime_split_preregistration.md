@@ -157,3 +157,9 @@ hash-verified owner mirrors: OFFICIAL-source GeoDAWN/USGS-3DEP-derived layers, O
 rasters) already contains every band named above. KIN also needs no new data; TEX needs none; InSAR
 remains blocked (NASA ASF/Earthdata outside the sandbox host allowlist — named official source:
 https://search.asf.Alaska.edu / NASA OPERA DISP-S1, checked in prior sessions, not obtainable here).
+
+---
+*Post-merge note (2026-10-26): lane id "H31-Y" collided with parallel session arena/f4d7fb29's
+H31-Y KIN-PIED lane; this lane is cited as H31-YR and its code/evidence live under
+`scripts/run_h31y_regimesplit.py` / `evidence/h31y_regimesplit/`. Permissions are governed by
+`registry/release_status.json` (literal registry STOP): everything here is research-only.*

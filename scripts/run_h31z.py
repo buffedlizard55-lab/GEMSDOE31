@@ -3,7 +3,7 @@
 
 Frozen by knowledge/2026-10-26_h31z_quota_split_preregistration.md BEFORE any H31-Z
 fitting. Lines, split emission, evaluator, SGMC/projection machinery are reused unchanged
-from scripts/run_h31y.py (which itself reuses run_h31u/run_h31x and vendor/gems57).
+from scripts/run_h31y_regimesplit.py (which itself reuses run_h31u/run_h31x and vendor/gems57).
 This module only restricts the candidate set to {SPLIT50, SPLIT35}, uses a fresh
 confirmation seed (3105), and writes its own evidence/run card under evidence/h31z/.
 
@@ -29,7 +29,7 @@ sys.path.insert(0, str(ROOT / "vendor"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import run_h31u as U  # noqa: E402
-import run_h31y as Y  # noqa: E402  (lines cache + split emission, frozen in Y preregistration)
+import run_h31y_regimesplit as Y  # noqa: E402  (lines cache + split emission, frozen in Y preregistration)
 from gems57 import evaluate_holdout as ev  # noqa: E402
 from gems57 import metric as vmetric  # noqa: E402
 from gems57 import spatial, submission_writer  # noqa: E402
@@ -66,12 +66,12 @@ def run_exp1() -> dict:
     replicated = bool(all(r["abs_diff"] < 5e-3 for r in replication.values())
                       and scores_tmp["JUNC"]["withheld_positive_pixels"] == 60988)
     log("REPLICATION vs H31-Y EXP1:", replicated, {a: round(r["abs_diff"], 6) for a, r in replication.items()})
-    canary = json.loads((ROOT / "evidence/h31y/canary.json").read_text())
+    canary = json.loads((ROOT / "evidence/h31y_regimesplit/canary.json").read_text())
     winner = max(CANDIDATE_ARMS, key=lambda a: scores_tmp[a]["dti"])
     summ = U.pooled(out["terms"], candidate=winner)
     rep = dict(lane=LANE, experiment="EXP-1 screen replication (arms frozen from H31-Y)",
                evaluator_version=ev.VERSION, buffer_px=213,
-               canary_cited=dict(source="evidence/h31y/canary.json", all_pass=canary["all_pass"],
+               canary_cited=dict(source="evidence/h31y_regimesplit/canary.json", all_pass=canary["all_pass"],
                                  rows=canary["rows"]),
                fold_receipts=[f["receipt"] for f in folds], per_fold=out["per_fold"],
                emit_receipts=out["emit_receipts"], pooled=summ, winner=winner,
@@ -177,7 +177,7 @@ def run_exp3() -> dict:
             sg[k + "_piedmont_le6deg"] = Y.regime_sgmc(fixed[k], off_sgmc, foot, slope, -1.0, 6.0)
             sg[k + "_mountain_gt6deg"] = Y.regime_sgmc(fixed[k], off_sgmc, foot, slope, 6.0, 1e9)
     # H31-Y ROUTE fixed dots as an additional full-footprint SGMC reference (not handicapped here)
-    y_card = ROOT / "evidence/h31y/run_card.json"
+    y_card = ROOT / "evidence/h31y_regimesplit/run_card.json"
     if y_card.is_file():
         yc = json.loads(y_card.read_text())
         yd, yn, yh = U.read_dots(str(ROOT / yc["files"]["zeros"]), foot)
@@ -352,7 +352,7 @@ def run_package() -> dict:
         files=dict(zeros=f"docs/downloads/{out_tif.name}", nan=f"docs/downloads/{nan_tif.name}",
                    zip=f"docs/downloads/{out_tif.with_suffix('.zip').name}", nan_zip=f"docs/downloads/{nan_zip.name}"),
         preregistration=PREREG,
-        evidence=dict(lines="evidence/h31y/lines.json (reused cache)", canary="evidence/h31y/canary.json (cited)",
+        evidence=dict(lines="evidence/h31y_regimesplit/lines.json (reused cache)", canary="evidence/h31y_regimesplit/canary.json (cited)",
                       exp1="evidence/h31z/exp1_screen.json", exp2="evidence/h31z/exp2.json",
                       exp3="evidence/h31z/exp3.json"),
     )
