@@ -1,14 +1,25 @@
-> ## Current decision — 26 October 2026: **DO NOT SUBMIT**
->
-> No current TIFF is cleared under the literal duplicate rule. At the project's 37,654-dot reference budget, the computed minimum 3-pixel overlap with a registered spacing-5 lattice is 82.34%, above the 70% gate. No new raster or experiment was run in this review; the method paragraph is missing. Earlier TIFFs, including H31-X and H31-Y, are research-only artifacts and must not be relabeled or submitted.
->
-> [Executive summary and nine-site table](docs/executive-summary.html) · [current protocol review and ranked hypotheses](knowledge/2026-10-26_protocol_review_9883b598.md) · [machine run card](evidence/review_9883b598/run_card.json)
->
-> **Existing H31-X for research only:** [download `.tif` — DO NOT SUBMIT](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif) · SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9`. Its local file-format checks pass, but registry uniqueness fails; no validated leaderboard estimate is available. The prior H31-X holdout is cited, not freshly reproduced.
->
-> The complete owner prompt remains preserved at the end of this file and must be reread each session.
->
-> ---
+# Current release review — 26 October 2026 (bf9d261d)
+
+**OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO. No new TIFF is delivered in this review.**
+The literal any-registry STOP remains binding. Do not copy or rename a historical file as a new submission.
+
+[Executive summary / nine-site comparison](docs/executive-summary.html) ·
+[Current machine-readable release status and run card](registry/release_status.json) ·
+[Review, ranked desk hypotheses and next steps](knowledge/2026-10-26_release_review_bf9d261d.md) ·
+[Existing H31-X research TIFF — DO NOT SUBMIT](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif)
+
+Fresh local format and final-dot checks pass the range/grid requirements but reproduce **99.344%** overlap
+with the registered lattice (COMPUTED; duplicate STOP). A new before-fit counting preflight proves that any
+37,654-dot placement has at least **82.342%** overlap at this budget. This is not a claim about every nonempty raster.
+Estimated leaderboard score: **unavailable**. HOLDOUT-DTI is cited history, not newly reproduced in this review.
+No method paragraph was supplied, so no new scientific lane, fit, raster or weekly slot was used.
+
+`registry/release_status.json` is the current release/permission front door. `registry/current_run.json` remains
+historical MAGREST evidence; archived lane cards and selector promotions are not current upload permission.
+The full owner prompt remains preserved below and in `knowledge/owner_prompt_2026-10-26.md`; reread it every session.
+The current prompt reasserts both-stage, any-registry uniqueness and a separate selector; no exemption is inferred.
+
+---
 
 # GEMSDOE31 — current decision, 26 October 2026
 
@@ -34,6 +45,38 @@ The complete normalized owner prompt remains below and must be read every sessio
 - Core values remain **Maximize P(Win)** and **Own the Outcome**: respect failed gates rather than promise a score.
 
 <details><summary>Superseded historical session banners — NOT current upload instructions</summary>
+
+Concurrent review #47 (also NO SUBMIT; preserved):
+
+> ## Current decision — 26 October 2026: **DO NOT SUBMIT**
+>
+> No current TIFF is cleared under the literal duplicate rule. At the project's 37,654-dot reference budget, the computed minimum 3-pixel overlap with a registered spacing-5 lattice is 82.34%, above the 70% gate. No new raster or experiment was run in this review; the method paragraph is missing. Earlier TIFFs, including H31-X and H31-Y, are research-only artifacts and must not be relabeled or submitted.
+>
+> [Executive summary and nine-site table](docs/executive-summary.html) · [current protocol review and ranked hypotheses](knowledge/2026-10-26_protocol_review_9883b598.md) · [machine run card](evidence/review_9883b598/run_card.json)
+>
+> **Existing H31-X for research only:** [download `.tif` — DO NOT SUBMIT](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif) · SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9`. Its local file-format checks pass, but registry uniqueness fails; no validated leaderboard estimate is available. The prior H31-X holdout is cited, not freshly reproduced.
+>
+> The complete owner prompt remains preserved at the end of this file and must be reread each session.
+>
+> ---
+
+
+
+> ## H31-Y (2026-10-26, session `arena/f4d7fb29-gemsdoe31`): unique GeoTIFF generated. **OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO.**
+>
+> **[Download H31-Y research `.tif` (all-finite `[0,1]` — DO NOT SUBMIT)](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif)** ·
+> [zip](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.zip) ·
+> [NaN twin](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-nan.tif) ·
+> [run card](evidence/h31y/run_card.json) · [preregistration](knowledge/2026-10-26_h31y_preregistration.md) ·
+> [executive summary](knowledge/2026-10-26_h31y_executive_summary.md) · [site](docs/index.html)
+>
+> SHA-256 `6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8` · name `gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3`.
+> HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld) **0.0973 [0.0833, 0.1106]** vs CTRL +0.0302 [+0.0048, +0.0536]; confirmation +0.0287 [+0.0066, +0.0504]; SGMC 0.1188 vs H33 0.0940; PROJECTION 0.348 (never a score). Final-dot 3-px max 63.0% (unique under owner 70% rule); **G5 FAIL** on pre-placement top-K 90.5%. Lane verdict **negative**. The selector primary for a weekly slot is **not** this file — see `registry/selector_decision_20261026.json`. Zero slots used. DrivenData never contacted.
+>
+> The standing owner prompt is preserved at the end of this file and in `knowledge/owner_prompt_2026-10-26.md`. Re-read it before the next session.
+>
+> ---
+
 > ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/3ce68fc7-gemsdoe31`) — SUBMIT THIS ONE FILE
 >
 > **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**

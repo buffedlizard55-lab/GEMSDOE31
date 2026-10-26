@@ -1,0 +1,121 @@
+{
+  "retrieved_utc": "2026-10-26T21:55:40.083743+00:00",
+  "nine_site_metadata": [
+    {
+      "repository": "GEMSDOE24",
+      "evidence_class": "OWNER-MIRROR metadata; not an organizer score receipt",
+      "checked_utc": "2026-10-26T21:55:38.716354+00:00",
+      "historical_inventory_refs": [
+        "544fe988df1b8a1b16f249a28be3fc3b3ff378a0"
+      ],
+      "current_main_head": "a433b430b74b813a9118ebd4ec438b12cbc69f46",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/commit/a433b430b74b813a9118ebd4ec438b12cbc69f46",
+      "inventory_head_matches": false,
+      "scope": "HEAD metadata only; no fresh exhaustive raster inventory or uniqueness pass"
+    },
+    {
+      "repository": "GEMSDOE25",
+      "evidence_class": "OWNER-MIRROR metadata; not an organizer score receipt",
+      "checked_utc": "2026-10-26T21:55:38.716713+00:00",
+      "historical_inventory_refs": [
+        "2a279dd0d2a4319c1022567876eb4c97553e2d13"
+      ],
+      "current_main_head": "b4e74b3f9b191fbc214b6447e9ff1f3fa67552c4",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE25/commit/b4e74b3f9b191fbc214b6447e9ff1f3fa67552c4",
+      "inventory_head_matches": false,
+      "scope": "HEAD metadata only; no fresh exhaustive raster inventory or uniqueness pass"
+    },
+    {
+      "repository": "GEMSDOE27",
+      "evidence_class": "OWNER-MIRROR metadata; not an organizer score receipt",
+      "checked_utc": "2026-10-26T21:55:38.717780+00:00",
+      "historical_inventory_refs": [
+        "c79609503619559b5a2c53116e87fce646bc4235"
+      ],
+      "current_main_head": "bef7ae8e8f63b69d299c9214c75988c8f5055f9c",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE27/commit/bef7ae8e8f63b69d299c9214c75988c8f5055f9c",
+      "inventory_head_matches": false,
+      "scope": "HEAD metadata only; no fresh exhaustive raster inventory or uniqueness pass"
+    },
+    {
+      "repository": "GEMSDOE28",
+      "evidence_class": "OWNER-MIRROR metadata; not an organizer score receipt",
+      "checked_utc": "2026-10-26T21:55:38.721739+00:00",
+      "historical_inventory_refs": [
+        "178c65378e1adaaabe45d944fd63b7cd284bff4f"
+      ],
+      "current_main_head": "2c839d10f57ec9b074829e93c84bc39935f52896",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE28/commit/2c839d10f57ec9b074829e93c84bc39935f52896",
+      "inventory_head_matches": false,
+      "scope": "HEAD metadata only; no fresh exhaustive raster inventory or uniqueness pass"
+    },
+    {
+      "repository": "GEMSDOE30",
+      "evidence_class": "OWNER-MIRROR metadata; not an organizer score receipt",
+      "checked_utc": "2026-10-26T21:55:38.722191+00:00",
+      "historical_inventory_refs": [
+        "ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb"
+      ],
+      "current_main_head": "9c0d637c0171407196b61b780444bc772ce75438",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/commit/9c0d637c0171407196b61b780444bc772ce75438",
+      "inventory_head_matches": false,
+      "scope": "HEAD metadata only; no fresh exhaustive raster inventory or uniqueness pass"
+    },
+    {
+      "repository": "GEMSDOE31",
+      "evidence_class": "OWNER-MIRROR metadata; not an organizer score receipt",
+      "checked_utc": "2026-10-26T21:55:39.163547+00:00",
+      "historical_inventory_refs": [
+        "4371416853904713760b86db0dccd9afe50d776f"
+      ],
+      "current_main_head": "eeb7da54ca4a8ae056f45e5b23eeef586ad79bf2",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE31/commit/eeb7da54ca4a8ae056f45e5b23eeef586ad79bf2",
+      "inventory_head_matches": false,
+      "scope": "HEAD metadata only; no fresh exhaustive raster inventory or uniqueness pass"
+    },
+    {
+      "repository": "GEMSDOE32",
+      "evidence_class": "OWNER-MIRROR metadata; not an organizer score receipt",
+      "checked_utc": "2026-10-26T21:55:39.171751+00:00",
+      "historical_inventory_refs": [
+        "9863c82a7c7dc283c615b711bab941debaff0ec4"
+      ],
+      "current_main_head": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/commit/400b60d4a6d99f425ee90504e6c4552227556dd1",
+      "inventory_head_matches": false,
+      "scope": "HEAD metadata only; no fresh exhaustive raster inventory or uniqueness pass"
+    },
+    {
+      "repository": "GEMSDOE33",
+      "evidence_class": "OWNER-MIRROR metadata; not an organizer score receipt",
+      "checked_utc": "2026-10-26T21:55:39.174868+00:00",
+      "historical_inventory_refs": [
+        "f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6"
+      ],
+      "current_main_head": "08380a2e6f2a76d733ee6144d6de33e2907c13b8",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE33/commit/08380a2e6f2a76d733ee6144d6de33e2907c13b8",
+      "inventory_head_matches": false,
+      "scope": "HEAD metadata only; no fresh exhaustive raster inventory or uniqueness pass"
+    },
+    {
+      "repository": "GEMSDOE36",
+      "evidence_class": "OWNER-MIRROR metadata; not an organizer score receipt",
+      "checked_utc": "2026-10-26T21:55:39.229921+00:00",
+      "historical_inventory_refs": [
+        "c9ad59ec6f969ed931d089a03044c1567a633e84"
+      ],
+      "current_main_head": "32c2660001d98f6fa9084a0971b3a9d5062d49b9",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE36/commit/32c2660001d98f6fa9084a0971b3a9d5062d49b9",
+      "inventory_head_matches": false,
+      "scope": "HEAD metadata only; no fresh exhaustive raster inventory or uniqueness pass"
+    }
+  ],
+  "official_reference": {
+    "url": "https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md",
+    "commit": "aebe92f7c8a990f0e3443451b7a825d9afd6336b",
+    "sha256": "cfa4d55559c9128313beb9417eae7e0a94c31677132afb1120f9e86222804239",
+    "local_archive": "evidence/review_bf9d261d/official_reference_README.md",
+    "evidence_class": "OFFICIAL organizer GitHub reference documentation"
+  },
+  "network_limits": "Only GitHub, PyPI and npm hosts allowed. Other official links not fetched. No DrivenData contact or slots."
+}

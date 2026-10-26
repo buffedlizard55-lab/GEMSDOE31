@@ -168,6 +168,24 @@ def main() -> None:
         fail(f"cannot verify submission ZIP metadata: {exc}")
 
     feed = (DOCS / "feed.json").read_text()
+    # Current permissions/downloads must agree across every public entry point.
+    try:
+        release = json.loads((ROOT / "registry/release_status.json").read_text())
+        public = json.loads((DOCS / "downloads/current-release-status.json").read_text())
+        feed_data = json.loads(feed)
+        if public != release or feed_data.get("current_release_status") != release:
+            fail("current release status differs between register, public copy and feed")
+        if feed_data["current_download"]["raster_sha256"] != release["raster_sha256"]:
+            fail("feed current download differs from current release artifact")
+        if release["ok_to_submit"] is not False or release["slot_approved"] is not False:
+            fail("current STOP review cannot approve submission")
+        if hashlib.sha256((ROOT / release["file"]).read_bytes()).hexdigest() != release["raster_sha256"]:
+            fail("current release download changed since byte audit")
+        for name, text in (("index", index), ("executive", executive)):
+            if "current-release-status.json" not in text or Path(release["file"]).name not in text:
+                fail(f"{name}: current release artifact/receipt missing")
+    except (OSError, KeyError, TypeError, ValueError) as exc:
+        fail(f"cannot verify canonical current release: {exc}")
     if "no organizer receipt" not in feed:
         fail("feed.json does not disclose the absent organizer receipt")
 

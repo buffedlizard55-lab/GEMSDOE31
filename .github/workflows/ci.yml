@@ -28,6 +28,7 @@ jobs:
         run: |
           python scripts/verify_current_run.py --restore-small-inputs
           python scripts/verify_protocol_review.py
+          python scripts/build_release_status.py --check
           python scripts/verify_h31j.py
           python scripts/verify_h31t.py
       - name: Unit, leakage, metric, writer and regression tests

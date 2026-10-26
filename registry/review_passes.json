@@ -1629,24 +1629,84 @@
     "sha256_zeros": "6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8",
     "verdict": "negative (lane G5); selector alternate behind H31-X"
    }
+  },
+  {
+   "id": "bf9d261d-pass-1-2026-10-26",
+   "status": "complete-for-audit-not-new-submission",
+   "scope": [
+    "Restored small sample/catalogue/control via hash-pinned mirrors; reproduced existing H31-X format and final lattice STOP without fitting.",
+    "Introduced canonical current release-status/run-card schema without overwriting historical scientific cards; feed HTML/JSON and site top download now agree.",
+    "Added exact-integer budget counting preflight, exhaustive small-footprint subset proof; kept all dense controls binding."
+   ],
+   "verification": {
+    "baseline_tests": "187 passed",
+    "first_implementation_tests": "199 passed",
+    "source_receipt": "evidence/review_bf9d261d/source_checks.json"
+   }
+  },
+  {
+   "id": "bf9d261d-pass-2-2026-10-26",
+   "status": "complete-for-audit-not-new-submission",
+   "scope": [
+    "Found review release_decision still promoted H31-X despite STOP; archived it and enforced denial consistency.",
+    "Found legacy density-exempt/block-rank gate could emit READY_TO_SUBMIT; hard protocol gate now denies every upload from that diagnostic; strict evidence booleans.",
+    "Preserved H31-Y and all older banner history but moved conflicting preamble under superseded history.",
+    "Checked unavailable surface provenance, strict overlap boundaries, empty/invalid counts, source/inventory drift, no copying inference from dense-control overlap."
+   ],
+   "verification": {
+    "targeted_tests": "18 passed",
+    "all_tests_after_fix": "200 passed",
+    "no_shared_tool_fork": "git diff --exit-code -- vendor passed"
+   }
+  },
+  {
+   "id": "bf9d261d-pass-3-2026-10-26",
+   "status": "complete-for-audit-not-new-submission",
+   "scope": [
+    "Full code, metric, exact-byte, source and site cross-check; new TIFF and top-hypothesis validation explicitly unfulfilled under duplicate STOP and absent lane.",
+    "Nine-site executive table preserved as historical USER-REPORTED claims; no validated leaderboard forecast, receipt, quota or live leaderboard claim.",
+    "Browser checks six responsive page visits and six exact-SHA research downloads; public feed/status parity; no browser errors."
+   ],
+   "verification": {
+    "pytest": "200 passed",
+    "ruff": "all checks passed",
+    "compileall": "passed src scripts tests",
+    "metric": "24 random grids max |fast-brute| 4.441e-16; 29 kernel offsets; exact cases passed",
+    "marginal_algebra": "10000 finite-change sign checks passed",
+    "byte_verifiers": [
+     "verify_current_run --restore-small-inputs",
+     "verify_protocol_review",
+     "build_release_status --check",
+     "verify_h31j",
+     "verify_h31t"
+    ],
+    "site": "22 pages and 485 local links passed before final receipt-register rendering",
+    "browser_receipt": "evidence/review_bf9d261d/browser_checks.json"
+   },
+   "limitations": [
+    "No new fit, hypothesis validation, independent discovery or TIFF generated.",
+    "H31-X HOLDOUT-DTI is cited prior receipt, not freshly reproduced; surface cache unavailable.",
+    "All nine HEADs differ from old raster inventory; no exhaustive refreshed uniqueness pass.",
+    "Official non-GitHub sources restricted by network; no organizer receipt, private truth or current weekly quota."
+   ]
   }
  ],
  "remaining_work": [
-  "Resolve the missing assigned method paragraph and obtain explicit authorization for a future lane before proposing or fitting another candidate.",
-  "Resolve the literal 70% overlap gate against the registered full-footprint witness through an explicit protocol-owner decision; do not implement a private density/calibration exemption.",
-  "Restore and hash-verify the complete production feature/cache stack and close the registered-raster coverage gaps before any uniqueness conclusion.",
-  "Reproduce the strongest comparable incumbent using the unchanged shared evaluator, buffered whole-segment holdouts, exact visible-label masking, pooled DTI and paired spatial confidence intervals.",
-  "Obtain organizer-authenticated template/rules/score receipts through authorized access; do not scrape the leaderboard or upload automatically.",
-  "Only after those gates, preregister one lane-specific hypothesis with feature canaries, explicit non-fault nulls and fresh confirmation; never call a local proxy DTI a competition score.",
-  "preregister and test H31-R (Riemann-tensor Eikonal geodesic trace-linking) and H31-S (multi-depth tilt phase-convergence tomography), and execute H31-V (ARIA/Sentinel-1 InSAR) on an unrestricted runner once the 695-raster r13-lattice-s5 protocol degeneracy is resolved"
+  "Resolve absent single-method paragraph and literal dense-control STOP through explicit protocol-owner authorization; do not silently exempt controls or self-assign another lane.",
+  "Refresh complete nine-site raster inventory at pinned revisions; close current surface/final registry coverage gaps.",
+  "Restore/hash-check production stack and shared cache only for an authorized preregistered continuation; small validation inputs alone were restored this review.",
+  "Authenticate official template/rules/receipt provenance through authorized access; never scrape leaderboard or store credentials.",
+  "Reproduce strongest comparable retrained same-run incumbent; test one assigned desk hypothesis with feature canaries, empirical buffer, visible-only catalogue context, exact masks, shared pooled DTI, spatial CI and fresh confirmation.",
+  "Keep all review/permission consumers on registry/release_status.json; historical scientific promote flags never authorize uploads.",
+  "Separate selector and current weekly-cap verification required before any slot; no current file is approved."
  ],
  "current_run": "registry/current_run.json",
  "current_three_passes": [
-  "arena-review-pass-1-2026-10-26",
-  "arena-review-pass-2-2026-10-26",
-  "arena-review-pass-3-2026-10-26"
+  "bf9d261d-pass-1-2026-10-26",
+  "bf9d261d-pass-2-2026-10-26",
+  "bf9d261d-pass-3-2026-10-26"
  ],
- "release_decision": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here.",
+ "release_decision": "DO NOT SUBMIT \u2014 literal registry STOP",
  "rbu31_session_2026_10_25": {
   "branch": "arena/84287da3-gemsdoe31",
   "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",
@@ -1714,6 +1774,15 @@
   ],
   "release_decision": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here."
  },
+ "historical_release_decision_pre_bf9d261d": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here.",
+ "current_release_status": "registry/release_status.json",
+ "current_scientific_run": "evidence/h31x/run_card.json (historical; no new scientific run)",
+ "current_run_scope": "registry/current_run.json is the historical MAGREST scientific receipt, not current release permission",
+ "previous_current_three_passes": [
+  "arena-review-pass-1-2026-10-26",
+  "arena-review-pass-2-2026-10-26",
+  "arena-review-pass-3-2026-10-26"
+ ],
  "arena_1e89db6a_review_2026_10_26": {
   "branch": "arena/1e89db6a-gemsdoe31",
   "scope": "Repository review and requested nine-site/unique-TIFF decision; no scientific lane assigned and no upload attempted.",
@@ -1757,5 +1826,12 @@
    "Obtain official score/format receipts through authorized user access; do not scrape or auto-submit."
   ],
   "release_decision": "No artifact approved. Existing H31-X is research-only and fails current literal registry uniqueness gate. No new TIFF generated."
+ },
+ "integration_bf9d261d": {
+  "main_merge": "e14b466",
+  "preserved_concurrent_review": "PR #47, no-submit banner/navigation notice and presentation regression retained",
+  "scope": "No scientific experiments, TIFFs or permission changes",
+  "final_tests": "202 passed after merging PR #47 (one inherited regression) and adding BLAS-drift regression",
+  "portability_fix": "Canonical release report rounds final rho to 12 decimals AFTER raw gate evaluation. --check passes with OPENBLAS_NUM_THREADS=1,2,4; no scientific threshold changes."
  }
 }
