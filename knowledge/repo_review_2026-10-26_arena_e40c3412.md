@@ -82,7 +82,7 @@ Thus the CSDU files do not meet the exact-footprint submission gate even before 
 - `.venv/bin/python -m compileall -q src scripts tests`: PASS.
 - `.venv/bin/python scripts/build_site.py` and `scripts/check_site.py`: PASS, 22 pages and 445 local links.
 - The first full test pass before restoring small validation fixtures produced **133 passed, 7 skipped, 2 failures** because the small TIFF prerequisites were missing, plus one new test setup failure from calling the overview without its run card. Restored the inputs and fixed the test to supply the actual card. Final `.venv/bin/python -m pytest -q`: **145 passed**. Repeated the CI restore/verifier/test sequence locally under Python 3.11; all steps passed.
-- Remote Actions run `40358930573` on commit `5895788` failed in the `Unit, leakage, metric, writer and regression tests` step. GitHub annotations expose only the step exit code; `gh run view --log-failed` returned EOF while fetching the log, so the exact remote failure is unknown. Do not merge until diagnosed or a new remote run passes.
+- Remote Actions runs `40358930573` (`5895788`) and `40359503361` (`853361c`) both failed in the `Unit, leakage, metric, writer and regression tests` step. GitHub annotations expose only the step exit code; `gh run view --log-failed` returned EOF while fetching both logs, so the exact remote failure is unknown. The CI restore/verifier/test sequence passes locally under Python 3.11. Do not merge until the remote failure is diagnosed or a new remote run passes.
 
 ## Three cumulative passes
 
