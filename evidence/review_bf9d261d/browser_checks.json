@@ -1,0 +1,76 @@
+{
+  "checked_utc": "2026-10-26T22:01:23.444Z",
+  "scope": "local preview only, not public deployment",
+  "pages": [
+    {
+      "file": "index.html",
+      "width": 390,
+      "no_overflow": true,
+      "status": 200
+    },
+    {
+      "file": "executive-summary.html",
+      "width": 390,
+      "no_overflow": true,
+      "status": 200
+    },
+    {
+      "file": "index.html",
+      "width": 820,
+      "no_overflow": true,
+      "status": 200
+    },
+    {
+      "file": "executive-summary.html",
+      "width": 820,
+      "no_overflow": true,
+      "status": 200
+    },
+    {
+      "file": "index.html",
+      "width": 1440,
+      "no_overflow": true,
+      "status": 200
+    },
+    {
+      "file": "executive-summary.html",
+      "width": 1440,
+      "no_overflow": true,
+      "status": 200
+    }
+  ],
+  "downloads": [
+    {
+      "file": "index.html",
+      "width": 390,
+      "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9"
+    },
+    {
+      "file": "executive-summary.html",
+      "width": 390,
+      "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9"
+    },
+    {
+      "file": "index.html",
+      "width": 820,
+      "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9"
+    },
+    {
+      "file": "executive-summary.html",
+      "width": 820,
+      "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9"
+    },
+    {
+      "file": "index.html",
+      "width": 1440,
+      "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9"
+    },
+    {
+      "file": "executive-summary.html",
+      "width": 1440,
+      "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9"
+    }
+  ],
+  "errors": [],
+  "feed_and_public_status_agree": true
+}

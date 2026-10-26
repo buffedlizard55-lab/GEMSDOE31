@@ -1,3 +1,11 @@
+# Current review/permission front door (2026-10-26 bf9d261d)
+
+Read `registry/release_status.json` and `knowledge/2026-10-26_release_review_bf9d261d.md` first.
+No file is approved. `registry/current_run.json` is historical MAGREST evidence, not the latest release decision.
+Run `python scripts/build_release_status.py --check` after restoring small inputs. Never use the legacy
+`submission_gate.py` diagnostic to approve a slot. It cannot implement the binding two-stage literal registry gate.
+Preserve historical run cards; do not interpret their promotion flags as current authorization.
+
 # GEMSDOE31 agent instructions
 
 Before changing this repository, read the entire `README.md` (including the preserved owner prompt), the latest status, `registry/current_run.json`, `registry/review_passes.json`, and `knowledge/2026-10-25_magrest_preregistration.md`. H31-A remains a historical STOP, not an active experiment. Keep the README as the recurring project charter; update the status record at the end of substantive work.

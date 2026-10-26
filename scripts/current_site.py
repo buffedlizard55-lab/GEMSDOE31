@@ -30,7 +30,7 @@ def _selector():
 
 def selector_decision_section() -> str:
     """The current literal protocol overrides archived discrete-only approvals."""
-    p = ROOT / "evidence/review_9883b598/run_card.json"
+    p = ROOT / "registry/release_status.json"
     if not p.is_file():
         return '<div class="notice notice-danger">DO NOT SUBMIT: current protocol audit missing.</div>'
     r = json.loads(p.read_text())
@@ -38,7 +38,7 @@ def selector_decision_section() -> str:
     u = r["correlation_overlap_vs_registry"]
     filename = esc(r["file"].replace("docs/", "", 1))
     return f'''<section id="selector-decision" aria-labelledby="selector-heading">
-      <p class="kicker">Current protocol review · 26 October 2026 · no new experiment</p>
+      <p class="kicker">Current release audit · 26 October 2026 · no new experiment</p>
       <h2 id="selector-heading">DO NOT SUBMIT — literal registry STOP</h2>
       <div class="notice notice-danger"><strong>No current artifact is approved.</strong>
       Earlier H31-X / H31-T selector upload permissions are withdrawn under the current prompt.
@@ -53,7 +53,8 @@ def selector_decision_section() -> str:
       final dots {100*u["final"]["max_overlap"]:.2f}% vs registered lattice (fresh read-back).</td>
       <td>Research download YES<br><strong>Submission NO</strong></td></tr></tbody></table></div>
       <div class="actions"><a class="button button-primary" href="{filename}" download>Download existing H31-X research .tif — DO NOT SUBMIT</a>
-      <a class="button" href="downloads/protocol-review-run-card.json">Automated format and STOP receipt</a></div>
+      <a class="button" href="downloads/current-release-status.json">Current automated release / format receipt</a>
+      <a class="button" href="downloads/protocol-review-run-card.json">Prior protocol audit</a></div>
       <p><strong>SHA-256:</strong> <code>{esc(r["raster_sha256"])}</code><br>
       <strong>Research name:</strong> <code>{esc(r["submission_name"])}</code><br>
       <strong>Note:</strong> {esc(r["note"])}</p>
@@ -62,8 +63,11 @@ def selector_decision_section() -> str:
       <p>One authentic registry witness suffices for STOP; no exhaustive registry pass is claimed.
       The lattice covers {100*r["lattice_coverage"]["coverage_fraction"]:.3f}% of the footprint within 3 px.
       At this dot budget any placement must overlap at least {100*r["lattice_coverage"]["minimum_overlap_any_same_budget"]:.2f}%.
-      This counting bound does not apply to every nonempty raster. Moving dots to evade the test is not geological discovery.</p>
-      <p><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_protocol_review_9883b598.md">Review, hypotheses, evidence and remaining work</a></p>
+      This counting bound does not apply to every nonempty raster. Moving dots to evade the test is not geological discovery.
+      A budget-only preflight now detects this unavoidable STOP before any new fit or placement.
+      The current permission is published once in <a href="downloads/current-release-status.json">release status JSON</a>;
+      historical lane cards are not upload permissions.</p>
+      <p><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_release_review_bf9d261d.md">Review, hypotheses, evidence and remaining work</a></p>
     </section>'''
 
 
@@ -1271,6 +1275,9 @@ def focus_site_summary() -> str:
       <div class="table-wrap"><table><thead><tr><th>Site</th><th>Highest listed artifact (pinned mirror)</th>
         <th>Claimed score</th><th>Method / interpretation</th><th>Measured relation to H33</th><th>Estimated score</th><th>Permission</th></tr></thead>
         <tbody>{''.join(rendered)}</tbody></table></div>
+      <p class="small"><strong>Snapshot warning:</strong> this is historical pinned prior art, not a live feed.
+        Fresh 26 October GitHub metadata checks found newer main revisions at all nine sites; changed rasters are not exhaustively re-audited.
+        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/review_bf9d261d/source_checks.json">Dated source-check receipt</a>.</p>
       <p class="small">The table shortens each SHA-256 for readability; full digests and evidence classes are in the <a href="register/index.html">submission register</a> and <code>registry/focus_review.json</code>.</p>
       <p class="small"><strong>GEMSDOE31 irregularity:</strong> the user-listed 0.2708 H27-4 claim conflicts with the pinned owner-page status
         recorded in <code>registry/irregularities.json</code> (listed as unscored); exact organizer receipt-to-file attribution is absent.

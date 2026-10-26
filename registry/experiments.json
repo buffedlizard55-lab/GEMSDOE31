@@ -87,6 +87,11 @@
    "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
   },
   {
+   "path": "evidence/data_restore_20261026_session_f4d7fb29.json",
+   "bytes": 5835,
+   "sha256": "6eb16253658acd8af96f4e784ff04572f6c7e0a65c1a936aee3f7e12accb7ed1"
+  },
+  {
    "path": "evidence/data_restore_integration_20261025.json",
    "bytes": 5546,
    "sha256": "7a0a6a9ff635be4d4eb3337298a4839aea5271b1b7eabe01a75c3bd7c34b4325"
@@ -400,6 +405,36 @@
    "path": "evidence/h31x/run_card.json",
    "bytes": 22817,
    "sha256": "50038a33233cc6348cb4338c1067de69625e3455e734b25b2a367246be72dfac"
+  },
+  {
+   "path": "evidence/h31y/canary.json",
+   "bytes": 1694,
+   "sha256": "8a5eef683af8d65192bfb19edc6c4592322ea65729ddd947e9fde13c5b8b49bf"
+  },
+  {
+   "path": "evidence/h31y/exp1_screen.json",
+   "bytes": 8806,
+   "sha256": "ea21a0a68bc3431454b8101d06792e7b3e894d976e1764d8a0a8ec22482b265f"
+  },
+  {
+   "path": "evidence/h31y/exp2.json",
+   "bytes": 35472,
+   "sha256": "dbe2ecea5beb985099577bc7ffd430108aa0243219b262063e0d896d03c20f7e"
+  },
+  {
+   "path": "evidence/h31y/exp3.json",
+   "bytes": 9738,
+   "sha256": "d9e95275c0fac3145297acce9e77b82f5eba9601b14d7ee59ae36c296a50e7ee"
+  },
+  {
+   "path": "evidence/h31y/lines.json",
+   "bytes": 925,
+   "sha256": "2af6c0e62ceaaecf1e36d3e54faff09e7978e0800532ce345d52638673cba39c"
+  },
+  {
+   "path": "evidence/h31y/run_card.json",
+   "bytes": 13795,
+   "sha256": "8fcd132ac27ce48131b08c8b58f0af344e07ffef273a868ca48dbc9cfde4a2d5"
   },
   {
    "path": "evidence/h33_forensics_20261025.json",
@@ -802,6 +837,26 @@
    "sha256": "2ea15a7c60efcbb8df6ee3193fe9a9979b72f822abcfda4f94b9add6651fb0d9"
   },
   {
+   "path": "evidence/review_bf9d261d/browser_checks.json",
+   "bytes": 1786,
+   "sha256": "6f2190ecf592bc9f11fe1b61b59cdcd3f8b0e376b4b77ccbb3b3c1ef40194590"
+  },
+  {
+   "path": "evidence/review_bf9d261d/checks.json",
+   "bytes": 1206,
+   "sha256": "c43b0f30c5a54fa768eb3c46009606db127044bde22f425c8437d86b6c24aaea"
+  },
+  {
+   "path": "evidence/review_bf9d261d/official_reference_README.md",
+   "bytes": 2367,
+   "sha256": "cfa4d55559c9128313beb9417eae7e0a94c31677132afb1120f9e86222804239"
+  },
+  {
+   "path": "evidence/review_bf9d261d/source_checks.json",
+   "bytes": 6101,
+   "sha256": "5a4c79ff9c8438e4f2dbb577c37b7f7207bb3f6fb72242393eb36379e0c1e776"
+  },
+  {
    "path": "evidence/review_run_card_20261026_1028355f.json",
    "bytes": 11716,
    "sha256": "4c32e47cda08a41c51ccaf7bc9b0d5109c974a80e44f97f82c007d33473314a8"
@@ -828,8 +883,8 @@
   },
   {
    "path": "evidence/selector_audit_20261026.json",
-   "bytes": 41988,
-   "sha256": "2b22772fc8609b0e0853f01136610308f0745a4690521a4298e4e4ed0b06a244"
+   "bytes": 44365,
+   "sha256": "85b5e2a5975ba35b4d4ec7e6b22a0f39f1c8f0b515e8fdfc5ad543a95ba83b87"
   },
   {
    "path": "evidence/session_core_restore_20261025.json",

@@ -1,3 +1,12 @@
+# Current release review — bf9d261d
+
+**DO NOT SUBMIT.** [Current release JSON](../registry/release_status.json) and
+[review / next work](2026-10-26_release_review_bf9d261d.md) supersede historical upload permissions below.
+Fresh H31-X byte/range/grid/lattice checks only; no fit, new TIFF or slot. Estimated leaderboard score unavailable.
+The current review register and website feed now agree; the legacy density-exempt approval path is disabled.
+
+---
+
 # Current override — session 9883b598
 
 **DO NOT SUBMIT.** Current literal owner protocol supersedes prior discrete-only selector approvals.
