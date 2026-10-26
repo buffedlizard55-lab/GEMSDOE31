@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-25",
+ "generated_utc": "2026-10-26",
  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
  "passes": [
   {
@@ -1248,23 +1248,68 @@
     }
    ],
    "release_decision": "No new experiment, TIFF, submission slot, or upload. Existing literal registry STOP remains binding."
+  },
+  {
+   "id": "arena-review-pass-1-2026-10-26",
+   "status": "complete-with-existing-lane-stop",
+   "scope": [
+    "read recurring README charter, AGENTS, current-run card, latest status, prior review passes, and MAGREST preregistration",
+    "review nine-site claim audit, H33 geometry, duplicate witness, submission page and executive-site generation path"
+   ],
+   "findings": [
+    "no experiment, TIFF, upload, or weekly slot was authorized",
+    "H33 support is byte-measured as D2.8 with the <=2px catalogue-flank band removed; score remains USER-REPORTED",
+    "existing MAGREST remains research-download-only and literal overlap STOP remains binding"
+   ],
+   "historical_scope": false
+  },
+  {
+   "id": "arena-review-pass-2-2026-10-26",
+   "status": "complete-with-correction",
+   "checks": [
+    "added regression tests for nine requested sites, best claim selection, claim labels, pinned mirror links, overlap warning and H27 score irregularity",
+    "removed unsupported GEMSDOE25 exact-byte-identity wording; hashes differ, no pixel identity asserted",
+    "installed pinned requirements in ignored .venv and restored the two small inputs through the exact verifier"
+   ],
+   "verification": {
+    "pytest": "118 passed after restoration",
+    "ruff": "passed",
+    "metric": "max absolute fast/brute DTI difference 4.441e-16 across 24 grids",
+    "exact_run": "negative; research download allowed; submission denied"
+   },
+   "historical_scope": false
+  },
+  {
+   "id": "arena-review-pass-3-2026-10-26",
+   "status": "complete-with-open-gates",
+   "checks": [
+    "executive summary rebuilt from pinned focus review data; all nine site leaders shown with USER-REPORTED labels and no-upload status",
+    "collect_evidence, site build and local link check completed; generated site 21 pages / 364 local links",
+    "confirmed no owner/organizer receipt, current live leaderboard view, fresh lane authorization, or TIFF generation"
+   ],
+   "remaining_gates": [
+    "assigned method paragraph missing",
+    "lane budget exhausted and literal universal overlap witness remains",
+    "full registry coverage and organizer-authenticated template/score receipt unavailable"
+   ],
+   "historical_scope": false
   }
  ],
  "remaining_work": [
-  "re-implement the four-arm trainer so evidence/arm_results.json and operating_point.json regenerate from a fresh clone",
-  "produce the next-week slot candidate from a bigger, better-trained classifier: better ranking (out-of-fold stacking of extra channels, LOOCV for mtry/depth, class-weight tuning) so the p~0.6 union adds more true detections",
-  "validate the LiDAR-arm union (+0.0060) with a second, independent off-catalogue proxy before any slot is spent",
-  "fetch the GDR 1391 depth stack and 3DEP LAZ return attributes through the CI runner (sandbox cannot reach those hosts) or record them as unavailable",
-  "resolve the D2.8 0.2600 and h27-4 0.2708 score provenance by attaching organizer receipts to registry/score_claims.json",
-  "keep the leaderboard as a static link and the AI disclosure as an entrant-reviewed draft"
+  "Resolve the missing assigned method paragraph and obtain explicit authorization for a future lane before proposing or fitting another candidate.",
+  "Resolve the literal 70% overlap gate against the registered full-footprint witness through an explicit protocol-owner decision; do not implement a private density/calibration exemption.",
+  "Restore and hash-verify the complete production feature/cache stack and close the registered-raster coverage gaps before any uniqueness conclusion.",
+  "Reproduce the strongest comparable incumbent using the unchanged shared evaluator, buffered whole-segment holdouts, exact visible-label masking, pooled DTI and paired spatial confidence intervals.",
+  "Obtain organizer-authenticated template/rules/score receipts through authorized access; do not scrape the leaderboard or upload automatically.",
+  "Only after those gates, preregister one lane-specific hypothesis with feature canaries, explicit non-fault nulls and fresh confirmation; never call a local proxy DTI a competition score."
  ],
  "current_run": "registry/current_run.json",
  "current_three_passes": [
-  "arena-followup-pass-1-2026-10-25",
-  "arena-followup-pass-2-2026-10-25",
-  "arena-followup-pass-3-2026-10-25"
+  "arena-review-pass-1-2026-10-26",
+  "arena-review-pass-2-2026-10-26",
+  "arena-review-pass-3-2026-10-26"
  ],
- "release_decision": "Current follow-up: existing MAGREST research TIFF is negative and blocked by universal literal overlap witness; no new experiment/TIFF/slot. See knowledge/repo_review_2026-10-25_arena_followup.md.",
+ "release_decision": "2026-10-26 review: no new experiment/TIFF/slot. Existing MAGREST artifact remains research-download-only and blocked from submission by recorded overlap and efficacy gates. Executive summary now includes the nine-site USER-REPORTED highest-claim matrix. See knowledge/repo_review_2026-10-26.md.",
  "rbu31_session_2026_10_25": {
   "branch": "arena/84287da3-gemsdoe31",
   "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",
