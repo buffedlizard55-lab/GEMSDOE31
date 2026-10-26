@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-10-25",
+  "generated_utc": "2026-10-26",
   "items": [
     {
       "id": "IR-31-SCORE-2600-D28",
@@ -82,7 +82,7 @@
       "status": "open-stop-condition",
       "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
       "evidence": [
-        "Mean paired catalogue-gap \u0394DTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
+        "Mean paired catalogue-gap ΔDTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
         "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
         "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
       ],
@@ -146,7 +146,7 @@
       "id": "IR-31-RUNNER-BRANCH-GUARD",
       "severity": "medium",
       "status": "resolved",
-      "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session\u2019s fixed arena/01a1050e-gemsdoe31 branch.",
+      "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session’s fixed arena/01a1050e-gemsdoe31 branch.",
       "evidence": [
         "Before correction, AGENTS.md and scripts/run_h31.py hard-coded arena/01a104a9-gemsdoe31.",
         "Developer session branch is arena/01a1050e-gemsdoe31."
@@ -177,7 +177,7 @@
         "src/gems32/hypotheses33.py compute_h33_2_flank_sweep derives d_cat from labels when not supplied and removes base cells using d_cat.",
         "src/gems32/holdout.py load_holdout_context hides components for the scoring context, but evaluate_candidate_holdout receives a prebuilt static candidate mask."
       ],
-      "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project\u2019s preregistered rules. Bias direction is not assumed.",
+      "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project’s preregistered rules. Bias direction is not assumed.",
       "action": "Do not use the owner-mirror H33 holdout result to promote this method. Any future catalogue-based processing must be rebuilt per fold from visible segments, mask visible faults pixel-exactly, and be tested under the registered evaluator."
     },
     {
@@ -531,6 +531,44 @@
       ],
       "impact": "Risked misleading an entrant with an unverified live-score projection and mislabeled holdout column.",
       "action": "Removed the projection column from scripts/build_site.py, corrected all column headers and band names, and populated sha256_zip in scripts/collect_evidence.py."
+    },
+    {
+      "id": "IR-31-REGISTRY-WITNESS-ATTRIBUTION",
+      "severity": "high",
+      "status": "corrected-in-active-copy-2026-10-26",
+      "summary": "Historical RBU31/H31-E2 wording incorrectly attributed universal 100% three-pixel footprint coverage to the r13 spacing-5 lattice; the universal full-support witness is a distinct GEMSDOE48 continuous raster under the inherited finite-value > 0 interpretation.",
+      "evidence": [
+        "evidence/magrest/registry_scope_correction.json measures the r13 lattice 3-px halo at 0.9987132726822701 footprint coverage (99.8713%) and measures 100% candidate-specific overlap for all three frozen MAGREST variants.",
+        "evidence/tgj31/registry_universal_blocker.json records GEMSDOE48 continuous raster SHA-256 59ef8e7d8374e228bc1e41376f03fc67dd5b8a5e6804885a1ae802f399140b89 with positive support on 5,167,373/5,167,373 allowed cells under finite prediction > 0.",
+        "evidence/registry_overlap_claim_correction_2026-10-26.json records both sources, conditional support semantics, provenance caveat, and preserved historical receipts."
+      ],
+      "impact": "Could misidentify the source of the literal STOP and imply universal lattice coverage that the measured control does not provide. The STOP remains valid: the fixed MAGREST artifacts individually exceed 70%, and the separate continuous raster is a universal witness under the registered support rule.",
+      "action": "Corrected README/AGENTS/current site and RBU31 generator/derived submission-register wording. Kept historical run cards and receipts unchanged; no density/calibration exemption or new experiment."
+    },
+    {
+      "id": "IR-31-SITE-ACTIVE-RUN-AND-H3-HTML",
+      "severity": "high",
+      "status": "fixed-in-generator-2026-10-26",
+      "summary": "Generated index and executive summary selected an archived RBU31 card over registry/current_run.json MAGREST, labeled its download as a submission despite DO-NOT-SUBMIT status, duplicated H3 section IDs, and leaked a malformed conditional into the holdout table.",
+      "evidence": [
+        "Read-only HTMLParser inspection of docs/index.html and docs/executive-summary.html found duplicate IDs h3-download and h3-heading (two each) and the literal fragment \"if dti_sgmc is not None\".",
+        "scripts/current_site.py::_rbu31_card preferred evidence/regime31b/run_card.json; scripts/build_site.py hardcoded RBU31 as newest; _overview_body() and executive() each emitted the H3 section twice."
+      ],
+      "impact": "The primary download/status could be mistaken for active approval; duplicated anchor IDs and the raw Python conditional made generated pages invalid/misleading.",
+      "action": "Changed page generators to render the active registry/current_run.json first, label archived TIFFs RESEARCH DOWNLOAD ONLY — DO NOT SUBMIT, emit one H3 section with preformatted optional metric cells, and added duplicate-ID/status/literal-template regression checks in scripts/check_site.py and tests/test_presentation_safety.py."
+    },
+    {
+      "id": "IR-31-REGISTRY-RESTORE-API-FRAGILITY",
+      "severity": "medium",
+      "status": "fixed-in-helper-2026-10-26",
+      "summary": "The shared-registry STOP verifier restored its pinned raster only through GitHub REST contents API, so an API 403 rate-limit response blocked verification even though the exact commit was retrievable through blobless git fetch.",
+      "evidence": [
+        "scripts/verify_current_run.py --restore-small-inputs initially failed on GitHub API HTTP 403 rate limit while requesting the pinned r13 TIFF.",
+        "A SHA-256 checked blobless git fetch of the same repository commit/path returned 1,706,456 bytes with expected SHA-256 b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2.",
+        "After the helper change, scripts/verify_current_run.py --restore-small-inputs completed and retained ok_to_submit=false, verdict=negative, and the existing MAGREST TIFF SHA."
+      ],
+      "impact": "Clean-clone denial verification was brittle under REST API rate limits despite a working GitHub clone/fetch path.",
+      "action": "Reused scripts/download_competition_data.py::_git_fetch_blob as the preferred pinned-object restore path, with the GH API retained as fallback; hash is still required before accepting bytes."
     }
   ]
 }

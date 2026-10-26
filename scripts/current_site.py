@@ -40,6 +40,7 @@ def h31m_download_and_gates() -> str:
     cov = rc["correlation_and_overlap_vs_registry"]
     dsub = cov["downloads_and_concurrent_subset"]
     ce = cov["broad_695_registry_counterexample"]
+    support = registry_support_summary()
     slug = esc(hr["candidate_slug"])
     sub_name = esc(rc["submission_name"])
     sha_nan = esc(rc["raster_sha256"]["nan_tif"])
@@ -56,7 +57,7 @@ def h31m_download_and_gates() -> str:
         <p>Newly computed in this session from 8 label-free geophysical/structural channels + deconfounded dual-head Bayes OOF HGB +
            exact 29-cell submodular DTI allocation. Beats GEMSDOE32 H33-2-B2 simultaneously on Piedmont Off-SGMC, 4-Block Off-SGMC,
            Full Off-SGMC, and 21.25 km hide-and-recover holdout (4/4 folds on both seeds), and passes the 13-submission comparator subset —
-           but is <strong>held as research-only (DO NOT SUBMIT)</strong> under the unexempted 695-raster spacing-5 lattice STOP and inherited 21.25 km collar.</p></div>
+           but is <strong>held as research-only (DO NOT SUBMIT)</strong>: its {100*ce['dot_overlap_within_3px']:.4f}% candidate-specific overlap with r13-lattice-s5 exceeds the literal 70% limit; separately, the GEMSDOE48 continuous field is a full-support witness under finite-value &gt; 0 semantics, and the inherited 21.25 km collar precedes own-method range estimation.</p></div>
       <div class="card download-card">
         <span class="badge badge-green">LOCAL FORMAT &amp; 11/11 EFFICACY GATES PASS · RESEARCH DOWNLOAD ONLY</span>
         <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
@@ -84,12 +85,12 @@ def h31m_download_and_gates() -> str:
           <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {{0.0, 1.0}}; 0 NaN inside; 0 within 200 m of catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 48 used features</td><td>max AUC = {hr['exp1_canary']['max_used_feature_unsigned_auc']:.4f} (new H31-M channels max = {hr['exp1_canary']['max_new_h31m_unsigned_auc']:.4f})</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G3a · 13-Submission Comparator Subset</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = {dsub['max_abs_surface_spearman_r']:.4f}; max 3-px = {100*dsub['max_dot_overlap_within_3px']:.2f}% (concurrent lanes ≤ {100*dsub['max_dot_overlap_within_3px_concurrent_discrete_lanes']:.2f}%; 40.25% vs H33-2-B2)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
-          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>{100*ce['dot_overlap_within_3px']:.4f}% ({ce['within_3px']:,} / 37,654 dots within 3 px; |ρ| = {abs(ce['final_spearman_r']):.4f})</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G3b · r13-lattice-s5 candidate overlap</code></td><td>Unexempted 695-raster shared registry; no calibration/density exemption</td><td>{100*ce['dot_overlap_within_3px']:.4f}% ({ce['within_3px']:,} / 37,654 dots within 3 px of r13; |ρ| = {abs(ce['final_spearman_r']):.4f}); separately, GEMSDOE48 support is {support['continuous_positive_pixels']:,}/{support['continuous_allowed_pixels']:,} allowed cells under {esc(support['support_definition'])}</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
           <tr><td><code>G4a · Screen (seed 20261025, 21.25 km)</code></td><td>Paired 95% CI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI {scr['arms']['h31m_submod']['pooled_DTI']:.4f} vs {scr['arms']['base_C1_poisson']['pooled_DTI']:.4f} (Δ CI [{s_dlo:+.4f}, {s_dhi:+.4f}], 4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G4b · Confirm (seed 20261026, n=58,625)</code></td><td>Fresh draw, paired 95% CI &gt; 0 and ≥ 3/4 folds won</td><td>HOLDOUT-DTI {conf['arms']['h31m_submod']['pooled_DTI']:.4f} [{c_lo:.4f}, {c_hi:.4f}] vs {conf['arms']['base_C1_poisson']['pooled_DTI']:.4f} (4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Alluvial/piedmont habitat (slope ≤ 6 deg, n=11,573 px)</td><td>HOLDOUT-DTI {submod_p['piedmont_off_sgmc_DTI']:.4f} vs GEMSDOE32 H33-2-B2 {h33_p['piedmont_off_sgmc_DTI']:.4f} (+9.4%) and H31-B 0.0052</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5b · All-Elevation &amp; 4-Block Off-SGMC</code></td><td>Strict simultaneous win &gt; H33-2-B2 (0.0940 / 0.0984)</td><td>Full Off-SGMC {submod_p['full_off_sgmc_DTI']:.4f} vs {h33_p['full_off_sgmc_DTI']:.4f} (+7.4%); 4-Block {off4['mean_holdout_dti']:.4f} [{off4['ci95_low']:.4f}, {off4['ci95_high']:.4f}] vs {h33_off4['mean_holdout_dti']:.4f} (+9.5%)</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G6 · Own-Method Variogram &amp; Slot Gate</code></td><td>Candidate-specific residual range + unexempted registry pass</td><td>21.25 km collar inherited from historical buffer_derivation.json; r13-lattice-s5 STOP active</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
+          <tr><td><code>G6 · Own-Method Variogram &amp; Slot Gate</code></td><td>Candidate-specific residual range + unexempted registry pass</td><td>21.25 km collar inherited from historical buffer_derivation.json; r13 candidate-overlap STOP and distinct GEMSDOE48 full-support witness; own-method range not estimated</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
         </tbody>
       </table></div>
       <p class="small">HOLDOUT-DTI evaluator: <code>gemsdoe31-holdout-v1</code> (n=58,625 withheld positives, 21,250 m spatial collar, 400 block-bootstrap replicates) and
@@ -225,6 +226,50 @@ def scgp_download_and_gates() -> str:
     </section>'''
 
 
+def registry_support_summary() -> dict:
+    correction = json.loads((ROOT / "evidence/registry_overlap_claim_correction_2026-10-26.json").read_text())
+    lattice, continuous = correction["corrected_facts"]
+    return {
+        "lattice_footprint_coverage_pct": 100 * lattice["three_pixel_halo_footprint_coverage"],
+        "continuous_repo": continuous["source_repo"],
+        "continuous_positive_pixels": continuous["positive_support_pixels"],
+        "continuous_allowed_pixels": continuous["allowed_pixels"],
+        "support_definition": continuous["support_definition"],
+        "correction_path": "evidence/registry_overlap_claim_correction_2026-10-26.json",
+    }
+
+
+def public_failed_gate_messages(card: dict) -> list[str]:
+    """Apply additive attribution corrections without rewriting the frozen run card."""
+    support = registry_support_summary()
+    final = card.get("registry", {}).get("final", {})
+    lattice_overlap = final.get("counterexample_overlap")
+    if lattice_overlap is None:
+        lattice_text = "The frozen run's measured candidate-specific overlap with r13-lattice-s5 remains above the literal 70% threshold."
+    else:
+        lattice_text = (
+            f"The frozen MAGREST variants have {100 * lattice_overlap:.2f}% candidate-specific overlap with r13-lattice-s5; "
+            f"that lattice's 3-px halo covers {support['lattice_footprint_coverage_pct']:.4f}% of the footprint, not universally 100%."
+        )
+    witness = (
+        f"A separate {support['continuous_repo']} continuous raster has positive support on "
+        f"{support['continuous_positive_pixels']:,}/{support['continuous_allowed_pixels']:,} allowed cells under "
+        f"{support['support_definition']} semantics; this is the distinct full-support witness."
+    )
+    corrected = (
+        "Literal registry-overlap STOP remains. " + lattice_text + " " + witness
+        + " No density/calibration exemption; historical run-card text is preserved. "
+        + "See evidence/registry_overlap_claim_correction_2026-10-26.json"
+    )
+    messages = []
+    for message in card.get("failed_or_unknown_gates", []):
+        if message.startswith("Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice"):
+            messages.append(corrected)
+        else:
+            messages.append(message)
+    return messages
+
+
 def rbu31_download_and_gates() -> str:
     """RBU31(-B) regime-balanced union section, fully driven by its run card.
 
@@ -241,47 +286,39 @@ def rbu31_download_and_gates() -> str:
     rc = json.loads(rc_path.read_text())
     hr = json.loads(hr_path.read_text())
     gates = rc["automated_gates"]
-    promote = bool(rc.get("ok_to_download_and_submit"))
+    # This is an archived experiment, never the active run or a selector approval.
     scr = hr["experiment_1_screen_draw_101"]
     conf = hr.get("experiment_2_confirmation")
     proxies = hr["experiment_3_sgmc_proxies"]["candidates"]
     pr, pb, ph = proxies["rbu31"], proxies["baseline_d_final"], proxies["h33_2_b2_actual_peer_file"]
     dup = rc["correlation_overlap_vs_registry"]
+    support = registry_support_summary()
     name = esc(rc["submission_name"])
     note = esc(rc["submission_note"])
 
     def badge(ok):
         return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
 
-    verdict_badge = (
-        '<span class="badge badge-green">&#9989; OK TO DOWNLOAD AND SUBMIT &middot; ALL AUTOMATED GATES PASS</span>'
-        if promote else
-        '<span class="badge badge-red">&#10060; DO NOT SUBMIT &middot; AUTOMATED GATES FAILED (research only)</span>')
-    heading = (
-        "RBU31 Regime-Balanced Union: &#9989; OK to download and submit"
-        if promote else
-        "RBU31 Regime-Balanced Union: &#10060; Do not submit")
+    verdict_badge = '<span class="badge badge-red">&#10060; RESEARCH DOWNLOAD ONLY &middot; DO NOT SUBMIT</span>'
+    heading = "Historical RBU31 research artifact: &#10060; DO NOT SUBMIT"
     conf_row = ("not run (screen stop)" if not conf else
                 f"HOLDOUT-DTI {conf['rbu31_pooled_dti']:.4f} [{conf['rbu31_ci95'][0]:.4f}, {conf['rbu31_ci95'][1]:.4f}] "
                 f"vs {conf['baseline_d_pooled_dti']:.4f} (delta {conf['paired_delta_dti']:+.4f}, "
                 f"95% CI [{conf['paired_delta_ci95'][0]:+.4f}, {conf['paired_delta_ci95'][1]:+.4f}]); "
                 f"{conf['withheld_positives_pooled']:,} withheld positives")
     return f'''<section id="rbu31" aria-labelledby="rbu31-heading">
-      <div class="section-head"><div><p class="kicker">2026-10-25 New Unique Candidate &middot; RBU31 (Experiment 13)</p>
+      <div class="section-head"><div><p class="kicker">Historical research artifact &middot; RBU31 (Experiment 13)</p>
         <h2 id="rbu31-heading">{heading}</h2></div>
-        <p>One union model (raw-39 + SCGP-40 features in the same trees) trained with regime-balanced sample weights
-           (piedmont det_elev &le; 50 m vs mountain), validated end-to-end by automated gates &mdash; no human inspector.
-           Every dot is newly computed; no prior submission dots were copied.</p></div>
+        <p>Archived union model (raw-39 + SCGP-40 features) with regime-balanced sample weights. Its automated results are
+           historical and negative; they do not make the artifact current, globally unique, or approved for upload.</p></div>
       <div class="card download-card">
         {verdict_badge}
         <h3 style="margin-top:18px">{name}</h3>
-        <p>Why this can beat the family's best reported file: GEMSDOE32 H33-2-B2 is the older D2.8 surface minus dots
-           within 2 px of the known catalogue (a pruning rule, not a new detector). RBU31 keeps that verified DTI
-           economics (2.8 px spacing matched to the 300 m kernel; &gt;2 px catalogue prune) but replaces the surface
-           with one that ranks both buried piedmont faults (gravity/basement cross-gradient physics) and mountain
-           scarps (raw 1 m LiDAR bands in the same trees), without the catalogue's 72% piedmont mapping bias.</p>
+        <p><b>Historical hypothesis, not a score projection:</b> RBU31 attempted to combine buried-piedmont geophysics
+           and mountain scarps. Its local holdout and SGMC results below are negative/inconclusive and do not establish
+           an improvement over any organizer score or a global-best submission.</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/{name}-allfinite.tif" download>&#11015; Download submission .tif (all-finite [0, 1], recommended)</a>
+          <a class="button button-primary" href="downloads/{name}-allfinite.tif" download>&#11015; Download RBU31 research TIFF — DO NOT SUBMIT</a>
           <a class="button" href="downloads/{name}-nan.tif" download>NaN-outside .tif</a>
           <a class="button" href="downloads/{name}-nan.zip" download>Single-TIFF .zip</a>
           <a class="button" href="downloads/{name}-format-check.json" download>Format receipt .json</a>
@@ -292,8 +329,8 @@ def rbu31_download_and_gates() -> str:
           &ldquo;Predicted values must be in range [0, 1]&rdquo; check cannot trip on NaN/sentinels) &middot; 0 dots on the public catalogue.<br>
           <strong>SHA-256 (all-finite):</strong> <code>{esc(rc['raster_sha256']['allfinite'])}</code><br>
           <strong>SHA-256 (NaN-outside):</strong> <code>{esc(rc['raster_sha256']['nan_outside'])}</code><br>
-          <strong>Unique name:</strong> <code>{name}</code><br>
-          <strong>Portal note ({rc['submission_note_chars']}/140):</strong> <code>{note}</code></p>
+          <strong>Artifact name (not uniqueness or upload approval):</strong> <code>{name}</code><br>
+          <strong>Reserved portal note; do not upload ({rc['submission_note_chars']}/140):</strong> <code>{note}</code></p>
       </div>
       <div class="table-wrap" style="margin-top:18px"><table>
         <thead><tr><th>Automated gate</th><th>Threshold</th><th>Measured RBU31 value</th><th>Status</th></tr></thead>
@@ -301,7 +338,7 @@ def rbu31_download_and_gates() -> str:
           <tr><td><code>G1 &middot; Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730&times;3292, float32, finite in footprint, values in [0, 1]</td><td>see format receipt</td><td>{badge(gates['G1_format_and_range_0_1_pass'])}</td></tr>
           <tr><td><code>G2 &middot; Leakage canary</code></td><td>every one of 79 features alone: two-sided AUC &le; 0.90</td><td>max AUC = {rc['leakage_canary']['max_two_sided_auc']:.4f}</td><td>{badge(gates['G2_leakage_canary_pass'])}</td></tr>
           <tr><td><code>G3a &middot; Uniqueness vs genuine submissions</code></td><td>surface |&rho;| &le; 0.90 and 3-px dot overlap &le; 70% vs {dup['checked_count']} registry/peer rasters (incl. the 9 focus sites' best)</td><td>max |&rho;| = {max(abs(dup['max_surface_spearman_rho']), abs(dup['max_final_dots_spearman_rho'])):.4f}; max 3-px overlap = {100*dup['max_final_dots_within_3px']:.2f}%</td><td>{badge(gates['G3a_uniqueness_genuine_registry_pass'])}</td></tr>
-          <tr><td><code>G3b &middot; Spacing-5 lattice (695-raster registry)</code></td><td>literal rule</td><td>universal degeneracy disclosed: the lattice covers 100% of the interior within 3 px for ANY non-empty candidate</td><td><span class="badge badge-red">DISCLOSED</span></td></tr>
+          <tr><td><code>G3b &middot; Shared-registry support (695-raster audit)</code></td><td>literal rule; no calibration/density exemption</td><td>Separate {support['continuous_repo']} continuous raster: positive support on {support['continuous_positive_pixels']:,}/{support['continuous_allowed_pixels']:,} allowed cells under {esc(support['support_definition'])}. The r13 spacing-5 lattice is distinct; its 3-px halo covers {support['lattice_footprint_coverage_pct']:.4f}% of the footprint, not 100% universally.</td><td><span class="badge badge-red">STOP / NOT APPROVED</span></td></tr>
           <tr><td><code>G4a &middot; Holdout screen (draw 101, 21.3 km)</code></td><td>&Delta;DTI &gt; 0.002 and &ge; 3/4 folds</td><td>HOLDOUT-DTI {scr['rbu31_poisson']['pooled_dti']:.4f} vs {scr['baseline_d_poisson']['pooled_dti']:.4f} (delta {scr['paired_delta_dti']:+.4f}, {scr['folds_won_out_of_4']}/4 folds)</td><td>{badge(scr['paired_delta_dti'] > 0.002 and scr['folds_won_out_of_4'] >= 3)}</td></tr>
           <tr><td><code>G4b &middot; Fresh confirmation (draws 202, 303)</code></td><td>&Delta;DTI &gt; 0.002, paired 95% CI &gt; 0</td><td>{conf_row}</td><td>{badge(gates['G4_holdout_screen_and_fresh_confirmation_pass'])}</td></tr>
           <tr><td><code>G5 &middot; Off-catalogue SGMC, all regimes</code></td><td>beat Baseline-D AND GEMSDOE32 H33-2-B2 on all / piedmont / mountain</td><td>all {pr['sgmc_all_dti']:.4f} (Base {pb['sgmc_all_dti']:.4f}, H33 {ph['sgmc_all_dti']:.4f}) &middot; piedmont {pr['sgmc_piedmont_dti']:.4f} (Base {pb['sgmc_piedmont_dti']:.4f}, H33 {ph['sgmc_piedmont_dti']:.4f}) &middot; mountain {pr['sgmc_mountain_dti']:.4f} (Base {pb['sgmc_mountain_dti']:.4f}, H33 {ph['sgmc_mountain_dti']:.4f})</td><td>{badge(gates['G5_sgmc_all_piedmont_mountain_beats_baseline_and_h33'])}</td></tr>
@@ -317,31 +354,53 @@ def rbu31_download_and_gates() -> str:
 
 def download(card):
     link = links(card)
+    submit_approved = card.get("ok_to_submit") is True and card.get("slot_approved") is True
+    research_download = card.get("ok_to_download_for_research") is True
+    if submit_approved:
+        status = "APPROVED FOR SUBMISSION"
+        button = "Download approved current-run TIFF"
+        note = "Follow the exact-byte receipt and verify the weekly quota before upload."
+        badge_class = "badge-green"
+        portal_note_label = "Portal note"
+    elif research_download:
+        status = "RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT"
+        button = "Download current research TIFF — DO NOT SUBMIT"
+        note = "The active run is negative/inconclusive and the literal duplicate gate is STOPPED; no submission slot is approved."
+        badge_class = "badge-red"
+        portal_note_label = "Reserved note (do not upload unless separately approved)"
+    else:
+        status = "NOT CLEARED FOR SUBMISSION"
+        button = "Download current-run artifact"
+        note = "No verified submission approval is recorded. Do not upload this file."
+        badge_class = "badge-red"
+        portal_note_label = "Reserved note (not approved for upload)"
     return f'''<section id="download" aria-labelledby="download-heading">
-      <div class="section-head"><div><p class="kicker">New artifact · 2026-10-25</p>
-        <h2 id="download-heading">OK to download. Not approved for upload.</h2></div>
-        <p>Research-only. Automated scientific gates failed; no human inspection is needed to reach that decision.</p></div>
+      <div class="section-head"><div><p class="kicker">Active run · exact file from registry/current_run.json</p>
+        <h2 id="download-heading">{status}</h2></div>
+        <p>{note}</p></div>
       <div class="card download-card">
-        <span class="badge badge-red">DO NOT SUBMIT · negative result</span>
-        <h3 style="margin-top:18px">MAGREST · magnetic texture restoration</h3>
-        <p>Newly computed from magnetic data, not copied or thinned from a prior submission.</p>
+        <span class="badge {badge_class}">{status} · slot_approved={str(bool(card.get('slot_approved'))).lower()}</span>
+        <h3 style="margin-top:18px">{esc(card['submission_name'])}</h3>
+        <p>Active MAGREST artifact; newly computed from magnetic data, not copied or thinned from a prior submission.</p>
         <div class="actions">
-          <a class="button button-dark" href="{link('file')}" download>Download new research TIFF</a>
+          <a class="button button-dark" href="{link('file')}" download>{button}</a>
           <a class="button" href="{link('zip_file')}" download>One-TIFF ZIP</a>
           <a class="button" href="downloads/magrest-run-card.json" download>Validation + run card</a>
         </div>
         <p class="download-meta"><strong>Primary encoding:</strong> float32 · one band · EPSG:32611 · 3730 × 3292 · 100 m ·
           values exactly 0 or 1 · finite everywhere · zero outside footprint · no nodata tag.<br>
           <strong>SHA-256:</strong> <code>{esc(card['raster_sha256'])}</code><br>
-          <strong>Name:</strong> <code>{esc(card['submission_name'])}</code><br>
-          <strong>Note ({len(card['note'])}/140):</strong> <code>{esc(card['note'])}</code></p>
+          <strong>Artifact name:</strong> <code>{esc(card['submission_name'])}</code><br>
+          <strong>{portal_note_label} ({len(card['note'])}/140):</strong> <code>{esc(card['note'])}</code></p>
         <p class="small" style="margin-top:18px"><a href="{link('nan_file')}" download>NaN-outside version</a> ·
           <a href="{link('nan_zip')}" download>NaN one-TIFF ZIP</a>.
           Same predictions inside the footprint. The recorded problem-page wording uses NaN/null outside;
           the all-finite primary is a defensive range-check encoding, not proof of organizer acceptance.
-          Both are research-only while the convention and submission gates remain unresolved.</p>
+          Both variants inherit the active run's approval status; format validation alone never approves upload.
+          The downloadable run card is the original frozen receipt; the additive registry correction explains its older lattice-attribution wording.</p>
       </div>
     </section>'''
+
 
 def h3_download_and_gates() -> str:
     """Download section for the H3 LiDAR-scarp research TIF."""
@@ -363,13 +422,13 @@ def h3_download_and_gates() -> str:
     dti_gap = _gap.get('HOLDOUT_DTI')
     canary_sgmc = h3.get('canary', {}).get('auc_off_catalogue_sgmc', 0) or 0
     canary_cat = h3.get('canary', {}).get('auc_catalogue', 0) or 0
+    sgmc_cell = f"HOLDOUT-DTI {dti_sgmc:.4f} (61,664 proxy truth cells)" if dti_sgmc is not None else "Not reported"
+    gap_cell = f"HOLDOUT-DTI {dti_gap:.4f} vs D28 incumbent 0.0435" if dti_gap is not None else "Not reported"
     return f'''
 <section id="h3-download" aria-labelledby="h3-heading">
-  <div class="section-head"><div><p class="kicker">New artifact · H3 LiDAR scarp · 2026-10-25</p>
-    <h2 id="h3-heading">OK to download for research. NOT approved for upload.</h2></div>
-    <p>Holdout proxies disagree (catalogue-gap vs off-catalogue SGMC). Full 716-raster registry cache
-    was unavailable for the uniqueness gate. Labelled research-only until both proxies agree and the
-    registry gate passes.</p></div>
+  <div class="section-head"><div><p class="kicker">Historical research artifact · H3 LiDAR scarp · 2026-10-25</p>
+    <h2 id="h3-heading">Research download only. NOT approved for upload.</h2></div>
+    <p>Its holdout proxies disagree, and the original run lacked a broad registry check. Later registered evidence includes a separate full-support GEMSDOE48 continuous raster under finite-value &gt; 0 semantics; this archived H3 file is not submission-approved.</p></div>
   <div class="card download-card">
     <span class="badge badge-red">RESEARCH ONLY · verdict = negative · not promoted</span>
     <h3 style="margin-top:18px">{esc(name)}</h3>
@@ -394,16 +453,14 @@ def h3_download_and_gates() -> str:
             <td><span class="badge badge-green">PASS</span> {canary_sgmc:.3f} (&lt;= 0.90)</td></tr>
         <tr><td>Single-feature leakage canary (catalogue AUC)</td>
             <td><span class="badge badge-green">PASS</span> {canary_cat:.3f} (&lt;= 0.90)</td></tr>
-        <tr><td>Holdout DTI — off-catalogue SGMC</td>
-            <td>HOLDOUT-DTI {dti_sgmc:.4f} (truth px 61,664)</td> if dti_sgmc is not None else <td>HOLDOUT-DTI n/a</td></tr>
-        <tr><td>Holdout DTI — catalogue-gap (seed 1)</td>
-            <td>HOLDOUT-DTI {dti_gap:.4f} vs D28 incumbent 0.0435</td></tr>
+        <tr><td>Holdout DTI — off-catalogue SGMC</td><td>{sgmc_cell}</td></tr>
+        <tr><td>Holdout DTI — catalogue-gap (seed 1)</td><td>{gap_cell}</td></tr>
         <tr><td>Format validation (NaN)</td>
             <td><span class="badge {'badge-green' if ok_nan else 'badge-red'}">{'PASS' if ok_nan else 'FAIL'}</span></td></tr>
         <tr><td>Format validation (all-finite)</td>
             <td><span class="badge {'badge-green' if ok_fin else 'badge-red'}">{'PASS' if ok_fin else 'FAIL'}</span></td></tr>
-        <tr><td>716-raster uniqueness gate</td>
-            <td><span class="badge badge-red">CACHE UNAVAILABLE — not checked</span></td></tr>
+        <tr><td>Historical broad-registry gate</td>
+            <td><span class="badge badge-red">NOT APPROVED — original preflight incomplete; separate full-support witness blocks under the recorded support rule</span></td></tr>
         <tr><td>Submission approval</td>
             <td><span class="badge badge-red">NOT APPROVED — do not upload</span></td></tr>
       </tbody>
@@ -413,70 +470,58 @@ def h3_download_and_gates() -> str:
 '''
 
 
-def _rbu31_card():
-    for sub in ("regime31b", "regime31"):
-        rc_path = ROOT / "evidence" / sub / "run_card.json"
-        if rc_path.is_file():
-            return json.loads(rc_path.read_text())
-    return None
-
-
 def overview(card):
+    # Render the active run from registry/current_run.json, never an older experiment card.
     link = links(card)
-    rbu = _rbu31_card()
-    if rbu is not None:
-        promote = bool(rbu.get("ok_to_download_and_submit"))
-        verdict = ("&#9989; OK TO DOWNLOAD AND SUBMIT" if promote else "&#10060; DO NOT SUBMIT")
-        hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · newest unique candidate: RBU31 regime-balanced union</p>
-      <h1>{verdict}</h1>
-      <p class="hero-lede">RBU31 ({esc(rbu['submission_name'])}) is a newly computed, duplicate-screened GeoTIFF &mdash;
-        not a copy or re-thinning of any previous submission. Its automated validation verdict is shown above and
-        gate-by-gate below; no human inspection is required. Older candidates (H31-E2, MAGREST) keep their own
-        sections and verdicts further down this page.</p>
-      <div class="actions"><a class="button button-primary" href="downloads/{esc(rbu['submission_name'])}-allfinite.tif" download>&#11015; Download the RBU31 submission .tif</a>
-        <a class="button button-light" href="executive-summary.html">How to submit (executive summary)</a></div>
-      </div><aside class="hero-side" aria-label="Submission decision">
-        <strong>Verdict: {esc(rbu['verdict'].upper())} &middot; gates G1&ndash;G5 {'ALL PASS' if promote else 'see gate table'}</strong>
-        <p>Format/[0, 1] range, leakage canary, uniqueness vs the nine focus sites' best files,
-          21.3 km buffered holdout screen + fresh confirmation, and off-catalogue SGMC in all regimes.
-          HOLDOUT-DTI is a local proxy, not a leaderboard score; no slot has been spent by this software.</p></aside></div></section>'''
-        return hero, _overview_body(card, hero_rbu=True)
+    submit_approved = card.get("ok_to_submit") is True and card.get("slot_approved") is True
+    research_download = card.get("ok_to_download_for_research") is True
+    name = esc(card["submission_name"])
+    if submit_approved:
+        status = "APPROVED FOR SUBMISSION"
+        cta = "Download approved current-run TIFF"
+        lede = f"The active run ({name}) is explicitly marked okay to submit and has selector approval. Verify the exact receipt and quota before upload."
+    elif research_download:
+        status = "RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT"
+        cta = "Download MAGREST research TIFF — DO NOT SUBMIT"
+        lede = f"The active run ({name}) is a research-only artifact. Its efficacy screen is negative/inconclusive and the literal duplicate gate is STOPPED; no submission slot is approved."
+    else:
+        status = "NOT CLEARED FOR SUBMISSION"
+        cta = "Download current-run artifact"
+        lede = f"The active run ({name}) has no verified submission approval. Do not upload it."
     hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · new experiment, auditable outcome</p>
-      <h1>A new GeoTIFF.<br>A clear decision.</h1>
-      <p class="hero-lede">MAGREST tests displaced magnetic texture instead of copying the existing dot family.
-        The file has new, format-valid bytes but fails the literal shared-registry overlap rule. It is <strong>not approved for submission</strong>.</p>
-      <div class="actions"><a class="button button-primary" href="{link('file')}" download>Download new research TIFF</a>
+      <p class="eyebrow">DOE GEMS Prize · active run · {name}</p>
+      <h1>{status}</h1>
+      <p class="hero-lede">{lede}</p>
+      <div class="actions"><a class="button button-primary" href="{link('file')}" download>{cta}</a>
         <a class="button button-light" href="executive-summary.html">Status + submission guide</a></div>
       </div><aside class="hero-side" aria-label="Submission decision">
-        <strong>Research download only · DO NOT SUBMIT</strong>
-        <p>Literal registry overlap STOP at 100%; paired efficacy is also unestablished. No competition slot used.
-          A valid TIFF is not evidence of a winning fault detector.</p></aside></div></section>'''
-    return hero, _overview_body(card, hero_rbu=False)
+        <strong>{status}</strong>
+        <p>Format validity is separate from efficacy, registry uniqueness, selector approval, organizer acceptance, and weekly quota.
+          No local HOLDOUT-DTI or SGMC proxy is a competition score.</p></aside></div></section>'''
+    return hero, _overview_body(card)
 
 
-def _overview_body(card, *, hero_rbu: bool):
+def _overview_body(card):
     s = card["holdout_dti"]
     delta = card["paired_difference"]
     final = card["registry"]["final"]
-    magrest_notice = '''<div class="notice notice-danger"><strong>Not approved for upload.</strong>
-      Automated verdict: NEGATIVE under the literal 695-raster shared-registry overlap rule. Download RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
-      '''
-    body = f'''{rbu31_download_and_gates()}
-      {magrest_notice}{h31m_download_and_gates()}
+    support = registry_support_summary()
+    r13_coverage = support["lattice_footprint_coverage_pct"]
+    body = f'''<div class="notice notice-danger"><strong>Active status: RESEARCH DOWNLOAD ONLY — DO NOT SUBMIT.</strong>
+      MAGREST is the current run. RBU31, H31-M, H31-HVDC, H31-E2, and H3 are archived research artifacts with their own negative or blocked records; none is a recommended upload.</div>
+      {download(card)}
+      {rbu31_download_and_gates()}
+      {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       {scgp_download_and_gates()}
-      {download(card)}
       {h3_download_and_gates()}
-      {h3_download_and_gates()}
-      <section><div class="section-head"><div><p class="kicker">Four separate gates</p><h2>What passed, and what did not</h2></div>
-        <p>These statuses are rebuilt from the exact file, receipts, holdout terms and registry checks.</p></div>
+      <section><div class="section-head"><div><p class="kicker">Separate gates</p><h2>What passed, and what did not</h2></div>
+        <p>These statuses come from the active run card, exact-file receipts, holdout terms, and registered overlap evidence.</p></div>
         <div class="grid grid-4">
-          <div class="card stat"><span class="badge badge-green">PASS</span><h3>File format</h3><p>Exact grid. No NaN inside. All values in [0,1].</p></div>
-          <div class="card stat"><span class="badge badge-red">STOP · 100% overlap</span><h3>Registry separation</h3><p>Nine-tree audit passed, but an authentic shared-registry lattice exceeds the literal 70% rule.</p></div>
-          <div class="card stat"><span class="badge badge-red">FAIL</span><h3>Scientific screen</h3><p>Paired 95% interval crosses zero; worst block exceeds loss limit.</p></div>
-          <div class="card stat"><span class="badge badge-red">BLOCKED</span><h3>Submit?</h3><p>No confirmation, no selector promotion, no organizer receipt.</p></div>
+          <div class="card stat"><span class="badge badge-green">PASS</span><h3>File format</h3><p>Exact grid; finite in-footprint values in [0,1]. Local validation is not organizer acceptance.</p></div>
+          <div class="card stat"><span class="badge badge-red">STOP · 100% candidate overlap</span><h3>Registry separation</h3><p>The r13 lattice's 3-px halo overlaps all MAGREST dots; a separate full-support continuous raster is the universal witness under the current &gt;0 rule.</p></div>
+          <div class="card stat"><span class="badge badge-red">NEGATIVE / INCONCLUSIVE</span><h3>Scientific screen</h3><p>The paired 95% interval crosses zero; this is not evidence of a competition-score gain.</p></div>
+          <div class="card stat"><span class="badge badge-red">BLOCKED</span><h3>Submit?</h3><p>No selector approval or organizer receipt. The research download is not approved for submission.</p></div>
         </div>
       </section>
       <section><div class="section-head"><div><p class="kicker">HOLDOUT-DTI · not a competition score</p><h2>A nominal gain is not a validated gain</h2></div>
@@ -487,17 +532,17 @@ def _overview_body(card, *, hero_rbu: bool):
           <tr><td>Paired difference</td><td>{delta['delta']:+.4f} [{delta['ci95'][0]:+.4f}, {delta['ci95'][1]:+.4f}]</td><td>Does not establish improvement; no fresh confirmation authorized</td></tr>
         </tbody></table></div>
         <p class="small">Registry diagnostics, not DTI: final max |Spearman ρ| {final['max_abs_rho']:.6f};
-          max dots within 3 px {100*final['max_overlap']:.2f}% (limits 0.90 / 70%).
-          The nine download-tree audit passed; the shared 695-raster registry contains a spacing-5 control covering every candidate dot. One valid counterexample is enough to STOP; no full broad-registry pass is claimed.</p>
+          MAGREST final dots within 3 px of the r13 spacing-5 lattice: {100*final['max_overlap']:.2f}%.
+          The lattice's own 3-px halo covers {r13_coverage:.4f}% of the footprint, not 100% universally. Separately, a registered {support['continuous_repo']} continuous raster has positive support on all {support['continuous_allowed_pixels']:,} allowed cells under the {esc(support['support_definition'])} interpretation; that distinct full-support witness yields 100% forward overlap. No calibration/density exemption applies. The nine-tree subset audit is not a broad-registry pass.</p>
       </section>
       <section><div class="section-head"><div><p class="kicker">Research, not optimism</p><h2>Why the previous family looked strong</h2></div>
-        <p>Geometry can be verified. A reported score cannot be authenticated without an organizer receipt.</p></div>
-        <div class="grid grid-2"><div class="card"><h3>H33 is a pruning rule, not a new detector</h3>
-          <p>Byte-level analysis confirms H33 = D2.8 minus dots within 2 pixels of the catalogue.
-            Sparse, separated emissions can reduce redundant false-positive cost under the triangular DTI kernel.</p></div>
+        <p>Geometry can be measured. A reported score's cause cannot be authenticated without exact-byte organizer evidence.</p></div>
+        <div class="grid grid-2"><div class="card"><h3>H33 is plausibly a pruning rule, not a new detector</h3>
+          <p>The repository's pixel audit finds H33 support matches D2.8 with dots within 2 pixels of the public catalogue.
+            This geometry may reduce redundant false-positive cost under the triangular DTI kernel, but it does not prove why the user-reported 0.2778 occurred.</p></div>
           <div class="card"><h3>Can we beat the reported 0.2778?</h3><p>Unknown. No result here establishes that.
-            New fault-specific information and a significant comparable holdout win are needed;
-            renaming, re-budgeting or copying the same dots does not establish discovery.</p></div></div>
+            A new candidate needs validated fault-specific information and a significant comparable holdout win;
+            none would establish an organizer score without a receipt.</p></div></div>
         <p><a href="research.html">Full nine-repository review, hypotheses and geological limits</a> ·
           <a href="validation.html">Validation details</a> · <a href="register/index.html">Evidence registers</a></p>
       </section>'''
@@ -562,29 +607,30 @@ def focus_site_summary() -> str:
 
 
 def executive(card):
-    failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
+    failed = "".join(f"<li>{esc(x)}</li>" for x in public_failed_gate_messages(card))
     focus_summary = focus_site_summary()
-    return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
-      The RBU31-B regime-balanced union, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are format-validated and available to download in one click; all are research-only (each fails at least one automated gate &mdash; see its own gate table below &mdash; and all fail the unexempted 695-raster shared-registry overlap gate). Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+    submit_approved = card.get("ok_to_submit") is True and card.get("slot_approved") is True
+    active_status = "APPROVED FOR SUBMISSION" if submit_approved else "RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT"
+    return f'''<div class="notice notice-danger"><strong>Active run: {active_status}.</strong>
+      MAGREST is the active run card and is available for research download only. RBU31, H31-M, H31-HVDC, H31-E2, and H3 are archived research records; none is a submission recommendation. A valid TIFF, local HOLDOUT-DTI, or SGMC proxy is not organizer acceptance or a competition score. No human or selector approval overrides a failed hard gate.</div>
+      {download(card)}
       {focus_summary}
       {rbu31_download_and_gates()}
       {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       {scgp_download_and_gates()}
-      {download(card)}
       {h3_download_and_gates()}
-      {h3_download_and_gates()}
-      <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>
-        <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
+      <section><div class="section-head"><div><p class="kicker">Exact active-run decision</p><h2>Why upload is blocked</h2></div>
+        <p>File validity, registry uniqueness, scientific efficacy, selector approval, and organizer acceptance are separate questions.</p></div>
         <div class="card"><ul>{failed}</ul></div>
       </section>
       <section><div class="section-head"><div><p class="kicker">For a future approved candidate</p><h2>How to enter a submission</h2></div>
         <p>These are portal instructions, not permission to submit the current research file.</p></div>
         <div class="card"><ol>
-          <li>Confirm the generated readiness receipt says <code>ok_to_submit: true</code> for the exact file. Today it says <code>false</code>.</li>
+          <li>Confirm the generated readiness receipt says <code>ok_to_submit: true</code> and a separate selector approval exists for the exact file. Today they do not.</li>
           <li>Download the approved <code>.tif</code> or the ZIP containing that single TIFF. Do not upload a report, run-card JSON, input feature stack or multi-file ZIP.</li>
           <li>Use your own <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData competition page</a> to open New submission, accept the rules and check the remaining weekly quota. This project does not know or spend your current quota.</li>
-          <li>Under File to submit, select that approved file. Use its generated unique name and paste its note (at most 140 characters) into Note (optional).</li>
+          <li>Under File to submit, select that approved file. Use its generated name and paste its note (at most 140 characters) into Note (optional).</li>
           <li>Only after approval and quota checks, submit. Keep the organizer's receipt, exact SHA-256, name and reported result together. Until that receipt exists, no result is ORGANIZER-CONFIRMED.</li>
         </ol></div>
       </section>
@@ -610,7 +656,7 @@ def parallel_archives():
       <div class="notice"><strong>No approval is imported from an archived card.</strong>The H31-B card's original promote flag is not reproduced or endorsed by this run, and is not selector authority. AS-1/TGJ31 negative records are retained. Main merge #12 removed earlier merged files; this integration restored their source/evidence/TIFF history without another fit or candidate.</div>
       <div class="table-wrap"><table><thead><tr><th>Archived TIFF</th><th>SHA-256 · computed from bytes</th><th>Current authority</th></tr></thead><tbody>{rows}</tbody></table></div>
       <p class="small">Restoration manifest: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/parallel_history_preservation_20261025.json">exact source commits and hashes</a>.
-      The old workflow, extra HTML page and obsolete active-homepage assertion are archived rather than re-enabled. The current site remains 20 pages.</p></section>'''
+      The old workflow, extra HTML page and obsolete active-homepage assertion are archived rather than re-enabled. The current site remains within the 21-page budget.</p></section>'''
 
 
 def research(card, screen, focus, lineage):
@@ -622,8 +668,7 @@ def research(card, screen, focus, lineage):
     rel = lineage["relations"]
     proxy = card["sgmc_proxy"]
     return f'''<div class="notice"><strong>Evidence boundary</strong>Only measured geometry and local holdouts are verified here.
-      The literal registry gate FAILS: a registered spacing-5 lattice covers 99.52%–100% of fixed variants’ dots, and GEMSDOE48 continuous pignistic covers 100%. No new fit or TIFF follows this STOP. The reported 0.2778 and conflicting leaderboard anchors 0.3195 / 0.4413 have no organizer receipt in this project.
-      Non-GitHub official pages cannot be re-fetched under this environment's host allowlist.</div>
+      The literal registry gate FAILS. The r13 spacing-5 lattice's 3-px halo covers 99.8713% of the footprint (not universally 100%) and overlaps specific frozen candidates by 99.52%–100%. A distinct GEMSDOE48 continuous raster has positive support on all 5,167,373 allowed cells under finite-value &gt; 0 semantics; this is the separate universal witness. No new fit or TIFF follows this STOP. The 0.2778 and conflicting 0.3195 / 0.4413 anchors remain USER-REPORTED without organizer receipts. No official external page was freshly fetched in this review.</div>
       {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       <section><div class="section-head"><div><p class="kicker">The central question</p><h2>Why H33 may have scored well</h2></div>
@@ -650,16 +695,15 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
           One 32×48 format-test fixture is retained in the inventory but cannot be compared on this grid.
           All comparable files in those trees were checked without density exemptions. This scope was insufficient for the shared registry. The registered calibration control is retained, not waived, and invalidates the broader lane-pass claim.</p>
       </section>
-      <section><div class="section-head"><div><p class="kicker">Before implementation</p><h2>Four ranked restoration hypotheses</h2></div>
-        <p>Ordinal research priorities, not projected scores. All proposed input layers are already hash-verified locally.</p></div>
-        <div class="table-wrap"><table><thead><tr><th>Rank / method</th><th>Layers / signature</th><th>Unmapped-fault mechanism; difference from old work</th><th>Non-fault mimic / cost</th></tr></thead><tbody>
-          <tr><td>1 · MAGREST · tested</td><td>B2 RTP; opposite-side normalized patch correlation gains after signed 2/4px translation</td><td>Covered, oblique displacement of older magnetic fabric; explicit restoration, not an amplitude/tilt/wavelength edge</td><td>Volcanic contacts or flight-line seams · medium</td></tr>
-          <tr><td>2 · GRAVREST · not fitted</td><td>B2 RTP + B13 gravity; compatible independent texture-restoration directions</td><td>Buried transfer structure shifting both fabrics; signed co-registration, not gradient conjunction</td><td>Intrusive/lithologic contacts; coarse gravity bandwidth · high</td></tr>
-          <tr><td>3 · RADREST · not fitted</td><td>GeoDAWN ranked K/Th/U channels; multichannel compositional-texture restoration</td><td>Offset compositional stripes on small splays; translation, not a radiometric contrast</td><td>Alluvial provenance or survey seams; quantized ranks not concentration ratios · medium-high</td></tr>
-          <tr><td>4 · TERRREST · not fitted</td><td>B12 elevation + B19 slope; detrended drainage-pattern restoration</td><td>Drainage offset without a preserved scarp; not a curvature or knickpoint detector</td><td>Stream capture/avulsion; likely underresolved at 100 m · high</td></tr>
+      <section><div class="section-head"><div><p class="kicker">Desk-only · not authorized for execution</p><h2>Four untried geological hypotheses</h2></div>
+        <p>Rank is a qualitative prior on potential DTI benefit relative to cost, not a measured effect. Absolute ΔDTI is unknown for every proposal; none is a competition-score projection.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Rank / qualitative DTI upside</th><th>Specific layers</th><th>Physical signature / unmapped-fault mechanism</th><th>How it differs from reviewed code</th><th>Non-fault mimic</th><th>Cost / data status</th></tr></thead><tbody>
+          <tr><td>1 · Acquisition-seam-aware magnetic lineament persistence — potentially highest relative upside; very uncertain</td><td><code>rtp</code>, <code>mag_anom</code>, optionally GeoDAWN <code>TMI_up150</code></td><td>Directional spectral anisotropy and lineament-edge persistence across scales; test whether fault-related magnetic boundaries continue across inferred acquisition/leveling seams.</td><td>Existing magnetic arms use gradients/tilt/Euler or MAGREST patch-texture restoration; this explicitly models a stripe/seam null plus cross-scale persistence.</td><td>Volcanic/lithologic contact, residual leveling seam, or real structures parallel to flight lines.</td><td>Medium. Owner-mirror band hashes are registered; production stack is not restored here and flight-line metadata is absent. Absolute ΔDTI: unknown.</td></tr>
+          <tr><td>2 · Multiscale gravity–magnetic edge-transfer coherence — medium-to-high relative upside; high uncertainty</td><td><code>rtp</code>, <code>iso_grav_anom</code>, <code>iso_grav_anom_slope</code>, <code>depth_to_base_surf</code></td><td>Scale-space edge transfer: compare polarity, tangent, termination and lateral displacement across magnetic, gravity and basement-depth fields to detect buried structures under cover.</td><td>Prior reviewed combinations mainly fuse scalar strengths/unions or local textures; this tests cross-field edge displacement/termination with a lithologic-contact null.</td><td>Pluton margin or basin-fill / lithologic contact shared across fields.</td><td>Medium-high. Bands are in the hash-pinned owner manifest, but the production stack/cache is absent here. Absolute ΔDTI: unknown.</td></tr>
+          <tr><td>3 · Piedmont drainage-deflection asymmetry — lower/uncertain upside; high cost</td><td>High-resolution USGS 3DEP DEM-derived channel network plus 100 m <code>det_elev</code></td><td>Blind-corridor lateral channel/tributary deflection or paired incision asymmetry after conditioning on regional slope and fan direction; could detect displacement without a preserved scarp.</td><td>Existing LiDAR modules quantify local scarps/relief; this tests network-scale drainage geometry instead.</td><td>Avulsion, fan-lobe switching, lithologic permeability boundary, irrigation or human diversion.</td><td>High and not data-ready. Exact official tiles, metadata and in-footprint coverage were not fetched/checked under this runtime's host allowlist. Do not call viable until hashed. Absolute ΔDTI: unknown.</td></tr>
+          <tr><td>4 · Radiometric channel edge displacement — low-to-medium relative upside; uncertain</td><td>GeoDAWN <code>K</code>, <code>Th</code>, <code>U</code>, <code>TC</code> plus <code>rtp</code></td><td>Repeatable, signed but laterally displaced K/Th/U transition edges across channels/scales; potential compositional expression of concealed structure rather than ratio extrema.</td><td>Earlier radiometric work uses contrast/rank features; this tests channel-wise edge geometry and offset consistency.</td><td>Alluvial provenance, weathering, volcanic-unit margin or acquisition seam.</td><td>Medium. Registered owner-mirror bands are quantized/coverage-limited and production files are not restored. Absolute ΔDTI: unknown.</td></tr>
         </tbody></table></div>
-        <p><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_magrest_preregistration.md">Full frozen preregistration</a>.
-          No assigned method paragraph was present, so MAGREST was explicitly self-assigned and that assumption logged. No other lane was fitted.</p>
+        <p class="small">These are repo-local hypotheses not identified as implemented in the source/evidence reviewed; that is not a claim of global scientific novelty. Resolve the missing assigned-method paragraph, literal full-support duplicate STOP, exhausted experiment budget, and data authorization before choosing any. See the <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-26_continuation.md">ranked desk-review record</a>.</p>
       </section>
       <section><div class="section-head"><div><p class="kicker">Three experiments · stopped after screen</p><h2>HOLDOUT-DTI results</h2></div>
         <p>{esc(card['holdout_dti']['evaluator_version'])} · pooled components · whole fault components withheld · 95% physical-block bootstrap CI.</p></div>
@@ -677,7 +721,7 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
       <section><div class="section-head"><div><p class="kicker">Limits and next steps</p><h2>What would justify another attempt</h2></div>
         <p>No fourth experiment in this session. Literal registry-overlap STOP; negative results are deliverables.</p></div>
         <div class="content"><ol>
-          <li>Resolve the protocol’s dense-control degeneracy without silently exempting the registered lattice. Within its interior, any new method’s dots pass within 3 pixels, so the literal rule blocks this lane regardless of geology. Only an explicitly revised future protocol could change that criterion.</li><li>Resolve magnetic-texture specificity. Synthetic checks show that undisplaced anisotropic fabric can also trigger a max-over-orientations detector. Do not label its response as measured fault slip.</li>
+          <li>Resolve the literal overlap STOP through an explicit protocol-owner decision about the inherited positive-support definition. The r13 lattice's 3-px halo covers 99.8713% of the footprint and overlaps the frozen candidates above threshold; separately, the continuous GEMSDOE48 field is full-support under finite-value &gt; 0 semantics. Do not misattribute the witnesses or add a private exemption.</li><li>Resolve magnetic-texture specificity. Synthetic checks show that undisplaced anisotropic fabric can also trigger a max-over-orientations detector. Do not label its response as measured fault slip.</li>
           <li>Design a new preregistration for reciprocal, across-window displacement consistency and a lithologic-contact/flight-line null, reserving fresh confirmation data/draws and never tuning on them. No confirmation was run in this session.</li>
           <li>Rebuild the strong legacy comparator under the shared whole-component protocol; estimate the new method's dependence range before claiming it beats the current best.</li>
           <li>Require a positive paired lower confidence bound, fresh confirmation and an independent off-catalogue win before the separate selector considers a slot.</li>
@@ -688,7 +732,7 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
           <a href="https://github.com/drivendataorg/gems-prize-reference-solution">organizer reference solution</a> ·
           <a href="https://doi.org/10.5066/P93LGLVQ">USGS GeoDAWN DOI</a> ·
           <a href="https://gdr.openei.org/submissions/1391">GDR 1391</a>.
-          Only the GitHub reference code was freshly retrieved here; the others are historical source references, not live verification.</p>
+          These are source references only; no official or external non-GitHub page was freshly fetched in this review.</p>
           <p><a href="downloads/magrest-run-card.json">Complete JSON run card</a> ·
           <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/tree/main/evidence/magrest">All measurements</a>.</p>
       </section>{scgp_download_and_gates()}{parallel_archives()}'''

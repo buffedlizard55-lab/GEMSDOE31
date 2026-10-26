@@ -16,7 +16,8 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path[:0] = [str(ROOT / "src"), str(ROOT / "vendor")]
+sys.path[:0] = [str(ROOT / "scripts"), str(ROOT / "src"), str(ROOT / "vendor")]
+from download_competition_data import _git_fetch_blob  # noqa: E402
 import numpy as np  # noqa: E402
 import rasterio  # noqa: E402
 from scipy.ndimage import distance_transform_edt  # noqa: E402
@@ -39,12 +40,25 @@ def load_counterexample(root=ROOT, *, restore=False):
         raise ValueError("counterexample is not actually registered")
     path = root / ref["cache_file"]
     if not path.exists() and restore:
-        b = subprocess.check_output(["gh", "api", f"repos/{ref['repo']}/contents/{ref['path']}?ref={ref['ref']}",
-                                     "-H", "Accept: application/vnd.github.raw"])
-        if hashlib.sha256(b).hexdigest() != ref["sha256"]:
-            raise ValueError("downloaded registry control hash mismatch")
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(b)
+        partial = path.with_name(path.name + ".partial")
+        partial.unlink(missing_ok=True)
+        fetched = _git_fetch_blob(ref["repo"], ref["ref"], ref["path"], partial)
+        if not fetched:
+            try:
+                with partial.open("wb") as out:
+                    subprocess.run(
+                        ["gh", "api", f"repos/{ref['repo']}/contents/{ref['path']}?ref={ref['ref']}",
+                         "-H", "Accept: application/vnd.github.raw"],
+                        stdout=out, stderr=subprocess.PIPE, check=True, timeout=1800,
+                    )
+                fetched = partial.is_file() and partial.stat().st_size > 0
+            except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+                fetched = False
+        if not fetched or sha(partial) != ref["sha256"]:
+            partial.unlink(missing_ok=True)
+            raise ValueError("registered registry control could not be restored and SHA-256 verified")
+        partial.replace(path)
     if not path.exists() or sha(path) != ref["sha256"]:
         raise ValueError("registered counterexample absent/changed; use --restore-small-inputs")
     with rasterio.open(path) as ds, rasterio.open(root / "data/sample_submission.tif") as sample:

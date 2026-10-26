@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-25",
+ "generated_utc": "2026-10-26",
  "protocol_scope": "Historical 2026-10-04 arms only; current MAGREST protocol is in its frozen preregistration and run card.",
  "protocol": {
   "folds": "four equal spatial blocks (NW/NE/SW/SE) of the 3730x3292 competition grid",
@@ -110,11 +110,6 @@
    "path": "evidence/h2_wide_spacing.json",
    "bytes": 804,
    "sha256": "78de251dfcb49671de42dea66a137307e95d7a15098685564f11133dcf87f035"
-  },
-  {
-   "path": "evidence/h2_wide_spacing_dots.npy",
-   "bytes": 12279288,
-   "sha256": "62f4e8974208f615755c872f298768aa6601adbd4866abf0c8b052f069422cbe"
   },
   {
    "path": "evidence/h31_a/pilot/cells.jsonl",
@@ -505,6 +500,11 @@
    "path": "evidence/regime31b/run_card.json",
    "bytes": 3805,
    "sha256": "f610749147717748f58984e1874830906ae0144442b37a197c662f468f08be68"
+  },
+  {
+   "path": "evidence/registry_overlap_claim_correction_2026-10-26.json",
+   "bytes": 3292,
+   "sha256": "a526d03b267110fc98372f06662e559c89e0fb50d8e95deb01dec1c513c20ba2"
   },
   {
    "path": "evidence/review_verification_20261025.json",

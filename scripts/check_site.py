@@ -10,6 +10,8 @@ Run after ``scripts/build_site.py``. Exits non-zero on any failure.
 
 from __future__ import annotations
 
+from collections import defaultdict
+from html.parser import HTMLParser
 import hashlib
 import json
 import re
@@ -45,6 +47,17 @@ def local_links(html: str) -> list[str]:
     return links
 
 
+class _IdCollector(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.ids: dict[str, int] = defaultdict(int)
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        for key, value in attrs:
+            if key == "id" and value:
+                self.ids[value] += 1
+
+
 def main() -> None:
     pages = sorted(DOCS.rglob("*.html"))
     if len(pages) > MAX_PAGES:
@@ -54,6 +67,13 @@ def main() -> None:
 
     for page in pages:
         html = page.read_text()
+        parser = _IdCollector()
+        parser.feed(html)
+        for element_id, count in parser.ids.items():
+            if count > 1:
+                fail(f"{page.relative_to(ROOT)}: duplicate HTML id {element_id!r} appears {count} times")
+        if "if dti_sgmc is not None" in html or "if dti_gap is not None" in html:
+            fail(f"{page.relative_to(ROOT)}: unrendered Python conditional leaked into HTML")
         for link in local_links(html):
             path = (page.parent / urlparse(link).path).resolve()
             if not path.exists():
@@ -70,29 +90,42 @@ def main() -> None:
                 fail(f"{page.relative_to(ROOT)}: pictogram/symbol U+{ord(character):04X} ({character!r}) in markup")
 
     index = (DOCS / "index.html").read_text()
-    active_run = (ROOT / "registry/current_run.json").exists()
-    required_button = "Download new research TIFF" if active_run else "Download reference TIFF"
+    active_path = ROOT / "registry/current_run.json"
+    active_run = active_path.exists()
+    required_button = "Download MAGREST research TIFF — DO NOT SUBMIT" if active_run else "Download reference TIFF"
     if required_button not in index:
         fail(f"index.html: the {required_button!r} button is missing")
     if active_run:
-        card = json.loads((ROOT / "registry/current_run.json").read_text())
+        card = json.loads(active_path.read_text())
         readiness = json.loads((DOCS / "downloads/readiness.json").read_text())
         actual = hashlib.sha256((ROOT / card["file"]).read_bytes()).hexdigest()
         if actual != card["raster_sha256"] or actual != readiness["sha256"]:
             fail("readiness/current run is stale relative to the served TIFF")
-        if readiness["ok_to_submit"] or card["ok_to_submit"]:
+        if readiness["ok_to_submit"] or card["ok_to_submit"] or card["slot_approved"]:
             fail("unsupported upload approval for this negative MAGREST run")
-        if "DO NOT SUBMIT" not in index or "downloads/" + Path(card["file"]).name not in index:
-            fail("index does not prominently expose the new artifact with DO NOT SUBMIT")
-    if "not approved for upload" not in index.lower():
+        if ("RESEARCH DOWNLOAD ONLY" not in index or "DO NOT SUBMIT" not in index
+                or "downloads/" + Path(card["file"]).name not in index
+                or card["submission_name"] not in index):
+            fail("index does not prominently expose the active artifact with DO NOT SUBMIT")
+        if "newest unique candidate: RBU31" in index or "Download the RBU31 submission .tif" in index:
+            fail("index promotes stale RBU31 evidence over registry/current_run.json")
+        if "GEMSDOE48" not in index or "99.8713%" not in index:
+            fail("index does not distinguish the continuous full-support witness from the 99.8713% lattice coverage")
+    if "not approved for upload" not in index.lower() and "research download only" not in index.lower():
         fail("index.html: the no-upload-approval warning is missing")
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
     executive = (DOCS / "executive-summary.html").read_text()
-    if "do not submit a download from this page yet" not in executive.lower():
-        fail("executive-summary.html: explicit no-upload-approval warning is missing")
-    if "Human sign-off cannot override a failed gate" not in executive:
-        fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
+    if "research download only" not in executive.lower() or "do not submit" not in executive.lower():
+        fail("executive-summary.html: explicit research-only/no-upload warning is missing")
+    if "No human or selector approval overrides a failed hard gate." not in executive:
+        fail("executive-summary.html: failed hard-gate status is not explicit")
+    if "newest candidate RBU31" in executive or "Download the RBU31 submission .tif" in executive:
+        fail("executive-summary.html: stale RBU31 evidence is presented as the active run")
+    old_lattice_claim = "100% of primary dots within 3 px of a registered spacing-5 lattice"
+    if (old_lattice_claim in executive or "99.8713%" not in executive
+            or "distinct full-support witness" not in executive or "GEMSDOE48" not in executive):
+        fail("executive-summary.html: active registry witnesses are conflated or correction is missing")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
         if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in html_text:
             fail(f"{page_name}: H31-E2 SCGP-Submod candidate name missing")
@@ -120,12 +153,50 @@ def main() -> None:
                     fail(f"{page_name}: {label} subset comparison incorrectly presented as broad uniqueness")
                 if "Portal Format" in html_text or "explicit human selector sign-off" in html_text:
                     fail(f"{page_name}: {label} unsupported portal acceptance or human override wording")
+                if label == "H31-M" and (
+                    "candidate-specific overlap with r13-lattice-s5" not in html_text
+                    or "distinct GEMSDOE48 full-support witness" not in html_text
+                ):
+                    fail(f"{page_name}: H31-M stop metadata conflates the lattice and continuous witness")
+
+    research_page = (DOCS / "research.html").read_text()
+    for hypothesis in (
+        "Acquisition-seam-aware magnetic lineament persistence",
+        "Multiscale gravity–magnetic edge-transfer coherence",
+        "Piedmont drainage-deflection asymmetry",
+        "Radiometric channel edge displacement",
+    ):
+        if hypothesis not in research_page:
+            fail(f"research.html: desk-only hypothesis missing: {hypothesis}")
+    if "Absolute ΔDTI: unknown" not in research_page or "not data-ready" not in research_page:
+        fail("research.html: hypothesis uncertainty/data-access limits are missing")
+    if "Within its interior, any new method’s dots pass within 3 pixels" in research_page:
+        fail("research.html: universal witness is incorrectly attributed to the r13 lattice")
 
     register = (ROOT / "registry" / "submissions.json").read_text()
     if '"slot_approved": true' in register:
         fail("a submission is marked slot-approved without a promotion gate record")
+    if "spacing-5 lattice covers 100% of interior within 3px for any candidate" in register:
+        fail("submission register repeats the incorrect universal-coverage attribution to the r13 lattice")
+    correction_path = ROOT / "evidence/registry_overlap_claim_correction_2026-10-26.json"
+    if not correction_path.is_file():
+        fail("registered correction for the distinct r13 lattice and GEMSDOE48 witnesses is missing")
+    else:
+        correction = json.loads(correction_path.read_text())
+        if correction.get("corrected_facts", [{}])[0].get("three_pixel_halo_footprint_coverage") != 0.9987132726822701:
+            fail("registry overlap correction no longer matches the recorded lattice coverage")
+        if correction.get("corrected_facts", [{}, {}])[1].get("positive_support_pixels") != 5167373:
+            fail("registry overlap correction no longer identifies the full-support witness")
     try:
         registry_data = json.loads(register)
+        active_record = next((r for r in registry_data.get("files", []) if r.get("id") == "magrest-current-negative"), None)
+        if active_record is None:
+            fail("submission register has no active MAGREST record")
+        else:
+            reason = active_record.get("why_not_slot_approved", "")
+            if ("100% of primary dots within 3 px of a registered spacing-5 lattice" in reason
+                    or "99.8713%" not in reason or "GEMSDOE48" not in reason):
+                fail("submission register: active MAGREST STOP misattributes the lattice/full-support witnesses")
         for record in registry_data.get("files", []):
             if not record.get("zip"):
                 continue
@@ -144,6 +215,9 @@ def main() -> None:
     feed = (DOCS / "feed.json").read_text()
     if "no organizer receipt" not in feed:
         fail("feed.json does not disclose the absent organizer receipt")
+    if ("100% of primary dots within 3 px of a registered spacing-5 lattice" in feed
+            or "99.8713%" not in feed or "GEMSDOE48" not in feed):
+        fail("feed.json: corrected lattice-versus-continuous support attribution is missing")
 
     print(f"checked {len(pages)} pages and {len(local_links(''.join(p.read_text() for p in pages)))} local links")
     for item in NOTES:

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-26",
+  "evidence_class": "REPOSITORY_REVIEW_CORRECTION",
+  "scope": "Correct active/generated wording about two distinct registered overlap witnesses. Historical experiment receipts remain byte-for-byte unchanged.",
+  "incorrect_attribution": "Some RBU31 and H31-E2 historical wording attributes universal 100% three-pixel footprint coverage to the r13 spacing-5 lattice.",
+  "corrected_facts": [
+    {
+      "artifact": "GEMSDOE24 r13 spacing-5 lattice",
+      "source_repo": "buffedlizard55-lab/GEMSDOE24",
+      "source_commit": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+      "source_path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "artifact_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "measurement_source": "evidence/magrest/registry_scope_correction.json",
+      "positive_pixels": 206895,
+      "three_pixel_halo_footprint_coverage": 0.9987132726822701,
+      "interpretation": "The lattice's three-pixel halo covers 99.871327% of the allowed footprint. This is not universal 100% coverage of every possible candidate. Specific fixed artifacts can still have 100% of their dots within its halo; for example, each frozen MAGREST variant does."
+    },
+    {
+      "artifact": "GEMSDOE48 H58 continuous pignistic raster",
+      "source_repo": "buffedlizard55-lab/GEMSDOE48",
+      "source_commit": "268ec599f51c517cc3485da077c24d83af5be81d",
+      "source_path": "docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+      "artifact_sha256": "59ef8e7d8374e228bc1e41376f03fc67dd5b8a5e6804885a1ae802f399140b89",
+      "registry_manifest": "registry/shared_registry_57_snapshot.json",
+      "measurement_source": "evidence/tgj31/registry_universal_blocker.json",
+      "positive_support_pixels": 5167373,
+      "allowed_pixels": 5167373,
+      "support_definition": "finite prediction > 0 (inherited literal support rule)",
+      "interpretation": "This is the distinct full-support witness. Under the inherited positive-support interpretation it yields 100% forward overlap for every nonempty candidate in the allowed footprint. It is a continuous field, not a sparse dot raster; this conclusion is conditional on that recorded support definition."
+    }
+  ],
+  "decision": "The unexempted overlap STOP remains in force. The fixed MAGREST variants individually exceed the 70% limit against the r13 lattice, and the separate GEMSDOE48 full-support witness is a universal blocker under the inherited finite-value > 0 semantics. Do not fit, place, emit, or package another TIFF under this stopped lane.",
+  "provenance_caveat": "The source repositories and the 695-raster snapshot are owner-maintained mirrors, not organizer-authenticated registry or scoring evidence. One registered counterexample suffices for the project's literal stop; no exhaustive scan or organizer acceptance is claimed.",
+  "preserved_historical_receipts": [
+    "evidence/regime31/run_card.json",
+    "evidence/regime31/holdout_results.json",
+    "evidence/regime31b/run_card.json",
+    "evidence/regime31b/holdout_results.json",
+    "evidence/h31e/run_card.json",
+    "docs/downloads/*rbu31*-run-card.json",
+    "docs/downloads/*rbu31*-format-check.json"
+  ]
+}

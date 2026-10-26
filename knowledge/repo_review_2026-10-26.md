@@ -6,6 +6,15 @@
 
 The executive summary now includes a generated nine-site prior-art matrix. It selects the highest score claim supplied for each requested site, links to the hash-pinned owner-mirror artifact, labels every value USER-REPORTED, and explicitly says none is upload-approved. This is an audit aid, not an authenticated current leaderboard.
 
+## Correction: two distinct registered overlap witnesses
+
+The earlier active wording incorrectly described the r13 spacing-5 lattice itself as a universal 100% footprint-coverage witness. The evidence distinguishes two rasters:
+
+- The pinned GEMSDOE24 r13 lattice has 206,895 positive cells. Its three-pixel halo covers `0.9987132726822701` of the allowed footprint (99.8713%); it is not a universal 100% coverage guarantee for every possible candidate. It does, however, overlap every frozen MAGREST candidate's own support by 100%, which is a candidate-specific measured STOP.
+- A separate GEMSDOE48 H58 continuous pignistic raster, SHA-256 `59ef8e7d8374e228bc1e41376f03fc67dd5b8a5e6804885a1ae802f399140b89`, has positive support on all 5,167,373 allowed cells. Under the recorded inherited `finite prediction > 0` support definition, this separate field is the universal overlap witness. It is continuous, not a sparse dot raster, and this conclusion is conditional on that support interpretation.
+
+Both are owner-mirror registry evidence, not organizer-authenticated facts. The hard no-exemption STOP remains; no candidate, TIFF, or upload is authorized. The correction is registered in `evidence/registry_overlap_claim_correction_2026-10-26.json`; historical experiment run cards/receipts remain unchanged.
+
 ## What the H33-2-B2 result does and does not establish
 
 The supplied claim for GEMSDOE32 `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` is **USER-REPORTED: 0.2778; no organizer receipt is present**. The other prompt anchors `0.3195` and `0.4413` are also user-supplied and unverified here. They must not be treated as current official rankings or as comparable targets.

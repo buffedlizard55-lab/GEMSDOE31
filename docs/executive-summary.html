@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="New candidate TIFF, exact automated validation status, and the portal workflow.">
+  <meta name="description" content="Active run status, exact research artifact, and portal workflow for future approved candidates.">
   <title>Executive summary · GEMSDOE31</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -18,15 +18,41 @@
   </header>
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Download + submission guide</p>
-      <h1>Do not submit.</h1>
-      <p class="hero-lede">The newest candidate RBU31 failed an automated gate; its file, unique name, note and exact failed gates are together below for research only.</p>
+      <p class="eyebrow">Active run · MAGREST</p>
+      <h1>Research download only. Do not submit.</h1>
+      <p class="hero-lede">The active MAGREST file is format-validated but fails the holdout/duplicate gates. No weekly slot or upload is authorized.</p>
     </div>
   </section>
 
   <main class="wrap">
-<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
-      The RBU31-B regime-balanced union, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are format-validated and available to download in one click; all are research-only (each fails at least one automated gate &mdash; see its own gate table below &mdash; and all fail the unexempted 695-raster shared-registry overlap gate). Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+<div class="notice notice-danger"><strong>Active run: RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT.</strong>
+      MAGREST is the active run card and is available for research download only. RBU31, H31-M, H31-HVDC, H31-E2, and H3 are archived research records; none is a submission recommendation. A valid TIFF, local HOLDOUT-DTI, or SGMC proxy is not organizer acceptance or a competition score. No human or selector approval overrides a failed hard gate.</div>
+      <section id="download" aria-labelledby="download-heading">
+      <div class="section-head"><div><p class="kicker">Active run · exact file from registry/current_run.json</p>
+        <h2 id="download-heading">RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT</h2></div>
+        <p>The active run is negative/inconclusive and the literal duplicate gate is STOPPED; no submission slot is approved.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-red">RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT · slot_approved=false</span>
+        <h3 style="margin-top:18px">gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff</h3>
+        <p>Active MAGREST artifact; newly computed from magnetic data, not copied or thinned from a prior submission.</p>
+        <div class="actions">
+          <a class="button button-dark" href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif" download>Download current research TIFF — DO NOT SUBMIT</a>
+          <a class="button" href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip" download>One-TIFF ZIP</a>
+          <a class="button" href="downloads/magrest-run-card.json" download>Validation + run card</a>
+        </div>
+        <p class="download-meta"><strong>Primary encoding:</strong> float32 · one band · EPSG:32611 · 3730 × 3292 · 100 m ·
+          values exactly 0 or 1 · finite everywhere · zero outside footprint · no nodata tag.<br>
+          <strong>SHA-256:</strong> <code>c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9</code><br>
+          <strong>Artifact name:</strong> <code>gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff</code><br>
+          <strong>Reserved note (do not upload unless separately approved) (128/140):</strong> <code>MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved</code></p>
+        <p class="small" style="margin-top:18px"><a href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif" download>NaN-outside version</a> ·
+          <a href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.zip" download>NaN one-TIFF ZIP</a>.
+          Same predictions inside the footprint. The recorded problem-page wording uses NaN/null outside;
+          the all-finite primary is a defensive range-check encoding, not proof of organizer acceptance.
+          Both variants inherit the active run's approval status; format validation alone never approves upload.
+          The downloadable run card is the original frozen receipt; the additive registry correction explains its older lattice-attribution wording.</p>
+      </div>
+    </section>
       <section id="focus-sites"><div class="section-head"><div>
       <p class="kicker">Nine requested repositories · highest claim per site</p>
       <h2>Prior-art comparison — not a list of upload recommendations</h2></div>
@@ -45,21 +71,18 @@
         This table is a forensic index, not a live leaderboard snapshot or a recommendation to spend a slot.</p>
     </section>
       <section id="rbu31" aria-labelledby="rbu31-heading">
-      <div class="section-head"><div><p class="kicker">2026-10-25 New Unique Candidate &middot; RBU31 (Experiment 13)</p>
-        <h2 id="rbu31-heading">RBU31 Regime-Balanced Union: &#10060; Do not submit</h2></div>
-        <p>One union model (raw-39 + SCGP-40 features in the same trees) trained with regime-balanced sample weights
-           (piedmont det_elev &le; 50 m vs mountain), validated end-to-end by automated gates &mdash; no human inspector.
-           Every dot is newly computed; no prior submission dots were copied.</p></div>
+      <div class="section-head"><div><p class="kicker">Historical research artifact &middot; RBU31 (Experiment 13)</p>
+        <h2 id="rbu31-heading">Historical RBU31 research artifact: &#10060; DO NOT SUBMIT</h2></div>
+        <p>Archived union model (raw-39 + SCGP-40 features) with regime-balanced sample weights. Its automated results are
+           historical and negative; they do not make the artifact current, globally unique, or approved for upload.</p></div>
       <div class="card download-card">
-        <span class="badge badge-red">&#10060; DO NOT SUBMIT &middot; AUTOMATED GATES FAILED (research only)</span>
+        <span class="badge badge-red">&#10060; RESEARCH DOWNLOAD ONLY &middot; DO NOT SUBMIT</span>
         <h3 style="margin-top:18px">gemsdoe31-rbu31b-localunion-37654-20261025-b7585935</h3>
-        <p>Why this can beat the family's best reported file: GEMSDOE32 H33-2-B2 is the older D2.8 surface minus dots
-           within 2 px of the known catalogue (a pruning rule, not a new detector). RBU31 keeps that verified DTI
-           economics (2.8 px spacing matched to the 300 m kernel; &gt;2 px catalogue prune) but replaces the surface
-           with one that ranks both buried piedmont faults (gravity/basement cross-gradient physics) and mountain
-           scarps (raw 1 m LiDAR bands in the same trees), without the catalogue's 72% piedmont mapping bias.</p>
+        <p><b>Historical hypothesis, not a score projection:</b> RBU31 attempted to combine buried-piedmont geophysics
+           and mountain scarps. Its local holdout and SGMC results below are negative/inconclusive and do not establish
+           an improvement over any organizer score or a global-best submission.</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif" download>&#11015; Download submission .tif (all-finite [0, 1], recommended)</a>
+          <a class="button button-primary" href="downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif" download>&#11015; Download RBU31 research TIFF — DO NOT SUBMIT</a>
           <a class="button" href="downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.tif" download>NaN-outside .tif</a>
           <a class="button" href="downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.zip" download>Single-TIFF .zip</a>
           <a class="button" href="downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-format-check.json" download>Format receipt .json</a>
@@ -70,8 +93,8 @@
           &ldquo;Predicted values must be in range [0, 1]&rdquo; check cannot trip on NaN/sentinels) &middot; 0 dots on the public catalogue.<br>
           <strong>SHA-256 (all-finite):</strong> <code>07c939198a9145ae8281012bcba2c2167e3a6a482dd15c04ce3872b5b94e1041</code><br>
           <strong>SHA-256 (NaN-outside):</strong> <code>7b57519fdbcf594231043730c9d86042182c968cd2479be63a8c8a5ea9c71e98</code><br>
-          <strong>Unique name:</strong> <code>gemsdoe31-rbu31b-localunion-37654-20261025-b7585935</code><br>
-          <strong>Portal note (94/140):</strong> <code>GEMSDOE31 RBU31-B local-standardized union 37654d | HOLDOUT-DTI 0.0991 vs 0.0922 | id b7585935</code></p>
+          <strong>Artifact name (not uniqueness or upload approval):</strong> <code>gemsdoe31-rbu31b-localunion-37654-20261025-b7585935</code><br>
+          <strong>Reserved portal note; do not upload (94/140):</strong> <code>GEMSDOE31 RBU31-B local-standardized union 37654d | HOLDOUT-DTI 0.0991 vs 0.0922 | id b7585935</code></p>
       </div>
       <div class="table-wrap" style="margin-top:18px"><table>
         <thead><tr><th>Automated gate</th><th>Threshold</th><th>Measured RBU31 value</th><th>Status</th></tr></thead>
@@ -79,7 +102,7 @@
           <tr><td><code>G1 &middot; Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730&times;3292, float32, finite in footprint, values in [0, 1]</td><td>see format receipt</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G2 &middot; Leakage canary</code></td><td>every one of 79 features alone: two-sided AUC &le; 0.90</td><td>max AUC = 0.6118</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G3a &middot; Uniqueness vs genuine submissions</code></td><td>surface |&rho;| &le; 0.90 and 3-px dot overlap &le; 70% vs 24 registry/peer rasters (incl. the 9 focus sites' best)</td><td>max |&rho;| = 0.1502; max 3-px overlap = 53.41%</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G3b &middot; Spacing-5 lattice (695-raster registry)</code></td><td>literal rule</td><td>universal degeneracy disclosed: the lattice covers 100% of the interior within 3 px for ANY non-empty candidate</td><td><span class="badge badge-red">DISCLOSED</span></td></tr>
+          <tr><td><code>G3b &middot; Shared-registry support (695-raster audit)</code></td><td>literal rule; no calibration/density exemption</td><td>Separate buffedlizard55-lab/GEMSDOE48 continuous raster: positive support on 5,167,373/5,167,373 allowed cells under finite prediction &gt; 0 (inherited literal support rule). The r13 spacing-5 lattice is distinct; its 3-px halo covers 99.8713% of the footprint, not 100% universally.</td><td><span class="badge badge-red">STOP / NOT APPROVED</span></td></tr>
           <tr><td><code>G4a &middot; Holdout screen (draw 101, 21.3 km)</code></td><td>&Delta;DTI &gt; 0.002 and &ge; 3/4 folds</td><td>HOLDOUT-DTI 0.0991 vs 0.0922 (delta +0.0069, 2/4 folds)</td><td><span class="badge badge-red">FAIL</span></td></tr>
           <tr><td><code>G4b &middot; Fresh confirmation (draws 202, 303)</code></td><td>&Delta;DTI &gt; 0.002, paired 95% CI &gt; 0</td><td>not run (screen stop)</td><td><span class="badge badge-red">FAIL</span></td></tr>
           <tr><td><code>G5 &middot; Off-catalogue SGMC, all regimes</code></td><td>beat Baseline-D AND GEMSDOE32 H33-2-B2 on all / piedmont / mountain</td><td>all 0.0801 (Base 0.0718, H33 0.0940) &middot; piedmont 0.1236 (Base 0.1147, H33 0.1091) &middot; mountain 0.0343 (Base 0.0277, H33 0.0654)</td><td><span class="badge badge-red">FAIL</span></td></tr>
@@ -97,7 +120,7 @@
         <p>Newly computed in this session from 8 label-free geophysical/structural channels + deconfounded dual-head Bayes OOF HGB +
            exact 29-cell submodular DTI allocation. Beats GEMSDOE32 H33-2-B2 simultaneously on Piedmont Off-SGMC, 4-Block Off-SGMC,
            Full Off-SGMC, and 21.25 km hide-and-recover holdout (4/4 folds on both seeds), and passes the 13-submission comparator subset —
-           but is <strong>held as research-only (DO NOT SUBMIT)</strong> under the unexempted 695-raster spacing-5 lattice STOP and inherited 21.25 km collar.</p></div>
+           but is <strong>held as research-only (DO NOT SUBMIT)</strong>: its 99.6255% candidate-specific overlap with r13-lattice-s5 exceeds the literal 70% limit; separately, the GEMSDOE48 continuous field is a full-support witness under finite-value &gt; 0 semantics, and the inherited 21.25 km collar precedes own-method range estimation.</p></div>
       <div class="card download-card">
         <span class="badge badge-green">LOCAL FORMAT &amp; 11/11 EFFICACY GATES PASS · RESEARCH DOWNLOAD ONLY</span>
         <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
@@ -125,12 +148,12 @@
           <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {0.0, 1.0}; 0 NaN inside; 0 within 200 m of catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 48 used features</td><td>max AUC = 0.7740 (new H31-M channels max = 0.6139)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G3a · 13-Submission Comparator Subset</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = 0.7204; max 3-px = 53.16% (concurrent lanes ≤ 51.59%; 40.25% vs H33-2-B2)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
-          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>99.6255% (37,513 / 37,654 dots within 3 px; |ρ| = 0.0018)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G3b · r13-lattice-s5 candidate overlap</code></td><td>Unexempted 695-raster shared registry; no calibration/density exemption</td><td>99.6255% (37,513 / 37,654 dots within 3 px of r13; |ρ| = 0.0018); separately, GEMSDOE48 support is 5,167,373/5,167,373 allowed cells under finite prediction &gt; 0 (inherited literal support rule)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
           <tr><td><code>G4a · Screen (seed 20261025, 21.25 km)</code></td><td>Paired 95% CI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI 0.1350 vs 0.1135 (Δ CI [+0.0064, +0.0380], 4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G4b · Confirm (seed 20261026, n=58,625)</code></td><td>Fresh draw, paired 95% CI &gt; 0 and ≥ 3/4 folds won</td><td>HOLDOUT-DTI 0.1372 [0.1191, 0.1580] vs 0.1127 (4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Alluvial/piedmont habitat (slope ≤ 6 deg, n=11,573 px)</td><td>HOLDOUT-DTI 0.0641 vs GEMSDOE32 H33-2-B2 0.0586 (+9.4%) and H31-B 0.0052</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5b · All-Elevation &amp; 4-Block Off-SGMC</code></td><td>Strict simultaneous win &gt; H33-2-B2 (0.0940 / 0.0984)</td><td>Full Off-SGMC 0.1010 vs 0.0940 (+7.4%); 4-Block 0.1077 [0.0902, 0.1336] vs 0.0984 (+9.5%)</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G6 · Own-Method Variogram &amp; Slot Gate</code></td><td>Candidate-specific residual range + unexempted registry pass</td><td>21.25 km collar inherited from historical buffer_derivation.json; r13-lattice-s5 STOP active</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
+          <tr><td><code>G6 · Own-Method Variogram &amp; Slot Gate</code></td><td>Candidate-specific residual range + unexempted registry pass</td><td>21.25 km collar inherited from historical buffer_derivation.json; r13 candidate-overlap STOP and distinct GEMSDOE48 full-support witness; own-method range not estimated</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
         </tbody>
       </table></div>
       <p class="small">HOLDOUT-DTI evaluator: <code>gemsdoe31-holdout-v1</code> (n=58,625 withheld positives, 21,250 m spatial collar, 400 block-bootstrap replicates) and
@@ -226,38 +249,11 @@
       <p class="small">Full artifact &amp; 3-experiment log (including stopped Exp 1 proximity-halo audit and Exp 2 submodular +0.0372 ablation):
         <a href="experiments/12-h31e-scgp-submod.html">Experiment 12 · H31-E2 SCGP-Submod</a>.</p>
     </section>
-      <section id="download" aria-labelledby="download-heading">
-      <div class="section-head"><div><p class="kicker">New artifact · 2026-10-25</p>
-        <h2 id="download-heading">OK to download. Not approved for upload.</h2></div>
-        <p>Research-only. Automated scientific gates failed; no human inspection is needed to reach that decision.</p></div>
-      <div class="card download-card">
-        <span class="badge badge-red">DO NOT SUBMIT · negative result</span>
-        <h3 style="margin-top:18px">MAGREST · magnetic texture restoration</h3>
-        <p>Newly computed from magnetic data, not copied or thinned from a prior submission.</p>
-        <div class="actions">
-          <a class="button button-dark" href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif" download>Download new research TIFF</a>
-          <a class="button" href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip" download>One-TIFF ZIP</a>
-          <a class="button" href="downloads/magrest-run-card.json" download>Validation + run card</a>
-        </div>
-        <p class="download-meta"><strong>Primary encoding:</strong> float32 · one band · EPSG:32611 · 3730 × 3292 · 100 m ·
-          values exactly 0 or 1 · finite everywhere · zero outside footprint · no nodata tag.<br>
-          <strong>SHA-256:</strong> <code>c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9</code><br>
-          <strong>Name:</strong> <code>gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff</code><br>
-          <strong>Note (128/140):</strong> <code>MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved</code></p>
-        <p class="small" style="margin-top:18px"><a href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif" download>NaN-outside version</a> ·
-          <a href="downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.zip" download>NaN one-TIFF ZIP</a>.
-          Same predictions inside the footprint. The recorded problem-page wording uses NaN/null outside;
-          the all-finite primary is a defensive range-check encoding, not proof of organizer acceptance.
-          Both are research-only while the convention and submission gates remain unresolved.</p>
-      </div>
-    </section>
       
 <section id="h3-download" aria-labelledby="h3-heading">
-  <div class="section-head"><div><p class="kicker">New artifact · H3 LiDAR scarp · 2026-10-25</p>
-    <h2 id="h3-heading">OK to download for research. NOT approved for upload.</h2></div>
-    <p>Holdout proxies disagree (catalogue-gap vs off-catalogue SGMC). Full 716-raster registry cache
-    was unavailable for the uniqueness gate. Labelled research-only until both proxies agree and the
-    registry gate passes.</p></div>
+  <div class="section-head"><div><p class="kicker">Historical research artifact · H3 LiDAR scarp · 2026-10-25</p>
+    <h2 id="h3-heading">Research download only. NOT approved for upload.</h2></div>
+    <p>Its holdout proxies disagree, and the original run lacked a broad registry check. Later registered evidence includes a separate full-support GEMSDOE48 continuous raster under finite-value &gt; 0 semantics; this archived H3 file is not submission-approved.</p></div>
   <div class="card download-card">
     <span class="badge badge-red">RESEARCH ONLY · verdict = negative · not promoted</span>
     <h3 style="margin-top:18px">gemsdoe31-h3-lidar-scarp-unique-50k-20261025</h3>
@@ -282,16 +278,14 @@
             <td><span class="badge badge-green">PASS</span> 0.755 (&lt;= 0.90)</td></tr>
         <tr><td>Single-feature leakage canary (catalogue AUC)</td>
             <td><span class="badge badge-green">PASS</span> 0.570 (&lt;= 0.90)</td></tr>
-        <tr><td>Holdout DTI — off-catalogue SGMC</td>
-            <td>HOLDOUT-DTI 0.1711 (truth px 61,664)</td> if dti_sgmc is not None else <td>HOLDOUT-DTI n/a</td></tr>
-        <tr><td>Holdout DTI — catalogue-gap (seed 1)</td>
-            <td>HOLDOUT-DTI 0.0082 vs D28 incumbent 0.0435</td></tr>
+        <tr><td>Holdout DTI — off-catalogue SGMC</td><td>HOLDOUT-DTI 0.1711 (61,664 proxy truth cells)</td></tr>
+        <tr><td>Holdout DTI — catalogue-gap (seed 1)</td><td>HOLDOUT-DTI 0.0082 vs D28 incumbent 0.0435</td></tr>
         <tr><td>Format validation (NaN)</td>
             <td><span class="badge badge-green">PASS</span></td></tr>
         <tr><td>Format validation (all-finite)</td>
             <td><span class="badge badge-green">PASS</span></td></tr>
-        <tr><td>716-raster uniqueness gate</td>
-            <td><span class="badge badge-red">CACHE UNAVAILABLE — not checked</span></td></tr>
+        <tr><td>Historical broad-registry gate</td>
+            <td><span class="badge badge-red">NOT APPROVED — original preflight incomplete; separate full-support witness blocks under the recorded support rule</span></td></tr>
         <tr><td>Submission approval</td>
             <td><span class="badge badge-red">NOT APPROVED — do not upload</span></td></tr>
       </tbody>
@@ -299,65 +293,17 @@
   </div>
 </section>
 
-      
-<section id="h3-download" aria-labelledby="h3-heading">
-  <div class="section-head"><div><p class="kicker">New artifact · H3 LiDAR scarp · 2026-10-25</p>
-    <h2 id="h3-heading">OK to download for research. NOT approved for upload.</h2></div>
-    <p>Holdout proxies disagree (catalogue-gap vs off-catalogue SGMC). Full 716-raster registry cache
-    was unavailable for the uniqueness gate. Labelled research-only until both proxies agree and the
-    registry gate passes.</p></div>
-  <div class="card download-card">
-    <span class="badge badge-red">RESEARCH ONLY · verdict = negative · not promoted</span>
-    <h3 style="margin-top:18px">gemsdoe31-h3-lidar-scarp-unique-50k-20261025</h3>
-    <p>LiDAR generic scarp (ex_max percentile rank, gaussian 0.8px) at 2.8px Poisson-disk spacing.
-       50,000 dots, 0 dots on the public catalogue. New dots — not copied from any prior submission.</p>
-    <div class="actions">
-      <a class="button button-dark" href="downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.tif" download>Download H3 Research .tif (NaN-outside)</a>
-      <a class="button" href="downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif" download>All-finite research encoding .tif</a>
-      <a class="button" href="downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.zip" download>One-TIFF .zip</a>
-      <a class="button" href="../evidence/h3_unique_submission.json" download>Run card .json</a>
-    </div>
-    <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 x 3292 · 100 m ·
-      50,000 dots · values exactly {0.0, 1.0} in [0.0, 1.0]<br>
-      <strong>SHA-256 (NaN primary):</strong> <code>258cd3683a084231e57a6a8cd92f619437e07a2c25cf1becdfdecb796e6b0043</code><br>
-      <strong>SHA-256 (All-finite):</strong> <code>7906d5744a8456f09cb17193f4a3f7169a893d3c5ccddcb75b1c28fdb68e662a</code><br>
-      <strong>Name:</strong> <code>gemsdoe31-h3-lidar-scarp-unique-50k-20261025</code><br>
-      <strong>Note (117/140):</strong> <code>LiDAR generic scarp ex_max 2.8px Poisson dots; HOLDOUT-DTI catalogue-gap + offcat-SGMC; unique vs 716-raster registry</code></p>
-    <table>
-      <thead><tr><th>Gate</th><th>Result</th></tr></thead>
-      <tbody>
-        <tr><td>Single-feature leakage canary (SGMC AUC)</td>
-            <td><span class="badge badge-green">PASS</span> 0.755 (&lt;= 0.90)</td></tr>
-        <tr><td>Single-feature leakage canary (catalogue AUC)</td>
-            <td><span class="badge badge-green">PASS</span> 0.570 (&lt;= 0.90)</td></tr>
-        <tr><td>Holdout DTI — off-catalogue SGMC</td>
-            <td>HOLDOUT-DTI 0.1711 (truth px 61,664)</td> if dti_sgmc is not None else <td>HOLDOUT-DTI n/a</td></tr>
-        <tr><td>Holdout DTI — catalogue-gap (seed 1)</td>
-            <td>HOLDOUT-DTI 0.0082 vs D28 incumbent 0.0435</td></tr>
-        <tr><td>Format validation (NaN)</td>
-            <td><span class="badge badge-green">PASS</span></td></tr>
-        <tr><td>Format validation (all-finite)</td>
-            <td><span class="badge badge-green">PASS</span></td></tr>
-        <tr><td>716-raster uniqueness gate</td>
-            <td><span class="badge badge-red">CACHE UNAVAILABLE — not checked</span></td></tr>
-        <tr><td>Submission approval</td>
-            <td><span class="badge badge-red">NOT APPROVED — do not upload</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-      <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>
-        <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
-        <div class="card"><ul><li>Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.</li><li>paired spatial holdout screen failed</li><li>fresh confirmation not passed</li><li>own-method residual range not estimated</li><li>global current-best comparison unavailable on identical instrument</li><li>organizer-authenticated data/template provenance unverified</li><li>outside-footprint organizer convention unresolved</li><li>separate selector has not promoted this artifact; weekly cap not checked</li></ul></div>
+      <section><div class="section-head"><div><p class="kicker">Exact active-run decision</p><h2>Why upload is blocked</h2></div>
+        <p>File validity, registry uniqueness, scientific efficacy, selector approval, and organizer acceptance are separate questions.</p></div>
+        <div class="card"><ul><li>Literal registry-overlap STOP remains. The frozen MAGREST variants have 100.00% candidate-specific overlap with r13-lattice-s5; that lattice&#x27;s 3-px halo covers 99.8713% of the footprint, not universally 100%. A separate buffedlizard55-lab/GEMSDOE48 continuous raster has positive support on 5,167,373/5,167,373 allowed cells under finite prediction &gt; 0 (inherited literal support rule) semantics; this is the distinct full-support witness. No density/calibration exemption; historical run-card text is preserved. See evidence/registry_overlap_claim_correction_2026-10-26.json</li><li>paired spatial holdout screen failed</li><li>fresh confirmation not passed</li><li>own-method residual range not estimated</li><li>global current-best comparison unavailable on identical instrument</li><li>organizer-authenticated data/template provenance unverified</li><li>outside-footprint organizer convention unresolved</li><li>separate selector has not promoted this artifact; weekly cap not checked</li></ul></div>
       </section>
       <section><div class="section-head"><div><p class="kicker">For a future approved candidate</p><h2>How to enter a submission</h2></div>
         <p>These are portal instructions, not permission to submit the current research file.</p></div>
         <div class="card"><ol>
-          <li>Confirm the generated readiness receipt says <code>ok_to_submit: true</code> for the exact file. Today it says <code>false</code>.</li>
+          <li>Confirm the generated readiness receipt says <code>ok_to_submit: true</code> and a separate selector approval exists for the exact file. Today they do not.</li>
           <li>Download the approved <code>.tif</code> or the ZIP containing that single TIFF. Do not upload a report, run-card JSON, input feature stack or multi-file ZIP.</li>
           <li>Use your own <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData competition page</a> to open New submission, accept the rules and check the remaining weekly quota. This project does not know or spend your current quota.</li>
-          <li>Under File to submit, select that approved file. Use its generated unique name and paste its note (at most 140 characters) into Note (optional).</li>
+          <li>Under File to submit, select that approved file. Use its generated name and paste its note (at most 140 characters) into Note (optional).</li>
           <li>Only after approval and quota checks, submit. Keep the organizer's receipt, exact SHA-256, name and reported result together. Until that receipt exists, no result is ORGANIZER-CONFIRMED.</li>
         </ol></div>
       </section>

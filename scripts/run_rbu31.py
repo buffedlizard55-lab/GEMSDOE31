@@ -432,7 +432,7 @@ def main() -> int:
     note = f"GEMSDOE31 {tag} 37654d | HOLDOUT-DTI {hold_r:.4f} vs {hold_b:.4f} | id {digest8}"[:140]
     gates = {"G1_format_and_range_0_1_pass": None, "G2_leakage_canary_pass": g2,
              "G3a_uniqueness_genuine_registry_pass": g3a,
-             "G3b_literal_695_registry_lattice": "UNIVERSAL_DEGENERACY_DISCLOSED (spacing-5 lattice covers 100% of interior within 3px for any candidate; see preregistration §5)",
+             "G3b_literal_695_registry_lattice": "STOP under the literal rule. Correction: r13 spacing-5 lattice 3px halo covers 99.8713% of the allowed footprint, not 100% universally; the separate GEMSDOE48 continuous raster is full-support under the inherited finite-value > 0 rule. See evidence/registry_overlap_claim_correction_2026-10-26.json. No calibration/density exemption.",
              "G4_holdout_screen_and_fresh_confirmation_pass": g4,
              "G5_sgmc_all_piedmont_mountain_beats_baseline_and_h33": g5,
              "human_inspection_required_for_validation": False,

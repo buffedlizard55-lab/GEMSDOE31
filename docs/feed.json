@@ -83,7 +83,7 @@
    "broader_scan_exhaustive": false
   },
   "failed_or_unknown_gates": [
-   "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.",
+   "Literal registry-overlap STOP remains. The frozen MAGREST variants have 100.00% candidate-specific overlap with r13-lattice-s5; that lattice's 3-px halo covers 99.8713% of the footprint, not universally 100%. A separate buffedlizard55-lab/GEMSDOE48 continuous raster has positive support on 5,167,373/5,167,373 allowed cells under finite prediction > 0 (inherited literal support rule) semantics; this is the distinct full-support witness. No density/calibration exemption; historical run-card text is preserved. See evidence/registry_overlap_claim_correction_2026-10-26.json",
    "paired spatial holdout screen failed",
    "fresh confirmation not passed",
    "own-method residual range not estimated",
@@ -324,7 +324,7 @@
   "not_automated": "leaderboard reads, score entry and file uploads remain manual by competition terms"
  },
  "open_items": [
-  "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.",
+  "Literal registry-overlap STOP remains. The frozen MAGREST variants have 100.00% candidate-specific overlap with r13-lattice-s5; that lattice's 3-px halo covers 99.8713% of the footprint, not universally 100%. A separate buffedlizard55-lab/GEMSDOE48 continuous raster has positive support on 5,167,373/5,167,373 allowed cells under finite prediction > 0 (inherited literal support rule) semantics; this is the distinct full-support witness. No density/calibration exemption; historical run-card text is preserved. See evidence/registry_overlap_claim_correction_2026-10-26.json",
   "paired spatial holdout screen failed",
   "fresh confirmation not passed",
   "own-method residual range not estimated",
