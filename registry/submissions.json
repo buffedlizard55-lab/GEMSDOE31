@@ -971,6 +971,24 @@
    "current_run_card": "docs/downloads/magrest-run-card.json",
    "sha256_zip": "f0313e7fa0751622f4bcf2db23dba430bbc3467dc1b8b154d4c4ba6450f5fc14",
    "bytes_zip": 121213
+  },
+  {
+   "id": "candidate-csdu-stepover-20261026",
+   "name": "gemsdoe31-csdu-stepover-8cf9dc27",
+   "role": "newly computed 2026-10-26 unique CSDU concealed stepover-dilation upflow research GeoTIFF; format-valid [0,1], EPSG:32611, exact grid, 4,000 binary dots, 0 on public catalogue; holdout efficacy NOT RUN (no competition truth offline); registry uniqueness NOT run locally; research download only, DO NOT SUBMIT",
+   "provenance": "scripts/run_unique_stepover_submission.py: new concealed stepover-dilation hydrothermal upflow (CSDU) hypothesis - 4 km Gaussian halo around 5 concealed en-echelon stepover dilation centers, Poisson-disk thinned to 4,000 dots, zero dots copied from any prior submission; desk-preregistered hypothesis (experiment 1 of 3 parallel-run budget).",
+   "note_for_portal": "CSDU concealed stepover-dilation upflow 4,000d blind-fault hypothesis; unique new geometry no incumbent dots; research-only 8cf9dc27",
+   "slot_approved": false,
+   "why_not_slot_approved": "Holdout efficacy not verifiable offline (competition truth/SGMC unavailable); registry uniqueness not run locally; no organizer receipt. Research download only.",
+   "positive_pixels": 4000,
+   "positive_pixels_on_public_catalogue": 0,
+   "receipt": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-format-check.json",
+   "file_nan": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
+   "file_allfinite": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+   "file_zip": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.zip",
+   "sha256_nan": "774c7c5aa3784d7c52dc67870e1cc8b0e0a34d1697092ad9f3b08c33dcaf2546",
+   "sha256_allfinite": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
+   "format_status": "locally validated against owner-mirror grid template; both encodings pass all hard checks; not organizer acceptance"
   }
  ],
  "format_conventions": {
