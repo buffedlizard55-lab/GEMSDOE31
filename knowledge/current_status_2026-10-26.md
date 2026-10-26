@@ -1,3 +1,12 @@
+# Current override — session 9883b598
+
+**DO NOT SUBMIT.** Current literal owner protocol supersedes prior discrete-only selector approvals.
+[Current review](2026-10-26_protocol_review_9883b598.md). No new TIFF or fit after duplicate STOP.
+`evidence/review_9883b598/run_card.json` rechecks existing H31-X format and lattice overlap.
+All remaining text below is historical, not current upload permission.
+
+---
+
 # Current project status — 2026-10-26
 
 ## H31-X session update (2026-10-26 · branch `arena/3ce68fc7-gemsdoe31`) — READ FIRST

@@ -83,7 +83,7 @@ th, td { padding: 13px 15px; border-bottom: 1px solid var(--line); text-align: l
 th { background: #edf5f1; color: #35515a; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
 td { font-size: .94rem; }
 tr:last-child td { border-bottom: 0; }
-.badge { display: inline-block; padding: 4px 9px; border-radius: 999px; background: var(--amber-bg); color: var(--amber); font-size: .75rem; font-weight: 800; white-space: nowrap; }
+.badge { display: inline-block; padding: 4px 9px; border-radius: 999px; background: var(--amber-bg); color: var(--amber); font-size: .75rem; font-weight: 800; white-space: normal; max-width: 100%; overflow-wrap: anywhere; }
 .badge-green { background: #e2f6ec; color: #14553d; }
 .badge-red { background: var(--red-bg); color: var(--red); }
 code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
@@ -138,3 +138,6 @@ hr { margin: 34px 0; border: 0; border-top: 1px solid var(--line); }
   .callout-row { grid-template-columns: 1fr; }
   .card { padding: 19px; }
 }
+
+/* Long scientific gate labels must wrap rather than widen mobile pages. */
+.section-head > * { min-width: 0; }

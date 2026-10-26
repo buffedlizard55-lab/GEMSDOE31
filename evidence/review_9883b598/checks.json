@@ -1,0 +1,81 @@
+{
+  "checked_utc": "2026-10-26T21:38:19.601740+00:00",
+  "checks": [
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "exit_code": 0,
+      "output_tail": "........................................................................ [ 40%]\n........................................................................ [ 80%]\n....................................                                     [100%]\n180 passed in 24.32s\n"
+    },
+    {
+      "command": ".venv/bin/python -m ruff check .",
+      "exit_code": 0,
+      "output_tail": "All checks passed!\n"
+    },
+    {
+      "command": ".venv/bin/python -m compileall -q src scripts tests",
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "command": ".venv/bin/python scripts/check_metric.py",
+      "exit_code": 0,
+      "output_tail": "max |DTI_fast - DTI_brute| over 24 grids: 4.441e-16\nexact case 1 DTI 0.999999999967 (closed form 1.0); exact case 2 DTI 0.333333333300 (closed form 1/3)\nkernel offsets inside R=300 m at 100 m cells: 29\nwrote evidence/metric_check.json\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/check_marginal_dti.py",
+      "exit_code": 0,
+      "output_tail": "{\n  \"evidence_class\": \"COMPUTED-MATHEMATICAL-CHECK\",\n  \"geological_experiments\": 0,\n  \"seed\": 1028355,\n  \"cases\": 10000,\n  \"all_signs_agree\": true,\n  \"fixed_truth_formula\": \"S = T / ((1-beta)*T + alpha*F + beta*N + epsilon)\",\n  \"exact_improvement_condition\": \"(1-(1-beta)*S)*delta_T > alpha*S*delta_F\",\n  \"positive_delta_F_ratio\": \"delta_T/delta_F > alpha*S/(1-(1-beta)*S)\",\n  \"illustration\": {\n    \"input\": 0.2778,\n    \"input_class\": \"USER-REPORTED; unverified\",\n    \"gain_to_fp_ratio\": 0.05882851213417474,\n    \"isolated_one_truth_credit\": 0.05556,\n    \"caveat\": \"The isolated-credit simplification requires delta_T=k and delta_F=1-k; not general hit probability.\"\n  },\n  \"shared_implementation_sha256\": {\n    \"evaluate_holdout.py\": \"ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a\",\n    \"holdout.py\": \"7a0a84176986190b527aa9c6a84216c2dab4b599f25b1143db5f420e85020ab1\",\n    \"metric.py\": \"4afe10cbaa229948520c75194b1ebc32676e72544f05582f0725092b097b4d7f\",\n    \"spatial.py\": \"fad7b09db9efc512247b9a176a7e7ce8631e287592b4e07902d0b9c38bed00f8\"\n  },\n  \"limits\": \"Fixed truth/mask only. Private TP/FP changes are unknown. No causal leaderboard claim.\"\n}\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/verify_current_run.py --restore-small-inputs",
+      "exit_code": 0,
+      "output_tail": "{\n \"ok_to_download_for_research\": true,\n \"ok_to_submit\": false,\n \"verdict\": \"negative\",\n \"sha256\": \"c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9\"\n}\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/verify_protocol_review.py",
+      "exit_code": 0,
+      "output_tail": "{\n  \"verdict\": \"negative\",\n  \"ok_to_submit\": false,\n  \"raster_sha256\": \"eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9\",\n  \"lattice_coverage\": {\n    \"footprint_pixels\": 5167373,\n    \"outside_3px_halo\": 6649,\n    \"coverage_fraction\": 0.9987132726822701,\n    \"candidate_dots\": 37654,\n    \"minimum_overlap_any_same_budget\": 0.8234184947150369,\n    \"qualification\": \"Counting bound for this dot budget, NOT every nonempty raster\"\n  }\n}\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/verify_h31j.py",
+      "exit_code": 0,
+      "output_tail": "{\n  \"ok\": true,\n  \"submission_name\": \"gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8\",\n  \"dots\": 37654,\n  \"screen_dti\": 0.08967617097378316,\n  \"confirm_dti\": 0.07718348841938376,\n  \"sgmc_all_dti\": 0.106391,\n  \"sgmc_piedmont_dti\": 0.147423,\n  \"slot_approved\": false\n}\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/verify_h31t.py",
+      "exit_code": 0,
+      "output_tail": "{\n  \"status\": \"verified\",\n  \"lane_id\": \"H31-T\",\n  \"primary_zeros_tif_sha256\": \"83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298\",\n  \"emitted_dots\": 37654,\n  \"min_distance_to_catalogue_m\": 223.61,\n  \"gems57_pooled_hide_v2_dti\": 0.13001,\n  \"gemsdoe31_confirm_dti\": 0.12478,\n  \"ok_to_download_for_research\": true,\n  \"ok_to_submit\": false,\n  \"slot_approved\": false\n}\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/prepare_template_cache.py --verify-only",
+      "exit_code": 0,
+      "output_tail": "Reused template cache: all 19 band hashes match.\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/collect_evidence.py",
+      "exit_code": 0,
+      "output_tail": "registry/experiments.json: 191 artifacts inventoried, 0 legacy cache files copied\nregistry/submissions.json: 13 files registered, best historical proxy research candidate (not slot-approved) gemsdoe31-union-b-p060-20261004-8acb75e1\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/build_site.py",
+      "exit_code": 0,
+      "output_tail": "{\n  \"verdict\": \"negative\",\n  \"ok_to_submit\": false,\n  \"raster_sha256\": \"eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9\",\n  \"lattice_coverage\": {\n    \"footprint_pixels\": 5167373,\n    \"outside_3px_halo\": 6649,\n    \"coverage_fraction\": 0.9987132726822701,\n    \"candidate_dots\": 37654,\n    \"minimum_overlap_any_same_budget\": 0.8234184947150369,\n    \"qualification\": \"Counting bound for this dot budget, NOT every nonempty raster\"\n  }\n}\nwrote 22 pages and 0 data file(s) under docs\n   docs/ai-disclosure.html\n   docs/executive-summary.html\n   docs/experiments/01-arms.html\n   docs/experiments/02-operating-points.html\n   docs/experiments/03-collar-sensitivity.html\n   docs/experiments/04-incumbent-filter.html\n   docs/experiments/05-addition-arm.html\n   docs/experiments/06-buffer-derivation.html\n   docs/experiments/07-oof-maps.html\n   docs/experiments/08-h31a-pilot.html\n   docs/experiments/10-submission-format.html\n   docs/experiments/11-score-claims.html\n   docs/experiments/12-h31e-scgp-submod.html\n   docs/experiments/13-rbu31-regime-union.html\n   docs/experiments/index.html\n   docs/feed.html\n   docs/index.html\n   docs/register/index.html\n   docs/research.html\n   docs/sources.html\n   docs/validation.html\n   docs/xfcoh31.html\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/check_site.py",
+      "exit_code": 0,
+      "output_tail": "checked 22 pages and 473 local links\n  note: 22 pages (budget 22)\nall site checks passed\n"
+    },
+    {
+      "command": "node scripts/smoke_protocol_review.cjs",
+      "exit_code": 0,
+      "output_tail": "PASS: 6 responsive page visits and 6 exact-hash research downloads\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output_tail": ""
+    }
+  ],
+  "all_passed": true
+}

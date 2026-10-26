@@ -89,13 +89,17 @@ def main() -> None:
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
     executive = (DOCS / "executive-summary.html").read_text()
-    # Governance updated 2026-10-26 (owner-directed selector decision, IR-U-02):
-    # the page must state the single cleared file explicitly instead of the old
-    # blanket no-upload warning; the anti-override sentence below is retained.
-    if "exactly one file on this site is cleared to submit" not in executive.lower():
-        fail("executive-summary.html: explicit single-file upload decision is missing")
-    if "Human sign-off cannot override a failed gate" not in executive:
-        fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
+    # Current owner protocol restores the literal both-stage registry rule.
+    if "no file is cleared to submit" not in executive.lower():
+        fail("executive-summary.html: explicit no-upload decision is missing")
+    if "No human sign-off can override a failed gate" not in executive:
+        fail("executive-summary.html: human override of hard STOP implied")
+    for name, text in (("index", index), ("executive", executive)):
+        for stale in ("SUBMIT THIS FILE", "OK TO DOWNLOAD AND SUBMIT", "OK TO SUBMIT"):
+            if stale in text.replace("NOT OK TO SUBMIT", "DO NOT SUBMIT"):
+                fail(f"{name}: stale selector approval: {stale}")
+        if "protocol-review-run-card.json" not in text:
+            fail(f"{name}: current protocol receipt missing")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
         if "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8" not in html_text:
             fail(f"{page_name}: H31-J TGTD-Submod candidate name missing")
