@@ -1613,37 +1613,22 @@
    }
   },
   {
-   "id": "9883b598-pass-1-implementation",
-   "status": "complete-for-review-scope",
-   "findings": [
-    "Read README including normalized owner prompt, AGENTS, historical cards and preregistrations; no assigned single-method paragraph.",
-    "Fresh GitHub HEAD lookups for nine focus sites; retrieved official reference README at pinned commit. Did not contact DrivenData.",
-    "Preserved then withdrew prior selector approval under current literal protocol; blocked historical selector entry point.",
-    "Restored 11 pinned owner-mirror inputs, built 42-band prepared stack and unchanged shared 19-band cache with all hashes verified.",
-    "Read back existing H31-X bytes, template, registered lattice and hash-pinned manifest; format pass, duplicate STOP. No fitting or new TIFF."
-   ]
-  },
-  {
-   "id": "9883b598-pass-2-bug-and-edge-review",
-   "status": "complete-for-review-scope",
-   "findings": [
-    "Found stale H31-T hero conflicting with H31-X selector and negative lane card. Unified current UI as research-only.",
-    "Corrected claim that every nonempty raster fails: same-budget counting bound is 82.3418%, not universal.",
-    "Added strict-boundary, missing/nonfinite/invalid-metric, incomplete-registry, missing-quota/authorization, stale-approval, real-file hash-tamper tests.",
-    "New browser regression initially exposed mobile overflow in long nowrap badges and H3 unwrapped table; fixed CSS and generator. All 6 page visits and exact-hash downloads then passed.",
-    "Disabled misleading preparation-script instructions to train after STOP; now points to protocol verification."
-   ]
-  },
-  {
-   "id": "9883b598-pass-3-acceptance-cross-check",
-   "status": "complete-for-review-scope",
-   "findings": [
-    "No new upload-ready TIFF or validated higher leaderboard estimate delivered; explicitly marked unmet, not a claimed success.",
-    "Three ranked geological desk proposals documented with layers, signatures, catalogue rationale, cost, novelty limits and mimics. Top proposal not run under missing lane/duplicate STOP.",
-    "Nine-site summary lists pinned artifacts, user-reported history, unavailable forecasts and no-upload status. Other sites not modified.",
-    "Full check set rerun; see evidence/review_9883b598/checks.json. No shared evaluator/writer fork; no TIFF bytes changed.",
-    "Historical run receipts preserved, current denial separately versioned; cited H31-X holdout not presented as reproduced."
-   ]
+   "id": "pass-h31y-kinpied-2026-10-26-f4d7fb29",
+   "status": "complete-for-current-artifacts",
+   "session_branch": "arena/f4d7fb29-gemsdoe31",
+   "scope": [
+    "H31-Y KIN-PIED preregistered before fit; 3 experiments; unique GeoTIFF packaged",
+    "lane G5 fail (top-K 90.5%); selector G1-G6 pass on submitted dots (63.0%) \u2014 alternate not primary",
+    "site/README make download and submit/do-not-submit obvious; no DrivenData contact; 0 slots"
+   ],
+   "verification": {
+    "holdout_dti": "0.0973 [0.0833, 0.1106] n=60988 gems57-pooled-hide-v2 vs CTRL +0.0302",
+    "confirmation": "0.0860 vs 0.0573 paired +0.0287 [0.0066, 0.0504] n=30424",
+    "sgmc": "0.1188 vs H33 0.0940",
+    "projection": "0.348 never a score",
+    "sha256_zeros": "6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8",
+    "verdict": "negative (lane G5); selector alternate behind H31-X"
+   }
   }
  ],
  "remaining_work": [
@@ -1657,11 +1642,11 @@
  ],
  "current_run": "registry/current_run.json",
  "current_three_passes": [
-  "9883b598-pass-1-implementation",
-  "9883b598-pass-2-bug-and-edge-review",
-  "9883b598-pass-3-acceptance-cross-check"
+  "arena-review-pass-1-2026-10-26",
+  "arena-review-pass-2-2026-10-26",
+  "arena-review-pass-3-2026-10-26"
  ],
- "release_decision": "2026-10-26 9883b598: literal both-stage registry rule restored; no current approval. Existing research downloads only; no new TIFF, fit or slot.",
+ "release_decision": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here.",
  "rbu31_session_2026_10_25": {
   "branch": "arena/84287da3-gemsdoe31",
   "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",
@@ -1670,7 +1655,7 @@
   "verdict": "negative (no slot, no organizer-confirmed score)",
   "next": "knowledge/2026-10-25_rbu31c_next_preregistration.md (frozen, not run)"
  },
- "latest_verification_continuation": "evidence/review_9883b598/checks.json",
+ "latest_verification_continuation": "arena-review-verification-continuation-2026-10-26",
  "h31s_three_passes_2026_10_26": [
   "h31s-pass-1-implementation-and-execution-2026-10-26",
   "h31s-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",

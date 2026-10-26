@@ -7,6 +7,14 @@
  "promoted_lanes": [],
  "not_promoted": [
   {
+   "lane": "H31-Y",
+   "failed_gates": [
+    "lane G5 top-K 90.5% (final dots 63.0% unique vs discrete peers)",
+    "literal registry STOP / incomplete surface-and-final audit",
+    "no selector action or weekly cap verified"
+   ]
+  },
+  {
    "lane": "H31-B-standalone",
    "failed_gates": [
     "literal registry STOP / incomplete surface-and-final audit",
@@ -255,5 +263,12 @@
  "evidence": "evidence/selector_audit_20261026.json",
  "policy_version": "literal-registry-20261026-9883b598",
  "status": "DO NOT SUBMIT",
- "supersedes": "evidence/review_9883b598/superseded_selector_decision.json"
+ "supersedes": "evidence/review_9883b598/superseded_selector_decision.json",
+ "h31y_new_lane": {
+  "lane_card_verdict": "negative",
+  "selector_verdict": "not promoted",
+  "file": "docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif",
+  "run_card": "evidence/h31y/run_card.json",
+  "note": "Unique research GeoTIFF generated 2026-10-26 session f4d7fb29; DO NOT SUBMIT."
+ }
 }

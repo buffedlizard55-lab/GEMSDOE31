@@ -57,6 +57,40 @@
       <p><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_protocol_review_9883b598.md">Review, hypotheses, evidence and remaining work</a></p>
     </section>
       <div class="notice"><strong>26 October audit: no new TIFF or submission approval.</strong> The literal registry STOP remains binding. Corrected marginal DTI algebra and score-provenance wording; existing downloads are research-only. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_metric_and_release_review.md">Review, limitations and next steps</a>.</div>
+      <section id="h31y-kinpied" aria-labelledby="h31y-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-26 · H31-Y KIN-PIED unique research GeoTIFF</p>
+        <h2 id="h31y-heading">H31-Y: generated TIF · <span class="badge badge-red">DO NOT SUBMIT</span></h2></div>
+        <p>Preregistered before fitting. Three experiments. Not approved for upload (lane G5 top-K fail and
+           literal registry STOP). Format-valid all-finite values in [0, 1].</p></div>
+      <div class="card download-card">
+        <h3><code>gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif</code></h3>
+        <p><strong>OK TO DOWNLOAD FOR RESEARCH: YES. NOT OK TO SUBMIT.</strong>
+           Name <code>gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3</code>. Note (91/140): <code>H31-Y Y3 KIN-PIED polarity-LiDAR+gravpied 37654d B2 | HOLDOUT-DTI 0.0973 n=60988 | 46a5b6c3</code></p>
+        <p><strong>Hypothesis.</strong> H31-Y KIN-PIED: catalogue-missing hanging-wall / intra-basin faults are polarity-concordant LiDAR scarps (synthetic face the basin, antithetic face the range) plus low-slope gravity HG ridges; gravity decreasing direction defines the hanging wall<br>
+           <strong>Mechanism.</strong> Y3: SYNTH — downface_max × relu(û_down·û_basin|range) and/or |iso_grav_anom_hg| in a 0-5 deg piedmont window; second-line gate ON; Poisson 2.8 px, 37,654 dots, d(catalogue) &gt; 2 px<br>
+           <strong>Named non-fault mimics.</strong> Lahontan shorelines/wave-cut benches (cannot elevation-mask with detrended DEM), road/canal cuts, lava-flow snouts, landslide toes, erosional pediment edges</p>
+        <div class="actions">
+          <a class="button" href="downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif" download>Download H31-Y research .tif (all-finite [0,1] — DO NOT SUBMIT)</a>
+          <a class="button" href="downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.zip" download>Single-TIFF .zip</a>
+          <a class="button button-light" href="downloads/h31y-run-card.json">Run card (JSON)</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256 zeros:</strong> <code>6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8</code><br>
+          HOLDOUT-DTI (gems57-pooled-hide-v2, 60,988 withheld) 0.0973
+          [0.0833, 0.1106]; paired vs CTRL +0.0302
+          [+0.0048, +0.0536]; confirmation paired +0.0287.
+          Off-catalogue SGMC 0.1188 vs H33 0.0940 (COMPUTED).
+          PROJECTION 0.3484 (never a score). Final-dot 3-px max 63.0%;
+          top-K 90.5% (G5 fail). Lattice overlap disclosed, not exempted.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Gate</th><th>Result</th></tr></thead><tbody>
+        <tr><td>G1 format</td><td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>G2 canary</td><td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>G3 holdout efficacy</td><td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>G4 SGMC discovery</td><td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>G5 uniqueness (incl. top-K)</td><td><span class="badge badge-red">FAIL</span></td></tr>
+        <tr><td>G6 projection ge 0.2778</td><td><span class="badge badge-green">PASS</span></td></tr>
+      </tbody></table></div>
+      </section>
       
 <section id="pgr31-download" aria-labelledby="pgr31-heading">
   <div class="section-head"><div><p class="kicker">2026-10-26 Newest Lane · PGR31 Poisson Pseudo-Gravity Discordance · 3-Experiment Campaign</p>

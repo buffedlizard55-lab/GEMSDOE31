@@ -67,6 +67,62 @@ def selector_decision_section() -> str:
     </section>'''
 
 
+def h31y_download_and_gates() -> str:
+    """H31-Y KIN-PIED research GeoTIFF. Lane card negative. Not approved for upload."""
+    rc_path = ROOT / "evidence/h31y/run_card.json"
+    if not rc_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    g = rc["gates"]
+    hd = rc["holdout_dti"]
+    sc = hd["screen_final_surface"]
+    dc = hd["screen_paired_vs_ctrl"]
+    cf = hd["confirmation_random_component_split"]
+    cfd = cf["paired_differences"]["CTRL"]
+    sg = rc["sgmc_proxy"]
+    u = rc["correlation_overlap_vs_registry"]
+    pj = rc["projection"]
+    f = rc["files"]
+
+    def badge(ok):
+        return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
+
+    return f'''<section id="h31y-kinpied" aria-labelledby="h31y-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-26 · H31-Y KIN-PIED unique research GeoTIFF</p>
+        <h2 id="h31y-heading">H31-Y: generated TIF · <span class="badge badge-red">DO NOT SUBMIT</span></h2></div>
+        <p>Preregistered before fitting. Three experiments. Not approved for upload (lane G5 top-K fail and
+           literal registry STOP). Format-valid all-finite values in [0, 1].</p></div>
+      <div class="card download-card">
+        <h3><code>{esc(f["zeros"].split("/")[-1])}</code></h3>
+        <p><strong>OK TO DOWNLOAD FOR RESEARCH: YES. NOT OK TO SUBMIT.</strong>
+           Name <code>{esc(rc["submission_name"])}</code>. Note ({rc["note_chars"]}/140): <code>{esc(rc["note"])}</code></p>
+        <p><strong>Hypothesis.</strong> {esc(rc["hypothesis"])}<br>
+           <strong>Mechanism.</strong> {esc(rc["mechanism"])}<br>
+           <strong>Named non-fault mimics.</strong> {esc(rc["non_fault_mimic"])}</p>
+        <div class="actions">
+          <a class="button" href="{esc(f["zeros"].replace("docs/", "", 1))}" download>Download H31-Y research .tif (all-finite [0,1] — DO NOT SUBMIT)</a>
+          <a class="button" href="{esc(f["zip"].replace("docs/", "", 1))}" download>Single-TIFF .zip</a>
+          <a class="button button-light" href="downloads/h31y-run-card.json">Run card (JSON)</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256 zeros:</strong> <code>{esc(rc["raster_sha256"])}</code><br>
+          HOLDOUT-DTI (gems57-pooled-hide-v2, {sc["withheld_positive_pixels"]:,} withheld) {sc["dti"]:.4f}
+          [{sc["ci95"][0]:.4f}, {sc["ci95"][1]:.4f}]; paired vs CTRL {dc["delta"]:+.4f}
+          [{dc["ci95"][0]:+.4f}, {dc["ci95"][1]:+.4f}]; confirmation paired {cfd["delta"]:+.4f}.
+          Off-catalogue SGMC {sg["candidate"]["dti"]:.4f} vs H33 {sg["H33"]["dti"]:.4f} (COMPUTED).
+          PROJECTION {pj["value"]:.4f} (never a score). Final-dot 3-px max {100*u["discrete_max_final_overlap_3px"]:.1f}%;
+          top-K {100*(u["discrete_max_topk_overlap_3px"] or 0):.1f}% (G5 fail). Lattice overlap disclosed, not exempted.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Gate</th><th>Result</th></tr></thead><tbody>
+        <tr><td>G1 format</td><td>{badge(g["G1_format"])}</td></tr>
+        <tr><td>G2 canary</td><td>{badge(g["G2_canary"])}</td></tr>
+        <tr><td>G3 holdout efficacy</td><td>{badge(g["G3_holdout_efficacy"])}</td></tr>
+        <tr><td>G4 SGMC discovery</td><td>{badge(g["G4_sgmc_discovery"])}</td></tr>
+        <tr><td>G5 uniqueness (incl. top-K)</td><td>{badge(g["G5_uniqueness_discrete"])}</td></tr>
+        <tr><td>G6 projection ge 0.2778</td><td>{badge(g["G6_projection_ge_02778"])}</td></tr>
+      </tbody></table></div>
+      </section>'''
+
+
 def h31x_download_and_gates() -> str:
     """H31-X piedmont-junction lane (2026-10-26, session 3ce68fc7): download, gates, disclosure."""
     rc_path = ROOT / "evidence/h31x/run_card.json"
@@ -1103,7 +1159,8 @@ def overview(card):
       <p class="eyebrow">DOE GEMS Prize · automated research validation</p>
       <h1>Research download available.<br>Submission blocked.</h1>
       <p class="hero-lede">The current protocol requires registry checks before placement and on final dots.
-      Existing candidates fail the literal overlap gate. No new raster or weekly slot after STOP.</p>
+      Existing candidates fail the literal overlap gate. H31-Y is a new research TIFF on this page;
+      it is not approved for upload. No weekly slot was used.</p>
       <div class="actions"><a class="button button-primary" href="#selector-decision">Research TIFF &amp; validation receipt</a>
       <a class="button" href="executive-summary.html">Nine-site executive summary &amp; submission guide</a></div>
       </div><aside class="hero-side"><strong>DO NOT SUBMIT</strong><p>No current artifact is approved.
@@ -1116,7 +1173,7 @@ def _overview_body(card, *, hero_rbu: bool):
     delta = card["paired_difference"]
     final = card["registry"]["final"]
     magrest_notice = '<div class="notice">Historical lane results below are research evidence only, not current upload permission.</div>'
-    body = f'''{selector_decision_section()}{magrest_notice}{pgr31_download_and_gates()}
+    body = f'''{selector_decision_section()}{magrest_notice}{h31y_download_and_gates()}{pgr31_download_and_gates()}
       {h31s_download_and_gates()}
       {h31x_download_and_gates()}
       {h31t_download_and_gates()}
@@ -1281,6 +1338,7 @@ def executive(card):
       No human sign-off can override a failed gate.</div>
       {selector_decision_section()}
       {review_notice()}
+      {h31y_download_and_gates()}
       {pgr31_download_and_gates()}
       {focus_summary}
       {h31s_download_and_gates()}

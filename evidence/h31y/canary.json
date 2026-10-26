@@ -1,0 +1,78 @@
+{
+ "lane": "H31-Y",
+ "evidence_class": "COMPUTED",
+ "auc_ceiling": 0.9,
+ "rows": [
+  {
+   "feature": "SYNTH",
+   "kind": "line",
+   "auc_catalogue": 0.5687854450875584,
+   "auc_off_sgmc": 0.5074545453587183,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "ANTI",
+   "kind": "line",
+   "auc_catalogue": 0.5013462318816816,
+   "auc_off_sgmc": 0.533421504929943,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "GRAVPIED",
+   "kind": "line",
+   "auc_catalogue": 0.49248592776447825,
+   "auc_off_sgmc": 0.28381509677445504,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "BASEPIED",
+   "kind": "line",
+   "auc_catalogue": 0.4643040198481669,
+   "auc_off_sgmc": 0.26814093778379605,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "CTRL",
+   "kind": "line",
+   "auc_catalogue": 0.5273102602561159,
+   "auc_off_sgmc": 0.4917011553742865,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "SLOPE",
+   "kind": "line",
+   "auc_catalogue": 0.5564346105791304,
+   "auc_off_sgmc": 0.7565025439073041,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Y1",
+   "kind": "surface",
+   "auc_catalogue": 0.49248592776447825,
+   "auc_off_sgmc": 0.28381509677445504,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Y2",
+   "kind": "surface",
+   "auc_catalogue": 0.5013462318816816,
+   "auc_off_sgmc": 0.533421504929943,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Y3",
+   "kind": "surface",
+   "auc_catalogue": 0.5687854450875584,
+   "auc_off_sgmc": 0.5074545453587183,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Y4",
+   "kind": "surface",
+   "auc_catalogue": 0.49545822932380135,
+   "auc_off_sgmc": 0.2940785963852491,
+   "leakage_flagged": false
+  }
+ ],
+ "all_pass": true
+}
