@@ -537,6 +537,61 @@
    "sha256": "e4455a3c87f7e8266c65028959b3dec50cbf4699bf8bdaf0c81c74323d30c944"
   },
   {
+   "path": "evidence/pgr31/canary_seed51.json",
+   "bytes": 2163,
+   "sha256": "0bdc863c020b9e9114e1a7b31c6e0338767c87d2a98066d32f8a93f2fdcbc607"
+  },
+  {
+   "path": "evidence/pgr31/holdout_seed51.json",
+   "bytes": 9356,
+   "sha256": "08c891acdf9cea4de778c7f6f4432f8b8551f56552eb027edc7c536eff4fa8f6"
+  },
+  {
+   "path": "evidence/pgr31/independent_verification.json",
+   "bytes": 1877,
+   "sha256": "3e4b994d1e99a029d13bc9ff815c742b1dd4cebc1b6aae6af6453f302d37f990"
+  },
+  {
+   "path": "evidence/pgr31/registry_csdu_concurrent.json",
+   "bytes": 804,
+   "sha256": "19c53822238aad8433730c2844318c70a69c36c8c124ff21a1effbe440ad8df4"
+  },
+  {
+   "path": "evidence/pgr31/registry_final.json",
+   "bytes": 12361,
+   "sha256": "e8343b40573ed5e23ba98ac5438db635829c1e89a0523dc873d5f9a5b16fbbf9"
+  },
+  {
+   "path": "evidence/pgr31/registry_lattice_measured.json",
+   "bytes": 782,
+   "sha256": "ec493239a51b269195a5e28f16338a91652914369a18fa83f41ca862bc90c501"
+  },
+  {
+   "path": "evidence/pgr31/registry_surface.json",
+   "bytes": 8116,
+   "sha256": "778be22483894595bff7d4ee799d89d722795d934ac5de8023486d717949d3bc"
+  },
+  {
+   "path": "evidence/pgr31/run_card.json",
+   "bytes": 8199,
+   "sha256": "96de08ac2af4cf19d4b126af6c0dd81e3125664b271e5f4c7a005154c6bae30b"
+  },
+  {
+   "path": "evidence/pgr31/stack.json",
+   "bytes": 2378,
+   "sha256": "30d3ab390f364b65cd9c612e1fe68c482e79eb5d83f41fd3d0bd7fbc87446011"
+  },
+  {
+   "path": "evidence/pgr31_data_restore_core.json",
+   "bytes": 1651,
+   "sha256": "844629bccc1ba4d8dd2378e427f17aad947535ee87c13a3d5513dfd5750fed77"
+  },
+  {
+   "path": "evidence/pgr31_data_restore_external.json",
+   "bytes": 4435,
+   "sha256": "824e4efa986449271bebe32b96392f1458d1e3eda135aeac3d7a69167d683802"
+  },
+  {
    "path": "evidence/prior_lineage_20261025.json",
    "bytes": 2389,
    "sha256": "cc13c4467cb7d6c34ce6777d6efac7e947d56ed1de7e858da5e5d44f13f9a01e"

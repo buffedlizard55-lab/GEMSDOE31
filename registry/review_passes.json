@@ -5,7 +5,7 @@
   "passes": [
     {
       "id": "pass-1-implementation-and-verification",
-      "status": "historical — complete-for-current-artifacts",
+      "status": "historical \u2014 complete-for-current-artifacts",
       "scope": [
         "frozen H31-A design, two magnetic-scale features, pinned sibling runtime/cache verification, paired four-block pilot, same-trace residual variogram, bootstrap range rule and stop gate",
         "strict GeoTIFF CRS/grid/shape/transform/dtype/value/NaN checks and out-of-range regression protection",
@@ -31,7 +31,7 @@
     },
     {
       "id": "pass-2-independent-bug-assumption-leakage-review",
-      "status": "historical — complete-for-current-code-and-pilot",
+      "status": "historical \u2014 complete-for-current-code-and-pilot",
       "checks": [
         "confirmed H31 feature construction uses no fault labels and re-masks invalid cells after filtering",
         "confirmed model arms share folds, draws, training samples, test rows, and emission; residual pairs are restricted to the same fold/draw/8-connected trace component",
@@ -55,7 +55,7 @@
     },
     {
       "id": "pass-3-whole-request-crosscheck",
-      "status": "historical — complete-with-open-gates",
+      "status": "historical \u2014 complete-with-open-gates",
       "criteria": [
         {
           "criterion": "README charter, Maximize P(Win), Own the Outcome, source classes, and status-first site",
@@ -99,11 +99,11 @@
     },
     {
       "id": "pass-4-score-prior-art-and-source-implementation-2026-10-03",
-      "status": "historical — complete-for-reviewed-artifacts",
+      "status": "historical \u2014 complete-for-reviewed-artifacts",
       "scope": [
         "read recurring README charter, H31 preregistration/status, prior score audit, source and submission registries, and user-supplied H27-4 / public-high claims",
         "compare public GEMSDOE28 owner-page score/artifact claims with pinned GEMSDOE25 D2.8 record without accessing DrivenData score or submission pages",
-        "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective ΔDTI planning brackets, cost, and source-access limits",
+        "write four distinct fault-mapping desk hypotheses with evidence class, layers, physics, prior-art boundary, subjective \u0394DTI planning brackets, cost, and source-access limits",
         "correct active branch guard to arena/01a1050e-gemsdoe31 and add accept/reject tests; update README, site, disclosure, audit, score/source/submission/irregularity registries"
       ],
       "verification": {
@@ -123,7 +123,7 @@
     },
     {
       "id": "pass-5-independent-assumption-and-link-review-2026-10-03",
-      "status": "historical — complete-with-blockers-preserved",
+      "status": "historical \u2014 complete-with-blockers-preserved",
       "checks": [
         "rechecked the H27-4 filename/hash/status against GEMSDOE28 owner records and separated its catalogue-gap proxy deltas from competition DTI",
         "rechecked D2.8 0.2600 against both the pinned GEMSDOE25 registry and GEMSDOE28 owner page; retained attribution conflict and empty organizer receipt list",
@@ -145,14 +145,14 @@
     },
     {
       "id": "pass-6-whole-charter-and-delivery-crosscheck-2026-10-03",
-      "status": "historical — complete-with-open-gates",
+      "status": "historical \u2014 complete-with-open-gates",
       "criteria": [
         {
           "criterion": "fault-mapping target, Maximize P(Win), Own the Outcome, README startup brief and source/evidence labels",
           "status": "preserved; geothermal favorability is not substituted for fault presence; H27-4, D2.8, and claimed 0.3195 remain explicitly unverified"
         },
         {
-          "criterion": "3–5 distinct ranked hypotheses and official-source/access checks",
+          "criterion": "3\u20135 distinct ranked hypotheses and official-source/access checks",
           "status": "four hypotheses documented and ranked as subjective desk priorities; none fitted or declared viable"
         },
         {
@@ -165,7 +165,7 @@
         },
         {
           "criterion": "AI narrative, three cumulative reviews, and delivery record",
-          "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1–3; PR #4 merged from the fixed branch."
+          "status": "AI draft updated and still requires entrant approval; three current-task passes recorded in addition to historical passes 1\u20133; PR #4 merged from the fixed branch."
         }
       ],
       "delivery_state": "Commit 3cd7fbf and PR-status commit 51ee6dc were pushed only to arena/01a1050e-gemsdoe31 and merged through https://github.com/buffedlizard55-lab/GEMSDOE31/pull/4 at b93b7ae81c5cdd594ed55715a5e9f14ca3dc199c. GitHub Pages deployment run 37176602101 succeeded and the deployed root/score-audit page were fetched. This verifies publication only, not an official score, organizer acceptance, or candidate.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "pass-10-regenerate-and-verify-every-measured-number",
-      "status": "historical — complete-for-current-artifacts",
+      "status": "historical \u2014 complete-for-current-artifacts",
       "scope": [
         "restore and hash-verify the 11 pinned inputs in this workspace (data_restore.json all_verified true)",
         "write the official metric from the published sums and verify it against a literal brute-force transcription",
@@ -199,7 +199,7 @@
     },
     {
       "id": "pass-11-bug-assumption-and-leakage-review",
-      "status": "historical — complete-for-current-artifacts",
+      "status": "historical \u2014 complete-for-current-artifacts",
       "scope": [
         "re-derive the metric from the official page rather than from memory, and correct the earlier off-by-one arithmetic in the exact test case",
         "check that no catalogue-derived feature enters either evaluation proxy",
@@ -221,7 +221,7 @@
     },
     {
       "id": "pass-12-charter-crosscheck",
-      "status": "historical — complete-with-open-work",
+      "status": "historical \u2014 complete-with-open-work",
       "scope": [
         "walk the written brief item by item against the repository, the site and the registers",
         "record what is satisfied, what is partial, and what is blocked"
@@ -243,7 +243,7 @@
     },
     {
       "id": "pass-13-h31b-implementation-and-9site-forensic-audit-2026-10-25",
-      "status": "historical — complete-for-current-artifacts",
+      "status": "historical \u2014 complete-for-current-artifacts",
       "scope": [
         "fix scripts/download_competition_data.py in-place with blobless git fetch over github.com so all 11 hash-pinned inputs restore inside the sandbox",
         "restore all 11 sibling GeoTIFFs across GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36 and compute exact catalogue-distance annuli and off-catalogue SGMC DTIs (evidence/nine_site_forensic_audit.json)",
@@ -263,7 +263,7 @@
     },
     {
       "id": "pass-14-h31b-bug-leakage-and-uniqueness-review-2026-10-25",
-      "status": "historical — complete-for-current-artifacts",
+      "status": "historical \u2014 complete-for-current-artifacts",
       "scope": [
         "audit single-feature leakage canary across all 46 bands + 5 engineered surfaces (evidence/leakage_canary.json)",
         "audit sparse LiDAR/GeoDAWN NaN handling, Parallel-Run Uniqueness Gate (surface Spearman r_s <= 0.90 and 3-px dot overlap <= 70%), and [0, 1] footprint range",
@@ -282,12 +282,12 @@
     },
     {
       "id": "pass-15-whole-request-and-run-card-crosscheck-2026-10-25",
-      "status": "historical — complete-with-open-work",
+      "status": "historical \u2014 complete-with-open-work",
       "scope": [
         "cross-check all user requirements: 9-site forensic study of 0.2778, unique validated GeoTIFF generation, obvious readiness on site home and executive summary, unique name and <=140-char note, Parallel-Run Protocol compliance, and JSON RUN CARD"
       ],
       "verification": {
-        "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES — VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
+        "site_readiness": "docs/index.html and docs/executive-summary.html prominently display YES \u2014 VALIDATED & OK TO DOWNLOAD AND SUBMIT with one-click download links, unique submission names, and <=140-char portal notes",
         "run_card": "evidence/run_card_2026-10-25.json generated and verified with all required fields"
       },
       "open_scientific_gates": [
@@ -457,7 +457,7 @@
       ],
       "findings_fixed": [
         "the prior session-ID branch literal would reject the current active Arena branch even before the missing-data guard",
-        "the home page previously led with “Download the file. Submit it.” while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
+        "the home page previously led with \u201cDownload the file. Submit it.\u201d while describing the legacy incumbent as not slot-approved; wording now prohibits upload until an approved candidate exists",
         "the executive summary no longer reserves a submission name or note for a legacy/reference file"
       ],
       "verification": {
@@ -768,7 +768,7 @@
       "id": "pass-2026-10-25-h31m-3",
       "status": "complete-with-promoted-unique-candidate",
       "scope": [
-        "verify obvious YES — OK TO DOWNLOAD AND SUBMIT readiness on docs/index.html, docs/executive-summary.html, and README.md with unique name, <=140-char note, and one-click download",
+        "verify obvious YES \u2014 OK TO DOWNLOAD AND SUBMIT readiness on docs/index.html, docs/executive-summary.html, and README.md with unique name, <=140-char note, and one-click download",
         "rerun pytest, ruff, check_metric.py, collect_evidence.py, build_site.py, and check_site.py across all 20 HTML pages and 267 local links",
         " ",
         "R",
@@ -1511,6 +1511,35 @@
       "new_tiffs": 0,
       "weekly_slots_used": 0,
       "historical_scope": false
+    },
+    {
+      "id": "pgr31-pass-1-implementation-and-execution-2026-10-26",
+      "status": "complete",
+      "scope": [
+        "Restored 11 hash-pinned owner-mirror inputs (core+external, all_verified true; evidence/pgr31_data_restore_*.json); verified band descriptions from the files (rtp=2, iso_grav_anom=13, lidar valid=12 excluded)",
+        "Froze knowledge/2026-10-26_pgr31_preregistration.md (SHA-256 a161635faadb95eefd301e1058c688f0da6e00a961893abf8dacf622380a7ae1) ranking 5 untried hypotheses before any fit; disclosed the missing assigned-method-paragraph irregularity",
+        "Implemented src/gemsdoe31/pgr31_features.py (Baranov pseudo-gravity + masked local Poisson regression) with synthetic unit tests; ran EXP-1 canary PASS (max two-sided AUC 0.5766) then screen draw 51 HOLDOUT-DTI candidate 0.0764 vs control 0.0761 (gems57-pooled-hide-v2, 2778 withheld, paired +0.0003 [-0.0202,+0.0240], SGMC -0.0080) -> FAIL; EXP-2 draw 52 gated off; EXP-3 packaged 37,654-dot research TIFF (SHA-256 9dcc2e0c4da3f40c17796cfd4ab306cd6aa0ab218d98f83f3b5cbeb406d4b628) via unchanged vendor submission_writer"
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "pgr31-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
+      "status": "complete-with-fixes",
+      "checks": [
+        "Fixed a parallel-edit race in scripts/run_pgr31.py (reg_paths NameError; same failure mode as recorded RBU31 races) by sequential edit + py_compile read-back; final surface SHA-256 70bfab89 reproduced bit-identically on rerun; removed a 48-mask registry cache memory risk by re-reading rasters per gate",
+        "Independent byte verifier scripts/verify_pgr31_run.py re-reads TIFF/ZIP bytes: hashes, {0,1} support, 37,654 dots, both validator conventions (0 hard failures), one-TIFF ZIP identity, preregistration hash, 0 dots within 2 px of catalogue",
+        "Measured the literal calibration-lattice overlap for PGR31 (99.26% within 3 px; evidence/pgr31/registry_lattice_measured.json) instead of quoting the generic degeneracy; genuine-submission scope max overlap 48.6%, surface max |rho| 0.1506; fixed site lattice wording to the measured 99.26% and a note-length typo (109/140)"
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "pgr31-pass-3-full-acceptance-and-ci-verification-2026-10-26",
+      "status": "complete-with-honest-stop-gates",
+      "checks": [
+        "Full AGENTS.md check set: pytest 142 passed (after verify_current_run --restore-small-inputs restored the pinned lattice; pre-restore 136 passed/6 errors on that missing cache), ruff clean, check_metric max |dDTI| 4.441e-16, verify_current_run verdict negative ok_to_submit false, collect_evidence 165 artifacts, build_site + check_site 22 pages / 452 local links passed",
+        "Executive summary (knowledge/2026-10-26_pgr31_executive_summary.md) states the nine focus sites' best USER-REPORTED artifacts are one D2.8 duplicate family and that no file - including PGR31 - is approved to submit; every number labelled HOLDOUT-DTI (evaluator, withheld n, CI) or USER-REPORTED; no ORGANIZER-CONFIRMED score claimed; no slot picked"
+      ],
+      "historical_scope": false
     }
   ],
   "remaining_work": [
@@ -1543,5 +1572,11 @@
     "h31s-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
     "h31s-pass-3-full-acceptance-and-ci-verification-2026-10-26"
   ],
-  "latest_h31s_run": "registry/h31s_current_run.json"
+  "latest_h31s_run": "registry/h31s_current_run.json",
+  "pgr31_three_passes_2026_10_26": [
+    "pgr31-pass-1-implementation-and-execution-2026-10-26",
+    "pgr31-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
+    "pgr31-pass-3-full-acceptance-and-ci-verification-2026-10-26"
+  ],
+  "latest_pgr31_run": "registry/pgr31_current_run.json"
 }

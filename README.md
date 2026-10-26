@@ -1,24 +1,19 @@
+> **PGR31 (2026-10-26, newest lane): unique GeoTIFF generated and automatically validated. DOWNLOAD FOR RESEARCH: YES — SUBMIT TO DRIVENDATA: NO (`DO NOT SUBMIT`, holdout screen failed, `ok_to_submit = false`).**
+> Download: [gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif](docs/downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif) (37,654 dots, SHA-256 `9dcc2e0c…d4b628`, all-finite `{0,1}` in `[0,1]`) · [run card](docs/downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-run-card.json) · [executive summary (9 focus sites, read first)](knowledge/2026-10-26_pgr31_executive_summary.md) · [preregistration](knowledge/2026-10-26_pgr31_preregistration.md) · verify with `python scripts/verify_pgr31_run.py` (no human inspector).
+> HOLDOUT-DTI (`gems57-pooled-hide-v2`, 2,778 withheld positives): candidate 0.0764 [0.0449, 0.1102] vs same-run base-38 control 0.0761, paired Δ +0.0003 [−0.0202, +0.0240], SGMC proxy Δ −0.0080 → verdict **negative**, confirmation gated off, no weekly slot. Uniqueness vs 48 genuine submission rasters: surface max |ρ| 0.1506, final-dots max 3-px overlap 48.6% (33.2% vs H33-2-B2). Named mimic: unfaulted pluton/caldera contacts. **No file in this repo is slot-approved; best nine-site claim remains H33-2-B2 0.2778 USER-REPORTED (a D2.8 catalogue-prune, not submittable as new).**
+>
+
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
 ## Current status — 2026-10-26 (read first)
 
-**New unique candidate this session: CSDU concealed stepover-dilation upflow (`gemsdoe31-csdu-stepover-8cf9dc27`).**
+**Parallel unique candidate on main: CSDU concealed stepover-dilation upflow (`gemsdoe31-csdu-stepover-8cf9dc27`).**
 - **OK to download for research:** YES — format-valid GeoTIFF, 4,000 binary dots, 0 on public catalogue, finite [0,1] inside footprint, EPSG:32611, 3730×3292, 100 m. One-click downloads, validation receipt and run card on the [executive-summary page](docs/executive-summary.html).
 - **OK to submit to DrivenData:** NO — holdout efficacy and registry uniqueness cannot be verified offline (no competition truth); `slot_approved = false`, `verdict = negative`. Not uploaded.
 
 **Nine focus sites (GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36):** the highest listed claim is GEMSDOE32 H33-2-B2 at USER-REPORTED 0.2778, but every listed "best" is >86% within 3 px of H33 — a duplicate lane, not a submittable new entry. **No file is slot-approved.**
 
 > **Review 2026-10-26 (main branch):** no new submission approved and no new TIFF generated on that review continuation; the latest candidate remains H31-S (`UDAP-SSLIC`), research download only and **DO NOT SUBMIT**. No experiment, upload, leaderboard access, or weekly slot was used in that review.
-
-# GEMSDOE31 — auditable GEMS Prize fault-mapping research
-
-## Current status — 2026-10-26 (read first)
-
-**New unique candidate this session: CSDU concealed stepover-dilation upflow (`gemsdoe31-csdu-stepover-8cf9dc27`).**
-- **OK to download for research:** YES — format-valid GeoTIFF, 4,000 binary dots, 0 on public catalogue, finite [0,1] inside footprint, EPSG:32611, 3730×3292, 100 m. One-click downloads, validation receipt and run card on the [executive-summary page](docs/executive-summary.html).
-- **OK to submit to DrivenData:** NO — holdout efficacy and registry uniqueness cannot be verified offline (no competition truth); `slot_approved = false`, `verdict = negative`. Not uploaded.
-
-**Nine focus sites (GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36):** the highest listed claim is GEMSDOE32 H33-2-B2 at USER-REPORTED 0.2778, but every listed "best" is >86% within 3 px of H33 — a duplicate lane, not a submittable new entry. **No file is slot-approved.**
 
 See `docs/executive-summary.html` for the full per-site table, the H33-2-B2 analysis, the portal submission how-to, and five new hypotheses. All claims are labelled OFFICIAL / OWNER-MIRROR / COMPUTED / USER-REPORTED; no organizer receipt exists for any score.
 
