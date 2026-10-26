@@ -1,3 +1,42 @@
+> ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/3ce68fc7-gemsdoe31`) — SUBMIT THIS ONE FILE
+>
+> **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**
+> [`gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif`](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif)
+> ([single-TIFF zip](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.zip) ·
+> [NaN-outside twin](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-nan.tif) ·
+> [run card](evidence/h31x/run_card.json) · [preregistration](knowledge/2026-10-26_h31x_piedmont_junction_preregistration.md) ·
+> [executive summary](knowledge/2026-10-26_h31x_executive_summary.md) · [site](docs/index.html))
+> — SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9` · portal name
+> `gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9` · portal note (88/140):
+> `H31-X X1 piedmont-junction slope-break 37654d B2 | HOLDOUT-DTI 0.1661 n=60988 | 5a956da9`
+>
+> **What it is:** a new, label-free lane (**H31-X**, preregistered before any fitting): dots on the *piedmont junction*
+> — the concave-up slope break where steep bedrock meets the piedmont, i.e. the position of the range-bounding fault
+> that geologic maps and experts carry far more completely than the Quaternary-fault catalogue. 37,654 binary dots,
+> Poisson 2.8 px, >2 px from the catalogue, values {0,1}, all-finite float32 on the exact grid.
+> **Evidence (every number labelled):** HOLDOUT-DTI **0.1661 [0.1499, 0.1821]** (`gems57-pooled-hide-v2`, 60,988
+> withheld, same evaluator/folds as every prior lane; previous best H31-T 0.1300), paired **+0.0991 [+0.0720, +0.1258]**
+> vs control and **+0.1173 [+0.1024, +0.1314]** vs the slope-magnitude baseline, 4/4 quadrants, untouched
+> random-component-split confirmation +0.0804 [+0.0536, +0.1081]; off-catalogue USGS-SGMC proxy **0.1209 vs H33 0.0940**
+> (COMPUTED, 4/4 quadrants); **PROJECTION 0.355 [0.349, 0.360]** (never a score; in-family calibration) vs the 0.2778
+> USER-REPORTED incumbent; uniqueness: 63.1% max dots within 3 px of any discrete peer, 57.0% vs H33, |Spearman| ≤ 0.13.
+> Leakage canary max AUC 0.76 (≤ 0.90). Validators: both conventions pass, 0 hard failures.
+>
+> **Read this disclosure once:** the H31-X *lane card* itself says `verdict=negative` because its own preregistered G5 was
+> stricter than the owner's duplicate rule — it also tested the raw top-37,654 surface pixels *before* catalogue pruning
+> and Poisson spacing (86% within 3 px of the GEMSDOE24/27 D1.5 60k-dot fields; a random field scores 17%). The uniform
+> selector (`scripts/selector_audit.py`, rules frozen in the previous session, re-run with H31-X added) applies the
+> owner's rule as written (>70% *submitted dots* within 3 px, or |rank corr| > 0.90 ⇒ duplicate): H31-X measures 63% / 0.125
+> ⇒ unique ⇒ **promoted as primary** (highest projection of the four promoted lanes). No gate was relaxed after the fact;
+> both readings are preserved (`evidence/h31x/exp2_posthoc_diagnostics.json`). Alternates passing the same selector gates:
+> **H31-T** (`83fbc267…`, PROJECTION 0.317, only 34% vs H33 — choose it if you prefer the lower-overlap entry), H31-J (0.312),
+> H31-M (0.296). Submit at most one file per weekly slot. Everything else on this site is ⛔ DO NOT SUBMIT.
+> Regime caveat: 82% of H31-X dots sit at slope > 6° (range fronts); its piedmont-only SGMC slice is 0.043 vs H33 0.059.
+> Fixed-dot reference arms (H33/H31-T/H31-J/H31-B) scored 0.000–0.011 in the hide-and-recover folds — uninformative
+> under this protocol (pruned against the full catalogue), not evidence against them.
+>
+> ---
+>
 > ## ✅ SELECTOR DECISION 2026-10-26 (session `arena/5b378be2-gemsdoe31`) — SUBMIT THIS ONE FILE
 >
 > **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**

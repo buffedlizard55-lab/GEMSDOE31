@@ -1,0 +1,78 @@
+{
+ "lane": "H31-X",
+ "evidence_class": "COMPUTED",
+ "auc_ceiling": 0.9,
+ "rows": [
+  {
+   "feature": "JUNC",
+   "kind": "line",
+   "auc_catalogue": 0.6356786653112088,
+   "auc_off_sgmc": 0.5794598287898937,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "JUNC_RAW",
+   "kind": "line",
+   "auc_catalogue": 0.640432667082049,
+   "auc_off_sgmc": 0.5886451889676311,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "RAD",
+   "kind": "line",
+   "auc_catalogue": 0.5144218545451564,
+   "auc_off_sgmc": 0.5821302854177478,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "GRAV",
+   "kind": "line",
+   "auc_catalogue": 0.5287957660523381,
+   "auc_off_sgmc": 0.439243253235275,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "CTRL",
+   "kind": "line",
+   "auc_catalogue": 0.5273102602561159,
+   "auc_off_sgmc": 0.4917011553742865,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "SLOPE",
+   "kind": "line",
+   "auc_catalogue": 0.5564346105791304,
+   "auc_off_sgmc": 0.7565025439073041,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "X1",
+   "kind": "surface",
+   "auc_catalogue": 0.6356786653112088,
+   "auc_off_sgmc": 0.5794598287898937,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "X2",
+   "kind": "surface",
+   "auc_catalogue": 0.5760288573161934,
+   "auc_off_sgmc": 0.587695202792553,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "X3",
+   "kind": "surface",
+   "auc_catalogue": 0.5893038057076803,
+   "auc_off_sgmc": 0.5006043070916582,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "X4",
+   "kind": "surface",
+   "auc_catalogue": 0.5886397383911589,
+   "auc_off_sgmc": 0.5495895474669175,
+   "leakage_flagged": false
+  }
+ ],
+ "all_pass": true
+}

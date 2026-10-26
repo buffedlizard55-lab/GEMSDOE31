@@ -95,7 +95,7 @@
   "phi": 0.020883572829927626,
   "vendor_spearman": 0.020883572829926554
  },
- "peers_checked": 52,
+ "peers_checked": 54,
  "candidates": [
   {
    "lane": "H31-B-standalone",
@@ -158,6 +158,84 @@
     "G6_projection_ge_02778": true
    },
    "selector_promote": false
+  },
+  {
+   "lane": "H31-X",
+   "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+   "card": "evidence/h31x/run_card.json",
+   "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
+   "n_dots": 37654,
+   "on_catalogue_dots": 0,
+   "format_ok": true,
+   "hard_failures": [],
+   "sgmc": {
+    "dti": 0.12091518330462997,
+    "tpw": 6970.69836652866,
+    "fpw": 34620.73987978726,
+    "n_truth": 61664,
+    "n_dots": 37654
+   },
+   "sgmc_piedmont_le6deg": {
+    "dti": 0.0633903582151335,
+    "tpw": 1430.8250718217735,
+    "fpw": 36759.4322490988,
+    "n_truth": 18667,
+    "n_dots": 37654
+   },
+   "sgmc_mountain_gt6deg": {
+    "dti": 0.13033092687081463,
+    "tpw": 5539.873294706886,
+    "fpw": 35003.15935106205,
+    "n_truth": 42997,
+    "n_dots": 37654
+   },
+   "sha256_recorded_in_own_run_card": true,
+   "twin_peers_excluded": [
+    "local:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-nan.tif (identical support twin)",
+    "local:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif (identical bytes)"
+   ],
+   "projection": 0.3547602506597004,
+   "projection_interval": [
+    0.3491985154461692,
+    0.3603219858732316
+   ],
+   "overlap_vs_h33": 0.5701386306899665,
+   "phi_vs_h33": 0.047395345810761574,
+   "max_discrete_overlap": 0.6305306209167685,
+   "max_discrete_overlap_peer": "focus:GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+   "holdout_from_card": {
+    "pass_": true,
+    "evaluator": "gems57-pooled-hide-v2",
+    "dti": 0.1661329569994631,
+    "ci95": [
+     0.14985841711445055,
+     0.18210651085093407
+    ],
+    "n": 60988,
+    "delta": 0.09906982713406393,
+    "delta_ci95": [
+     0.07201119527777565,
+     0.1257786119402916
+    ],
+    "confirmation_delta": 0.08036155418820407,
+    "confirmation_delta_ci95": [
+     0.05356359232144407,
+     0.10814623608677554
+    ],
+    "summary": "paired CIs vs CTRL & SLOPE (213-px quadrant folds) + untouched random-component split confirmation vs CTRL; all exclude 0 (card verbatim)"
+   },
+   "canary_from_card": true,
+   "card_verdict": "negative",
+   "card_slot_approved": false,
+   "gates": {
+    "G1_format": true,
+    "G2_canary": true,
+    "G3_holdout_efficacy": true,
+    "G4_sgmc_discovery": true,
+    "G5_uniqueness_discrete": true,
+    "G6_projection_ge_02778": true
+   },
+   "selector_promote": true
   },
   {
    "lane": "H31-B-hybrid",
@@ -1229,6 +1307,7 @@
   }
  ],
  "promoted": [
+  "H31-X",
   "H31-T",
   "H31-J",
   "H31-M"
