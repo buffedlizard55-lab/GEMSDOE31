@@ -59,3 +59,15 @@ Verification on 2026-10-26:
 3. Have a separate selector decide promotion only after a candidate passes every preregistered efficacy and uniqueness gate.
 4. Obtain organizer-authenticated score receipts and rules/template provenance through permitted access. Local validation is not organizer acceptance.
 5. Do not automate a DrivenData upload or spend a weekly slot from this repository.
+
+
+## Arena review continuation — 2026-10-26
+
+This continuation made **no model fit, experiment, TIFF, upload, leaderboard access, or slot use**. It reconciled the competing README summaries to the H31-S current status and explicitly flagged the older generic `registry/current_run.json` MAGREST receipt as stale for identifying the latest run. Full findings: [`repo_review_2026-10-26_arena.md`](repo_review_2026-10-26_arena.md).
+
+- H31-S screen `HOLDOUT-DTI` (`gems57-pooled-hide-v2`, seed 41, 2,820 withheld positives): `0.09478` (95% CI `[0.06120, 0.12925]`); paired delta vs H31-M `+0.02345` (95% CI `[-0.02042, +0.06979]`, 1/4 quadrant wins), so the preregistered same-instrument screen gate failed. Untouched confirmation seed 42: `0.09796` (95% CI `[0.07280, 0.12485]`, 2,823 withheld positives); this does not erase the screen failure.
+- H31-S exact verifier: `verdict=negative`, `ok_to_download_for_research=true`, `ok_to_submit=false`, `slot_approved=false`; zeros TIFF SHA-256 `186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd`.
+- The final discrete-scope maximum is 66.503% 3-px overlap; the unexempted broad-registry spacing-5 witness gives 99.931% overlap and the dense baseline gives 100%, forcing the registered stop. The broad scan is not exhaustive.
+- The prior generic MAGREST verifier also returns a negative/no-submit decision, but it validates a different, older artifact. H31-S is the latest status artifact; this naming divergence is logged for follow-up.
+- Verification in this continuation: 136 tests passed; Ruff and compileall passed; metric max fast/brute difference `4.441e-16` over 24 grids; H31-S verifier passed its fail-closed checks; generated site 22 pages / 439 local links passed.
+- Limitations remain: missing assigned method paragraph, exhausted 3-experiment budget, broad-registry gate failure, absent production data/cache in this checkout, no organizer score receipt, and no complete global scan. No candidate is approved to submit.
