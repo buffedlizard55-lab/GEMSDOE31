@@ -1833,5 +1833,16 @@
   "scope": "No scientific experiments, TIFFs or permission changes",
   "final_tests": "202 passed after merging PR #47 (one inherited regression) and adding BLAS-drift regression",
   "portability_fix": "Canonical release report rounds final rho to 12 decimals AFTER raw gate evaluation. --check passes with OPENBLAS_NUM_THREADS=1,2,4; no scientific threshold changes."
- }
+ },
+ "sessions": [
+  {
+   "session": "arena/a111fe50-gemsdoe31",
+   "date": "2026-10-26",
+   "lane": "H31-Y regime-mosaic",
+   "pass1_implement": "Restored hash-verified inputs (all_verified=true) + 42-band cache; fetched 9 focus peers hash-verified; preregistered H31-Y before fitting; ran canary (max two-sided AUC 0.76 PASS), EXP-1 quadrant holdout, EXP-2 uniqueness, EXP-3 untouched component-split confirmation (seed 3104) + SGMC; packaged both encodings via vendor writer; verdict negative (G3/G4 fail). Cross-family calibration audit computed from instrument_calibration rows.",
+   "pass2_review": "Found+fixed: (1) selector M1 projections invalid cross-family (RMSE 0.196) -> withdrawn everywhere incl. site/README; (2) site named 3 different submit files (top banner H31-N, hero H31-T, selector H31-X) -> single consistent decision via generator; (3) executive() how-to-submit hardcoded superseded H31-T/hash -> selector-primary; (4) AGENTS selector note stale (H31-T) -> amended. Verified H31-X junction holdout independently reproduces (Y2=0.1661). Disclosed (not hidden): Y3 top-K overlap vs H31-X 0.930 diagnostic; literal-695 lattice failure.",
+   "pass3_recheck": "Independent validate_submission re-run on both H31-Y encodings + direct raster read-back ({0,1}, finite, EPSG:32611, 37,654 dots); pytest/ruff/check_metric/build_site/check_site re-run after regeneration (results in PR); every executive-summary number traced to an evidence JSON. Remaining limits: live score of every candidate UNKNOWN (cross-family interval includes 0.2778 and far below); round-2 label-set ambiguity flagged; next lane = marginal-credit allocation under fresh preregistration.",
+   "merge_integration": "PR #48 conflicted with merged PRs #45 (9883b598 literal-STOP governance) and #46 (f4d7fb29 KIN-PIED lane also named H31-Y). Resolved by renaming this session's lane to H31-YM namespace (evidence/h31ym, scripts/run_h31ym.py; RENAME.json; TIFF bytes/names unchanged) and integrating under main's literal-STOP decision: no file re-promoted; quantified projection audit + negative mosaic receipts preserved; site regenerated from main generator + H31-YM section. Full suite re-run post-merge: 187 pytest, ruff, metric, verify_protocol_review, verify_current_run, collect_evidence, build/check site."
+  }
+ ]
 }

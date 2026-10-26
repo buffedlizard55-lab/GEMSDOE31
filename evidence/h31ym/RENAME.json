@@ -1,0 +1,6 @@
+{
+ "note": "This lane was executed in session arena/a111fe50-gemsdoe31 under the self-assigned name H31-Y (regime-mosaic). A parallel session (arena/f4d7fb29, merged as PR #46) independently used the name H31-Y for a different method (KIN-PIED). On merge, this session's evidence/code/docs were renamed to the H31-YM namespace to avoid collision; receipt JSON contents still say lane=H31-Y because they are the historical record of the run as executed. GeoTIFF filenames/hashes are unchanged.",
+ "executed_lane_name": "H31-Y (regime-mosaic, session a111fe50)",
+ "merged_namespace": "H31-YM",
+ "parallel_lane_kept": "H31-Y KIN-PIED (session f4d7fb29, evidence/h31y/)"
+}

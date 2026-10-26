@@ -1,0 +1,50 @@
+{
+ "lane": "H31-Y",
+ "lines": [
+  "JUNC",
+  "FAN",
+  "FAN_G",
+  "CTRL",
+  "SLOPE"
+ ],
+ "shape": [
+  3730,
+  3292
+ ],
+ "receipts": {
+  "JUNC": {
+   "min": 0.22041049599647522,
+   "max": 1.0,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "FAN": {
+   "min": 0.0,
+   "max": 0.9543642401695251,
+   "mean": 0.18331681191921234,
+   "frac_zero": 0.47249327656432
+  },
+  "FAN_G": {
+   "min": 0.0,
+   "max": 0.9543642401695251,
+   "mean": 0.3045702874660492,
+   "frac_zero": 0.2463365814699268
+  },
+  "CTRL": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "SLOPE": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  }
+ },
+ "mountain_px": 2223234,
+ "piedmont_px": 2944139,
+ "lidar_ok_px": 3894460,
+ "note": "label-free lines; JUNC re-derived by H31-X junction_line(nms=False)"
+}

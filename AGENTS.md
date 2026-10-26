@@ -65,3 +65,15 @@ selector or choose a slot. Read `knowledge/2026-10-26_protocol_review_9883b598.m
 small inputs. The lattice gives a counting bound for the stated budget, NOT every nonempty raster.
 Preserve historic receipts; do not present cited holdouts as freshly reproduced. A method paragraph
 is absent, so no new scientific lane was assigned in this review.
+
+## Amendment 2026-10-26 (parallel session arena/a111fe50, integrated after 9883b598)
+
+Quantified cross-family audit (`evidence/cross_family_calibration_20261026.json`): the retired
+in-family SGMC projection has out-of-family RMSE 0.196 / bias +0.135 (n=67 USER-REPORTED); best
+cross-family LOO RMSE 0.090 ≈ predict-the-mean. Never present any in-family projection as an
+estimated live score or narrow interval. This parallel session's regime-mosaic lane ran as
+"H31-Y" under the branch-point discrete-peer rescope and was renamed **H31-YM** on merge
+(the f4d7fb29 KIN-PIED lane keeps H31-Y; see `evidence/h31ym/RENAME.json`); its verdict is
+negative and, under the current literal-STOP governance above, nothing from it is approved.
+Do not re-tune its 50/50 split post hoc; marginal-credit allocation needs a fresh preregistration
+and an owner-resolved registry definition first.
