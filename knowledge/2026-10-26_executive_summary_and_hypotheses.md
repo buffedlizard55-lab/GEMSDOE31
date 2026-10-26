@@ -1,6 +1,8 @@
-# Executive summary — 2026-10-26 (CONCORD31 session)
+# Historical executive summary — 2026-10-26 (CONCORD31 session)
 
-## ⛔ BOTTOM LINE — read this first
+> **Archive/status note:** this is a report from a separate CONCORD31 session, not the current run. The authoritative active run is MAGREST in [`registry/current_run.json`](../registry/current_run.json), downloadable for research only and not approved to submit. CONCORD31's local subset check did not establish broad/global uniqueness; the shared spacing-5 witness remains a binding STOP. See [`knowledge/current_status_2026-10-26.md`](current_status_2026-10-26.md) for current blockers and status.
+
+## Historical session decision — read as an archive
 **NO file — old or new — is OK TO SUBMIT this session.** Automated gates, not a human inspector, decide this.
 - ✅ **OK to download for research (portal-safe encoding):** `docs/downloads/gemsdoe31-concord31-minbd-concordance-28115-20261026-allfinite.tif` — values strictly {0,1} ⊂ [0,1], 0 NaN inside footprint, zeros outside (this all-finite encoding is the fix for the portal error *"Predicted values must be in range [0, 1]"*: a NaN-outside file read whole-raster contains NaN ∉ [0,1]).
 - ❌ **DO NOT SUBMIT it:** its HOLDOUT-DTI and leakage canary are **NOT RUN** (truth/catalogue rasters absent, see Irregularities). Protocol: never spend a weekly slot on an idea that hasn't beaten the holdout best.
@@ -20,21 +22,25 @@
 | GEMSDOE27 | topo-gap-closure-t-v2-on-d1-5 | 0.2449 | 61,328 | 86.7% | Duplicate |
 Source: `docs/data/h33-forensics.json`, `evidence/nine_site_forensic_audit.json` (measured in-repo). **"Best submission to submit for a high score" = none of these** — resubmitting any is a duplicate, not a strategy.
 
-## 2. Why H33-2-B2 (0.2778, USER-REPORTED) leads — PhD-level answer
-Measured byte geometry (`docs/data/h33-forensics.json`): **H33 = D2.8 dots with every dot ≤2 px (≤200 m) from the public catalogue deleted; H27 = same prune at ≤1 px.** H33 adds 0 dots vs H27, removes 2,545 flank dots, keeps all 35,483 dots >300 m away. It is *pruning economics, not new fault discovery*: with DTI = T/(0.2T+0.2F+0.8K), a binary dot costs F≈1−(self kernel credit) whether or not it hits truth, while truth credit saturates via the 300 m triangular kernel's max. Deleting near-catalogue dots (whose kernel credit largely overlaps already-mapped — and in the hidden set likely masked/duplicate — traces) cuts F faster than T. Formally pruning improves DTI S iff `lost_T < [0.2S/(1−0.2S)]·removed_F`. Sparse (≥~300 m median spacing), thin, off-catalogue dots therefore beat every thick/dense/on-catalogue raster in the table (0.0009–0.19 range for dense ML fills). **Can we beat 0.2778?** Only by finding *new true* off-catalogue traces at the same sparse budget — every in-repo attempt (H31-E, HVDC, RBU31, MAGREST, TGJ31, CONCORD31 below) is either holdout-negative or holdout-unvalidated, so **no verified path above 0.2778 exists yet**; claiming one would be fabrication. The prompt's "leaderboard 0.3195 / 0.4413" figures are likewise USER-REPORTED with no exact-byte organizer receipt — flagged, not used as targets.
+## 2. H33 geometry and a plausible metric mechanism (not causal proof)
 
-## 3. New unique TIF generated this session — CONCORD31 (experiment 1 of max 3)
+Byte geometry in `docs/data/h33-forensics.json` records the raster relation: H33 equals D2.8 after deleting dots within 2 px (200 m) of the public catalogue; H27 uses a 1-px collar. H33 adds no dots to H27 and removes 2,545 in the 100–200 m band. This is **not new fault discovery**. Under `DTI = T/(T+αF+βFN)`, a pruning change improves a measured score only when the deleted block's truth-credit loss is small enough relative to removed false-positive cost. For an added block the general threshold is `ΔT/ΔF > αS/(1−αS)`; at `α=0.2`, `S=0.2778`, this is about `0.05882`. In the simplified isolated-pixel case `ΔT+ΔF=1`, the equivalent credit threshold is `ΔT>αS≈0.05556`. These thresholds do not reveal the deleted dots' private-truth credit. No organizer receipt authenticates the supplied `0.2778` claim, so the raster comparison cannot establish why that claimed score changed. The `0.3195` and `0.4413` values are also USER-REPORTED, with no exact-byte organizer receipt. No local holdout or SGMC proxy in this repo is numerically comparable to the private leaderboard.
+
+## 3. Historical CONCORD31 research TIF record — local subset checks only
 - **Hypothesis/mechanism:** surface = min(B,D) of the two pinned OOF arms (LiDAR-only × LiDAR+radiometric) in `evidence/oof/`; two-domain concordance → Poisson-disk dots (2.8 px), **zero incumbent dots copied**. Non-fault mimic: coincident LiDAR artefact + radiometric playa/soil-moisture edge.
-- **Result:** 28,115 dots; **registry gate PASS** (local scope): max surface |Spearman ρ| = 0.194 ≤ 0.90, max final 3-px overlap = **49.7%** (vs union-b) ≤ 70% — checked on surface AND final dots. Validator PASS both encodings (EPSG:32611, 3730×3292, float32, [0,1], 0 NaN in footprint). SHA-256 `e7463b56aedc30263a08e9318bd8f336ab424f2c236734017e5b5cba75b89882`.
-- **Submission name:** `gemsdoe31-concord31-minbd-concordance-28115-20261026` · **Note (≤140):** "CONCORD31 min(B,D) concordance dots 37.6k, no incumbent dots; UNVALIDATED holdout - research only" (`evidence/concord31/run_card.json`).
-- **Verdict: negative** (format+uniqueness pass; efficacy unproven). Full JSON run card: `evidence/concord31/run_card.json`.
+- **Result:** 28,115 dots; the archived local/pairwise comparison against the checked submission subset recorded max surface |Spearman ρ| = 0.194 and max final 3-px overlap = 49.7% vs union-b. This is **not** broad-registry uniqueness: the literal shared spacing-5 witness blocks any nonempty in-footprint prediction. Local validators passed both encodings (EPSG:32611, 3730×3292, float32, [0,1], 0 NaN in footprint). SHA-256 `e7463b56aedc30263a08e9318bd8f336ab424f2c236734017e5b5cba75b89882`.
+- **Historical artifact identifier (not an approved submission name):** `gemsdoe31-concord31-minbd-concordance-28115-20261026` · archived note: "CONCORD31 min(B,D) concordance dots 37.6k, no incumbent dots; UNVALIDATED holdout - research only" (`evidence/concord31/run_card.json`).
+- **Verdict: negative** (format passed locally; broad uniqueness STOP; efficacy untested). Full JSON run card: `evidence/concord31/run_card.json`.
 
-## 4. Five ranked untried hypotheses (layer · signature · why catalogue-missing · what's new)
-1. **CONCORD31 min(B,D)** (OOF arms B/D · min-concordance · two sensors agreeing implies real structure the single-sensor catalogue mapping missed · never emitted standalone) — DONE above, holdout blocked. Cost: done.
-2. **Antislope LiDAR scarp × K–Th alteration edge** (upface/downface + GeoDAWN K,Th · uphill-facing scarp AND K-depletion edge · blind/young faults displace topography + host alteration without mappable trace · AS-1 used antislope alone) — needs GeoDAWN stack in `data/` (official USGS GeoDAWN, free, no account: https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and — obtainable, just not from this sandbox).
-3. **Gravity tilt-zero × RTP bandpass crest** (iso_grav + rtp · basement-step lineament · basement reactivation under cover · H31-M bundled it with 6 others & hit registry STOP; minimal pair untested) — needs `data/` stack.
-4. **GDR volcanics/probe-envelope edge** (GDR-1391 layers · dots at envelope edge where flow focuses · direct fluid evidence, often unmapped · unused as emission domain; free official: https://gdr.openei.org/submissions/1391) — needs stack restore.
-5. **Relay-ramp/stepover dilation dots** (QF v2 + LiDAR curvature · between-segment jogs · catalogue maps traces, not jogs · untested) — needs stack + segment analysis. Highest cost, ranked last.
+## 4. Historical hypothesis notes (not the active backlog or experiment authorization)
+
+The first item below was run as CONCORD31 and lacked holdout evidence; the other ideas remain speculative and unvalidated. The current README's three-item desk backlog is the relevant present summary. The source URLs below were not re-fetched during this current review.
+
+1. **CONCORD31 min(B,D)** (OOF arms B/D · min-concordance hypothesis · two sensor domains might agree on structure not represented by the mapping catalogue · never emitted standalone) — run above; holdout blocked. Cost: historical run completed.
+2. **Antislope LiDAR scarp × K–Th alteration edge** (upface/downface + GeoDAWN K,Th · candidate signature: uphill-facing scarp and K-depletion edge · possible blind/young-fault signal; AS-1 used antislope alone) — would require GeoDAWN stack in `data/` (source lead: https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and).
+3. **Gravity tilt-zero × RTP bandpass crest** (iso_grav + rtp · possible basement-step lineament · H31-M tested a broader bundle; a minimal pair was not tested) — requires restoring `data/` stack.
+4. **GDR volcanics/probe-envelope edge** (GDR-1391 layers · possible dots at envelope edges) — speculative, not validated; source lead: https://gdr.openei.org/submissions/1391.
+5. **Relay-ramp/stepover dilation dots** (QF v2 + LiDAR curvature · possible between-segment jogs) — speculative, needs stack and segment analysis; highest historical effort estimate.
 
 ## 5. How to submit (only a future gate-passing file)
 DrivenData competition 306 → Submit → single-band GeoTIFF or ZIP-of-one-TIFF matching sample CRS/shape/transform → use the **all-finite** file → paste the run card's name/note → disclose AI use per rules (https://docs.nlr.gov/docs/fy26osti/96647.pdf). Local validation ≠ organizer acceptance.

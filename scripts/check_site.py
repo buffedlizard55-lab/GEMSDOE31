@@ -84,15 +84,42 @@ def main() -> None:
             fail("unsupported upload approval for this negative MAGREST run")
         if "DO NOT SUBMIT" not in index or "downloads/" + Path(card["file"]).name not in index:
             fail("index does not prominently expose the new artifact with DO NOT SUBMIT")
+        if card["submission_name"] not in index:
+            fail("index does not name the active registered run in its leading content")
+        archived_h31s = "gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f"
+        if index.find(card["submission_name"]) > index.find(archived_h31s):
+            fail("index features a historical H31-S artifact before the active registered run")
     if "not approved for upload" not in index.lower():
         fail("index.html: the no-upload-approval warning is missing")
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
     executive = (DOCS / "executive-summary.html").read_text()
-    if "do not submit a download from this page yet" not in executive.lower():
-        fail("executive-summary.html: explicit no-upload-approval warning is missing")
+    if "do not submit" not in executive.lower() or "ok_to_submit = false" not in executive:
+        fail("executive-summary.html: explicit current-run no-upload status is missing")
+    if active_run:
+        card = json.loads((ROOT / "registry/current_run.json").read_text())
+        archived_h31s = "gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f"
+        if card["submission_name"] not in executive or executive.find(card["submission_name"]) > executive.find(archived_h31s):
+            fail("executive-summary.html: the active run must be named before historical H31-S content")
     if "Human sign-off cannot override a failed gate" not in executive:
         fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
+    research = (DOCS / "research.html").read_text()
+    if ("0.05882" not in research or "0.05556" not in research
+            or "0.07693" in research or "≈ 0.0770" in research):
+        fail("research.html: the H33 marginal break-even explanation is stale or algebraically incorrect")
+    data_status_path = DOCS / "data" / "submissions.json"
+    if active_run:
+        if not data_status_path.is_file():
+            fail("docs/data/submissions.json is missing")
+        else:
+            data_status = json.loads(data_status_path.read_text())
+            card = json.loads((ROOT / "registry/current_run.json").read_text())
+            record = data_status.get("current_run", {})
+            if (record.get("name") != card["submission_name"]
+                    or record.get("sha256") != card["raster_sha256"]
+                    or record.get("ok_to_submit") is not False
+                    or data_status.get("current_recommended", {}).get("name") is not None):
+                fail("docs/data/submissions.json disagrees with the active run card or no-submit decision")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
         if "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8" not in html_text:
             fail(f"{page_name}: H31-J TGTD-Submod candidate name missing")
@@ -163,6 +190,19 @@ def main() -> None:
     feed = (DOCS / "feed.json").read_text()
     if "no organizer receipt" not in feed:
         fail("feed.json does not disclose the absent organizer receipt")
+    if active_run:
+        feed_data = json.loads(feed)
+        current_download = feed_data.get("current_download", {})
+        if (current_download.get("name") != card["submission_name"]
+                or current_download.get("sha256") != card["raster_sha256"]
+                or current_download.get("ok_to_submit") is not False
+                or current_download.get("slot_approved") is not False):
+            fail("feed.json disagrees with registry/current_run.json or the no-submit decision")
+        scope_note = json.loads((ROOT / "registry/focus_unique_2026.json").read_text()).get("scope_note", "")
+        if ("not an exhaustive global uniqueness audit" not in scope_note
+                or not any(phrase in scope_note for phrase in (
+                    "not approved to submit", "no artifact in this file is approved to submit"))):
+            fail("focus_unique_2026.json does not disclose its pairwise-only scope and submission block")
 
     print(f"checked {len(pages)} pages and {len(local_links(''.join(p.read_text() for p in pages)))} local links")
     for item in NOTES:

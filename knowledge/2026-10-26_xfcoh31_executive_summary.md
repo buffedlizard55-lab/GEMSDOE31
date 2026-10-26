@@ -1,11 +1,14 @@
-# Executive summary — focus sites, best submissions, and the new XFCOH31 candidate (2026-10-26)
+# Historical executive summary — focus-site claim snapshot and XFCOH31 session (2026-10-26)
 
-All leaderboard numbers below are **USER-REPORTED** (typed in owner prompts / sibling repos; no organizer
-receipt exists in any repo). HOLDOUT-DTI numbers are computed here and are never leaderboard scores.
+> **Archive/status correction:** XFCOH31 is not the current run. `registry/current_run.json` identifies MAGREST as active; its existing TIFF is downloadable for research only, not approved to submit, and its preregistered screen is negative. The literal shared-registry 3-pixel overlap STOP remains binding. This document preserves an earlier nine-site snapshot and must not be read as current upload guidance.
 
-## Best submission per focus site (clear answer)
+All leaderboard values below are **USER-REPORTED claims**, not organizer-confirmed scores; no exact-byte organizer receipt is linked here. HOLDOUT-DTI values are local evaluator outputs, never leaderboard scores.
 
-| Site | Best submission to submit (USER-REPORTED) | Score | Dots |
+## Archived snapshot: highest supplied score/file claim per focus site (not submission approval)
+
+The table is a historical repository snapshot, not an exhaustive all-time ranking or organizer validation. “Best” means highest reported value among the files compared in that session only.
+
+| Site | Highest supplied score/file claim in that snapshot (USER-REPORTED) | Claimed score | Dots |
 |---|---|---:|---:|
 | GEMSDOE24 | h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan | 0.2477 | 60,069 |
 | GEMSDOE25 | dotted-h19-5-d2-8-20261002-e56ea318af89-nan | 0.2600 | 44,090 |
@@ -17,65 +20,41 @@ receipt exists in any repo). HOLDOUT-DTI numbers are computed here and are never
 | GEMSDOE33 | h33d-analog-tip-stepover-r30-20261004-cb490425926e | 0.2632 | 41,865 |
 | GEMSDOE36 | anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros | 0.2750 | 38,854 |
 
-**Single best across all focus sites: GEMSDOE32 h33-2-b2 (0.2778).** Hash-verified this session:
-fetched bytes match `evidence/nine_site_forensic_audit.json` for all 11 focus rasters
-(`evidence/xfcoh31_focus_fetch.json`).
+**Largest value in this historical nine-site table: GEMSDOE32 H33-2-B2 (0.2778, USER-REPORTED).** The local fetch receipt establishes byte identity for the compared rasters, not score authenticity, exhaustive global ranking, uniqueness, or approval to submit.
 
-## Why h33-2-b2 scored 0.2778 (mechanism, COMPUTED + INFERENCE)
+## H33 geometry and plausible metric mechanism (not causal proof)
 
-b2 = H27-4/D28 thinned ridge field (40,199 dots, catalogue distance >1 px) with the 2,545 dots in the
-100–200 m catalogue halo deleted → 37,654 dots. The paired natural experiment vs GEMSDOE28 H36-1
-(37,660 dots, 0.2710) isolates the effect at constant budget: deleting halo dots lost only ~10.3 live
-TPw (0.0040/dot, far below the 0.0556 break-even at s=0.2778) because hidden truth is depleted near the
-public catalogue (scored faults are *new* faults), while each deleted dot also removes its α=0.2 FP
-charge. Keeping full 2.828 px far-field density preserved real off-catalogue coverage. Full algebra:
-`evidence/nine_site_forensic_audit.json:live_anchor_inversion`.
+Byte-level comparison shows H33-2-B2 has 37,654 dots and equals D2.8 support after removing 2,545 dots in the 100–200 m catalogue-distance band; no dots were added. This establishes raster lineage and geometry only. It cannot reveal the deleted dots' private-truth credit or prove why an unverified reported score changed. The file H36-1 is a separate candidate, so comparing its reported value is not a controlled intervention on H33.
 
-## Ranked hypotheses not previously tried (this session)
+For `DTI = T/(T + αF + βFN)` with `FN=N−T`, adding/removing a block is evaluated by comparing `ΔT/ΔF` to `αS/(1−αS)`. At `α=0.2`, `S=0.2778`, this ratio is about `0.05882`. In the simplified isolated-pixel case where `ΔT+ΔF=1`, the corresponding hit-credit threshold is `k>αS≈0.05556`. These are different ratios. The values of `ΔT` and `ΔF` for the 2,545 deletions are unknown without competition truth; the catalogue-pruning explanation is plausible, not established.
 
-1. **XFCOH31 cross-field edge-transfer coherence** (RTP×gravity offset/orientation coherence + basement
-   depth) — buried basement-offset faults invisible at surface. Mimic: pluton/basin contacts. **RUN.**
-2. Radiometric channel-specific edge displacement (GeoDAWN K/Th/U offset edges) — not run (budget).
-3. Drainage-deflection asymmetry on piedmont (needs USGS 3DEP channel extraction; source:
-   https://www.usgs.gov/3d-elevation-program — official, free, not fetched this session).
-4. Flight-line seam persistence null (needs GeoDAWN survey metadata; https://doi.org/10.5066/P93LGLVQ).
-5. Seismicity alignments (USGS ComCat FDSN https://earthquake.usgs.gov/fdsnws/event/1/ — km location
-   error ≫ 300 m kernel; low expected gain).
+## Historical XFCOH31-session hypothesis queue (not the active backlog)
 
-## XFCOH31 result (EXP-1 canary, EXP-2 holdout, EXP-3 final fit)
+These were earlier desk ideas, not current authorization. The first was tested in the XFCOH31 session and produced a negative holdout result; the others were unrun. The active three-item desk backlog is summarized in the README, and no follow-up experiment is authorized here.
+
+1. XFCOH31 cross-field edge-transfer coherence (RTP × gravity offset/orientation coherence + basement depth) — historical screen run; negative result below.
+2. Radiometric channel-specific edge displacement (GeoDAWN K/Th/U offset edges) — not run.
+3. Drainage-deflection asymmetry on piedmont (would require USGS 3DEP channel extraction; source lead: https://www.usgs.gov/3d-elevation-program).
+4. Flight-line seam persistence null (would require GeoDAWN survey metadata; source lead: https://doi.org/10.5066/P93LGLVQ).
+5. Seismicity alignments (source lead: https://earthquake.usgs.gov/fdsnws/event/1/; spatial uncertainty may be large relative to the kernel).
+
+The links in this archived list are pointers, not sources re-verified during the current review.
+
+## Historical XFCOH31 result (not the active run; not promoted)
 
 - Leakage canary: max single-feature AUC **0.562** (< 0.90, PASS).
 - HOLDOUT-DTI (evaluator `gemsdoe31-holdout-v1`, 58,625 withheld positives, pooled, 1000-draw paired
   block bootstrap): candidate **0.04588 [0.04118, 0.05112]** vs same-run base-19 control
   **0.04812 [0.04361, 0.05298]**; paired Δ **−0.00224 [−0.00483, +0.00012]**. **Gate FAIL.**
-- Uniqueness vs genuine focus submissions: max surface Spearman **0.087**, max 3-px dot overlap
-  **30.7%** (PASS; calibration-lattice degeneracy disclosed in the run card).
-- Validator: both encodings pass all hard checks; values exactly {0,1} ⊂ [0,1], no NaN inside footprint,
-  EPSG:32611 / 3730×3292 / exact transform. This fixes the "Predicted values must be in range [0, 1]"
-  class (sentinel/NaN leakage); the zeros file has no NaN anywhere.
+- Recorded pairwise focus-subset comparison: max surface Spearman **0.087**, max 3-px dot overlap **30.7%**. This subset statistic is not a broad-registry uniqueness pass; the registered spacing-5 witness triggers the literal STOP for any nonempty in-footprint candidate.
+- The archived run record reports local format validation for both encodings (binary values, footprint, EPSG:32611, 3730×3292, exact transform). Local format validity is not organizer authentication, outside-mask convention approval, or permission to submit.
 
-## Download / submit decision (obvious, automated — no human inspection)
+## Historical XFCOH31 artifact record (not current download guidance)
 
-- **OK TO DOWNLOAD (research): YES** —
-  `docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif`
-  SHA-256 `857dd662430c0130c46f920666d70dae5df6148951ad76d42d31a8d540c32972`
-- **OK TO SUBMIT: NO — DO NOT SUBMIT.** It did not beat its same-run control on holdout; spending a
-  weekly slot would violate the preregistered gate. Verdict: **negative** (a deliverable per protocol).
-- If a future candidate passes: upload the **-zeros.tif** (or its .zip) at
-  https://www.drivendata.org/competitions/306/competition-doe-gems/ with name
-  `gems31-xfcoh31-xfield-coherence-37654-20261026` and the ≤140-char note in the run card; disclose AI
-  use per competition rules.
+The archived XFCOH31 run card recorded its TIFF as research-download-only and **not approved to submit**, with SHA-256 `857dd662430c0130c46f920666d70dae5df6148951ad76d42d31a8d540c32972`. This file is not the active MAGREST artifact. The current site and current run card are authoritative for current download guidance; the shared-registry STOP blocks competition submission.
 
-## Can we beat 0.2778?
+## Current experimental decision
 
-Not demonstrated. No candidate in this repo has beaten a same-run control *and* the D28-family live
-evidence simultaneously; local proxies are known to invert across families (instrument calibration,
-Spearman ≈ +0.32 SGMC / +0.11 catalogue-gap vs live). The only live-measured positive lever remains
-catalogue-halo pruning of a strong ridge field — which is not unique. Honest next step: a fresh lane
-combining a *new* surface that first beats base-19 on holdout, then applies halo pruning, with fresh
-confirmation draws. XFCOH31's features do not provide that surface.
+No follow-up experiment is authorized. The assigned method paragraph is absent, the per-task experiment limit is exhausted, and the literal overlap STOP prevents a nonempty submission candidate. The three current desk-only hypotheses in the README are not authorization or score forecasts.
 
-Sources for manual review: competition https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/ ·
-rules PDF https://docs.nlr.gov/docs/fy26osti/96647.pdf · reference solution
-https://github.com/drivendataorg/gems-prize-reference-solution · GeoDAWN https://doi.org/10.5066/P93LGLVQ ·
-grid https://epsg.io/32611 · Tversky https://en.wikipedia.org/wiki/Tversky_index
+Source URLs preserved in the historical XFCOH31 record (not re-fetched during this current review): competition page, rules PDF, reference-solution repository, GeoDAWN, EPSG:32611, and the Tversky-index reference.

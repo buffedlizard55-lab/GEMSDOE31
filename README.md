@@ -1,12 +1,40 @@
-> **XFCOH31 (2026-10-26, this lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**
-> Download: [gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif) · [run card](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-run-card.json) · [decision page](docs/xfcoh31.html) · [executive summary](knowledge/2026-10-26_xfcoh31_executive_summary.md)
-> HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld): candidate 0.04588 vs same-run base-19 control 0.04812, paired Δ −0.00224 [−0.00483, +0.00012] → verdict **negative**, no weekly slot. Uniqueness vs genuine focus submissions: max ρ 0.087, max 3-px overlap 30.7%. Validator: no hard failures, values in [0,1] (fixes the reported range-error class).
-> **2026-10-26 EXECUTIVE SUMMARY (read first):** `knowledge/2026-10-26_executive_summary_and_hypotheses.md` — 9-site verdict: best claim H33-2-B2 0.2778 (USER-REPORTED, a D2.8 catalogue-prune, NOT submittable as new); new unique CONCORD31 TIF download-for-research / DO NOT SUBMIT (holdout not run). No file is slot-approved.
-
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
-> **Latest session (2026-10-26 · branch `arena/34f326b4-gemsdoe31`): new unique `H31-S` (`UDAP-SSLIC`) GeoTIFF generated and automatically validated.**
-> **DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (`DO NOT SUBMIT`, `slot_approved = false`).**
+## Current decision — read first
+
+**Current registered run:** MAGREST, as named by [`registry/current_run.json`](registry/current_run.json). Its all-finite GeoTIFF is [available for research download](docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif) and is **NOT approved to submit** (`ok_to_submit = false`, `slot_approved = false`). **No current artifact is approved for competition submission. No human sign-off can override the hard registry STOP.** The exact-file SHA-256 is `c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9`; see the [JSON run card](docs/downloads/magrest-run-card.json) and [machine-readable feed](docs/feed.json).
+
+- **HOLDOUT-DTI** (`gems57-pooled-hide-v2`; 2,901 withheld positives): `0.052972` [95% CI `0.041311–0.065329`]. Paired difference vs the same-run control is `+0.004678` [95% CI `−0.017864–+0.022933`], so the preregistered efficacy screen is negative. This is a local holdout metric, **not a competition score**.
+- **Uniqueness gate:** the nine pinned peer-tree audit passed, but one authentic registered spacing-5 witness covers **100%** of the candidate's nonempty final-dot set within 3 px, exceeding the literal 70% stop. The broad scan is not exhaustive; global uniqueness is not proven, and this one counterexample is sufficient to block the file.
+- **No new TIFF or slot was created/used in this review.** The assigned method paragraph is absent, the experiment budget is exhausted, and the literal overlap STOP remains binding. Do not fabricate an all-zero raster or waive the registry gate.
+
+## Nine-site answer and H33-2-B2 explanation
+
+The highest supplied score claim is GEMSDOE32 H33-2-B2 at **`0.2778` (USER-REPORTED; no organizer receipt)**. The highest score claim in the newer five-entry 2026-10-25 batch is GEMSDOE27 H29 at **`0.2190` (USER-REPORTED; no organizer receipt)**. Its measured 3-px overlap is `56.1%` against H33 specifically, below the pairwise 70% screen; that is **not** broad-registry or global uniqueness approval. Other newer below-70%-vs-H33 records include GEMSDOE30 MSDB1 (`0.1462`, 39.2%), GEMSDOE24 GVC1 (`0.0859`, 36.6%), GEMSDOE25 H66-MGD (`0.0742`, 30.4%), and GEMSDOE28 S18-MXTP (`0.0217`, 17.1%). All five score values are owner-reported; no organizer receipt was found. The higher historical D1.5/D2.8-family claims (including H33) are prior art and overlap H33 by more than 70%; none is a new submission recommendation. The [site executive summary](docs/executive-summary.html) and [pinned claim/geometry register](registry/focus_review.json) show the full nine-site table and caveats.
+
+Byte-level geometry verifies that H33 is the D2.8 support with predictions within 2 pixels (200 m) of the public catalogue removed: H27-4 has 40,199 dots, H33 has 37,654, and exactly 2,545 are removed with none added. That makes catalogue-flank pruning a plausible metric-economics explanation, **not** proof of why the private score changed. With the distance-weighted Tversky metric and `FN = N−T`, an added block improves DTI iff `ΔT/ΔF > αS/(1−αS)`. At `α=0.2`, `S=0.2778`, the exact ratio is `0.05882` (not `0.07693`). In the simplified isolated-dot case where `ΔT+ΔF=1`, this corresponds to `ΔT > αS = 0.05556`; the two thresholds describe different ratios. Private truth and an authenticated score receipt are unavailable, so the score effect of the 2,545 deletions cannot be established causally.
+
+The conflicting `0.3195` and `0.4413` anchors are also **USER-REPORTED**, not organizer-confirmed. No current evidence predicts beating them.
+
+## Desk-ranked next hypotheses — not authorized experiments
+
+Expected benefit is ordinal and uncertain, not a numeric score forecast. These are mechanism-level proposals; no new fit is authorized under the missing-method, exhausted-budget, and literal-registry blockers above.
+
+| Rank | Hypothesis and discriminating signal | Expected benefit / cost | Data and limitation |
+| --- | --- | --- | --- |
+| 1 | **GRAVREST:** require compatible signed texture-displacement estimates from RTP magnetics (B2) and gravity (B13), rather than simply co-located edges. A buried transfer structure should shift both fabrics coherently. Mimic: shared lithologic/intrusive contact. | Highest information value of these desk proposals, but uncertain; medium-high implementation and resolution cost. | Requires restoring the pinned feature stack; gravity bandwidth may be too coarse for small offsets. No stack is present in this checkout. |
+| 2 | **RADREST:** multichannel K/Th/U compositional-texture displacement, with channel-specific direction agreement rather than a ratio/edge threshold. Mimic: alluvial provenance boundary or survey seam. | Moderate, uncertain potential; medium-high cost due missingness/quantization controls. | Requires GeoDAWN inputs and verified channel metadata; raw data are not present, and official non-GitHub sources were not re-fetched in this review. |
+| 3 | **TERRREST:** test whether detrended drainage/terrain texture is laterally offset across a trace, rather than using curvature alone. Mimic: stream capture or avulsion. | Lowest expected value at the available 100 m scale; high cost for careful validation. | Existing terrain bands are not in the checkout; higher-resolution 3DEP coverage/access would need separate verification. |
+
+**Arena values:** Maximize P(Win) · Own the Outcome. Preserve the owner request below exactly; see [current status](knowledge/current_status_2026-10-26.md), [review log](knowledge/repo_review_2026-10-26.md), and [three-pass register](registry/review_passes.json).
+
+## Historical parallel-run summaries (not the active run)
+
+- **XFCOH31 (2026-10-26 archive):** HOLDOUT-DTI `0.04588` vs same-run base-19 control `0.04812`, paired `Δ −0.00224` [95% CI `−0.00483–+0.00012`]; negative and not slot-approved. Its reported 30.7% dot overlap is only against the checked peer subset, not the broad registry. [Research TIFF](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif) · [run card](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-run-card.json) · [decision](docs/xfcoh31.html).
+- **CONCORD31 (2026-10-26 archive):** a different session's research TIFF with holdout and leakage canaries not run; no submission approval. Its local submission-raster comparison did not establish broad uniqueness. See [historical session summary](knowledge/2026-10-26_executive_summary_and_hypotheses.md).
+
+> **Historical parallel run (2026-10-26 · branch `arena/34f326b4-gemsdoe31`): H31-S (`UDAP-SSLIC`) research GeoTIFF preserved here; it is not the active run in `registry/current_run.json`.**
+> **DOWNLOAD FOR RESEARCH: YES · DO NOT SUBMIT (`slot_approved = false`; the literal shared-registry witness remains a STOP).**
 > [**Download H31-S Research `.tif` (all-finite `[0, 1]` zeros-outside)**](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) ·
 > [NaN-outside twin `.tif`](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif) ·
 > [Single-TIFF `.zip`](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.zip) ·
@@ -16,7 +44,7 @@
 > [Nine-Site Executive Summary](docs/executive-summary.html) ·
 > [Full 2026-10-26 Forensic Review](knowledge/repo_review_2026-10-26.md).
 >
-> - **Unique submission name:** `gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f`
+> - **Historical artifact identifier (not an approved submission name):** `gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f`
 > - **Note (`92/140` chars):** `H31-S UDAP+HZAD+SSLIC 37654d B2 | HOLDOUT-DTI s41=0.0948 s42=0.0980 | research-only 9355f21d`
 > - **SHA-256 (`-zeros.tif`, `143,032` B):** `186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd`
 > - **SHA-256 (`-nan.tif`, `188,437` B):** `665619b452553b25e7474ebe24cd466764550662744b36e0e7395f980ea241c1`
@@ -30,11 +58,11 @@
 >
 > All leaderboard values below are **`USER-REPORTED` (no organizer receipt in this repository)**; 3-px overlaps and off-catalogue USGS SGMC proxies (`All / Piedmont <=6 deg / Mountain >6 deg`) are computed directly from commit-pinned GeoTIFF bytes:
 >
-> | Site | Historical D1.5/D2.8 Claim (`>86%` 3-px overlap w/ H33 = duplicate/spent) | 2026-10-25 Unique Leaderboard Batch (`USER-REPORTED`) | Current `HEAD` Unscored Unique Candidate (`2026-10-26`) | 3-px Overlap (vs H33 / vs H29) | Off-Cat SGMC (`All / Pied / Mtn`) | Site Gate Verdict |
+> | Site | Historical D1.5/D2.8 Claim (`>86%` 3-px overlap w/ H33) | 2026-10-25 supplied claim (`USER-REPORTED`) | Pinned 2026-10-26 parallel-snapshot artifact (not the active run) | Pairwise 3-px overlap (vs H33 / vs H29) | Off-Cat SGMC proxy (`All / Pied / Mtn`) | Recorded gate status (not approval) |
 > | --- | --- | --- | --- | --- | --- | --- |
 > | **GEMSDOE24** | `H25-1` `0.2477` (`88.5%`) | `GVC1` **`0.0859`** (`36.6%` vs H33) | `gems24-rshg1-regime-hydro-hgb-20261025-98f69d77e868-zeros.tif` (`37,722`d) | `42.8% / 40.3%` | `0.0785 / 0.0719 / 0.0686` | `DO NOT SUBMIT` |
 > | **GEMSDOE25** | `D2.8` `0.2600` (`88.2%`) | `H66-MGD` **`0.0742`** (`30.4%` vs H33) | `gems25-h36-spigm-subsurface-submod300-20261025-3937b96ce366-zeros.tif` (`37,654`d) | `24.0% / 19.6%` | `0.0679 / 0.0717 / 0.0572` | `DO NOT SUBMIT` |
-> | **GEMSDOE27** | `T-v2` `0.2449` (`86.7%`) | **`H29-HPVC` `0.2190`** (**best confirmed unique score**, `56.1%` vs H33) | `gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif` (`38,000`d) | `40.9% / 36.9%` | `0.0897 / 0.0553 / 0.0838` | Passed GEMSDOE27 holdout & 12-peer uniqueness; awaits owner selector |
+> | **GEMSDOE27** | `T-v2` `0.2449` (`86.7%`) | **`H29-HPVC` `0.2190`** (highest supplied score in this newer batch; `56.1%` vs H33 only) | `gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif` (`38,000`d) | `40.9% / 36.9%` | `0.0897 / 0.0553 / 0.0838` | USER-REPORTED; pairwise subset only; no global uniqueness or slot approval |
 > | **GEMSDOE28** | `H36-1` `0.2710` (`95.5%`) | `S18-MXTP` **`0.0217`** (`11,082`d starved) | `gems28-s19-ascp-20261026-dc717c1ab13b-allfinite.tif` (`37,654`d) | `22.5% / 19.1%` | `0.1457 / 0.0275 / 0.1569` | `DO NOT SUBMIT` (failed 1.5 km holdout) |
 > | **GEMSDOE30** | `D2.8` `0.2600` (`88.2%`) | `MSDB1` **`0.1462`** (`44,090`d, `39.2%` vs H33) | `GEMSDOE30-nearslay-annulus-d3-offcat-20261025T235837Z-662af003-nan.tif` (`40,000`d) | `22.3% / 22.1%` | `0.0649 / 0.0846 / 0.0507` | `NOT cleared to submit` (catalogue-annulus heuristic) |
 > | **GEMSDOE31** | `H27-4` `0.2708` (`95.4%`) | none reported | **`gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif`** (`37,654`d; prior `H31-M` SGMC `0.1010 / 0.0641 / 0.0947`) | `47.4% / 55.7%` | `0.0837 / 0.0400 / 0.0784` | `RESEARCH ONLY · DO NOT SUBMIT` (`99.93%` literal 695-lattice STOP) |
@@ -42,13 +70,11 @@
 > | **GEMSDOE33** | `H33D` `0.2632` (`92.6%`) | none reported | `gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-zeros.tif` (`37,654`d) | `37.1% / 32.7%` | `0.0916 / 0.0517 / 0.0857` | `DO NOT SUBMIT` (lost to regional comparator) |
 > | **GEMSDOE36** | `Anderson` `0.2750` (`97.4%`) | none reported | `gemsdoe36-lane36-supgbm-68302-20261026T002651Z-f35cb3e4-zeros.tif` (`68,302`d) | `33.8% / 30.1%` | `0.0746 / 0.0803 / 0.0637` | Repo top-level status `NOT APPROVED` pending selector |
 
-> ### Current decision — research downloads only; DO NOT SUBMIT (`slot_approved = false`)
+> ### Archived parallel-run status — current run is MAGREST; all files below are research-only
 >
-> **No current artifact is approved for competition submission.** Format validity is not uniqueness,
-> scientific promotion, or organizer acceptance. The literal shared-registry overlap gate fails (`r13-lattice-s5` spacing-5 synthetic lattice).
-> No human sign-off can override that failure under the current protocol.
+> The active decision is defined by `registry/current_run.json`, not by these historical cards. No file is approved for competition submission. Format validity and pairwise subset checks are not broad uniqueness, scientific promotion, or organizer acceptance. The literal shared-registry overlap gate fails; no human sign-off overrides it.
 >
-> **H31-T Transtension-Dinkelbach (newly computed 2026-10-25 · branch `arena/39afba03-gemsdoe31`):**
+> **Historical H31-T Transtension-Dinkelbach (run dated 2026-10-25 · prior branch `arena/39afba03-gemsdoe31`):**
 > **OK TO DOWNLOAD FOR RESEARCH. NOT APPROVED FOR SUBMISSION (`verdict = negative` under literal 695-registry lattice/blanket STOP, `slot_approved = false`, `ok_to_submit = false`).**
 > [**Download H31-T Primary Research .tif (`-zeros.tif`, All-finite)**](docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif) ·
 > [One-TIFF `.zip` (`-zeros.zip`)](docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.zip) ·
@@ -68,8 +94,8 @@
 > SHA-256 (`-zeros.tif`): `83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298`. Artifact Name: `gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654`.
 > Note (`129/140`): `RESEARCH ONLY DO NOT SUBMIT: H31-T 3D AS/depth + listric updip + transtension + Dinkelbach 300m CELF (37654 px; 695-lattice STOP)`.
 >
-> **H31-J TGTD-Submod (`gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8`, newly computed 2026-10-25 · branch `arena/6fef25ef-gemsdoe31`):**
-> **OK TO DOWNLOAD FOR RESEARCH. NOT APPROVED FOR SUBMISSION (`slot_approved = false` under Rule 6 & binding literal 695-registry `r13-lattice-s5` `99.99%` overlap STOP; scientific Run Card `verdict = "promote"`).**
+> **Historical H31-J TGTD-Submod (`gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8`; prior branch `arena/6fef25ef-gemsdoe31`):**
+> **OK TO DOWNLOAD FOR RESEARCH. NOT APPROVED FOR SUBMISSION (`slot_approved = false` under Rule 6 & binding literal 695-registry `r13-lattice-s5` STOP; archived Run Card `verdict = "promote"` is not selector approval and cannot override the registry gate).**
 > - **Downloads & Machine-Verified Receipts (`37,654` off-catalogue dots, `0` catalogue overlap, `0` `<= 200 m` collar overlap, `0` copied dots, verified by `scripts/verify_h31j.py`):**
 >   - [**Primary All-Finite `[0, 1]` Single-TIFF `.zip` (`-zeros.zip`, `106,820 B`)**](docs/downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.zip) (`44142a9671e4beaa4872a8d5fc11e061f8050ac3e48a4573b415329227536657`) — all `12,279,160` cells finite `float32` in `[0.0, 1.0]`, immune to *"Predicted values must be in range [0, 1]"* checks.
 >   - [**Primary All-Finite `[0, 1]` GeoTIFF (`-zeros.tif`, `141,688 B`)**](docs/downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.tif) (`04e886cd8f7759e05d5fabb5d7222aaed0d16fda59fdf81e5934c5508eaf3fa3`)
@@ -85,7 +111,7 @@
 >
 > > **Prior review notes (2026-10-26):** See the [2026-10-26 repo review](knowledge/repo_review_2026-10-26.md), [prior follow-up](knowledge/repo_review_2026-10-25_arena_followup.md), [current status](knowledge/current_status_2026-10-26.md), and [`registry/review_passes.json`](registry/review_passes.json).
 >
-> **H31-M BStep-XMod-Submod (newly computed 2026-10-25 · branch `arena/ee48fe7a-gemsdoe31`):**
+> **Historical H31-M BStep-XMod-Submod (run dated 2026-10-25 · prior branch `arena/ee48fe7a-gemsdoe31`):**
 > **OK TO DOWNLOAD FOR RESEARCH. NOT APPROVED FOR SUBMISSION (`verdict = negative` under literal 695-registry lattice STOP, `slot_approved = false`).**
 > [**Download H31-M Research .tif (`-nan.tif`)**](docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif) ·
 > [One-TIFF `.zip`](docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.zip) ·
@@ -121,11 +147,11 @@
 > The earlier H31-E2 confirmation belongs to a different evaluator/instrument from MAGREST;
 > it does not establish a same-protocol global-best win or authorize a weekly slot.
 >
-> ### 2026-10-25 · RBU31-B REGIME-BALANCED UNION (parallel lane, integrated 2026-10-25) (`gemsdoe31-rbu31b-localunion-37654-20261025-b7585935`): DO NOT SUBMIT
+> ### Historical 2026-10-25 · RBU31-B REGIME-BALANCED UNION (parallel lane; DO NOT SUBMIT)
 >
-> - **Automatically validated, no human inspector: format/`[0, 1]` PASS · leakage PASS (max AUC 0.6118/79 features) · uniqueness vs 24 registry + nine-focus-site rasters PASS (max |ρ| 0.150, max 3-px dot overlap 53.4%) · holdout screen FAIL (2/4 folds) · mountain SGMC FAIL.** Verdict `negative` — download for research only; do not spend a weekly slot on it. The spacing-5 lattice in the shared 695-raster registry remains a disclosed universal degeneracy for any candidate (100% interior coverage within 3 px).
+> - **Archived checks: local format/`[0, 1]` PASS · leakage canary PASS (max AUC 0.6118 across 79 features) · named-peer subset comparison PASS (max |ρ| 0.150, max 3-px dot overlap 53.4%; not broad/global uniqueness) · holdout screen FAIL (2/4 folds) · mountain SGMC-PROXY FAIL.** Verdict `negative` — research download only; do not spend a weekly slot. The shared 695-raster spacing-5 witness remains a literal STOP for any nonempty candidate within the footprint.
 > - [Download RBU31-B all-finite `[0, 1]` GeoTIFF](docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif) (`07c939198a9145ae8281012bcba2c2167e3a6a482dd15c04ce3872b5b94e1041`) · [NaN-outside TIFF](docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.tif) (`7b57519fdbcf594231043730c9d86042182c968cd2479be63a8c8a5ea9c71e98`) · [single-TIFF ZIP](docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.zip) · [format receipt](docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-format-check.json) · [JSON run card](evidence/regime31b/run_card.json) · [independent verification](evidence/regime31b/independent_verification.json) · [preregistration](knowledge/2026-10-25_rbu31_preregistration.md) + [amendment](knowledge/2026-10-25_rbu31b_amendment_preregistration.md).
-> - **Why the family best (GEMSDOE32 H33-2-B2, USER-REPORTED 0.2778, no organizer receipt) wins — and why RBU31-B does not beat it yet:** H33 is the older D2.8 detector surface minus every dot within 2 px of the known catalogue (byte-verified; a DTI-economics pruning rule, Δ-improvement iff lost_T < 0.059·removed_F at S≈0.27), emitted at kernel-matched 2.8 px spacing. RBU31-B keeps that emission economics and adds a genuinely new surface (union raw-39 + SCGP-40 HGB, regime-balanced weights, masked 12 km local standardization), but its mountain placement still trails H33 on the off-catalogue SGMC proxy (0.0343 vs 0.0654), so no honest claim of exceeding 0.2778 can be made.
+> - **Historical interpretation of the H33 claim (USER-REPORTED 0.2778; no organizer receipt):** byte geometry shows H33 is D2.8 support after removing every dot within 2 px of the public catalogue. This is consistent with a metric-economics hypothesis, but does not show the deleted dots' private-truth credit or prove why the reported score differs. At `S≈0.27`, the general marginal ratio is `ΔT/ΔF > αS/(1−αS)≈0.058`; it cannot be inferred from dot counts. RBU31-B's recorded mountain SGMC-PROXY value (0.0343 vs H33 0.0654) is a local proxy, not a competition score. The run card is negative; no claim of beating H33 is justified.
 > - **HOLDOUT-DTI** (`gemsdoe31-hide-v2.0`, 21.3 km buffer, draw 101, 17,900 withheld positives): RBU31-B **0.0991** [0.0840, 0.1165] vs same-run Baseline-D 0.0922 (paired Δ +0.0069 [−0.0065, +0.0192], 2/4 folds — screen gate FAIL, fresh confirmation not run). RBU31 (v1): 0.0955, 1/4 folds. Off-catalogue SGMC (COMPUTED proxy, not a score): RBU31-B all 0.0801 / piedmont 0.1236 / mountain 0.0343 vs H33-2-B2 actual peer file 0.0940 / 0.1091 / 0.0654. The strongest previously validated candidate on this site remains H31-E2 below (its own verdict unchanged).
 > - **Note (94/140):** `GEMSDOE31 RBU31-B local-standardized union 37654d | HOLDOUT-DTI 0.0991 vs 0.0922 | id b7585935` — for research identification only.
 > - Full session record: [knowledge/session_review_2026-10-25_rbu31.md](knowledge/session_review_2026-10-25_rbu31.md) · next preregistered candidate (not run): [knowledge/2026-10-25_rbu31c_next_preregistration.md](knowledge/2026-10-25_rbu31c_next_preregistration.md).
@@ -155,12 +181,11 @@
 ## Read first every session
 
 Read this README **including the complete normalized owner prompt at the end**, `AGENTS.md`,
-[latest status](knowledge/current_status_2026-10-25.md),
+[current status](knowledge/current_status_2026-10-26.md),
 [MAGREST preregistration](knowledge/2026-10-25_magrest_preregistration.md),
-[latest outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.
-The earlier H31-A STOP remains historical. The prior session has receipts for all-eleven-input and template-cache restoration,
-but this clean runtime did not contain the full ignored production data/cache; only the small validation inputs and pinned
-registry witness were restored for this review. Do not restart a stopped lane or add a fourth experiment.
+[latest MAGREST outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.
+The authoritative run is MAGREST in `registry/current_run.json`; H31-S/T/J and the other parallel-lane records below are archived only.
+This checkout does not contain the full ignored production data/cache; do not restart a stopped lane, fit another model, or create a new TIFF under the current protocol.
 
 **Arena core values for this project: Maximize P(Win) · Own the Outcome.**
 
@@ -174,16 +199,18 @@ registry witness were restored for this review. Do not restart a stopped lane or
 | Inputs, score claims, irregularities, review passes | [register](docs/register/index.html) |
 | Historical experiment log (11 pages); current three-variant result | [archive](docs/experiments/index.html) · [MAGREST research](docs/research.html) |
 | Machine-readable state | [`feed.json`](docs/feed.json) · [`registry/`](registry/) · [`evidence/`](evidence/) |
-| Previous repository review | [2026-10-25 review](knowledge/repo_review_2026-10-25.md) |
-| Latest clean-runtime review | [Arena review](knowledge/repo_review_2026-10-25_arena.md) |
-| Latest status / score audit | [Current status](knowledge/current_status_2026-10-25.md) · [MAGREST review](knowledge/session_review_2026-10-25_magrest.md) · [irregularity register](registry/irregularities.json) |
+| Current repository review | [2026-10-26 review](knowledge/repo_review_2026-10-26.md) |
+| Current status / score audit | [Current status](knowledge/current_status_2026-10-26.md) · [MAGREST run card](registry/current_run.json) · [irregularity register](registry/irregularities.json) |
+| Historical session reviews | [2026-10-25 review](knowledge/repo_review_2026-10-25.md) · [Arena review](knowledge/repo_review_2026-10-25_arena.md) · [MAGREST review](knowledge/session_review_2026-10-25_magrest.md) |
 | AI-use disclosure draft for the narrative | [ai-disclosure](docs/ai-disclosure.html) |
 
 GitHub Pages serves [`docs/`](docs/index.html); the root [`index.html`](index.html) redirects there.
 
-## 2026-10-25 H31-T Campaign (`arena/39afba03-gemsdoe31`): PhD Forensic Audit, Ranked Hypotheses & Verified Results
+## Historical 2026-10-25 H31-T campaign archive (`arena/39afba03-gemsdoe31`)
 
-### 1. PhD Forensic Explanation of `GEMSDOE32` (`h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros`: `0.2778` `USER-REPORTED`)
+> The sections below preserve an earlier lane's byte comparisons and HOLDOUT-DTI measurements. They are not the current run, not organizer score evidence, and do not authorize further experiments or submissions. Any score claim remains USER-REPORTED unless an exact-byte organizer receipt is registered.
+
+### 1. H33 geometry and a plausible metric mechanism for the `0.2778` USER-REPORTED claim
 
 Direct SHA-256 and pixel-by-pixel set-algebra across all 9 focus repositories (`GEMSDOE24`, `GEMSDOE25`, `GEMSDOE27`, `GEMSDOE28`, `GEMSDOE30`, `GEMSDOE31`, `GEMSDOE32`, `GEMSDOE33`, `GEMSDOE36`; `119` GeoTIFFs downloaded and verified) establishes an **exact nested subset chain**:
 
@@ -195,29 +222,36 @@ Direct SHA-256 and pixel-by-pixel set-algebra across all 9 focus repositories (`
 | `GEMSDOE28` `H27-4` (`h27-4-r1-solo-d2-8`) | `ab02300152248fdd` | `40,199` | `d_cat > 100 m` (`1 px`) | `0.2708` (`USER-REPORTED`) | `D2.8` minus `3,891` near-catalogue pixels |
 | `GEMSDOE33` `h36-1` | `OWNER-MIRROR` | `39,580` | `d_cat > 141 m` (`sqrt(2) px`) | `0.2710` (`USER-REPORTED`) | Intermediate collar prune of `D2.8` |
 | **`GEMSDOE32` `H33-2-B2`** (`h33-h33-2-b2-...-zeros`) | `c55bafc470054e82` | **`37,654`** | **`d_cat > 200 m` (`2 px`)** | **`0.2778` (`USER-REPORTED`)** | **`D2.8` minus `6,436` (`H27-4` minus `2,545`) near-catalogue bleed pixels** |
-| `GEMSDOE36` `h36-conduit-union` | `781f8bf12a102619` | `38,854` | `d_cat > 200 m` (`2 px`) | `0.2750` (`USER-REPORTED`) | `H33-2-B2` **plus `1,200` sub-break-even tail dots (`-0.0028` regression)** |
+| `GEMSDOE36` `h36-conduit-union` | `781f8bf12a102619` | `38,854` | `d_cat > 200 m` (`2 px`) | `0.2750` (`USER-REPORTED`) | H33-2-B2 support plus 1,200 dots (geometry only; their marginal truth/false-positive credit is unknown) |
 
-**Why `GEMSDOE32` achieved `0.2778` (`USER-REPORTED`) — exact Tversky fractional calculus:**
-Under the competition's distance-weighted Tversky index (`alpha = 0.2`, `beta = 0.8`, `300 m` triangular kernel `k(d) = max(1 - d/300 m, 0)`), each ground-truth pixel's coverage `c_q(S) = max_{p in S} k(d(p, q))` is a **saturating `max`**, whereas false-positive mass `FPw(S) = sum_{p in S} (1 - max_{q in G} k(d(p, q)))` is **linearly additive** over every emitted pixel. Differentiating `DTI = TPw / (TPw + 0.2 * FPw + 0.8 * FNw)` at operating point `D* = 0.2778` shows that adding or retaining a dot `p` increases DTI **if and only if**:
+**Plausible metric mechanism behind the `0.2778` H33-2-B2 claim (`USER-REPORTED`; not causal proof):**
+The raster geometry is byte-verified: H33 is the D2.8 support with dots within 2 px (200 m) of the public catalogue removed. In the repository's DTI definition, truth credit uses a saturating maximum across predictions while false-positive mass is additive. Thus thinning or pruning can improve DTI when the removed predictions' marginal truth credit is small relative to the false-positive mass removed. The private truth, exact organizer score receipt, and causal effect of the deletions are unavailable.
+
+For a marginal block with `t = ΔTPw`, `f = ΔFPw`, and `ΔFNw = −t`, the denominator changes by `α(t+f)` when `α+β=1`. Therefore an addition improves the current DTI `S` iff:
 
 ```text
-Delta_TPw(p | S) / Delta_FPw(p) > (0.2 * D*) / (1 - D*) = 0.07693   (marginal precision p_hit > 0.0588 for an isolated dot)
+ΔTPw / ΔFPw > (α × S) / (1 − α × S)
+At α = 0.2 and S = 0.2778: ΔTPw / ΔFPw > 0.05556 / 0.94444 ≈ 0.05882
 ```
 
-1. **Kernel-scale (`2.8 px`) thinning (`+0.0678` `USER-REPORTED` from `0.1922` to `0.2600`):** Removed `77,041` adjacent ridge pixels whose `300 m` kernel footprints overlapped already-covered truth (`Delta_TPw approx 0`) while paying full `0.2 * Delta_FPw` denominator cost.
-2. **`d_cat > 200 m` collar exclusion (`+0.0178` `USER-REPORTED` from `0.2600` to `0.2778`):** Because the organizer scorer masks known public faults pixel-exactly (`labels == 1`), `D2.8` predictions at `100–200 m` (`1–2 px`) from known fault traces were false-positive probability halos bleeding off mapped scarps into unmapped wall rock without intersecting distinct unmapped fault strands (`100%` of dots beyond `300 m` are identical across `D2.8`, `H27-4`, and `H33-2-B2`).
-3. **Why `GEMSDOE36` regressed (`0.2778 -> 0.2750` `USER-REPORTED`) & how to score higher:** Appending `1,200` tail dots below the `0.07693` marginal gain-to-cost threshold diluted the denominator. Conversely, because `H33-2-B2` is purely a geometric prune of `H19-5` (which depended heavily on `cat_dist <= 5 km` proximity and suffered 1 m LiDAR survey-footprint confounding), surpassing `0.2778` toward the `0.3195` / `0.4413` (`USER-REPORTED`) benchmarks requires **genuinely new label-free geophysical discovery of concealed range-front and basin-floor faults** combined with **cost-scaled submodular DTI allocation** (never projected numerically without an organizer receipt).
+For the simplified isolated-dot model where `ΔTPw + ΔFPw = 1`, that ratio condition is equivalent to `ΔTPw > αS = 0.05556`. The general ratio threshold (`0.05882`) and the simplified per-dot credit threshold (`0.05556`) are not interchangeable.
+
+1. **Kernel-scale (`2.8 px`) thinning:** the files show 77,041 fewer predictions between the dense H19-5 parent and D2.8. Metric theory makes reduced redundant false-positive mass a plausible benefit, but whether the removed cells had negligible hidden-truth credit is not measured by geometry or the USER-REPORTED scores.
+2. **`d_cat > 200 m` collar:** byte comparison shows H33 removes 2,545 additional H27-4 dots in the 100–200 m band and adds none. If known-catalogue cells are excluded by the evaluator, removing this band could reduce false-positive cost; it could also remove coverage of nearby unmapped faults. Without private truth and an authenticated score receipt, the claimed `0.0070` change cannot be attributed to the collar.
+3. **GEMSDOE36:** its geometry is H33 plus 1,200 dots and its reported score is `0.2750` versus H33's USER-REPORTED `0.2778`. The file comparison establishes the added dots, not their hidden-truth credit per FP cost; it is not sound to infer that their marginal ratio was below a threshold from these claims alone. Any route toward `0.3195` / `0.4413` must be measured on new, validated information; no score projection is supported.
 
 ### 2. Ranked Crustal-Mechanics Hypotheses (Preregistered Before Fitting)
 
-| Rank | Lane | Input Layers & Physical Transform | Why It Catches Unmapped Faults & Novelty vs Prior Lanes | Expected Holdout Gain & Cost | Data Access |
+| Rank | Lane | Input Layers & Physical Transform | Proposed mechanism / distinction (historical) | Historical HOLDOUT-DTI result or desk cost (not a leaderboard forecast) | Data Access |
 | :---: | --- | --- | --- | --- | --- |
-| **1 (Executed)** | **`H31-T`** | SI-calibrated 3D magnetic (`0.005 * tmi_hg`, `tmi_vg` in `nT/m`) & gravity (`10 * iso_grav_anom_slope`, `iso_grav_anom_vg` in `mGal/km`) analytic signal + Thompson inverse contact depth, `55 deg` up-dip listric footwall restoration, Kostrov–Byerlee transtension × `1/(1 + d_eq/5km)`, hydrothermal magnetite-destruction × `K/Th` × lateral `cond_surf` clay-cap ridge, Cost-Scaled Dinkelbach 29-cell CELF | Restores `0.8–2.5 km` hanging-wall geophysical offsets up-dip onto concealed range-front fault traces and stays invariant to reversed volcanic remanence; 100% label-free static channels + cost-scaled fractional Dinkelbach CELF | Highest (`+0.0205` on `gems57-pooled-hide-v2`, `+0.0233` on `gemsdoe31-holdout-v1` confirm) · ~21 min CPU | 100% hash-pinned local stack |
+| **1 (Executed)** | **`H31-T`** | SI-calibrated 3D magnetic (`0.005 * tmi_hg`, `tmi_vg` in `nT/m`) & gravity (`10 * iso_grav_anom_slope`, `iso_grav_anom_vg` in `mGal/km`) analytic signal + Thompson inverse contact depth, `55 deg` up-dip listric footwall restoration, Kostrov–Byerlee transtension × `1/(1 + d_eq/5km)`, hydrothermal magnetite-destruction × `K/Th` × lateral `cond_surf` clay-cap ridge, Cost-Scaled Dinkelbach 29-cell CELF | Operator projects modelled `0.8–2.5 km` offsets up-dip; geological interpretation is a hypothesis, not field confirmation. Static channels are label-free in the recorded implementation. | Historical HOLDOUT-DTI deltas `+0.0205` (`gems57-pooled-hide-v2`) and `+0.0233` (separate confirmation instrument; see scorecard) · ~21 min CPU | Historical local stack record |
 | **2** | **`H31-R`** | Anisotropic Riemann-tensor Eikonal geodesic linking across `step_max`, `bstep_grad_norm`, and 3D analytic signal | Bridges intermittent `100–300 m` buried relay segments across alluvial fan lobes via minimum-action elastoplastic paths | Moderate-High · ~60–90 min CPU | Local stack |
 | **3** | **`H31-S`** | Multi-depth upward-continued tilt-derivative phase-convergence tomography (`z = 200..3,200 m`) on `tmi_rtp` & `iso_grav_anom` | Separates deep-rooted dipping fault planes from shallow rootless volcanic flow margins | Moderate · ~45 min CPU | Local stack |
 | **4** | **`H31-V`** | Sentinel-1 / ARIA MintPy vertical & east-west InSAR velocity + seasonal poroelastic phase gradient | Detects sub-mm/yr creep and hydraulic head-drop barriers across zero-scarp playa faults | High on playas · **Blocked in sandbox** | `asf.alaska.edu` / NASA Earthdata outside TLS allowlist |
 
-### 3. Verified `H31-T` `EXP-1..3` Scorecard (`evidence/h31t/run_card.json`)
+### 3. Historical H31-T `EXP-1..3` scorecard (`evidence/h31t/run_card.json`)
+
+These archived values are local HOLDOUT-DTI or SGMC-PROXY results, not competition scores and not the current MAGREST run.
 
 - **`EXP-1` Diagnostic (`evidence/h31t/exp1_vis_self_inclusion_diagnostic.json`):** Exposed that computing tip/relay features from `visible_catalogue` creates `d0_m = 0` self-inclusion on `train_mask` positives (collapsing Quadrant 1 Poisson `HOLDOUT-DTI` to `0.0693` vs `0.1410` ctrl; overall `gems57-pooled-hide-v2` `h31t_dinkelbach = 0.117240` vs `0.109735` ctrl). Removing catalogue-derived features in `EXP-2` made `H31-T` 100% label-free and lifted Q1 by `+0.0396` to `0.148892`.
 - **`EXP-2` 100% Label-Free Holdouts (`21,250 m` own-method OOF variogram collar, `max symmetric AUC = 0.5711` across 35 static planes):**

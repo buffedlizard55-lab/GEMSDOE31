@@ -1422,6 +1422,53 @@
         "Verified automated non-human GeoTIFF validation (scripts/verify_h31s_run.py & scripts/verify_current_run.py), 22-page static site + feed.json build, Ruff lint, check_metric.py, and full pytest suite"
       ],
       "historical_scope": false
+    },
+    {
+      "id": "arena-reconciliation-pass-1-2026-10-26",
+      "status": "complete-with-existing-lane-stop",
+      "scope": [
+        "Reconciled README, current status, current MAGREST run card, active site templates, site builder/checker, submission register generator, nine-site score/geometry claims, and archived parallel cards.",
+        "Corrected stale RBU31/H31-T/H31-J/H31-S scope language: named-peer or discrete subset results are not broad/global uniqueness; removed the RBU31 archived positive submission branch and constrained machine-readable gate fields to the literal registry STOP.",
+        "Replaced the site\u2019s obsolete four-item/current MAGREST hypothesis list with the same three desk-only proposals as README: GRAVREST, RADREST, TERRREST; retained historical H31-S alternatives as historical only."
+      ],
+      "findings": [
+        "The active MAGREST artifact and negative run-card result remain unchanged; no new TIFF, experiment, upload, leaderboard access, or slot was used.",
+        "H33-2-B2 0.2778 remains USER-REPORTED; the D2.8 support/pruning geometry is a plausible metric mechanism, not private-score causation.",
+        "The frozen H31-S preregistration bytes were restored/preserved at SHA-256 fe9464365d34d84ea2205579c50a3960ba0dc4c843c66d0519ae355e19f8de03."
+      ]
+    },
+    {
+      "id": "arena-reconciliation-pass-2-2026-10-26",
+      "status": "complete-current-code-verification",
+      "checks": [
+        "Restored only the two pinned small template/catalogue inputs and one registered counterexample using the project-prescribed verifier; all restored data remain git-ignored.",
+        "Ran current-run denial verification, archived H31-J/H31-T verifiers, full pytest suite, full Ruff check, compileall, and independent metric proof.",
+        "Refreshed evidence/submission registers; verified archived RBU31 named-peer flags no longer appear as broad uniqueness approval in the generated register."
+      ],
+      "verification": {
+        "current_run": "negative; research download allowed; submission denied; unchanged MAGREST raster SHA-256 c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+        "archived_verifiers": "verify_h31j.py and verify_h31t.py returned verified; slot_approved=false for both",
+        "pytest": "136 passed",
+        "ruff": "python -m ruff check . passed",
+        "compileall": "python -m compileall -q src scripts tests passed",
+        "metric": "maximum absolute fast/brute DTI difference 4.441e-16 over 24 grids; exact cases passed; 29 offsets inside the 300 m kernel"
+      }
+    },
+    {
+      "id": "arena-reconciliation-pass-3-2026-10-26",
+      "status": "complete-with-open-gates",
+      "checks": [
+        "Rebuilt generated outputs from the current source/registers; docs/data/submissions.json and docs/feed.json identify active MAGREST as research-only and have no current recommended submission.",
+        "Ran check_site.py against the rebuilt 22-page site and 438 local links; all checks passed. An initial checker assertion was corrected to accept the register\u2019s exact pairwise-scope wording before the final pass.",
+        "Confirmed the original owner prompt remains preserved in README and no tracked .cache/data/work/.venv artifacts were introduced."
+      ],
+      "remaining_gates": [
+        "The assigned method paragraph is absent; no candidate lane is authorized.",
+        "The literal shared-registry spacing-5 witness blocks every nonempty candidate under the unexempted >70% overlap stop; broad scan completeness is not claimed.",
+        "The registered efficacy screen is negative, the lane budget is exhausted, the production feature stack is absent, and no organizer-authenticated score/template receipt exists.",
+        "GRAVREST, RADREST and TERRREST remain desk-only hypotheses; no numeric improvement forecast or fitting authorization."
+      ],
+      "decision": "No new TIFF, experiment, upload, leaderboard access, or weekly slot. Current artifact remains research-download-only, not approved for submission."
     }
   ],
   "remaining_work": [
@@ -1431,15 +1478,15 @@
     "Reproduce the strongest comparable incumbent using the unchanged shared evaluator, buffered whole-segment holdouts, exact visible-label masking, pooled DTI and paired spatial confidence intervals.",
     "Obtain organizer-authenticated template/rules/score receipts through authorized access; do not scrape the leaderboard or upload automatically.",
     "Only after those gates, preregister one lane-specific hypothesis with feature canaries, explicit non-fault nulls and fresh confirmation; never call a local proxy DTI a competition score.",
-    "preregister and test H31-R (Riemann-tensor Eikonal geodesic trace-linking) and H31-S (multi-depth tilt phase-convergence tomography), and execute H31-V (ARIA/Sentinel-1 InSAR) on an unrestricted runner once the 695-raster r13-lattice-s5 protocol degeneracy is resolved"
+    "Keep GRAVREST, RADREST and TERRREST as desk-only proposals; do not fit them unless the missing assigned method lane, literal registry blocker, source-stack provenance, shared-evaluator protocol and experiment budget are explicitly resolved."
   ],
   "current_run": "registry/current_run.json",
   "current_three_passes": [
-    "arena-review-pass-1-2026-10-26",
-    "arena-review-pass-2-2026-10-26",
-    "arena-review-pass-3-2026-10-26"
+    "arena-reconciliation-pass-1-2026-10-26",
+    "arena-reconciliation-pass-2-2026-10-26",
+    "arena-reconciliation-pass-3-2026-10-26"
   ],
-  "release_decision": "2026-10-26 review: no new experiment/TIFF/slot. Existing MAGREST artifact remains research-download-only and blocked from submission by recorded overlap and efficacy gates. Executive summary now includes the nine-site USER-REPORTED highest-claim matrix. See knowledge/repo_review_2026-10-26.md.",
+  "release_decision": "2026-10-26 reconciliation: no new experiment/TIFF/slot/upload. Active MAGREST remains a negative, research-only artifact blocked by the literal shared-registry witness and failed efficacy screen. Three desk hypotheses remain unauthorized. Current source, generated site (22 pages/438 local links), full tests/lint/metric/verifier checks are recorded in current_status_2026-10-26.md.",
   "rbu31_session_2026_10_25": {
     "branch": "arena/84287da3-gemsdoe31",
     "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",
@@ -1448,7 +1495,7 @@
     "verdict": "negative (no slot, no organizer-confirmed score)",
     "next": "knowledge/2026-10-25_rbu31c_next_preregistration.md (frozen, not run)"
   },
-  "latest_verification_continuation": "arena-review-verification-continuation-2026-10-26",
+  "latest_verification_continuation": "arena-reconciliation-pass-3-2026-10-26",
   "h31s_three_passes_2026_10_26": [
     "h31s-pass-1-implementation-and-execution-2026-10-26",
     "h31s-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",

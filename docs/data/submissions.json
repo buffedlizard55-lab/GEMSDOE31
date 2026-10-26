@@ -1,244 +1,293 @@
 {
- "schema_version": 1,
- "generated_utc": "2026-10-25",
- "policy": "Every hash and pixel count below is copied out of the format-check receipt written by scripts/build_submission.py. Local validation is not organizer acceptance and no file here carries an organizer receipt.",
- "current_recommended": {
-  "name": null,
-  "role": "No file is approved for competition submission",
-  "score_status": "no organizer receipt exists; owner-reported values remain unverified context",
-  "slot_approved": false,
-  "reason_not_slot_approved": "TGJ31 is negative; historical copied references are not new candidates."
- },
- "decision": "NO_FILE_CLEARED_FOR_SUBMISSION",
- "lane_candidate": {
-  "id": "lane-as1",
-  "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8",
-  "note_for_portal": "GEMSDOE31 AS-1: LiDAR antislope-scarp dots, 38k px, off-catalogue. UNSCORED. Holdout gate failed: do not rank on this.",
-  "note_chars": 118,
-  "role": "archived concurrent AS-1 candidate; separate evaluator; negative, NOT promoted.",
-  "dots": 38000,
-  "dot_set_sha256": "9b3afbc881f991998da267e10c0b0981e72aea974c176faa003eeaa7e8e7166e",
-  "slot_approved": false,
-  "files": {
-   "nan": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
-   "allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
-   "zip": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.zip",
-   "zip_allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.zip"
+  "schema_version": 1,
+  "generated_utc": "2026-10-25T21:27:53.911211+00:00",
+  "policy": "registry/current_run.json is authoritative for the active artifact and submission status. The remaining files and historical_artifacts preserve prior records only. Local format validation is not uniqueness, organizer acceptance, or slot approval.",
+  "current_recommended": {
+    "name": null,
+    "role": "No file is approved for competition submission; current_run identifies a research-only artifact.",
+    "score_status": "HOLDOUT-DTI is a local validation metric, not a competition score; no organizer receipt exists.",
+    "slot_approved": false,
+    "reason_not_slot_approved": "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.; paired spatial holdout screen failed; fresh confirmation not passed; own-method residual range not estimated; global current-best comparison unavailable on identical instrument; organizer-authenticated data/template provenance unverified; outside-footprint organizer convention unresolved; separate selector has not promoted this artifact; weekly cap not checked"
   },
-  "gate_receipts": {
-   "allfinite": {
-    "receipt": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-allfinite.json",
-    "sha256": "28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4",
-    "verdict": "BLOCKED",
-    "hard_failures": [
-     "G5_unique_by_overlap_and_rank_correlation"
-    ],
-    "evidence_failures": [
-     "G7_preregistered_holdout_evidence"
-    ],
-    "submit_recommended": false,
-    "positive_cells": 38000
-   },
-   "nan": {
-    "receipt": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-nan.json",
-    "sha256": "e84c5a252381294aa0f22aebd765f7b9fa0136c270617bac22d40f48cc7f5f0c",
-    "verdict": "BLOCKED",
-    "hard_failures": [
-     "G5_unique_by_overlap_and_rank_correlation"
-    ],
-    "evidence_failures": [
-     "G7_preregistered_holdout_evidence"
-    ],
-    "submit_recommended": false,
-    "positive_cells": 38000
-   }
+  "decision": "NO_FILE_CLEARED_FOR_SUBMISSION",
+  "lane_candidate": {
+    "id": "lane-as1",
+    "name": "gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8",
+    "note_for_portal": "GEMSDOE31 AS-1: LiDAR antislope-scarp dots, 38k px, off-catalogue. UNSCORED. Holdout gate failed: do not rank on this.",
+    "note_chars": 118,
+    "role": "archived concurrent AS-1 candidate; separate evaluator; negative, NOT promoted.",
+    "dots": 38000,
+    "dot_set_sha256": "9b3afbc881f991998da267e10c0b0981e72aea974c176faa003eeaa7e8e7166e",
+    "slot_approved": false,
+    "files": {
+      "nan": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.tif",
+      "allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
+      "zip": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-nan.zip",
+      "zip_allfinite": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.zip"
+    },
+    "gate_receipts": {
+      "allfinite": {
+        "receipt": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-allfinite.json",
+        "sha256": "28213ba2b1a800753d8750002371194f308fb6369b323ac237ca334df62b26c4",
+        "verdict": "BLOCKED",
+        "hard_failures": [
+          "G5_unique_by_overlap_and_rank_correlation"
+        ],
+        "evidence_failures": [
+          "G7_preregistered_holdout_evidence"
+        ],
+        "submit_recommended": false,
+        "positive_cells": 38000
+      },
+      "nan": {
+        "receipt": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-gate-nan.json",
+        "sha256": "e84c5a252381294aa0f22aebd765f7b9fa0136c270617bac22d40f48cc7f5f0c",
+        "verdict": "BLOCKED",
+        "hard_failures": [
+          "G5_unique_by_overlap_and_rank_correlation"
+        ],
+        "evidence_failures": [
+          "G7_preregistered_holdout_evidence"
+        ],
+        "submit_recommended": false,
+        "positive_cells": 38000
+      }
+    },
+    "ready_to_submit": false,
+    "verdict": "BLOCKED"
   },
-  "ready_to_submit": false,
-  "verdict": "BLOCKED"
- },
- "other_lane_scope": "AS-1 is a preserved separate session, not the active TGJ31 experiment or a comparable incumbent.",
- "newly_generated_artifact": {
-  "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT",
-  "safe_to_download_for_audit": true,
-  "safe_to_submit": false,
-  "run_card": "evidence/tgj31/run_card.json",
-  "decision": "evidence/tgj31/decision.json"
- },
- "best_research_candidate": {
-  "name": null,
-  "slot_approved": false,
-  "reason": "No active candidate passed the common hide-and-recover gates; historical unions are archival."
- },
- "historical_best_research_candidate": {
-  "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
-  "measured": {
-   "off_catalogue_proxy_DTI": 0.09985654750452583,
-   "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
-   "delta": 0.006008398517191579,
-   "catalogue_gap_proxy_DTI": 0.09482862741978171,
-   "incumbent_catalogue_gap_proxy_DTI": 0.04909549919996504,
-   "added_dots": 65939,
-   "added_credit_per_dot": 0.024651922576187434
+  "other_lane_scope": "All parallel-lane artifacts are preserved historical sessions; none is the active registered run or a current slot recommendation.",
+  "newly_generated_artifact": {
+    "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
+    "file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+    "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+    "safe_to_download_for_research": true,
+    "safe_to_submit": false,
+    "run_card": "registry/current_run.json",
+    "decision": "negative"
   },
-  "slot_approved": false,
-  "status": "ARCHIVAL-PROXY-NOT-COMPARABLE-HOLDOUT"
- },
- "files": [
-  {
-   "id": "primary-h27-4-solo-d28",
-   "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
-   "role": "historical copied reference only - not a new submission or an approved download",
-   "provenance": "re-emission of the dot set published as GEMSDOE28 gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); pixel-identical, freshly written and re-validated in this repository",
-   "note_for_portal": "h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template",
-   "slot_approved": false,
-   "why_not_slot_approved": "It is the incumbent, not an improvement. Nothing measured in this repository beats it by a margin worth spending a weekly slot.",
-   "positive_pixels": 40199,
-   "positive_pixels_on_public_catalogue": 0,
-   "format_status": "locally validated against the grid template; not organizer acceptance",
-   "receipt": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-format-check.json",
-   "file_nan": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
-   "bytes_nan": 199214,
-   "sha256_nan": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
-   "format_ok_nan": true,
-   "hard_failures_nan": [],
-   "organizer_acceptance_verified_nan": false,
-   "file_allfinite": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
-   "bytes_allfinite": 154580,
-   "sha256_allfinite": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
-   "format_ok_allfinite": true,
-   "hard_failures_allfinite": [],
-   "organizer_acceptance_verified_allfinite": false,
-   "zip": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip"
+  "best_research_candidate": {
+    "name": null,
+    "slot_approved": false,
+    "reason": "No active candidate passed the common hide-and-recover gates; historical unions are archival."
   },
-  {
-   "id": "research-union-lidar-arm",
-   "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
-   "role": "historical LiDAR union - not an active candidate",
-   "provenance": "the incumbent dot set plus every cell where the LiDAR-arm fold-OOF probability is >= 0.60 and the cell is not on the public catalogue (scripts/run_union.py)",
-   "note_for_portal": "incumbent h27-4 dot set + 65939 LiDAR-arm detections (p>=0.6, off-catalogue); +0.0060 off-catalogue proxy DTI; research candidate",
-   "slot_approved": false,
-   "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live submission has tested it. Archival only; not a current-best comparator or next-week selection.",
-   "positive_pixels": 106138,
-   "positive_pixels_on_public_catalogue": 0,
-   "format_status": "locally validated against the grid template; not organizer acceptance",
-   "receipt": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-format-check.json",
-   "file_nan": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif",
-   "bytes_nan": 247886,
-   "sha256_nan": "a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23",
-   "format_ok_nan": true,
-   "hard_failures_nan": [],
-   "organizer_acceptance_verified_nan": false,
-   "file_allfinite": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
-   "bytes_allfinite": 204922,
-   "sha256_allfinite": "b44248ee7ca46405326b81998c5e4c417971d0596c01d3f995f6dd73f3997707",
-   "format_ok_allfinite": true,
-   "hard_failures_allfinite": [],
-   "organizer_acceptance_verified_allfinite": false,
-   "zip": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.zip",
-   "measured": {
-    "off_catalogue_proxy_DTI": 0.09985654750452583,
-    "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
-    "delta": 0.006008398517191579,
-    "catalogue_gap_proxy_DTI": 0.09482862741978171,
-    "incumbent_catalogue_gap_proxy_DTI": 0.04909549919996504,
-    "added_dots": 65939,
-    "added_credit_per_dot": 0.024651922576187434
-   }
+  "historical_best_research_candidate": {
+    "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
+    "measured": {
+      "off_catalogue_proxy_DTI": 0.09985654750452583,
+      "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
+      "delta": 0.006008398517191579,
+      "catalogue_gap_proxy_DTI": 0.09482862741978171,
+      "incumbent_catalogue_gap_proxy_DTI": 0.04909549919996504,
+      "added_dots": 65939,
+      "added_credit_per_dot": 0.024651922576187434
+    },
+    "slot_approved": false,
+    "status": "ARCHIVAL-PROXY-NOT-COMPARABLE-HOLDOUT"
   },
-  {
-   "id": "research-union-radiometric-arm",
-   "name": "gemsdoe31-add-arm-d28-20261004-8acb75e1",
-   "role": "historical radiometric union - not an active candidate",
-   "provenance": "the incumbent dot set plus every cell where the radiometric+LiDAR fold-OOF probability is >= 0.70 and the cell is not on the public catalogue",
-   "note_for_portal": "incumbent h27-4 dot set + 15105 radiometric-arm detections (p>=0.70, off-catalogue); +0.0017 off-catalogue proxy DTI; research candidate",
-   "slot_approved": false,
-   "why_not_slot_approved": "Same proxy caveat as the LiDAR union, with a smaller measured gain; kept for the record because it is the variant that was built first.",
-   "positive_pixels": 55304,
-   "positive_pixels_on_public_catalogue": 0,
-   "format_status": "locally validated against the grid template; not organizer acceptance",
-   "receipt": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-format-check.json",
-   "file_nan": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.tif",
-   "bytes_nan": 212925,
-   "sha256_nan": "5987d5051a76a8a28e8a31106936413d26ab8d8af143d6849c29827cf1d35597",
-   "format_ok_nan": true,
-   "hard_failures_nan": [],
-   "organizer_acceptance_verified_nan": false,
-   "file_allfinite": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-allfinite.tif",
-   "bytes_allfinite": 169213,
-   "sha256_allfinite": "deda0533e4aa041e3877f58a8d6b9d0f8930fec6db1f66934f649a6583c71201",
-   "format_ok_allfinite": true,
-   "hard_failures_allfinite": [],
-   "organizer_acceptance_verified_allfinite": false,
-   "zip": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.zip",
-   "measured": {
-    "off_catalogue_proxy_DTI": 0.09552698476959738,
-    "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
-    "delta": 0.0016788357822631328,
-    "catalogue_gap_proxy_DTI": 0.0720682317672818,
-    "incumbent_catalogue_gap_proxy_DTI": 0.04909549919996504,
-    "added_dots": 15105,
-    "added_credit_per_dot": 0.02473161766669712
-   }
+  "files": [
+    {
+      "id": "primary-h27-4-solo-d28",
+      "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
+      "role": "historical copied reference only - not a new submission or an approved download",
+      "provenance": "re-emission of the dot set published as GEMSDOE28 gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif (owner mirror); pixel-identical, freshly written and re-validated in this repository",
+      "note_for_portal": "h27-4 r1 solo d=2.8 dot set (40199 px); owner-reported live 0.2708; format re-verified against the competition grid template",
+      "slot_approved": false,
+      "why_not_slot_approved": "It is the incumbent, not an improvement. Nothing measured in this repository beats it by a margin worth spending a weekly slot.",
+      "positive_pixels": 40199,
+      "positive_pixels_on_public_catalogue": 0,
+      "format_status": "locally validated against the grid template; not organizer acceptance",
+      "receipt": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-format-check.json",
+      "file_nan": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "bytes_nan": 199214,
+      "sha256_nan": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+      "format_ok_nan": true,
+      "hard_failures_nan": [],
+      "organizer_acceptance_verified_nan": false,
+      "file_allfinite": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+      "bytes_allfinite": 154580,
+      "sha256_allfinite": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+      "format_ok_allfinite": true,
+      "hard_failures_allfinite": [],
+      "organizer_acceptance_verified_allfinite": false,
+      "zip": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.zip"
+    },
+    {
+      "id": "research-union-lidar-arm",
+      "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
+      "role": "historical LiDAR union - not an active candidate",
+      "provenance": "the incumbent dot set plus every cell where the LiDAR-arm fold-OOF probability is >= 0.60 and the cell is not on the public catalogue (scripts/run_union.py)",
+      "note_for_portal": "incumbent h27-4 dot set + 65939 LiDAR-arm detections (p>=0.6, off-catalogue); +0.0060 off-catalogue proxy DTI; research candidate",
+      "slot_approved": false,
+      "why_not_slot_approved": "The gain is measured on a proxy population (USGS SGMC state-map faults) that resembles but is not the hidden expert-mapped truth, and no live submission has tested it. Archival only; not a current-best comparator or next-week selection.",
+      "positive_pixels": 106138,
+      "positive_pixels_on_public_catalogue": 0,
+      "format_status": "locally validated against the grid template; not organizer acceptance",
+      "receipt": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-format-check.json",
+      "file_nan": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif",
+      "bytes_nan": 247886,
+      "sha256_nan": "a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23",
+      "format_ok_nan": true,
+      "hard_failures_nan": [],
+      "organizer_acceptance_verified_nan": false,
+      "file_allfinite": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+      "bytes_allfinite": 204922,
+      "sha256_allfinite": "b44248ee7ca46405326b81998c5e4c417971d0596c01d3f995f6dd73f3997707",
+      "format_ok_allfinite": true,
+      "hard_failures_allfinite": [],
+      "organizer_acceptance_verified_allfinite": false,
+      "zip": "docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.zip",
+      "measured": {
+        "off_catalogue_proxy_DTI": 0.09985654750452583,
+        "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
+        "delta": 0.006008398517191579,
+        "catalogue_gap_proxy_DTI": 0.09482862741978171,
+        "incumbent_catalogue_gap_proxy_DTI": 0.04909549919996504,
+        "added_dots": 65939,
+        "added_credit_per_dot": 0.024651922576187434
+      }
+    },
+    {
+      "id": "research-union-radiometric-arm",
+      "name": "gemsdoe31-add-arm-d28-20261004-8acb75e1",
+      "role": "historical radiometric union - not an active candidate",
+      "provenance": "the incumbent dot set plus every cell where the radiometric+LiDAR fold-OOF probability is >= 0.70 and the cell is not on the public catalogue",
+      "note_for_portal": "incumbent h27-4 dot set + 15105 radiometric-arm detections (p>=0.70, off-catalogue); +0.0017 off-catalogue proxy DTI; research candidate",
+      "slot_approved": false,
+      "why_not_slot_approved": "Same proxy caveat as the LiDAR union, with a smaller measured gain; kept for the record because it is the variant that was built first.",
+      "positive_pixels": 55304,
+      "positive_pixels_on_public_catalogue": 0,
+      "format_status": "locally validated against the grid template; not organizer acceptance",
+      "receipt": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-format-check.json",
+      "file_nan": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.tif",
+      "bytes_nan": 212925,
+      "sha256_nan": "5987d5051a76a8a28e8a31106936413d26ab8d8af143d6849c29827cf1d35597",
+      "format_ok_nan": true,
+      "hard_failures_nan": [],
+      "organizer_acceptance_verified_nan": false,
+      "file_allfinite": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-allfinite.tif",
+      "bytes_allfinite": 169213,
+      "sha256_allfinite": "deda0533e4aa041e3877f58a8d6b9d0f8930fec6db1f66934f649a6583c71201",
+      "format_ok_allfinite": true,
+      "hard_failures_allfinite": [],
+      "organizer_acceptance_verified_allfinite": false,
+      "zip": "docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.zip",
+      "measured": {
+        "off_catalogue_proxy_DTI": 0.09552698476959738,
+        "incumbent_off_catalogue_proxy_DTI": 0.09384814898733425,
+        "delta": 0.0016788357822631328,
+        "catalogue_gap_proxy_DTI": 0.0720682317672818,
+        "incumbent_catalogue_gap_proxy_DTI": 0.04909549919996504,
+        "added_dots": 15105,
+        "added_credit_per_dot": 0.02473161766669712
+      }
+    },
+    {
+      "id": "legacy-d28-reference",
+      "name": "gemsdoe31-reference-d28-offcat-44090-20261004",
+      "role": "legacy audit reference (not recommended)",
+      "provenance": "pixel-identical (not byte-identical) to the GEMSDOE25 D2.8 raster whose owner-reported live score is 0.2600",
+      "note_for_portal": "",
+      "slot_approved": false,
+      "why_not_slot_approved": "Superseded by the h27-4 geometry; kept only so the audit trail for the owner-reported 0.2600 can be followed.",
+      "positive_pixels": 44090,
+      "positive_pixels_on_public_catalogue": null,
+      "format_status": "locally validated against the grid template; not organizer acceptance",
+      "receipt": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-format-check.json",
+      "file_nan": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif",
+      "bytes_nan": 1573188,
+      "sha256_nan": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+      "format_ok_nan": true,
+      "hard_failures_nan": [],
+      "organizer_acceptance_verified_nan": false,
+      "legacy_receipt": true
+    },
+    {
+      "id": "tgj31-new-negative-audit",
+      "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT",
+      "role": "newly generated negative research artifact - DO NOT SUBMIT",
+      "provenance": "TGJ31-v1 built from original-template RTP and gravity features, not prior predictions",
+      "note_for_portal": "TGJ31 gravity-magnetic transfer jumps; new continuous research surface, no copied predictions; automatic gates required; DO NOT SUBMIT",
+      "slot_approved": false,
+      "safe_to_submit": false,
+      "why_not_slot_approved": "Failed automated scientific/registry gates; see decision.json",
+      "positive_pixels": 255289,
+      "positive_pixels_on_public_catalogue": 0,
+      "format_status": "locally validated by two validators; not organizer acceptance",
+      "file_allfinite": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+      "bytes_allfinite": 1302840,
+      "sha256_allfinite": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
+      "format_ok_allfinite": true,
+      "organizer_acceptance_verified_allfinite": false,
+      "hard_failures_allfinite": [],
+      "receipt": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.json",
+      "zip": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.zip",
+      "evidence_class": "HOLDOUT-DTI",
+      "holdout": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "gems57-pooled-hide-v2",
+        "dti": 0.008280993580848684,
+        "ci95": [
+          0.005740976876658766,
+          0.011234426585263453
+        ],
+        "withheld_positive_pixels": 60988,
+        "tpw": 431.93180940144043,
+        "fpw": 16413.160462449872,
+        "fnw": 60556.06819059854
+      },
+      "verdict": "negative"
+    }
+  ],
+  "format_conventions": {
+    "nan": "MAGREST companion: finite values in [0,1] inside the footprint, NaN outside; the organizer's outside-footprint convention was not independently verified here.",
+    "all-finite": "MAGREST primary: every cell finite in [0,1], explicit zeros outside the footprint; local validation only, not organizer acceptance."
   },
-  {
-   "id": "legacy-d28-reference",
-   "name": "gemsdoe31-reference-d28-offcat-44090-20261004",
-   "role": "legacy audit reference (not recommended)",
-   "provenance": "pixel-identical (not byte-identical) to the GEMSDOE25 D2.8 raster whose owner-reported live score is 0.2600",
-   "note_for_portal": "",
-   "slot_approved": false,
-   "why_not_slot_approved": "Superseded by the h27-4 geometry; kept only so the audit trail for the owner-reported 0.2600 can be followed.",
-   "positive_pixels": 44090,
-   "positive_pixels_on_public_catalogue": null,
-   "format_status": "locally validated against the grid template; not organizer acceptance",
-   "receipt": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-format-check.json",
-   "file_nan": "docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif",
-   "bytes_nan": 1573188,
-   "sha256_nan": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
-   "format_ok_nan": true,
-   "hard_failures_nan": [],
-   "organizer_acceptance_verified_nan": false,
-   "legacy_receipt": true
-  },
-  {
-   "id": "tgj31-new-negative-audit",
-   "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT",
-   "role": "newly generated negative research artifact - DO NOT SUBMIT",
-   "provenance": "TGJ31-v1 built from original-template RTP and gravity features, not prior predictions",
-   "note_for_portal": "TGJ31 gravity-magnetic transfer jumps; new continuous research surface, no copied predictions; automatic gates required; DO NOT SUBMIT",
-   "slot_approved": false,
-   "safe_to_submit": false,
-   "why_not_slot_approved": "Failed automated scientific/registry gates; see decision.json",
-   "positive_pixels": 255289,
-   "positive_pixels_on_public_catalogue": 0,
-   "format_status": "locally validated by two validators; not organizer acceptance",
-   "file_allfinite": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
-   "bytes_allfinite": 1302840,
-   "sha256_allfinite": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb",
-   "format_ok_allfinite": true,
-   "organizer_acceptance_verified_allfinite": false,
-   "hard_failures_allfinite": [],
-   "receipt": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.json",
-   "zip": "docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.zip",
-   "evidence_class": "HOLDOUT-DTI",
-   "holdout": {
+  "historical_artifacts": [
+    {
+      "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT",
+      "safe_to_download_for_audit": true,
+      "safe_to_submit": false,
+      "run_card": "evidence/tgj31/run_card.json",
+      "decision": "evidence/tgj31/decision.json",
+      "status": "historical snapshot; not the active registered run"
+    }
+  ],
+  "active_run_card": "registry/current_run.json",
+  "current_run": {
+    "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
+    "file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+    "zip": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+    "nan_file": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+    "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+    "verdict": "negative",
     "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": "gems57-pooled-hide-v2",
-    "dti": 0.008280993580848684,
-    "ci95": [
-     0.005740976876658766,
-     0.011234426585263453
-    ],
-    "withheld_positive_pixels": 60988,
-    "tpw": 431.93180940144043,
-    "fpw": 16413.160462449872,
-    "fnw": 60556.06819059854
-   },
-   "verdict": "negative"
+    "holdout_dti": {
+      "evidence_class": "HOLDOUT-DTI",
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "dti": 0.052972044857535226,
+      "ci95": [
+        0.04131136300815562,
+        0.06532899139157548
+      ],
+      "withheld_positive_pixels": 2901,
+      "tpw": 222.69414398245058,
+      "fpw": 9193.274462229707,
+      "fnw": 2678.3058560175496
+    },
+    "paired_difference": {
+      "evidence_class": "HOLDOUT-DTI",
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "delta": 0.00467843602723389,
+      "ci95": [
+        -0.017864202465723577,
+        0.022933167391729445
+      ],
+      "withheld_positive_pixels": 2901
+    },
+    "ok_to_download_for_research": true,
+    "ok_to_submit": false,
+    "slot_approved": false,
+    "run_card": "registry/current_run.json"
   }
- ],
- "format_conventions": {
-  "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention the official page specifies and the grid template uses",
-  "all-finite": "every cell finite and in [0,1], explicit zeros outside the footprint; active TGJ31 policy uses nodata=None and two on-disk validators; not organizer acceptance"
- }
 }

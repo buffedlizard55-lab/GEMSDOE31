@@ -1,8 +1,11 @@
-# GEMSDOE31 PhD-Level Forensic Review, Nine-Site Audit & H31-S (`UDAP-SSLIC`) Campaign (`2026-10-26`)
+# Historical GEMSDOE31 Forensic Review, Nine-Site Audit & H31-S (`UDAP-SSLIC`) Campaign (`2026-10-26`)
 
-- **Repository / Branch:** `buffedlizard55-lab/GEMSDOE31` · `arena/34f326b4-gemsdoe31`
+> **Archive/status correction:** this report records an earlier parallel H31-S campaign; it is not the current active run. `registry/current_run.json` and `knowledge/current_status_2026-10-26.md` identify MAGREST as the registered current run, research-download-only and not approved to submit. The H31-S pairwise subset results below do not override the literal shared-registry STOP.
+> The `0.2190` GEMSDOE27 H29 figure is USER-REPORTED with no organizer receipt, and `56.1%` is a pairwise overlap against H33 only; it is not a confirmed score or broad/global uniqueness approval.
+
+- **Repository / Branch at the time:** `buffedlizard55-lab/GEMSDOE31` · `arena/34f326b4-gemsdoe31` (historical branch)
 - **Review & Execution Date:** `2026-10-26`
-- **Featured 2026-10-26 Unique Research Deliverable:**
+- **Archived 2026-10-26 H31-S Research Artifact (not the active run):**
   - Primary all-finite `[0, 1]` GeoTIFF: [`docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif`](../docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) (`143,032` B, SHA-256 `186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd`)
   - Official-wording NaN-outside twin: [`docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif`](../docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif) (`188,437` B, SHA-256 `665619b452553b25e7474ebe24cd466764550662744b36e0e7395f980ea241c1`)
   - Single-TIFF ZIP: [`docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.zip`](../docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.zip) (`108,160` B, SHA-256 `862d4971202580540a33b6eb2d913eea49376fe9a0918150f021238afa0bc07e`)
@@ -29,13 +32,13 @@ Every leaderboard score quoted in the owner prompt is labeled **`USER-REPORTED; 
 | `GEMSDOE24` | `gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif` | `0.2477` | `60,069` | `88.5%` | Duplicate of `D2.8/H33` family (`>70%`) |
 | `GEMSDOE27` | `gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif` | `0.2449` | `61,328` | `86.7%` | Duplicate of `D2.8/H33` family (`>70%`) |
 
-### 1.2 Newly Reported `2026-10-25` Unique Batch & Current `2026-10-26` `HEAD` Unique Candidates Across All 9 Sites
+### 1.2 Newer reported score claims and pinned 2026-10-26 parallel snapshots
 
-| Site (`HEAD` commit) | `2026-10-25` Newly Reported Unique Score (`USER-REPORTED`) | Current `HEAD` Unscored Unique Candidate (`2026-10-26`) | Dots & `[0,1]` | 3-px Overlap (`vs H33 / vs H29`) | Off-Cat SGMC (`All / Pied / Mtn`) | Site Verdict & Forensic Assessment |
+| Site (pinned source commit) | `2026-10-25` supplied score claim (`USER-REPORTED`) | Pinned `2026-10-26` parallel-snapshot artifact (not active `current_run`) | Dots & `[0,1]` | Pairwise 3-px overlap (`vs H33 / vs H29`) | Off-Cat SGMC proxy (`All / Pied / Mtn`) | Recorded status & limitations |
 | --- | --- | --- | --- | --- | --- | --- |
 | **`GEMSDOE24`** (`bb1a82cf`) | `gems24-gvc1-...-abe8e51c719d-zeros.tif` -> **`0.0859`** (`36.6%` vs H33) | [gems24-rshg1-regime-hydro-hgb-20261025-98f69d77e868-zeros.tif](https://github.com/buffedlizard55-lab/GEMSDOE24/blob/bb1a82cfc9ec0a1a52abfd3e83d5962de215499a/docs/downloads/gems24-rshg1-regime-hydro-hgb-20261025-98f69d77e868-zeros.tif) | `37,722` · PASS | `42.8% / 40.3%` | `0.0785 / 0.0719 / 0.0686` | `DOWNLOAD YES / SUBMIT NO` |
 | **`GEMSDOE25`** (`5d46f06b`) | `gems25-h66-mgd-flank-...-da617550a0e9-zeros.tif` -> **`0.0742`** (`30.4%` vs H33) | [gems25-h36-spigm-subsurface-submod300-20261025-3937b96ce366-zeros.tif](https://github.com/buffedlizard55-lab/GEMSDOE25/blob/5d46f06b420cc688894eb517228546950c9fa3b2/docs/downloads/gems25-h36-spigm-subsurface-submod300-20261025-3937b96ce366-zeros.tif) | `37,654` · PASS | `24.0% / 19.6%` | `0.0679 / 0.0717 / 0.0572` | `testing only — DO NOT SUBMIT` |
-| **`GEMSDOE27`** (`927322ea`) | **`gems27-h29-hydrothermal-piedmont-celf-...-511898747886-allfinite.tif` -> `0.2190`** (**best confirmed unique score**, `56.1%` vs H33) | [gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif](https://github.com/buffedlizard55-lab/GEMSDOE27/blob/927322eadbee909f0b006732d9c09d6e10b57239/docs/downloads/research/gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif) | `38,000` · PASS | `40.9% / 36.9%` | `0.0897 / 0.0553 / 0.0838` | `H29-1` passed GEMSDOE27 holdout (`+0.0022`) & 12-peer uniqueness; awaits owner selector (`H30` failed holdout) |
+| **`GEMSDOE27`** (`927322ea`) | **`gems27-h29-hydrothermal-piedmont-celf-...-511898747886-allfinite.tif` -> `0.2190` USER-REPORTED** (highest supplied score in this newer batch; `56.1%` overlap vs H33 only) | [gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif](https://github.com/buffedlizard55-lab/GEMSDOE27/blob/927322eadbee909f0b006732d9c09d6e10b57239/docs/downloads/research/gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif) | `38,000` · PASS | `40.9% / 36.9%` | `0.0897 / 0.0553 / 0.0838` | No organizer receipt; pairwise/subset result only, not broad uniqueness or slot approval |
 | **`GEMSDOE28`** (`712570c5`) | `gems28-s18-mxtp-...-3e95505c011a-allfinite.tif` -> **`0.0217`** (`11,082` dots, budget-starved) | [gems28-s19-ascp-20261026-dc717c1ab13b-allfinite.tif](https://github.com/buffedlizard55-lab/GEMSDOE28/blob/712570c5711530e07ae00795471b08d1aa122ffd/docs/downloads/gems28-s19-ascp-20261026-dc717c1ab13b-allfinite.tif) | `37,654` · PASS | `22.5% / 19.1%` | `0.1457 / 0.0275 / 0.1569` | `DO NOT SUBMIT` (`S19` failed 1.5 km holdout `0.0808` vs `0.1417`) |
 | **`GEMSDOE30`** (`781eea04`) | `gems30-MSDB1-edge44090-...-e7856ec3f14a.tif` -> **`0.1462`** (`44,090` dots, `39.2%` vs H33) | [GEMSDOE30-nearslay-annulus-d3-offcat-20261025T235837Z-662af003-nan.tif](https://github.com/buffedlizard55-lab/GEMSDOE30/blob/781eea04fb1d46056631c7fb37900f2508295325/docs/downloads/GEMSDOE30-nearslay-annulus-d3-offcat-20261025T235837Z-662af003-nan.tif) | `40,000` · PASS | `22.3% / 22.1%` | `0.0649 / 0.0846 / 0.0507` | `NOT cleared to submit` (pure `300m–1.5km` catalogue annulus) |
 | **`GEMSDOE31`** (`arena/34f326b4`) | none reported | [`gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif`](../docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) (plus prior `H31-M` SGMC `0.1010 / 0.0641 / 0.0947`) | `37,654` · PASS | `47.4% / 55.7%` | `0.0837 / 0.0400 / 0.0784` | `RESEARCH ONLY · DO NOT SUBMIT` (`HOLDOUT-DTI` `0.0948` s41 & `0.0980` s42; blocked by literal 695-lattice STOP & s41 H31-M quad gate) |
@@ -45,7 +48,7 @@ Every leaderboard score quoted in the owner prompt is labeled **`USER-REPORTED; 
 
 ---
 
-## 2. PhD-Level Forensic Analysis: Why `GEMSDOE32 H33-2-B2` Scored `0.2778` (`USER-REPORTED`), Why the `2026-10-25` Unique Submissions Separated (`0.0217`–`0.2190`), and What It Takes to Exceed `0.2778` / `0.3195` / `0.4413`
+## 2. Forensic Analysis: H33 geometry and a plausible metric mechanism for the `0.2778` USER-REPORTED claim
 
 ### 2.1 Exact DTI Economics of `H19-5` (`0.1922`) -> `D1.5` (`0.2477`) -> `D2.8` (`0.2600`) -> `H27-4` (`0.2708`) -> `H33-2-B2` (`0.2778`)
 
@@ -57,27 +60,26 @@ Differentiating with respect to a candidate dot block $(\Delta T, \Delta F)$ aro
 
 $$\frac{\Delta T}{\Delta F} > \frac{\alpha S}{1 - \alpha S} = \frac{0.2 \times 0.2778}{1 - 0.2 \times 0.2778} = \mathbf{0.0588}$$
 
-Byte-for-byte inspection of the `D1.5 -> D2.8 -> H27-4 -> H33-2-B2` chain reveals **three cumulative metric-alignment steps on a single supervised detector surface** (`H19-5`):
-1. **Discrete `2.8 px` Poisson-disk packing (`0.1922 -> 0.2600`):** Because $\text{TP}_w$ saturates at `1.0` per truth pixel via $\min(1, \cdot)$ while $\text{FP}_w$ sums linearly across every dot without nearby truth, continuous ribbons pay `5–10x` redundant false-positive mass along the same fault trace. Spacing binary `{0, 1}` dots at `2.8 px` (`280 m`, matching $R = 300\text{ m}$) maximizes distinct trace coverage per unit $\text{FP}_w$.
-2. **`B = 2` (`>200 m`) near-catalogue halo pruning (`44,090 -> 40,199 -> 37,654` dots, `0.2600 -> 0.2708 -> 0.2778`):** `H33-2-B2` is **pixel-for-pixel identical** to `D2.8` beyond `200 m` from `labels.tif` (`37,654` shared dots), deleting `6,436` near-catalogue dots (`3,891` in `(0, 100 m]` for `H27-4`, plus `2,545` in `(100, 200 m]` for `H33-2-B2`). Gaussian-smoothed features bleed `100–200 m` orthogonally across already-mapped traces where known faults are masked from truth credit, so those `6,436` flank dots yielded $\Delta T / \Delta F < 0.0588$.
-3. **Why `0.2778` also marks the ceiling of pruning `D2.8`:** Further pruning (`>300 m`) begins deleting real unmapped fault-tip continuations and en-echelon relays. No reorganization of `D2.8` dots can pass the `<=70%` 3-px uniqueness rule or reach `0.3195` / `0.4413`.
+Byte-for-byte inspection establishes the raster lineage, not private-score causation. The reported values in the table above are USER-REPORTED and lack exact-byte organizer receipts. The following is therefore a **plausible metric mechanism, not a measured explanation of the score**:
+1. **Discrete `2.8 px` Poisson-disk packing:** the files show a reduction of 77,041 cells from the dense H19-5 parent to D2.8. Because truth credit saturates via a maximum while false-positive mass is additive in the metric definition, reducing redundant nearby emissions could improve the ratio of truth credit to false-positive cost. The deleted cells' actual marginal credit against private truth is unknown.
+2. **`B = 2` (`>200 m`) catalogue-flank prune:** H33-2-B2 is pixel-for-pixel equal to D2.8 after removing 6,436 near-catalogue dots (3,891 within 100 m for H27-4 and 2,545 in the 100–200 m band for H33). If the evaluator excludes known-catalogue faults as recorded in the project mirrors, this may reduce false-positive cost; it may also remove coverage of nearby hidden faults. The reported `0.2600 -> 0.2708 -> 0.2778` sequence does not isolate causation.
+3. **GEMSDOE36 appended dots:** file geometry shows H33 plus 1,200 dots, while the associated `0.2750` vs `0.2778` scores remain USER-REPORTED. The incremental `ΔT/ΔF` for those dots cannot be recovered without private truth; the score difference alone does not prove they were below break-even. Further pruning likewise has an unknown truth-credit effect.
 
-### 2.2 Empirical Lesson from the Five Newly Reported `2026-10-25` Unique Submissions (`0.0217` to `0.2190` `USER-REPORTED`)
+The exact marginal condition above is useful for reasoning about a measured holdout; it is not a way to infer hidden `ΔT` or validate an unauthenticated leaderboard score from dot counts alone.
 
-The `2026-10-25` leaderboard batch supplies a controlled natural experiment across five genuinely unique (`17.1%–56.1%` overlap with `H33`) methods:
-1. **`GEMSDOE28 S18-MXTP` (`0.0217`):** Emitted only `11,082` dots (`29%` of optimal budget); under $\beta = 0.8$, starving $T$ leaves $0.8\,N_T$ dominating the denominator.
-2. **`GEMSDOE25 H66-MGD` (`0.0742`) & `GEMSDOE24 GVC1` (`0.0859`):** Unsupervised geophysical/lineament heuristics. Notably, `H66` achieved **higher** raw SGMC (`0.0959`) than `H33-2-B2` (`0.0940`) yet scored `0.0742` on the leaderboard — proving that **unsupervised bedrock/pluton edges match pre-Quaternary 1:500k SGMC contacts rather than Quaternary/geothermal competition truth**.
-3. **`GEMSDOE30 MSDB1` (`0.1462`):** Supervised multiscale decision-boundary classifier (`44,090` dots) — **doubling** the unsupervised arms (`0.1462` vs `0.0742–0.0859`), slightly diluted by `+6,436` unpruned tail dots.
-4. **`GEMSDOE27 H29-HPVC` (`0.2190` — highest confirmed unique score):** Combined **supervised OOF fault probabilities** + **hydrothermal/piedmont physics** + **exact 29-cell CELF submodular `B=2` cover at `K = 37,654`**, recovering **`78.8%` of `H33-2-B2`'s score (`0.2190 / 0.2778`) with zero copied dots (`56.1%` 3-px overlap)**.
-5. **Diagnostic warning on `GEMSDOE32 R6-stepprofile` (`unscored`):** Although `R6-stepprofile` reaches `0.1424` overall SGMC (`0.1678` Mountain SGMC), our multi-regime audit shows its **Piedmont SGMC collapses to `0.0030` (`0.3%`)**, corroborating `GEMSDOE32`'s own `round6_run_card.json` where its Quaternary holdout DTI was **`0.00338`**. Unsupervised topographic step detectors overwhelmingly fire on steep bedrock canyon rims and volcanic table ledges.
+### 2.2 Comparative Review of Five Newly Reported `2026-10-25` Score Claims (`0.0217`–`0.2190`, USER-REPORTED)
 
-### 2.3 Are We Able to Beat `0.2778` (and Close the Gap Toward `0.3195` / `0.4413`)?
+The five records have `17.1%`–`56.1%` pairwise dot overlap against H33. These are cross-file comparisons, not a controlled experiment; overlap against H33 does not prove broad/global uniqueness, and none of the listed score claims has an organizer receipt.
 
-- **Honest scientific answer:** No local holdout proxy (`HOLDOUT-DTI` or `SGMC-PROXY`) is numerically commensurate with private leaderboard DTI, so **no candidate may claim to beat `0.2778` before an organizer receipt exists**.
-- **Physical & mathematical pathway:** Closing the gap from `GEMSDOE27 H29` (`0.2190`) to `0.2778+` requires solving the exact failure modes of raw-coordinate trees:
-  1. **Dip-migration error in alluvial basins (`200–1,200 m` > `300 m` DTI kernel):** Projecting buried hanging-wall gravity HGM, basement-step, and upward-continued magnetic gradients **up-dip** back onto the surface fault subcrop (`UDAP`).
-  2. **Hydrothermal magnetite destruction (`HZAD`):** Detecting axial `RTP`/`TMI_up150` troughs (`+\nabla^2_\perp`) co-located with `K/Th` potassic alteration and shallow clay-cap conductivity anomalies rather than only positive magnetic steps.
-  3. **Bayes prevalence-prior calibration + 2-Stage Strike-Steered Line-Integral Continuity (`SSLIC`):** Converting class-weighted tree outputs (`62.5%` effective training prior) back to true spatial prevalence (`~1.55%`) so 2D diffuse lithologic blobs (`11.49` kernel sum) cannot out-integrate sharp 1D fault strands (`~3.0` line kernel sum) during 29-cell submodular allocation.
+1. **`GEMSDOE28 S18-MXTP` (`0.0217`):** the file has `11,082` dots, about `29%` of the nominal `37,654` target budget. The lower count could constrain recall, but the reported score does not establish that as the cause.
+2. **`GEMSDOE25 H66-MGD` (`0.0742`) and `GEMSDOE24 GVC1` (`0.0859`):** the repository records describe unsupervised geophysical/lineament methods. H66's recorded SGMC-PROXY value (`0.0959`) exceeds H33's (`0.0940`), while the supplied live-score claims order them differently. This mismatch shows that the local proxy and unverified score claims cannot be used as interchangeable measures; it does not prove a specific geological cause.
+3. **`GEMSDOE30 MSDB1` (`0.1462`):** a supervised multiscale edge classifier with `44,090` dots. Its USER-REPORTED value is higher than H66 and GVC1's claims, but the methods, score receipt, and truth population are not controlled, so no causal improvement or “doubling” is established.
+4. **`GEMSDOE27 H29-HPVC` (`0.2190`):** highest USER-REPORTED claim in this five-entry batch. The recorded method combines supervised OOF probabilities, hydrothermal/piedmont physics, and a 29-cell CELF `B=2` cover. Its `56.1%` overlap with H33 is pairwise only; no organizer receipt or broad uniqueness result is present.
+5. **`GEMSDOE32 R6-stepprofile` (unscored):** its recorded overall and mountain SGMC-PROXY values are `0.1424` and `0.1678`, while the recorded piedmont SGMC-PROXY and Quaternary HOLDOUT-DTI are `0.0030` and `0.00338`. The regional disparity is a warning for this particular run; it is not proof that all topographic step detectors fail for the same reason.
+
+### 2.3 Inference boundary and current authorization
+
+No local HOLDOUT-DTI or SGMC-PROXY number in these files is numerically commensurate with the private competition score. Therefore the unverified `0.2778`, `0.3195`, and `0.4413` claims do not support a forecast or a claim that any candidate beats them. Earlier H31-S mechanism descriptions such as up-dip restoration, hydrothermal alteration, and SSLIC are historical hypotheses, not established causes of H33's score or verified geological findings. The active desk proposals and authorization blockers are summarized in the current README; no new experiment is authorized by this archived report.
 
 ---
 

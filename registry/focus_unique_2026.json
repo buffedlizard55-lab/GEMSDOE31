@@ -60,7 +60,7 @@
         0.0553,
         0.0838
       ],
-      "site_gate_status": "H29 scored 0.2190 USER-REPORTED (highest confirmed unique score); unscored H29-1 D-refill passed GEMSDOE27 holdout (+0.0022) & 12-peer uniqueness (40.9% vs H33, 36.9% vs H29), awaiting owner selector flip; H30 failed holdout"
+      "site_gate_status": "H29 0.2190 USER-REPORTED, no organizer receipt; highest supplied claim in the five-entry batch, not a confirmed score. 56.1% overlap vs H33 and 36.9% vs H29 are pairwise only. H29-1 D-refill passed a 12-peer subset comparison and a local holdout, but is not globally unique or approved; H30 failed holdout."
     },
     {
       "site": "GEMSDOE28",
@@ -120,7 +120,7 @@
         0.04,
         0.0784
       ],
-      "site_gate_status": "unscored; H31-S (UDAP+HZAD+SSLIC) beat physical_hgb on both screen s41 (0.0948 vs 0.0591) & confirm s42 (0.0980 vs 0.0544) and beat same-instrument H31-M on confirm s42 (0.0980 vs 0.0718, 4/4 quads), with 47.4% 3px overlap vs H33; RESEARCH DOWNLOAD ONLY \u00b7 DO NOT SUBMIT under literal 695-registry lattice STOP & seed-41 quadrant gate"
+      "site_gate_status": "unscored; H31-S (UDAP+HZAD+SSLIC) beat physical_hgb on both screen s41 (0.0948 vs 0.0591) & confirm s42 (0.0980 vs 0.0544) and beat same-instrument H31-M on confirm s42 (0.0980 vs 0.0718, 4/4 quads), with 47.4% 3px overlap vs H33; RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT under literal 695-registry lattice STOP & seed-41 quadrant gate"
     },
     {
       "site": "GEMSDOE32",
@@ -182,5 +182,7 @@
       ],
       "site_gate_status": "unscored; Lane36 SupGBM (68,302 dots, HOLDOUT-DTI 0.1777 vs 0.1615 on GEMSDOE36 segment holdout), while GEMSDOE36 top-level 2026-10-26 review keeps overall repo status NOT APPROVED pending selector"
     }
-  ]
+  ],
+  "scope_note": "Pinned parallel source-site snapshot; not the active GEMSDOE31 run and not an exhaustive global uniqueness audit. Fields named current_unique_artifact/current_unique_url record the source snapshot selection only. Reported overlap values are pairwise against H33 and H29 only. The literal shared spacing-5 registry witness blocks any nonempty in-footprint prediction under the unexempted >70% overlap rule; no artifact in this file is approved to submit.",
+  "score_policy": "All scored_20261025_value entries are USER-REPORTED; no organizer receipt is registered."
 }

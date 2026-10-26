@@ -48,7 +48,7 @@ def h31t_download_and_gates() -> str:
     note = esc(rc["submission_note"])
     _ = e3
     return f'''<section id="h31t-dinkelbach" aria-labelledby="h31t-heading">
-      <div class="section-head"><div><p class="kicker">2026-10-25 Latest Campaign · SI Crustal-Mechanics + Listric Restoration + Dinkelbach 29-Cell Submodular · H31-T</p>
+      <div class="section-head"><div><p class="kicker">Archived research run · 2026-10-25 · SI Crustal-Mechanics + Listric Restoration + Dinkelbach 29-Cell Submodular · H31-T</p>
         <h2 id="h31t-heading">H31-T Transtension-Dinkelbach: Research Download Only · DO NOT SUBMIT</h2></div>
         <p>Newly computed 100% label-free Dual-Specialist OOF HGB across 12 spatially collared folds (with H31-T's own measured 21.25 km OOF residual variogram, resolving <code>IR-31-OWN-METHOD-VARIOGRAM</code>) +
            Cost-Scaled Dinkelbach 29-cell submodular CELF allocation (37,654 binary {{0.0, 1.0}} dots, 0 within 200 m of public catalogue).
@@ -57,7 +57,7 @@ def h31t_download_and_gates() -> str:
            and Phase A uniqueness across all 119 discrete fault maps in all 9 focus sites + GEMSDOE31 —
            but is <strong>blocked from weekly slot upload (DO NOT SUBMIT, slot_approved = false)</strong> under the unexempted 695-raster <code>r13-lattice-s5</code> / <code>GEMSDOE48</code> STOP rule.</p></div>
       <div class="card download-card">
-        <span class="badge badge-green">LOCAL FORMAT &amp; 7/7 SCIENTIFIC GATES PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge">HISTORICAL LOCAL CHECKS RECORDED · RESEARCH DOWNLOAD ONLY</span>
         <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
         <h3 style="margin-top:18px">{slug}</h3>
         <p>12 100% label-free SI-calibrated crustal-mechanics channels (<code>mag_as3d</code>, <code>mag_inv_depth</code>, <code>grav_as3d</code>, <code>grav_inv_depth</code>,
@@ -133,8 +133,8 @@ def h31t_phd_forensic_and_hypotheses() -> str:
             f"<td>{b_v['dti']:.4f} [{b_v['ci95'][0]:.4f}, {b_v['ci95'][1]:.4f}]</td>"
             f"<td>{p_v['dti']:.4f} ({p_v['n_emitted_in_piedmont']:,} px)</td></tr>"
         )
-    return f'''<section id="h31t-forensic"><div class="section-head"><div><p class="kicker">2026-10-25 PhD Synthesis · H31-T</p><h2>Exact Nested Lineage of GEMSDOE32 (0.2778 USER-REPORTED) &amp; Four Ranked Crustal-Mechanics Hypotheses</h2></div>
-      <p>Byte-verified pixel set-algebra across all 9 focus repositories, Tversky fractional marginal-ratio optimality, and 8-lane Off-Catalogue SGMC comparison.</p></div>
+    return f'''<section id="h31t-forensic"><div class="section-head"><div><p class="kicker">Historical 2026-10-25 analysis · H31-T archive</p><h2>H33 geometry, the unverified 0.2778 claim, and historical H31-T hypotheses</h2></div>
+      <p>Byte-verified geometry and local proxy comparisons only. Score claims remain USER-REPORTED; no private-score cause is established.</p></div>
       <div class="content">
         <p><strong>Exact nested subset identity (computed directly on SHA-256-verified GeoTIFFs):</strong>
           <code>H19-5</code> (121,131 px, 0.1922 <code>USER-REPORTED</code>) →
@@ -142,33 +142,30 @@ def h31t_phd_forensic_and_hypotheses() -> str:
           <code>GEMSDOE25 D2.8</code> (44,090 px, 0.2600 <code>USER-REPORTED</code>) →
           <code>GEMSDOE28 H27-4</code> (40,199 px, 0.2708 <code>USER-REPORTED</code>, <code>d_cat &gt; 100 m</code>) →
           <code>GEMSDOE32 H33-2-B2</code> (37,654 px, 0.2778 <code>USER-REPORTED</code>, <code>d_cat &gt; 200 m</code>).
-          Under <code>DTI = TPw / (TPw + 0.2 × FPw + 0.8 × FNw)</code> at operating point <code>D* ≈ 0.2778</code>, an additional pixel improves DTI if and only if
-          <code>ΔTPw / ΔFPw &gt; 0.2 × D* / (1 − D*) ≈ 0.0770</code> (break-even marginal precision ≈ 5.88% for an isolated dot).
-          <code>2.8 px</code> Poisson-disk thinning removed 77,041 kernel-redundant pixels whose <code>TPw</code> was already saturated by <code>max_q k(d(p,q))</code> while each duplicate added full <code>FPw</code> penalty;
-          increasing the public-catalogue exclusion collar from <code>&gt;100 m</code> to <code>&gt;200 m</code> cut 2,545 near-catalogue bleed pixels (+0.0070 over <code>H27-4</code> and +0.0068 over <code>GEMSDOE33 h36-1</code> 0.2710);
-          and <code>GEMSDOE36</code> (38,854 px, 0.2750 <code>USER-REPORTED</code>) regressed −0.0028 by appending 1,200 sub-break-even tail dots onto <code>H33-2-B2</code>.</p>
-        <p><strong>How a submission can genuinely score higher (without projections):</strong>
-          <code>H33-2-B2</code> exhausted post-hoc pruning of the legacy <code>H19-5</code> probability surface (which relied on raw <code>cat_dist ≤ 5 km</code> proximity and suffered 1 m LiDAR survey-coverage confounding).
-          Beating <code>0.2778</code> toward the <code>0.3195 / 0.4413 USER-REPORTED</code> frontier requires genuinely new off-catalogue true-positive fault discovery under range-front alluvial fans:
-          (1) SI-matched 3D magnetic/gravity analytic-signal contact-depth crests insensitive to volcanic remanent polarity,
-          (2) forward up-dip listric footwall restoration shifting hanging-wall basement/gravity steps back onto the concealed range-front fault trace,
-          (3) Kostrov–Byerlee transtensional dilatation × microseismic proximity + magnetite-destruction × K/Th × clay-cap conduit physics, and
-          (4) Dinkelbach fractional-programming 29-cell submodular allocation weighting marginal kernel gain against expected false-positive cost.</p>
+          Under <code>DTI = TPw / (TPw + α × FPw + β × FNw)</code> with <code>α=0.2</code>, <code>β=0.8</code>, and operating point <code>D* ≈ 0.2778</code>, an added block improves DTI iff
+          <code>ΔTPw / ΔFPw &gt; α × D* / (1 − α × D*) = 0.2 × 0.2778 / (1 − 0.2 × 0.2778) ≈ 0.05882</code>. In the simplified isolated-dot case where <code>ΔTPw + ΔFPw = 1</code>, this is equivalent to <code>ΔTPw &gt; α × D* ≈ 0.05556</code>; neither algebraic threshold proves that pruning caused the unverified private score.
+          <code>2.8 px</code> thinning reduced the parent count by 77,041 dots. Metric theory makes reduced redundant false-positive cost a plausible explanation, but the removed dots' hidden-truth credit is unknown.
+          H33 then removed 2,545 additional dots in the 100–200 m catalogue-distance band and added none; the score claims do not isolate that change.
+          GEMSDOE36's geometry contains H33 plus 1,200 dots, but its <code>0.2750</code> vs <code>0.2778</code> values are USER-REPORTED and do not identify the added dots' marginal truth/false-positive credit.</p>
+        <p><strong>Historical hypotheses, not forecasts or current authorization:</strong>
+          earlier H31-T notes explored magnetic/gravity texture, up-dip restoration, alteration, and submodular allocation as possible signals.
+          They do not establish that H33's reported score was caused by those mechanisms, that private truth would reward them, or that a new submission can beat the USER-REPORTED <code>0.2778</code>, <code>0.3195</code>, or <code>0.4413</code> anchors.
+          Current blockers and the active three-item desk backlog are stated at the top of the README; no experiment is authorized here.</p>
       </div>
       <div class="table-wrap" style="margin-top:16px"><table>
-        <thead><tr><th>Rank &amp; Candidate</th><th>Input Layers &amp; Physical Transform</th><th>Why It Catches Unmapped Faults &amp; Differs from Prior Repo Lanes</th><th>Expected Gain / Cost / External Data</th></tr></thead>
+        <thead><tr><th>Historical rank &amp; candidate</th><th>Inputs / recorded transform</th><th>Proposed mechanism (not verified geological causation)</th><th>Historical holdout note / effort</th></tr></thead>
         <tbody>
-          <tr><td><code>1 · H31-T · Executed</code></td><td>SI 3D magnetic (nT/m) &amp; gravity (mGal/km) analytic signal + Thompson inverse depth, 55-deg up-dip listric footwall restoration, Kostrov–Byerlee transtension × 1/(1+d_eq/5km), hydrothermal magnetite-destruction × K/Th × clay-cap ridge, Cost-Scaled Dinkelbach CELF</td><td>Restores 0.8–2.5 km hanging-wall geophysical offsets up-dip onto buried range-front traces and handles reversed volcanic remanence; strictly 100% label-free (verified after <code>EXP-1</code> exposed <code>visible_catalogue</code> self-inclusion)</td><td>Highest · Medium (~21 min CPU) · 100% hash-pinned local stack</td></tr>
-          <tr><td><code>2 · H31-R · Future</code></td><td>Anisotropic Riemann-tensor trace-linking geodesic graph across <code>step_max</code>, <code>bstep_grad_norm</code>, and 3D analytic signal</td><td>Connects intermittent 100–300 m buried relay segments across alluvial fan lobes via minimum-action elastoplastic paths rather than pixelwise GBDT + greedy disks</td><td>Moderate-High · High (~60–90 min Eikonal) · Local stack</td></tr>
-          <tr><td><code>3 · H31-S · Future</code></td><td>Continuous-wavelet multi-depth tilt-derivative phase-convergence tomography (z = 200 m..3,200 m) on <code>tmi_rtp</code> &amp; <code>iso_grav_anom</code></td><td>Tracks continuous inclined fault planes from shallow splays down into crystalline basement while rejecting rootless tabular lava-flow margins</td><td>Moderate · Medium-High · Local stack</td></tr>
-          <tr><td><code>4 · H31-V · Blocked</code></td><td>ARIA / Sentinel-1 MintPy vertical &amp; east-west InSAR velocity + seasonal poroelastic phase gradient</td><td>Detects active sub-mm/yr creep and hydraulic head-drop barriers across zero-scarp playa faults invisible to static potential fields</td><td>High on playas · Infeasible in sandbox (<code>asf.alaska.edu</code> / NASA Earthdata blocked by outbound TLS allowlist)</td></tr>
+          <tr><td><code>1 · H31-T · archived run</code></td><td>Historical SI-calibrated magnetic/gravity features, depth/restoration terms, alteration channels, and Dinkelbach allocation</td><td>The operator encoded an up-dip offset hypothesis; geological correspondence was not independently confirmed.</td><td>Historical HOLDOUT-DTI record is detailed below; not a leaderboard forecast. About 21 min CPU in that run.</td></tr>
+          <tr><td><code>2 · H31-R · historical proposal, not current</code></td><td>Anisotropic Riemann-tensor trace-linking geodesic graph across <code>step_max</code>, <code>bstep_grad_norm</code>, and 3D analytic signal</td><td>Earlier concept for connecting intermittent 100–300 m buried relay segments; not a current desk proposal or authorized experiment.</td><td>Historical effort estimate only; local-stack availability and expected value are unverified.</td></tr>
+          <tr><td><code>3 · H31-S · historical tomography concept (distinct from later UDAP-SSLIC H31-S)</code></td><td>Continuous-wavelet multi-depth tilt-derivative phase-convergence tomography (z = 200 m..3,200 m) on <code>tmi_rtp</code> &amp; <code>iso_grav_anom</code></td><td>Earlier concept for inclined fault planes; not the later UDAP-SSLIC run and not part of the current desk backlog.</td><td>Historical ordinal estimate only; no current authorization or score forecast.</td></tr>
+          <tr><td><code>4 · H31-V · historical external roadmap</code></td><td>ARIA / Sentinel-1 MintPy vertical &amp; east-west InSAR velocity + seasonal poroelastic phase gradient</td><td>Earlier external-data idea for active creep and hydraulic barriers; not a current desk proposal or authorized experiment.</td><td>Required external data and access were not verified during this review; expected impact remains unverified.</td></tr>
         </tbody>
       </table></div>
       <div class="table-wrap" style="margin-top:18px"><table>
-        <thead><tr><th>8-Lane Off-Catalogue SGMC Comparison</th><th>Emitted Dots</th><th>Full Off-SGMC (&gt;300 m)</th><th>4-Block Collared Off-SGMC [95% CI]</th><th>Piedmont Off-SGMC (slope ≤ 6 deg)</th></tr></thead>
+        <thead><tr><th>Historical 8-lane HOLDOUT-PROXY-SGMC comparison (not private truth)</th><th>Emitted Dots</th><th>Full Off-SGMC (&gt;300 m)</th><th>4-Block Collared Off-SGMC [95% CI]</th><th>Piedmont Off-SGMC (slope ≤ 6 deg)</th></tr></thead>
         <tbody>{''.join(rows_html)}</tbody>
       </table></div>
-      <p class="small">Scientific transparency note: <code>EXP-1</code> (preserved verbatim in <code>evidence/h31t/exp1_vis_self_inclusion_diagnostic.json</code>) revealed that feeding fold-visible catalogue tip/relay fields into GBDT training creates <code>d0_m = 0</code> self-inclusion on training positives (collapsing Quadrant 1 Poisson DTI to 0.0693 vs 0.1410 ctrl). Removing catalogue-derived features in <code>EXP-2</code> made <code>H31-T</code> 100% label-free and lifted <code>gems57-pooled-hide-v2</code> to 0.1300 (+18.68%, 4/4 quadrants) and Full Off-SGMC to 0.1082 (+15.1% over <code>GEMSDOE32 H33-2-B2</code> 0.0940), while explaining the label-free piedmont trade-off (0.0434 vs 0.0586 in <code>cat_dist</code>-guided <code>H33-2-B2</code>).</p>
+      <p class="small">Historical diagnostic note: <code>EXP-1</code> reported a self-inclusion issue in catalogue-derived tip/relay features; <code>EXP-2</code> removed those features. The archived run card records HOLDOUT-DTI <code>gems57-pooled-hide-v2</code> (60,988 withheld positives): candidate 0.130010 vs control 0.109548, paired Δ +0.020461 [95% CI +0.004540, +0.036530]. These local evaluator results are not competition scores. The recorded Full Off-SGMC values (0.1082 vs 0.0940 H33) and Piedmont proxy values (0.0434 vs 0.0586) are HOLDOUT-PROXY-SGMC diagnostics, not private truth or causal explanation.</p>
     </section>'''
 
 
@@ -203,8 +200,8 @@ def h31j_download_and_gates() -> str:
     sha_nan = esc(art["companion_nan_sha256"])
     sha_nan_zip = esc(art["companion_nan_zip_sha256"])
     return f'''<section id="tgtd-submod-h31j" aria-labelledby="h31j-heading">
-      <div class="section-head"><div><p class="kicker">Latest Preregistered Discovery Candidate · 2026-10-25 · Lane H31-J</p>
-        <h2 id="h31j-heading">H31-J TGTD-Submod: All 6 Technical &amp; Scientific Gates PASS · Research Download Only · DO NOT SUBMIT</h2></div>
+      <div class="section-head"><div><p class="kicker">Historical 2026-10-25 research run · H31-J archive</p>
+        <h2 id="h31j-heading">H31-J TGTD-Submod: Historical local checks recorded; shared-registry STOP · DO NOT SUBMIT</h2></div>
         <p>Genuinely new 37,654-dot Basin-and-Range blind/piedmont fault detector combining Pedersen–Rasmussen 3-D Laplace gravity-tensor 2-D tabular invariants,
            DOE GDR #1391 chemical geothermometer disequilibrium conduit channeling, and V-canyon-suppressed piedmont flexure via 4-quadrant OOF + 300 m ridge-submodular emission.
            Verified automatically by <code>scripts/verify_h31j.py</code> without human inspector intervention; held as research-only (<code>slot_approved = false</code>) under Rule 6 and the unexempted 695-raster spacing-5 lattice STOP.</p></div>
@@ -522,7 +519,7 @@ def rbu31_download_and_gates() -> str:
     rc = json.loads(rc_path.read_text())
     hr = json.loads(hr_path.read_text())
     gates = rc["automated_gates"]
-    promote = bool(rc.get("ok_to_download_and_submit"))
+    # Archived cards never confer current approval; the shared-registry STOP is binding.
     scr = hr["experiment_1_screen_draw_101"]
     conf = hr.get("experiment_2_confirmation")
     proxies = hr["experiment_3_sgmc_proxies"]["candidates"]
@@ -534,21 +531,15 @@ def rbu31_download_and_gates() -> str:
     def badge(ok):
         return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
 
-    verdict_badge = (
-        '<span class="badge badge-green">&#9989; OK TO DOWNLOAD AND SUBMIT &middot; ALL AUTOMATED GATES PASS</span>'
-        if promote else
-        '<span class="badge badge-red">&#10060; DO NOT SUBMIT &middot; AUTOMATED GATES FAILED (research only)</span>')
-    heading = (
-        "RBU31 Regime-Balanced Union: &#9989; OK to download and submit"
-        if promote else
-        "RBU31 Regime-Balanced Union: &#10060; Do not submit")
+    verdict_badge = '<span class="badge badge-red">ARCHIVED RESEARCH ONLY &middot; DO NOT SUBMIT (shared-registry STOP)</span>'
+    heading = "RBU31 Regime-Balanced Union: archived · DO NOT SUBMIT"
     conf_row = ("not run (screen stop)" if not conf else
                 f"HOLDOUT-DTI {conf['rbu31_pooled_dti']:.4f} [{conf['rbu31_ci95'][0]:.4f}, {conf['rbu31_ci95'][1]:.4f}] "
                 f"vs {conf['baseline_d_pooled_dti']:.4f} (delta {conf['paired_delta_dti']:+.4f}, "
                 f"95% CI [{conf['paired_delta_ci95'][0]:+.4f}, {conf['paired_delta_ci95'][1]:+.4f}]); "
                 f"{conf['withheld_positives_pooled']:,} withheld positives")
     return f'''<section id="rbu31" aria-labelledby="rbu31-heading">
-      <div class="section-head"><div><p class="kicker">2026-10-25 New Unique Candidate &middot; RBU31 (Experiment 13)</p>
+      <div class="section-head"><div><p class="kicker">Archived 2026-10-25 research candidate &middot; RBU31 (Experiment 13)</p>
         <h2 id="rbu31-heading">{heading}</h2></div>
         <p>One union model (raw-39 + SCGP-40 features in the same trees) trained with regime-balanced sample weights
            (piedmont det_elev &le; 50 m vs mountain), validated end-to-end by automated gates &mdash; no human inspector.
@@ -556,13 +547,10 @@ def rbu31_download_and_gates() -> str:
       <div class="card download-card">
         {verdict_badge}
         <h3 style="margin-top:18px">{name}</h3>
-        <p>Why this can beat the family's best reported file: GEMSDOE32 H33-2-B2 is the older D2.8 surface minus dots
-           within 2 px of the known catalogue (a pruning rule, not a new detector). RBU31 keeps that verified DTI
-           economics (2.8 px spacing matched to the 300 m kernel; &gt;2 px catalogue prune) but replaces the surface
-           with one that ranks both buried piedmont faults (gravity/basement cross-gradient physics) and mountain
-           scarps (raw 1 m LiDAR bands in the same trees), without the catalogue's 72% piedmont mapping bias.</p>
+        <p>Historical method description, not a performance forecast: RBU31 combined an older sparse-dot family with a regime-balanced union model.
+           The H33 score remains USER-REPORTED; geometric pruning does not reveal deleted dots' hidden-truth credit, and RBU31's local holdout/proxy results do not establish a private-score gain.</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/{name}-allfinite.tif" download>&#11015; Download submission .tif (all-finite [0, 1], recommended)</a>
+          <a class="button button-primary" href="downloads/{name}-allfinite.tif" download>Download RBU31 archived research TIFF (DO NOT SUBMIT)</a>
           <a class="button" href="downloads/{name}-nan.tif" download>NaN-outside .tif</a>
           <a class="button" href="downloads/{name}-nan.zip" download>Single-TIFF .zip</a>
           <a class="button" href="downloads/{name}-format-check.json" download>Format receipt .json</a>
@@ -573,7 +561,7 @@ def rbu31_download_and_gates() -> str:
           &ldquo;Predicted values must be in range [0, 1]&rdquo; check cannot trip on NaN/sentinels) &middot; 0 dots on the public catalogue.<br>
           <strong>SHA-256 (all-finite):</strong> <code>{esc(rc['raster_sha256']['allfinite'])}</code><br>
           <strong>SHA-256 (NaN-outside):</strong> <code>{esc(rc['raster_sha256']['nan_outside'])}</code><br>
-          <strong>Unique name:</strong> <code>{name}</code><br>
+          <strong>Historical artifact identifier (not approval):</strong> <code>{name}</code><br>
           <strong>Portal note ({rc['submission_note_chars']}/140):</strong> <code>{note}</code></p>
       </div>
       <div class="table-wrap" style="margin-top:18px"><table>
@@ -581,8 +569,8 @@ def rbu31_download_and_gates() -> str:
         <tbody>
           <tr><td><code>G1 &middot; Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730&times;3292, float32, finite in footprint, values in [0, 1]</td><td>see format receipt</td><td>{badge(gates['G1_format_and_range_0_1_pass'])}</td></tr>
           <tr><td><code>G2 &middot; Leakage canary</code></td><td>every one of 79 features alone: two-sided AUC &le; 0.90</td><td>max AUC = {rc['leakage_canary']['max_two_sided_auc']:.4f}</td><td>{badge(gates['G2_leakage_canary_pass'])}</td></tr>
-          <tr><td><code>G3a &middot; Uniqueness vs genuine submissions</code></td><td>surface |&rho;| &le; 0.90 and 3-px dot overlap &le; 70% vs {dup['checked_count']} registry/peer rasters (incl. the 9 focus sites' best)</td><td>max |&rho;| = {max(abs(dup['max_surface_spearman_rho']), abs(dup['max_final_dots_spearman_rho'])):.4f}; max 3-px overlap = {100*dup['max_final_dots_within_3px']:.2f}%</td><td>{badge(gates['G3a_uniqueness_genuine_registry_pass'])}</td></tr>
-          <tr><td><code>G3b &middot; Spacing-5 lattice (695-raster registry)</code></td><td>literal rule</td><td>universal degeneracy disclosed: the lattice covers 100% of the interior within 3 px for ANY non-empty candidate</td><td><span class="badge badge-red">DISCLOSED</span></td></tr>
+          <tr><td><code>G3a &middot; Named-peer subset diagnostic</code></td><td>Pairwise comparison against {dup['checked_count']} listed peers only; not an exhaustive global gate</td><td>max |&rho;| = {max(abs(dup['max_surface_spearman_rho']), abs(dup['max_final_dots_spearman_rho'])):.4f}; max 3-px overlap = {100*dup['max_final_dots_within_3px']:.2f}%</td><td><span class="badge">SUBSET ONLY</span></td></tr>
+          <tr><td><code>G3b &middot; Spacing-5 lattice (695-raster registry)</code></td><td>literal unexempted overlap rule</td><td>registered witness covers any nonempty in-footprint candidate within 3 px; exact final support fails</td><td><span class="badge badge-red">LITERAL STOP · DO NOT SUBMIT</span></td></tr>
           <tr><td><code>G4a &middot; Holdout screen (draw 101, 21.3 km)</code></td><td>&Delta;DTI &gt; 0.002 and &ge; 3/4 folds</td><td>HOLDOUT-DTI {scr['rbu31_poisson']['pooled_dti']:.4f} vs {scr['baseline_d_poisson']['pooled_dti']:.4f} (delta {scr['paired_delta_dti']:+.4f}, {scr['folds_won_out_of_4']}/4 folds)</td><td>{badge(scr['paired_delta_dti'] > 0.002 and scr['folds_won_out_of_4'] >= 3)}</td></tr>
           <tr><td><code>G4b &middot; Fresh confirmation (draws 202, 303)</code></td><td>&Delta;DTI &gt; 0.002, paired 95% CI &gt; 0</td><td>{conf_row}</td><td>{badge(gates['G4_holdout_screen_and_fresh_confirmation_pass'])}</td></tr>
           <tr><td><code>G5 &middot; Off-catalogue SGMC, all regimes</code></td><td>beat Baseline-D AND GEMSDOE32 H33-2-B2 on all / piedmont / mountain</td><td>all {pr['sgmc_all_dti']:.4f} (Base {pb['sgmc_all_dti']:.4f}, H33 {ph['sgmc_all_dti']:.4f}) &middot; piedmont {pr['sgmc_piedmont_dti']:.4f} (Base {pb['sgmc_piedmont_dti']:.4f}, H33 {ph['sgmc_piedmont_dti']:.4f}) &middot; mountain {pr['sgmc_mountain_dti']:.4f} (Base {pb['sgmc_mountain_dti']:.4f}, H33 {ph['sgmc_mountain_dti']:.4f})</td><td>{badge(gates['G5_sgmc_all_piedmont_mountain_beats_baseline_and_h33'])}</td></tr>
@@ -720,7 +708,7 @@ def h31s_download_and_gates():
     frec = esc(art["receipt_json"].removeprefix("docs/"))
     return f'''
 <section id="h31s-download" aria-labelledby="h31s-heading">
-  <div class="section-head"><div><p class="kicker">2026-10-26 Featured Lane · H31-S (UDAP-SSLIC) · 3-Experiment Campaign</p>
+  <div class="section-head"><div><p class="kicker">Archived parallel run · 2026-10-26 · H31-S (UDAP-SSLIC) · 3-Experiment Campaign</p>
     <h2 id="h31s-heading">DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (DO NOT SUBMIT)</h2></div>
     <p>Original 37,654-dot physics-driven GeoTIFF built from Up-Dip Basin-Depth Advected Potential-Field projection (UDAP),
       Hydrothermal Magnetite-Destruction Axial Troughs (HZAD), Contour/Seam Null Suppressors, and 2-Stage Nested OOF
@@ -746,7 +734,7 @@ def h31s_download_and_gates():
       <strong>SHA-256 (zeros-outside primary):</strong> <code>{esc(art['sha256_zeros'])}</code> ({art['bytes_zeros']:,} B)<br>
       <strong>SHA-256 (NaN-outside twin):</strong> <code>{esc(art['sha256_nan'])}</code> ({art['bytes_nan']:,} B)<br>
       <strong>SHA-256 (single-TIFF .zip):</strong> <code>{esc(art['sha256_zip'])}</code> ({art['bytes_zip']:,} B)<br>
-      <strong>Unique submission name:</strong> <code>{esc(art['name'])}</code><br>
+      <strong>Historical artifact identifier (not an approved submission name):</strong> <code>{esc(art['name'])}</code><br>
       <strong>Note ({art['note_length']}/140 chars):</strong> <code>{esc(art['note_140'])}</code></p>
     <div class="table-wrap"><table>
       <thead><tr><th>Automated Gate</th><th>Measured Evidence (unchanged <code>gems57-pooled-hide-v2</code>)</th><th>Status</th></tr></thead>
@@ -795,28 +783,30 @@ def _rbu31_card():
 
 def overview(card):
     link = links(card)
-    h31s = _h31s_card()
-    h31s_sub = h31s["artifact"]["name"] if h31s is not None else "gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f"
-    h31j_sub = "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8"
-    h31t_sub = "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654"
+    score = card["holdout_dti"]
+    delta = card["paired_difference"]
+    final = card["registry"]["final"]
+    name = esc(card["submission_name"])
     hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · 2026-10-26 Preregistered Discovery · Lanes H31-S, H31-T &amp; H31-J</p>
-      <h1>DOWNLOAD FOR RESEARCH: YES<br>DO NOT SUBMIT (Registry STOP)</h1>
-      <p class="hero-lede"><strong>H31-S UDAP-SSLIC</strong> (<code>{esc(h31s_sub)}</code>, 37,654 off-catalogue dots; HOLDOUT-DTI 0.0948 screen seed 41 &amp; 0.0980 untouched seed 42 winning 4/4 quadrants vs Physical-HGB &amp; H31-M),
-        <strong>H31-T Transtension-Dinkelbach</strong> (<code>{h31t_sub}</code>), and <strong>H31-J TGTD-Submod</strong> (<code>{h31j_sub}</code>)
-        pass automated EPSG:32611 &amp; strict [0, 1] validation, leakage canaries, and discrete 9-site peer uniqueness (40.8%&ndash;55.7% 3-px overlap).
-        Under the unexempted 695-raster spacing-5 lattice rule (<code>r13-lattice-s5</code>), all candidates remain <strong>not approved for upload</strong> (<code>slot_approved = false</code>; DO NOT SUBMIT).</p>
+      <p class="eyebrow">DOE GEMS Prize · Current registered run · {esc(card['hypothesis'])}</p>
+      <h1>RESEARCH DOWNLOAD ONLY<br>DO NOT SUBMIT</h1>
+      <p class="hero-lede"><strong>{name}</strong> is the artifact named by <code>registry/current_run.json</code>.
+        Local format checks pass, but its preregistered screen is negative: HOLDOUT-DTI
+        {score['dti']:.5f} [{score['ci95'][0]:.5f}, {score['ci95'][1]:.5f}] using
+        <code>{esc(score['evaluator_version'])}</code> ({score['withheld_positive_pixels']:,} withheld positives).
+        Paired difference vs its same-run control is {delta['delta']:+.5f}
+        [{delta['ci95'][0]:+.5f}, {delta['ci95'][1]:+.5f}], crossing zero.
+        The literal shared-registry overlap gate also fails ({100 * final['max_overlap']:.1f}% of final dots within 3 px of a registered witness).</p>
       <div class="actions">
-        <a class="button button-primary" href="downloads/{esc(h31s_sub)}-zeros.tif" download>Download H31-S Research All-Finite [0, 1] .tif (DO NOT SUBMIT)</a>
-        <a class="button" href="downloads/{h31t_sub}-zeros.tif" download>Download H31-T Research All-Finite [0, 1] .tif</a>
-        <a class="button" href="downloads/{h31j_sub}-zeros.zip" download>Download H31-J Research All-Finite [0, 1] .zip</a>
-        <a class="button button-light" href="{link('file')}" download>Download new research TIFF</a>
+        <a class="button button-primary" href="{link('file')}" download>Download MAGREST research TIFF (DO NOT SUBMIT)</a>
+        <a class="button" href="{link('zip_file')}" download>One-TIFF research ZIP</a>
+        <a class="button" href="downloads/magrest-run-card.json" download>JSON run card and validation</a>
         <a class="button button-light" href="executive-summary.html">Nine-Site Executive Summary &amp; Submission Guide</a>
       </div>
       </div><aside class="hero-side" aria-label="Submission decision">
-        <strong>Research download only · DO NOT SUBMIT (slot_approved = false)</strong>
-        <p><strong>H31-S (UDAP-SSLIC):</strong> Local [0, 1] PASS · 57/57 canaries &le; 0.6479 · untouched seed 42 HOLDOUT-DTI 0.0980 (4/4 quads) · 40.8%&ndash;46.9% 3-px vs XFCOH31/CONCORD31/H31-T · <code>slot_approved = false</code>.<br>
-          <strong>H31-T / H31-J / XFCOH31 / CONCORD31 / MAGREST / RBU31 / H31-M / HVDC / H31-E2:</strong> Research downloads preserved below.</p></aside></div></section>'''
+        <strong>OK TO DOWNLOAD FOR RESEARCH: YES</strong>
+        <p><strong>DO NOT SUBMIT.</strong> <code>ok_to_submit = false</code> · <code>slot_approved = false</code> ·
+          0 slots used. The nine pinned peer-tree comparison passed, but one authentic shared-registry witness is enough to fail the literal 70% overlap rule; global uniqueness is not proven. Historical H31-S, H31-T, H31-J and other run cards remain below as research records, not current approval.</p></aside></div></section>'''
     return hero, _overview_body(card, hero_rbu=False)
 
 
@@ -825,17 +815,19 @@ def _overview_body(card, *, hero_rbu: bool):
     delta = card["paired_difference"]
     final = card["registry"]["final"]
     magrest_notice = '''<div class="notice notice-danger"><strong>Not approved for upload.</strong>
-      Automated verdict: DO NOT SUBMIT under the unexempted 695-raster shared-registry overlap rule (<code>slot_approved = false</code>). Download H31-S, H31-T, H31-J, XFCOH31, CONCORD31, RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
-      '''
-    body = f'''{magrest_notice}{h31s_download_and_gates()}
+      Automated verdict: DO NOT SUBMIT under the unexempted 695-raster shared-registry overlap rule (<code>slot_approved = false</code>). Download H31-S, H31-T, H31-J, XFCOH31, CONCORD31, RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>'''
+    body = f'''{magrest_notice}
+      {download(card)}
+      {focus_site_summary()}
+      <section><div class="section-head"><div><p class="kicker">Historical research archive</p><h2>Earlier run cards — not the active registered run</h2></div>
+        <p>The entries below preserve prior experiments and their own results. They do not override <code>registry/current_run.json</code>, pass the literal shared-registry STOP, or authorize a submission.</p></div></section>
+      {h31s_download_and_gates()}
       {h31t_download_and_gates()}
       {h31j_download_and_gates()}
-      {focus_site_summary()}
       {rbu31_download_and_gates()}
       {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       {scgp_download_and_gates()}
-      {download(card)}
       {h3_download_and_gates()}'''
     body += f'''
       <section><div class="section-head"><div><p class="kicker">Four separate gates</p><h2>What passed, and what did not</h2></div>
@@ -958,21 +950,25 @@ def _focus_unique_2026_html() -> str:
         ov_h29 = 100.0 * float(item["overlap_3px_vs_h29"])
         sg_all, sg_pied, sg_mtn = item["sgmc_all_pied_mtn"]
         gate_txt = esc(item["site_gate_status"])
+        snapshot_note = (
+            '<br><span class="small">Pinned parallel snapshot only; this repository\'s active registered run is MAGREST.</span>'
+            if item["site"] == "GEMSDOE31" else ""
+        )
         rows_html.append(
             f'<tr><td><strong>{site}</strong></td>'
             f'<td>{s25_cell}</td>'
-            f'<td><a href="{cur_url}"{target_attr}>{cur_art}</a><br>'
+            f'<td><a href="{cur_url}"{target_attr}>{cur_art}</a>{snapshot_note}<br>'
             f'<span class="small">SHA-256 <code>{sha12}…</code> · {dots:,} dots · [0,1] valid</span></td>'
             f'<td>{ov_h33:.1f}% vs H33<br>{ov_h29:.1f}% vs H29</td>'
             f'<td>{sg_all:.4f} / {sg_pied:.4f} / {sg_mtn:.4f}</td>'
             f'<td>{gate_txt}</td></tr>'
         )
     return f'''<div style="margin-top:28px">
-      <h3>2026-10-25 newly reported unique scores &amp; 2026-10-26 current HEAD unique candidates across all 9 sites</h3>
-      <p class="small">Unlike the historical D1.5/D2.8 family above (86.7%&ndash;100% 3-px overlap with H33), all nine current HEAD candidates below have &le;56% 3-px dot overlap with H33-2-B2 and pass automated EPSG:32611 / [0, 1] grid checks. Every reported leaderboard number carries <code>USER-REPORTED · no organizer receipt</code>. Off-catalogue USGS SGMC proxy DTI is reported as <code>All / Piedmont (&le;6 deg) / Mountain (&gt;6 deg)</code> to expose steep-bedrock mimicry (for example, GEMSDOE32 R6-stepprofile reaches 0.1424 overall SGMC but collapses to 0.0030 Piedmont SGMC and 0.0034 Quaternary holdout DTI).</p>
-      <div class="table-wrap"><table><thead><tr><th>Site</th><th>2026-10-25 newly reported unique batch</th>
-        <th>Current HEAD unique candidate (2026-10-26)</th><th>3-px overlap</th>
-        <th>SGMC-PROXY (All / Pied / Mtn)</th><th>Measured status &amp; site gate verdict</th></tr></thead>
+      <h3>Pairwise-distinct research records in the pinned 2026-10-25/26 site snapshot</h3>
+      <p class="small">The newer records shown here have &le;56% 3-px dot overlap with H33-2-B2 in the recorded pairwise comparison and pass local EPSG:32611 / [0, 1] checks. This is only a comparison with named peer rasters, <strong>not</strong> broad/global uniqueness or submission approval; the shared spacing-5 registry witness remains a binding STOP for any nonempty prediction. Leaderboard figures are USER-REPORTED with no organizer receipt. SGMC-PROXY DTI is a local diagnostic, not a competition score; columns are <code>All / Piedmont (&le;6 deg) / Mountain (&gt;6 deg)</code> (for example, the pinned GEMSDOE32 R6 record reaches 0.1424 overall but 0.0030 Piedmont SGMC and 0.0034 Quaternary holdout DTI).</p>
+      <div class="table-wrap"><table><thead><tr><th>Site</th><th>2026-10-25 supplied score claim</th>
+        <th>Pinned 2026-10-26 source-snapshot artifact</th><th>Pairwise 3-px overlap vs H33 / H29</th>
+        <th>SGMC-PROXY (All / Pied / Mtn)</th><th>Recorded gate status (not current approval)</th></tr></thead>
         <tbody>{''.join(rows_html)}</tbody></table></div>
     </div>'''
 
@@ -980,17 +976,19 @@ def _focus_unique_2026_html() -> str:
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     focus_summary = focus_site_summary()
-    return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet (DOWNLOAD FOR RESEARCH = YES · SUBMIT TO DRIVENDATA = NO).</strong>
-      The new 2026-10-26 H31-S (UDAP-SSLIC) GeoTIFF, H31-T Transtension-Dinkelbach, H31-J TGTD-Submod, XFCOH31, CONCORD31, RBU31-B, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts pass automated EPSG:32611 and strict [0, 1] range checks with zero human intervention and are available to download in one click; all remain research-only (<code>slot_approved = false</code>) while the unexempted 695-raster shared-registry overlap gate remains in force. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+    return f'''<div class="notice notice-danger"><strong>Current registered run: {esc(card['submission_name'])} · OK TO DOWNLOAD FOR RESEARCH: YES · DO NOT SUBMIT.</strong>
+      <code>ok_to_submit = false</code> and <code>slot_approved = false</code>. The active run has a negative HOLDOUT-DTI screen and a literal shared-registry overlap STOP. Historical lane artifacts below retain their own receipts, but none supersedes <code>registry/current_run.json</code> or authorizes an upload. Human sign-off cannot override a failed gate.</div>
+      {download(card)}
+      {focus_summary}
+      <section><div class="section-head"><div><p class="kicker">Historical research archive</p><h2>Earlier run cards — not the active registered run</h2></div>
+        <p>Prior experiments are retained for audit and education. Their comparator-subset checks do not override the shared-registry STOP or current no-submission decision.</p></div></section>
       {h31s_download_and_gates()}
       {h31t_download_and_gates()}
       {h31j_download_and_gates()}
-      {focus_summary}
       {rbu31_download_and_gates()}
       {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
       {scgp_download_and_gates()}
-      {download(card)}
       {h3_download_and_gates()}
       <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>
         <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
@@ -1024,8 +1022,8 @@ def parallel_archives():
                    f'<td><code>{esc(r["sha256"])}</code></td><td>Archived research · NOT approved</td></tr>'
                    for r in sub.get("parallel_archived_files", []))
     return f'''<section><div class="section-head"><div><p class="kicker">Concurrent work preserved</p><h2>Other sessions are not a new experiment here</h2></div>
-      <p>AS-1, TGJ31, H31-B and H31-E artifacts retain their source bytes and original receipts. Their different instruments are not ranked against MAGREST.</p></div>
-      <div class="notice"><strong>No approval is imported from an archived card.</strong>The H31-B card's original promote flag is not reproduced or endorsed by this run, and is not selector authority. AS-1/TGJ31 negative records are retained. Main merge #12 removed earlier merged files; this integration restored their source/evidence/TIFF history without another fit or candidate.</div>
+      <p>Parallel-lane artifacts from prior sessions remain archived with their source bytes and recorded receipts where available. Different evaluators and instruments are not ranked against the active MAGREST run.</p></div>
+      <div class="notice"><strong>No approval is imported from any archived card.</strong>Historical promote flags are not reproduced or endorsed by the active run and are not selector authority. Archived records are retained for audit; their subset checks and local outcomes do not override the literal shared-registry STOP. No new fit or candidate was created in this review.</div>
       <div class="table-wrap"><table><thead><tr><th>Archived TIFF</th><th>SHA-256 · computed from bytes</th><th>Current authority</th></tr></thead><tbody>{rows}</tbody></table></div>
       <p class="small">Restoration manifest: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/parallel_history_preservation_20261025.json">exact source commits and hashes</a>.
       The old workflow, extra HTML page and obsolete active-homepage assertion are archived rather than re-enabled. The current site remains 20 pages.</p></section>'''
@@ -1042,14 +1040,14 @@ def research(card, screen, focus, lineage):
     return f'''<div class="notice"><strong>Evidence boundary</strong>Only measured geometry and local holdouts are verified here.
       The literal registry gate FAILS: a registered spacing-5 lattice covers 99.52%–100% of fixed variants’ dots, and GEMSDOE48 continuous pignistic covers 100%. No new fit or TIFF follows this STOP. The reported 0.2778 and conflicting leaderboard anchors 0.3195 / 0.4413 have no organizer receipt in this project.
       Non-GitHub official pages cannot be re-fetched under this environment's host allowlist.</div>
-      {h31s_download_and_gates()}
-      <section><div class="section-head"><div><p class="kicker">2026-10-26 Ranked Geological Hypotheses (Lane H31-S)</p><h2>Four untried Basin-and-Range buried-fault hypotheses</h2></div>
-        <p>Preregistered in <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_h31s_udap_sslic_preregistration.md">knowledge/2026-10-26_h31s_udap_sslic_preregistration.md</a> prior to running H31-S.</p></div>
-        <div class="table-wrap"><table><thead><tr><th>Rank / ID</th><th>Specific layers &amp; physical signature</th><th>Why missing from USGS/INGENIOUS &amp; novelty vs repo</th><th>Expected DTI impact, cost &amp; verified free source</th></tr></thead><tbody>
-          <tr><td>1 · H31-S (UDAP-SSLIC) · executed</td><td><code>depth_to_base_surf</code>, <code>iso_grav_anom_slope</code>, GeoDAWN <code>TMI_up150</code>/<code>K</code>/<code>Th</code>, <code>rtp</code>, <code>cond_surf</code>, GDR-1391 thermal/sinter/volcanics; Cordell&ndash;Grauch 45/55/65 deg up-dip advection + axial demagnetized trough + 2-stage strike-steered line-integral continuity</td><td>Dipping range-front &amp; intra-basin normal faults have gravity/magnetic steps shifted 200&ndash;1,200 m basinward (outside the 300 m DTI kernel), while hydrothermal conduits destroy magnetite along fault cores. First up-dip coordinate projection + nested OOF SSLIC in GEMSDOE31</td><td>Measured HOLDOUT-DTI 0.0948 (s41) &amp; 0.0980 (s42) vs 0.0591 / 0.0544 Physical-HGB (+61% to +80%); ~25 min on 2 CPUs · USGS INGENIOUS / GeoDAWN / GDR-1391</td></tr>
-          <tr><td>2 · H31-T-SWARM (SWARM-COULOMB) · desk-ranked</td><td><code>ieq_n100a15</code>, <code>deq_n100a15</code>, <code>geod_2ndinv</code>, <code>geod_shearrate</code>, <code>geod_dilaterate</code>; microseismic swarm-excess log-ratio interacted with Andersonian Mohr&ndash;Coulomb optimal-slip alignment</td><td>Transtensional Walker Lane / Humboldt stepovers host active fluid-driven microseismic swarms without coalesced Holocene scarps; seismic bands were never tested as a swarm-excess x slip-tendency interaction</td><td>+0.004 to +0.012 HOLDOUT-DTI (coarse 10&ndash;15 km kernel limits standalone 300 m precision); low cost (~4 min) · local cached bands 4, 7, 8, 10, 16</td></tr>
-          <tr><td>3 · H31-U (INSAR-3DEP-DIFF) · external roadmap</td><td>Sentinel-1 ARIA unwrapped LOS interseismic/seasonal phase gradients + raw 1 m USGS 3DEP stream-channel knickpoints</td><td>Blind intra-playa faults act as cemented groundwater aquitards creating sharp 2&ndash;5 mm/yr seasonal poroelastic InSAR phase steps with &lt;0.2 m surface relief</td><td>+0.020 to +0.045 DTI in play-fairway basins; high I/O (~40 GB), sandbox-blocked host · NASA JPL ARIA / ASF DAAC &amp; USGS TNM 3DEP</td></tr>
-          <tr><td>4 · H31-V (USARRAY-MT-3D) · external roadmap</td><td>EarthScope USArray 3D magnetotelluric phase-tensor skew |beta| &gt; 3 deg and Parkinson real induction-arrow reversals</td><td>Subvertical 1&ndash;8 km conductive fault-zone brines beneath resistive Miocene&ndash;Pliocene volcanic tables are invisible to single-surface <code>cond_surf</code></td><td>+0.008 to +0.022 DTI at 3&ndash;10 km station spacing; medium cost, sandbox-blocked host · EarthScope / IRIS SPUD EMTF</td></tr>
+      {download(card)}
+      <section><div class="section-head"><div><p class="kicker">Historical 2026-10-26 preregistration · H31-S archive</p><h2>Archived H31-S method and its historical alternatives</h2></div>
+        <p>This table preserves the original <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_h31s_udap_sslic_preregistration.md">H31-S preregistration</a> for audit; it is not the current hypothesis ranking. H31-S and the H31-T/U/V alternatives are historical, not active authorization. The separate three-item desk-only backlog below reflects the current review.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Rank / ID</th><th>Specific layers &amp; physical signature</th><th>Why missing from USGS/INGENIOUS &amp; novelty vs repo</th><th>Ordinal potential, cost &amp; access</th></tr></thead><tbody>
+          <tr><td>1 · H31-S (UDAP-SSLIC) · executed archive</td><td><code>depth_to_base_surf</code>, <code>iso_grav_anom_slope</code>, GeoDAWN <code>TMI_up150</code>/<code>K</code>/<code>Th</code>, <code>rtp</code>, <code>cond_surf</code>, GDR-1391 thermal/sinter/volcanics; Cordell&ndash;Grauch up-dip advection + axial trough + strike-steered continuity</td><td>Dipping range-front and intra-basin structures can shift potential-field steps basinward; the archived operator tests up-dip projection plus nested OOF continuity. This is historical work, not a new experiment or current promotion.</td><td>Historical HOLDOUT-DTI only; not a competition score or comparable forecast. Medium compute; source access/provenance remains mirror-conditional.</td></tr>
+          <tr><td>2 · H31-T-SWARM (SWARM-COULOMB) · historical preregistered alternative</td><td><code>ieq_n100a15</code>, <code>deq_n100a15</code>, <code>geod_2ndinv</code>, <code>geod_shearrate</code>, <code>geod_dilaterate</code>; microseismic swarm excess × Andersonian slip tendency</td><td>Earlier hypothesis for active fluid-related stepovers; not tested or adopted as a current proposal in this review.</td><td>Historical ordinal estimate only; seismic spatial scales are coarse relative to the 300 m kernel. No numeric gain or current authorization.</td></tr>
+          <tr><td>3 · H31-U (InSAR + 3DEP) · historical external roadmap</td><td>Sentinel-1 ARIA LOS gradients + high-resolution 3DEP drainage/scarp evidence</td><td>Earlier external-data idea for active deformation or channel offsets; not part of the current desk-only backlog.</td><td>Required layers were not fetched; access, station/scene coverage, cost, and score impact remain unverified.</td></tr>
+          <tr><td>4 · H31-V (USArray MT) · historical external roadmap</td><td>Magnetotelluric phase-tensor / induction-arrow structure</td><td>Earlier idea for deep conductive fluid pathways; not part of the current desk-only backlog.</td><td>External layers were not fetched; station coverage, cost, and score impact remain unverified.</td></tr>
         </tbody></table></div>
       </section>
       {h31t_download_and_gates()}
@@ -1081,16 +1079,14 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
           One 32×48 format-test fixture is retained in the inventory but cannot be compared on this grid.
           All comparable files in those trees were checked without density exemptions. This scope was insufficient for the shared registry. The registered calibration control is retained, not waived, and invalidates the broader lane-pass claim.</p>
       </section>
-      <section><div class="section-head"><div><p class="kicker">Before implementation</p><h2>Four ranked restoration hypotheses</h2></div>
-        <p>Ordinal research priorities, not projected scores. All proposed input layers are already hash-verified locally.</p></div>
-        <div class="table-wrap"><table><thead><tr><th>Rank / method</th><th>Layers / signature</th><th>Unmapped-fault mechanism; difference from old work</th><th>Non-fault mimic / cost</th></tr></thead><tbody>
-          <tr><td>1 · MAGREST · tested</td><td>B2 RTP; opposite-side normalized patch correlation gains after signed 2/4px translation</td><td>Covered, oblique displacement of older magnetic fabric; explicit restoration, not an amplitude/tilt/wavelength edge</td><td>Volcanic contacts or flight-line seams · medium</td></tr>
-          <tr><td>2 · GRAVREST · not fitted</td><td>B2 RTP + B13 gravity; compatible independent texture-restoration directions</td><td>Buried transfer structure shifting both fabrics; signed co-registration, not gradient conjunction</td><td>Intrusive/lithologic contacts; coarse gravity bandwidth · high</td></tr>
-          <tr><td>3 · RADREST · not fitted</td><td>GeoDAWN ranked K/Th/U channels; multichannel compositional-texture restoration</td><td>Offset compositional stripes on small splays; translation, not a radiometric contrast</td><td>Alluvial provenance or survey seams; quantized ranks not concentration ratios · medium-high</td></tr>
-          <tr><td>4 · TERRREST · not fitted</td><td>B12 elevation + B19 slope; detrended drainage-pattern restoration</td><td>Drainage offset without a preserved scarp; not a curvature or knickpoint detector</td><td>Stream capture/avulsion; likely underresolved at 100 m · high</td></tr>
+      <section><div class="section-head"><div><p class="kicker">Current desk review · not authorized for execution</p><h2>Three distinct hypotheses, ranked by expected value and cost</h2></div>
+        <p>Ordinal, uncertain research priorities—not numeric score forecasts. No new fit is authorized. The shared feature stack and raw source rasters are not present in this checkout, so the layer inventory and access conditions require verification before any future protocol.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Rank / method</th><th>Layers / discriminating signature</th><th>Expected value and key mimic</th><th>Cost / present limitation</th></tr></thead><tbody>
+          <tr><td>1 · GRAVREST · desk-only</td><td>B2 RTP + B13 gravity; signed, compatible texture-displacement estimates across both fabrics</td><td>Highest information value among these proposals, but uncertain; a buried transfer structure should displace both fabrics coherently. Mimic: shared lithologic or intrusive contact.</td><td>Medium-high implementation and resolution cost; gravity bandwidth may be too coarse. Cached stack is absent here.</td></tr>
+          <tr><td>2 · RADREST · desk-only</td><td>GeoDAWN K/Th/U compositional textures; channel-specific direction agreement rather than a ratio/edge threshold</td><td>Moderate, uncertain potential for offset alteration/provenance textures. Mimic: alluvial provenance boundary or survey seam.</td><td>Medium-high cost for missingness and quantization controls; raw data and verified channel metadata are absent.</td></tr>
+          <tr><td>3 · TERRREST · desk-only</td><td>B12 elevation + B19 slope; detrended drainage-texture displacement across a candidate trace</td><td>Lowest expected value at the available 100 m scale; tests offset drainage texture rather than curvature alone. Mimic: stream capture or avulsion.</td><td>High validation cost; terrain bands are not in this checkout and finer-resolution 3DEP access requires verification.</td></tr>
         </tbody></table></div>
-        <p><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_magrest_preregistration.md">Full frozen preregistration</a>.
-          No assigned method paragraph was present, so MAGREST was explicitly self-assigned and that assumption logged. No other lane was fitted.</p>
+        <p>The assigned method paragraph is absent from the current owner prompt. MAGREST is the separate active registered run and remains negative; this review does not treat it as a newly assigned hypothesis and authorizes no additional experiment.</p>
       </section>
       <section><div class="section-head"><div><p class="kicker">Three experiments · stopped after screen</p><h2>HOLDOUT-DTI results</h2></div>
         <p>{esc(card['holdout_dti']['evaluator_version'])} · pooled components · whole fault components withheld · 95% physical-block bootstrap CI.</p></div>
