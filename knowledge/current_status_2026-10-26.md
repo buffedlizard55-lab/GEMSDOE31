@@ -1,5 +1,15 @@
 # Current project status — 2026-10-26
 
+## Latest audit continuation (`arena/1028355f-gemsdoe31`)
+
+See [metric and release review](2026-10-26_metric_and_release_review.md).
+Zero new geological experiments, TIFFs or slots in this continuation. Corrected marginal DTI prose
+and unsupported confirmed-score/causal claims. Revalidated MAGREST, H31-S, H31-J and H31-T;
+none is slot-approved. Current validation: **142 tests pass**, Ruff/compileall pass, 22 pages and
+439 local links pass. The earlier H31-S review below is preserved, not a new experiment here.
+`registry/current_run.json` remains the historical MAGREST card; `registry/h31s_current_run.json`
+identifies the separately preserved H31-S artifact. Neither authorizes submission.
+
 ## Executive decision
 
 **No competition submission is approved. Do not upload any repository TIFF.** The latest fully automated candidate is H31-S (`UDAP-SSLIC`). It is a genuinely generated, downloadable research artifact—not a copy—but its run-card verdict is **negative**, `slot_approved=false`, and `ok_to_submit=false`.
@@ -10,7 +20,7 @@
 - Unique name: `gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f`
 - Portal note (92/140 characters): `H31-S UDAP+HZAD+SSLIC 37654d B2 | HOLDOUT-DTI s41=0.0948 s42=0.0980 | research-only 9355f21d`
 
-The all-finite TIFF fixes the prior portal-range failure mechanically: it is single-band float32, finite everywhere, and every value is in `[0,1]`. Passing format validation does **not** establish scientific efficacy, uniqueness against every possible private submission, organizer acceptance, or permission to spend a weekly slot.
+The all-finite TIFF passes local range validation; the exact cause of the prior portal rejection is unknown: it is single-band float32, finite everywhere, and every value is in `[0,1]`. Passing format validation does **not** establish scientific efficacy, uniqueness against every possible private submission, organizer acceptance, or permission to spend a weekly slot.
 
 ## H31-S measured result
 
@@ -61,13 +71,12 @@ Verification on 2026-10-26:
 5. Do not automate a DrivenData upload or spend a weekly slot from this repository.
 
 
-## Arena review continuation — 2026-10-26
+## Arena continuation — branch aa4c2098, 2026-10-26
 
-This continuation made **no model fit, experiment, TIFF, upload, leaderboard access, or slot use**. It reconciled the competing README summaries to the H31-S current status and explicitly flagged the older generic `registry/current_run.json` MAGREST receipt as stale for identifying the latest run. Full findings: [`repo_review_2026-10-26_arena.md`](repo_review_2026-10-26_arena.md).
+This continuation did **not** fit a model, run a geological experiment, generate a TIFF, use a slot, access the live leaderboard, or upload. It reconciled the README to current H31-S status and reviewed the marginal-DTI correction and desk-only hypothesis refinements from the latest release audit.
 
-- H31-S screen `HOLDOUT-DTI` (`gems57-pooled-hide-v2`, seed 41, 2,820 withheld positives): `0.09478` (95% CI `[0.06120, 0.12925]`); paired delta vs H31-M `+0.02345` (95% CI `[-0.02042, +0.06979]`, 1/4 quadrant wins), so the preregistered same-instrument screen gate failed. Untouched confirmation seed 42: `0.09796` (95% CI `[0.07280, 0.12485]`, 2,823 withheld positives); this does not erase the screen failure.
-- H31-S exact verifier: `verdict=negative`, `ok_to_download_for_research=true`, `ok_to_submit=false`, `slot_approved=false`; zeros TIFF SHA-256 `186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd`.
-- The final discrete-scope maximum is 66.503% 3-px overlap; the unexempted broad-registry spacing-5 witness gives 99.931% overlap and the dense baseline gives 100%, forcing the registered stop. The broad scan is not exhaustive.
-- The prior generic MAGREST verifier also returns a negative/no-submit decision, but it validates a different, older artifact. H31-S is the latest status artifact; this naming divergence is logged for follow-up.
-- Verification in this continuation: 136 tests passed; Ruff and compileall passed; metric max fast/brute difference `4.441e-16` over 24 grids; H31-S verifier passed its fail-closed checks; generated site 22 pages / 439 local links passed.
-- Limitations remain: missing assigned method paragraph, exhausted 3-experiment budget, broad-registry gate failure, absent production data/cache in this checkout, no organizer score receipt, and no complete global scan. No candidate is approved to submit.
+- Latest candidate: H31-S, dedicated verifier `scripts/verify_h31s_run.py` returns `verdict=negative`, `ok_to_download_for_research=true`, `ok_to_submit=false`, `slot_approved=false`. Its screen vs H31-M was 1/4 quadrants with paired CI crossing zero; later confirmation was positive but does not repair the failed preregistered screen.
+- The broad-registry spacing-5 witness gives 99.931% 3-px overlap, above the literal 70% gate. The full registry comparison is not exhaustive.
+- `registry/current_run.json` is a legacy MAGREST receipt; H31-S is identified by `registry/h31s_current_run.json` and its dedicated verifier. Both receipts deny submission. Follow-up should normalize this pointer without removing historical verification.
+- Final checks in this continuation: 142 tests passed; Ruff/compileall passed; metric proof max fast/brute difference `4.441e-16` on 24 grids; marginal DTI audit passed 10,000 sign checks; four exact-file verifiers deny slot approval; site check passed 22 pages/439 local links.
+- Remaining blockers: no assigned method paragraph; experiment budget exhausted; broad-registry stop; no organizer-authenticated score receipt; no full production data/cache or exhaustive registry proof.
