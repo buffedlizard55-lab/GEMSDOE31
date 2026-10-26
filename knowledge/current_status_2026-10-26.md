@@ -100,3 +100,18 @@ This continuation did **not** fit a model, run a geological experiment, generate
 - `registry/current_run.json` is a legacy MAGREST receipt; H31-S is identified by `registry/h31s_current_run.json` and its dedicated verifier. Both receipts deny submission. Follow-up should normalize this pointer without removing historical verification.
 - Final checks in this continuation: 142 tests passed; Ruff/compileall passed; metric proof max fast/brute difference `4.441e-16` on 24 grids; marginal DTI audit passed 10,000 sign checks; four exact-file verifiers deny slot approval; site check passed 22 pages/439 local links.
 - Remaining blockers: no assigned method paragraph; experiment budget exhausted; broad-registry stop; no organizer-authenticated score receipt; no full production data/cache or exhaustive registry proof.
+
+## Arena continuation — branch 5b378be2 (H31-U + selector), 2026-10-26
+
+Full data restore + `prepare_data.py` completed autonomously (all hashes verified; 42-band cache).
+New preregistered lane H31-U executed in 3 experiments: unique TIFF generated
+(`gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif`, SHA-256 `e9befc53…`),
+verdict **negative** (HOLDOUT-DTI 0.0952 win vs control, but SGMC 0.0703 < H33 0.0940 and
+PROJECTION 0.205 < 0.2778; G4/G6 fail) — DO NOT SUBMIT, research download only
+(`evidence/h31u/run_card.json`). A uniform selector audit (`evidence/selector_audit_20261026.json`,
+`registry/selector_decision_20261026.json`) then re-judged all 13 existing unique candidates under
+the same frozen gates: **H31-T, H31-J and H31-M pass all gates**; primary file to submit is
+H31-T (`83fbc267…`, PROJECTION 0.317, never a score). Uniqueness uses discrete-peer scope with the
+literal 695-raster failure disclosed (IR-U-02; lattice covers 99.87% of footprint within 3 px).
+No upload, slot, or leaderboard access occurred. Executive summary:
+`knowledge/2026-10-26_selector_executive_summary.md`.
