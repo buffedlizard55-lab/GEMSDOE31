@@ -1,6 +1,82 @@
 {
  "schema_version": 2,
- "generated_utc": "2026-10-25",
+ "generated_utc": "2026-10-26",
+ "active_review_lane": {
+  "id": "XFCOH31",
+  "run_card": "evidence/xfcoh31_run_card.json",
+  "exact_file_audit": "evidence/xfcoh31_registry_stop_audit.json",
+  "file": "docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif",
+  "sha256": "857dd662430c0130c46f920666d70dae5df6148951ad76d42d31a8d540c32972",
+  "role": "Active reviewed lane; existing research TIFF only; negative HOLDOUT-DTI and literal shared-registry overlap STOP.",
+  "verdict": "negative",
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "holdout_dti": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gemsdoe31-holdout-v1",
+   "candidate": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gemsdoe31-holdout-v1",
+    "dti": 0.04588144093319451,
+    "tpw": 2500.6505769437335,
+    "fpw": 35511.559816011875,
+    "fnw": 56124.349423056265,
+    "withheld_positive_pixels": 58625,
+    "ci95": [
+     0.04118189699170956,
+     0.05112052395647822
+    ]
+   },
+   "same_run_control_base19": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gemsdoe31-holdout-v1",
+    "dti": 0.0481217388314878,
+    "tpw": 2623.4055861457396,
+    "fpw": 35456.68501826421,
+    "fnw": 56001.59441385426,
+    "withheld_positive_pixels": 58625,
+    "ci95": [
+     0.04361088449442158,
+     0.052982941538801856
+    ]
+   },
+   "paired_delta_xfcoh_minus_base19": -0.0022402978982932822,
+   "paired_delta_ci95": [
+    -0.004828358381309972,
+    0.00011539974396825053
+   ],
+   "bootstrap": {
+    "resamples": 1000,
+    "seed": 20261025,
+    "n_blocks": 186
+   }
+  },
+  "literal_shared_registry_audit": {
+   "evidence_class": "COMPUTED exact-file duplicate-stop diagnostic; not a HOLDOUT-DTI or competition score",
+   "audit_record": "evidence/xfcoh31_registry_stop_audit.json",
+   "registry_manifest": "registry/shared_registry_57_snapshot.json",
+   "registry_manifest_sha256": "846eddb9459f0e5b67f33da519bbd62c966bf5f539545ba3dad262fbfbc308c2",
+   "registered_rasters": 695,
+   "rasters_examined": 1,
+   "coverage_complete": false,
+   "witness_name": "r13-lattice-s5",
+   "witness_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+   "witness_source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+   "spearman_rho_full_footprint": 0.00042224816913071525,
+   "correlation_limit": 0.9,
+   "correlation_pass": true,
+   "candidate_dots": 37654,
+   "dots_within_3px": 37560,
+   "dot_overlap_within_3px": 0.9975035852764647,
+   "overlap_limit": 0.7,
+   "overlap_pass": false,
+   "literal_gate_pass": false,
+   "preplacement_surface_tested": false,
+   "decision": "STOP / NEGATIVE / DO NOT SUBMIT",
+   "scope_note": "One authentic registered counterexample is sufficient for STOP; no exhaustive scan of all 695 rasters is claimed."
+  }
+ },
  "parallel_archived_files": [
   {
    "file": "docs/downloads/blocked/gemsdoe31-as1-lidar-antislope-38000dots-20261025-9b3afbc8-allfinite.tif",
@@ -73,6 +149,28 @@
    "name": "gemsdoe31-concord31-minbd-concordance-28115-20261026-nan.tif",
    "sha256": "073b5f031ace199507d3a8765f8681fd02f60f76c3b5888c5c6bdecbadd96a7e",
    "bytes": 167071,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+   "name": "gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+   "sha256": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
+   "bytes": 66550,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
+   "name": "gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
+   "sha256": "774c7c5aa3784d7c52dc67870e1cc8b0e0a34d1697092ad9f3b08c33dcaf2546",
+   "bytes": 104818,
    "role": "Archived parallel-session research; not reproduced or endorsed by this run",
    "slot_approved": false,
    "ok_to_submit": false,
@@ -170,14 +268,15 @@
  ],
  "parallel_source_archive": "registry/parallel_main_archive_20261025.json",
  "active_run_card": "registry/current_run.json",
- "policy": "Active/historical file metadata comes from its format receipt; parallel archived TIFF hashes are recomputed from served bytes and carry no new scientific/format endorsement. Local validation is not organizer acceptance; no exact-file organizer score receipt is present.",
+ "active_run_card_scope": "MAGREST technical run record; not the separate active XFCOH31 review lane.",
+ "policy": "Submission-shaped file metadata comes from its format receipt; parallel archived TIFF hashes are recomputed from served bytes and carry no new scientific/format endorsement. active_review_lane records the current XFCOH31 review separately from the MAGREST technical current_run. Local validation is not organizer acceptance; no exact-file organizer score receipt is present.",
  "current_recommended": {
   "name": null,
-  "role": "No submission is recommended; the active run card separately identifies the research-only download.",
+  "role": "No submission is recommended; active_review_lane identifies the XFCOH31 research-only file, while active_run_card remains the separate MAGREST technical record.",
   "historical_reference": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
   "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer receipt exists in this repository",
   "slot_approved": false,
-  "reason_not_slot_approved": "Literal shared-registry overlap STOP and failed MAGREST screen; no comparable global-best evidence, confirmation or separate selector approval."
+  "reason_not_slot_approved": "XFCOH31 has a literal shared-registry overlap STOP and negative HOLDOUT-DTI; MAGREST is a separate negative technical run. No comparable global-best evidence, confirmation or separate selector approval exists."
  },
  "best_research_candidate": {
   "name": "gemsdoe31-union-b-p060-20261004-8acb75e1",
@@ -971,24 +1070,6 @@
    "current_run_card": "docs/downloads/magrest-run-card.json",
    "sha256_zip": "f0313e7fa0751622f4bcf2db23dba430bbc3467dc1b8b154d4c4ba6450f5fc14",
    "bytes_zip": 121213
-  },
-  {
-   "id": "candidate-csdu-stepover-20261026",
-   "name": "gemsdoe31-csdu-stepover-8cf9dc27",
-   "role": "newly computed 2026-10-26 unique CSDU concealed stepover-dilation upflow research GeoTIFF; format-valid [0,1], EPSG:32611, exact grid, 4,000 binary dots, 0 on public catalogue; holdout efficacy NOT RUN (no competition truth offline); registry uniqueness NOT run locally; research download only, DO NOT SUBMIT",
-   "provenance": "scripts/run_unique_stepover_submission.py: new concealed stepover-dilation hydrothermal upflow (CSDU) hypothesis - 4 km Gaussian halo around 5 concealed en-echelon stepover dilation centers, Poisson-disk thinned to 4,000 dots, zero dots copied from any prior submission; desk-preregistered hypothesis (experiment 1 of 3 parallel-run budget).",
-   "note_for_portal": "CSDU concealed stepover-dilation upflow 4,000d blind-fault hypothesis; unique new geometry no incumbent dots; research-only 8cf9dc27",
-   "slot_approved": false,
-   "why_not_slot_approved": "Holdout efficacy not verifiable offline (competition truth/SGMC unavailable); registry uniqueness not run locally; no organizer receipt. Research download only.",
-   "positive_pixels": 4000,
-   "positive_pixels_on_public_catalogue": 0,
-   "receipt": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-format-check.json",
-   "file_nan": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
-   "file_allfinite": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
-   "file_zip": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.zip",
-   "sha256_nan": "774c7c5aa3784d7c52dc67870e1cc8b0e0a34d1697092ad9f3b08c33dcaf2546",
-   "sha256_allfinite": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
-   "format_status": "locally validated against owner-mirror grid template; both encodings pass all hard checks; not organizer acceptance"
   }
  ],
  "format_conventions": {

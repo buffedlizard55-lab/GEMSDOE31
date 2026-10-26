@@ -23,6 +23,50 @@ def links(card):
     return link
 
 
+def xfcoh31_download_and_gates() -> str:
+    card_path = ROOT / "evidence/xfcoh31_run_card.json"
+    audit_path = ROOT / "evidence/xfcoh31_registry_stop_audit.json"
+    if not card_path.is_file() or not audit_path.is_file():
+        return ""
+    card = json.loads(card_path.read_text())
+    audit = json.loads(audit_path.read_text())
+    holdout = card["holdout_dti"]
+    candidate = holdout["candidate"]
+    control = holdout["same_run_control_base19"]
+    delta_ci = holdout["paired_delta_ci95"]
+    registry = card["literal_shared_registry_audit"]
+    filename = PurePosixPath(audit["candidate"]["path"]).name
+    stem = filename.removesuffix("-zeros.tif")
+    return f'''<section id="xfcoh31-download" aria-labelledby="xfcoh31-heading">
+      <div class="section-head"><div><p class="kicker">Active reviewed lane · XFCOH31 · 2026-10-26</p>
+        <h2 id="xfcoh31-heading">Research download only · DO NOT SUBMIT</h2></div>
+        <p>The existing TIFF is locally format-valid but fails both its recorded HOLDOUT-DTI promotion gate and the literal shared-registry overlap limit. No uniqueness or organizer acceptance is claimed.</p></div>
+      <div class="notice notice-danger"><strong>DOWNLOAD FOR RESEARCH: YES · SUBMIT: NO — DO NOT SUBMIT.</strong>
+        Exact final TIFF: {audit['overlap']['candidate_dots_within_3px_of_witness']:,}/{audit['overlap']['candidate_dots']:,} dots ({100*audit['overlap']['fraction_within_3px']:.4f}%) within 3 px of one pinned <code>r13-lattice-s5</code> witness; this exceeds the 70% STOP threshold. This examines one authentic witness, not all 695 rasters. No experiment, new placement, or TIFF was made after STOP.</div>
+      <div class="card download-card">
+        <div class="actions">
+          <a class="button button-primary" href="downloads/{esc(filename)}" download>Download existing XFCOH31 research TIFF</a>
+          <a class="button" href="downloads/{esc(stem)}-zeros.zip" download>Single-TIFF ZIP</a>
+          <a class="button" href="downloads/{esc(stem)}-run-card.json" download>Run card</a>
+          <a class="button" href="downloads/{esc(stem)}-registry-audit.json" download>Exact registry audit</a>
+          <a class="button" href="xfcoh31.html">Full decision page</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256:</strong> <code>{esc(card['raster_sha256'])}</code><br>
+          <strong>Submission name (identity only):</strong> <code>{esc(card['submission_name'])}</code><br>
+          <strong>Note:</strong> <code>{esc(card['note'])}</code> ({card.get('note_length', len(card['note']))}/140 characters).<br>
+          <strong>Local format:</strong> PASS, format-only; organizer acceptance not verified.<br>
+          <strong>Separate records:</strong> H31-S remains in <code>registry/h31s_current_run.json</code>; MAGREST remains in <code>registry/current_run.json</code>. Neither is this XFCOH31 run.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Gate / evidence</th><th>Measured result</th><th>Decision</th></tr></thead><tbody>
+        <tr><td>HOLDOUT-DTI · <code>{esc(holdout['evaluator_version'])}</code> · {candidate['withheld_positive_pixels']:,} withheld positives</td><td>XFCOH31 {candidate['dti']:.7f} [{candidate['ci95'][0]:.7f}, {candidate['ci95'][1]:.7f}] vs base-19 {control['dti']:.7f} [{control['ci95'][0]:.7f}, {control['ci95'][1]:.7f}]; paired Δ {holdout['paired_delta_xfcoh_minus_base19']:+.7f} [{delta_ci[0]:+.7f}, {delta_ci[1]:+.7f}]</td><td><span class="badge badge-red">NEGATIVE · DO NOT SUBMIT</span></td></tr>
+        <tr><td>Exact final-dot shared-registry audit</td><td>{registry['dots_within_3px']:,}/{registry['candidate_dots']:,} = {100*registry['dot_overlap_within_3px']:.4f}% within 3 px of one witness; full-footprint Spearman rho {registry['spearman_rho_full_footprint']:.10f}</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+        <tr><td>Genuine focus-site subset</td><td>Max surface rho {card['correlation_overlap_vs_registry']['max_surface_spearman']:.4f}; max 3-px overlap {100*card['correlation_overlap_vs_registry']['max_dot_overlap_within_3px']:.2f}%</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+        <tr><td>Slot / promotion</td><td><code>slot_approved = false</code>; no organizer receipt; no upload or weekly slot</td><td><span class="badge badge-red">NO</span></td></tr>
+      </tbody></table></div>
+      <p class="small">The candidate’s recorded feature-only canary is not the preregistered fold-pooled withheld-truth canary; the run also bypassed the requested cached stack and shared submission-writer workflow. Full limitations and the exact audit receipt are on the <a href="xfcoh31.html">XFCOH31 decision page</a>.</p>
+    </section>'''
+
+
 def h31t_download_and_gates() -> str:
     rc_path = ROOT / "evidence/h31t/run_card.json"
     e3_path = ROOT / "evidence/h31t/exp3_uniqueness_offcat_package.json"
@@ -603,15 +647,15 @@ def rbu31_download_and_gates() -> str:
 def download(card):
     link = links(card)
     return f'''<section id="download" aria-labelledby="download-heading">
-      <div class="section-head"><div><p class="kicker">New artifact · 2026-10-25</p>
-        <h2 id="download-heading">OK to download. Not approved for upload.</h2></div>
+      <div class="section-head"><div><p class="kicker">Prior separate run record · MAGREST · 2026-10-25</p>
+        <h2 id="download-heading">Research download only. Not approved for upload.</h2></div>
         <p>Research-only. Automated scientific gates failed; no human inspection is needed to reach that decision.</p></div>
       <div class="card download-card">
         <span class="badge badge-red">DO NOT SUBMIT · negative result</span>
         <h3 style="margin-top:18px">MAGREST · magnetic texture restoration</h3>
-        <p>Newly computed from magnetic data, not copied or thinned from a prior submission.</p>
+        <p>Originally computed from magnetic data in its separate run, not copied or thinned from a prior submission.</p>
         <div class="actions">
-          <a class="button button-dark" href="{link('file')}" download>Download new research TIFF</a>
+          <a class="button button-dark" href="{link('file')}" download>Download MAGREST research TIFF (prior run; DO NOT SUBMIT)</a>
           <a class="button" href="{link('zip_file')}" download>One-TIFF ZIP</a>
           <a class="button" href="downloads/magrest-run-card.json" download>Validation + run card</a>
         </div>
@@ -724,7 +768,7 @@ def h31s_download_and_gates():
     frec = esc(art["receipt_json"].removeprefix("docs/"))
     return f'''
 <section id="h31s-download" aria-labelledby="h31s-heading">
-  <div class="section-head"><div><p class="kicker">2026-10-26 Featured Lane · H31-S (UDAP-SSLIC) · 3-Experiment Campaign</p>
+  <div class="section-head"><div><p class="kicker">Prior separate 2026-10-26 run record · H31-S (UDAP-SSLIC) · 3-Experiment Campaign</p>
     <h2 id="h31s-heading">DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (DO NOT SUBMIT)</h2></div>
     <p>Original 37,654-dot physics-driven GeoTIFF built from Up-Dip Basin-Depth Advected Potential-Field projection (UDAP),
       Hydrothermal Magnetite-Destruction Axial Troughs (HZAD), Contour/Seam Null Suppressors, and 2-Stage Nested OOF
@@ -798,29 +842,36 @@ def _rbu31_card():
 
 
 def overview(card):
-    link = links(card)
-    h31s = _h31s_card()
-    h31s_sub = h31s["artifact"]["name"] if h31s is not None else "gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f"
-    h31j_sub = "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8"
-    h31t_sub = "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654"
+    xf_path = ROOT / "evidence/xfcoh31_run_card.json"
+    if xf_path.is_file():
+        xf = json.loads(xf_path.read_text())
+        artifact = PurePosixPath("downloads") / f"{xf['submission_name']}-registry-audit.json"
+        file_name = f"{xf['submission_name']}-zeros.tif"
+        candidate = xf["holdout_dti"]["candidate"]
+        score = candidate["dti"]
+        score_ci = candidate["ci95"]
+        withheld = candidate["withheld_positive_pixels"]
+        evaluator = xf["holdout_dti"]["evaluator_version"]
+        summary = (f"XFCOH31 HOLDOUT-DTI {score:.7f} [{score_ci[0]:.7f}, {score_ci[1]:.7f}] "
+                   f"({evaluator}; {withheld:,} withheld positives; negative vs same-run base-19 control). "
+                   "Exact final-dot audit is a literal registry STOP.")
+    else:
+        file_name = "gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif"
+        artifact = PurePosixPath("downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-registry-audit.json")
+        summary = "XFCOH31 is research-only; the recorded holdout is negative and exact final-dot audit triggers a literal registry STOP."
     hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · 2026-10-26 Preregistered Discovery · Lanes H31-S, H31-T &amp; H31-J</p>
-      <h1>DOWNLOAD FOR RESEARCH: YES<br>DO NOT SUBMIT (Registry STOP)</h1>
-      <p class="hero-lede"><strong>H31-S UDAP-SSLIC</strong> (<code>{esc(h31s_sub)}</code>, 37,654 off-catalogue dots; HOLDOUT-DTI 0.0948 screen seed 41 &amp; 0.0980 untouched seed 42 winning 4/4 quadrants vs Physical-HGB &amp; H31-M),
-        <strong>H31-T Transtension-Dinkelbach</strong> (<code>{h31t_sub}</code>), and <strong>H31-J TGTD-Submod</strong> (<code>{h31j_sub}</code>)
-        pass automated EPSG:32611 &amp; strict [0, 1] validation, leakage canaries, and discrete 9-site peer uniqueness (40.8%&ndash;55.7% 3-px overlap).
-        Under the unexempted 695-raster spacing-5 lattice rule (<code>r13-lattice-s5</code>), all candidates remain <strong>not approved for upload</strong> (<code>slot_approved = false</code>; DO NOT SUBMIT).</p>
+      <p class="eyebrow">DOE GEMS Prize · active reviewed lane · XFCOH31 · 2026-10-26</p>
+      <h1>DOWNLOAD FOR RESEARCH: YES<br>DO NOT SUBMIT</h1>
+      <p class="hero-lede">{esc(summary)} Final TIFF overlap: 37,560 of 37,654 dots (99.7504%) within 3 px of the pinned <code>r13-lattice-s5</code> witness, above the literal 70% STOP threshold. Local format validity does not imply uniqueness, organizer acceptance, or submission permission.</p>
       <div class="actions">
-        <a class="button button-primary" href="downloads/{esc(h31s_sub)}-zeros.tif" download>Download H31-S Research All-Finite [0, 1] .tif (DO NOT SUBMIT)</a>
-        <a class="button" href="downloads/{h31t_sub}-zeros.tif" download>Download H31-T Research All-Finite [0, 1] .tif</a>
-        <a class="button" href="downloads/{h31j_sub}-zeros.zip" download>Download H31-J Research All-Finite [0, 1] .zip</a>
-        <a class="button button-light" href="{link('file')}" download>Download new research TIFF</a>
+        <a class="button button-primary" href="downloads/{esc(file_name)}" download>Download existing XFCOH31 research TIFF (DO NOT SUBMIT)</a>
+        <a class="button" href="xfcoh31.html">Exact audit and decision</a>
         <a class="button button-light" href="executive-summary.html">Nine-Site Executive Summary &amp; Submission Guide</a>
       </div>
       </div><aside class="hero-side" aria-label="Submission decision">
-        <strong>Research download only · DO NOT SUBMIT (slot_approved = false)</strong>
-        <p><strong>H31-S (UDAP-SSLIC):</strong> Local [0, 1] PASS · 57/57 canaries &le; 0.6479 · untouched seed 42 HOLDOUT-DTI 0.0980 (4/4 quads) · 40.8%&ndash;46.9% 3-px vs XFCOH31/CONCORD31/H31-T · <code>slot_approved = false</code>.<br>
-          <strong>H31-T / H31-J / XFCOH31 / CONCORD31 / MAGREST / RBU31 / H31-M / HVDC / H31-E2:</strong> Research downloads preserved below.</p></aside></div></section>'''
+        <strong>Research download only · DO NOT SUBMIT · <code>slot_approved = false</code></strong>
+        <p>One authentic witness from a pinned 695-raster manifest is sufficient for STOP; no exhaustive scan is claimed. <a href="{esc(artifact.as_posix())}">Audit receipt</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/h31s_current_run.json">separate H31-S record</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/current_run.json">separate MAGREST record</a>.</p>
+      </aside></div></section>'''
     return hero, _overview_body(card, hero_rbu=False)
 
 
@@ -828,10 +879,10 @@ def _overview_body(card, *, hero_rbu: bool):
     s = card["holdout_dti"]
     delta = card["paired_difference"]
     final = card["registry"]["final"]
-    magrest_notice = '''<div class="notice notice-danger"><strong>Not approved for upload.</strong>
-      Automated verdict: DO NOT SUBMIT under the unexempted 695-raster shared-registry overlap rule (<code>slot_approved = false</code>). Download H31-S, H31-T, H31-J, XFCOH31, CONCORD31, RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
+    magrest_notice = '''<div class="notice notice-danger"><strong>Prior run records are not approved for upload.</strong>
+      H31-S, H31-T, H31-J, CONCORD31, RBU31-B, H31-M, H31-HVDC, H31-E2, and MAGREST retain their own distinct research-only cards and are not the active XFCOH31 file. No artifact on this page is approved for a weekly competition slot.</div>
       '''
-    body = f'''{magrest_notice}{h31s_download_and_gates()}
+    body = f'''{xfcoh31_download_and_gates()}{magrest_notice}{h31s_download_and_gates()}
       {h31t_download_and_gates()}
       {h31j_download_and_gates()}
       {focus_site_summary()}
@@ -842,7 +893,7 @@ def _overview_body(card, *, hero_rbu: bool):
       {download(card)}
       {h3_download_and_gates()}'''
     body += f'''
-      <section><div class="section-head"><div><p class="kicker">Four separate gates</p><h2>What passed, and what did not</h2></div>
+      <section><div class="section-head"><div><p class="kicker">Prior separate run · MAGREST</p><h2>What passed, and what did not for MAGREST</h2></div>
         <p>These statuses are rebuilt from the exact file, receipts, holdout terms and registry checks.</p></div>
         <div class="grid grid-4">
           <div class="card stat"><span class="badge badge-green">PASS</span><h3>File format</h3><p>Exact grid. No NaN inside. All values in [0,1].</p></div>
@@ -851,7 +902,7 @@ def _overview_body(card, *, hero_rbu: bool):
           <div class="card stat"><span class="badge badge-red">BLOCKED</span><h3>Submit?</h3><p>No confirmation, no selector promotion, no organizer receipt.</p></div>
         </div>
       </section>
-      <section><div class="section-head"><div><p class="kicker">HOLDOUT-DTI · not a competition score</p><h2>A nominal gain is not a validated gain</h2></div>
+      <section><div class="section-head"><div><p class="kicker">Prior MAGREST HOLDOUT-DTI · not a competition score</p><h2>MAGREST nominal gain is not a validated gain</h2></div>
         <p>{esc(s['evaluator_version'])} · {s['withheld_positive_pixels']:,} withheld positives · pooled metric · 95% spatial-block bootstrap CI.</p></div>
         <div class="table-wrap"><table><thead><tr><th>Fixed arm</th><th>HOLDOUT-DTI [95% CI]</th><th>Meaning</th></tr></thead><tbody>
           <tr><td>MAGREST concordant · preregistered primary</td><td>{score_text(s)}</td><td>Deterministic, label-free texture-restoration surface</td></tr>
@@ -985,22 +1036,54 @@ def review_notice():
     return '<div class="notice"><strong>26 October audit: no new TIFF or submission approval.</strong> The literal registry STOP remains binding. Corrected marginal DTI algebra and score-provenance wording; existing downloads are research-only. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_metric_and_release_review.md">Review, limitations and next steps</a>.</div>'
 
 
+def csdu_download_and_gates():
+    """Expose the separate CSDU research artifact without implying global uniqueness or promotion."""
+    card_path = ROOT / "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json"
+    if not card_path.is_file():
+        return ""
+    card = json.loads(card_path.read_text())
+    name = esc(card["submission_name"])
+    holdout = card["holdout_dti"]
+    dots = card["validator_output"]["positive_dots"]
+    catalog_dots = card["validator_output"]["dots_on_public_catalogue"]
+    verdict = esc(card["verdict_reason"])
+    return f'''<section id="csdu-research-download"><div class="section-head"><div>
+      <p class="kicker">Prior separate research artifact · CSDU</p>
+      <h2>Download for research only · DO NOT SUBMIT</h2></div>
+      <p><code>{name}</code> is a separate stepover-dilation hypothesis, not the active XFCOH31 lane.
+        The local format receipt reports {dots:,} dots and {catalog_dots:,} on the public catalogue.</p></div>
+      <div class="card download-card"><div class="actions">
+        <a class="button button-primary" href="downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif" download>Download CSDU all-finite research TIFF</a>
+        <a class="button" href="downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif" download>NaN-outside TIFF</a>
+        <a class="button" href="downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.zip" download>Single-TIFF ZIP</a>
+        <a class="button" href="downloads/gemsdoe31-csdu-stepover-8cf9dc27-format-check.json">Local format receipt</a>
+        <a class="button" href="downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json">Run card</a>
+      </div>
+      <p class="small"><strong>HOLDOUT-DTI:</strong> {esc(holdout['status'])} ·
+        <strong>shared-registry comparison:</strong> NOT RUN; no global uniqueness claim ·
+        <strong>verdict:</strong> {verdict} Download permission is not submission permission; <code>slot_approved = false</code>.</p>
+      </div></section>'''
+
+
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     focus_summary = focus_site_summary()
-    return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet (DOWNLOAD FOR RESEARCH = YES · SUBMIT TO DRIVENDATA = NO).</strong>
-      The new 2026-10-26 H31-S (UDAP-SSLIC) GeoTIFF, H31-T Transtension-Dinkelbach, H31-J TGTD-Submod, XFCOH31, CONCORD31, RBU31-B, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts pass automated EPSG:32611 and strict [0, 1] range checks with zero human intervention and are available to download in one click; all remain research-only (<code>slot_approved = false</code>) while the unexempted 695-raster shared-registry overlap gate remains in force. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+    return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet (ACTIVE REVIEWED LANE: XFCOH31; DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO).</strong>
+      The existing XFCOH31 TIFF fails its HOLDOUT-DTI promotion gate and has 99.7504% of final dots within 3 px of one pinned shared-registry witness, above the literal 70% STOP threshold. This is not an exhaustive registry scan. No upload or selector approval is granted; local format validation does not imply uniqueness or organizer acceptance. Human sign-off cannot override a failed gate.</div>
       {review_notice()}
       {focus_summary}
-      {h31s_download_and_gates()}
-      {h31t_download_and_gates()}
-      {h31j_download_and_gates()}
-      {rbu31_download_and_gates()}
-      {h31m_download_and_gates()}
-      {hvdc_download_and_gates()}
-      {scgp_download_and_gates()}
-      {download(card)}
-      {h3_download_and_gates()}
+      {xfcoh31_download_and_gates()}
+      <div class="notice"><strong>Prior separate run records:</strong> CSDU, H31-S, MAGREST, H31-T, H31-J, CONCORD31, RBU31-B, H31-M, H31-HVDC, and H31-E2 retain their own research-only records and are not the active XFCOH31 run.</div>
+{csdu_download_and_gates()}
+{h31s_download_and_gates()}
+{h31t_download_and_gates()}
+{h31j_download_and_gates()}
+{rbu31_download_and_gates()}
+{h31m_download_and_gates()}
+{hvdc_download_and_gates()}
+{scgp_download_and_gates()}
+{download(card)}
+{h3_download_and_gates()}
       <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>
         <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
         <div class="card"><ul>{failed}</ul></div>
@@ -1048,11 +1131,13 @@ def research(card, screen, focus, lineage):
       for r in focus["rows"])
     rel = lineage["relations"]
     proxy = card["sgmc_proxy"]
-    return f'''<div class="notice"><strong>Evidence boundary</strong>Only measured geometry and local holdouts are verified here.
-      The literal registry gate FAILS: a registered spacing-5 lattice covers 99.52%–100% of fixed variants’ dots, and GEMSDOE48 continuous pignistic covers 100%. No new fit or TIFF follows this STOP. The reported 0.2778 and conflicting leaderboard anchors 0.3195 / 0.4413 have no organizer receipt in this project.
+    return f'''{xfcoh31_download_and_gates()}
+      <div class="notice"><strong>Active reviewed lane: XFCOH31. H31-S and MAGREST are separate prior records.</strong> The nine-site table retains owner/user claims, not organizer-confirmed scores; H33-2-B2 0.2778 remains USER-REPORTED.</div>
+      <div class="notice"><strong>Historical evidence boundary</strong>Only measured geometry and local holdouts are verified here.
+      The literal registry gate FAILS for the historical fixed variants as separately recorded: a registered spacing-5 lattice covers 99.52%–100% of their dots, and GEMSDOE48 continuous pignistic covers 100%. No new fit or TIFF follows this STOP. The reported 0.2778 and conflicting leaderboard anchors 0.3195 / 0.4413 have no organizer receipt in this project.
       Non-GitHub official pages cannot be re-fetched under this environment's host allowlist.</div>
       {h31s_download_and_gates()}
-      <section><div class="section-head"><div><p class="kicker">2026-10-26 Ranked Geological Hypotheses (Lane H31-S)</p><h2>Four untried Basin-and-Range buried-fault hypotheses</h2></div>
+      <section><div class="section-head"><div><p class="kicker">Prior separate 2026-10-26 H31-S campaign hypotheses</p><h2>Four ranked Basin-and-Range buried-fault hypotheses; H31-S was executed</h2></div>
         <p>Preregistered in <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_h31s_udap_sslic_preregistration.md">knowledge/2026-10-26_h31s_udap_sslic_preregistration.md</a> prior to running H31-S.</p></div>
         <div class="table-wrap"><table><thead><tr><th>Rank / ID</th><th>Specific layers &amp; physical signature</th><th>Why missing from USGS/INGENIOUS &amp; novelty vs repo</th><th>Expected DTI impact, cost &amp; verified free source</th></tr></thead><tbody>
           <tr><td>1 · H31-S (UDAP-SSLIC) · executed</td><td><code>depth_to_base_surf</code>, <code>iso_grav_anom_slope</code>, GeoDAWN <code>TMI_up150</code>/<code>K</code>/<code>Th</code>, <code>rtp</code>, <code>cond_surf</code>, GDR-1391 thermal/sinter/volcanics; Cordell&ndash;Grauch 45/55/65 deg up-dip advection + axial demagnetized trough + 2-stage strike-steered line-integral continuity</td><td>Dipping range-front &amp; intra-basin normal faults have gravity/magnetic steps shifted 200&ndash;1,200 m basinward (outside the 300 m DTI kernel), while hydrothermal conduits destroy magnetite along fault cores. First up-dip coordinate projection + nested OOF SSLIC in GEMSDOE31</td><td>Measured HOLDOUT-DTI 0.0948 (s41) &amp; 0.0980 (s42) vs 0.0591 / 0.0544 Physical-HGB (+61% to +80%); ~25 min on 2 CPUs · USGS INGENIOUS / GeoDAWN / GDR-1391</td></tr>

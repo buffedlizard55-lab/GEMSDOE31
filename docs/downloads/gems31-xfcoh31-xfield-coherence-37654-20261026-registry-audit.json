@@ -1,0 +1,228 @@
+{
+ "schema_version": 1,
+ "audited_utc": "2026-10-26T15:49:07+00:00",
+ "evidence_class": "COMPUTED exact-file duplicate-stop diagnostic; not a HOLDOUT-DTI or competition score",
+ "candidate": {
+  "path": "docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif",
+  "sha256": "857dd662430c0130c46f920666d70dae5df6148951ad76d42d31a8d540c32972",
+  "bytes": 795115,
+  "grid": {
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs": "EPSG:32611",
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "dtype": [
+    "float32"
+   ],
+   "count": 1,
+   "nodata": null,
+   "bytes": 795115
+  },
+  "positive_dots_inside_footprint": 37654,
+  "nan_or_inf_inside_footprint": 0,
+  "finite_everywhere": true
+ },
+ "template": {
+  "shape": [
+   3730,
+   3292
+  ],
+  "crs": "EPSG:32611",
+  "transform": [
+   100.0,
+   0.0,
+   243350.0,
+   0.0,
+   -100.0,
+   4508550.0
+  ],
+  "dtype": [
+   "float32"
+  ],
+  "count": 1,
+  "footprint_pixels": 5167373
+ },
+ "registry_witness": {
+  "registry_pin": "registry/shared_registry_57_pin.json",
+  "manifest": "registry/shared_registry_57_snapshot.json",
+  "manifest_sha256": "846eddb9459f0e5b67f33da519bbd62c966bf5f539545ba3dad262fbfbc308c2",
+  "registered_rasters_in_manifest": 695,
+  "registered_rasters_pinned": 695,
+  "rasters_examined": 1,
+  "coverage_complete": false,
+  "reason": "One authentic registered counterexample is sufficient for STOP; no exhaustive scan of all 695 rasters is claimed.",
+  "source_repository": "buffedlizard55-lab/57GEMSDOE",
+  "source_commit": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+  "source_url": "https://github.com/buffedlizard55-lab/57GEMSDOE/blob/822a0ce5546c7b6749cdd82eb145b6b3e616603d/docs/data/registry_refreshed.json",
+  "witness": {
+   "repo": "buffedlizard55-lab/GEMSDOE24",
+   "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+   "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+   "cache_file": ".cache/registry-scope/registered-lattice.tif",
+   "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+   "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif"
+  },
+  "witness_registered": true,
+  "witness_positive_pixels_inside_footprint": 206895
+ },
+ "surface_scope": {
+  "preplacement_surface_tested_against_shared_registry": false,
+  "reason": "This is a post-placement audit of the exact existing TIFF. The final-dot overlap alone triggers STOP, so no new placement or surface search was run."
+ },
+ "correlation": {
+  "method": "exact Spearman rank correlation (average ties) over the full 5,167,373-pixel template footprint",
+  "spearman_rho": 0.00042224816913071525,
+  "absolute_spearman_rho": 0.00042224816913071525,
+  "limit": 0.9,
+  "pass": true
+ },
+ "overlap": {
+  "distance_pixels": 3,
+  "candidate_dots_within_3px_of_witness": 37560,
+  "candidate_dots": 37654,
+  "fraction_within_3px": 0.9975035852764647,
+  "limit": 0.7,
+  "pass": false
+ },
+ "format_validation": {
+  "convention": "all-finite zeros outside footprint",
+  "ok_to_upload_format_only": true,
+  "organizer_acceptance_verified": false,
+  "hard_failures": [],
+  "checks": {
+   "template_single_band": {
+    "pass_": true,
+    "detail": "count=1",
+    "hard": true
+   },
+   "template_epsg_32611": {
+    "pass_": true,
+    "detail": "EPSG:32611",
+    "hard": true
+   },
+   "template_float32": {
+    "pass_": true,
+    "detail": "dtypes=('float32',)",
+    "hard": true
+   },
+   "template_has_finite_footprint": {
+    "pass_": true,
+    "detail": "5,167,373 finite pixels",
+    "hard": true
+   },
+   "template_expected_shape": {
+    "pass_": true,
+    "detail": "(3730, 3292) (expected (3730, 3292))",
+    "hard": true
+   },
+   "template_expected_transform": {
+    "pass_": true,
+    "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+    "hard": true
+   },
+   "template_expected_footprint": {
+    "pass_": true,
+    "detail": "5,167,373 (expected 5,167,373)",
+    "hard": true
+   },
+   "template_expected_outside": {
+    "pass_": true,
+    "detail": "7,111,787 (expected 7,111,787)",
+    "hard": true
+   },
+   "single_band": {
+    "pass_": true,
+    "detail": "count=1",
+    "hard": true
+   },
+   "dtype_float32": {
+    "pass_": true,
+    "detail": "dtypes=('float32',)",
+    "hard": true
+   },
+   "shape_matches_template": {
+    "pass_": true,
+    "detail": "(3730, 3292) vs (3730, 3292)",
+    "hard": true
+   },
+   "crs_matches_template": {
+    "pass_": true,
+    "detail": "EPSG:32611 vs EPSG:32611",
+    "hard": true
+   },
+   "transform_matches_template": {
+    "pass_": true,
+    "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+    "hard": true
+   },
+   "footprint_all_finite": {
+    "pass_": true,
+    "detail": "0 NaN/Inf inside 5,167,373 template cells",
+    "hard": true
+   },
+   "footprint_values_in_0_1": {
+    "pass_": true,
+    "detail": "min=0.0; max=1.0; required finite [0,1]",
+    "hard": true
+   },
+   "no_infinite_pixels": {
+    "pass_": true,
+    "detail": "0 infinite values",
+    "hard": true
+   },
+   "outside_footprint_nan": {
+    "pass_": true,
+    "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+    "hard": false
+   },
+   "nan_mask_matches_template": {
+    "pass_": true,
+    "detail": "not required under the all-finite convention",
+    "hard": false
+   },
+   "allfinite_values_in_0_1": {
+    "pass_": true,
+    "detail": "finite=True; min=0.0; max=1.0",
+    "hard": true
+   },
+   "outside_footprint_zero": {
+    "pass_": true,
+    "detail": "0 nonzero values outside footprint",
+    "hard": true
+   },
+   "output_epsg_32611": {
+    "pass_": true,
+    "detail": "EPSG:32611",
+    "hard": true
+   },
+   "output_100m_pixels": {
+    "pass_": true,
+    "detail": "xres=100, yres=-100",
+    "hard": true
+   },
+   "nodata_tag_nan_or_none": {
+    "pass_": true,
+    "detail": "nodata=None",
+    "hard": false
+   }
+  },
+  "receipt_path": "evidence/xfcoh31_validate_all-finite.json"
+ },
+ "literal_gate_pass": false,
+ "duplicate_stop": true,
+ "verdict": "STOP / NEGATIVE / DO NOT SUBMIT",
+ "ok_to_download_for_research": true,
+ "ok_to_submit": false,
+ "slot_approved": false,
+ "no_new_experiment_fit_surface_placement_or_tiff_written": true,
+ "scope_correction": "The prior focus-site comparison is a limited comparator subset, not a global uniqueness approval. The user's literal shared-registry rule includes the pinned calibration lattice; no density or control exemption is applied."
+}

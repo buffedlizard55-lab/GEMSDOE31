@@ -71,7 +71,10 @@ def main() -> None:
 
     index = (DOCS / "index.html").read_text()
     active_run = (ROOT / "registry/current_run.json").exists()
-    required_button = "Download new research TIFF" if active_run else "Download reference TIFF"
+    required_button = (
+        "Download MAGREST research TIFF (prior run; DO NOT SUBMIT)"
+        if active_run else "Download reference TIFF"
+    )
     if required_button not in index:
         fail(f"index.html: the {required_button!r} button is missing")
     if active_run:
@@ -83,7 +86,7 @@ def main() -> None:
         if readiness["ok_to_submit"] or card["ok_to_submit"]:
             fail("unsupported upload approval for this negative MAGREST run")
         if "DO NOT SUBMIT" not in index or "downloads/" + Path(card["file"]).name not in index:
-            fail("index does not prominently expose the new artifact with DO NOT SUBMIT")
+            fail("index omits the separate MAGREST research artifact or its DO NOT SUBMIT warning")
     if "not approved for upload" not in index.lower():
         fail("index.html: the no-upload-approval warning is missing")
     if "Download submission TIFF" in index:
@@ -160,9 +163,54 @@ def main() -> None:
     except (KeyError, TypeError, ValueError) as exc:
         fail(f"cannot verify submission ZIP metadata: {exc}")
 
-    feed = (DOCS / "feed.json").read_text()
+    feed_path = DOCS / "feed.json"
+    feed = feed_path.read_text()
     if "no organizer receipt" not in feed:
         fail("feed.json does not disclose the absent organizer receipt")
+
+    xfcoh_card_path = ROOT / "evidence/xfcoh31_run_card.json"
+    xfcoh_audit_path = ROOT / "evidence/xfcoh31_registry_stop_audit.json"
+    if xfcoh_card_path.is_file() and xfcoh_audit_path.is_file():
+        xfcoh = json.loads(xfcoh_card_path.read_text())
+        xf_audit = json.loads(xfcoh_audit_path.read_text())
+        for page_name in ("index.html", "executive-summary.html", "research.html", "xfcoh31.html"):
+            text = (DOCS / page_name).read_text()
+            for required in (
+                xfcoh["submission_name"],
+                xfcoh["raster_sha256"],
+                "DO NOT SUBMIT",
+                "r13-lattice-s5",
+                "99.7504%",
+            ):
+                if required not in text:
+                    fail(f"{page_name}: active XFCOH31 decision missing {required!r}")
+            if "New Unique GeoTIFF" in text:
+                fail(f"{page_name}: failed XFCOH31 artifact is described as a new unique GeoTIFF")
+        if not xf_audit["duplicate_stop"] or xf_audit["literal_gate_pass"] or xf_audit["ok_to_submit"]:
+            fail("the exact-file XFCOH31 receipt does not preserve the literal STOP / no-submit result")
+        try:
+            feed_data = json.loads(feed)
+            active = feed_data["current_download"]
+            lane = feed_data["active_lane"]
+            records = feed_data["technical_run_records"]
+            if active["name"] != xfcoh["submission_name"] or active["sha256"] != xfcoh["raster_sha256"]:
+                fail("feed.json current_download does not identify the exact XFCOH31 artifact")
+            if active["ok_to_submit"] or active["slot_approved"] or lane["id"] != "XFCOH31":
+                fail("feed.json incorrectly approves XFCOH31 or does not name it as the active review lane")
+            if records["H31-S"]["run_card"] == records["XFCOH31"]["run_card"] or records["MAGREST"]["run_card"] == records["XFCOH31"]["run_card"]:
+                fail("feed.json conflates XFCOH31 with the distinct H31-S or MAGREST run cards")
+            if records["MAGREST"]["run_card"] != "registry/current_run.json" or records["H31-S"]["run_card"] != "registry/h31s_current_run.json":
+                fail("feed.json lost the separate MAGREST/H31-S technical run references")
+            submission_register = json.loads((ROOT / "registry/submissions.json").read_text())
+            registered_lane = submission_register["active_review_lane"]
+            if registered_lane["id"] != "XFCOH31" or registered_lane["sha256"] != xfcoh["raster_sha256"]:
+                fail("registry/submissions.json active_review_lane does not identify the exact XFCOH31 artifact")
+            if registered_lane["ok_to_submit"] or registered_lane["slot_approved"]:
+                fail("registry/submissions.json incorrectly approves the XFCOH31 lane")
+            if submission_register["active_run_card"] != "registry/current_run.json":
+                fail("registry/submissions.json lost the separate MAGREST technical current_run reference")
+        except (KeyError, TypeError, ValueError) as exc:
+            fail(f"feed/registry active-lane structure is invalid: {exc}")
 
     print(f"checked {len(pages)} pages and {len(local_links(''.join(p.read_text() for p in pages)))} local links")
     for item in NOTES:

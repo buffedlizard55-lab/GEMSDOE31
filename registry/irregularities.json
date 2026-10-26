@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-10-25",
+  "generated_utc": "2026-10-26",
   "items": [
     {
       "id": "IR-31-SCORE-2600-D28",
@@ -567,6 +567,20 @@
       ],
       "impact": "Incorrect emission-economics explanation, not a discovered defect in shared scoring arithmetic. No model was rerun and no existing scientific result changed.",
       "resolution": "Corrected denominator, isolated-kernel-credit interpretation, score evidence wording and private-truth causal limits; added CI regression checks."
+    },
+    {
+      "id": "IR-31-XFCOH31-SHARED-REGISTRY-STOP",
+      "severity": "high",
+      "status": "open",
+      "summary": "The XFCOH31 card\u2019s focus-site comparator subset is not global uniqueness approval. A post-run exact-file audit finds 37,560 of 37,654 final dots (99.7504%) within 3 px of the authenticated r13-lattice-s5 witness in the pinned 695-raster shared registry, exceeding the literal 70% overlap limit.",
+      "evidence": [
+        "evidence/xfcoh31_registry_stop_audit.json: exact final TIFF SHA-256 857dd662430c0130c46f920666d70dae5df6148951ad76d42d31a8d540c32972; full-footprint Spearman rho 0.0004222482; overlap 37560/37654.",
+        "registry/shared_registry_57_pin.json pins r13-lattice-s5 (SHA-256 b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2) within registry/shared_registry_57_snapshot.json (695 rasters).",
+        "This is one authenticated witness, not an exhaustive scan; one counterexample is sufficient for the stated STOP rule.",
+        "evidence/xfcoh31_run_card.json records the separate HOLDOUT-DTI negative and the workflow/canary compliance gaps."
+      ],
+      "impact": "XFCOH31 is not globally unique under the literal shared-registry rule and must not be submitted. The prior genuine-focus-site subset pass does not override this STOP. Local format validity and the near-zero rank correlation do not change the overlap failure.",
+      "action": "Keep the existing TIFF research-download-only and slot_approved=false. Do not generate a new TIFF or run another experiment. Apply no density/calibration exemption unless the protocol owner explicitly changes the shared rule in writing; obtain explicit lane authorization before future work."
     }
   ]
 }

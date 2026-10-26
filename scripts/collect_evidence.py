@@ -558,23 +558,47 @@ def submissions_register() -> dict:
             slot_approved=False, ok_to_submit=False,
             evidence_class="COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
             warning="Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."))
+    xfcoh_card_path = ROOT / "evidence/xfcoh31_run_card.json"
+    xfcoh_audit_path = ROOT / "evidence/xfcoh31_registry_stop_audit.json"
+    active_review_lane = None
+    if xfcoh_card_path.is_file() and xfcoh_audit_path.is_file():
+        xfcoh_card = json.loads(xfcoh_card_path.read_text())
+        xfcoh_audit = json.loads(xfcoh_audit_path.read_text())
+        active_review_lane = {
+            "id": "XFCOH31",
+            "run_card": "evidence/xfcoh31_run_card.json",
+            "exact_file_audit": "evidence/xfcoh31_registry_stop_audit.json",
+            "file": xfcoh_audit["candidate"]["path"],
+            "sha256": xfcoh_card["raster_sha256"],
+            "role": "Active reviewed lane; existing research TIFF only; negative HOLDOUT-DTI and literal shared-registry overlap STOP.",
+            "verdict": "negative",
+            "ok_to_download_for_research": True,
+            "ok_to_submit": False,
+            "slot_approved": False,
+            "holdout_dti": xfcoh_card["holdout_dti"],
+            "literal_shared_registry_audit": xfcoh_card["literal_shared_registry_audit"],
+        }
+
     return {
         "schema_version": 2,
-        "generated_utc": "2026-10-25",
+        "generated_utc": "2026-10-26",
+        "active_review_lane": active_review_lane,
         "parallel_archived_files": parallel,
         "parallel_source_archive": "registry/parallel_main_archive_20261025.json",
         "active_run_card": "registry/current_run.json" if current_path.exists() else None,
-        "policy": "Active/historical file metadata comes from its format receipt; parallel archived TIFF hashes are "
-                  "recomputed from served bytes and carry no new scientific/format endorsement. Local validation "
+        "active_run_card_scope": "MAGREST technical run record; not the separate active XFCOH31 review lane.",
+        "policy": "Submission-shaped file metadata comes from its format receipt; parallel archived TIFF hashes are "
+                  "recomputed from served bytes and carry no new scientific/format endorsement. active_review_lane "
+                  "records the current XFCOH31 review separately from the MAGREST technical current_run. Local validation "
                   "is not organizer acceptance; no exact-file organizer score receipt is present.",
         "current_recommended": {
             "name": None,
-            "role": "No submission is recommended; the active run card separately identifies the research-only download.",
+            "role": "No submission is recommended; active_review_lane identifies the XFCOH31 research-only file, while active_run_card remains the separate MAGREST technical record.",
             "historical_reference": primary["name"] if primary else None,
             "score_status": "owner-reported live 0.2708 for the underlying GEMSDOE28 artifact; no organizer "
                             "receipt exists in this repository",
             "slot_approved": False,
-            "reason_not_slot_approved": "Literal shared-registry overlap STOP and failed MAGREST screen; no comparable global-best evidence, confirmation or separate selector approval.",
+            "reason_not_slot_approved": "XFCOH31 has a literal shared-registry overlap STOP and negative HOLDOUT-DTI; MAGREST is a separate negative technical run. No comparable global-best evidence, confirmation or separate selector approval exists.",
         },
         "best_research_candidate": {
             "name": best_research["name"] if best_research else None,

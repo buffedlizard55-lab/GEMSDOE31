@@ -15,6 +15,7 @@ import json
 from pathlib import Path
 
 import current_site
+from build_xfcoh31_page import build_page as build_xfcoh31_page
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
@@ -257,12 +258,10 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     if current:
         hero, body = current_site.overview(current)
         body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
-        rbu = load("evidence/regime31b/run_card.json") or load("evidence/regime31/run_card.json")
-        desc = ("Download the new MAGREST research TIFF. Format-valid; not approved for upload."
-                if not rbu else
-                ("RBU31 regime-balanced union: newly computed, duplicate-screened GeoTIFF passing every automated "
-                 "validation gate. OK to download and submit." if rbu.get("ok_to_download_and_submit") else
-                 "Newest candidate RBU31 failed an automated validation gate; research only, do not submit."))
+        xfcoh = load("evidence/xfcoh31_run_card.json")
+        desc = ("Active reviewed lane XFCOH31: research download only; HOLDOUT-DTI negative and literal shared-registry STOP; DO NOT SUBMIT."
+                if xfcoh else
+                "MAGREST is a separate historical research run; format-valid but not approved for upload.")
         return shell("", "Overview", desc,
                      "Overview", hero, body, "Maximize P(Win) · Own the Outcome · negative results preserved.")
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
@@ -977,6 +976,77 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
         feed["automation"]["rule"] = "Deterministic evidence/site build and integrity checks on push/PR. No leaderboard polling, automatic uploads or current-score feed."
         feed["open_items"] = current["failed_or_unknown_gates"] + ["no organizer receipt for any claimed score"]
         feed["proxy_scores_scope"] = "Historical 2026-10-04 instruments below lack comparable current masks/CI; never promotion evidence for MAGREST."
+
+    xfcoh = load("evidence/xfcoh31_run_card.json")
+    xfcoh_audit = load("evidence/xfcoh31_registry_stop_audit.json")
+    h31s = load("registry/h31s_current_run.json")
+    if xfcoh and xfcoh_audit:
+        # The registry/current_run.json technical receipt still belongs to MAGREST.
+        # Keep it, H31-S, and XFCOH31 explicitly distinct while exposing the active
+        # reviewed lane as the current research-download decision in the public feed.
+        prior_run_download = feed.get("current_download")
+        active_file = xfcoh_audit["candidate"]["path"]
+        active_zip = active_file.removesuffix("-zeros.tif") + "-zeros.zip"
+        feed["prior_run_download_MAGREST"] = prior_run_download
+        feed["active_lane"] = {
+            "id": "XFCOH31",
+            "run_card": "evidence/xfcoh31_run_card.json",
+            "exact_file_audit": "evidence/xfcoh31_registry_stop_audit.json",
+            "verdict": "negative",
+            "ok_to_download_for_research": True,
+            "ok_to_submit": False,
+            "slot_approved": False,
+            "reason": "HOLDOUT-DTI failed against the same-run base-19 control and exact final-dot overlap exceeds the literal shared-registry 70% STOP limit.",
+        }
+        feed["current_download"] = {
+            "name": xfcoh["submission_name"],
+            "tif": active_file,
+            "zip": active_zip,
+            "sha256": xfcoh["raster_sha256"],
+            "note": xfcoh["note"],
+            "positive_pixels": xfcoh_audit["candidate"]["positive_dots_inside_footprint"],
+            "format_validated_format_only": xfcoh_audit["format_validation"]["ok_to_upload_format_only"],
+            "organizer_acceptance_verified": False,
+            "verdict": "negative",
+            "ok_to_download_for_research": True,
+            "ok_to_submit": False,
+            "slot_approved": False,
+            "holdout_dti": xfcoh["holdout_dti"],
+            "focus_site_comparison_subset_only": xfcoh["focus_site_comparison_scope"],
+            "literal_shared_registry_audit": xfcoh["literal_shared_registry_audit"],
+            "protocol_compliance_review": xfcoh["protocol_compliance_review"],
+        }
+        feed["technical_run_records"] = {
+            "XFCOH31": {
+                "run_card": "evidence/xfcoh31_run_card.json",
+                "audit": "evidence/xfcoh31_registry_stop_audit.json",
+                "tif": active_file,
+                "sha256": xfcoh["raster_sha256"],
+                "status": "active review lane; research download only; DO NOT SUBMIT",
+            },
+            "H31-S": {
+                "run_card": "registry/h31s_current_run.json",
+                "tif": h31s["artifact"]["file_zeros"] if h31s else None,
+                "sha256": h31s["artifact"]["sha256_zeros"] if h31s else None,
+                "status": "separate prior run; its own decision is unchanged",
+            },
+            "MAGREST": {
+                "run_card": "registry/current_run.json" if current else None,
+                "tif": current["file"] if current else None,
+                "sha256": current["raster_sha256"] if current else None,
+                "status": "separate prior run; its own decision is unchanged",
+            },
+        }
+        feed["generated_utc"] = xfcoh_audit["audited_utc"]
+        feed["source_access"] = "No fresh external source retrieval in this review; official URLs remain references. No DrivenData access, leaderboard scrape, upload, or organizer contact."
+        feed["automation"]["rule"] = "Deterministic evidence/site build and exact-file audit. No leaderboard polling, automatic uploads, or score feed."
+        feed["open_items"] = [
+            "XFCOH31 HOLDOUT-DTI is negative against its same-run base-19 control",
+            "literal shared-registry overlap STOP is established by one authentic witness; the 695-raster scan is not exhaustive",
+            "no organizer receipt for any claimed score or local format acceptance",
+            "resolve the literal registry rule and obtain explicit method-lane authorization before any future experiment",
+        ]
+        feed["proxy_scores_scope"] = "Local HOLDOUT-DTI is reported with evaluator, withheld-positive count and 95% CI; it is not a competition score. H31-S and MAGREST remain separate run records."
     payload = json.dumps(feed, indent=1) + "\n"
     rows = [[e(k), f"<code>{e(json.dumps(v))}</code>"] for section, values in feed.items()
             if isinstance(values, dict) and section not in ("sources", "automation")
@@ -1362,6 +1432,20 @@ def main() -> None:
         DOCS / "register" / "index.html": build_register(data, sources, buffer_derivation),
         DOCS / "experiments" / "index.html": build_experiments_index(submissions),
     }
+    xfcoh_card = load("evidence/xfcoh31_run_card.json")
+    xfcoh_audit = load("evidence/xfcoh31_registry_stop_audit.json")
+    if xfcoh_card and xfcoh_audit:
+        pages[DOCS / "xfcoh31.html"] = build_xfcoh31_page(xfcoh_card, xfcoh_audit)
+        stem = xfcoh_card["submission_name"]
+        for source_path, output_name in (
+            ("evidence/xfcoh31_run_card.json", f"{stem}-run-card.json"),
+            ("evidence/xfcoh31_registry_stop_audit.json", f"{stem}-registry-audit.json"),
+            ("evidence/xfcoh31_validate_all-finite.json", f"{stem}-format-check-all-finite.json"),
+            ("evidence/xfcoh31_validate_nan-outside.json", f"{stem}-format-check-nan-outside.json"),
+        ):
+            payload = load(source_path)
+            if payload is not None:
+                pages[DOCS / "downloads" / output_name] = json.dumps(payload, indent=1, allow_nan=False) + "\n"
     for exp in EXPERIMENTS:
         pages[DOCS / "experiments" / f"{exp['slug']}.html"] = build_experiment_page(exp)
     feed_json, feed_html = build_feed(submissions, buffer_derivation, union, arms, sources)

@@ -2,33 +2,17 @@
 
 ## Current status — 2026-10-26 (read first)
 
-**New unique candidate this session: CSDU concealed stepover-dilation upflow (`gemsdoe31-csdu-stepover-8cf9dc27`).**
-- **OK to download for research:** YES — format-valid GeoTIFF, 4,000 binary dots, 0 on public catalogue, finite [0,1] inside footprint, EPSG:32611, 3730×3292, 100 m. One-click downloads, validation receipt and run card on the [executive-summary page](docs/executive-summary.html).
-- **OK to submit to DrivenData:** NO — holdout efficacy and registry uniqueness cannot be verified offline (no competition truth); `slot_approved = false`, `verdict = negative`. Not uploaded.
+**Active reviewed lane: XFCOH31 is NEGATIVE. DOWNLOAD FOR RESEARCH: YES · SUBMIT: NO — DO NOT SUBMIT.** The exact existing TIFF has 37,560/37,654 dots (99.7504%) within 3 px of one pinned `r13-lattice-s5` witness, over the literal 70% STOP limit. The witness is one of 695 registered rasters; this is sufficient for STOP, not an exhaustive scan. Full-footprint Spearman rho is `0.0004222482`.
 
-**Nine focus sites (GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36):** the highest listed claim is GEMSDOE32 H33-2-B2 at USER-REPORTED 0.2778, but every listed "best" is >86% within 3 px of H33 — a duplicate lane, not a submittable new entry. **No file is slot-approved.**
+- [Download the existing XFCOH31 research TIFF](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif) · [exact-file audit](evidence/xfcoh31_registry_stop_audit.json) · [run card](evidence/xfcoh31_run_card.json) · [decision page](docs/xfcoh31.html) · [three-pass review](knowledge/session_review_2026-10-26_xfcoh31.md).
+- **HOLDOUT-DTI** (`gemsdoe31-holdout-v1`, 58,625 withheld positives): XFCOH31 `0.0458814` (95% CI `[0.0411819, 0.0511205]`) vs base-19 `0.0481217` (`[0.0436109, 0.0529829]`); paired Δ `-0.0022403` (`[-0.0048284, 0.0001154]`). These are evaluator results, not competition scores.
+- Local format validation passes. That proves neither uniqueness nor organizer acceptance; no submission or weekly slot is approved.
 
-> **Review 2026-10-26 (main branch):** no new submission approved and no new TIFF generated on that review continuation; the latest candidate remains H31-S (`UDAP-SSLIC`), research download only and **DO NOT SUBMIT**. No experiment, upload, leaderboard access, or weekly slot was used in that review.
+**Separate CSDU research artifact:** `gemsdoe31-csdu-stepover-8cf9dc27` is also downloadable ([all-finite TIFF](docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif) · [run card](docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json)). Its local format receipt reports 4,000 dots and zero public-catalogue overlap; holdout efficacy and shared-registry uniqueness have not been established. It is not approved for submission and does not change the active XFCOH31 STOP.
 
-# GEMSDOE31 — auditable GEMS Prize fault-mapping research
+The nine-site summary covers GEMSDOE24/25/27/28/30/31/32/33/36. GEMSDOE32 H33-2-B2 `0.2778` remains **USER-REPORTED**, with no organizer receipt. H31-S and MAGREST remain separate prior run records. The prior marginal-DTI algebra and score-provenance corrections are preserved; no historical raster result was changed.
 
-## Current status — 2026-10-26 (read first)
-
-**New unique candidate this session: CSDU concealed stepover-dilation upflow (`gemsdoe31-csdu-stepover-8cf9dc27`).**
-- **OK to download for research:** YES — format-valid GeoTIFF, 4,000 binary dots, 0 on public catalogue, finite [0,1] inside footprint, EPSG:32611, 3730×3292, 100 m. One-click downloads, validation receipt and run card on the [executive-summary page](docs/executive-summary.html).
-- **OK to submit to DrivenData:** NO — holdout efficacy and registry uniqueness cannot be verified offline (no competition truth); `slot_approved = false`, `verdict = negative`. Not uploaded.
-
-**Nine focus sites (GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36):** the highest listed claim is GEMSDOE32 H33-2-B2 at USER-REPORTED 0.2778, but every listed "best" is >86% within 3 px of H33 — a duplicate lane, not a submittable new entry. **No file is slot-approved.**
-
-See `docs/executive-summary.html` for the full per-site table, the H33-2-B2 analysis, the portal submission how-to, and five new hypotheses. All claims are labelled OFFICIAL / OWNER-MIRROR / COMPUTED / USER-REPORTED; no organizer receipt exists for any score.
-
-> **XFCOH31 (2026-10-26, this lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**
-> Download: [gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif) · [run card](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-run-card.json) · [decision page](docs/xfcoh31.html) · [executive summary](knowledge/2026-10-26_xfcoh31_executive_summary.md)
-> HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld): candidate 0.04588 vs same-run base-19 control 0.04812, paired Δ −0.00224 [−0.00483, +0.00012] → verdict **negative**, no weekly slot. Uniqueness vs genuine focus submissions: max ρ 0.087, max 3-px overlap 30.7%. Validator: no hard failures, values in [0,1] (fixes the reported range-error class).
-> **2026-10-26 EXECUTIVE SUMMARY (read first):** `knowledge/2026-10-26_executive_summary_and_hypotheses.md` — 9-site verdict: best claim H33-2-B2 0.2778 (USER-REPORTED, a D2.8 catalogue-prune, NOT submittable as new); new unique CONCORD31 TIF download-for-research / DO NOT SUBMIT (holdout not run). No file is slot-approved.
-# GEMSDOE31 — auditable GEMS Prize fault-mapping research
-
-> **Latest reviewed session (2026-10-26): unique `H31-S` (`UDAP-SSLIC`) GeoTIFF generated and automatically validated. Current decision: research download only; DO NOT SUBMIT.**
+> **Prior separate run record: `H31-S` (`UDAP-SSLIC`, 2026-10-26).** This is not the active XFCOH31 decision; H31-S retains its own research-only status and separate evidence.
 > **DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (`DO NOT SUBMIT`, `slot_approved = false`).**
 > [**Download H31-S Research `.tif` (all-finite `[0, 1]` zeros-outside)**](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) ·
 > [NaN-outside twin `.tif`](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif) ·
@@ -178,12 +162,12 @@ See `docs/executive-summary.html` for the full per-site table, the H33-2-B2 anal
 ## Read first every session
 
 Read this README **including the complete normalized owner prompt at the end**, `AGENTS.md`,
-[latest status](knowledge/current_status_2026-10-25.md),
-[MAGREST preregistration](knowledge/2026-10-25_magrest_preregistration.md),
-[latest outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.
-The earlier H31-A STOP remains historical. The prior session has receipts for all-eleven-input and template-cache restoration,
-but this clean runtime did not contain the full ignored production data/cache; only the small validation inputs and pinned
-registry witness were restored for this review. Do not restart a stopped lane or add a fourth experiment.
+[latest status](knowledge/current_status_2026-10-26.md),
+[XFCOH31 preregistration](knowledge/2026-10-26_xfcoh31_preregistration.md),
+[latest three-pass review](knowledge/session_review_2026-10-26_xfcoh31.md), and `registry/review_passes.json`.
+The earlier H31-A STOP remains historical. Only the small validation inputs and pinned registry witness were restored
+for this review; the full ignored production data/cache was not available. Do not restart XFCOH31, add a fourth experiment,
+or treat H31-S, MAGREST, or CSDU as the XFCOH31 run.
 
 **Arena core values for this project: Maximize P(Win) · Own the Outcome.**
 
@@ -191,15 +175,16 @@ registry witness were restored for this review. Do not restart a stopped lane or
 
 | what | where |
 | --- | --- |
-| New MAGREST TIFF download + explicit no-upload status | [site home](docs/index.html) · [executive summary](docs/executive-summary.html) |
-| H33 0.2778 claim audit, nine-site review, hypotheses and results | [research](docs/research.html) |
+| Active XFCOH31 decision (research download only; DO NOT SUBMIT) | [site home](docs/index.html) · [decision page](docs/xfcoh31.html) · [executive summary](docs/executive-summary.html) |
+| Exact shared-registry STOP audit | [audit JSON](evidence/xfcoh31_registry_stop_audit.json) · [recompute/verify script](scripts/audit_xfcoh31_registry_stop.py) |
+| Separate CSDU research artifact (not submission-approved) | [all-finite TIFF](docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif) · [run card](docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json) |
+| H33 USER-REPORTED 0.2778 claim audit, nine-site review, hypotheses | [research](docs/research.html) · [executive summary](knowledge/2026-10-26_xfcoh31_executive_summary.md) |
 | Buffer derivation, collar control, metric proof, truth proxies | [validation](docs/validation.html) |
 | Inputs, score claims, irregularities, review passes | [register](docs/register/index.html) |
-| Historical experiment log (11 pages); current three-variant result | [archive](docs/experiments/index.html) · [MAGREST research](docs/research.html) |
+| Historical experiment log; separate H31-S and MAGREST results | [archive](docs/experiments/index.html) · [MAGREST research](docs/research.html) |
 | Machine-readable state | [`feed.json`](docs/feed.json) · [`registry/`](registry/) · [`evidence/`](evidence/) |
-| Previous repository review | [2026-10-25 review](knowledge/repo_review_2026-10-25.md) |
-| Latest clean-runtime review | [Arena review](knowledge/repo_review_2026-10-25_arena.md) |
-| Latest status / score audit | [Current status](knowledge/current_status_2026-10-25.md) · [MAGREST review](knowledge/session_review_2026-10-25_magrest.md) · [irregularity register](registry/irregularities.json) |
+| Latest status / three-pass review | [Current status](knowledge/current_status_2026-10-26.md) · [XFCOH31 review](knowledge/session_review_2026-10-26_xfcoh31.md) · [irregularity register](registry/irregularities.json) |
+| Earlier repository review | [2026-10-25 review](knowledge/repo_review_2026-10-25.md) · [clean-runtime review](knowledge/repo_review_2026-10-25_arena.md) |
 | AI-use disclosure draft for the narrative | [ai-disclosure](docs/ai-disclosure.html) |
 
 GitHub Pages serves [`docs/`](docs/index.html); the root [`index.html`](index.html) redirects there.

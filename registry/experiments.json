@@ -782,14 +782,19 @@
    "sha256": "d0d8782f5b87a28b873c9e0112cf6bd5ae984125ada65707bc9c78051fb16fba"
   },
   {
+   "path": "evidence/xfcoh31_registry_stop_audit.json",
+   "bytes": 6647,
+   "sha256": "0d8f974c63bb17a7c390ed04022a3db09240cb3a08a5d3363a1cca3d3e7a66f7"
+  },
+  {
    "path": "evidence/xfcoh31_results.json",
    "bytes": 1855,
    "sha256": "d05eb5164a7d8d4f82b1c399a4bd1754aa5a7cb5134252f242da3f1a4dd7c553"
   },
   {
    "path": "evidence/xfcoh31_run_card.json",
-   "bytes": 5795,
-   "sha256": "75e2157219cca8cabd1ec6764b425b2e4ed11c6ab243dc4c55528d553b862f9e"
+   "bytes": 10479,
+   "sha256": "b3c7564077cfaccea2835288265867c8ff8c10eb2ce98cc43f06c418ed0f6384"
   },
   {
    "path": "evidence/xfcoh31_uniqueness.json",

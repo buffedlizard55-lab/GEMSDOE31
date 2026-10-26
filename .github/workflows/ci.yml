@@ -29,6 +29,7 @@ jobs:
           python scripts/verify_current_run.py --restore-small-inputs
           python scripts/verify_h31j.py
           python scripts/verify_h31t.py
+          python scripts/audit_xfcoh31_registry_stop.py --check-record
       - name: Unit, leakage, metric, writer and regression tests
         run: python -m pytest -q
       - name: Lint and compile
