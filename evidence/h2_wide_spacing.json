@@ -1,0 +1,30 @@
+{
+ "hypothesis": "H2-wide-spacing-liDAR-scarp",
+ "mechanism": "LiDAR generic scarp surface (ex_max percentile rank) at wide 5.0px Poisson-disk spacing",
+ "non_fault_mimic": "road cuts, terrace risers, gully headcuts (all face downslope; antislope bias suppresses)",
+ "evaluator": "LANE-EVAL-1",
+ "budget": 20000,
+ "flank_px": 2.0,
+ "min_dist_px": 5.0,
+ "canary": {
+  "auc_off_catalogue_sgmc": 0.7550293132382054,
+  "auc_catalogue": 0.5696857347742357
+ },
+ "dots_emitted": 20000,
+ "instruments": {
+  "D28-incumbent": {
+   "HOLDOUT_DTI": 0.04345853514893307,
+   "ci95_tile_bootstrap": [
+    0.03923914621338122,
+    0.048443561901601505
+   ]
+  },
+  "H2-wide-spacing@20k": {
+   "HOLDOUT_DTI": 0.004808287972657906,
+   "ci95_tile_bootstrap": [
+    0.003594342110935544,
+    0.00606881653258656
+   ]
+  }
+ }
+}

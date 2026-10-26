@@ -682,6 +682,45 @@
       "halo_file": "work/novelty/7b7b86df1aecdc4b87aac62fa03a7b8e759f1f7eea228687c520f82aa7c2a836-halo.npy"
     },
     {
+      "content_sha256": "023d08a4e4ce8680566c4afbb3402b84f99995851dadccd7cec90323ae9751ab",
+      "sources": [
+        "local://docs/downloads/gemsdoe31-concord31-minbd-concordance-28115-20261026-allfinite.tif",
+        "local://docs/downloads/gemsdoe31-concord31-minbd-concordance-28115-20261026-nan.tif"
+      ],
+      "source_sha256": "e7463b56aedc30263a08e9318bd8f336ab424f2c236734017e5b5cba75b89882",
+      "nonfinite_inside_prior": 0,
+      "positive_pixels": 28115,
+      "constant_ranks": false,
+      "ranks_file": "work/novelty/023d08a4e4ce8680566c4afbb3402b84f99995851dadccd7cec90323ae9751ab-ranks.npy",
+      "halo_file": "work/novelty/023d08a4e4ce8680566c4afbb3402b84f99995851dadccd7cec90323ae9751ab-halo.npy"
+    },
+    {
+      "content_sha256": "c1afd905d7ac454215f576b4d25e65069011dd14036ca8fe1b6f0fe6191435c0",
+      "sources": [
+        "local://docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
+        "local://docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.tif"
+      ],
+      "source_sha256": "7906d5744a8456f09cb17193f4a3f7169a893d3c5ccddcb75b1c28fdb68e662a",
+      "nonfinite_inside_prior": 0,
+      "positive_pixels": 50000,
+      "constant_ranks": false,
+      "ranks_file": "work/novelty/c1afd905d7ac454215f576b4d25e65069011dd14036ca8fe1b6f0fe6191435c0-ranks.npy",
+      "halo_file": "work/novelty/c1afd905d7ac454215f576b4d25e65069011dd14036ca8fe1b6f0fe6191435c0-halo.npy"
+    },
+    {
+      "content_sha256": "2c35067b0bc13c7b117c44d4396f50044f77d9364afe96df9fce69ad07f2bbe4",
+      "sources": [
+        "local://docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+        "local://docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif"
+      ],
+      "source_sha256": "1cce914c6daa274ce84cfe215540cdb03bef88f880c952e528807378b826262d",
+      "nonfinite_inside_prior": 0,
+      "positive_pixels": 37654,
+      "constant_ranks": false,
+      "ranks_file": "work/novelty/2c35067b0bc13c7b117c44d4396f50044f77d9364afe96df9fce69ad07f2bbe4-ranks.npy",
+      "halo_file": "work/novelty/2c35067b0bc13c7b117c44d4396f50044f77d9364afe96df9fce69ad07f2bbe4-halo.npy"
+    },
+    {
       "content_sha256": "8f78f62f4ad59c15490b4a3ccc5174bf2d4d07aad21755aadfc54c43bb9db960",
       "sources": [
         "local://docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
@@ -721,6 +760,19 @@
       "halo_file": "work/novelty/bdb00b43f4af33977222290430e6df342bf69ef89e9d7f026698cef43d275eea-halo.npy"
     },
     {
+      "content_sha256": "f038cb070b83f3e8a909b218d2494f3bfc42ad644e34d922ead4e0f2cf3af185",
+      "sources": [
+        "local://docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif",
+        "local://docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif"
+      ],
+      "source_sha256": "8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0",
+      "nonfinite_inside_prior": 0,
+      "positive_pixels": 37654,
+      "constant_ranks": false,
+      "ranks_file": "work/novelty/f038cb070b83f3e8a909b218d2494f3bfc42ad644e34d922ead4e0f2cf3af185-ranks.npy",
+      "halo_file": "work/novelty/f038cb070b83f3e8a909b218d2494f3bfc42ad644e34d922ead4e0f2cf3af185-halo.npy"
+    },
+    {
       "content_sha256": "ce13eb72f7a4edb697807a23b0f28a6c69dd9b8dbe4a9fc06ccc6eb40f686ade",
       "sources": [
         "local://docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
@@ -732,6 +784,32 @@
       "constant_ranks": false,
       "ranks_file": "work/novelty/ce13eb72f7a4edb697807a23b0f28a6c69dd9b8dbe4a9fc06ccc6eb40f686ade-ranks.npy",
       "halo_file": "work/novelty/ce13eb72f7a4edb697807a23b0f28a6c69dd9b8dbe4a9fc06ccc6eb40f686ade-halo.npy"
+    },
+    {
+      "content_sha256": "dd94c8ed95194a551a2379efe1b9250281e15690d7487b9ce76685cb71c7ccd1",
+      "sources": [
+        "local://docs/downloads/gemsdoe31-rbu31-regimeunion-37654-20261025-1788ff29-allfinite.tif",
+        "local://docs/downloads/gemsdoe31-rbu31-regimeunion-37654-20261025-1788ff29-nan.tif"
+      ],
+      "source_sha256": "d526159a7c96320db73e794835e1475fead3db6eb80b3bd270953eae3f2a8f98",
+      "nonfinite_inside_prior": 0,
+      "positive_pixels": 37654,
+      "constant_ranks": false,
+      "ranks_file": "work/novelty/dd94c8ed95194a551a2379efe1b9250281e15690d7487b9ce76685cb71c7ccd1-ranks.npy",
+      "halo_file": "work/novelty/dd94c8ed95194a551a2379efe1b9250281e15690d7487b9ce76685cb71c7ccd1-halo.npy"
+    },
+    {
+      "content_sha256": "85da33dc475f46a38284eaadbe1f78b2aa7a7ec90d181fa869aecb0f4cbe4710",
+      "sources": [
+        "local://docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif",
+        "local://docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.tif"
+      ],
+      "source_sha256": "07c939198a9145ae8281012bcba2c2167e3a6a482dd15c04ce3872b5b94e1041",
+      "nonfinite_inside_prior": 0,
+      "positive_pixels": 37654,
+      "constant_ranks": false,
+      "ranks_file": "work/novelty/85da33dc475f46a38284eaadbe1f78b2aa7a7ec90d181fa869aecb0f4cbe4710-ranks.npy",
+      "halo_file": "work/novelty/85da33dc475f46a38284eaadbe1f78b2aa7a7ec90d181fa869aecb0f4cbe4710-halo.npy"
     },
     {
       "content_sha256": "76c66ea1b856bbe8736159bdc83873c6257f84a2e4bff6388cb5bd68057dcf40",
@@ -769,9 +847,9 @@
       ]
     }
   ],
-  "byte_rasters": 131,
-  "comparable_files": 130,
-  "distinct_prediction_fields": 57,
+  "byte_rasters": 143,
+  "comparable_files": 142,
+  "distinct_prediction_fields": 63,
   "scope": "Complete 9-focus-repo inventory (GEMSDOE24,25,27,28,30,31,32,33,36) + current GEMSDOE31 (MAGREST, H31-E2) + GEMSDOE70 s2-oof38k",
   "prior_missing_convention": "nonfinite prior cells rank as zero and do not count as dots; this is a diagnostic convention, not format repair",
   "halo_radius_px": 3,

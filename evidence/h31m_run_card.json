@@ -1,0 +1,143 @@
+{
+  "run_id": "GEMSDOE31-20261025-H31M",
+  "branch": "arena/ee48fe7a-gemsdoe31",
+  "hypothesis": "H31-M: Concealed range-front piedmont and intrabasinal faults missing from the USGS/INGENIOUS catalogue produce co-axial subsurface fractional basement-throw steps, Miller-Singh gravity tilt zero-crossings, Blakely-Simpson shallow RTP bandpass crests, and lateral conductance gradients aligned in strike with muted piedmont topographic flexures; calibrating via LiDAR-propensity-deconfounded Bayes OOF trees and allocating 37,654 off-catalogue (B=2, >200 m) dots via exact 29-cell lazy-greedy submodular DTI maximization simultaneously improves hide-and-recover holdout DTI, off-catalogue discovery DTI, and piedmont fault recovery.",
+  "mechanism": "Computes 8 label-free geophysical/structural channels (bstep_grad_norm, bstep_inflect, grav_tilt_zero, rtp_bandpass_crest, cond_grad_ridge, sub_tensor_coh, surf_piedmont_ridge, xmod_strike_concordance), fits 2-seed spatially collared 4-quadrant out-of-fold dual-head HistGradientBoosting models (M_sub on 37 full-coverage bands + M_lidar strictly within lidar_valid on 48 bands with Bayes prior-odds normalization and quantile marginal alignment), and selects 37,654 binary 1.0 dots at d(catalogue) > 200 m via Minoux lazy-greedy maximization of exact 29-offset R=300m triangular kernel coverage.",
+  "named_non_fault_mimic_process": "(1) Pluvial Lake Lahontan wave-cut shoreline benches and fluvial terrace risers (suppressed because they lack co-axial subsurface basement-throw steps and gravity tilt zero-crossings, driving xmod_strike_concordance -> 0); (2) Circular Mesozoic pluton margins and caldera ring contacts (suppressed by 300 m structure-tensor linear anisotropy coherence sub_tensor_coh); (3) Flat conductive evaporite playas (zeroed by taking lateral conductance gradient |grad(cond_surf)|); (4) 3DEP LiDAR acquisition tile borders and 0-200 m public-catalogue smoothing halos (eliminated by within-coverage training stratification and B=2 visible-catalogue exclusion).",
+  "holdout_dti_and_ci": {
+    "catalogue_gap_hide_and_recover_screen": "HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld positives, pooled=0.1350, 95% CI [0.1163, 0.1566]; same-run base=0.1135, paired delta 95% CI [+0.0064, +0.0380])",
+    "catalogue_gap_hide_and_recover_confirm": "HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld positives, pooled=0.1372, 95% CI [0.1191, 0.1580]; same-run base=0.1127)",
+    "off_catalogue_sgmc_4block_collared": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.1077, 95% CI [0.0902, 0.1336])",
+    "baseline_gemsdoe32_b2_off_catalogue_sgmc_4block": "HOLDOUT-DTI (evaluator_v2.0_protocol_v1_buffer21250m, 50,470 withheld positives, mean=0.0984, 95% CI [0.0797, 0.1159])",
+    "piedmont_off_catalogue_sgmc_diagnostic": "HOLDOUT-DTI (piedmont_off_sgmc_slope_le_6deg, 11,573 off-catalogue piedmont positives, H31-M=0.0641 vs GEMSDOE32_B2=0.0586 vs H31-B=0.0052)"
+  },
+  "correlation_and_overlap_vs_registry": {
+    "max_pre_placement_surface_spearman": 0.72037,
+    "max_binary_spearman": 0.05392,
+    "max_within_3px_dot_overlap": 0.53155,
+    "surface_spearman_by_target": {
+      "oof_B_continuous": 0.72037,
+      "oof_D_continuous": 0.70239,
+      "h31b_S_H31_continuous": 0.39126,
+      "raster_h31b_standalone": 0.04979,
+      "raster_h31b_hybrid": 0.06451,
+      "raster_h27_4_incumbent": 0.06786,
+      "raster_union_b_p060": 0.1597,
+      "raster_add_arm_d28": 0.09452,
+      "raster_d28_reference": 0.07282,
+      "raster_h31e_surfexpr": 0.05376,
+      "raster_gemsdoe32_h33_2_b2": 0.06506
+    },
+    "dots_vs_registry": {
+      "h31b_standalone": {
+        "within_3px_fraction": 0.32772,
+        "exact_intersection_dots": 756,
+        "binary_spearman": 0.01362
+      },
+      "h31b_hybrid": {
+        "within_3px_fraction": 0.40899,
+        "exact_intersection_dots": 1083,
+        "binary_spearman": 0.01973
+      },
+      "h27_4_incumbent": {
+        "within_3px_fraction": 0.41459,
+        "exact_intersection_dots": 1102,
+        "binary_spearman": 0.01939
+      },
+      "union_b_p060": {
+        "within_3px_fraction": 0.53155,
+        "exact_intersection_dots": 4263,
+        "binary_spearman": 0.05392
+      },
+      "add_arm_d28": {
+        "within_3px_fraction": 0.45193,
+        "exact_intersection_dots": 1805,
+        "binary_spearman": 0.02897
+      },
+      "d28_reference": {
+        "within_3px_fraction": 0.42357,
+        "exact_intersection_dots": 1102,
+        "binary_spearman": 0.0178
+      },
+      "h31e_surfexpr": {
+        "within_3px_fraction": 0.38501,
+        "exact_intersection_dots": 961,
+        "binary_spearman": 0.01724
+      },
+      "gemsdoe32_h33_2_b2": {
+        "within_3px_fraction": 0.40245,
+        "exact_intersection_dots": 1102,
+        "binary_spearman": 0.02043
+      }
+    },
+    "passed_uniqueness_gate": true,
+    "downloads_and_concurrent_subset": {
+      "comparators_checked": 13,
+      "max_abs_surface_spearman_r": 0.7204,
+      "max_abs_final_spearman_r": 0.0569,
+      "max_dot_overlap_within_3px": 0.5316,
+      "max_dot_overlap_within_3px_concurrent_discrete_lanes": 0.5159,
+      "subset_pass": true,
+      "scope_note": "SUBSET ONLY \u2014 NOT UNIQUENESS APPROVAL under unexempted 695-raster manifest"
+    },
+    "broad_695_registry_counterexample": {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "control_dots": 206895,
+      "final_spearman_r": 0.001845,
+      "within_3px": 37513,
+      "dot_overlap_within_3px": 0.996255,
+      "literal_broad_registry_stop": true
+    },
+    "literal_broad_registry_stop": true
+  },
+  "raster_sha256": {
+    "nan_tif": "ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6",
+    "allfinite_tif": "8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0",
+    "zip": "c24ea5d55e0ae385c9d04848676159b6afe654be0f0e9dafd5c624f3ab17c624"
+  },
+  "validator_output": {
+    "no_nan_inside_footprint": true,
+    "values_in_0_1": true,
+    "crs_shape_transform_match": true,
+    "outside_footprint_nan_exact": true,
+    "allfinite_variant_valid": true,
+    "hard_failures_nan": [],
+    "hard_failures_allfinite": [],
+    "positive_pixels": 37654,
+    "dots_on_public_catalogue": 0,
+    "dots_within_200m_public_catalogue": 0,
+    "ok_to_download_for_research": true,
+    "ok_to_submit": false
+  },
+  "gates": {
+    "G1_canary_all_used_auc_le_0.90": true,
+    "G2a_holdout_beats_base_pooled": true,
+    "G2b_holdout_paired_delta_ci_gt_0": true,
+    "G2c_holdout_wins_ge_3_of_4_folds": true,
+    "G2d_holdout_worst_fold_ge_-0.010": true,
+    "G2e_confirm_seed_replicates_positive": true,
+    "G3a_off_sgmc_gt_h27_and_g32": true,
+    "G3b_off_sgmc_4block_wins_ge_3_of_4": true,
+    "G3c_piedmont_off_sgmc_ge_h27_and_g32": true,
+    "G4a_surface_spearman_le_0.90": true,
+    "G4b_dots_within_3px_le_0.70_all_registry": true,
+    "G5_format_validator_21_of_21_pass": true,
+    "uniqueness_submission_subset_ok": true,
+    "uniqueness_dots_ok": false,
+    "literal_broad_695_registry_ok": false,
+    "own_method_variogram_estimated": false,
+    "scientific_efficacy_all_11_ok": true,
+    "slot_approved": false
+  },
+  "submission_name": "GEMSDOE31-H31M-BStep-XMod-Submod-37654",
+  "note": "H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641",
+  "note_length_chars": 102,
+  "verdict": "negative",
+  "failed_or_unresolved_protocol_gates": [
+    "Literal 695-raster shared-registry STOP: 99.6255% (37,513 / 37,654) of final H31-M dots fall within 3 px of registered spacing-5 calibration lattice r13-lattice-s5 (which covers 99.87% of the Nevada footprint within 3 px; no density/calibration exemption applied).",
+    "Spatial holdout 21.25 km collar is inherited from evidence/buffer_derivation.json; H31-M own-method residual semivariogram range not yet re-estimated.",
+    "Outside-footprint organizer convention (NaN vs all-finite) and live organizer receipt remain unverified."
+  ]
+}

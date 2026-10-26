@@ -1,0 +1,44 @@
+{
+ "hypothesis": "H1-antislope-KTh-edge",
+ "mechanism": "antislope LiDAR scarp AND K\u2013Th radiometric contrast edge conjunction",
+ "non_fault_mimic": "road cuts/terrace risers (antislope); playa mineral crusts (K\u2013Th)",
+ "evaluator": "LANE-EVAL-1",
+ "budget": 37654,
+ "flank_px": 2.0,
+ "min_dist_px": 2.8,
+ "canary": {
+  "antislope_only": {
+   "auc_off_catalogue_sgmc": 0.7373915444310212,
+   "auc_catalogue": 0.5969652727113113
+  },
+  "kth_edge_only": {
+   "auc_off_catalogue_sgmc": 0.5058247614643109,
+   "auc_catalogue": 0.5111770624190972
+  },
+  "conjunction": {
+   "auc_off_catalogue_sgmc": 0.6261135280546327,
+   "auc_catalogue": 0.5614354732125644
+  }
+ },
+ "leakage_stop": false,
+ "instruments": {
+  "D28-incumbent (USER-REPORTED 0.2708, 40,199 dots)": {
+   "HOLDOUT_DTI": 0.04345853514893307,
+   "ci95_tile_bootstrap": [
+    0.03923914621338122,
+    0.048443561901601505
+   ],
+   "credit_per_dot": 0.03523952095700711,
+   "truth_pixels": 91554
+  },
+  "H1-antislope-KTh@37654": {
+   "HOLDOUT_DTI": 0.0071269363368990915,
+   "ci95_tile_bootstrap": [
+    0.00553183536579357,
+    0.008742383502236772
+   ],
+   "credit_per_dot": 0.006048567142595357,
+   "truth_pixels": 91554
+  }
+ }
+}

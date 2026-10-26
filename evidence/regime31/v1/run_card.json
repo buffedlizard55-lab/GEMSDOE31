@@ -1,0 +1,102 @@
+{
+ "hypothesis": "RBU31: a single union (raw-39 + SCGP-40) HGB per fold trained with regime-balanced sample weights ranks off-catalogue faults better than Baseline-D in every geomorphic regime.",
+ "mechanism": "Catalogue regime mix (72.4% piedmont) is mapping bias; balanced risk equalises regime loss. Tree interactions between raw LiDAR scarp bands (mountain scarps) and Gallardo-Meju cross-gradient/tilt/upward-continuation physics (buried piedmont faults) fix H31-E2's measured mountain placement failure (SGMC TPw/dot 0.122 vs H33 0.188). Emission: 2.8px Poisson thinning + >2px catalogue prune (verified H33 DTI economics; no prior dots copied).",
+ "named_non_fault_mimic": "Pleistocene Lake Lahontan wave-cut shoreline terraces and unfaulted volcanic-flow/erosional piedmont scarps.",
+ "holdout_dti": {
+  "label": "HOLDOUT-DTI",
+  "evaluator_version": "gemsdoe31-hide-v2.0",
+  "buffer_m": 21300,
+  "screen_draw_101": {
+   "dti": 0.09551709605439392,
+   "ci95": [
+    0.07952706447639754,
+    0.11293115208478324
+   ],
+   "withheld_positives": 17900,
+   "baseline_d_dti": 0.0921712554276685,
+   "paired_delta_dti": 0.0033458406267254104,
+   "paired_delta_ci95": [
+    -0.00837181921744492,
+    0.014745992731821252
+   ]
+  },
+  "fresh_confirmation_draws_202_303": null
+ },
+ "organizer_confirmed_score": null,
+ "sgmc_proxy_computed_not_a_score": {
+  "rbu31": {
+   "dots": 37654,
+   "sgmc_all_dti": 0.07358728533301467,
+   "sgmc_piedmont_dti": 0.11221682303621563,
+   "sgmc_mountain_dti": 0.03242400936725815
+  },
+  "baseline_d_final": {
+   "dots": 37654,
+   "sgmc_all_dti": 0.07176546660591096,
+   "sgmc_piedmont_dti": 0.1146914942896734,
+   "sgmc_mountain_dti": 0.027656308630841658
+  },
+  "h33_2_b2_actual_peer_file": {
+   "dots": 37654,
+   "sgmc_all_dti": 0.09396541728952698,
+   "sgmc_piedmont_dti": 0.10905112828813972,
+   "sgmc_mountain_dti": 0.06537572606415722
+  },
+  "h31e_scgp_submod_local": {
+   "dots": 37654,
+   "sgmc_all_dti": 0.08162303908333594,
+   "sgmc_piedmont_dti": 0.12330626713422095,
+   "sgmc_mountain_dti": 0.03723230474997055
+  }
+ },
+ "leakage_canary": {
+  "features_tested": 79,
+  "max_two_sided_auc": 0.611808,
+  "passed": true
+ },
+ "correlation_overlap_vs_registry": {
+  "checked_count": 24,
+  "max_surface_spearman_rho": 0.150548,
+  "max_surface_topn_within_3px": 0.753386,
+  "max_final_dots_spearman_rho": 0.052947,
+  "max_final_dots_within_3px": 0.532028,
+  "duplicates": [
+   "local::candidate-h31e2-scgp-submod",
+   "local::research-union-lidar-arm",
+   "local_dl::gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite",
+   "local_dl::gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite",
+   "peer::GEMSDOE24",
+   "peer::GEMSDOE27"
+  ],
+  "passed": false
+ },
+ "raster_sha256": {
+  "nan_outside": "b17cbd09d1dab9f7d0f398dd43d799432ac8be9cf476d6cba1183a6e200736f2",
+  "allfinite": "d526159a7c96320db73e794835e1475fead3db6eb80b3bd270953eae3f2a8f98"
+ },
+ "validator_output": {
+  "no_nan_inside_footprint": true,
+  "values_in_0_1": true,
+  "crs_shape_transform_match": true,
+  "allfinite_values_in_0_1_everywhere": true,
+  "dots": 37654,
+  "dots_on_catalogue": 0
+ },
+ "submission_name": "gemsdoe31-rbu31-regimeunion-37654-20261025-1788ff29",
+ "submission_note": "GEMSDOE31 RBU31 regime-balanced union 37654d | HOLDOUT-DTI 0.0955 vs 0.0922 | id 1788ff29",
+ "submission_note_chars": 89,
+ "automated_gates": {
+  "G1_format_and_range_0_1_pass": true,
+  "G2_leakage_canary_pass": true,
+  "G3a_uniqueness_genuine_registry_pass": false,
+  "G3b_literal_695_registry_lattice": "UNIVERSAL_DEGENERACY_DISCLOSED (spacing-5 lattice covers 100% of interior within 3px for any candidate; see preregistration \u00a75)",
+  "G4_holdout_screen_and_fresh_confirmation_pass": false,
+  "G5_sgmc_all_piedmont_mountain_beats_baseline_and_h33": false,
+  "human_inspection_required_for_validation": false,
+  "weekly_slot_spent_by_agent": false,
+  "all_automated_gates_passed": false,
+  "verdict": "negative"
+ },
+ "verdict": "negative",
+ "ok_to_download_and_submit": false
+}

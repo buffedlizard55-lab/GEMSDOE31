@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "note": "Hash-pinned public owner mirrors. Byte identity to the mirror is proven; organizer authenticity is NOT. DrivenData was not contacted.",
- "data_dir": "/tmp/gemsdoe31_data",
+ "data_dir": "/home/user/GEMSDOE31/data",
  "files": [
   {
    "id": "training_features",

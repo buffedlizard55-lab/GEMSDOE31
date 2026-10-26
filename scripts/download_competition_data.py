@@ -136,7 +136,7 @@ def main() -> None:
         row["provenance"] = entry["provenance"]
         rows.append(row)
         print(f"{row['status']:<16} {row['dest']:<48} {row['bytes']:>12,} B")
-    out = ROOT / args.out
+    out = Path(args.out) if Path(args.out).is_absolute() else (ROOT / args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps({
         "schema_version": 1,
@@ -146,7 +146,7 @@ def main() -> None:
         "files": rows,
         "all_verified": all(r["status"] in ("restored", "already-verified") for r in rows),
     }, indent=1) + "\n")
-    print(f"\n{out.relative_to(ROOT)}: all_verified="
+    print(f"\n{(out.relative_to(ROOT) if out.is_relative_to(ROOT) else out)}: all_verified="
           f"{all(r['status'] in ('restored', 'already-verified') for r in rows)}")
 
 

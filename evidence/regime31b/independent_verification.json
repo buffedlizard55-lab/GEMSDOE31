@@ -1,0 +1,70 @@
+{
+ "candidate": "gemsdoe31-rbu31b-localunion-37654-20261025-b7585935",
+ "evidence_dir": "evidence/regime31b",
+ "all_checks_pass": true,
+ "checks": {
+  "format_nan": true,
+  "sha256_nan": true,
+  "format_allfinite": true,
+  "sha256_allfinite": true,
+  "allfinite_all_finite_in_0_1": true,
+  "zip_single_tif": true,
+  "zip_bytes_equal_nan_tif": true,
+  "dots_match_run_card": true,
+  "zero_dots_on_catalogue": true,
+  "zero_dots_within_2px_of_catalogue": true,
+  "sgmc_proxies_recomputed_equal": true,
+  "final_dots_overlap_le_0p70_vs_9_focus_peers": true
+ },
+ "detail": {
+  "allfinite_min_max": [
+   0.0,
+   1.0
+  ],
+  "sgmc_recomputed": {
+   "sgmc_all_dti": 0.0800969869550875,
+   "sgmc_piedmont_dti": 0.12356479371977941,
+   "sgmc_mountain_dti": 0.034313777323608435
+  },
+  "peer_overlaps_recomputed": {
+   "GEMSDOE24": {
+    "final_dots_within_3px": 0.5071705529293037,
+    "exact_shared_dots": 1770
+   },
+   "GEMSDOE25": {
+    "final_dots_within_3px": 0.4864025070377649,
+    "exact_shared_dots": 1239
+   },
+   "GEMSDOE27": {
+    "final_dots_within_3px": 0.5100918893079088,
+    "exact_shared_dots": 1774
+   },
+   "GEMSDOE28": {
+    "final_dots_within_3px": 0.4665374196632496,
+    "exact_shared_dots": 1201
+   },
+   "GEMSDOE30": {
+    "final_dots_within_3px": 0.4864025070377649,
+    "exact_shared_dots": 1239
+   },
+   "GEMSDOE31": {
+    "final_dots_within_3px": 0.4703351569554363,
+    "exact_shared_dots": 1239
+   },
+   "GEMSDOE32": {
+    "final_dots_within_3px": 0.4537100972008286,
+    "exact_shared_dots": 1239
+   },
+   "GEMSDOE33": {
+    "final_dots_within_3px": 0.4810378711425081,
+    "exact_shared_dots": 1266
+   },
+   "GEMSDOE36": {
+    "final_dots_within_3px": 0.4556222446486429,
+    "exact_shared_dots": 1245
+   }
+  }
+ },
+ "run_card_verdict": "negative",
+ "note": "Recomputed from packaged bytes; surface-level overlap lives in duplicate_canary.json."
+}

@@ -14,8 +14,8 @@
       ]
     }
   ],
-  "comparable_files": 130,
-  "distinct_prediction_fields": 57,
+  "comparable_files": 142,
+  "distinct_prediction_fields": 63,
   "arms": {
     "h31j3_dual_submod": {
       "pass_": true,
@@ -655,6 +655,42 @@
           "duplicate": false
         },
         {
+          "prior_content_sha256": "023d08a4e4ce8680566c4afbb3402b84f99995851dadccd7cec90323ae9751ab",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-concord31-minbd-concordance-28115-20261026-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-concord31-minbd-concordance-28115-20261026-nan.tif"
+          ],
+          "spearman_rho": 0.013118720934843887,
+          "overlap_within_3px": 0.358129282413555,
+          "within_3px": 13485,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "c1afd905d7ac454215f576b4d25e65069011dd14036ca8fe1b6f0fe6191435c0",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.tif"
+          ],
+          "spearman_rho": 0.004711063189206652,
+          "overlap_within_3px": 0.2552982418866521,
+          "within_3px": 9613,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "2c35067b0bc13c7b117c44d4396f50044f77d9364afe96df9fce69ad07f2bbe4",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-nan.tif"
+          ],
+          "spearman_rho": 0.02045482751712431,
+          "overlap_within_3px": 0.38075636054602435,
+          "within_3px": 14337,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
           "prior_content_sha256": "8f78f62f4ad59c15490b4a3ccc5174bf2d4d07aad21755aadfc54c43bb9db960",
           "prior_sources": [
             "local://docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
@@ -691,6 +727,18 @@
           "duplicate": false
         },
         {
+          "prior_content_sha256": "f038cb070b83f3e8a909b218d2494f3bfc42ad644e34d922ead4e0f2cf3af185",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif"
+          ],
+          "spearman_rho": 0.027758977124693156,
+          "overlap_within_3px": 0.4393689913422213,
+          "within_3px": 16544,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
           "prior_content_sha256": "ce13eb72f7a4edb697807a23b0f28a6c69dd9b8dbe4a9fc06ccc6eb40f686ade",
           "prior_sources": [
             "local://docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
@@ -699,6 +747,30 @@
           "spearman_rho": -0.00017068078855583298,
           "overlap_within_3px": 0.17594412280235833,
           "within_3px": 6625,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "dd94c8ed95194a551a2379efe1b9250281e15690d7487b9ce76685cb71c7ccd1",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-rbu31-regimeunion-37654-20261025-1788ff29-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-rbu31-regimeunion-37654-20261025-1788ff29-nan.tif"
+          ],
+          "spearman_rho": 0.020107748999034877,
+          "overlap_within_3px": 0.38564295957932754,
+          "within_3px": 14521,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "85da33dc475f46a38284eaadbe1f78b2aa7a7ec90d181fa869aecb0f4cbe4710",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.tif"
+          ],
+          "spearman_rho": 0.01577383656422424,
+          "overlap_within_3px": 0.32594146704201415,
+          "within_3px": 12273,
           "candidate_support_pixels": 37654,
           "duplicate": false
         },

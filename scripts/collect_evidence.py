@@ -61,12 +61,48 @@ SUBMISSIONS = [
     {
         "id": "candidate-h31j-tgtd-submod",
         "name": "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8",
-        "role": "unique H31-J TGTD-Submod 4-quadrant OOF candidate (PASS format/[0,1]/leakage/130-raster discrete uniqueness/both 21.3 km holdout seeds 8/8 quadrants +85.7% & +60.2%/own-method variogram 10.72 km/both SGMC off-catalogue proxies +15.2% all-elev & +30.5% piedmont; held from auto-slot by Rule 6 & literal 5x5 lattice G3b)",
+        "role": "unique H31-J TGTD-Submod 4-quadrant OOF research candidate (RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT: passes format/[0,1]/leakage/142-raster discrete subset/both 21.3 km holdout seeds 8/8 quadrants +85.7% & +60.2%/own-method variogram 10.72 km/both SGMC off-catalogue proxies +15.2% all-elev & +30.5% piedmont; held at slot_approved=false under Rule 6 & literal 695-raster r13-lattice-s5 STOP)",
         "provenance": "Lane H31-J (scripts/run_h31j.py, preregistered in knowledge/2026-10-25_h31j_tgtd_preregistration.md): Pedersen-Rasmussen 3-D Laplace gravity-tensor 2-D tabular index + GDR-1391 chemical geothermometer disequilibrium conduit coupling + V-canyon-suppressed piedmont flexure + leave-one-quadrant-out OOF hybrid HGB/GLM + 300 m ridge-submodular DTI allocator (37,654 off-catalogue dots, d_vis > 2.0 px, 0 copied dots)",
         "note_for_portal": "GEMSDOE31 H31-J TGTD+GDR1391 geotherm+PTCF 4-quad OOF 300m submod 37654d b2px (ab35d4e8)",
         "slot_approved": False,
-        "why_not_slot_approved": "Passes G1-G6 technical & scientific gates (including both all-elevation +15.2% and piedmont +30.5% SGMC off-catalogue proxies over GEMSDOE32 H33-2-B2 and 8/8 quadrants across seeds 31 & 32), but Rule 6 forbids automatic weekly-slot spending and literal G3b shared-registry 5x5 synthetic lattice overlap (99.99%) requires explicit human selector sign-off.",
+        "why_not_slot_approved": "Passes G1-G6 technical, scientific, variogram, and 142-file discrete subset gates (including both all-elevation +15.2% and piedmont +30.5% SGMC off-catalogue proxies over GEMSDOE32 H33-2-B2 and 8/8 quadrants across seeds 31 & 32), but Rule 6 forbids automatic weekly-slot spending and the unexempted 695-raster r13-lattice-s5 5x5 synthetic lattice overlap (99.99%) triggers a binding literal STOP.",
     },
+    {
+        "id": "research-rbu31b-localunion",
+        "name": "gemsdoe31-rbu31b-localunion-37654-20261025-b7585935",
+        "role": "newest unique RBU31-B candidate - NEGATIVE, DO NOT SUBMIT (passes format/[0,1], leakage and 24-raster uniqueness; fails preregistered holdout-fold and mountain-SGMC gates)",
+        "provenance": "scripts/run_rbu31.py --variant local: union raw-39 + SCGP-40 HistGradientBoosting per fold with regime-balanced sample weights (piedmont det_elev<=50 m vs mountain), ranking surface replaced by masked 12 km locally standardized rank (sigma=120 px, weight 0.65); Poisson 2.8 px emission, >2 px catalogue prune, 37,654 dots. Preregistered in knowledge/2026-10-25_rbu31b_amendment_preregistration.md; evidence in evidence/regime31b/.",
+        "note_for_portal": "GEMSDOE31 RBU31-B local-standardized union 37654d | HOLDOUT-DTI 0.0991 vs 0.0922 | id b7585935",
+        "slot_approved": False,
+        "why_not_slot_approved": "Screen HOLDOUT-DTI 0.0991 vs Baseline-D 0.0922 won only 2/4 folds (paired 95% CI crosses zero), so fresh confirmation was not run; off-catalogue SGMC mountain 0.0343 < H33-2-B2 0.0654. Verdict negative; research only.",
+    },
+    {
+        "id": "research-rbu31-regimeunion",
+        "name": "gemsdoe31-rbu31-regimeunion-37654-20261025-1788ff29",
+        "role": "unique RBU31 candidate - NEGATIVE, DO NOT SUBMIT (superseded by RBU31-B within the same session)",
+        "provenance": "scripts/run_rbu31.py (plain variant): union raw-39 + SCGP-40 HistGradientBoosting per fold with regime-balanced sample weights; Poisson 2.8 px emission, >2 px catalogue prune, 37,654 dots. Preregistered in knowledge/2026-10-25_rbu31_preregistration.md; evidence in evidence/regime31/.",
+        "note_for_portal": "GEMSDOE31 RBU31 regime-balanced union 37654d | HOLDOUT-DTI 0.0955 vs 0.0922 | id 1788ff29",
+        "slot_approved": False,
+        "why_not_slot_approved": "Screen won 1/4 folds, surface top-N 3-px overlap 75.3% vs H31-E2 exceeded the 70% lane limit, and SGMC trailed H33-2-B2 overall and in mountains. Verdict negative; research only.",
+    },
+    {
+        "id": "candidate-h31m-bstep-xmod-submod",
+        "name": "gemsdoe31-h31m-bstep-xmod-submod-20261025-37654",
+        "submission_name": "GEMSDOE31-H31M-BStep-XMod-Submod-37654",
+        "role": "unique H31-M Subsurface-Concordance + 29-Cell Submodular research candidate (RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT: passes format/[0,1]/48-feature leakage/13-submission subset/holdout screen & confirm 4/4 folds AND beats GEMSDOE32 H33-2-B2 simultaneously on Full Off-SGMC 0.1010 vs 0.0940, 4-Block Off-SGMC 0.1077 vs 0.0984, and Piedmont Off-SGMC 0.0641 vs 0.0586; held by literal 695-raster r13-lattice-s5 overlap STOP & inherited 21.25 km collar)",
+        "provenance": "EXP-1..3 (H31-M) generated by scripts/run_h31m.py: 8 label-free geophysical/structural channels (bstep_grad_norm, bstep_inflect, grav_tilt_zero, rtp_bandpass_crest, cond_grad_ridge, sub_tensor_coh, surf_piedmont_ridge, xmod_strike_concordance) + deconfounded dual-head Bayes OOF HGB across 4 collared folds x 2 seeds + exact 29-cell submodular DTI allocator with B=2 (d_cat > 200 m) hygiene (37,654 off-catalogue dots; 37.2% piedmont).",
+        "note_for_portal": "H31-M OOF BStep+GravTilt+RTP+XMod+29cSubmod B=2: 37,654d; HOLDOUT v1 0.1350, Off4B 0.1077, Pied 0.0641",
+        "slot_approved": False,
+        "why_not_slot_approved": "Passes 11/11 scientific, format, leakage, and 13-submission-subset gates (surface |rho| <= 0.7204, 3-px dot overlap <= 53.16% across submission comparators and <= 51.59% across concurrent 2026-10-25 discrete lanes), and beats GEMSDOE32 H33-2-B2 simultaneously on all 3 off-catalogue proxies; held as research-only (slot_approved=False, ok_to_submit=False) under the unexempted 695-raster r13-lattice-s5 overlap STOP (99.6255%) and inherited 21.25 km collar prior to own-method variogram estimation.",
+    },
+    {
+        "id": "candidate-h31-hvdc-submod300",
+        "name": "gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168",
+        "role": "newly computed H31-HVDC dual-specialist + 300 m CELF submodular research candidate (PASS format/[0,1]/55-feature leakage/34-comparator discrete subset/21.25 km confirmation +60.0% & SGMC proxy +12.7%; research-only under literal 695-raster r13-lattice-s5 STOP)",
+        "provenance": "EXP-3 generated by scripts/run_arms.py: 4-fold OOF dual-specialist HGB (43 clean prepared bands + 12 HVDC physics + fold-visible vent/relay bridges) + Bayes prevalence calibration + Batch-Exact 300 m CELF submodular max-cover (37,654 binary {0.0, 1.0} dots, B > 2 px)",
+        "note_for_portal": "H31-HVDC dual-specialist+300m CELF (37654 {0,1} dots; HOLDOUT-DTI 0.1247); research-only, literal registry STOP",
+        "slot_approved": False,
+        "why_not_slot_approved": "Passes G1 format, G2 leakage (max AUC 0.7606), G4 blocked 21.25 km confirmation (HOLDOUT-DTI 0.1247 vs 0.0779 clean ArmD, +60.0%, 4/4 draws), G5 off-catalogue SGMC proxy (0.0824), and 34-comparator discrete subset (max fwd 3-px 47.62%), but unexempted 695-raster shared registry r13-lattice-s5 (99.52%) and GEMSDOE48 continuous field (100%) trigger a literal Rule-1 STOP.",    },
     {
         "id": "candidate-h31e2-scgp-submod",
         "name": "gemsdoe31-scgp-submod-37654-20261025-fa735287",
@@ -352,10 +388,69 @@ def submissions_register() -> dict:
                     record["bytes_zip_nan"] = nan_zip_path.stat().st_size
                 record["current_run_card"] = f"docs/downloads/{jcard['submission_name']}-run-card.json"
 
+    for rid, ev_dir in (("research-rbu31-regimeunion", "regime31"),
+                        ("research-rbu31b-localunion", "regime31b")):
+        res = ROOT / "evidence" / ev_dir / "holdout_results.json"
+        card = ROOT / "evidence" / ev_dir / "run_card.json"
+        if not (res.is_file() and card.is_file()):
+            continue
+        rdata = json.loads(res.read_text())
+        rcard = json.loads(card.read_text())
+        scr = rdata.get("experiment_1_screen_draw_101", {})
+        proxies = rdata.get("experiment_3_sgmc_proxies", {}).get("candidates", {})
+        for record in files:
+            if record["id"] == rid:
+                record["measured"] = {
+                    "evaluator_version": rdata.get("evaluator_version"),
+                    "screen_holdout_dti": scr.get("rbu31_poisson", {}).get("pooled_dti"),
+                    "screen_holdout_ci95": scr.get("rbu31_poisson", {}).get("ci95"),
+                    "screen_baseline_dti": scr.get("baseline_d_poisson", {}).get("pooled_dti"),
+                    "screen_delta": scr.get("paired_delta_dti"),
+                    "screen_folds_won_out_of_4": scr.get("folds_won_out_of_4"),
+                    "withheld_positives": scr.get("rbu31_poisson", {}).get("withheld_positives"),
+                    "sgmc_all_proxy_DTI": proxies.get("rbu31", {}).get("sgmc_all_dti"),
+                    "sgmc_piedmont_proxy_DTI": proxies.get("rbu31", {}).get("sgmc_piedmont_dti"),
+                    "sgmc_mountain_proxy_DTI": proxies.get("rbu31", {}).get("sgmc_mountain_dti"),
+                    "incumbent_h33_sgmc_all_proxy_DTI": proxies.get("h33_2_b2_actual_peer_file", {}).get("sgmc_all_dti"),
+                }
+                record["automated_gates"] = rcard.get("automated_gates", {})
+                record["run_card"] = f"evidence/{ev_dir}/run_card.json"
+
+    h31m_res = ROOT / "evidence" / "h31m_results.json"
+    if h31m_res.is_file():
+        mdata = json.loads(h31m_res.read_text())
+        scr_m = mdata.get("exp2_holdout_screen", {})
+        cnf_m = mdata.get("exp2_holdout_confirm", {})
+        prx_m = mdata.get("exp3_proxies_and_habitat", {})
+        cand_m = prx_m.get("H31-M_candidate", {})
+        g32_m = prx_m.get("GEMSDOE32_H33_2_B2", {})
+        for record in files:
+            if record["id"] == "candidate-h31m-bstep-xmod-submod":
+                record["submission_name"] = mdata.get("submission_name", "GEMSDOE31-H31M-BStep-XMod-Submod-37654")
+                record["measured"] = {
+                    "evaluator_version": scr_m.get("evaluator"),
+                    "buffer_m": scr_m.get("collar_m"),
+                    "screen_holdout_dti": scr_m.get("arms", {}).get("h31m_submod", {}).get("pooled_DTI"),
+                    "screen_baseline_dti": scr_m.get("arms", {}).get("base_C1_poisson", {}).get("pooled_DTI"),
+                    "screen_delta_ci95": scr_m.get("bootstrap_submod_vs_base", {}).get("paired_delta_ci95", {}).get("h31m_submod_minus_base_C1_poisson"),
+                    "confirm_holdout_dti": cnf_m.get("arms", {}).get("h31m_submod", {}).get("pooled_DTI"),
+                    "confirm_ci95": cnf_m.get("bootstrap_submod_vs_base", {}).get("ci95", {}).get("h31m_submod"),
+                    "confirm_baseline_dti": cnf_m.get("arms", {}).get("base_C1_poisson", {}).get("pooled_DTI"),
+                    "confirm_delta_ci95": cnf_m.get("bootstrap_submod_vs_base", {}).get("paired_delta_ci95", {}).get("h31m_submod_minus_base_C1_poisson"),
+                    "off_catalogue_proxy_DTI": cand_m.get("full_off_sgmc_DTI"),
+                    "off_catalogue_4block_DTI": cand_m.get("holdout_4block_off_sgmc", {}).get("mean_holdout_dti"),
+                    "piedmont_sgmc_proxy_DTI": cand_m.get("piedmont_off_sgmc_DTI"),
+                    "incumbent_h33_off_catalogue_proxy_DTI": g32_m.get("full_off_sgmc_DTI"),
+                    "incumbent_h33_piedmont_sgmc_proxy_DTI": g32_m.get("piedmont_off_sgmc_DTI"),
+                }
+                record["automated_gates"] = mdata.get("gates", {})
     primary = next((r for r in files if r["id"] == "primary-h27-4-solo-d28"), None)
     best_research = None
     for record in files:
-        if record.get("measured") and record["id"].startswith("research"):
+        # "delta" here is the historical union-arm off-catalogue proxy delta;
+        # newer research records (RBU31) report screen_delta on a different
+        # instrument and must not enter this legacy comparison.
+        if record.get("measured") and "delta" in record["measured"] and record["id"].startswith("research"):
             if best_research is None or record["measured"]["delta"] > best_research["measured"]["delta"]:
                 best_research = record
     registered = {r[k] for r in files for k in ("file_nan", "file_allfinite") if r.get(k)}
@@ -424,7 +519,8 @@ def main() -> None:
     print(f"registry/experiments.json: {len(artifacts)} artifacts inventoried, "
           f"{len(copied)} legacy cache files copied")
     print(f"registry/submissions.json: {len(register['files'])} files registered, "
-          f"best research candidate {register['best_research_candidate']['name']}")
+          f"best historical proxy research candidate (not slot-approved) "
+          f"{register['best_research_candidate']['name']}")
 
 
 if __name__ == "__main__":

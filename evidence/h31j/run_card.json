@@ -20,7 +20,7 @@
     "sha256": "5deedda1414188b038fb681241edd22678777f74fd759b1c9f712682c35ccc79",
     "experiments_budget_max": 3,
     "experiments_executed": 3,
-    "runtime_seconds": 39.7
+    "runtime_seconds": 105.42
   },
   "hypothesis": "Blind and washed-out Basin-and-Range Quaternary/geothermal faults are 1-D/2-D tabular structural conduits characterized by (1) vanishing 3-D Laplace gravity gradient tensor determinant (Pedersen-Rasmussen T_2D -> 1), (2) high chemical geothermometer disequilibrium (Delta_T = max(T_quartz, T_chalc, T_NaKCa) - T_outlet from DOE GDR #1391) channeled along tabular gravity steps and conductive/potassic clay caps, and (3) one-sided concave piedmont-toe flexure + Hurst roughness breaks, emitted from stitched 4-quadrant OOF predictions (>21.3 km buffer, zero catalogue proximity features) via 300 m ridge-submodular cover.",
   "physical_mechanism": "Laplace harmonic upward continuation (z=300m, 1000m) + 3*sqrt(6)*det(T_G)/||T_G||_F^3 tabular invariant + GDR #1391 advective silica/cation disequilibrium conduit coupling + V-canyon-suppressed piedmont flexure + seam-free 60 km local standardization + leave-one-quadrant-out prior-normalized hybrid HGB/GLM + Minoux lazy-greedy 29-cell 300 m DTI submodular allocation (d_vis > 2.0 px, min_dist=2.8 px).",
@@ -40,7 +40,7 @@
     "companion_nan_sha256": "2dcc3a5be6545b51823b9c4385fa436eb19bcde9b21b663156b85e8bcfe79027",
     "companion_nan_bytes": 187549,
     "companion_nan_zip": "docs/downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-nan.zip",
-    "companion_nan_zip_sha256": "d73169da57975e888adb662bcc5b93376c8a5e99c3de262072089e54b230f1fe",
+    "companion_nan_zip_sha256": "12adfb41daa2076f0daa67c9b33c9190948ef6e22cd20440fd4fd06f5aa25aa2",
     "companion_nan_zip_bytes": 137561,
     "format_check_json": "docs/downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-format-check.json",
     "support_packed_sha256": "ab35d4e86859da4514170405f85e36b2fe0434654975357cfe893251241cd55b",
@@ -80,8 +80,8 @@
   },
   "uniqueness_summary": {
     "discrete_registry_scope": "Complete 9-focus-repo inventory (GEMSDOE24,25,27,28,30,31,32,33,36) + current GEMSDOE31 (MAGREST, H31-E2) + GEMSDOE70 s2-oof38k",
-    "discrete_comparable_files": 130,
-    "discrete_distinct_fields": 57,
+    "discrete_comparable_files": 142,
+    "discrete_distinct_fields": 63,
     "pre_placement_max_abs_rho": 0.156325,
     "pre_placement_rho_gate_pass": true,
     "pre_placement_unspaced_d0_diagnostic_3px_overlap": 0.801349,

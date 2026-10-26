@@ -55,22 +55,21 @@ def h31j_download_and_gates() -> str:
     sha_nan_zip = esc(art["companion_nan_zip_sha256"])
     return f'''<section id="tgtd-submod-h31j" aria-labelledby="h31j-heading">
       <div class="section-head"><div><p class="kicker">Latest Preregistered Discovery Candidate · 2026-10-25 · Lane H31-J</p>
-        <h2 id="h31j-heading">H31-J TGTD-Submod: All 6 Technical &amp; Scientific Gates PASSED; Human Weekly-Slot Sign-Off Required (slot_approved = false)</h2></div>
+        <h2 id="h31j-heading">H31-J TGTD-Submod: All 6 Technical &amp; Scientific Gates PASS · Research Download Only · DO NOT SUBMIT</h2></div>
         <p>Genuinely new 37,654-dot Basin-and-Range blind/piedmont fault detector combining Pedersen–Rasmussen 3-D Laplace gravity-tensor 2-D tabular invariants,
            DOE GDR #1391 chemical geothermometer disequilibrium conduit channeling, and V-canyon-suppressed piedmont flexure via 4-quadrant OOF + 300 m ridge-submodular emission.
-           Verified automatically by <code>scripts/verify_h31j.py</code> without human inspector intervention.</p></div>
+           Verified automatically by <code>scripts/verify_h31j.py</code> without human inspector intervention; held as research-only (<code>slot_approved = false</code>) under Rule 6 and the unexempted 695-raster spacing-5 lattice STOP.</p></div>
       <div class="card download-card">
-        <span class="badge badge-green">TECHNICAL FORMAT &amp; [0, 1] RANGE: PASS · OK TO DOWNLOAD</span>
-        <span class="badge badge-green" style="margin-left:8px">BOTH 21.3 km HOLDOUT SEEDS: PASS (8/8 QUADRANTS)</span>
-        <span class="badge badge-red" style="margin-left:8px">LIVE WEEKLY SLOT: HOLD (slot_approved = false · human sign-off required)</span>
+        <span class="badge badge-green">LOCAL FORMAT [0, 1] &amp; 8/8 QUADRANTS PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
         <h3 style="margin-top:18px">{sub_name}</h3>
-        <p><strong>Immediate Upload Readiness Summary:</strong> All <code>12,279,160</code> pixels in the primary <code>-zeros.tif</code> / <code>-zeros.zip</code>
-           are finite <code>float32</code> in <code>[0.0, 1.0]</code> (eliminating <em>“Predicted values must be in range [0, 1]”</em> portal rejections);
+        <p><strong>Immediate Automated Readiness Summary:</strong> All <code>12,279,160</code> pixels in the primary <code>-zeros.tif</code> / <code>-zeros.zip</code>
+           are finite <code>float32</code> in <code>[0.0, 1.0]</code> (eliminating <em>“Predicted values must be in range [0, 1]”</em> range rejections);
            companion <code>-nan.tif</code> / <code>-nan.zip</code> carries identical <code>37,654</code> footprint dots with exact <code>NaN</code> outside.
            Zero dots overlap the public fault catalogue or its <code>≤ 200 m</code> dead collar; zero dots are copied from prior submissions.
-           Automatic upload remains disabled (<code>slot_approved = false</code>) per Parallel-Run Rule 6 and literal shared-registry 5×5 synthetic lattice disclosure (<code>G3b</code>).</p>
+           Upload remains disabled (<code>slot_approved = false</code>) under Parallel-Run Rule 6 and the binding literal 695-raster 5×5 lattice STOP (<code>G3b</code>).</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/{sub_name}-zeros.zip" download>Download Primary All-Finite [0, 1] Single-TIFF .zip</a>
+          <a class="button button-primary" href="downloads/{sub_name}-zeros.zip" download>Download H31-J Research All-Finite [0, 1] .zip</a>
           <a class="button" href="downloads/{sub_name}-zeros.tif" download>Download Primary All-Finite .tif</a>
           <a class="button" href="downloads/{sub_name}-nan.zip" download>Companion NaN-Outside .zip</a>
           <a class="button" href="downloads/{sub_name}-nan.tif" download>Companion NaN-Outside .tif</a>
@@ -78,8 +77,8 @@ def h31j_download_and_gates() -> str:
           <a class="button" href="downloads/{sub_name}-format-check.json" download>Format Receipt</a>
         </div>
         <p class="download-meta"><strong>Grid &amp; [0, 1] Verification:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 100 m · 37,654 dots in {{0.0, 1.0}} · 0 NaN/Inf inside 5,167,373-cell footprint · 0 on public catalogue · 0 within 200 m collar · 57.59% beyond 1.5 km.<br>
-          <strong>Unique Submission Name:</strong> <code>{sub_name}</code><br>
-          <strong>Portal Note ({rc['portal_note_length']}/140 chars):</strong> <code>{note}</code><br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>{sub_name}</code><br>
+          <strong>Note ({rc['portal_note_length']}/140 chars):</strong> <code>{note}</code><br>
           <strong>SHA-256 (-zeros.tif, {art['primary_zeros_bytes']:,} B):</strong> <code>{sha_zeros}</code><br>
           <strong>SHA-256 (-zeros.zip, {art['primary_zeros_zip_bytes']:,} B):</strong> <code>{sha_zeros_zip}</code><br>
           <strong>SHA-256 (-nan.tif, {art['companion_nan_bytes']:,} B):</strong> <code>{sha_nan}</code> · <strong>(-nan.zip, {art['companion_nan_zip_bytes']:,} B):</strong> <code>{sha_nan_zip}</code></p>
@@ -87,15 +86,15 @@ def h31j_download_and_gates() -> str:
       <div class="table-wrap" style="margin-top:18px"><table>
         <thead><tr><th>Automated Gate</th><th>Preregistered Rule</th><th>Measured H31-J3 Result (Evidence Class Stated)</th><th>Verdict</th></tr></thead>
         <tbody>
-          <tr><td><code>G1 · Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1], 1-TIFF ZIP</td><td>COMPUTED: 37,654 dots in {{0.0, 1.0}}; -zeros all 12,279,160 finite; ZIP SHA-256 verified</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G1 · Local GeoTIFF &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1], 1-TIFF ZIP</td><td>COMPUTED: 37,654 dots in {{0.0, 1.0}}; -zeros all 12,279,160 finite; ZIP SHA-256 verified</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G2 · Leakage Canary</code></td><td>Single-feature two-sided ROC-AUC ≤ 0.90 across all 4 folds × 65 cols</td><td>COMPUTED (not DTI): 260/260 checks ≤ 0.90; max sym AUC = {rc['leakage_canary_summary']['max_single_feature_symmetric_auc']:.4f}; miss AUC = {rc['leakage_canary_summary']['max_missingness_symmetric_auc']:.4f}; <code>dist_known_fault_px</code> excluded</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G3a · 130-File Discrete Uniqueness</code></td><td>Pre-placement |ρ| ≤ 0.90; Final dots |ρ| ≤ 0.90 &amp; 3-px ≤ 70.0%</td><td>COMPUTED across {uniq['discrete_comparable_files']} files ({uniq['discrete_distinct_fields']} distinct fields, GEMSDOE24..36+31+70): pre |ρ| = {uniq['pre_placement_max_abs_rho']:.4f} (unspaced d=0 diagnostic clump {100*uniq['pre_placement_unspaced_d0_diagnostic_3px_overlap']:.2f}%); final |ρ| = {uniq['post_placement_max_abs_rho']:.4f}, max 3-px = {100*uniq['post_placement_max_3px_overlap']:.2f}% (vs H33-2-B2: 41.5%)</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G3b · Shared-Registry 5×5 Lattice</code></td><td>Unexempted 695-raster shared registry (<code>r13-lattice-s5</code>)</td><td>COMPUTED: |ρ| = {abs(g3b['spearman_rho']):.4f} ≤ 0.90; 3-px overlap = {100*g3b['overlap_within_3px']:.2f}% (synthetic 5×5 spacing-5 grid covers Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP DISCLOSED</span></td></tr>
+          <tr><td><code>G3a · {uniq['discrete_comparable_files']}-File Discrete Subset</code></td><td>Pre-placement |ρ| ≤ 0.90; Final dots |ρ| ≤ 0.90 &amp; 3-px ≤ 70.0%</td><td>COMPUTED across {uniq['discrete_comparable_files']} files ({uniq['discrete_distinct_fields']} distinct fields, GEMSDOE24..36+31+70): pre |ρ| = {uniq['pre_placement_max_abs_rho']:.4f} (unspaced d=0 diagnostic clump {100*uniq['pre_placement_unspaced_d0_diagnostic_3px_overlap']:.2f}%); final |ρ| = {uniq['post_placement_max_abs_rho']:.4f}, max 3-px = {100*uniq['post_placement_max_3px_overlap']:.2f}% (vs H33-2-B2: 41.5%)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G3b · Shared-Registry 5×5 Lattice</code></td><td>Unexempted 695-raster shared registry (<code>r13-lattice-s5</code>)</td><td>COMPUTED: |ρ| = {abs(g3b['spearman_rho']):.4f} ≤ 0.90; 3-px overlap = {100*g3b['overlap_within_3px']:.2f}% (synthetic 5×5 spacing-5 grid covers Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
           <tr><td><code>G4a · Screen Holdout (seed=31)</code></td><td><code>gems57-pooled-hide-v2</code>, 21.3 km buffer, n = {scr['withheld_positives']:,}, paired 95% CI &gt; 0</td><td>HOLDOUT-DTI: H31-J3 <strong>{j3_s['dti']:.4f}</strong> [{j3_s['ci95'][0]:.4f}, {j3_s['ci95'][1]:.4f}] vs physical_hgb {ctrl_s['dti']:.4f} (Δ = +{d_s['delta']:.4f} [+{d_s['ci95'][0]:.4f}, +{d_s['ci95'][1]:.4f}], +85.7%, 4/4 quadrants) &amp; MAGREST {mag_s['dti']:.4f}; H31-J1 subsurface = {j1_s['dti']:.4f}; H31-J2 Poisson = {j2_s['dti']:.4f}</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G4b · Untouched Confirm (seed=32)</code></td><td>Zero retuning, <code>gems57-pooled-hide-v2</code>, 21.3 km buffer, n = {conf['withheld_positives']:,}</td><td>HOLDOUT-DTI: H31-J3 <strong>{j3_c['dti']:.4f}</strong> [{j3_c['ci95'][0]:.4f}, {j3_c['ci95'][1]:.4f}] vs physical_hgb {ctrl_c['dti']:.4f} [{ctrl_c['ci95'][0]:.4f}, {ctrl_c['ci95'][1]:.4f}] (Δ = +{d_c['delta']:.4f} [+{d_c['ci95'][0]:.4f}, +{d_c['ci95'][1]:.4f}], +60.2%, 4/4 quadrants = 8/8 total)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5 · Own-Method OOF Variogram</code></td><td>95%-sill residual practical range ≤ 21,300 m holdout buffer</td><td>COMPUTED: 95%-sill range = <strong>{vario['practical_range_95_sill_m']:,.1f} m</strong> (scale {vario['scale_parameter_m']:,.1f} m, R² = {vario['weighted_r_squared']:.4f}); 21.3 km collar covers {100*vario['sill_fraction_at_collar']:.2f}% of sill</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G6 · Off-Catalogue SGMC (&gt;300 m)</code></td><td>Report-only matched 37,654-dot discovery proxy (never training truth)</td><td>HOLDOUT-PROXY-SGMC: All-elev (61,664 px) <strong>{j3_sgmc['sgmc_all_elevation_dti']:.4f}</strong> vs GEMSDOE32 H33-2-B2 {h33_sgmc['sgmc_all_elevation_dti']:.4f} (+15.2%); Piedmont &lt;100 m (28,115 px) <strong>{j3_sgmc['sgmc_piedmont_lt100m_dti']:.4f}</strong> vs H33-2-B2 {h33_sgmc['sgmc_piedmont_lt100m_dti']:.4f} (+30.5%)</td><td><span class="badge badge-green">REPORTED WIN</span></td></tr>
-          <tr><td><code>G7 / Rule 6 · Weekly Live Slot</code></td><td>Never auto-spend DrivenData weekly submission quota</td><td><code>slot_approved = false</code>; human weekly-slot selector reviews G1–G6 &amp; G3b before any portal upload</td><td><span class="badge badge-red">HUMAN SELECTOR HOLD</span></td></tr>
+          <tr><td><code>G7 / Rule 6 · Weekly Live Slot</code></td><td>Never auto-spend DrivenData weekly submission quota</td><td><code>slot_approved = false</code>; blocked from upload while the literal 695-raster G3b rule remains unamended</td><td><span class="badge badge-red">DO NOT SUBMIT</span></td></tr>
         </tbody>
       </table></div>
       <p class="small">Reproduce verification offline in ~2 s: <code>.venv/bin/python scripts/verify_h31j.py</code> ·
@@ -150,9 +149,147 @@ def h31j_research_sections() -> str:
           <li><strong>Own-Method OOF Residual Semivariogram (Gate G5):</strong> Computed across <code>5,709</code> withheld fault pixels (<code>122,132</code> within-component pairs across <code>332</code> components). Weighted exponential fit yields scale <code>{vario['scale_parameter_m']:,.1f} m</code> and 95%-sill practical range <strong><code>{vario['practical_range_95_sill_m']:,.1f} m</code> (10.72 km, R² = {vario['weighted_r_squared']:.4f})</strong>, confirming that the <code>21,300 m</code> holdout buffer is <code>1.99×</code> the residual range and covers <code>{100*vario['sill_fraction_at_collar']:.2f}%</code> of sill.</li>
           <li><strong>Data Header Mislabel Disclosed &amp; Fixed:</strong> Band <code>B06</code> in <code>training_features.tif</code> is labeled <code>Magnetic_Tilt_Angle</code> in metadata, whereas <code>registry/data_provenance.json</code> proves <code>B06</code> is actually <code>GeoDAWN_Radiometric_TotalCount</code> (rho = +0.996). H31-J treats <code>B06</code> strictly as radiometric total count and computes true magnetic Miller–Singh tilt angle spectrally from <code>B02</code> RTP.</li>
           <li><strong>Conflicting Leaderboard Anchors Without Organizer Receipts:</strong> Prompt prose cites both <code>0.3195</code> and <code>0.4413</code> as #1 leaderboard figures alongside <code>0.2778</code> for GEMSDOE32 H33-2-B2, with zero organizer submission receipts in any of the nine audited repos. Every external score remains labeled <code>USER-REPORTED</code>, and no local <code>HOLDOUT-DTI</code> or <code>HOLDOUT-PROXY-SGMC</code> number is ever projected onto the live leaderboard scale.</li>
-          <li><strong>Next-Session Priority Recommendations:</strong> (1) Human weekly-slot selector review of <code>gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.zip</code> vs <code>-nan.zip</code> once outside-footprint portal convention is settled; (2) Protocol amendment formally separating synthetic geometry-probe lattices (<code>r13-lattice-s5</code>) from genuine fault-prediction entries in the shared 695-raster registry; (3) Test Rank #2 hypothesis <strong>H31-K</strong> (transtensional stepover / relay accommodation saddle) as an orthogonal subsurface signal.</li>
+          <li><strong>Next-Session Priority Recommendations:</strong> (1) Protocol-owner decision formally separating synthetic geometry-probe lattices (<code>r13-lattice-s5</code>) from genuine fault-prediction entries in the shared 695-raster registry before any live slot review; (2) Confirm outside-footprint convention (<code>-zeros.zip</code> vs <code>-nan.zip</code>) against organizer specification; (3) Test Rank #2 hypothesis <strong>H31-K</strong> (transtensional stepover / relay accommodation saddle) as an orthogonal subsurface signal.</li>
         </ul>
       </div>
+    </section>'''
+
+
+def h31m_download_and_gates() -> str:
+    hr_path = ROOT / "evidence/h31m_results.json"
+    rc_path = ROOT / "evidence/h31m_run_card.json"
+    if not hr_path.is_file() or not rc_path.is_file():
+        return ""
+    hr = json.loads(hr_path.read_text())
+    rc = json.loads(rc_path.read_text())
+    scr = hr["exp2_holdout_screen"]
+    conf = hr["exp2_holdout_confirm"]
+    s_boot = scr["bootstrap_submod_vs_base"]
+    c_boot = conf["bootstrap_submod_vs_base"]
+    prx = hr["exp3_proxies_and_habitat"]
+    submod_p = prx["H31-M_candidate"]
+    h33_p = prx["GEMSDOE32_H33_2_B2"]
+    cov = rc["correlation_and_overlap_vs_registry"]
+    dsub = cov["downloads_and_concurrent_subset"]
+    ce = cov["broad_695_registry_counterexample"]
+    slug = esc(hr["candidate_slug"])
+    sub_name = esc(rc["submission_name"])
+    sha_nan = esc(rc["raster_sha256"]["nan_tif"])
+    sha_fin = esc(rc["raster_sha256"]["allfinite_tif"])
+    sha_zip = esc(rc["raster_sha256"]["zip"])
+    note = esc(rc["note"])
+    s_dlo, s_dhi = s_boot["paired_delta_ci95"]["h31m_submod_minus_base_C1_poisson"]
+    c_lo, c_hi = c_boot["ci95"]["h31m_submod"]
+    off4 = submod_p["holdout_4block_off_sgmc"]
+    h33_off4 = h33_p["holdout_4block_off_sgmc"]
+    return f'''<section id="h31m-submod" aria-labelledby="h31m-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 Deconfounded Subsurface Concordance + 29-Cell Submodular Candidate · H31-M</p>
+        <h2 id="h31m-heading">H31-M BStep-XMod-Submod: Research Download Only · DO NOT SUBMIT</h2></div>
+        <p>Newly computed in this session from 8 label-free geophysical/structural channels + deconfounded dual-head Bayes OOF HGB +
+           exact 29-cell submodular DTI allocation. Beats GEMSDOE32 H33-2-B2 simultaneously on Piedmont Off-SGMC, 4-Block Off-SGMC,
+           Full Off-SGMC, and 21.25 km hide-and-recover holdout (4/4 folds on both seeds), and passes the 13-submission comparator subset —
+           but is <strong>held as research-only (DO NOT SUBMIT)</strong> under the unexempted 695-raster spacing-5 lattice STOP and inherited 21.25 km collar.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-green">LOCAL FORMAT &amp; 11/11 EFFICACY GATES PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
+        <h3 style="margin-top:18px">{slug}</h3>
+        <p>8 label-free geophysical channels (<code>bstep_grad_norm</code>, <code>bstep_inflect</code>, Miller–Singh <code>grav_tilt_zero</code>,
+           Blakely–Simpson <code>rtp_bandpass_crest</code>, <code>cond_grad_ridge</code>, <code>sub_tensor_coh</code>, <code>surf_piedmont_ridge</code>,
+           <code>xmod_strike_concordance</code>) + quadrant-deconfounded Dual-Head Bayes OOF HGB (<code>M_sub</code> 37 bands + <code>M_lidar</code> 48 bands) +
+           Minoux lazy-greedy 29-cell submodular DTI allocator with <code>B=2</code> (<code>d_cat &gt; 200 m</code>) hygiene (37,654 off-catalogue dots; 37.2% piedmont).</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/{slug}-nan.tif" download>Download H31-M Research .tif (NaN-outside)</a>
+          <a class="button" href="downloads/{slug}-nan.zip" download>Download Single-TIFF .zip</a>
+          <a class="button" href="downloads/{slug}-allfinite.tif" download>All-finite research encoding .tif</a>
+          <a class="button" href="downloads/{slug}-format-check.json" download>Format receipt .json</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {{0.0, 1.0}} in [0.0, 1.0] · 0 dots within 200 m of public catalogue.<br>
+          <strong>SHA-256 (NaN primary):</strong> <code>{sha_nan}</code><br>
+          <strong>SHA-256 (Single-TIFF ZIP):</strong> <code>{sha_zip}</code><br>
+          <strong>SHA-256 (All-finite):</strong> <code>{sha_fin}</code><br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>{sub_name}</code><br>
+          <strong>Note ({rc['note_length_chars']}/140):</strong> <code>{note}</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated Gate</th><th>Threshold</th><th>Measured H31-M Value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {{0.0, 1.0}}; 0 NaN inside; 0 within 200 m of catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 48 used features</td><td>max AUC = {hr['exp1_canary']['max_used_feature_unsigned_auc']:.4f} (new H31-M channels max = {hr['exp1_canary']['max_new_h31m_unsigned_auc']:.4f})</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3a · 13-Submission Comparator Subset</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = {dsub['max_abs_surface_spearman_r']:.4f}; max 3-px = {100*dsub['max_dot_overlap_within_3px']:.2f}% (concurrent lanes ≤ {100*dsub['max_dot_overlap_within_3px_concurrent_discrete_lanes']:.2f}%; 40.25% vs H33-2-B2)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>{100*ce['dot_overlap_within_3px']:.4f}% ({ce['within_3px']:,} / 37,654 dots within 3 px; |ρ| = {abs(ce['final_spearman_r']):.4f})</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G4a · Screen (seed 20261025, 21.25 km)</code></td><td>Paired 95% CI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI {scr['arms']['h31m_submod']['pooled_DTI']:.4f} vs {scr['arms']['base_C1_poisson']['pooled_DTI']:.4f} (Δ CI [{s_dlo:+.4f}, {s_dhi:+.4f}], 4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4b · Confirm (seed 20261026, n=58,625)</code></td><td>Fresh draw, paired 95% CI &gt; 0 and ≥ 3/4 folds won</td><td>HOLDOUT-DTI {conf['arms']['h31m_submod']['pooled_DTI']:.4f} [{c_lo:.4f}, {c_hi:.4f}] vs {conf['arms']['base_C1_poisson']['pooled_DTI']:.4f} (4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Alluvial/piedmont habitat (slope ≤ 6 deg, n=11,573 px)</td><td>HOLDOUT-DTI {submod_p['piedmont_off_sgmc_DTI']:.4f} vs GEMSDOE32 H33-2-B2 {h33_p['piedmont_off_sgmc_DTI']:.4f} (+9.4%) and H31-B 0.0052</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5b · All-Elevation &amp; 4-Block Off-SGMC</code></td><td>Strict simultaneous win &gt; H33-2-B2 (0.0940 / 0.0984)</td><td>Full Off-SGMC {submod_p['full_off_sgmc_DTI']:.4f} vs {h33_p['full_off_sgmc_DTI']:.4f} (+7.4%); 4-Block {off4['mean_holdout_dti']:.4f} [{off4['ci95_low']:.4f}, {off4['ci95_high']:.4f}] vs {h33_off4['mean_holdout_dti']:.4f} (+9.5%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G6 · Own-Method Variogram &amp; Slot Gate</code></td><td>Candidate-specific residual range + unexempted registry pass</td><td>21.25 km collar inherited from historical buffer_derivation.json; r13-lattice-s5 STOP active</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">HOLDOUT-DTI evaluator: <code>gemsdoe31-holdout-v1</code> (n=58,625 withheld positives, 21,250 m spatial collar, 400 block-bootstrap replicates) and
+        <code>usgs-sgmc-offcat-gt300m-v1</code> (n=61,664 full / n=50,470 4-block collared / n=11,573 piedmont). None of these figures is a competition score or projection.
+        Receipts: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/h31m_run_card.json">H31-M JSON run card</a> ·
+        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/h31m_results.json">full EXP-1..3 measurements</a> ·
+        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_h31m_subsurface_concordance_preregistration.md">frozen H31-M preregistration</a>.</p>
+    </section>'''
+
+
+def hvdc_download_and_gates() -> str:
+    exp_path = ROOT / "evidence/hvdc/hvdc_experiment_results.json"
+    rc_path = ROOT / "evidence/hvdc/run_card.json"
+    lc_path = ROOT / "evidence/hvdc/leakage_canary.json"
+    if not exp_path.is_file() or not rc_path.is_file() or not lc_path.is_file():
+        return ""
+    exp = json.loads(exp_path.read_text())["experiments"]
+    e1, e2, e3 = exp["EXP-1"], exp["EXP-2"], exp["EXP-3"]
+    rc = json.loads(rc_path.read_text())
+    lc = json.loads(lc_path.read_text())
+    cov = rc["correlation_overlap_vs_registry"]
+    lat = cov["shared_695_registry_counterexample_r13_lattice_s5"]
+    sub_name = esc(rc["submission_name"])
+    sha_nan = esc(rc["raster_sha256"]["nan_tif"])
+    sha_fin = esc(rc["raster_sha256"]["allfinite_tif"])
+    sha_zip = esc(rc["raster_sha256"]["nan_zip"])
+    note = esc(rc["note"])
+    return f'''<section id="hvdc-submod" aria-labelledby="hvdc-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 Dual-Specialist + 300 m CELF Submodular Candidate · H31-HVDC</p>
+        <h2 id="hvdc-heading">H31-HVDC-Submod300: Research Download · DO NOT SUBMIT</h2></div>
+        <p>Newly computed 4-fold OOF dual-specialist HGB + fold-visible vent/relay accommodation + Batch-Exact 300 m CELF submodular max-cover GeoTIFF.
+           Local format checks, 55-feature leakage canary, blocked 21.25 km hide-and-recover confirmation (+60.0%), and 34-comparator discrete separation all pass,
+           but the unexempted 695-raster shared registry triggers a literal overlap STOP (slot_approved = false).</p></div>
+      <div class="card download-card">
+        <span class="badge badge-green">LOCAL FORMAT CHECKS PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
+        <h3 style="margin-top:18px">{sub_name}</h3>
+        <p>Hydrothermal-volcanic-detachment concordance + fold-visible vent-to-tip &amp; relay-ramp accommodation + Bayes prevalence calibration +
+           Batch-Exact 300 m triangular-kernel submodular maximum coverage (37,654 binary {{0.0, 1.0}} dots, B &gt; 2 px outside public catalogue).</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/{sub_name}-nan.tif" download>Download H31-HVDC Research .tif (NaN-outside)</a>
+          <a class="button" href="downloads/{sub_name}-nan.zip" download>Download Single-TIFF .zip</a>
+          <a class="button" href="downloads/{sub_name}-allfinite.tif" download>All-finite research encoding .tif</a>
+          <a class="button" href="downloads/{sub_name}-format-check.json" download>Format &amp; gate receipt .json</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 x 3292 · 100 m · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {{0.0, 1.0}} in [0.0, 1.0] · 0 dots within 200 m of public catalogue.<br>
+          <strong>SHA-256 (NaN primary):</strong> <code>{sha_nan}</code><br>
+          <strong>SHA-256 (One-TIFF .zip):</strong> <code>{sha_zip}</code><br>
+          <strong>SHA-256 (All-finite):</strong> <code>{sha_fin}</code><br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>{sub_name}</code><br>
+          <strong>Note ({rc['note_length']}/140):</strong> <code>{note}</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated Gate</th><th>Threshold</th><th>Measured H31-HVDC Value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730x3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {{0.0, 1.0}}; 0 NaN inside; 0 within 200 m of catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC &lt;= 0.90 across all 55 features</td><td>max AUC = {lc['max_symmetric_auc']:.4f} across {lc['n_features_tested']} features (0 leaked)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3a · 34-Comparator Discrete Subset</code></td><td>Surface |rho| &lt;= 0.90 AND 3-px dot overlap &lt;= 70.0%</td><td>max |rho| = {cov['max_abs_surface_spearman']:.4f} (0.0626 vs GEMSDOE32 H33); max fwd 3-px = {100*cov['max_forward_3px_overlap_discrete']:.2f}% (35.71% vs SCGP, 18.47% vs MAGREST)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G3b · 5x5 Lattice &amp; Continuous Registry</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5 / GEMSDOE48)</td><td>{100*lat['forward_3px_overlap']:.2f}% ({lat['within_3px_dots']:,} / 37,654) vs r13-lattice-s5 (|rho| = {abs(lat['spearman_surface']):.6f}); 100.0% vs GEMSDOE48 continuous</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G4a · Screen (draws 101, 102; 21.25 km)</code></td><td>Paired gain over clean ArmD-Poisson ({e1['screen_mean_holdout_dti']:.4f})</td><td>EXP-2 Physics-Poisson {e2['screen_mean_holdout_dti']:.4f}; EXP-3 Submod300 HOLDOUT-DTI {e3['screen_mean_holdout_dti']:.4f} [{e3['screen_ci95'][0]:.4f}, {e3['screen_ci95'][1]:.4f}]</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4b · Fresh Confirm (draws 201, 202) &amp; 4-Draw Pool</code></td><td>Untouched draws, n = 48,169 withheld positives pooled</td><td>Confirm HOLDOUT-DTI {e3['confirm_mean_holdout_dti']:.4f} [{e3['confirm_ci95'][0]:.4f}, {e3['confirm_ci95'][1]:.4f}]; Pooled 4-draw {e3['pooled_4draw_mean_holdout_dti']:.4f} [{e3['pooled_4draw_ci95'][0]:.4f}, {e3['pooled_4draw_ci95'][1]:.4f}] (+0.0468 / +60.0%, 4/4 draws)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5 · Off-Catalogue SGMC (&gt;300 m)</code></td><td>Zero-leakage external SGMC evaluation proxy (never trained on)</td><td>OFFCAT-PROXY-DTI {e3['offcat_proxy_dti_sgmc_gt300m']:.4f} vs Clean ArmD {e1['offcat_proxy_dti_sgmc_gt300m']:.4f} (+12.7%) and legacy Arm D 0.0512 (+61.0%)</td><td><span class="badge badge-green">PASS</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">HOLDOUT-DTI evaluator: gemsdoe31-hide-recover-v1 (21.25 km variogram collar, 48,169 withheld positives across 4 draws, 1,000-rep 20 km spatial block bootstrap).
+        All prompt/sibling scores (0.2778, 0.3195, 0.4413) are USER-REPORTED with no organizer receipt. Under the unexempted 695-raster shared registry literal rule,
+        verdict = negative and slot_approved = false; artifacts are preserved as reproducible research downloads.</p>
+>>>>>>> origin/main
     </section>'''
 
 
@@ -175,26 +312,27 @@ def scgp_download_and_gates() -> str:
     note = esc(rc["note"])
     return f'''<section id="scgp-submod" aria-labelledby="scgp-heading">
       <div class="section-head"><div><p class="kicker">2026-10-25 Multi-Physics + 300 m Submodular Candidate · H31-E2</p>
-        <h2 id="scgp-heading">H31-E2 SCGP-Submod: Portal Format &amp; [0, 1] Validated; Weekly-Slot Selector Hold</h2></div>
-        <p>Passes format/[0, 1] range (G1), single-feature leakage (G2), uniqueness across all 22 discrete fault submissions (G3),
-           21.3 km confirmation (+29.3%, G4), and Piedmont SGMC (+13.0% over GEMSDOE32 H33-2-B2, G5a); held from automatic weekly-slot spending by strict G5b mountain SGMC and the literal 5×5 calibration-lattice rule.</p></div>
+        <h2 id="scgp-heading">H31-E2 SCGP-Submod: Research Only · DO NOT SUBMIT</h2></div>
+        <p>Historical evidence below is not a new experiment or organizer acceptance. Local format checks pass,
+           but the broader registry gate FAILS. A pass against a selected comparator subset does not establish uniqueness.
+           The literal lattice STOP and failed mountain SGMC gate prohibit submission under the current protocol.</p></div>
       <div class="card download-card">
-        <span class="badge badge-green">FORMAT &amp; [0, 1] VALIDATED · OK TO DOWNLOAD</span>
-        <span class="badge badge-red" style="margin-left:8px">AUTO-SLOT SELECTOR: HOLD (slot_approved = false)</span>
+        <span class="badge badge-green">LOCAL FORMAT CHECKS PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
         <h3 style="margin-top:18px">{sub_name}</h3>
         <p>43-feature Gallardo–Meju structural cross-gradient concordance + 2D FFT upward-continuation residuals +
            seam-free Dual-Expert 1 m 3DEP LiDAR scarp polarity + GeoDAWN K/Th/U &amp; GDR-1391 paleo-sinter +
            strike-tip/relay bridge + Minoux lazy-greedy 300 m submodular DTI allocator (37,654 off-catalogue dots; 31.5% beyond 1.5 km).</p>
         <div class="actions">
-          <a class="button button-primary" href="downloads/{sub_name}-nan.tif" download>Download H31-E2 Primary .tif (NaN-outside)</a>
+          <a class="button button-primary" href="downloads/{sub_name}-nan.tif" download>Download H31-E2 Research .tif (NaN-outside)</a>
           <a class="button" href="downloads/{sub_name}-nan.zip" download>Download Single-TIFF .zip</a>
-          <a class="button" href="downloads/{sub_name}-allfinite.tif" download>All-finite [0, 1] fallback .tif</a>
+          <a class="button" href="downloads/{sub_name}-allfinite.tif" download>All-finite research encoding .tif</a>
           <a class="button" href="downloads/{sub_name}-format-check.json" download>Format receipt .json</a>
         </div>
         <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {{0.0, 1.0}} in [0.0, 1.0] · 0 dots on public catalogue.<br>
           <strong>SHA-256 (NaN primary):</strong> <code>{sha_nan}</code><br>
           <strong>SHA-256 (All-finite):</strong> <code>{sha_fin}</code><br>
-          <strong>Unique Name:</strong> <code>{sub_name}</code><br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>{sub_name}</code><br>
           <strong>Note ({rc['submission_note_chars']}/140):</strong> <code>{note}</code></p>
       </div>
       <div class="table-wrap" style="margin-top:18px"><table>
@@ -202,16 +340,111 @@ def scgp_download_and_gates() -> str:
         <tbody>
           <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {{0.0, 1.0}}; 0 NaN inside; 0 on catalogue</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 86 features</td><td>max AUC = {rc['leakage_canary']['max_single_feature_auc']:.4f} across {rc['leakage_canary']['features_tested']} features</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G3a · 22 Genuine Submissions</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = {cov['max_surface_spearman_rho']:.4f}; max 3-px overlap = {100*cov['max_final_dots_within_3px']:.2f}% (concurrent lanes ≤ {100*cov['max_final_dots_within_3px_concurrent_discrete_lanes']:.2f}%)</td><td><span class="badge badge-green">PASS</span></td></tr>
-          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>100.00% (5×5 lattice covers 100% of Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G3a · Historical 22-comparator subset</code></td><td>Surface |ρ| ≤ 0.90 AND 3-px dot overlap ≤ 70.0%</td><td>max |ρ| = {cov['max_surface_spearman_rho']:.4f}; max 3-px overlap = {100*cov['max_final_dots_within_3px']:.2f}% (concurrent lanes ≤ {100*cov['max_final_dots_within_3px_concurrent_discrete_lanes']:.2f}%)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G3b · 5×5 Calibration Lattice</code></td><td>Unexempted 695-raster shared registry (r13-lattice-s5)</td><td>99.9655% of final H31-E2 dots (37,641 / 37,654); read-only byte audit, not a new experiment</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
           <tr><td><code>G4a · Screen (draw=101, 21.3 km)</code></td><td>Paired ΔDTI &gt; 0 and ≥ 3/4 spatial folds won</td><td>HOLDOUT-DTI {scr['h31e_scgp_submod']['pooled_dti']:.4f} vs {scr['baseline_d_poisson']['pooled_dti']:.4f} (+{scr['paired_delta_dti']:.4f}, {scr['folds_won_out_of_4']}/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G4b · Fresh Confirm (draws 202,303)</code></td><td>Untouched draws, n = {conf['withheld_positives_pooled']:,}, 95% CI &gt; 0</td><td>HOLDOUT-DTI {conf['h31e_scgp_submod_pooled_dti']:.4f} [{conf['h31e_scgp_submod_ci95'][0]:.4f}, {conf['h31e_scgp_submod_ci95'][1]:.4f}] vs {conf['baseline_d_poisson_pooled_dti']:.4f} (+{conf['paired_delta_dti']:.4f}, +29.3%)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5a · Piedmont Off-Catalogue SGMC</code></td><td>Quaternary piedmont habitat (det_elev ≤ +50 m)</td><td>{pied['h31e_scgp_submod_dti']:.4f} vs Baseline-D {pied['baseline_d_poisson_dti']:.4f} and GEMSDOE32 H33-2-B2 {pied['h33_2_b2_reference_dti']:.4f} (+13.0%)</td><td><span class="badge badge-green">PASS</span></td></tr>
           <tr><td><code>G5b · All-Elevation Mountain SGMC</code></td><td>Strict pre-declared &gt; H33-2-B2 (0.0940) across mountain SGMC</td><td>{all_sgmc['h31e_scgp_submod_dti']:.4f} vs Baseline-D {all_sgmc['baseline_d_poisson_dti']:.4f} (+13.6%), &lt; H33 {all_sgmc['h33_2_b2_reference_dti']:.4f}</td><td><span class="badge badge-red">HOLD (slot_approved=false)</span></td></tr>
         </tbody>
       </table></div>
+      <p class="small">These are historical HOLDOUT-DTI/proxy results, not competition scores.
+        Holdout evaluator: gemsdoe31-hide-v2.0; screen n=17,900, confirmation n=35,599 withheld positives.
+        The inherited 21.3 km collar is not a newly measured candidate-specific correlation range.
+        Proxy independence and a same-instrument global-best comparison are not established.
+        See linked receipts for intervals; no high-score claim follows from these figures.</p>
       <p class="small">Full artifact &amp; 3-experiment log (including stopped Exp 1 proximity-halo audit and Exp 2 submodular +0.0372 ablation):
         <a href="experiments/12-h31e-scgp-submod.html">Experiment 12 · H31-E2 SCGP-Submod</a>.</p>
+    </section>'''
+
+
+def rbu31_download_and_gates() -> str:
+    """RBU31(-B) regime-balanced union section, fully driven by its run card.
+
+    Prefers the RBU31-B amendment evidence (regime31b) when present; falls
+    back to the original RBU31 experiment (regime31).
+    """
+    base = ROOT / "evidence/regime31b"
+    if not (base / "run_card.json").is_file():
+        base = ROOT / "evidence/regime31"
+    rc_path = base / "run_card.json"
+    hr_path = base / "holdout_results.json"
+    if not rc_path.is_file() or not hr_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    hr = json.loads(hr_path.read_text())
+    gates = rc["automated_gates"]
+    promote = bool(rc.get("ok_to_download_and_submit"))
+    scr = hr["experiment_1_screen_draw_101"]
+    conf = hr.get("experiment_2_confirmation")
+    proxies = hr["experiment_3_sgmc_proxies"]["candidates"]
+    pr, pb, ph = proxies["rbu31"], proxies["baseline_d_final"], proxies["h33_2_b2_actual_peer_file"]
+    dup = rc["correlation_overlap_vs_registry"]
+    name = esc(rc["submission_name"])
+    note = esc(rc["submission_note"])
+
+    def badge(ok):
+        return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
+
+    verdict_badge = (
+        '<span class="badge badge-green">&#9989; OK TO DOWNLOAD AND SUBMIT &middot; ALL AUTOMATED GATES PASS</span>'
+        if promote else
+        '<span class="badge badge-red">&#10060; DO NOT SUBMIT &middot; AUTOMATED GATES FAILED (research only)</span>')
+    heading = (
+        "RBU31 Regime-Balanced Union: &#9989; OK to download and submit"
+        if promote else
+        "RBU31 Regime-Balanced Union: &#10060; Do not submit")
+    conf_row = ("not run (screen stop)" if not conf else
+                f"HOLDOUT-DTI {conf['rbu31_pooled_dti']:.4f} [{conf['rbu31_ci95'][0]:.4f}, {conf['rbu31_ci95'][1]:.4f}] "
+                f"vs {conf['baseline_d_pooled_dti']:.4f} (delta {conf['paired_delta_dti']:+.4f}, "
+                f"95% CI [{conf['paired_delta_ci95'][0]:+.4f}, {conf['paired_delta_ci95'][1]:+.4f}]); "
+                f"{conf['withheld_positives_pooled']:,} withheld positives")
+    return f'''<section id="rbu31" aria-labelledby="rbu31-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 New Unique Candidate &middot; RBU31 (Experiment 13)</p>
+        <h2 id="rbu31-heading">{heading}</h2></div>
+        <p>One union model (raw-39 + SCGP-40 features in the same trees) trained with regime-balanced sample weights
+           (piedmont det_elev &le; 50 m vs mountain), validated end-to-end by automated gates &mdash; no human inspector.
+           Every dot is newly computed; no prior submission dots were copied.</p></div>
+      <div class="card download-card">
+        {verdict_badge}
+        <h3 style="margin-top:18px">{name}</h3>
+        <p>Why this can beat the family's best reported file: GEMSDOE32 H33-2-B2 is the older D2.8 surface minus dots
+           within 2 px of the known catalogue (a pruning rule, not a new detector). RBU31 keeps that verified DTI
+           economics (2.8 px spacing matched to the 300 m kernel; &gt;2 px catalogue prune) but replaces the surface
+           with one that ranks both buried piedmont faults (gravity/basement cross-gradient physics) and mountain
+           scarps (raw 1 m LiDAR bands in the same trees), without the catalogue's 72% piedmont mapping bias.</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/{name}-allfinite.tif" download>&#11015; Download submission .tif (all-finite [0, 1], recommended)</a>
+          <a class="button" href="downloads/{name}-nan.tif" download>NaN-outside .tif</a>
+          <a class="button" href="downloads/{name}-nan.zip" download>Single-TIFF .zip</a>
+          <a class="button" href="downloads/{name}-format-check.json" download>Format receipt .json</a>
+          <a class="button" href="downloads/{name}-run-card.json" download>Run card .json</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; range:</strong> 1-band float32 &middot; EPSG:32611 &middot; 3730 &times; 3292 &middot;
+          values strictly in [0, 1] (all-finite file: finite everywhere, so the portal's
+          &ldquo;Predicted values must be in range [0, 1]&rdquo; check cannot trip on NaN/sentinels) &middot; 0 dots on the public catalogue.<br>
+          <strong>SHA-256 (all-finite):</strong> <code>{esc(rc['raster_sha256']['allfinite'])}</code><br>
+          <strong>SHA-256 (NaN-outside):</strong> <code>{esc(rc['raster_sha256']['nan_outside'])}</code><br>
+          <strong>Unique name:</strong> <code>{name}</code><br>
+          <strong>Portal note ({rc['submission_note_chars']}/140):</strong> <code>{note}</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated gate</th><th>Threshold</th><th>Measured RBU31 value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 &middot; Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730&times;3292, float32, finite in footprint, values in [0, 1]</td><td>see format receipt</td><td>{badge(gates['G1_format_and_range_0_1_pass'])}</td></tr>
+          <tr><td><code>G2 &middot; Leakage canary</code></td><td>every one of 79 features alone: two-sided AUC &le; 0.90</td><td>max AUC = {rc['leakage_canary']['max_two_sided_auc']:.4f}</td><td>{badge(gates['G2_leakage_canary_pass'])}</td></tr>
+          <tr><td><code>G3a &middot; Uniqueness vs genuine submissions</code></td><td>surface |&rho;| &le; 0.90 and 3-px dot overlap &le; 70% vs {dup['checked_count']} registry/peer rasters (incl. the 9 focus sites' best)</td><td>max |&rho;| = {max(abs(dup['max_surface_spearman_rho']), abs(dup['max_final_dots_spearman_rho'])):.4f}; max 3-px overlap = {100*dup['max_final_dots_within_3px']:.2f}%</td><td>{badge(gates['G3a_uniqueness_genuine_registry_pass'])}</td></tr>
+          <tr><td><code>G3b &middot; Spacing-5 lattice (695-raster registry)</code></td><td>literal rule</td><td>universal degeneracy disclosed: the lattice covers 100% of the interior within 3 px for ANY non-empty candidate</td><td><span class="badge badge-red">DISCLOSED</span></td></tr>
+          <tr><td><code>G4a &middot; Holdout screen (draw 101, 21.3 km)</code></td><td>&Delta;DTI &gt; 0.002 and &ge; 3/4 folds</td><td>HOLDOUT-DTI {scr['rbu31_poisson']['pooled_dti']:.4f} vs {scr['baseline_d_poisson']['pooled_dti']:.4f} (delta {scr['paired_delta_dti']:+.4f}, {scr['folds_won_out_of_4']}/4 folds)</td><td>{badge(scr['paired_delta_dti'] > 0.002 and scr['folds_won_out_of_4'] >= 3)}</td></tr>
+          <tr><td><code>G4b &middot; Fresh confirmation (draws 202, 303)</code></td><td>&Delta;DTI &gt; 0.002, paired 95% CI &gt; 0</td><td>{conf_row}</td><td>{badge(gates['G4_holdout_screen_and_fresh_confirmation_pass'])}</td></tr>
+          <tr><td><code>G5 &middot; Off-catalogue SGMC, all regimes</code></td><td>beat Baseline-D AND GEMSDOE32 H33-2-B2 on all / piedmont / mountain</td><td>all {pr['sgmc_all_dti']:.4f} (Base {pb['sgmc_all_dti']:.4f}, H33 {ph['sgmc_all_dti']:.4f}) &middot; piedmont {pr['sgmc_piedmont_dti']:.4f} (Base {pb['sgmc_piedmont_dti']:.4f}, H33 {ph['sgmc_piedmont_dti']:.4f}) &middot; mountain {pr['sgmc_mountain_dti']:.4f} (Base {pb['sgmc_mountain_dti']:.4f}, H33 {ph['sgmc_mountain_dti']:.4f})</td><td>{badge(gates['G5_sgmc_all_piedmont_mountain_beats_baseline_and_h33'])}</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">HOLDOUT-DTI and SGMC are local proxies (evaluator gemsdoe31-hide-v2.0), <strong>not</strong> competition scores.
+        No ORGANIZER-CONFIRMED score exists for any file on this site; the 0.2778 family best is USER-REPORTED.
+        Spending a weekly slot remains the owner's click on DrivenData. Preregistration, 3-experiment log and all
+        receipts: <a href="experiments/13-rbu31-regime-union.html">Experiment 13 &middot; RBU31</a> &middot;
+        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_rbu31_preregistration.md">preregistration</a>.</p>
     </section>'''
 
 
@@ -243,35 +476,121 @@ def download(card):
       </div>
     </section>'''
 
+def h3_download_and_gates() -> str:
+    """Download section for the H3 LiDAR-scarp research TIF."""
+    p = ROOT / "evidence/h3_unique_submission.json"
+    if not p.is_file():
+        return ''
+    h3 = json.loads(p.read_text())
+    receipt = h3.get('submission_receipt', {})
+    name = h3.get('submission_name', 'unknown')
+    note = h3.get('submission_note', '')
+    sha = receipt.get('nan_sha256', 'unknown')
+    dots = receipt.get('dots', 0)
+    on_cat = receipt.get('dots_on_catalogue', '?')
+    ok_nan = bool(receipt.get('format_ok_nan', False))
+    ok_fin = bool(receipt.get('format_ok_allfinite', False))
+    _sgmc = h3.get('holdout_off_catalogue_sgmc', {}) or {}
+    _gap = h3.get('holdout_catalogue_gap', {}).get('H3-lidar-scarp-unique', {}) or {}
+    dti_sgmc = _sgmc.get('HOLDOUT_DTI')
+    dti_gap = _gap.get('HOLDOUT_DTI')
+    canary_sgmc = h3.get('canary', {}).get('auc_off_catalogue_sgmc', 0) or 0
+    canary_cat = h3.get('canary', {}).get('auc_catalogue', 0) or 0
+    return f'''
+<section id="h3-download" aria-labelledby="h3-heading">
+  <div class="section-head"><div><p class="kicker">New artifact · H3 LiDAR scarp · 2026-10-25</p>
+    <h2 id="h3-heading">OK to download for research. NOT approved for upload.</h2></div>
+    <p>Holdout proxies disagree (catalogue-gap vs off-catalogue SGMC). Full 716-raster registry cache
+    was unavailable for the uniqueness gate. Labelled research-only until both proxies agree and the
+    registry gate passes.</p></div>
+  <div class="card download-card">
+    <span class="badge badge-red">RESEARCH ONLY · verdict = negative · not promoted</span>
+    <h3 style="margin-top:18px">{esc(name)}</h3>
+    <p>LiDAR generic scarp (ex_max percentile rank, gaussian 0.8px) at 2.8px Poisson-disk spacing.
+       {dots:,} dots, {on_cat} dots on the public catalogue. New dots — not copied from any prior submission.</p>
+    <div class="actions">
+      <a class="button button-dark" href="downloads/{name}-nan.tif" download>Download H3 Research .tif (NaN-outside)</a>
+      <a class="button" href="downloads/{name}-allfinite.tif" download>All-finite research encoding .tif</a>
+      <a class="button" href="downloads/{name}-nan.zip" download>One-TIFF .zip</a>
+      <a class="button" href="../evidence/h3_unique_submission.json" download>Run card .json</a>
+    </div>
+    <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 x 3292 · 100 m ·
+      {dots:,} dots · values exactly {{0.0, 1.0}} in [0.0, 1.0]<br>
+      <strong>SHA-256 (NaN primary):</strong> <code>{esc(sha)}</code><br>
+      <strong>SHA-256 (All-finite):</strong> <code>{esc(receipt.get('allfinite_sha256','unknown'))}</code><br>
+      <strong>Name:</strong> <code>{esc(name)}</code><br>
+      <strong>Note ({len(note)}/140):</strong> <code>{esc(note)}</code></p>
+    <table>
+      <thead><tr><th>Gate</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Single-feature leakage canary (SGMC AUC)</td>
+            <td><span class="badge badge-green">PASS</span> {canary_sgmc:.3f} (&lt;= 0.90)</td></tr>
+        <tr><td>Single-feature leakage canary (catalogue AUC)</td>
+            <td><span class="badge badge-green">PASS</span> {canary_cat:.3f} (&lt;= 0.90)</td></tr>
+        <tr><td>Holdout DTI — off-catalogue SGMC</td>
+            <td>HOLDOUT-DTI {dti_sgmc:.4f} (truth px 61,664)</td> if dti_sgmc is not None else <td>HOLDOUT-DTI n/a</td></tr>
+        <tr><td>Holdout DTI — catalogue-gap (seed 1)</td>
+            <td>HOLDOUT-DTI {dti_gap:.4f} vs D28 incumbent 0.0435</td></tr>
+        <tr><td>Format validation (NaN)</td>
+            <td><span class="badge {'badge-green' if ok_nan else 'badge-red'}">{'PASS' if ok_nan else 'FAIL'}</span></td></tr>
+        <tr><td>Format validation (all-finite)</td>
+            <td><span class="badge {'badge-green' if ok_fin else 'badge-red'}">{'PASS' if ok_fin else 'FAIL'}</span></td></tr>
+        <tr><td>716-raster uniqueness gate</td>
+            <td><span class="badge badge-red">CACHE UNAVAILABLE — not checked</span></td></tr>
+        <tr><td>Submission approval</td>
+            <td><span class="badge badge-red">NOT APPROVED — do not upload</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+'''
+
+
+def _rbu31_card():
+    for sub in ("regime31b", "regime31"):
+        rc_path = ROOT / "evidence" / sub / "run_card.json"
+        if rc_path.is_file():
+            return json.loads(rc_path.read_text())
+    return None
+
 
 def overview(card):
     link = links(card)
     h31j_sub = "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8"
     hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
       <p class="eyebrow">DOE GEMS Prize · 2026-10-25 Preregistered Discovery · Lane H31-J</p>
-      <h1>New Unique GeoTIFF.<br>All 6 Science Gates PASS · Human Slot Hold.</h1>
-      <p class="hero-lede"><strong>H31-J TGTD-Submod</strong> (<code>{h31j_sub}</code>, 37,654 off-catalogue dots) passes GeoTIFF/[0, 1] format,
-        260-check leakage canary, 130-raster discrete uniqueness, both 21.3 km holdout seeds (<strong>8/8 quadrants</strong>, +85.7% &amp; +60.2%),
+      <h1>New Unique GeoTIFF.<br>6/6 Science Gates PASS · Research-Only Under Registry STOP.</h1>
+      <p class="hero-lede"><strong>H31-J TGTD-Submod</strong> (<code>{h31j_sub}</code>, 37,654 off-catalogue dots) passes local GeoTIFF/[0, 1] format,
+        260-check leakage canary, 142-raster discrete subset separation, both 21.3 km holdout seeds (<strong>8/8 quadrants</strong>, +85.7% &amp; +60.2%),
         own-method residual variogram (10.72 km ≤ 21.3 km), and both off-catalogue SGMC proxies (+15.2% all-elev, +30.5% piedmont vs GEMSDOE32 H33-2-B2).
-        Automated weekly-slot spending remains disabled (<code>slot_approved = false</code>; <strong>not approved for upload</strong> without explicit human selector sign-off; prior MAGREST negative run also preserved).</p>
+        Under the unexempted 695-raster spacing-5 lattice rule (<code>r13-lattice-s5</code>), it remains <strong>not approved for upload</strong> (<code>slot_approved = false</code>; DO NOT SUBMIT).</p>
       <div class="actions">
-        <a class="button button-primary" href="downloads/{h31j_sub}-zeros.zip" download>Download H31-J All-Finite [0, 1] .zip</a>
+        <a class="button button-primary" href="downloads/{h31j_sub}-zeros.zip" download>Download H31-J Research All-Finite [0, 1] .zip</a>
         <a class="button button-light" href="{link('file')}" download>Download new research TIFF</a>
         <a class="button button-light" href="executive-summary.html">Status + submission guide</a>
       </div>
       </div><aside class="hero-side" aria-label="Submission decision">
-        <strong>Automated Status · OK TO DOWNLOAD · DO NOT SUBMIT WITHOUT SELECTOR SIGN-OFF</strong>
-        <p><strong>H31-J TGTD-Submod:</strong> Format [0, 1] PASS · Uniqueness PASS (65.14% ≤ 70%) · Seed 31 &amp; 32 PASS (8/8 folds) · <code>slot_approved = false</code> (Rule 6 &amp; literal 5×5 lattice G3b disclosed).<br>
-          <strong>Prior MAGREST:</strong> Research download only · DO NOT SUBMIT (negative screen).</p></aside></div></section>'''
+        <strong>Research download only · DO NOT SUBMIT</strong>
+        <p><strong>H31-J TGTD-Submod:</strong> Local [0, 1] PASS · 142-file discrete subset PASS (65.14% ≤ 70%) · Seed 31 &amp; 32 PASS (8/8 folds) · <code>slot_approved = false</code> (literal 5×5 lattice G3b STOP).<br>
+          <strong>Prior MAGREST / RBU31 / H31-M / HVDC / H31-E2:</strong> Research downloads preserved below.</p></aside></div></section>'''
+    return hero, _overview_body(card, hero_rbu=False)
+
+
+def _overview_body(card, *, hero_rbu: bool):
     s = card["holdout_dti"]
     delta = card["paired_difference"]
     final = card["registry"]["final"]
-    body = f'''<div class="notice notice-danger"><strong>Not approved for upload automatically (<code>slot_approved = false</code>).</strong>
-      <strong>H31-J TGTD-Submod</strong> (<code>{h31j_sub}</code>) passed all 6 technical and scientific validation gates (<code>scripts/verify_h31j.py</code>) and is ready for human weekly-slot review;
-      prior MAGREST automated verdict remains NEGATIVE (research only). Do not spend a live DrivenData weekly slot without explicit human selector sign-off.</div>
-      {h31j_download_and_gates()}
+    magrest_notice = '''<div class="notice notice-danger"><strong>Not approved for upload.</strong>
+      Automated verdict: DO NOT SUBMIT under the unexempted 695-raster shared-registry overlap rule (<code>slot_approved = false</code>). Download H31-J, RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
+      '''
+    body = f'''{magrest_notice}{h31j_download_and_gates()}
+      {rbu31_download_and_gates()}
+      {h31m_download_and_gates()}
+      {hvdc_download_and_gates()}
       {scgp_download_and_gates()}
       {download(card)}
+      {h3_download_and_gates()}'''
+    body += f'''
       <section><div class="section-head"><div><p class="kicker">Four separate gates</p><h2>What passed, and what did not</h2></div>
         <p>These statuses are rebuilt from the exact file, receipts, holdout terms and registry checks.</p></div>
         <div class="grid grid-4">
@@ -303,16 +622,79 @@ def overview(card):
         <p><a href="research.html">Full nine-repository review, hypotheses and geological limits</a> ·
           <a href="validation.html">Validation details</a> · <a href="register/index.html">Evidence registers</a></p>
       </section>'''
-    return hero, body
+    return body
+
+
+def focus_site_summary() -> str:
+    """Show the highest owner-reported artifact per requested site, never as upload advice."""
+    path = ROOT / "registry/focus_review.json"
+    if not path.is_file():
+        return ""
+    rows = json.loads(path.read_text()).get("rows", [])
+    best = {}
+    for row in rows:
+        try:
+            score = float(row["claim_value"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        site = row.get("repository")
+        if site and (site not in best or score > best[site][0]):
+            best[site] = (score, row)
+
+    site_order = ["GEMSDOE24", "GEMSDOE25", "GEMSDOE27", "GEMSDOE28",
+                  "GEMSDOE30", "GEMSDOE31", "GEMSDOE32", "GEMSDOE33", "GEMSDOE36"]
+    rendered = []
+    for site in site_order:
+        result = best.get(site)
+        if result is None:
+            rendered.append(f"<tr><td>{esc(site)}</td><td colspan=\"4\">No pinned candidate record in the current audit.</td></tr>")
+            continue
+        score, row = result
+        overlap = row.get("fraction_within_3px_of_h33")
+        overlap_text = "not available" if overlap is None else f"{100 * overlap:.1f}% of dots within 3 px of H33"
+        artifact = esc(row["artifact"])
+        url = esc(row["source_url"])
+        method = esc(row.get("method", "Not established in the current audit"))
+        sha = esc(row.get("sha256", ""))
+        rendered.append(
+            f'<tr><td><strong>{esc(site)}</strong></td>'
+            f'<td><a href="{url}" target="_blank" rel="noopener">{artifact}</a>'
+            f'<br><span class="small">SHA-256 <code>{sha[:12]}…</code></span></td>'
+            f'<td>{score:.4f}<br><span class="badge">USER-REPORTED · no organizer receipt</span></td>'
+            f'<td>{method}</td><td>{overlap_text}</td></tr>'
+        )
+    return f'''<section id="focus-sites"><div class="section-head"><div>
+      <p class="kicker">Nine requested repositories · highest claim per site</p>
+      <h2>Prior-art comparison — not a list of upload recommendations</h2></div>
+      <p>Scores below are the claims supplied by the owner and pinned to repository artifacts where available.
+        They are not organizer-confirmed scores. The highest listed claim is GEMSDOE32 H33-2-B2 (0.2778),
+        but H33 is a D2.8 catalogue-distance prune, not a new detector, and is not eligible as a unique new submission.</p></div>
+      <div class="notice notice-danger"><strong>Decision: none of these historical files is cleared to submit as a new unique candidate.</strong>
+        The selected files are prior art; each has &gt;70% of its positive dots within 3 px of the pinned H33 raster
+        (the reference itself is 100%). Do not copy or rename them. Every score in this table remains USER-REPORTED.</div>
+      <div class="table-wrap"><table><thead><tr><th>Site</th><th>Highest listed artifact (pinned mirror)</th>
+        <th>Claimed score</th><th>Method / interpretation</th><th>Measured relation to H33</th></tr></thead>
+        <tbody>{''.join(rendered)}</tbody></table></div>
+      <p class="small">The table shortens each SHA-256 for readability; full digests and evidence classes are in the <a href="register/index.html">submission register</a> and <code>registry/focus_review.json</code>.</p>
+      <p class="small"><strong>GEMSDOE31 irregularity:</strong> the user-listed 0.2708 H27-4 claim conflicts with the pinned owner-page status
+        recorded in <code>registry/irregularities.json</code> (listed as unscored); exact organizer receipt-to-file attribution is absent.
+        This table is a forensic index, not a live leaderboard snapshot or a recommendation to spend a slot.</p>
+    </section>'''
 
 
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
+    focus_summary = focus_site_summary()
     return f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet.</strong>
-      <strong>H31-J TGTD-Submod</strong> (<code>gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8</code>) passed all 6 automated technical and scientific gates (format/[0, 1], leakage, 130-file discrete uniqueness, screen &amp; untouched confirmation 8/8 quadrants, own-method variogram, and both off-catalogue SGMC proxies), while prior H31-E2 SCGP-Submod and MAGREST artifacts are also preserved; automated weekly-slot approval remains <code>slot_approved = false</code> pending explicit human selector sign-off.</div>
+      The H31-J TGTD-Submod, RBU31-B regime-balanced union, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts are locally format-validated and available to download in one click; all remain research-only (<code>slot_approved = false</code>) while the unexempted 695-raster shared-registry overlap gate remains in force. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
       {h31j_download_and_gates()}
+      {focus_summary}
+      {rbu31_download_and_gates()}
+      {h31m_download_and_gates()}
+      {hvdc_download_and_gates()}
       {scgp_download_and_gates()}
       {download(card)}
+      {h3_download_and_gates()}
       <section><div class="section-head"><div><p class="kicker">Exact decision</p><h2>Why upload is blocked</h2></div>
         <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
         <div class="card"><ul>{failed}</ul></div>
@@ -361,9 +743,11 @@ def research(card, screen, focus, lineage):
     rel = lineage["relations"]
     proxy = card["sgmc_proxy"]
     return f'''<div class="notice"><strong>Evidence boundary</strong>Only measured geometry and local holdouts are verified here.
-      The literal registry gate FAILS: a registered spacing-5 lattice covers 100% of every fixed variant’s prospective/final dots. Original preflight covered only nine download trees; this scope defect was discovered after packaging. No new fit or TIFF follows this STOP. The reported 0.2778 and conflicting leaderboard anchors 0.3195 / 0.4413 have no organizer receipt in this project.
+      The literal registry gate FAILS: a registered spacing-5 lattice covers 99.52%–100% of fixed variants’ dots, and GEMSDOE48 continuous pignistic covers 100%. No new fit or TIFF follows this STOP. The reported 0.2778 and conflicting leaderboard anchors 0.3195 / 0.4413 have no organizer receipt in this project.
       Non-GitHub official pages cannot be re-fetched under this environment's host allowlist.</div>
       {h31j_research_sections()}
+      {h31m_download_and_gates()}
+      {hvdc_download_and_gates()}
       <section><div class="section-head"><div><p class="kicker">The central question</p><h2>Why H33 may have scored well</h2></div>
         <p>A metric mechanism is not causal proof of a private score.</p></div>
         <div class="content"><p>For binary dots, write T = covered-truth kernel credit, M = total nearest-truth self-credit at dots,

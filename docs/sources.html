@@ -25,7 +25,7 @@
   </section>
 
   <main class="wrap">
-<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>    <section>
+<div class="notice"><strong>Newest candidate: RBU31 regime-balanced union (Experiment 13) — its automated OK / DO-NOT-SUBMIT verdict is on the <a href="executive-summary.html">executive summary</a>.</strong> MAGREST and H31-E2 keep their own earlier verdicts there. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores.</div>    <section>
       <div class="section-head">
         <div><p class="kicker">Provenance</p><h2>How to read a claim on this site</h2></div>
         <p>Every claim carries its class. A class is a statement about where the evidence came from — not about how confident anyone feels.</p>
@@ -160,11 +160,47 @@
           <ul class="small" style="margin:8px 0 0"><li>Static link retained for manual review; not fetched in the current session.</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not fetched this session. The prize structure quoted in registry/score_claims.json and on the site comes from page 967, which was fetched and is verified below.</p>
         </li><li>
-          <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noopener">DrivenData GEMS reference solution repository</a></strong>
+          <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noopener">DrivenData GEMS Prize official reference solution repository</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData / DOE GEMS Prize (Prof. John Lipor, Portland State University) · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Official organizer repository linked from DrivenData problem page; README verified via GitHub REST API on 2026-10-25.</li><li>Implements a 2D U-Net with Monte Carlo dropout cross-validation (unet-mc-cv-reference-solution.ipynb) by Prof. John Lipor and documents both GPU (--extra gpu) and CPU (--extra cpu / environment-cpu.yml) execution.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Reference notebook was inspected for prior-art architecture only and not executed for submission generation.</p>
+        </li><li>
+          <strong><a href="https://github.com/buffedlizard55-lab/GEMSDOE32/tree/012e17b2a115c3c0d5e7885bea625bf9657c99fc" target="_blank" rel="noopener">GEMSDOE32 repository README and H33-2-B2 37,654-dot artifact</a></strong>
           <span class="badge">OWNER-MIRROR</span>
-          <span class="small"> · this project (buffedlizard55-lab) · 2026-10-04</span>
-          <ul class="small" style="margin:8px 0 0"><li>Repository exists and is linked from the official problem page.</li></ul>
-          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Not executed in this session.</p>
+          <span class="small"> · this project (buffedlizard55-lab/GEMSDOE32) · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Artifact docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif has SHA-256 c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9 and 37,654 positive cells (H27-4 40,199 minus 2,545 flank cells in 100 m &lt; d_cat &lt;= 200 m).</li><li>README reports live score 0.2778 and public #1 ceiling 0.4413 (read 2026-10-25), retained as USER-REPORTED here because no organizer receipt file is attached.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Owner-maintained sibling repository, not an official organizer score receipt; used strictly for prior-art mechanism diagnosis and uniqueness gating (never copied).</p>
+        </li><li>
+          <strong><a href="https://github.com/buffedlizard55-lab/GEMSDOE76" target="_blank" rel="noopener">GEMSDOE70/GEMSDOE76 piedmont fault discovery forensic audit</a></strong>
+          <span class="badge">OWNER-MIRROR</span>
+          <span class="small"> · this project (buffedlizard55-lab/GEMSDOE70 &amp; GEMSDOE76) · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Documents that P8-OOF38k (gems70-p5-dual-submod300-oof38k-20261020) beat H33 by +39.8% on mountain-dominated SGMC \ catalogue (0.1311 vs 0.0938) yet regressed -10.8% on live DTI (0.2478 vs 0.2778 USER-REPORTED) while losing -10.1% on piedmont/basin fault proxy C_pied (0.0842 vs 0.0937).</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Owner-mirror forensic analysis; live scores remain USER-REPORTED without attached organizer receipts. Used to motivate requiring simultaneous wins on piedmont off-SGMC, full off-SGMC, and hide-and-recover holdout.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1016/0926-9851(94)90022-1" target="_blank" rel="noopener">Potential field tilt - a new concept for location of potential field sources (Miller &amp; Singh, 1994)</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Journal of Applied Geophysics · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Defines the amplitude-normalized potential-field phase tilt theta = arctan(dz / |dh|), whose zero-crossing locates vertical density/susceptibility fault contacts independently of source depth and amplitude.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Physical basis for H31-M channel grav_tilt_zero on isostatic gravity vertical and horizontal gradients.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1190/1.1442197" target="_blank" rel="noopener">Approximating edges of source bodies from magnetic or gravity anomalies (Blakely &amp; Simpson, 1986)</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Geophysics · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Establishes that horizontal-gradient crests of reduced-to-pole magnetic anomalies directly overlie steep susceptibility boundaries and basement fault contacts.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Physical basis for H31-M shallow upper-crustal bandpass magnetic gradient crest channel rtp_bandpass_crest.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1007/BFb0006528" target="_blank" rel="noopener">Accelerated greedy algorithms for maximizing submodular set functions (Minoux, 1978)</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · Optimization Techniques (Lecture Notes in Control and Information Sciences, Springer) · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Proves lazy priority-queue evaluation of monotone submodular marginal gains returns the exact greedy sequence with (1 - 1/e) optimality guarantee.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Algorithmic basis for src/gemsdoe31/submodular_emit.py over the exact 29-cell R=300 m DTI kernel.</p>
+        </li><li>
+          <strong><a href="https://doi.org/10.1029/RF004p0313" target="_blank" rel="noopener">The age of scarplike landforms from diffusion-equation analysis (Hanks, 2000)</a></strong>
+          <span class="badge">TRUSTED-PEER-REVIEWED</span>
+          <span class="small"> · AGU Reference Shelf (Quaternary Geochronology: Methods and Applications) · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>Models degraded fault-scarp elevation profiles via the error-function solution of the linear/nonlinear hillslope transport equation parameterized by morphologic age kappa*t.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Physical basis for external candidate hypothesis H31-P (1 m 3DEP scarp diffusion-age matched filter).</p>
         </li><li>
           <strong><a href="https://mrdata.usgs.gov/geology/state/" target="_blank" rel="noopener">State Geologic Map Compilation (SGMC) — state geological map packages</a></strong>
           <span class="badge badge-green">OFFICIAL</span>
@@ -213,6 +249,12 @@
           <span class="small"> · DrivenData · 2026-10-25</span>
           <ul class="small" style="margin:8px 0 0"><li>Inspected commit aebe92f7c8a9 via GitHub API: README documents Prof. John Lipor&#x27;s U-Net Monte Carlo CV reference workflow; unet-mc-cv-reference-solution.ipynb on main is 0 bytes.</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Reference architecture note only; no pre-trained weights or scores included.</p>
+        </li><li>
+          <strong><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noopener">DrivenData GEMS Prize Reference Solution (Prof. John Lipor, PyTorch Monte Carlo U-Net CV baseline)</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · DrivenData (drivendataorg) · 2026-10-25</span>
+          <ul class="small" style="margin:8px 0 0"><li>Official organizer Monte Carlo U-Net cross-validation baseline at commit aebe92f7c8a9</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Does not provide private competition test labels or leaderboard receipts.</p>
         </li></ul>
     </section>
 
