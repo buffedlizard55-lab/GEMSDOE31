@@ -66,9 +66,13 @@ def table(headers: list[str], rows: list[list[str]], caption: str = "") -> str:
 def shell(prefix: str, title: str, description: str, current: str, hero: str, body: str,
           footer_left: str = "") -> str:
     current_attr = ' aria-current="page"'
-    active_run = load("registry/current_run.json")
-    if active_run and current not in {"Overview", "Executive summary", "Research"}:
-        prefix_notice = f'<div class="notice"><strong>Newest candidate: RBU31 regime-balanced union (Experiment 13) — its automated OK / DO-NOT-SUBMIT verdict is on the <a href="{prefix}executive-summary.html">executive summary</a>.</strong> MAGREST and H31-E2 keep their own earlier verdicts there. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores.</div>'
+    if current not in {"Overview", "Executive summary", "Research"}:
+        prefix_notice = (
+            f'<div class="notice"><strong>Current protocol decision: no file is approved for submission.</strong> '
+            f'This page includes historical experiment results; see the <a href="{prefix}executive-summary.html">'
+            "executive summary</a> and the <a href=\"https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_protocol_review_9883b598.md\">"
+            "current protocol review</a> for the active no-submit decision. Historical proxy values are not current leaderboard scores.</div>"
+        )
         body = prefix_notice + body
     nav = "".join(
         '<a href="{p}{h}"{c}>{l}</a>'.format(p=prefix, h=href, c=current_attr if label == current else "", l=e(label))

@@ -1714,6 +1714,50 @@
   ],
   "release_decision": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here."
  },
+ "arena_1e89db6a_review_2026_10_26": {
+  "branch": "arena/1e89db6a-gemsdoe31",
+  "scope": "Repository review and requested nine-site/unique-TIFF decision; no scientific lane assigned and no upload attempted.",
+  "passes": [
+   {
+    "id": "pass-1-implementation-and-verification",
+    "status": "complete-review-no-new-experiment",
+    "findings": [
+     "Read AGENTS.md, the full README including preserved owner prompt, registry/current_run.json, registry/review_passes.json and the required MAGREST preregistration.",
+     "Confirmed the nine-site executive table and evidence labels already exist. Updated README decision banner to make current no-submit status and H31-X research-only download unambiguous. Clarified on the generated home page that H31-Y is historical, not produced in this review.",
+     "Three desk hypotheses are recorded in knowledge/2026-10-26_protocol_review_9883b598.md; they are not assigned lanes or validated results."
+    ]
+   },
+   {
+    "id": "pass-2-bug-assumption-review",
+    "status": "complete-with-blockers",
+    "findings": [
+     "First pytest attempt exposed absent ignored small inputs; restored only the pinned labels/sample-submission pair via scripts/verify_current_run.py --restore-small-inputs. Final pytest: 188 passed.",
+     "Ruff passed; compileall passed; check_metric passed (maximum fast/brute error 4.441e-16; 29 kernel offsets).",
+     "Shared template cache verify-only cannot pass because data/training_features.tif is absent. The two small mirror inputs do not constitute the full feature stack.",
+     "No active method paragraph is supplied; current literal registry witness forces STOP for candidate dot fields at the stated 37,654 budget. No candidate fit or TIFF generation is permitted."
+    ]
+   },
+   {
+    "id": "pass-3-recheck-vs-request",
+    "status": "complete-with-open-gates",
+    "verification": [
+     "scripts/verify_protocol_review.py returned verdict negative and ok_to_submit false; computed lattice coverage 0.998713 and budget-specific minimum overlap 0.823418.",
+     "scripts/collect_evidence.py inventoried 199 artifacts; scripts/build_site.py generated 22 pages; scripts/check_site.py checked 22 pages and 481 local links.",
+     "No new TIFF, experiment, leaderboard access, DrivenData contact or submission slot. No numerical leaderboard estimate or organizer-confirmed score established.",
+     "Browser smoke was attempted but blocked: optional ignored Playwright dependency .cache/browser/node_modules/playwright-core is absent. Static link/site checks pass.",
+     "Official DrivenData source, current leaderboard, organizer template and upload receipt were not fetched; only permitted GitHub sources were accessible."
+    ]
+   }
+  ],
+  "remaining_work": [
+   "Resolve the literal overlap rule and missing method paragraph before any candidate fit.",
+   "Restore full production training_features.tif and all pinned bands from an authorized source; do not report cache ready until hashes pass.",
+   "Freshly validate a preregistered candidate on buffered holdout, with single-feature canaries and confirmation, only after lane authorization.",
+   "Run an exhaustive, correctly scoped duplicate audit before any download is labeled submission-ready.",
+   "Obtain official score/format receipts through authorized user access; do not scrape or auto-submit."
+  ],
+  "release_decision": "No artifact approved. Existing H31-X is research-only and fails current literal registry uniqueness gate. No new TIFF generated."
+ },
  "sessions": [
   {
    "session": "arena/a111fe50-gemsdoe31",
