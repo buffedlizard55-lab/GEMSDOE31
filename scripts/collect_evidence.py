@@ -269,6 +269,45 @@ def submissions_register() -> dict:
             files[-1]["sha256_zip"] = sha256(current_zip)
             files[-1]["bytes_zip"] = current_zip.stat().st_size
 
+    h31s_path = ROOT / "registry/h31s_current_run.json"
+    if h31s_path.exists():
+        h31s = json.loads(h31s_path.read_text())
+        art = h31s["artifact"]
+        gov = h31s["governance"]
+        exp3 = next((e for e in h31s.get("experiments", []) if e.get("id") == "EXP-3"), {})
+        files.insert(0, {
+            "id": "h31s-udap-sslic-20261026",
+            "name": art["name"],
+            "role": "newly computed 2026-10-26 unique H31-S (UDAP-SSLIC) research GeoTIFF; passes format/[0,1], 57-feature leakage canaries, discrete 9-site uniqueness (<=66.5% 3-px), and untouched seed=42 confirmation (4/4 folds vs Physical-HGB & H31-M); held from submission by literal 695-raster r13-lattice-s5 STOP and seed=41 H31-M fold gate",
+            "provenance": "scripts/run_h31s.py: 2-stage nested OOF UDAP + HZAD + Null-Suppressor + SSLIC HistGradientBoosting + Bayes prevalence prior + 29-cell CELF submodular cover at B=2 (>200 m off catalogue), 37,654 binary dots. Preregistered in knowledge/2026-10-26_h31s_udap_sslic_preregistration.md; evidence in evidence/h31s/.",
+            "note_for_portal": art["note_140"],
+            "slot_approved": False,
+            "ok_to_submit": False,
+            "why_not_slot_approved": "; ".join(gov["blocking_reasons"]),
+            "positive_pixels": art["positive_pixels"],
+            "positive_pixels_on_public_catalogue": art["positive_pixels_on_public_catalogue"],
+            "format_status": "locally validated under both zeros-outside and NaN-outside conventions; not organizer acceptance",
+            "file_nan": art["file_nan"],
+            "sha256_nan": art["sha256_nan"],
+            "bytes_nan": art["bytes_nan"],
+            "file_allfinite": art["file_zeros"],
+            "sha256_allfinite": art["sha256_zeros"],
+            "bytes_allfinite": art["bytes_zeros"],
+            "format_ok_nan": art["format_0_1_valid_nan"],
+            "format_ok_allfinite": art["format_0_1_valid_zeros"],
+            "organizer_acceptance_verified_nan": False,
+            "organizer_acceptance_verified_allfinite": False,
+            "hard_failures_nan": [],
+            "hard_failures_allfinite": [],
+            "receipt": art["receipt_json"],
+            "zip": art["zip_zeros"],
+            "sha256_zip": art["sha256_zip"],
+            "bytes_zip": art["bytes_zip"],
+            "holdout_dti": exp3,
+            "sgmc_regime_proxies": h31s.get("secondary_sgmc_proxy"),
+            "current_run_card": "docs/downloads/h31s-run-card.json",
+        })
+
     union = ROOT / "evidence" / "union_results.json"
     if union.is_file():
         data = json.loads(union.read_text())
@@ -431,6 +470,20 @@ def submissions_register() -> dict:
             "measured": best_research.get("measured") if best_research else None,
             "slot_approved": False,
         },
+        "latest_2026_10_26_candidate": (
+            {
+                "name": art["name"],
+                "file": art["file_zeros"],
+                "sha256": art["sha256_zeros"],
+                "slot_approved": False,
+                "ok_to_submit": False,
+                "run_card": "docs/downloads/h31s-run-card.json",
+                "holdout_dti": exp3,
+                "sgmc_regime_proxies": h31s.get("secondary_sgmc_proxy"),
+            }
+            if h31s_path.exists()
+            else None
+        ),
         "files": files,
         "format_conventions": {
             "nan": "finite values in [0,1] inside the footprint, NaN outside, nodata=nan - the convention "

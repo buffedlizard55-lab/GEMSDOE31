@@ -1,0 +1,67 @@
+{
+  "evaluated_background_sample": 150000,
+  "evaluated_positive_pixels": 2820,
+  "features": [
+    {
+      "feature": "sslic_prob_raw",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.62508,
+      "value_auc_two_sided": 0.62508
+    },
+    {
+      "feature": "sslic_mean_400m",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.62258,
+      "value_auc_two_sided": 0.62258
+    },
+    {
+      "feature": "sslic_mean_800m",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.61736,
+      "value_auc_two_sided": 0.61736
+    },
+    {
+      "feature": "sslic_mean_1600m",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.60993,
+      "value_auc_two_sided": 0.60993
+    },
+    {
+      "feature": "sslic_bilateral_min_800m",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.60358,
+      "value_auc_two_sided": 0.60358
+    },
+    {
+      "feature": "sslic_cross_contrast_500m",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.53677,
+      "value_auc_two_sided": 0.53677
+    },
+    {
+      "feature": "sslic_aniso_ratio",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.61725,
+      "value_auc_two_sided": 0.61725
+    }
+  ],
+  "max_missing_auc_two_sided": 0.5,
+  "max_value_auc_two_sided": 0.62508,
+  "pass_": true,
+  "tag": "stage2_sslic_seed41",
+  "threshold": 0.9
+}

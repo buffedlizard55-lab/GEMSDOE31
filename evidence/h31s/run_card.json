@@ -1,0 +1,333 @@
+{
+  "artifact": {
+    "bytes_nan": 188437,
+    "bytes_zeros": 143032,
+    "bytes_zip": 108160,
+    "file_nan": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif",
+    "file_zeros": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif",
+    "format_0_1_valid_nan": true,
+    "format_0_1_valid_zeros": true,
+    "name": "gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f",
+    "note_140": "H31-S UDAP+HZAD+SSLIC 37654d B2 | HOLDOUT-DTI s41=0.0948 s42=0.0980 | research-only 9355f21d",
+    "note_length": 92,
+    "positive_pixels": 37654,
+    "positive_pixels_on_public_catalogue": 0,
+    "receipt_json": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.json",
+    "sha256_nan": "665619b452553b25e7474ebe24cd466764550662744b36e0e7395f980ea241c1",
+    "sha256_zeros": "186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd",
+    "sha256_zip": "862d4971202580540a33b6eb2d913eea49376fe9a0918150f021238afa0bc07e",
+    "zip_zeros": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.zip"
+  },
+  "budget_used": {
+    "experiments_run": 3,
+    "max_experiments": 3,
+    "max_seconds": 7200,
+    "wall_seconds": 843.1
+  },
+  "experiments": [
+    {
+      "description": "Leakage canaries + H31-S empirical OOF residual variogram + Control-Physical-HGB & same-instrument Incumbent-H31M-Submod on Screen seed=41",
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "id": "EXP-1",
+      "incumbent_h31m_submod_ci95": [
+        0.04476238872597314,
+        0.09685031707578542
+      ],
+      "incumbent_h31m_submod_holdout_dti": 0.0713250076010311,
+      "physical_hgb_ci95": [
+        0.03506799809433898,
+        0.0823066998760985
+      ],
+      "physical_hgb_holdout_dti": 0.059083247237421976,
+      "withheld_positive_pixels": 2820
+    },
+    {
+      "ci95": [
+        0.05154373369299782,
+        0.10339459779477178
+      ],
+      "description": "Stage-1 UDAP + HZAD + Null Suppressors + Regime Dual-Head HGB + Bayes prior calibration + 29-cell Submodular B=2 cover on Screen seed=41",
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "holdout_dti": 0.08036444396501329,
+      "id": "EXP-2",
+      "withheld_positive_pixels": 2820
+    },
+    {
+      "confirmation_seed42": {
+        "ci95": [
+          0.07279594783997272,
+          0.12485370997034032
+        ],
+        "holdout_dti": 0.09795971963984905,
+        "incumbent_h31m_submod_dti": 0.07175679272380257,
+        "physical_hgb_dti": 0.05440447608962854,
+        "vs_incumbent_h31m_submod": {
+          "ci95": [
+            9.605808770445827e-05,
+            0.05441091501049573
+          ],
+          "delta": 0.026202926916046476,
+          "evaluator_version": "gems57-pooled-hide-v2",
+          "evidence_class": "HOLDOUT-DTI",
+          "passed": true,
+          "quadrant_wins": 4,
+          "withheld_positive_pixels": 2823,
+          "worst_quadrant_delta": 0.009875426328952452
+        },
+        "vs_physical_hgb": {
+          "ci95": [
+            0.017908759026477816,
+            0.06951101961659628
+          ],
+          "delta": 0.04355524355022051,
+          "evaluator_version": "gems57-pooled-hide-v2",
+          "evidence_class": "HOLDOUT-DTI",
+          "passed": true,
+          "quadrant_wins": 4,
+          "withheld_positive_pixels": 2823,
+          "worst_quadrant_delta": 0.010577238189924267
+        },
+        "withheld_positive_pixels": 2823
+      },
+      "description": "Full 2-Stage Nested OOF Strike-Steered Line-Integral Continuity (SSLIC) + 29-cell Submodular B=2 cover on Screen seed=41 & untouched Confirmation seed=42",
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "id": "EXP-3",
+      "screen_seed41": {
+        "ci95": [
+          0.06119949089067603,
+          0.12924618824153788
+        ],
+        "holdout_dti": 0.09477790525798552,
+        "vs_incumbent_h31m_submod": {
+          "ci95": [
+            -0.020424304062768968,
+            0.06979289542380826
+          ],
+          "delta": 0.023452897656954422,
+          "evaluator_version": "gems57-pooled-hide-v2",
+          "evidence_class": "HOLDOUT-DTI",
+          "passed": false,
+          "quadrant_wins": 1,
+          "withheld_positive_pixels": 2820,
+          "worst_quadrant_delta": -0.011809985705157414
+        },
+        "vs_physical_hgb": {
+          "ci95": [
+            0.008205382997062272,
+            0.06590052955704209
+          ],
+          "delta": 0.03569465802056354,
+          "evaluator_version": "gems57-pooled-hide-v2",
+          "evidence_class": "HOLDOUT-DTI",
+          "passed": true,
+          "quadrant_wins": 3,
+          "withheld_positive_pixels": 2820,
+          "worst_quadrant_delta": -0.0022467468651412095
+        },
+        "withheld_positive_pixels": 2820
+      }
+    }
+  ],
+  "generated_utc": "2026-10-26T02:41:04.752695+00:00",
+  "governance": {
+    "blocking_reasons": [
+      "Literal 695-registry overlap STOP (AGENTS.md unexempted rule): 99.93% of dots fall within 3 px of registered 13GEMSDOE spacing-5 lattice r13-lattice-s5 (and 100% within GEMSDOE48 dense baseline).",
+      "Discrete competitor uniqueness threshold exceeded.",
+      "Preregistered efficacy gate vs both physical_hgb AND same-instrument incumbent_h31m_submod did not pass across both screen seed=41 and confirmation seed=42.",
+      "No assigned method paragraph was supplied in the 2026-10-26 prompt; promotion requires separate selector/owner step."
+    ],
+    "discrete_competitor_unique": false,
+    "efficacy_vs_physical_control_both_seeds": true,
+    "efficacy_vs_same_instrument_h31m_both_seeds": false,
+    "literal_695_registry_unique": false,
+    "ok_to_download_for_research": true,
+    "ok_to_submit": false,
+    "slot_approved": false,
+    "verdict": "negative",
+    "weekly_slot_spent": false
+  },
+  "lane_assignment_status": "none_supplied_in_prompt; self-declared disjoint lane preregistered prior to execution",
+  "lane_id": "H31-S-UDAP-SSLIC",
+  "leakage_canary": {
+    "pass_": true,
+    "stage1_max_missing_auc": 0.5,
+    "stage1_max_value_auc": 0.6479,
+    "stage2_max_value_auc": 0.62508,
+    "threshold": 0.9
+  },
+  "preregistration": {
+    "path": "knowledge/2026-10-26_h31s_udap_sslic_preregistration.md",
+    "sha256": "fe9464365d34d84ea2205579c50a3960ba0dc4c843c66d0519ae355e19f8de03"
+  },
+  "schema": "gemsdoe31-parallel-run-card-v2",
+  "sgmc_external_proxy": {
+    "comparators": {
+      "gemsdoe27_h29_hpvc": {
+        "all": 0.081987,
+        "mountain": 0.076687,
+        "piedmont": 0.050045
+      },
+      "gemsdoe31_h31m": {
+        "all": 0.100994,
+        "mountain": 0.094711,
+        "piedmont": 0.064106
+      },
+      "gemsdoe31_magrest": {
+        "all": 0.070677,
+        "mountain": 0.07177,
+        "piedmont": 0.038469
+      },
+      "gemsdoe32_h33_2_b2": {
+        "all": 0.093965,
+        "mountain": 0.082809,
+        "piedmont": 0.058585
+      }
+    },
+    "h31s_sgmc_all_dti": 0.08372509197891859,
+    "h31s_sgmc_mountain_dti": 0.07844172772748544,
+    "h31s_sgmc_piedmont_dti": 0.0400063591013803,
+    "instrument": "SGMC-PROXY; external 1:500k bedrock geology (>300 m off catalogue); never training truth; NOT hidden competition truth",
+    "piedmont_dot_fraction": 0.31181282201094174
+  },
+  "shared_template": {
+    "cached_bands_verified": 19,
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "holdout_version": "buffered-whole-components-loqo-v2",
+    "submission_writer": "vendor/gems57/submission_writer.py"
+  },
+  "spatial_collar": {
+    "adopted_buffer_m": 21300.0,
+    "adopted_buffer_px": 213,
+    "bootstrap": {
+      "exponential": {
+        "draws": 80,
+        "max_m": 499288.7122589979,
+        "median_m": 8870.23026456789,
+        "p05_m": 943.4657486836207,
+        "p95_m": 91215.311960715
+      },
+      "gaussian": {
+        "draws": 80,
+        "max_m": 499644.229552679,
+        "median_m": 4091.0770763956534,
+        "p05_m": 945.3436201378686,
+        "p95_m": 8791.70675018601
+      },
+      "spherical": {
+        "draws": 80,
+        "max_m": 499999.9999999963,
+        "median_m": 6134.717070789216,
+        "p05_m": 1093.4174558606444,
+        "p95_m": 101905.06319870311
+      }
+    },
+    "components_used": 3161,
+    "decision": {
+      "bootstrap_median_m": {
+        "exponential": 8870.23026456789,
+        "gaussian": 4091.0770763956534,
+        "spherical": 6134.717070789216
+      },
+      "bootstrap_p05_m": {
+        "exponential": 943.4657486836207,
+        "gaussian": 945.3436201378686,
+        "spherical": 1093.4174558606444
+      },
+      "bootstrap_p95_upper_m": {
+        "exponential": 91215.311960715,
+        "gaussian": 8791.70675018601,
+        "spherical": 101905.06319870311
+      },
+      "buffer_km": 20.75,
+      "buffer_m": 20750.0,
+      "empirical_decay_range_m": 20750.0,
+      "empirical_peak_gamma": 0.0013119175211906387,
+      "empirical_peak_lag_m": 20750.0,
+      "max_fitted_range_m": 19330.191929834942,
+      "model_practical_range_median_m": 11409.002644368597,
+      "model_practical_ranges_m": {
+        "exponential": 19330.191929834942,
+        "gaussian": 5973.039260053063,
+        "spherical": 11409.002644368597
+      },
+      "models_extrapolating_beyond_support": [],
+      "models_reaching_80pct_sill_in_support": [
+        "exponential",
+        "gaussian",
+        "spherical"
+      ],
+      "notes": [
+        "Pairs are restricted to the same 8-connected fault component, so the curve is a within-trace residual dependence estimate, not a global one.",
+        "The buffer applies to the *validation* geography (a collar deleted around every training block and every held-out block), not to the submission raster, which must cover the full footprint."
+      ],
+      "observed_lag_support_m": 26250.0,
+      "rule": "buffer = max(empirical lag at 95 % of the peak semivariance, median fitted practical range over spherical/exponential/gaussian). The maximum fitted range and the bootstrap 95th percentile are reported as a sensitivity band, not used as the buffer, because they can exceed the populated lag support.",
+      "sensitivity_band_m": [
+        943.4657486836207,
+        20750.0
+      ],
+      "warning": "Two of the three models can exceed the populated lag support; every number that does is an extrapolation and is flagged in models_extrapolating_beyond_support. The buffer must be re-derived as more traces enter the sample."
+    },
+    "fits": {
+      "exponential": {
+        "bins_used": 53,
+        "max_lag_m": 26250.0,
+        "nugget": 2.704909894992709e-05,
+        "partial_sill": 0.0003683705686109244,
+        "practical_range_m": 19330.191929834942,
+        "r_squared": -0.21103379493842578,
+        "range_m": 19357.72976158101,
+        "sill_fraction_at_max_lag": 0.9840612268677527,
+        "total_sill": 0.0003954196675608515,
+        "weighted_rmse": 0.00012293324898735204
+      },
+      "gaussian": {
+        "bins_used": 53,
+        "max_lag_m": 26250.0,
+        "nugget": 4.6726156075416215e-05,
+        "partial_sill": 0.00024398821202445525,
+        "practical_range_m": 5973.039260053063,
+        "r_squared": -0.5014954142812318,
+        "range_m": 5977.292347947506,
+        "sill_fraction_at_max_lag": 1.0,
+        "total_sill": 0.00029071436809987146,
+        "weighted_rmse": 0.00013806553985421262
+      },
+      "spherical": {
+        "bins_used": 53,
+        "max_lag_m": 26250.0,
+        "nugget": 3.204056621309312e-05,
+        "partial_sill": 0.00033666654336013223,
+        "practical_range_m": 11409.002644368597,
+        "r_squared": -0.20263452493743306,
+        "range_m": 11409.002644368597,
+        "sill_fraction_at_max_lag": 1.0,
+        "total_sill": 0.00036870710957322535,
+        "weighted_rmse": 0.00011924506513337199
+      }
+    },
+    "method": "Matheron OOF residual semivariogram along 8-connected fault components (H31-S own residuals)",
+    "note": "Own H31-S OOF residual buffer rule gives 20750.0 m; adopted holdout collar is 213 px (21.3 km), honoring >= 21.3 km historical floor and quadrant geometry.",
+    "raw_derived_buffer_m": 20750.0,
+    "residual_pixels_used": 30494
+  },
+  "uniqueness": {
+    "discrete_competitor_scope": {
+      "comparators_checked": 36,
+      "max_final_dots_3px_overlap": 0.66503,
+      "max_surface_abs_spearman": 0.16294,
+      "max_surface_top_3px_overlap": 0.725,
+      "pass_": false
+    },
+    "literal_695_shared_registry_scope": {
+      "counterexample_path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "counterexample_repo": "buffedlizard55-lab/GEMSDOE24",
+      "counterexample_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "final_dots_in_lattice_3px": 0.9993095023105115,
+      "gemsdoe48_dense_continuous_witness": "evidence/tgj31/registry_universal_blocker.json (5,167,373/5,167,373 positive footprint cells = 100% overlap)",
+      "pass_": false,
+      "rule_note": "Per AGENTS.md, no dense/calibration comparator is exempted silently: the 13GEMSDOE spacing-5 lattice and GEMSDOE48 dense continuous baseline cover ~99.5%-100% of Nevada within 3 px, forcing literal 695-registry STOP (slot_approved=false) unless an owner/selector explicitly scopes them.",
+      "surface_top_in_lattice_3px": 0.9985127742072555
+    }
+  }
+}

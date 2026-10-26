@@ -17,21 +17,113 @@
     </div>
   </header>
 <section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · newest unique candidate: RBU31 regime-balanced union</p>
-      <h1>&#10060; DO NOT SUBMIT</h1>
-      <p class="hero-lede">RBU31 (gemsdoe31-rbu31b-localunion-37654-20261025-b7585935) is a newly computed, duplicate-screened GeoTIFF &mdash;
-        not a copy or re-thinning of any previous submission. Its automated validation verdict is shown above and
-        gate-by-gate below; no human inspection is required. Older candidates (H31-E2, MAGREST) keep their own
-        sections and verdicts further down this page.</p>
-      <div class="actions"><a class="button button-primary" href="downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif" download>&#11015; Download the RBU31 submission .tif</a>
-        <a class="button button-light" href="executive-summary.html">How to submit (executive summary)</a></div>
+      <p class="eyebrow">DOE GEMS Prize · 2026-10-26 Featured Unique Candidate: H31-S (UDAP-SSLIC)</p>
+      <h1>DOWNLOAD FOR RESEARCH: YES<br>DO NOT SUBMIT</h1>
+      <p class="hero-lede">H31-S (<code>gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f</code>) is a brand-new 37,654-dot GeoTIFF computed from
+        Up-Dip Basin-Depth Advection (UDAP), Hydrothermal Demagnetization Troughs (HZAD), and 2-Stage Nested OOF
+        Strike-Steered Line-Integral Continuity (SSLIC) &mdash; never copied from D2.8/H33 (47.4% 3-px dot overlap).
+        It passes automated [0, 1] format/grid validation, leakage canaries, and untouched confirmation seed 42
+        (HOLDOUT-DTI 0.0980, 4/4 quadrants vs both controls; screen seed 41 0.0948), but remains
+        <strong>NOT APPROVED FOR UPLOAD</strong> under the literal 695-raster spacing-5 lattice STOP and seed-41 H31-M quadrant gate.</p>
+      <div class="actions"><a class="button button-primary" href="downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif" download>Download H31-S Research .tif (zeros-outside [0,1])</a>
+        <a class="button button-light" href="executive-summary.html">Nine-Site Executive Summary &amp; Submission Guide</a></div>
       </div><aside class="hero-side" aria-label="Submission decision">
-        <strong>Verdict: NEGATIVE &middot; gates G1&ndash;G5 see gate table</strong>
-        <p>Format/[0, 1] range, leakage canary, uniqueness vs the nine focus sites' best files,
-          21.3 km buffered holdout screen + fresh confirmation, and off-catalogue SGMC in all regimes.
-          HOLDOUT-DTI is a local proxy, not a leaderboard score; no slot has been spent by this software.</p></aside></div></section>
+        <strong>Verdict: RESEARCH ONLY · DO NOT SUBMIT (slot_approved = false)</strong>
+        <p>Automated non-human validation verified EPSG:32611, 3730x3292, 100 m transform, finite [0, 1] values,
+          20.75 km own OOF residual variogram range, HOLDOUT-DTI on <code>gems57-pooled-hide-v2</code>, and nine-site
+          uniqueness. No weekly competition slot has been spent.</p></aside></div></section>
   <main class="wrap">
-<section id="rbu31" aria-labelledby="rbu31-heading">
+
+<section id="h31s-download" aria-labelledby="h31s-heading">
+  <div class="section-head"><div><p class="kicker">2026-10-26 Featured Lane · H31-S (UDAP-SSLIC) · 3-Experiment Campaign</p>
+    <h2 id="h31s-heading">DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (DO NOT SUBMIT)</h2></div>
+    <p>Original 37,654-dot physics-driven GeoTIFF built from Up-Dip Basin-Depth Advected Potential-Field projection (UDAP),
+      Hydrothermal Magnetite-Destruction Axial Troughs (HZAD), Contour/Seam Null Suppressors, and 2-Stage Nested OOF
+      Strike-Steered Line-Integral Continuity (SSLIC) on the unchanged <code>gems57-pooled-hide-v2</code> evaluator.
+      Zero copied dots (47.4% 3-px overlap vs GEMSDOE32 H33-2-B2; 55.7% vs GEMSDOE27 H29).</p></div>
+  <div class="card download-card">
+    <span class="badge badge-red">RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT · slot_approved = false</span>
+    <h3 style="margin-top:18px">gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f</h3>
+    <p>Automated format, CRS, transform, and strict [0, 1] range checks PASS with zero human intervention on both
+      the defensive all-finite zeros-outside file (prevents &ldquo;Predicted values must be in range [0, 1]&rdquo;)
+      and the official-wording NaN-outside companion. Upload remains blocked by the literal unexempted 695-raster
+      spacing-5 lattice rule (99.93% within 3 px), the strict 3/4-quadrant screen rule vs same-instrument H31-M on seed 41,
+      and separate selector promotion.</p>
+    <div class="actions">
+      <a class="button button-primary" href="downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif" download>Download H31-S Research .tif (all-finite [0,1] zeros-outside)</a>
+      <a class="button button-dark" href="downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif" download>NaN-outside twin .tif</a>
+      <a class="button" href="downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.zip" download>Single-TIFF .zip</a>
+      <a class="button" href="downloads/h31s-run-card.json" download>JSON Run Card</a>
+      <a class="button" href="downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.json" download>Validation receipt .json</a>
+    </div>
+    <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 x 3292 · 100 m ·
+      37,654 binary dots · 0 on public catalogue · finite [0.0, 1.0]<br>
+      <strong>SHA-256 (zeros-outside primary):</strong> <code>186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd</code> (143,032 B)<br>
+      <strong>SHA-256 (NaN-outside twin):</strong> <code>665619b452553b25e7474ebe24cd466764550662744b36e0e7395f980ea241c1</code> (188,437 B)<br>
+      <strong>SHA-256 (single-TIFF .zip):</strong> <code>862d4971202580540a33b6eb2d913eea49376fe9a0918150f021238afa0bc07e</code> (108,160 B)<br>
+      <strong>Unique submission name:</strong> <code>gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f</code><br>
+      <strong>Note (92/140 chars):</strong> <code>H31-S UDAP+HZAD+SSLIC 37654d B2 | HOLDOUT-DTI s41=0.0948 s42=0.0980 | research-only 9355f21d</code></p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Automated Gate</th><th>Measured Evidence (unchanged <code>gems57-pooled-hide-v2</code>)</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Format, grid &amp; [0, 1] range (both encodings)</td>
+            <td>EPSG:32611 · 3730x3292 · 100 m · 0 NaN inside footprint · all values in {0.0, 1.0}</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>Single-feature &amp; missingness leakage canary</td>
+            <td>Stage-1 max two-sided AUC 0.6479 · Stage-2 SSLIC max AUC 0.6251 · missingness AUC 0.5000 (&lt;= 0.90)</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>Candidate-specific OOF residual variogram collar</td>
+            <td>Measured H31-S along-component decay range 20.75 km (exponential 19.33 km, spherical 11.41 km); adopted 213 px (21.3 km)</td>
+            <td><span class="badge badge-green">MEASURED</span></td></tr>
+        <tr><td>EXP-1 -> EXP-2 -> EXP-3 Screen (seed 41, 2,820 withheld px)</td>
+            <td>HOLDOUT-DTI: Physical-HGB 0.0591 -> H31-M 0.0713 -> Stage-1 UDAP+HZAD 0.0804 -> <strong>H31-S Full 0.0948</strong> [0.0612, 0.1292] (vs Physical-HGB +0.0357, CI [+0.0082, +0.0659], 3/4 quads PASS; vs H31-M +0.0235, CI [-0.0204, +0.0698], 1/4 quads)</td>
+            <td><span class="badge badge-red">MIXED (PASS vs control; 1/4 quads vs H31-M)</span></td></tr>
+        <tr><td>EXP-3 Untouched Fresh Confirmation (seed 42, 2,823 withheld px)</td>
+            <td>HOLDOUT-DTI: Physical-HGB 0.0544 -> H31-M 0.0718 -> <strong>H31-S Full 0.0980</strong> [0.0728, 0.1249] (vs Physical-HGB +0.0436, CI [+0.0179, +0.0695], 4/4 quads PASS; vs H31-M +0.0262, CI [+0.0001, +0.0544], 4/4 quads PASS)</td>
+            <td><span class="badge badge-green">PASS (4/4 quads vs both)</span></td></tr>
+        <tr><td>External USGS SGMC proxy (&gt;300 m off catalogue)</td>
+            <td>SGMC-PROXY All 0.0837 · Piedmont 0.0400 · Mountain 0.0784 (beats GEMSDOE27 H29 All 0.0820 &amp; MAGREST All 0.0707; 31.2% piedmont dot share)</td>
+            <td><span class="badge">DIAGNOSTIC</span></td></tr>
+        <tr><td>Discrete competitor uniqueness (all 9 peer sites + local)</td>
+            <td>Final 37,654 dots max 3-px overlap 66.5% (&lt;= 70% PASS; 47.4% vs H33-2-B2, 55.7% vs GEMSDOE27 H29); surface max |Spearman| 0.1629 (&lt;= 0.90 PASS); unplaced top-K surface 72.5% vs one internal RBU31 research raster (68.6% max across all external sites)</td>
+            <td><span class="badge badge-red">FINAL DOTS PASS · TOP-K SURFACE 72.5% LOCAL</span></td></tr>
+        <tr><td>Literal 695-raster shared registry (unexempted)</td>
+            <td>99.93% of dots within 3 px of registered 13GEMSDOE spacing-5 lattice <code>r13-lattice-s5</code> (100% within GEMSDOE48 dense baseline)</td>
+            <td><span class="badge badge-red">STOP · BLOCKS UPLOAD</span></td></tr>
+        <tr><td>Leaderboard upload approval</td>
+            <td>Research download enabled; DrivenData upload NOT approved (<code>slot_approved = false</code>, 0 weekly slots spent)</td>
+            <td><span class="badge badge-red">DO NOT SUBMIT</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+      <section id="focus-sites"><div class="section-head"><div>
+      <p class="kicker">Nine requested repositories · highest claim per site</p>
+      <h2>Prior-art comparison — not a list of upload recommendations</h2></div>
+      <p>Scores below are the claims supplied by the owner and pinned to repository artifacts where available.
+        They are not organizer-confirmed scores. The highest listed claim is GEMSDOE32 H33-2-B2 (0.2778),
+        but H33 is a D2.8 catalogue-distance prune, not a new detector, and is not eligible as a unique new submission.</p></div>
+      <div class="notice notice-danger"><strong>Decision: none of these historical files is cleared to submit as a new unique candidate.</strong>
+        The selected files are prior art; each has &gt;70% of its positive dots within 3 px of the pinned H33 raster
+        (the reference itself is 100%). Do not copy or rename them. Every score in this table remains USER-REPORTED.</div>
+      <div class="table-wrap"><table><thead><tr><th>Site</th><th>Highest listed artifact (pinned mirror)</th>
+        <th>Claimed score</th><th>Method / interpretation</th><th>Measured relation to H33</th></tr></thead>
+        <tbody><tr><td><strong>GEMSDOE24</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif" target="_blank" rel="noopener">gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif</a><br><span class="small">SHA-256 <code>68d0e2e4fcc5…</code></span></td><td>0.2477<br><span class="badge">USER-REPORTED · no organizer receipt</span></td><td>Sparse H19-5 D1.5 emission; prior-art only</td><td>88.5% of dots within 3 px of H33</td></tr><tr><td><strong>GEMSDOE25</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25/blob/2a279dd0d2a4319c1022567876eb4c97553e2d13/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif" target="_blank" rel="noopener">gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif</a><br><span class="small">SHA-256 <code>91eae1ca42ec…</code></span></td><td>0.2600<br><span class="badge">USER-REPORTED · no organizer receipt</span></td><td>D2.8 sparse emission; exact identity with other site files not asserted</td><td>88.2% of dots within 3 px of H33</td></tr><tr><td><strong>GEMSDOE27</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif" target="_blank" rel="noopener">gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif</a><br><span class="small">SHA-256 <code>33003374335d…</code></span></td><td>0.2449<br><span class="badge">USER-REPORTED · no organizer receipt</span></td><td>Filename/owner method: topological gap closure on D1.5; not refitted here</td><td>86.7% of dots within 3 px of H33</td></tr><tr><td><strong>GEMSDOE28</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif" target="_blank" rel="noopener">gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif</a><br><span class="small">SHA-256 <code>5556aa1438fd…</code></span></td><td>0.2710<br><span class="badge">USER-REPORTED · no organizer receipt</span></td><td>Highest user-listed GEMSDOE28 claim; owner-described rung/bridge variant</td><td>95.5% of dots within 3 px of H33</td></tr><tr><td><strong>GEMSDOE30</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif" target="_blank" rel="noopener">gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif</a><br><span class="small">SHA-256 <code>5f963b8bca5e…</code></span></td><td>0.2600<br><span class="badge">USER-REPORTED · no organizer receipt</span></td><td>D2.8 replay; geometry compared, not a new mechanism</td><td>88.2% of dots within 3 px of H33</td></tr><tr><td><strong>GEMSDOE31</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif" target="_blank" rel="noopener">gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</a><br><span class="small">SHA-256 <code>07b6db440535…</code></span></td><td>0.2708<br><span class="badge">USER-REPORTED · no organizer receipt</span></td><td>Local legacy H27 reference; do not copy/submit as a new candidate</td><td>95.4% of dots within 3 px of H33</td></tr><tr><td><strong>GEMSDOE32</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif" target="_blank" rel="noopener">gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif</a><br><span class="small">SHA-256 <code>baeae3219bba…</code></span></td><td>0.2778<br><span class="badge">USER-REPORTED · no organizer receipt</span></td><td>Byte geometry: D2.8 with &lt;=2px catalogue-flank dots deleted</td><td>100.0% of dots within 3 px of H33</td></tr><tr><td><strong>GEMSDOE33</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif" target="_blank" rel="noopener">GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif</a><br><span class="small">SHA-256 <code>bc3af2a5fcb4…</code></span></td><td>0.2632<br><span class="badge">USER-REPORTED · no organizer receipt</span></td><td>Owner-described analogue tip/stepover; independent transfer not established here</td><td>92.6% of dots within 3 px of H33</td></tr><tr><td><strong>GEMSDOE36</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36/blob/c9ad59ec6f969ed931d089a03044c1567a633e84/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif" target="_blank" rel="noopener">gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif</a><br><span class="small">SHA-256 <code>96d451d5ffc8…</code></span></td><td>0.2750<br><span class="badge">USER-REPORTED · no organizer receipt</span></td><td>Owner-described Anderson orientation-constrained model; claim not an organizer receipt</td><td>97.4% of dots within 3 px of H33</td></tr></tbody></table></div>
+      <p class="small">The table shortens each SHA-256 for readability; full digests and evidence classes are in the <a href="register/index.html">submission register</a> and <code>registry/focus_review.json</code>.</p>
+      <p class="small"><strong>GEMSDOE31 irregularity:</strong> the user-listed 0.2708 H27-4 claim conflicts with the pinned owner-page status
+        recorded in <code>registry/irregularities.json</code> (listed as unscored); exact organizer receipt-to-file attribution is absent.
+        This table is a forensic index, not a live leaderboard snapshot or a recommendation to spend a slot.</p>
+      <div style="margin-top:28px">
+      <h3>2026-10-25 newly reported unique scores &amp; 2026-10-26 current HEAD unique candidates across all 9 sites</h3>
+      <p class="small">Unlike the historical D1.5/D2.8 family above (86.7%&ndash;100% 3-px overlap with H33), all nine current HEAD candidates below have &le;56% 3-px dot overlap with H33-2-B2 and pass automated EPSG:32611 / [0, 1] grid checks. Every reported leaderboard number carries <code>USER-REPORTED · no organizer receipt</code>. Off-catalogue USGS SGMC proxy DTI is reported as <code>All / Piedmont (&le;6 deg) / Mountain (&gt;6 deg)</code> to expose steep-bedrock mimicry (for example, GEMSDOE32 R6-stepprofile reaches 0.1424 overall SGMC but collapses to 0.0030 Piedmont SGMC and 0.0034 Quaternary holdout DTI).</p>
+      <div class="table-wrap"><table><thead><tr><th>Site</th><th>2026-10-25 newly reported unique batch</th>
+        <th>Current HEAD unique candidate (2026-10-26)</th><th>3-px overlap</th>
+        <th>SGMC-PROXY (All / Pied / Mtn)</th><th>Measured status &amp; site gate verdict</th></tr></thead>
+        <tbody><tr><td><strong>GEMSDOE24</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/bb1a82cfc90286dce8e296788dc434fb644defe4/docs/downloads/gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif" target="_blank" rel="noopener">gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif</a><br><strong>0.0859</strong> <span class="badge">USER-REPORTED · no organizer receipt</span></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/bb1a82cfc90286dce8e296788dc434fb644defe4/docs/downloads/gems24-rshg1-regime-hydro-hgb-20261025-98f69d77e868-zeros.tif" target="_blank" rel="noopener">gems24-rshg1-regime-hydro-hgb-20261025-98f69d77e868-zeros.tif</a><br><span class="small">SHA-256 <code>06d28182d9fe…</code> · 37,722 dots · [0,1] valid</span></td><td>42.8% vs H33<br>40.2% vs H29</td><td>0.0785 / 0.0719 / 0.0686</td><td>unscored; site marks DO NOT SUBMIT (negative holdout / self-registry overlap)</td></tr><tr><td><strong>GEMSDOE25</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25/blob/5d46f06b4269f55443065600711216de9fbd51ab/docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif" target="_blank" rel="noopener">gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif</a><br><strong>0.0742</strong> <span class="badge">USER-REPORTED · no organizer receipt</span></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25/blob/5d46f06b4269f55443065600711216de9fbd51ab/docs/downloads/gems25-h36-spigm-subsurface-submod300-20261025-3937b96ce366-zeros.tif" target="_blank" rel="noopener">gems25-h36-spigm-subsurface-submod300-20261025-3937b96ce366-zeros.tif</a><br><span class="small">SHA-256 <code>182f9e5f03cb…</code> · 37,654 dots · [0,1] valid</span></td><td>23.9% vs H33<br>19.6% vs H29</td><td>0.0679 / 0.0717 / 0.0572</td><td>unscored; site marks testing only / DO NOT SUBMIT</td></tr><tr><td><strong>GEMSDOE27</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27/blob/927322eadbde56be42ae129ccdfb9b37540d8e60/docs/downloads/gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif" target="_blank" rel="noopener">gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif</a><br><strong>0.2190</strong> <span class="badge">USER-REPORTED · no organizer receipt</span></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27/blob/927322eadbde56be42ae129ccdfb9b37540d8e60/docs/downloads/research/gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif" target="_blank" rel="noopener">gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif</a><br><span class="small">SHA-256 <code>40dc48a9f512…</code> · 38,000 dots · [0,1] valid</span></td><td>40.9% vs H33<br>36.9% vs H29</td><td>0.0897 / 0.0553 / 0.0838</td><td>H29 scored 0.2190 USER-REPORTED (highest confirmed unique score); unscored H29-1 D-refill passed GEMSDOE27 holdout (+0.0022) &amp; 12-peer uniqueness (40.9% vs H33, 36.9% vs H29), awaiting owner selector flip; H30 failed holdout</td></tr><tr><td><strong>GEMSDOE28</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28/blob/712570c5711530e07ae00795471b08d1aa122ffd/docs/downloads/gems28-s18-mxtp-20261025-3e95505c011a-allfinite.tif" target="_blank" rel="noopener">gems28-s18-mxtp-20261025-3e95505c011a-allfinite.tif</a><br><strong>0.0217</strong> <span class="badge">USER-REPORTED · no organizer receipt</span></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28/blob/712570c5711530e07ae00795471b08d1aa122ffd/docs/downloads/gems28-s19-ascp-20261026-dc717c1ab13b-allfinite.tif" target="_blank" rel="noopener">gems28-s19-ascp-20261026-dc717c1ab13b-allfinite.tif</a><br><span class="small">SHA-256 <code>553bbd6db1ae…</code> · 37,654 dots · [0,1] valid</span></td><td>22.5% vs H33<br>19.1% vs H29</td><td>0.1457 / 0.0275 / 0.1569</td><td>unscored; site marks DO NOT SUBMIT (S19 failed 1.5 km holdout: 0.0808 vs 0.1417 baseline; steep-slope bias)</td></tr><tr><td><strong>GEMSDOE30</strong></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30/blob/781eea04fb1d46056631c7fb37900f2508295325/docs/downloads/gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif" target="_blank" rel="noopener">gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif</a><br><strong>0.1462</strong> <span class="badge">USER-REPORTED · no organizer receipt</span></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30/blob/781eea04fb1d46056631c7fb37900f2508295325/docs/downloads/GEMSDOE30-nearslay-annulus-d3-offcat-20261025T235837Z-662af003-nan.tif" target="_blank" rel="noopener">GEMSDOE30-nearslay-annulus-d3-offcat-20261025T235837Z-662af003-nan.tif</a><br><span class="small">SHA-256 <code>f877c27878d3…</code> · 40,000 dots · [0,1] valid</span></td><td>22.4% vs H33<br>22.1% vs H29</td><td>0.0649 / 0.0846 / 0.0507</td><td>MSDB1 scored 0.1462 USER-REPORTED; unscored H-NEARSPLAY (300m-1.5km annulus) marked NOT cleared to submit by GEMSDOE30 review (relies on catalogue distance halo)</td></tr><tr><td><strong>GEMSDOE31</strong></td><td>none reported on 2026-10-25 (unscored)</td><td><a href="downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif">gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif</a><br><span class="small">SHA-256 <code>186d35d8c671…</code> · 37,654 dots · [0,1] valid</span></td><td>47.4% vs H33<br>55.7% vs H29</td><td>0.0837 / 0.0400 / 0.0784</td><td>unscored; H31-S (UDAP+HZAD+SSLIC) beat physical_hgb on both screen s41 (0.0948 vs 0.0591) &amp; confirm s42 (0.0980 vs 0.0544) and beat same-instrument H31-M on confirm s42 (0.0980 vs 0.0718, 4/4 quads), with 47.4% 3px overlap vs H33; RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT under literal 695-registry lattice STOP &amp; seed-41 quadrant gate</td></tr><tr><td><strong>GEMSDOE32</strong></td><td>none reported on 2026-10-25 (prior H33-2-B2 = 0.2778 USER-REPORTED) (unscored)</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/15a5fce9494da62a2d8e41943669a7e645c06f75/docs/downloads/gemsdoe32-r6-stepprofile-b2-37654-20261026T002502Z-23fbbb51-zeros.tif" target="_blank" rel="noopener">gemsdoe32-r6-stepprofile-b2-37654-20261026T002502Z-23fbbb51-zeros.tif</a><br><span class="small">SHA-256 <code>c7f094c1f4d0…</code> · 37,654 dots · [0,1] valid</span></td><td>19.1% vs H33<br>14.8% vs H29</td><td>0.1424 / 0.0030 / 0.1678</td><td>unscored; GEMSDOE32 self-marks PROMOTE on SGMC (0.1424), CAUTION: unsupervised det_elev step filter has 0.0030 SGMC Piedmont DTI and 0.0034 Quaternary holdout DTI in GEMSDOE32 round6_run_card.json (severe canyon/bedrock-mimic risk)</td></tr><tr><td><strong>GEMSDOE33</strong></td><td>none reported on 2026-10-25 (unscored)</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33/blob/c9a24250afcbee1d8a2e0e80cf1af9ec10e40e0b/docs/downloads/gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-zeros.tif" target="_blank" rel="noopener">gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-zeros.tif</a><br><span class="small">SHA-256 <code>2bbbf7e38172…</code> · 37,654 dots · [0,1] valid</span></td><td>37.1% vs H33<br>32.7% vs H29</td><td>0.0916 / 0.0517 / 0.0857</td><td>unscored; site marks NOT OK TO SUBMIT (A33-L1 lost to fold-safe regional comparator)</td></tr><tr><td><strong>GEMSDOE36</strong></td><td>none reported on 2026-10-25 (unscored)</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36/blob/1f92ee9c685db3f079b5995bffc71dda53e23497/docs/downloads/gemsdoe36-lane36-supgbm-68302-20261026T002651Z-f35cb3e4-zeros.tif" target="_blank" rel="noopener">gemsdoe36-lane36-supgbm-68302-20261026T002651Z-f35cb3e4-zeros.tif</a><br><span class="small">SHA-256 <code>45e626c01f9d…</code> · 68,302 dots · [0,1] valid</span></td><td>33.8% vs H33<br>30.0% vs H29</td><td>0.0746 / 0.0803 / 0.0637</td><td>unscored; Lane36 SupGBM (68,302 dots, HOLDOUT-DTI 0.1777 vs 0.1615 on GEMSDOE36 segment holdout), while GEMSDOE36 top-level 2026-10-26 review keeps overall repo status NOT APPROVED pending selector</td></tr></tbody></table></div>
+    </div>
+    </section>
+      <section id="rbu31" aria-labelledby="rbu31-heading">
       <div class="section-head"><div><p class="kicker">2026-10-25 New Unique Candidate &middot; RBU31 (Experiment 13)</p>
         <h2 id="rbu31-heading">RBU31 Regime-Balanced Union: &#10060; Do not submit</h2></div>
         <p>One union model (raw-39 + SCGP-40 features in the same trees) trained with regime-balanced sample weights
@@ -79,7 +171,7 @@
         <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_rbu31_preregistration.md">preregistration</a>.</p>
     </section>
       <div class="notice notice-danger"><strong>Not approved for upload.</strong>
-      Automated verdict: NEGATIVE under the literal 695-raster shared-registry overlap rule. Download RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
+      Automated verdict: NEGATIVE under the literal 695-raster shared-registry overlap rule. Download H31-S, RBU31-B, H31-M, H31-HVDC, H31-E2, or MAGREST for research, not for a weekly competition slot.</div>
       <section id="h31m-submod" aria-labelledby="h31m-heading">
       <div class="section-head"><div><p class="kicker">2026-10-25 Deconfounded Subsurface Concordance + 29-Cell Submodular Candidate · H31-M</p>
         <h2 id="h31m-heading">H31-M BStep-XMod-Submod: Research Download Only · DO NOT SUBMIT</h2></div>
@@ -272,55 +364,7 @@
         <tr><td>Single-feature leakage canary (catalogue AUC)</td>
             <td><span class="badge badge-green">PASS</span> 0.570 (&lt;= 0.90)</td></tr>
         <tr><td>Holdout DTI — off-catalogue SGMC</td>
-            <td>HOLDOUT-DTI 0.1711 (truth px 61,664)</td> if dti_sgmc is not None else <td>HOLDOUT-DTI n/a</td></tr>
-        <tr><td>Holdout DTI — catalogue-gap (seed 1)</td>
-            <td>HOLDOUT-DTI 0.0082 vs D28 incumbent 0.0435</td></tr>
-        <tr><td>Format validation (NaN)</td>
-            <td><span class="badge badge-green">PASS</span></td></tr>
-        <tr><td>Format validation (all-finite)</td>
-            <td><span class="badge badge-green">PASS</span></td></tr>
-        <tr><td>716-raster uniqueness gate</td>
-            <td><span class="badge badge-red">CACHE UNAVAILABLE — not checked</span></td></tr>
-        <tr><td>Submission approval</td>
-            <td><span class="badge badge-red">NOT APPROVED — do not upload</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-      
-<section id="h3-download" aria-labelledby="h3-heading">
-  <div class="section-head"><div><p class="kicker">New artifact · H3 LiDAR scarp · 2026-10-25</p>
-    <h2 id="h3-heading">OK to download for research. NOT approved for upload.</h2></div>
-    <p>Holdout proxies disagree (catalogue-gap vs off-catalogue SGMC). Full 716-raster registry cache
-    was unavailable for the uniqueness gate. Labelled research-only until both proxies agree and the
-    registry gate passes.</p></div>
-  <div class="card download-card">
-    <span class="badge badge-red">RESEARCH ONLY · verdict = negative · not promoted</span>
-    <h3 style="margin-top:18px">gemsdoe31-h3-lidar-scarp-unique-50k-20261025</h3>
-    <p>LiDAR generic scarp (ex_max percentile rank, gaussian 0.8px) at 2.8px Poisson-disk spacing.
-       50,000 dots, 0 dots on the public catalogue. New dots — not copied from any prior submission.</p>
-    <div class="actions">
-      <a class="button button-dark" href="downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.tif" download>Download H3 Research .tif (NaN-outside)</a>
-      <a class="button" href="downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif" download>All-finite research encoding .tif</a>
-      <a class="button" href="downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-nan.zip" download>One-TIFF .zip</a>
-      <a class="button" href="../evidence/h3_unique_submission.json" download>Run card .json</a>
-    </div>
-    <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 x 3292 · 100 m ·
-      50,000 dots · values exactly {0.0, 1.0} in [0.0, 1.0]<br>
-      <strong>SHA-256 (NaN primary):</strong> <code>258cd3683a084231e57a6a8cd92f619437e07a2c25cf1becdfdecb796e6b0043</code><br>
-      <strong>SHA-256 (All-finite):</strong> <code>7906d5744a8456f09cb17193f4a3f7169a893d3c5ccddcb75b1c28fdb68e662a</code><br>
-      <strong>Name:</strong> <code>gemsdoe31-h3-lidar-scarp-unique-50k-20261025</code><br>
-      <strong>Note (117/140):</strong> <code>LiDAR generic scarp ex_max 2.8px Poisson dots; HOLDOUT-DTI catalogue-gap + offcat-SGMC; unique vs 716-raster registry</code></p>
-    <table>
-      <thead><tr><th>Gate</th><th>Result</th></tr></thead>
-      <tbody>
-        <tr><td>Single-feature leakage canary (SGMC AUC)</td>
-            <td><span class="badge badge-green">PASS</span> 0.755 (&lt;= 0.90)</td></tr>
-        <tr><td>Single-feature leakage canary (catalogue AUC)</td>
-            <td><span class="badge badge-green">PASS</span> 0.570 (&lt;= 0.90)</td></tr>
-        <tr><td>Holdout DTI — off-catalogue SGMC</td>
-            <td>HOLDOUT-DTI 0.1711 (truth px 61,664)</td> if dti_sgmc is not None else <td>HOLDOUT-DTI n/a</td></tr>
+            <td>HOLDOUT-DTI 0.1711 (truth px 61,664)</td></tr>
         <tr><td>Holdout DTI — catalogue-gap (seed 1)</td>
             <td>HOLDOUT-DTI 0.0082 vs D28 incumbent 0.0435</td></tr>
         <tr><td>Format validation (NaN)</td>

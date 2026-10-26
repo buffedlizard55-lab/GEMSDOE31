@@ -1,6 +1,41 @@
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
-> **Latest review (2026-10-26): no experiment, slot, or TIFF was authorized or created.** The active lane is stopped by the universal literal-overlap witness and exhausted three-experiment budget. The existing MAGREST TIFF is **OK TO DOWNLOAD FOR RESEARCH ONLY — DO NOT SUBMIT**: [download the existing research TIFF](docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif) · [automated decision receipt](docs/downloads/magrest-run-card.json). The executive summary now gives a generated, site-by-site matrix of the nine requested repositories' highest owner-reported claims; none is a unique-submission recommendation. See the [2026-10-26 repo review](knowledge/repo_review_2026-10-26.md), [prior follow-up](knowledge/repo_review_2026-10-25_arena_followup.md), [current status](knowledge/current_status_2026-10-25.md), and [`registry/review_passes.json`](registry/review_passes.json). Future hypotheses remain desk-only pending lane authorization and blocker resolution.
+> **Latest session (2026-10-26 · branch `arena/34f326b4-gemsdoe31`): new unique `H31-S` (`UDAP-SSLIC`) GeoTIFF generated and automatically validated.**
+> **DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (`DO NOT SUBMIT`, `slot_approved = false`).**
+> [**Download H31-S Research `.tif` (all-finite `[0, 1]` zeros-outside)**](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) ·
+> [NaN-outside twin `.tif`](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif) ·
+> [Single-TIFF `.zip`](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.zip) ·
+> [Validation receipt `.json`](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.json) ·
+> [JSON Run Card](docs/downloads/h31s-run-card.json) ·
+> [Frozen Preregistration](knowledge/2026-10-26_h31s_udap_sslic_preregistration.md) ·
+> [Nine-Site Executive Summary](docs/executive-summary.html) ·
+> [Full 2026-10-26 Forensic Review](knowledge/repo_review_2026-10-26.md).
+>
+> - **Unique submission name:** `gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f`
+> - **Note (`92/140` chars):** `H31-S UDAP+HZAD+SSLIC 37654d B2 | HOLDOUT-DTI s41=0.0948 s42=0.0980 | research-only 9355f21d`
+> - **SHA-256 (`-zeros.tif`, `143,032` B):** `186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd`
+> - **SHA-256 (`-nan.tif`, `188,437` B):** `665619b452553b25e7474ebe24cd466764550662744b36e0e7395f980ea241c1`
+> - **Automated non-human validation (`python scripts/verify_h31s_run.py`):** `EPSG:32611`, `3730 x 3292`, `100 m` transform, single-band `float32`, finite `[0.0, 1.0]` (`37,654` binary dots, `0` on public catalogue; zeros-outside file is finite across all `12,279,160` cells and cannot trigger `"Predicted values must be in range [0, 1]"`).
+> - **Measured `HOLDOUT-DTI` (`gems57-pooled-hide-v2`, candidate-specific OOF residual variogram range `20.75 km` -> `21.3 km` collar):**
+>   - **Screen `seed=41` (`2,820` withheld positives):** `Control-Physical-HGB` `0.0591` -> `Incumbent-H31M-Submod` `0.0713` -> `Stage-1 UDAP+HZAD` `0.0804` -> **`H31-S Full SSLIC` `0.0948` `[0.0612, 0.1292]`** (`+0.0357` vs `Physical-HGB`, CI `[+0.0082, +0.0659]`, `3/4` quads PASS; `+0.0235` vs `H31-M`, CI `[-0.0204, +0.0698]`, `1/4` quads).
+>   - **Untouched Fresh Confirmation `seed=42` (`2,823` withheld positives):** `Control-Physical-HGB` `0.0544` -> `Incumbent-H31M-Submod` `0.0718` -> **`H31-S Full SSLIC` `0.0980` `[0.0728, 0.1249]`** (`+0.0436` vs `Physical-HGB`, CI `[+0.0179, +0.0695]`, **`4/4` quads PASS**; `+0.0262` vs `H31-M`, CI `[+0.0001, +0.0544]`, **`4/4` quads PASS**).
+> - **Uniqueness & Why Not Approved for Upload (`slot_approved = false`):** Final `37,654` dots pass discrete 3-px separation across all 9 peer sites and all `GEMSDOE31` rasters (`max = 66.5% <= 70%`; `47.4%` vs `GEMSDOE32 H33-2-B2`, `55.7%` vs `GEMSDOE27 H29-HPVC`; max `|Spearman| = 0.1629 <= 0.90`), while unplaced top-K surface support hits `72.5%` on one internal `RBU31` research raster (`68.6%` max across all external peer sites) and `99.93%` within `3 px` of the unexempted 695-registry spacing-5 lattice `r13-lattice-s5` (`100%` within `GEMSDOE48` dense baseline).
+
+> ### Nine-Site Executive Summary (`GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36`)
+>
+> All leaderboard values below are **`USER-REPORTED` (no organizer receipt in this repository)**; 3-px overlaps and off-catalogue USGS SGMC proxies (`All / Piedmont <=6 deg / Mountain >6 deg`) are computed directly from commit-pinned GeoTIFF bytes:
+>
+> | Site | Historical D1.5/D2.8 Claim (`>86%` 3-px overlap w/ H33 = duplicate/spent) | 2026-10-25 Unique Leaderboard Batch (`USER-REPORTED`) | Current `HEAD` Unscored Unique Candidate (`2026-10-26`) | 3-px Overlap (vs H33 / vs H29) | Off-Cat SGMC (`All / Pied / Mtn`) | Site Gate Verdict |
+> | --- | --- | --- | --- | --- | --- | --- |
+> | **GEMSDOE24** | `H25-1` `0.2477` (`88.5%`) | `GVC1` **`0.0859`** (`36.6%` vs H33) | `gems24-rshg1-regime-hydro-hgb-20261025-98f69d77e868-zeros.tif` (`37,722`d) | `42.8% / 40.3%` | `0.0785 / 0.0719 / 0.0686` | `DO NOT SUBMIT` |
+> | **GEMSDOE25** | `D2.8` `0.2600` (`88.2%`) | `H66-MGD` **`0.0742`** (`30.4%` vs H33) | `gems25-h36-spigm-subsurface-submod300-20261025-3937b96ce366-zeros.tif` (`37,654`d) | `24.0% / 19.6%` | `0.0679 / 0.0717 / 0.0572` | `DO NOT SUBMIT` |
+> | **GEMSDOE27** | `T-v2` `0.2449` (`86.7%`) | **`H29-HPVC` `0.2190`** (**best confirmed unique score**, `56.1%` vs H33) | `gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif` (`38,000`d) | `40.9% / 36.9%` | `0.0897 / 0.0553 / 0.0838` | Passed GEMSDOE27 holdout & 12-peer uniqueness; awaits owner selector |
+> | **GEMSDOE28** | `H36-1` `0.2710` (`95.5%`) | `S18-MXTP` **`0.0217`** (`11,082`d starved) | `gems28-s19-ascp-20261026-dc717c1ab13b-allfinite.tif` (`37,654`d) | `22.5% / 19.1%` | `0.1457 / 0.0275 / 0.1569` | `DO NOT SUBMIT` (failed 1.5 km holdout) |
+> | **GEMSDOE30** | `D2.8` `0.2600` (`88.2%`) | `MSDB1` **`0.1462`** (`44,090`d, `39.2%` vs H33) | `GEMSDOE30-nearslay-annulus-d3-offcat-20261025T235837Z-662af003-nan.tif` (`40,000`d) | `22.3% / 22.1%` | `0.0649 / 0.0846 / 0.0507` | `NOT cleared to submit` (catalogue-annulus heuristic) |
+> | **GEMSDOE31** | `H27-4` `0.2708` (`95.4%`) | none reported | **`gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif`** (`37,654`d; prior `H31-M` SGMC `0.1010 / 0.0641 / 0.0947`) | `47.4% / 55.7%` | `0.0837 / 0.0400 / 0.0784` | `RESEARCH ONLY · DO NOT SUBMIT` (`99.93%` literal 695-lattice STOP) |
+> | **GEMSDOE32** | **`H33-2-B2` `0.2778`** (`100%`) | none reported | `gemsdoe32-r6-stepprofile-b2-37654-20261026T002502Z-23fbbb51-zeros.tif` (`37,654`d) | `19.1% / 14.8%` | `0.1424 / 0.0030 / 0.1678` | Self-marked `PROMOTE` on SGMC, **WARNING:** `0.0030` Piedmont SGMC & `0.0034` Quaternary holdout DTI (canyon-mimic risk) |
+> | **GEMSDOE33** | `H33D` `0.2632` (`92.6%`) | none reported | `gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-zeros.tif` (`37,654`d) | `37.1% / 32.7%` | `0.0916 / 0.0517 / 0.0857` | `DO NOT SUBMIT` (lost to regional comparator) |
+> | **GEMSDOE36** | `Anderson` `0.2750` (`97.4%`) | none reported | `gemsdoe36-lane36-supgbm-68302-20261026T002651Z-f35cb3e4-zeros.tif` (`68,302`d) | `33.8% / 30.1%` | `0.0746 / 0.0803 / 0.0637` | Repo top-level status `NOT APPROVED` pending selector |
 
 > ### Current decision — research downloads only; DO NOT SUBMIT
 >
@@ -44,7 +79,7 @@
 > The earlier H31-E2 confirmation belongs to a different evaluator/instrument from MAGREST;
 > it does not establish a same-protocol global-best win or authorize a weekly slot.
 >
-> ### 2026-10-25 · RBU31-B REGIME-BALANCED UNION (parallel lane, integrated 2026-10-25) (`gemsdoe31-rbu31b-localunion-37654-20261025-b7585935`): ❌ DO NOT SUBMIT
+> ### 2026-10-25 · RBU31-B REGIME-BALANCED UNION (parallel lane, integrated 2026-10-25) (`gemsdoe31-rbu31b-localunion-37654-20261025-b7585935`): DO NOT SUBMIT
 >
 > - **Automatically validated, no human inspector: format/`[0, 1]` PASS · leakage PASS (max AUC 0.6118/79 features) · uniqueness vs 24 registry + nine-focus-site rasters PASS (max |ρ| 0.150, max 3-px dot overlap 53.4%) · holdout screen FAIL (2/4 folds) · mountain SGMC FAIL.** Verdict `negative` — download for research only; do not spend a weekly slot on it. The spacing-5 lattice in the shared 695-raster registry remains a disclosed universal degeneracy for any candidate (100% interior coverage within 3 px).
 > - [Download RBU31-B all-finite `[0, 1]` GeoTIFF](docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-allfinite.tif) (`07c939198a9145ae8281012bcba2c2167e3a6a482dd15c04ce3872b5b94e1041`) · [NaN-outside TIFF](docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.tif) (`7b57519fdbcf594231043730c9d86042182c968cd2479be63a8c8a5ea9c71e98`) · [single-TIFF ZIP](docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-nan.zip) · [format receipt](docs/downloads/gemsdoe31-rbu31b-localunion-37654-20261025-b7585935-format-check.json) · [JSON run card](evidence/regime31b/run_card.json) · [independent verification](evidence/regime31b/independent_verification.json) · [preregistration](knowledge/2026-10-25_rbu31_preregistration.md) + [amendment](knowledge/2026-10-25_rbu31b_amendment_preregistration.md).
@@ -349,11 +384,13 @@ Full results: [`evidence/h31m_results.json`](evidence/h31m_results.json) ·
 
 ## Complete owner prompt — reread at every session start
 
-<details><summary>Full owner prompt (link markup and whitespace normalized; claims remain unverified)</summary>
+<details><summary>Full owner prompt (2026-10-26; link markup and whitespace normalized; claims remain unverified)</summary>
 
 Review the repo.
 
 I want to focus on the highest scoring submissions from the following sites, GEMSDOE24, GEMSDOE25, GEMSDOE27, GEMSDOE28, GEMSDOE30, GEMSDOE31, GEMSDOE32, GEMSDOE33, GEMSDOE36.
+
+I want an executive summary on each of these sites clearly and obviously identifying the best high scoring submissions that are unique for the competition, not a duplicate of a previous submission.
 
 THE FOLLOWING IS THE HIGHEST URGENCY AND MUST BE FOLLOWED!
 
@@ -571,11 +608,15 @@ https://buffedlizard55-lab.github.io/GEMSDOE24/
 
 h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan: 0.2477
 
+gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros: 0.0859
+
 ....
 
 https://buffedlizard55-lab.github.io/GEMSDOE25/
 
 dotted-h19-5-d2-8-20261002-e56ea318af89-nan: 0.2600
+
+h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros: 0.0742
 
 ....
 
@@ -589,11 +630,15 @@ https://buffedlizard55-lab.github.io/GEMSDOE27/
 
 topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan: 0.2449
 
+h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite: 0.2190
+
 ....
 
 https://buffedlizard55-lab.github.io/GEMSDOE30/
 
 d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca: 0.2600
+
+MSDB1-edge44090-20261025-e7856ec3f14a: 0.1462
 
 ....
 
@@ -678,6 +723,8 @@ h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan: 0.2649
 h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan: 0.2710
 
 h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan: 0.2707
+
+s18-mxtp-20261025-3e95505c011a-allfinite: 0.0217
 
 ....
 

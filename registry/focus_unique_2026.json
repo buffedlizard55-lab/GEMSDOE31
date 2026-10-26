@@ -1,0 +1,186 @@
+{
+  "generated_utc": "2026-10-26T02:10:00Z",
+  "evidence_note": "All leaderboard numbers are USER-REPORTED with no organizer receipt in this repository; SGMC and 3-px overlap numbers are computed directly from pinned GeoTIFF bytes.",
+  "sites": [
+    {
+      "site": "GEMSDOE24",
+      "head_commit": "bb1a82cfc90286dce8e296788dc434fb644defe4",
+      "scored_20261025_artifact": "gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+      "scored_20261025_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/bb1a82cfc90286dce8e296788dc434fb644defe4/docs/downloads/gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+      "scored_20261025_value": "0.0859",
+      "current_unique_artifact": "gems24-rshg1-regime-hydro-hgb-20261025-98f69d77e868-zeros.tif",
+      "current_unique_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/bb1a82cfc90286dce8e296788dc434fb644defe4/docs/downloads/gems24-rshg1-regime-hydro-hgb-20261025-98f69d77e868-zeros.tif",
+      "current_sha256": "06d28182d9fea06d1d4ac3fc603bada748306e68350ebe432e3ff9f82fd3703e",
+      "dots": 37722,
+      "format_0_1_ok": true,
+      "overlap_3px_vs_h33": 0.4279,
+      "overlap_3px_vs_h29": 0.4025,
+      "sgmc_all_pied_mtn": [
+        0.0785,
+        0.0719,
+        0.0686
+      ],
+      "site_gate_status": "unscored; site marks DO NOT SUBMIT (negative holdout / self-registry overlap)"
+    },
+    {
+      "site": "GEMSDOE25",
+      "head_commit": "5d46f06b4269f55443065600711216de9fbd51ab",
+      "scored_20261025_artifact": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "scored_20261025_url": "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/5d46f06b4269f55443065600711216de9fbd51ab/docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "scored_20261025_value": "0.0742",
+      "current_unique_artifact": "gems25-h36-spigm-subsurface-submod300-20261025-3937b96ce366-zeros.tif",
+      "current_unique_url": "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/5d46f06b4269f55443065600711216de9fbd51ab/docs/downloads/gems25-h36-spigm-subsurface-submod300-20261025-3937b96ce366-zeros.tif",
+      "current_sha256": "182f9e5f03cb66033d7106d1e7ca29cdc50280d10fe0306438138bf52e1540bc",
+      "dots": 37654,
+      "format_0_1_ok": true,
+      "overlap_3px_vs_h33": 0.2395,
+      "overlap_3px_vs_h29": 0.1963,
+      "sgmc_all_pied_mtn": [
+        0.0679,
+        0.0717,
+        0.0572
+      ],
+      "site_gate_status": "unscored; site marks testing only / DO NOT SUBMIT"
+    },
+    {
+      "site": "GEMSDOE27",
+      "head_commit": "927322eadbde56be42ae129ccdfb9b37540d8e60",
+      "scored_20261025_artifact": "gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+      "scored_20261025_url": "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/927322eadbde56be42ae129ccdfb9b37540d8e60/docs/downloads/gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+      "scored_20261025_value": "0.2190",
+      "current_unique_artifact": "gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif",
+      "current_unique_url": "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/927322eadbde56be42ae129ccdfb9b37540d8e60/docs/downloads/research/gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif",
+      "current_sha256": "40dc48a9f512c6b92415e5b2349e809be33107f9fec6661cc67c3a9871b8c84f",
+      "dots": 38000,
+      "format_0_1_ok": true,
+      "overlap_3px_vs_h33": 0.409,
+      "overlap_3px_vs_h29": 0.3691,
+      "sgmc_all_pied_mtn": [
+        0.0897,
+        0.0553,
+        0.0838
+      ],
+      "site_gate_status": "H29 scored 0.2190 USER-REPORTED (highest confirmed unique score); unscored H29-1 D-refill passed GEMSDOE27 holdout (+0.0022) & 12-peer uniqueness (40.9% vs H33, 36.9% vs H29), awaiting owner selector flip; H30 failed holdout"
+    },
+    {
+      "site": "GEMSDOE28",
+      "head_commit": "712570c5711530e07ae00795471b08d1aa122ffd",
+      "scored_20261025_artifact": "gems28-s18-mxtp-20261025-3e95505c011a-allfinite.tif",
+      "scored_20261025_url": "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/712570c5711530e07ae00795471b08d1aa122ffd/docs/downloads/gems28-s18-mxtp-20261025-3e95505c011a-allfinite.tif",
+      "scored_20261025_value": "0.0217",
+      "current_unique_artifact": "gems28-s19-ascp-20261026-dc717c1ab13b-allfinite.tif",
+      "current_unique_url": "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/712570c5711530e07ae00795471b08d1aa122ffd/docs/downloads/gems28-s19-ascp-20261026-dc717c1ab13b-allfinite.tif",
+      "current_sha256": "553bbd6db1ae0f3a8fc41a81ed8bc1f438e5af6bd74d43c5d260d6889d0e6537",
+      "dots": 37654,
+      "format_0_1_ok": true,
+      "overlap_3px_vs_h33": 0.2247,
+      "overlap_3px_vs_h29": 0.1907,
+      "sgmc_all_pied_mtn": [
+        0.1457,
+        0.0275,
+        0.1569
+      ],
+      "site_gate_status": "unscored; site marks DO NOT SUBMIT (S19 failed 1.5 km holdout: 0.0808 vs 0.1417 baseline; steep-slope bias)"
+    },
+    {
+      "site": "GEMSDOE30",
+      "head_commit": "781eea04fb1d46056631c7fb37900f2508295325",
+      "scored_20261025_artifact": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "scored_20261025_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/781eea04fb1d46056631c7fb37900f2508295325/docs/downloads/gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "scored_20261025_value": "0.1462",
+      "current_unique_artifact": "GEMSDOE30-nearslay-annulus-d3-offcat-20261025T235837Z-662af003-nan.tif",
+      "current_unique_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/781eea04fb1d46056631c7fb37900f2508295325/docs/downloads/GEMSDOE30-nearslay-annulus-d3-offcat-20261025T235837Z-662af003-nan.tif",
+      "current_sha256": "f877c27878d35e138ca3e5e3e14a7e60dc9aef543c41c27cd1e1df2134d23c52",
+      "dots": 40000,
+      "format_0_1_ok": true,
+      "overlap_3px_vs_h33": 0.2235,
+      "overlap_3px_vs_h29": 0.2209,
+      "sgmc_all_pied_mtn": [
+        0.0649,
+        0.0846,
+        0.0507
+      ],
+      "site_gate_status": "MSDB1 scored 0.1462 USER-REPORTED; unscored H-NEARSPLAY (300m-1.5km annulus) marked NOT cleared to submit by GEMSDOE30 review (relies on catalogue distance halo)"
+    },
+    {
+      "site": "GEMSDOE31",
+      "head_commit": "arena/34f326b4-gemsdoe31",
+      "scored_20261025_artifact": "none reported on 2026-10-25",
+      "scored_20261025_url": "",
+      "scored_20261025_value": "unscored",
+      "current_unique_artifact": "gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif",
+      "current_unique_url": "downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif",
+      "current_sha256": "186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd",
+      "dots": 37654,
+      "format_0_1_ok": true,
+      "overlap_3px_vs_h33": 0.4739,
+      "overlap_3px_vs_h29": 0.5572,
+      "sgmc_all_pied_mtn": [
+        0.0837,
+        0.04,
+        0.0784
+      ],
+      "site_gate_status": "unscored; H31-S (UDAP+HZAD+SSLIC) beat physical_hgb on both screen s41 (0.0948 vs 0.0591) & confirm s42 (0.0980 vs 0.0544) and beat same-instrument H31-M on confirm s42 (0.0980 vs 0.0718, 4/4 quads), with 47.4% 3px overlap vs H33; RESEARCH DOWNLOAD ONLY \u00b7 DO NOT SUBMIT under literal 695-registry lattice STOP & seed-41 quadrant gate"
+    },
+    {
+      "site": "GEMSDOE32",
+      "head_commit": "15a5fce9494da62a2d8e41943669a7e645c06f75",
+      "scored_20261025_artifact": "none reported on 2026-10-25 (prior H33-2-B2 = 0.2778 USER-REPORTED)",
+      "scored_20261025_url": "",
+      "scored_20261025_value": "unscored",
+      "current_unique_artifact": "gemsdoe32-r6-stepprofile-b2-37654-20261026T002502Z-23fbbb51-zeros.tif",
+      "current_unique_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/15a5fce9494da62a2d8e41943669a7e645c06f75/docs/downloads/gemsdoe32-r6-stepprofile-b2-37654-20261026T002502Z-23fbbb51-zeros.tif",
+      "current_sha256": "c7f094c1f4d00f2dd9a056dc80fecc94bf1d636363acd020c9da3659eae56547",
+      "dots": 37654,
+      "format_0_1_ok": true,
+      "overlap_3px_vs_h33": 0.1908,
+      "overlap_3px_vs_h29": 0.1477,
+      "sgmc_all_pied_mtn": [
+        0.1424,
+        0.003,
+        0.1678
+      ],
+      "site_gate_status": "unscored; GEMSDOE32 self-marks PROMOTE on SGMC (0.1424), CAUTION: unsupervised det_elev step filter has 0.0030 SGMC Piedmont DTI and 0.0034 Quaternary holdout DTI in GEMSDOE32 round6_run_card.json (severe canyon/bedrock-mimic risk)"
+    },
+    {
+      "site": "GEMSDOE33",
+      "head_commit": "c9a24250afcbee1d8a2e0e80cf1af9ec10e40e0b",
+      "scored_20261025_artifact": "none reported on 2026-10-25",
+      "scored_20261025_url": "",
+      "scored_20261025_value": "unscored",
+      "current_unique_artifact": "gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-zeros.tif",
+      "current_unique_url": "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/c9a24250afcbee1d8a2e0e80cf1af9ec10e40e0b/docs/downloads/gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-zeros.tif",
+      "current_sha256": "2bbbf7e381720f2242959e3efd6f2437f273afe6e7c48540d769524d2b4e8759",
+      "dots": 37654,
+      "format_0_1_ok": true,
+      "overlap_3px_vs_h33": 0.3707,
+      "overlap_3px_vs_h29": 0.3271,
+      "sgmc_all_pied_mtn": [
+        0.0916,
+        0.0517,
+        0.0857
+      ],
+      "site_gate_status": "unscored; site marks NOT OK TO SUBMIT (A33-L1 lost to fold-safe regional comparator)"
+    },
+    {
+      "site": "GEMSDOE36",
+      "head_commit": "1f92ee9c685db3f079b5995bffc71dda53e23497",
+      "scored_20261025_artifact": "none reported on 2026-10-25",
+      "scored_20261025_url": "",
+      "scored_20261025_value": "unscored",
+      "current_unique_artifact": "gemsdoe36-lane36-supgbm-68302-20261026T002651Z-f35cb3e4-zeros.tif",
+      "current_unique_url": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/1f92ee9c685db3f079b5995bffc71dda53e23497/docs/downloads/gemsdoe36-lane36-supgbm-68302-20261026T002651Z-f35cb3e4-zeros.tif",
+      "current_sha256": "45e626c01f9dc6e8aed59875d2758467c39f008c87543f566b3ae9d26a2234e7",
+      "dots": 68302,
+      "format_0_1_ok": true,
+      "overlap_3px_vs_h33": 0.338,
+      "overlap_3px_vs_h29": 0.3005,
+      "sgmc_all_pied_mtn": [
+        0.0746,
+        0.0803,
+        0.0637
+      ],
+      "site_gate_status": "unscored; Lane36 SupGBM (68,302 dots, HOLDOUT-DTI 0.1777 vs 0.1615 on GEMSDOE36 segment holdout), while GEMSDOE36 top-level 2026-10-26 review keeps overall repo status NOT APPROVED pending selector"
+    }
+  ]
+}

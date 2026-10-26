@@ -1,0 +1,411 @@
+{
+  "evaluated_background_sample": 150000,
+  "evaluated_positive_pixels": 2820,
+  "features": [
+    {
+      "feature": "base_band_01",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.45395,
+      "value_auc_two_sided": 0.54605
+    },
+    {
+      "feature": "base_band_02",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.45295,
+      "value_auc_two_sided": 0.54705
+    },
+    {
+      "feature": "base_band_03",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.4808,
+      "value_auc_two_sided": 0.5192
+    },
+    {
+      "feature": "base_band_04",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.55729,
+      "value_auc_two_sided": 0.55729
+    },
+    {
+      "feature": "base_band_05",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.55981,
+      "value_auc_two_sided": 0.55981
+    },
+    {
+      "feature": "base_band_06",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.38586,
+      "value_auc_two_sided": 0.61414
+    },
+    {
+      "feature": "base_band_07",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.56554,
+      "value_auc_two_sided": 0.56554
+    },
+    {
+      "feature": "base_band_08",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.53506,
+      "value_auc_two_sided": 0.53506
+    },
+    {
+      "feature": "base_band_09",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.48004,
+      "value_auc_two_sided": 0.51996
+    },
+    {
+      "feature": "base_band_10",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.55033,
+      "value_auc_two_sided": 0.55033
+    },
+    {
+      "feature": "base_band_11",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.50315,
+      "value_auc_two_sided": 0.50315
+    },
+    {
+      "feature": "base_band_12",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.54229,
+      "value_auc_two_sided": 0.54229
+    },
+    {
+      "feature": "base_band_13",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.56143,
+      "value_auc_two_sided": 0.56143
+    },
+    {
+      "feature": "base_band_14",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.44149,
+      "value_auc_two_sided": 0.55851
+    },
+    {
+      "feature": "base_band_15",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.42992,
+      "value_auc_two_sided": 0.57008
+    },
+    {
+      "feature": "base_band_16",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.58086,
+      "value_auc_two_sided": 0.58086
+    },
+    {
+      "feature": "base_band_17",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.52336,
+      "value_auc_two_sided": 0.52336
+    },
+    {
+      "feature": "base_band_18",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.46716,
+      "value_auc_two_sided": 0.53284
+    },
+    {
+      "feature": "base_band_19",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.58279,
+      "value_auc_two_sided": 0.58279
+    },
+    {
+      "feature": "geodawn_K",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.39212,
+      "value_auc_two_sided": 0.60788
+    },
+    {
+      "feature": "geodawn_Th",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.41565,
+      "value_auc_two_sided": 0.58435
+    },
+    {
+      "feature": "geodawn_U",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.41601,
+      "value_auc_two_sided": 0.58399
+    },
+    {
+      "feature": "geodawn_TC",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.38805,
+      "value_auc_two_sided": 0.61195
+    },
+    {
+      "feature": "geodawn_ThK",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.50491,
+      "value_auc_two_sided": 0.50491
+    },
+    {
+      "feature": "geodawn_UK",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.5339,
+      "value_auc_two_sided": 0.5339
+    },
+    {
+      "feature": "geodawn_UTh",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.53866,
+      "value_auc_two_sided": 0.53866
+    },
+    {
+      "feature": "geodawn_TMI_up150",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.44291,
+      "value_auc_two_sided": 0.55709
+    },
+    {
+      "feature": "lidar_ex_max",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.56534,
+      "value_auc_two_sided": 0.56534
+    },
+    {
+      "feature": "lidar_step_max",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.56721,
+      "value_auc_two_sided": 0.56721
+    },
+    {
+      "feature": "lidar_relief",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.60584,
+      "value_auc_two_sided": 0.60584
+    },
+    {
+      "feature": "lidar_coh100",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.49298,
+      "value_auc_two_sided": 0.50702
+    },
+    {
+      "feature": "lidar_face_asym",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.54229,
+      "value_auc_two_sided": 0.54229
+    },
+    {
+      "feature": "gdr_2m_probe_prox",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.57528,
+      "value_auc_two_sided": 0.57528
+    },
+    {
+      "feature": "gdr_paleo_prox",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.45987,
+      "value_auc_two_sided": 0.54013
+    },
+    {
+      "feature": "gdr_volcanics_prox",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.49253,
+      "value_auc_two_sided": 0.50747
+    },
+    {
+      "feature": "udap_grav_slope_55",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.57282,
+      "value_auc_two_sided": 0.57282
+    },
+    {
+      "feature": "udap_grav_slope_45",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.57884,
+      "value_auc_two_sided": 0.57884
+    },
+    {
+      "feature": "udap_grav_slope_65",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.5682,
+      "value_auc_two_sided": 0.5682
+    },
+    {
+      "feature": "udap_bstep_55",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.48744,
+      "value_auc_two_sided": 0.51256
+    },
+    {
+      "feature": "udap_tmi150_hg_55",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.48536,
+      "value_auc_two_sided": 0.51464
+    },
+    {
+      "feature": "udap_grav_gain_55",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.58065,
+      "value_auc_two_sided": 0.58065
+    },
+    {
+      "feature": "udap_concordance_55",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.51643,
+      "value_auc_two_sided": 0.51643
+    },
+    {
+      "feature": "udap_dilat_coupling",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.50718,
+      "value_auc_two_sided": 0.50718
+    },
+    {
+      "feature": "hzad_rtp_axial_trough",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.52804,
+      "value_auc_two_sided": 0.52804
+    },
+    {
+      "feature": "hzad_tmi150_axial_trough",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.52548,
+      "value_auc_two_sided": 0.52548
+    },
+    {
+      "feature": "hzad_k_over_th_anom",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.38649,
+      "value_auc_two_sided": 0.61351
+    },
+    {
+      "feature": "hzad_cond_saddle",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.49308,
+      "value_auc_two_sided": 0.50692
+    },
+    {
+      "feature": "hzad_geothermal_conduit",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.52581,
+      "value_auc_two_sided": 0.52581
+    },
+    {
+      "feature": "null_contour_bench",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.6479,
+      "value_auc_two_sided": 0.6479
+    },
+    {
+      "feature": "null_cardinal_seam",
+      "leakage_flag": false,
+      "missing_auc_two_sided": 0.5,
+      "missing_fraction": 0.0,
+      "raw_auc": 0.54213,
+      "value_auc_two_sided": 0.54213
+    }
+  ],
+  "max_missing_auc_two_sided": 0.5,
+  "max_value_auc_two_sided": 0.6479,
+  "pass_": true,
+  "tag": "stage1_seed41",
+  "threshold": 0.9
+}
