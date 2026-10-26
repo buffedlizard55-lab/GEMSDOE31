@@ -1,6 +1,6 @@
 {
  "date": "2026-10-26",
- "session_branch": "arena/3ce68fc7-gemsdoe31 (re-run; first issued on arena/5b378be2-gemsdoe31)",
+ "session_branch": "arena/579233d5-gemsdoe31 (re-run with H31-Y/H31-Z added; previously re-run on arena/3ce68fc7-gemsdoe31 with H31-X; first issued on arena/5b378be2-gemsdoe31)",
  "rule": "Frozen gates G1-G6 (knowledge/2026-10-26_h31u_preregistration.md); uniqueness judged on discrete peer submissions with literal 695-raster reading disclosed (IR-U-02)",
  "primary_submission": {
   "lane": "H31-X",
@@ -43,7 +43,7 @@
    0.3603219858732316
   ],
   "overlap_vs_h33": 0.5701386306899665,
-  "max_discrete_overlap": 0.6305306209167685,
+  "max_discrete_overlap": 0.6699421044244968,
   "verdict": "OK TO DOWNLOAD AND SUBMIT (owner uploads manually; repo never contacts DrivenData)"
  },
  "alternates": [
@@ -85,6 +85,13 @@
     "G3_holdout_efficacy"
    ],
    "projection": 0.40929080805482576
+  },
+  {
+   "lane": "H31-Y",
+   "failed_gates": [
+    "G5_uniqueness_discrete"
+   ],
+   "projection": 0.3854377880315547
   },
   {
    "lane": "H31-B-hybrid",
@@ -148,6 +155,14 @@
    "projection": 0.22886697423378788
   },
   {
+   "lane": "H31-Z",
+   "failed_gates": [
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.21860686459102388
+  },
+  {
    "lane": "MAGREST",
    "failed_gates": [
     "G2_canary",
@@ -206,6 +221,20 @@
   "discrepancy_explanation": "The H31-X lane card applies a STRICTER preregistered G5 than this selector: it also requires the pre-placement top-K (top 37,654 surface pixels, before catalogue-flank pruning and Poisson spacing) to overlap <= 70% with every discrete peer; that diagnostic is 86.3% vs the GEMSDOE27/GEMSDOE24 D1.5 60k-dot fields because the raw top-K piles onto catalogue-adjacent range-front pixels that are then pruned. The selector's G5 implements the owner's duplicate rule literally (final submitted dots within 3 px of a peer <= 70%; |rank correlation| <= 0.90), under which H31-X measures 63.1% / 0.125. Both readings are disclosed; the lane card stays verdict=negative and this selector decision governs upload choice only (same governance as IR-U-02).",
   "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
   "run_card": "evidence/h31x/run_card.json"
+ },
+ "h31y_new_lane": {
+  "lane_card_verdict": "negative",
+  "selector_verdict": "not promoted",
+  "discrepancy_explanation": "H31-Y (session arena/579233d5): the slope-routed JUNC+PIED blended surface (ROUTE) BEAT H31-X on the SGMC discovery proxy (0.1312 vs 0.1209) with HOLDOUT-DTI 0.1626, but 92.4% of its final dots fall within 3 px of the H31-X dot field - a duplicate lane under the owner's rule (>70%). Both the lane card (G5) and this selector therefore refuse it: verdict negative, DO NOT SUBMIT. Its screen/confirmation numbers are retained as the design evidence for the H31-Z quota split.",
+  "file": "docs/downloads/gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.tif",
+  "run_card": "evidence/h31y/run_card.json"
+ },
+ "h31z_new_lane": {
+  "lane_card_verdict": "negative",
+  "selector_verdict": "not promoted",
+  "discrepancy_explanation": "H31-Z (session arena/579233d5): hard quota split successor to H31-Y - same JUNC/PIED lines, no blended surface, confirmation on untouched seed 3105. Lane card and this selector apply the identical G1-G6 gates; see evidence/h31z/run_card.json for the measured values.",
+  "file": "docs/downloads/gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif",
+  "run_card": "evidence/h31z/run_card.json"
  },
  "focus_sites": [
   {

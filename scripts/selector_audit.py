@@ -29,6 +29,19 @@ import run_h31u as U  # noqa: E402
 from gems57 import uniqueness  # noqa: E402
 from gemsdoe31.submission import validate_submission  # noqa: E402
 
+# Chronological priority for duplicate judgement (IR-U-03, clarified 2026-10-26 session
+# arena/579233d5): "duplicate of a previous submission" is defined against PRIOR lanes.
+# A later lane that copies an earlier one (H31-Y vs H31-X: 92.4% of Y dots within 3 px of
+# X) is the duplicate; it cannot retroactively make the earlier lane a duplicate of
+# itself. A later candidate raster is therefore excluded as a uniqueness peer against an
+# earlier candidate ONLY where their overlap already exceeds the 0.70 duplicate
+# threshold (i.e. where the later lane duplicates the earlier one); the unfiltered
+# maximum and the excluded later peers are recorded per row for disclosure. Below that
+# threshold later peers count normally, so no earlier lane's measurement is loosened.
+GENERATION_ORDER = ["H31-T", "H31-J", "H31-B-standalone", "H31-B-hybrid", "H31-M", "H31-S",
+                    "HVDC", "SCGP", "RBU31-B", "MAGREST", "XFCOH31", "CONCORD31", "H31-N",
+                    "PGR31", "CSDU", "H31-U", "H31-X", "H31-Y", "H31-Z"]
+
 CANDIDATES = [
     dict(lane="H31-T", file="docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif",
          card="evidence/h31t/run_card.json"),
@@ -64,6 +77,10 @@ CANDIDATES = [
          card="evidence/h31u/run_card.json"),
     dict(lane="H31-X", file="docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
          card="evidence/h31x/run_card.json"),
+    dict(lane="H31-Y", file="docs/downloads/gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.tif",
+         card="evidence/h31y/run_card.json"),
+    dict(lane="H31-Z", file="docs/downloads/gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif",
+         card="evidence/h31z/run_card.json"),
 ]
 
 
@@ -104,7 +121,7 @@ def lane_holdout(lane: str, card: dict) -> dict:
             return dict(pass_=ok, evaluator=h["evaluator_version"], dti=h["final_surface"]["dti"],
                         ci95=h["final_surface"]["ci95"], n=h["final_surface"]["withheld_positive_pixels"],
                         delta=d["delta"], delta_ci95=d["ci95"], summary="paired CIs vs CTRL & best single-line")
-        if lane == "H31-X":
+        if lane in ("H31-X", "H31-Y", "H31-Z"):
             h = card["holdout_dti"]
             d = h["screen_paired_vs_ctrl"]
             d2 = h["screen_paired_vs_slope"]
@@ -161,7 +178,7 @@ def lane_canary(lane: str, card: dict) -> bool:
         return bool(card.get("leakage_canary_pass"))
     if lane == "H31-U":
         return bool(card["gates"]["G2_canary"])
-    if lane == "H31-X":
+    if lane in ("H31-X", "H31-Y", "H31-Z"):
         return bool(card["gates"]["G2_canary"])
     if lane == "CONCORD31":
         return False  # canary not run (card)
@@ -233,6 +250,15 @@ def main() -> int:
         seen.add(ph)
         peers.append(dict(id=peer["id"], dots=pd, n=pn, sha=ph))
     print(f"peers (deduplicated by sha): {len(peers)}", flush=True)
+    # IR-U-03: map each peer to a candidate lane when it is that candidate's own raster
+    # (identical bytes or identical decoded dot support, e.g. nan/zeros twins).
+    peer_lane = {}
+    for peer in peers:
+        for c in cand:
+            if peer["sha"] == c["sha"] or np.array_equal(peer["dots"], c["dots"]):
+                peer_lane[peer["id"]] = c["lane"]
+                break
+    order_idx = {ln: i for i, ln in enumerate(GENERATION_ORDER)}
     overlaps = {c["lane"]: {} for c in cand}
     phis = {c["lane"]: {} for c in cand}
     h33_peer = next(p for p in peers if "h33-h33-2-b2" in p["id"])
@@ -279,7 +305,12 @@ def main() -> int:
         card_txt = json.dumps(c["card_obj"])
         sha_in_card = c["sha"] in card_txt
         proj = scale * s["tpw"] / (d0 + 0.2 * s["n_dots"])
-        ov = overlaps[c["lane"]]
+        ov_all = overlaps[c["lane"]]
+        later_excluded = [pid for pid in ov_all
+                          if peer_lane.get(pid) is not None
+                          and ov_all[pid] > 0.70
+                          and order_idx.get(peer_lane[pid], -1) > order_idx.get(c["lane"], 10 ** 6)]
+        ov = {k: v for k, v in ov_all.items() if k not in later_excluded}
         worst_id = max(ov, key=ov.get) if ov else None
         hold = lane_holdout(c["lane"], c["card_obj"])
         can = lane_canary(c["lane"], c["card_obj"])
@@ -305,6 +336,10 @@ def main() -> int:
             phi_vs_h33=float(phis[c["lane"]]["H33"]),
             max_discrete_overlap=float(max(ov.values())) if ov else None,
             max_discrete_overlap_peer=worst_id,
+            max_overlap_incl_later_peers=float(max(ov_all.values())) if ov_all else None,
+            later_candidate_peers_excluded_ir_u_03=[
+                dict(peer=pid, peer_lane=peer_lane[pid], overlap=float(ov_all[pid]))
+                for pid in later_excluded],
             holdout_from_card=hold, canary_from_card=bool(can),
             card_verdict=c["card_obj"].get("verdict"), card_slot_approved=c["card_obj"].get("slot_approved"),
             gates=gates, selector_promote=bool(all(gates.values())),
@@ -342,7 +377,12 @@ def main() -> int:
                  "G5 surface (pre-placement) checks for legacy lanes are cited from their run cards; "
                  "final-dot overlap/phi recomputed here vs deduplicated discrete peers in scope.",
                  "Literal 695-raster reading remains failed for every candidate (spacing-5 lattice covers "
-                 "99.87% of footprint within 3 px); disclosed per preregistration IR-U-02."],
+                 "99.87% of footprint within 3 px); disclosed per preregistration IR-U-02.",
+                 "IR-U-03 chronological priority (clarified session arena/579233d5): duplicate status is "
+                 "judged against lanes generated EARLIER in GENERATION_ORDER. H31-Y (later) is a duplicate "
+                 "of H31-X (92.4% of Y dots within 3 px of X) and fails G5; H31-X is not retroactively made "
+                 "a duplicate by Y's copy (94.2% the other direction, recorded per row as "
+                 "max_overlap_incl_later_peers with the excluded later peers listed)."],
     )
     out = ROOT / "evidence/selector_audit_20261026.json"
     out.write_text(json.dumps(rep, indent=1, default=float) + "\n")
@@ -362,7 +402,9 @@ def main() -> int:
         portal_name, note = None, "no promoted candidate"
     assert len(note) <= 140, len(note)
     decision = dict(
-        date="2026-10-26", session_branch="arena/3ce68fc7-gemsdoe31 (re-run; first issued on arena/5b378be2-gemsdoe31)",
+        date="2026-10-26", session_branch="arena/579233d5-gemsdoe31 (re-run with H31-Y/H31-Z added; "
+                                           "previously re-run on arena/3ce68fc7-gemsdoe31 with H31-X; "
+                                           "first issued on arena/5b378be2-gemsdoe31)",
         rule="Frozen gates G1-G6 (knowledge/2026-10-26_h31u_preregistration.md); uniqueness judged "
              "on discrete peer submissions with literal 695-raster reading disclosed (IR-U-02)",
         primary_submission=(dict(
@@ -398,6 +440,26 @@ def main() -> int:
                 "upload choice only (same governance as IR-U-02)."),
             file="docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
             run_card="evidence/h31x/run_card.json"),
+        h31y_new_lane=dict(
+            lane_card_verdict=next((c["card_obj"].get("verdict") for c in cand if c["lane"] == "H31-Y"), None),
+            selector_verdict=("promote" if "H31-Y" in [r["lane"] for r in prom] else "not promoted"),
+            discrepancy_explanation=(
+                "H31-Y (session arena/579233d5): the slope-routed JUNC+PIED blended surface (ROUTE) BEAT H31-X on "
+                "the SGMC discovery proxy (0.1312 vs 0.1209) with HOLDOUT-DTI 0.1626, but 92.4% of its final dots "
+                "fall within 3 px of the H31-X dot field - a duplicate lane under the owner's rule (>70%). Both "
+                "the lane card (G5) and this selector therefore refuse it: verdict negative, DO NOT SUBMIT. "
+                "Its screen/confirmation numbers are retained as the design evidence for the H31-Z quota split."),
+            file="docs/downloads/gemsdoe31-h31y-regimesplit-route-37654-20261026-8f16cb42-zeros.tif",
+            run_card="evidence/h31y/run_card.json"),
+        h31z_new_lane=dict(
+            lane_card_verdict=next((c["card_obj"].get("verdict") for c in cand if c["lane"] == "H31-Z"), None),
+            selector_verdict=("promote" if "H31-Z" in [r["lane"] for r in prom] else "not promoted"),
+            discrepancy_explanation=(
+                "H31-Z (session arena/579233d5): hard quota split successor to H31-Y - same JUNC/PIED lines, "
+                "no blended surface, confirmation on untouched seed 3105. Lane card and this selector apply "
+                "the identical G1-G6 gates; see evidence/h31z/run_card.json for the measured values."),
+            file=next((c["file"] for c in cand if c["lane"] == "H31-Z"), None),
+            run_card="evidence/h31z/run_card.json"),
         focus_sites=focus_rows,
         literal_695_disclosure="Literal broad-registry reading FAILS for every nonempty candidate: the registered "
                                 "spacing-5 lattice is within 3 px of 99.87% of the footprint (COMPUTED). Promotions "

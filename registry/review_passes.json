@@ -1611,6 +1611,58 @@
     "ruff": "all checks passed",
     "metric": "check_metric max |fast-brute| 4.441e-16; verify_current_run + verify_h31t + verify_h31s pass"
    }
+  },
+  {
+   "id": "pass-2026-10-26-h31yz-1-implementation",
+   "status": "complete-for-current-artifacts",
+   "session": "arena/579233d5-gemsdoe31",
+   "scope": [
+    "owner-mirror data restore (all_verified true, evidence/data_restore_20261026_session579233d5.json); feature stack rebuilt 42 bands; 8 peer rasters hash-verified",
+    "H31-Y preregistered regime-split lane (SPLIT50/SPLIT35/ROUTE/JUNC/PIED/CTRL/SLOPE): EXP1 winner ROUTE HOLDOUT-DTI 0.1626; seed-3104 confirmation 0.1464; SGMC 0.1312; packaged negative - G5 duplicate vs H31-X 92.4%",
+    "H31-Z preregistered successor (hard quota SPLIT50): EXP1 replicated H31-Y arms exactly; winner SPLIT50 HOLDOUT-DTI 0.1473; seed-3105 confirmation 0.1266; SGMC 0.0749; packaged negative - G4/G6 discovery fail",
+    "selector re-run with H31-Y/H31-Z added; promoted set unchanged {H31-X,H31-T,H31-J,H31-M}; primary H31-X; site hero/executive banner made data-driven from the selector decision; Y/Z sections added to overview/executive/research pages"
+   ],
+   "verification": {
+    "pytest": "166 passed",
+    "ruff": "all checks passed (after fixes below)",
+    "check_metric": "max |DTI_fast-DTI_brute| 4.441e-16",
+    "verify_current_run": "MAGREST historical negative reproduced ok",
+    "check_site": "22 pages, 545 links, all checks passed (after fixes below)",
+    "replication": "JUNC pooled HOLDOUT-DTI identical across H31-X/H31-Y/H31-Z (|delta|=0.0); SPLIT50/SPLIT35 identical H31-Y vs H31-Z; selector anchor fit D0=10694.6 scale=0.9275 matches H31-U exp3 asserts"
+   }
+  },
+  {
+   "id": "pass-2026-10-26-h31yz-2-bug-review",
+   "status": "complete-for-current-artifacts",
+   "session": "arena/579233d5-gemsdoe31",
+   "scope": [
+    "independent bug/assumption/leakage/edge review of run_h31y.py, run_h31z.py, selector_audit.py, current_site.py and all new artifacts"
+   ],
+   "findings": [
+    "F1 (fixed): stale site hero - overview()/executive() hardcoded 'SUBMIT THIS FILE: H31-T' and submission-step SHA 83fbc267 while the selector decision said H31-X (eff2b18e); both made data-driven from registry/selector_decision_20261026.json. H31-N historical top banner rescoped to its lane.",
+    "F2 (fixed, IR-U-03): selector peer-priority flaw - adding duplicate H31-Y's raster to docs/downloads made it a peer that retroactively demoted original H31-X (94.2% of X dots within 3px of later-copy Y). Chronological priority added: a later candidate is excluded as peer against an earlier candidate only where overlap>0.70; both directions recorded per row (first unconditional version loosened old lanes H31-B 0.650->0.531 and was tightened before acceptance; v3 restores pre-rule values).",
+    "F3 (process, disclosed): parallel edit_file calls in one tool block raced twice - selector canary/session_branch edits reported success but did not persist, and the first selector re-run raced ahead of them on stale code (output discarded). All edits re-applied sequentially and verified with git diff; selector re-run twice more (v2, v3) from verified code. AGENTS.md amended with the rule.",
+    "F4 (found by check_site, fixed in generator): degree-sign pictograms in new Y/Z sections violated the site charset rule (replaced with 'deg'); required literal 'exactly one file on this site is cleared to submit' phrase restored in executive banner.",
+    "F5 (ruff F821, fixed): executive() referenced prim_lane/prim_sha before definition after a lost parallel edit; definitions re-applied sequentially.",
+    "F6 (independent re-validation): validate_submission.py re-run standalone on H31-X/H31-Y/H31-Z (zeros all-finite; nan nan-outside) - all hard_failures empty, sha256 match run cards; KDTree min nearest-neighbour dot distance 2.828px (>=2.8 required); zips contain exactly one TIFF; values strictly {0,1} finite (owner portal-range error cannot recur on these files).",
+    "F7 (fragility noted, fail-closed): selector lane_holdout('H31-Y') reads exp2 key 'route' - correct for the measured winner ROUTE but would fail-closed rather than misread if a split arm had won; H31-Z reads exp1 SPLIT50 directly.",
+    "F8 (assumption): regime-split attribution in the H31-Y preregistration (piedmont budget share) was falsified by regime slices and corrected on the record; no post-hoc winner/parameter switching was done in either lane (blends and splits reported as ablations only)."
+   ]
+  },
+  {
+   "id": "pass-2026-10-26-h31yz-3-charter-crosscheck",
+   "status": "complete-for-current-artifacts",
+   "session": "arena/579233d5-gemsdoe31",
+   "scope": [
+    "whole-request acceptance cross-check vs knowledge/owner_prompt_2026-10-26_session_579233d5.md and AGENTS.md"
+   ],
+   "findings": [
+    "Executive summary with required file|PROJECTION|unique table: knowledge/2026-10-26_h31yz_executive_summary.md (linked at README top); single submittable file H31-X obvious at site hero (docs/index.html 'SUBMIT THIS FILE: H31-X'), executive banner ('exactly one file ... cleared to submit: H31-X'), README top block.",
+    "Two new unique TIFFs generated this session (never copies: hashes/lineage on run cards) - both honestly gated DO NOT SUBMIT (Y duplicate-of-X, Z discovery-fail); no slot spent on a gated file; primary H31-X unchanged. No score claim beyond labelled HOLDOUT-DTI (evaluator gems57-pooled-hide-v2, n, 95% CI) / PROJECTION / USER-REPORTED; no DrivenData contact; owner uploads manually.",
+    "Hypotheses: five ranked lanes carried in executive summary section 5 (sigma=3px transition-corroborated junction [this session's measured lead], KIN, TEX, H31-B paired re-test, broader family); geological basis cited to verified papers already in sources registry.",
+    "Parallel-Run Protocol: 3 experiments per lane, shared evaluator/writer/stack unchanged, canary AUC<=0.90 both lanes, JSON run cards with verdicts negative; budgets respected; promotion decided only by the separate uniform selector.",
+    "Remaining limitations: no organizer receipt for any number; literal 695-raster reading still STOP for everything (IR-U-02 disclosed); 0.4413/0.3195 leaderboard figures remain USER-REPORTED and mutually inconsistent; H31-X projection 0.355 is a 4-anchor inversion, not a score."
+   ]
   }
  ],
  "remaining_work": [

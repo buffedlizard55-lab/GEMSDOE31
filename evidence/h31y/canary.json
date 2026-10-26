@@ -1,0 +1,64 @@
+{
+ "lane": "H31-Y",
+ "evidence_class": "COMPUTED",
+ "auc_ceiling": 0.9,
+ "rows": [
+  {
+   "feature": "JUNC_RAW",
+   "kind": "line",
+   "auc_catalogue": 0.640432667082049,
+   "auc_off_sgmc": 0.5886451889676311,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "ASIG",
+   "kind": "line",
+   "auc_catalogue": 0.5273116379451696,
+   "auc_off_sgmc": 0.4917008812272963,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "BASE",
+   "kind": "line",
+   "auc_catalogue": 0.5396571264429068,
+   "auc_off_sgmc": 0.3949216478820706,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "GRAV",
+   "kind": "line",
+   "auc_catalogue": 0.5287957660523381,
+   "auc_off_sgmc": 0.439243253235275,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "CTRL",
+   "kind": "line",
+   "auc_catalogue": 0.5273102602561159,
+   "auc_off_sgmc": 0.4917011553742865,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "SLOPE",
+   "kind": "line",
+   "auc_catalogue": 0.5564346105791304,
+   "auc_off_sgmc": 0.7565025439073041,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "PIED",
+   "kind": "surface",
+   "auc_catalogue": 0.5427656810766053,
+   "auc_off_sgmc": 0.4206847147444214,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "ROUTE",
+   "kind": "surface",
+   "auc_catalogue": 0.6011359055469928,
+   "auc_off_sgmc": 0.6159206211890244,
+   "leakage_flagged": false
+  }
+ ],
+ "all_pass": true
+}

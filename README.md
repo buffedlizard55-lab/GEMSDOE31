@@ -1,3 +1,36 @@
+> ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/579233d5-gemsdoe31`) — SUBMIT THIS ONE FILE (unchanged: H31-X)
+>
+> **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**
+> [`gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif`](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif)
+> ([single-TIFF zip](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.zip) ·
+> [NaN-outside twin](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-nan.tif) ·
+> [run card](evidence/h31x/run_card.json) · [this session's executive summary](knowledge/2026-10-26_h31yz_executive_summary.md) ·
+> [site](docs/index.html))
+> — SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9` · portal name
+> `gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9` · portal note (88/140):
+> `H31-X X1 piedmont-junction slope-break 37654d B2 | HOLDOUT-DTI 0.1661 n=60988 | 5a956da9`
+>
+> **What this session did (two new preregistered lanes, both ⛔ DO NOT SUBMIT):** the previous session's named
+> next step — regime budget-splitting the junction line with a buried-basement piedmont specialist
+> (analytic signal + basement/conductance/gravity edges) — was run as **H31-Y** (quota splits + slope-routed
+> blend) and successor **H31-Z** (hard 50/50 quota), 3 experiments each, same evaluator/folds as H31-X
+> (JUNC replication exact: HOLDOUT-DTI 0.166133, |Δ| = 0.0). Measured verdicts: H31-Y ROUTE *beat* H31-X on
+> the off-catalogue SGMC proxy (0.1312 vs 0.1209, COMPUTED; HOLDOUT-DTI 0.1626) but 92.4% of its dots lie
+> within 3 px of H31-X — a **duplicate-lane STOP**, verdict negative ([card](evidence/h31y/run_card.json)).
+> H31-Z SPLIT50 is genuinely unique (max 54.1% vs H31-X) and holdout-strong (0.1473) but its forced
+> piedmont half-budget earns SGMC 0.0749 < H33 0.0940 — verdict negative ([card](evidence/h31z/run_card.json)).
+> The uniform selector was re-run with both lanes added (`scripts/selector_audit.py`,
+> `registry/selector_decision_20261026.json`): promoted set unchanged {H31-X, H31-T, H31-J, H31-M},
+> **primary remains H31-X** (PROJECTION 0.355 — never a score; re-run max discrete overlap 67.0%, worst peer
+> now H31-Z). New governance clarification **IR-U-03**: duplicate status is chronological — later H31-Y
+> copies earlier H31-X and fails; it cannot retroactively demote the original (both directions recorded).
+> Key scientific correction recorded line-by-line: ROUTE's SGMC gain sits in the mountain/transition slice
+> (only 31/37,654 dots at slope ≤ 6°), not the flat piedmont — the next lane should be a kernel-scale
+> transition-corroborated junction designed for novelty (see the executive summary §5). Submit at most one
+> file per weekly slot. Everything else on this site is ⛔ DO NOT SUBMIT.
+>
+> ---
+>
 > ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/3ce68fc7-gemsdoe31`) — SUBMIT THIS ONE FILE
 >
 > **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**

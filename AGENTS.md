@@ -47,3 +47,16 @@ deduplicated), while the literal 695-raster reading is still computed and disclo
 alternates H31-J/H31-M). Lane run cards keep their original `slot_approved=false` verdicts. If a
 future owner instruction restores the literal reading, all promotions revert to STOP. Nothing else
 in the rules above is relaxed: no DrivenData contact, no unlabelled numbers, fail-closed gates.
+
+## Amendment 2026-10-26 (H31-Y/Z session arena/579233d5)
+
+Selector primary is H31-X (superseded H31-T in session arena/3ce68fc7; re-confirmed this session with
+H31-Y/H31-Z added to `scripts/selector_audit.py`). **IR-U-03 chronological priority:** duplicate status
+is judged against lanes generated earlier (GENERATION_ORDER in `scripts/selector_audit.py`); a later
+lane whose dots duplicate an earlier lane beyond the 0.70 threshold (H31-Y vs H31-X, 92.4%) fails G5
+itself and is excluded as a uniqueness peer against that earlier lane (both directions recorded per row
+in `evidence/selector_audit_20261026.json`). H31-Y (ROUTE blend) and H31-Z (SPLIT50 quota) are measured
+negatives — do not refit, retune, or spend slots on them. Measured regime-split conclusion: blending or
+quota-forcing the ASIG+BASE+GRAV piedmont line into JUNC cannot beat H31-X on both proxies; the
+corroboration signal lives in the 3–9° transition band. Do not edit the same file from parallel tool
+calls in one block (edits raced twice this session; verify with `git diff` before launching processes).
