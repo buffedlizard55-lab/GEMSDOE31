@@ -256,6 +256,28 @@
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
+   "file": "docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-nan.tif",
+   "name": "gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-nan.tif",
+   "sha256": "f2b564d0d70145f67b468cc93d687872325c836ce92ca065b885b777f8359282",
+   "bytes": 335540,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif",
+   "name": "gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif",
+   "sha256": "6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8",
+   "bytes": 141404,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
    "file": "docs/downloads/gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-nan.tif",
    "name": "gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-nan.tif",
    "sha256": "d5e8c1602aa6a2b47b0958344acb5c6f8eafe83c49858da83c7c255867de4df4",

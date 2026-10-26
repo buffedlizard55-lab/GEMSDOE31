@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Selector audit (NOT an experiment): uniform re-judgement of existing candidates.
+"""DISABLED historical selector: the current prompt restores the literal STOP.
+
+Retained for forensic review and pure-function regression tests only.
+The entry point fails before loading data or writing any approval.
+
+Historical description (not current authority): uniform re-judgement of candidates.
 
 No fitting, no new surfaces, no new dots. For every already-generated unique
 lane raster in this repository it recomputes, with one code path today:
@@ -64,6 +69,8 @@ CANDIDATES = [
          card="evidence/h31u/run_card.json"),
     dict(lane="H31-X", file="docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
          card="evidence/h31x/run_card.json"),
+    dict(lane="H31-Y", file="docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif",
+         card="evidence/h31y/run_card.json"),
 ]
 
 
@@ -104,7 +111,7 @@ def lane_holdout(lane: str, card: dict) -> dict:
             return dict(pass_=ok, evaluator=h["evaluator_version"], dti=h["final_surface"]["dti"],
                         ci95=h["final_surface"]["ci95"], n=h["final_surface"]["withheld_positive_pixels"],
                         delta=d["delta"], delta_ci95=d["ci95"], summary="paired CIs vs CTRL & best single-line")
-        if lane == "H31-X":
+        if lane in ("H31-X", "H31-Y"):
             h = card["holdout_dti"]
             d = h["screen_paired_vs_ctrl"]
             d2 = h["screen_paired_vs_slope"]
@@ -161,7 +168,7 @@ def lane_canary(lane: str, card: dict) -> bool:
         return bool(card.get("leakage_canary_pass"))
     if lane == "H31-U":
         return bool(card["gates"]["G2_canary"])
-    if lane == "H31-X":
+    if lane in ("H31-X", "H31-Y"):
         return bool(card["gates"]["G2_canary"])
     if lane == "CONCORD31":
         return False  # canary not run (card)
@@ -192,6 +199,13 @@ def phi_binary(a: np.ndarray, b: np.ndarray, foot: np.ndarray) -> float:
 
 
 def main() -> int:
+    raise SystemExit("STOP: current owner protocol restores literal registry checks on both stages. "
+                     "Historical discrete-only selector is disabled; run verify_protocol_review.py. "
+                     "No slot selection is authorized in this lane.")
+
+
+def historical_audit_disabled() -> int:
+    raise RuntimeError("Historical selector is retained for audit, not executable approval")
     foot, cat, sgmc, off_sgmc, d_cat = U.load_grid()
     sample = ROOT / "data/sample_submission.tif"
     # --- projection fit (assert identical to H31-U exp3) ---
@@ -362,7 +376,7 @@ def main() -> int:
         portal_name, note = None, "no promoted candidate"
     assert len(note) <= 140, len(note)
     decision = dict(
-        date="2026-10-26", session_branch="arena/3ce68fc7-gemsdoe31 (re-run; first issued on arena/5b378be2-gemsdoe31)",
+        date="2026-10-26", session_branch="arena/f4d7fb29-gemsdoe31 (re-run; prior 3ce68fc7/5b378be2)",
         rule="Frozen gates G1-G6 (knowledge/2026-10-26_h31u_preregistration.md); uniqueness judged "
              "on discrete peer submissions with literal 695-raster reading disclosed (IR-U-02)",
         primary_submission=(dict(
@@ -398,6 +412,18 @@ def main() -> int:
                 "upload choice only (same governance as IR-U-02)."),
             file="docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
             run_card="evidence/h31x/run_card.json"),
+        h31y_new_lane=dict(
+            lane_card_verdict=next((c["card_obj"].get("verdict") for c in cand if c["lane"] == "H31-Y"), None),
+            selector_verdict=("promote" if "H31-Y" in [r["lane"] for r in prom] else "not promoted"),
+            discrepancy_explanation=(
+                "H31-Y (KIN-PIED, Y3 SYNTH) is a new 2026-10-26 lane. Its own card G5 fails because pre-placement "
+                "top-K overlap is 90.5% vs a local LiDAR-scarp research raster; final submitted dots are 63.0% "
+                "(<=70%) and |Spearman| <= 0.10. The selector implements the owner's duplicate rule on submitted "
+                "dots. Lane card stays verdict=negative; this selector governs upload choice only (IR-U-02). "
+                "HOLDOUT-DTI 0.0973 is below H31-X 0.1661; piedmont SGMC 0.020 vs H33 0.059 (mountain-front bias)."
+            ),
+            file="docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif",
+            run_card="evidence/h31y/run_card.json"),
         focus_sites=focus_rows,
         literal_695_disclosure="Literal broad-registry reading FAILS for every nonempty candidate: the registered "
                                 "spacing-5 lattice is within 3 px of 99.87% of the footprint (COMPUTED). Promotions "

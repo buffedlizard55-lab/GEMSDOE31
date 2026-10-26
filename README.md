@@ -1,34 +1,68 @@
-> ## 🔎 AUDIT UPDATE 2026-10-26 (session `arena/a111fe50-gemsdoe31`) — PRIMARY FILE UNCHANGED, ITS 0.355 PROJECTION WITHDRAWN; NEW LANE H31-Y NEGATIVE
+> ## 🔎 PARALLEL-SESSION UPDATE 2026-10-26 (session `arena/a111fe50-gemsdoe31`, integrated after PRs #45/#46)
 >
-> **Still submit exactly this one file (owner uploads manually; this repo never contacts DrivenData):**
-> [`gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif`](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif)
-> — SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9` · portal note (88/140):
-> `H31-X X1 piedmont-junction slope-break 37654d B2 | HOLDOUT-DTI 0.1661 n=60988 | 5a956da9`
+> **Current decision (unchanged from the protocol review below): NO file is approved to submit** under the
+> literal any-registry STOP. This parallel session ran under the branch-point discrete-peer rescope and its
+> integration therefore does **not** re-promote H31-X or any other file.
 >
-> **What changed and why (read once):** a cross-family calibration audit over all 67 matched USER-REPORTED
-> submissions (`scripts/cross_family_calibration.py`, `evidence/cross_family_calibration_20261026.json`,
-> `knowledge/2026-10-26_h31y_projection_audit.md`) shows the selector's in-family SGMC projection formula fails
-> out-of-family (RMSE 0.196, bias +0.135; counterexamples project to 0.36–0.48 where the reported live values are
-> 0.02–0.24). **All M1 projections below (0.355, 0.317, 0.312, 0.296, 0.409…) are WITHDRAWN as live-score estimates.**
-> Even the best cross-family calibration has LOO RMSE ≈0.090 — barely better than the mean — so no candidate here has a
-> defensible point estimate of its live score; H31-X's corrected PROJECTION is 0.125, interval [-0.061, 0.311].
-> H31-X remains primary on its catalogue hide-and-recover evidence (HOLDOUT-DTI 0.1661, independently reproduced
-> this session), *not* on a predicted score. Beating 0.2778 is possible, not established.
+> **Quantified projection audit (new evidence):** the retired in-family SGMC projection formula fails
+> out-of-family with RMSE 0.196 / bias +0.135 over 67 matched USER-REPORTED submissions
+> (`scripts/cross_family_calibration.py`, `evidence/cross_family_calibration_20261026.json`,
+> `knowledge/2026-10-26_projection_crossfamily_audit_a111fe50.md`); even the best cross-family calibration
+> (LOO RMSE 0.090) barely beats predicting the mean. This independently confirms, with numbers, the protocol
+> review's "no defensible leaderboard estimate" finding. The old H31-X "0.355 [0.349, 0.360]" must never be
+> read as an estimated score; corrected cross-family PROJECTION for H31-X is 0.125, interval [-0.061, 0.311].
 >
-> **New lane H31-Y (this session): unique research TIFF — ⛔ DO NOT SUBMIT.**
+> **New parallel lane H31-YM regime-mosaic — ⛔ DO NOT SUBMIT (negative).** Executed as "H31-Y" in its
+> session, renamed on merge (KIN-PIED above keeps H31-Y; `evidence/h31ym/RENAME.json`):
 > [`gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif`](docs/downloads/gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif)
-> (SHA-256 `41f1e63a803950db1f621321d5a26c5d3fbbfcc3999923035f0de8a253f7901e`; [run card](evidence/h31y/run_card.json) ·
-> [preregistration](knowledge/2026-10-26_h31y_preregistration.md) · [executive summary](knowledge/2026-10-26_h31y_executive_summary.md)).
-> Regime-mosaic 50/50 (junction line in mountains, LiDAR fan-scarp specialist on piedmont): HOLDOUT-DTI 0.1550
-> [0.1401, 0.1701] — beats controls, loses to the junction comparator (paired -0.0112 [-0.0191, -0.0024]) while
-> tripling piedmont-truth kernel credit (2,172 vs 642); SGMC 0.0873 < H33 0.0940; verdict **negative** (G3/G4 fail).
-> Unique: max 59.4% dots within 3 px of any discrete peer, 45.9% vs H33, |ρ| ≤ 0.135. It would only win overall if
-> hidden truth were >57% piedmont (catalogue: 48%) — the recorded next lane is marginal-credit allocation (~70–80%
-> mountain), which needs its own preregistration. The site's first banner/hero/selector section now name the same
-> single primary file (they previously disagreed). Zero slots spent; DrivenData never contacted.
+> (SHA-256 `41f1e63a…`; [run card](evidence/h31ym/run_card.json) ·
+> [preregistration](knowledge/2026-10-26_h31ym_mosaic_preregistration.md) ·
+> [executive summary](knowledge/2026-10-26_h31ym_executive_summary.md)). HOLDOUT-DTI 0.1550 [0.1401, 0.1701]:
+> beats CTRL/SLOPE, loses to the junction comparator (0.1661, reproducing H31-X exactly) while tripling
+> piedmont-truth credit (2,172 vs 642); SGMC 0.0873 < H33 0.0940. Mosaic wins only if hidden truth >57%
+> piedmont (catalogue 48%). Recorded next step (fresh preregistration, after the owner resolves the
+> registry definition): marginal-credit allocation ≈70–80% mountain. Zero slots spent by this session.
 >
 > ---
 >
+> ## H31-Y (2026-10-26, session `arena/f4d7fb29-gemsdoe31`): unique GeoTIFF generated. **OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO.**
+>
+> **[Download H31-Y research `.tif` (all-finite `[0,1]` — DO NOT SUBMIT)](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif)** ·
+> [zip](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.zip) ·
+> [NaN twin](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-nan.tif) ·
+> [run card](evidence/h31y/run_card.json) · [preregistration](knowledge/2026-10-26_h31y_preregistration.md) ·
+> [executive summary](knowledge/2026-10-26_h31y_executive_summary.md) · [site](docs/index.html)
+>
+> SHA-256 `6b06127f405eb6fb279e69bfc1645d01ab037d8b2f369933db0e06fa36199aa8` · name `gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3`.
+> HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld) **0.0973 [0.0833, 0.1106]** vs CTRL +0.0302 [+0.0048, +0.0536]; confirmation +0.0287 [+0.0066, +0.0504]; SGMC 0.1188 vs H33 0.0940; PROJECTION 0.348 (never a score). Final-dot 3-px max 63.0% (unique under owner 70% rule); **G5 FAIL** on pre-placement top-K 90.5%. Lane verdict **negative**. The selector primary for a weekly slot is **not** this file — see `registry/selector_decision_20261026.json`. Zero slots used. DrivenData never contacted.
+>
+> The standing owner prompt is preserved at the end of this file and in `knowledge/owner_prompt_2026-10-26.md`. Re-read it before the next session.
+>
+> ---
+># GEMSDOE31 — current decision, 26 October 2026
+
+**No current artifact is approved. DO NOT SUBMIT.** No human sign-off can override a failed gate.
+The current owner prompt restores the literal registry test on the surface **and** final dots.
+Earlier H31-X/H31-T upload permissions below are superseded, not silently erased.
+
+[Executive summary and nine-site table](docs/executive-summary.html) ·
+[Review, ranked desk hypotheses and limitations](knowledge/2026-10-26_protocol_review_9883b598.md) ·
+[Automated run card](evidence/review_9883b598/run_card.json)
+
+**Download for research only:** [existing H31-X all-finite GeoTIFF](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif).
+Fresh read-back passes local format/range checks, but registered-lattice overlap triggers STOP.
+No new TIFF, fitting experiment, upload or slot this session. A new upload-ready file is not delivered.
+Estimated leaderboard score: **unavailable**; previous cross-family projections are unvalidated.
+A new filename or encoding would not make the existing field scientifically unique.
+
+The complete normalized owner prompt remains below and must be read every session. Current-session clarification:
+- Literal any-registry and both-stage checks are binding; no dense-control exemption or selector step in this lane.
+- The requested single-method paragraph is absent. Desk hypotheses are not authorization to invent a lane.
+- New owner-listed GEMSDOE27 `gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite` has no reported result;
+  it cannot be ranked as a scored winner. The nine-site table is pinned history, not a live leaderboard feed.
+- Core values remain **Maximize P(Win)** and **Own the Outcome**: respect failed gates rather than promise a score.
+
+<details><summary>Superseded historical session banners — NOT current upload instructions</summary>
 > ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/3ce68fc7-gemsdoe31`) — SUBMIT THIS ONE FILE
 >
 > **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**
@@ -280,6 +314,9 @@
 >
 > SHA-256 `c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9`. Name `gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff`.
 > Note (128/140): `MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved`.
+
+
+</details>
 
 ## Read first every session
 

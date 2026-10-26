@@ -29,124 +29,155 @@ def _selector():
 
 
 def selector_decision_section() -> str:
-    """2026-10-26 selector decision: the single obvious submit/do-not-submit answer."""
-    dec = _selector()
-    audit_p = ROOT / "evidence/selector_audit_20261026.json"
-    if dec is None or not audit_p.is_file():
-        return ""
-    audit = json.loads(audit_p.read_text())
-    prim = dec["primary_submission"]
-    frows = ""
-    for r in dec["focus_sites"]:
-        verdict = "duplicate lane — do not resubmit" if r["duplicate_of_h33_lane"] else "—"
-        frows += (f'<tr><td>{esc(r["site_tag"])}</td><td><code>{esc(r["artifact"].split("/")[-1])}</code></td>'
-                  f'<td>{r["user_reported"]:.4f} USER-REPORTED</td><td>{r["dots"]:,}</td>'
-                  f'<td>{100*r["overlap_vs_h33_3px"]:.1f}%</td><td>{verdict}</td></tr>')
-    crows = ""
-    for r in audit["candidates"]:
-        failed = ", ".join(k for k, v in r["gates"].items() if not v) or "—"
-        badge = ('<span class="badge badge-green">OK TO SUBMIT</span>' if r["selector_promote"]
-                 and r["lane"] == prim["lane"] else
-                 '<span class="badge badge-green">gated alternate</span>' if r["selector_promote"]
-                 else '<span class="badge badge-red">DO NOT SUBMIT</span>')
-        dl = ('<a class="button button-primary" href="' + esc(r["file"].replace("docs/", "", 1)) + '" download>Download .tif</a>'
-              if r["lane"] == prim["lane"] else
-              '<a href="' + esc(r["file"].replace("docs/", "", 1)) + '" download>research .tif</a>')
-        crows += (f'<tr><td><strong>{esc(r["lane"])}</strong><br><span class="small"><code>{esc(r["file"].split("/")[-1])}</code></span></td>'
-                  f'<td>{r["sgmc"]["dti"]:.4f}</td><td>{r["projection"]:.4f} '
-                  f'<span class="small">[{r["projection_interval"][0]:.3f}, {r["projection_interval"][1]:.3f}]</span></td>'
-                  f'<td>{100*r["overlap_vs_h33"]:.1f}% vs H33 · max {100*r["max_discrete_overlap"]:.1f}%</td>'
-                  f'<td>{esc(failed)}</td><td>{badge}<br>{dl}</td></tr>')
-    y_card = _h31y_card()
-    if y_card is not None:
-        y_sgmc = y_card["sgmc_proxy"]["candidate"]["dti"]
-        y_m1 = y_card["estimates"]["M1_in_family_upper_bound_diagnostic"]["value"]
-        y_failed = ", ".join(k for k, v in y_card["gates"].items() if k.startswith("G") and not v)
-        y_file = "downloads/" + y_card["files"]["zeros"]
-        crows += (f'<tr><td><strong>H31-Y (2026-10-26, newest)</strong><br><span class="small"><code>'
-                  f'{esc(y_card["files"]["zeros"])}</code></span></td>'
-                  f'<td>{y_sgmc:.4f}</td><td>{y_m1:.4f} <span class="small">(M3 cross-family 0.125, interval [-0.061, 0.311])</span></td>'
-                  f'<td>45.9% vs H33 · max {100 * y_card["registry"]["max_final_overlap_3px"]:.1f}%</td>'
-                  f'<td>{esc(y_failed)}</td><td><span class="badge badge-red">DO NOT SUBMIT</span><br>'
-                  f'<a href="{esc(y_file)}" download>research .tif</a></td></tr>')
-    alts = "; ".join(
-        f'{esc(a["lane"])} (<code>{esc(a["file"].split("/")[-1])}</code>, M1 in-family diagnostic {a["projection"]:.4f} — withdrawn as score estimate, see audit note below)'
-        for a in dec["alternates"])
-    prim_file = esc(prim["file"].replace("docs/", "", 1))
-    hd = prim["holdout_dti"]
-    conf_txt = (f' (random-component split: paired {hd["confirmation_delta"]:+.4f} '
-                f'[{hd["confirmation_delta_ci95"][0]:+.4f}, {hd["confirmation_delta_ci95"][1]:+.4f}])'
-                if hd.get("confirmation_delta") is not None else "")
-    h31x = dec.get("h31x_new_lane") or {}
-    h31x_txt = ("" if not h31x else
-                f'<p class="small"><strong>H31-X disclosure (2026-10-26, session 3ce68fc7):</strong> {esc(h31x["discrepancy_explanation"])}</p>')
+    """The current literal protocol overrides archived discrete-only approvals."""
+    p = ROOT / "evidence/review_9883b598/run_card.json"
+    if not p.is_file():
+        return '<div class="notice notice-danger">DO NOT SUBMIT: current protocol audit missing.</div>'
+    r = json.loads(p.read_text())
+    h = r["holdout_dti"]
+    u = r["correlation_overlap_vs_registry"]
+    filename = esc(r["file"].replace("docs/", "", 1))
     return f'''<section id="selector-decision" aria-labelledby="selector-heading">
-      <div class="section-head"><div><p class="kicker">2026-10-26 Selector Decision · automated gates G1–G6 · no human inspector</p>
-        <h2 id="selector-heading">SUBMIT THIS FILE: {esc(prim["lane"])} (one file, one click)</h2></div>
-        <p>Every number below is labelled HOLDOUT-DTI, USER-REPORTED, COMPUTED or PROJECTION.
-           A projection is never a score. No ORGANIZER-CONFIRMED score exists in this repository.</p></div>
+      <p class="kicker">Current protocol review · 26 October 2026 · no new experiment</p>
+      <h2 id="selector-heading">DO NOT SUBMIT — literal registry STOP</h2>
+      <div class="notice notice-danger"><strong>No current artifact is approved.</strong>
+      Earlier H31-X / H31-T selector upload permissions are withdrawn under the current prompt.
+      A format pass cannot override failed uniqueness. No new TIFF was generated after STOP.</div>
+      <div class="table-wrap"><table><thead><tr><th>File to download</th><th>HOLDOUT-DTI (prior receipt)</th>
+      <th>Estimated leaderboard score</th><th>Unique under requested rule?</th><th>Permission</th></tr></thead><tbody><tr>
+      <td><a href="{filename}" download>{esc(Path(r["file"]).name)}</a><br>Existing H31-X, not new this session</td>
+      <td>{h["dti"]:.4f}, 95% CI [{h["ci95"][0]:.4f}, {h["ci95"][1]:.4f}]<br>
+      {esc(h["evaluator_version"])}, {h["withheld_positive_pixels"]:,} withheld; cited, not rerun</td>
+      <td>Unavailable: cross-family calibration unvalidated. Historical projection is not a score or reliable interval. Quantified this session (a111fe50): the retired in-family formula has out-of-family RMSE 0.196 / bias +0.135 over 67 matched USER-REPORTED submissions; best cross-family LOO RMSE 0.090 barely beats the mean (<code>evidence/cross_family_calibration_20261026.json</code>).</td>
+      <td>No: surface top-K {100*u["surface"]["max_overlap"]:.1f}% (prior receipt);
+      final dots {100*u["final"]["max_overlap"]:.2f}% vs registered lattice (fresh read-back).</td>
+      <td>Research download YES<br><strong>Submission NO</strong></td></tr></tbody></table></div>
+      <div class="actions"><a class="button button-primary" href="{filename}" download>Download existing H31-X research .tif — DO NOT SUBMIT</a>
+      <a class="button" href="downloads/protocol-review-run-card.json">Automated format and STOP receipt</a></div>
+      <p><strong>SHA-256:</strong> <code>{esc(r["raster_sha256"])}</code><br>
+      <strong>Research name:</strong> <code>{esc(r["submission_name"])}</code><br>
+      <strong>Note:</strong> {esc(r["note"])}</p>
+      <p>Values are finite in [0,1]; one float32 band; CRS, shape and transform match the hash-pinned mirror template.
+      This is local validation, not organizer acceptance. Private truth, authenticated score receipts and current weekly quota are unavailable.</p>
+      <p>One authentic registry witness suffices for STOP; no exhaustive registry pass is claimed.
+      The lattice covers {100*r["lattice_coverage"]["coverage_fraction"]:.3f}% of the footprint within 3 px.
+      At this dot budget any placement must overlap at least {100*r["lattice_coverage"]["minimum_overlap_any_same_budget"]:.2f}%.
+      This counting bound does not apply to every nonempty raster. Moving dots to evade the test is not geological discovery.</p>
+      <p><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_protocol_review_9883b598.md">Review, hypotheses, evidence and remaining work</a></p>
+    </section>'''
+
+
+def h31y_download_and_gates() -> str:
+    """H31-Y KIN-PIED research GeoTIFF. Lane card negative. Not approved for upload."""
+    rc_path = ROOT / "evidence/h31y/run_card.json"
+    if not rc_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    g = rc["gates"]
+    hd = rc["holdout_dti"]
+    sc = hd["screen_final_surface"]
+    dc = hd["screen_paired_vs_ctrl"]
+    cf = hd["confirmation_random_component_split"]
+    cfd = cf["paired_differences"]["CTRL"]
+    sg = rc["sgmc_proxy"]
+    u = rc["correlation_overlap_vs_registry"]
+    pj = rc["projection"]
+    f = rc["files"]
+
+    def badge(ok):
+        return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
+
+    return f'''<section id="h31y-kinpied" aria-labelledby="h31y-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-26 · H31-Y KIN-PIED unique research GeoTIFF</p>
+        <h2 id="h31y-heading">H31-Y: generated TIF · <span class="badge badge-red">DO NOT SUBMIT</span></h2></div>
+        <p>Preregistered before fitting. Three experiments. Not approved for upload (lane G5 top-K fail and
+           literal registry STOP). Format-valid all-finite values in [0, 1].</p></div>
       <div class="card download-card">
-        <span class="badge badge-green">OK TO DOWNLOAD AND SUBMIT — all automated gates G1–G6 pass</span>
-        <h3 style="margin-top:18px"><code>{esc(prim["file"].split("/")[-1])}</code></h3>
-        <p><strong>Why this file:</strong> strongest combined evidence of any unique candidate —
-           HOLDOUT-DTI ({esc(hd.get("evaluator", "shared evaluator"))}, {hd.get("n", 0):,} withheld positives)
-           {hd["dti"]:.4f} [{hd["ci95"][0]:.4f}, {hd["ci95"][1]:.4f}],
-           paired {hd["delta"]:+.4f} [{hd["delta_ci95"][0]:+.4f}, {hd["delta_ci95"][1]:+.4f}] vs same-run control
-           plus an untouched confirmation{conf_txt};
-           off-catalogue SGMC DTI {prim["sgmc"]["dti"]:.4f} vs H33's 0.0940 (COMPUTED, same code);
-           <strong>live score unknown</strong> — the anchor-inversion PROJECTION {prim["projection"]:.4f} printed by the
-           original selector audit was withdrawn on 2026-10-26: applied out-of-family it has RMSE 0.196 and bias +0.135
-           (cross-family calibration audit, <code>evidence/cross_family_calibration_20261026.json</code>); the corrected
-           cross-family M3 estimate for this file is 0.125, interval [-0.061, 0.311] (±2×LOO RMSE), so beating the
-           0.2778 USER-REPORTED incumbent is possible but not established; only {100*prim["overlap_vs_h33"]:.1f}% of its dots within 3 px of H33
-           (unique; discrete-peer maximum {100*prim["max_discrete_overlap"]:.1f}% ≤ 70%).<br>
-           <strong>Gated alternates (submit at most one file per weekly slot):</strong> {alts}.</p>
+        <h3><code>{esc(f["zeros"].split("/")[-1])}</code></h3>
+        <p><strong>OK TO DOWNLOAD FOR RESEARCH: YES. NOT OK TO SUBMIT.</strong>
+           Name <code>{esc(rc["submission_name"])}</code>. Note ({rc["note_chars"]}/140): <code>{esc(rc["note"])}</code></p>
+        <p><strong>Hypothesis.</strong> {esc(rc["hypothesis"])}<br>
+           <strong>Mechanism.</strong> {esc(rc["mechanism"])}<br>
+           <strong>Named non-fault mimics.</strong> {esc(rc["non_fault_mimic"])}</p>
         <div class="actions">
-          <a class="button button-primary" href="{prim_file}" download>Download {esc(prim["lane"])} .tif — OK TO SUBMIT (all-finite [0,1])</a>
-          <a class="button" href="{esc(prim_file.replace('.tif', '.zip'))}" download>Single-TIFF .zip</a>
+          <a class="button" href="{esc(f["zeros"].replace("docs/", "", 1))}" download>Download H31-Y research .tif (all-finite [0,1] — DO NOT SUBMIT)</a>
+          <a class="button" href="{esc(f["zip"].replace("docs/", "", 1))}" download>Single-TIFF .zip</a>
+          <a class="button button-light" href="downloads/h31y-run-card.json">Run card (JSON)</a>
         </div>
-        <p class="download-meta"><strong>SHA-256:</strong> <code>{esc(prim["sha256"])}</code><br>
-          <strong>Portal name:</strong> <code>{esc(prim["portal_name"])}</code><br>
-          <strong>Portal note ({prim["portal_note_chars"]}/140):</strong> <code>{esc(prim["portal_note"])}</code><br>
-          <strong>How to submit:</strong> DrivenData → New submission → choose this exact <code>.tif</code> (or its single-TIFF zip) →
-          paste the note → check your weekly quota → submit. This repository never contacts DrivenData; upload is manual.
-          The all-finite encoding (every cell finite in [0,1]) cannot trigger “Predicted values must be in range [0, 1]”.<br>
-          <strong>All other downloads on this site are not approved for upload.</strong>
-          Human sign-off cannot override a failed gate; the gates above are automated and fail-closed.<br>
-          <strong>Governance disclosure:</strong> {esc(dec["literal_695_disclosure"])}
-          Original lane run cards keep their own verdicts (H31-T: <code>slot_approved=false</code> under the literal reading;
-          H31-X: <code>verdict=negative</code> under its stricter pre-placement top-K check, see below); this selector
-          decision (owner-directed rescope IR-U-02, <code>registry/selector_decision_20261026.json</code>) supersedes them for upload choice only.</p>
+        <p class="download-meta"><strong>SHA-256 zeros:</strong> <code>{esc(rc["raster_sha256"])}</code><br>
+          HOLDOUT-DTI (gems57-pooled-hide-v2, {sc["withheld_positive_pixels"]:,} withheld) {sc["dti"]:.4f}
+          [{sc["ci95"][0]:.4f}, {sc["ci95"][1]:.4f}]; paired vs CTRL {dc["delta"]:+.4f}
+          [{dc["ci95"][0]:+.4f}, {dc["ci95"][1]:+.4f}]; confirmation paired {cfd["delta"]:+.4f}.
+          Off-catalogue SGMC {sg["candidate"]["dti"]:.4f} vs H33 {sg["H33"]["dti"]:.4f} (COMPUTED).
+          PROJECTION {pj["value"]:.4f} (never a score). Final-dot 3-px max {100*u["discrete_max_final_overlap_3px"]:.1f}%;
+          top-K {100*(u["discrete_max_topk_overlap_3px"] or 0):.1f}% (G5 fail). Lattice overlap disclosed, not exempted.</p>
       </div>
-      <h3>All unique candidates in this repository (uniform recomputation, 2026-10-26)</h3>
-      <p class="small"><strong>Estimate audit (2026-10-26, H31-Y session):</strong> the “Estimated live DTI” column below is the
-        original selector audit's in-family M1 diagnostic. A cross-family audit over all 67 matched USER-REPORTED
-        submissions shows that formula has out-of-family RMSE 0.196 (bias +0.135) and even the best cross-family
-        calibration barely beats predicting the mean (RMSE 0.090 vs 0.092). <strong>These values are therefore
-        withdrawn as score estimates</strong> and retained only to document the original gate arithmetic; no
-        candidate in this repository has a defensible point estimate of its live score. Promotion below now rests
-        on format/canary/holdout/SGMC/uniqueness evidence, not on the withdrawn numbers.</p>
-      <div class="table-wrap"><table><thead><tr><th>File to download</th><th>SGMC DTI (COMPUTED)</th>
-        <th>M1 in-family diagnostic — WITHDRAWN as score estimate (audit 2026-10-26)</th><th>Unique? (3-px vs discrete peers)</th>
-        <th>Failed gates</th><th>Verdict</th></tr></thead><tbody>{crows}</tbody></table></div>
-      {h31x_txt}
-      <p class="small">Earlier 2026-10-26 session: <strong>H31-U</strong> (strain–seismic corroborated ridges) is a genuinely new,
-        unique TIFF (max 37.7% discrete overlap) that <em>won</em> its catalogue hide-and-recover holdout
-        (HOLDOUT-DTI 0.0952, paired +0.0281 [0.0052, 0.0508] vs control) but <em>failed</em> the SGMC discovery
-        proxy and projection gates — verdict negative, DO NOT SUBMIT. It is preserved above as a research
-        download with a full run card. H31-B-standalone shows the highest SGMC/proxy numbers but has no
-        machine-verifiable paired holdout win, so it is not promoted (fail-closed).</p>
-      <h3>Nine focus sites — highest historical claim each (all USER-REPORTED, no organizer receipt)</h3>
-      <div class="table-wrap"><table><thead><tr><th>Site</th><th>Best historical file</th><th>Claim</th>
-        <th>Dots</th><th>Within 3 px of H33 (COMPUTED)</th><th>Unique-submittable?</th></tr></thead>
-        <tbody>{frows}</tbody></table></div>
-      <p class="small">Why H33-2-B2 leads the historical family: it is the H19-5 dotted surface with every dot
-        within 2 px of the public catalogue deleted (COMPUTED forensics). Catalogue-flank dots earn ~0.004 TPw/dot
-        against the 0.0556 break-even at DTI 0.2778 because hidden expert-mapped truth is depleted next to
-        already-mapped faults — deleting 2,545 such dots raised the reported value 0.2708 → 0.2778.
-        Beating it requires higher far-field credit per dot, which is what the gated candidates above are selected for.
-        The 0.3195 / 0.4413 leaderboard figures in the brief are USER-REPORTED context; nothing here evidences reaching 0.4413.</p>
+      <div class="table-wrap"><table><thead><tr><th>Gate</th><th>Result</th></tr></thead><tbody>
+        <tr><td>G1 format</td><td>{badge(g["G1_format"])}</td></tr>
+        <tr><td>G2 canary</td><td>{badge(g["G2_canary"])}</td></tr>
+        <tr><td>G3 holdout efficacy</td><td>{badge(g["G3_holdout_efficacy"])}</td></tr>
+        <tr><td>G4 SGMC discovery</td><td>{badge(g["G4_sgmc_discovery"])}</td></tr>
+        <tr><td>G5 uniqueness (incl. top-K)</td><td>{badge(g["G5_uniqueness_discrete"])}</td></tr>
+        <tr><td>G6 projection ge 0.2778</td><td>{badge(g["G6_projection_ge_02778"])}</td></tr>
+      </tbody></table></div>
       </section>'''
+
+
+
+def h31ym_download_and_gates() -> str:
+    """H31-YM regime-mosaic (session a111fe50; executed as H31-Y, renamed on merge)."""
+    p = ROOT / "evidence/h31ym/run_card.json"
+    if not p.is_file():
+        return ""
+    y = json.loads(p.read_text())
+    exp1_p = ROOT / "evidence/h31ym/exp1_screen.json"
+    rows = ""
+    if exp1_p.is_file():
+        exp1 = json.loads(exp1_p.read_text())
+        labels = {"Y1": "Y1 FAN piedmont specialist only", "Y2": "Y2 junction only (H31-X method comparator; reproduced 0.1661)",
+                  "Y3": "Y3 regime mosaic 50/50 (candidate)", "Y4": "Y4 pixel blend",
+                  "CTRL": "CTRL rank(tmi_hg)", "SLOPE": "SLOPE rank(slope)"}
+        for arm, lab in labels.items():
+            s = exp1["pooled"]["scores"][arm]
+            rows += (f'<tr><td>{esc(lab)}</td><td>{s["dti"]:.4f} [{s["ci95"][0]:.4f}, {s["ci95"][1]:.4f}]</td></tr>')
+        pied = exp1["subgroup_piedmont"]["pooled"]["scores"]
+        rows += (f'<tr><td>Piedmont-truth subgroup: Y3 vs Y2 (29,324 withheld)</td>'
+                 f'<td>Y3 {pied["Y3"]["dti"]:.4f} vs Y2 {pied["Y2"]["dti"]:.4f} (kernel credit 2,172 vs 642)</td></tr>')
+    gates = " · ".join(
+        f'{esc(k)}={"PASS" if v else "FAIL"}' for k, v in y["gates"].items() if k.startswith("G"))
+    return f'''<section id="h31ym"><div class="section-head"><div>
+      <p class="kicker">Parallel lane · 2026-10-26 session a111fe50 · preregistered, automated gates</p>
+      <h2>H31-YM regime-mosaic — unique research TIFF, verdict negative (DO NOT SUBMIT)</h2></div>
+      <p>Mountain dots from the piedmont-junction slope-break line; piedmont dots from one-sided, strike-coherent,
+        low-relief 1 m-LiDAR fan scarps; 50/50 budget. Executed as “H31-Y” in its session and renamed H31-YM on
+        merge (the KIN-PIED lane above keeps H31-Y; see <code>evidence/h31ym/RENAME.json</code>).
+        No prior dots or surfaces used. Under current literal-STOP governance no file is approved in any case.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-red">DO NOT SUBMIT — preregistered gates failed</span>
+        <h3 style="margin-top:18px"><code>{esc(y["files"]["zeros"])}</code></h3>
+        <div class="actions">
+          <a class="button" href="downloads/{esc(y["files"]["zeros"])}" download>Research .tif — all-finite [0,1] (do not submit)</a>
+          <a class="button button-light" href="downloads/{esc(y["files"]["nan"])}" download>NaN-outside twin</a>
+          <a class="button button-light" href="downloads/{esc(y["submission_name"])}-run-card.json" download>Run card JSON</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256:</strong> <code>{esc(y["raster_sha256"])}</code> ·
+          <strong>Gates:</strong> {esc(gates)}<br>
+          <strong>Reserved name (do not use):</strong> <code>{esc(y["submission_name"])}</code> ·
+          <strong>Note ({y["submission_note_chars"]}/140):</strong> <code>{esc(y["submission_note"])}</code><br>
+          <strong>Discrete-unique (not literal-rule unique):</strong> max 3-px final-dot overlap
+          {100 * y["registry"]["max_final_overlap_3px"]:.1f}% vs discrete peers (45.9% vs H33);
+          literal spacing-5 lattice reading fails as for every 37,654-dot field (counting bound in the protocol review).<br>
+          <strong>Score estimate:</strong> unavailable (cross-family RMSE ≈0.09–0.20; see selector section). Any
+          in-family number on the run card is a withdrawn diagnostic, never a score.</p>
+        <div class="table-wrap"><table><thead><tr><th>Arm (same folds, same evaluator)</th>
+          <th>HOLDOUT-DTI [95% CI] — gems57-pooled-hide-v2, 60,988 withheld positives</th></tr></thead>
+          <tbody>{rows}</tbody></table></div>
+        <p class="small">Halving the mountain budget costs more catalogue credit than the fan specialist gains at
+          the catalogue's 48% piedmont truth mix (break-even &gt;57% piedmont); untouched component-split
+          confirmation (seed 3104) repeats the ordering. Next step recorded: marginal-credit allocation
+          (~70–80% mountain) under a fresh preregistration — only after the owner resolves the registry
+          definition. Receipts: <code>evidence/h31ym/</code>.</p>
+      </div></section>'''
 
 
 def h31x_download_and_gates() -> str:
@@ -177,9 +208,9 @@ def h31x_download_and_gates() -> str:
     def badge(ok):
         return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
     verdict_badge = ('<span class="badge badge-green">OK TO SUBMIT</span>' if rc["verdict"] == "promote"
-                     else '<span class="badge badge-red">lane card: negative (stricter G5) — selector decision above governs upload</span>')
+                     else '<span class="badge badge-red">DO NOT SUBMIT — both-stage registry STOP</span>')
     return f'''<section id="h31x-piedmont-junction" aria-labelledby="h31x-heading">
-      <div class="section-head"><div><p class="kicker">2026-10-26 · New lane H31-X · piedmont-junction range-front contact line</p>
+      <div class="section-head"><div><p class="kicker">2026-10-26 · Historical lane H31-X · piedmont-junction range-front contact line</p>
         <h2 id="h31x-heading">H31-X: unique label-free GeoTIFF · {verdict_badge}</h2></div>
         <p>Preregistered before any fitting (<a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/{esc(rc["preregistration"])}">frozen preregistration</a>);
         three experiments, no tuning after EXP-3. Every number is HOLDOUT-DTI, COMPUTED or PROJECTION; nothing is ORGANIZER-CONFIRMED.</p></div>
@@ -214,23 +245,19 @@ def h31x_download_and_gates() -> str:
                 piedmont slope le 6 deg: {sg["regimes"]["candidate_piedmont_le6deg"]["dti"]:.4f} vs H33 {sg["regimes"]["H33_piedmont_le6deg"]["dti"]:.4f} (trade-off, disclosed);
                 mountain slope gt 6 deg: {sg["regimes"]["candidate_mountain_gt6deg"]["dti"]:.4f} vs {sg["regimes"]["H33_mountain_gt6deg"]["dti"]:.4f}</td>
             <td>{badge(g["G4_sgmc_discovery"])}</td></tr>
-        <tr><td><code>G5 uniqueness (lane, stricter)</code></td><td>final-dot <em>and</em> pre-placement top-K 3-px overlap ≤ 0.70; |Spearman| ≤ 0.90 vs every discrete peer</td>
+        <tr><td><code>G5 uniqueness (both stages)</code></td><td>final-dot <em>and</em> pre-placement top-K 3-px overlap ≤ 0.70; |Spearman| ≤ 0.90 vs every discrete peer</td>
             <td>final dots max {100*u["discrete_max_final_overlap_3px"]:.1f}% (GEMSDOE27 D1.5 field), {100*ov_h33:.1f}% vs H33 ·
-                pre-placement top-K {100*u["discrete_max_topk_overlap_3px"]:.1f}% (<strong>fails this stricter lane check</strong>) ·
+                pre-placement top-K {100*u["discrete_max_topk_overlap_3px"]:.1f}% (<strong>fails the required pre-placement check</strong>) ·
                 |Spearman| surface {u["max_abs_spearman_surface"]:.3f}, dots {u["max_abs_spearman_dots"]:.3f} ·
-                literal 695-lattice reading {100*u["literal_broad_registry"]["candidate_overlap_3px"]:.1f}% (fails for every nonempty raster; disclosed)</td>
+                literal 695-lattice reading {100*u["literal_broad_registry"]["candidate_overlap_3px"]:.1f}% (fails for this artifact; no universal claim)</td>
             <td>{badge(g["G5_uniqueness_discrete"])}</td></tr>
-        <tr><td><code>G6 projection (RETRACTED as a score estimate, 2026-10-26 audit)</code></td><td>historical gate as frozen then: anchor-inversion PROJECTION ≥ 0.2778 (never a score); the formula's out-of-family RMSE is 0.196, so this measured value must not be read as an estimated live score</td>
+        <tr><td><code>G6 projection</code></td><td>anchor-inversion PROJECTION ≥ 0.2778 (never a score)</td>
             <td>PROJECTION {pj["value"]:.4f} [{pj["interval_approx"][0]:.3f}, {pj["interval_approx"][1]:.3f}] (in-family LOO RMSE {pj["loo_rmse"]:.4f}; cross-family transfer unproven)</td>
             <td>{badge(g["G6_projection_ge_02778"])}</td></tr>
       </tbody></table></div>
-      <p class="small"><strong>Why the lane card says <code>negative</code> while the selector promotes:</strong> the lane froze a stricter G5 than the
-        owner's duplicate rule — it also tests the raw top-37,654 surface pixels <em>before</em> catalogue-flank pruning and Poisson spacing.
-        That diagnostic is 86% against the GEMSDOE24/27 D1.5 60k-dot fields (29% of those raw pixels lie within 2 px of the catalogue and are
-        pruned before emission; a uniform random field scores 17%; post-hoc diagnostics in <code>evidence/h31x/exp2_posthoc_diagnostics.json</code>).
-        The submitted dots themselves are 63% / 57% (vs H33) within 3 px — under the owner's rule (&gt;70% dots within 3 px, or |rank correlation| &gt; 0.90)
-        the file is <em>not</em> a duplicate, and its surface rank correlation with every peer is ≤ 0.13. The preregistered lane gate is kept as written
-        (no goalpost moved); the uniform selector decision above, whose rules predate this lane, governs the upload choice.</p>
+      <p class="small"><strong>Current correction:</strong> both pre-placement and final-dot checks are required by the owner prompt.
+      The prior selector excluded the pre-placement top-K failure and broad-registry witness. That permission is withdrawn.
+      A discrete-peer subset pass is not a full uniqueness pass. This frozen lane card remains negative.</p>
       <p class="small">Fixed-dot reference arms (H33-2-B2, H31-T, H31-J, H31-B) were scored in the same folds at the previous session's request and
         are <strong>uninformative under this protocol</strong> (0.000–0.011): their authors pruned every dot within 2 px of the <em>full</em> catalogue,
         which removes nearly all 300 m-kernel credit around withheld segments. They are recorded as handicapped references only.</p>
@@ -887,7 +914,7 @@ def h3_download_and_gates() -> str:
       <strong>SHA-256 (All-finite):</strong> <code>{esc(receipt.get('allfinite_sha256','unknown'))}</code><br>
       <strong>Name:</strong> <code>{esc(name)}</code><br>
       <strong>Note ({len(note)}/140):</strong> <code>{esc(note)}</code></p>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Gate</th><th>Result</th></tr></thead>
       <tbody>
         <tr><td>Single-feature leakage canary (SGMC AUC)</td>
@@ -907,7 +934,7 @@ def h3_download_and_gates() -> str:
         <tr><td>Submission approval</td>
             <td><span class="badge badge-red">NOT APPROVED — do not upload</span></td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 </section>
 '''
@@ -1184,165 +1211,26 @@ def h31n_decision_banner() -> str:
     </div>'''
 
 
-def h31y_download_and_gates() -> str:
-    y = _h31y_card()
-    if y is None:
-        return ""
-    exp1_p = ROOT / "evidence/h31y/exp1_screen.json"
-    rows = ""
-    if exp1_p.is_file():
-        exp1 = json.loads(exp1_p.read_text())
-        labels = {"Y1": "Y1 FAN piedmont specialist only", "Y2": "Y2 junction only (H31-X method comparator)",
-                  "Y3": "Y3 regime mosaic 50/50 (candidate)", "Y4": "Y4 pixel blend",
-                  "CTRL": "CTRL rank(tmi_hg)", "SLOPE": "SLOPE rank(slope)"}
-        for arm, lab in labels.items():
-            s = exp1["pooled"]["scores"][arm]
-            rows += (f'<tr><td>{esc(lab)}</td><td>{s["dti"]:.4f} [{s["ci95"][0]:.4f}, {s["ci95"][1]:.4f}]</td></tr>')
-        pied = exp1["subgroup_piedmont"]["pooled"]["scores"]
-        rows += (f'<tr><td>Piedmont-truth subgroup: Y3 vs Y2 (29,324 withheld)</td>'
-                 f'<td>Y3 {pied["Y3"]["dti"]:.4f} vs Y2 {pied["Y2"]["dti"]:.4f} (kernel credit 2,172 vs 642)</td></tr>')
-    gates = " · ".join(
-        f'{esc(k)}={"PASS" if v else "FAIL"}' for k, v in y["gates"].items() if k.startswith("G"))
-    est = y["estimates"]
-    return f'''<section id="h31y"><div class="section-head"><div>
-      <p class="kicker">Newest lane · 2026-10-26 · preregistered, automated gates</p>
-      <h2>H31-Y regime-mosaic — unique research TIFF, verdict negative (DO NOT SUBMIT)</h2></div>
-      <p>Mountain dots from the piedmont-junction slope-break line; piedmont dots from one-sided, strike-coherent,
-        low-relief 1 m-LiDAR fan scarps; 50/50 budget. No prior dots or surfaces used.</p></div>
-      <div class="card download-card">
-        <span class="badge badge-red">DO NOT SUBMIT — preregistered gates failed</span>
-        <h3 style="margin-top:18px"><code>{esc(y["files"]["zeros"])}</code></h3>
-        <div class="actions">
-          <a class="button" href="downloads/{esc(y["files"]["zeros"])}" download>Research .tif — all-finite [0,1] (do not submit)</a>
-          <a class="button button-light" href="downloads/{esc(y["files"]["nan"])}" download>NaN-outside twin</a>
-          <a class="button button-light" href="downloads/{esc(y["submission_name"])}-run-card.json" download>Run card JSON</a>
-        </div>
-        <p class="download-meta"><strong>SHA-256:</strong> <code>{esc(y["raster_sha256"])}</code> ·
-          <strong>Gates:</strong> {esc(gates)}<br>
-          <strong>Portal name (reserved, do not use):</strong> <code>{esc(y["submission_name"])}</code> ·
-          <strong>Note ({y["submission_note_chars"]}/140):</strong> <code>{esc(y["submission_note"])}</code><br>
-          <strong>Unique (discrete peers):</strong> max 3-px final-dot overlap
-          {100 * y["registry"]["max_final_overlap_3px"]:.1f}% (vs H31-X; limit 70%), overlap vs H33 45.9%,
-          max |surface Spearman| {y["registry"]["max_abs_surface_spearman"]:.3f} (limit 0.90).
-          Diagnostic disclosed: the mosaic field's raw top-K overlaps H31-X's top-K by 93.0% before regime-stratified
-          placement; the submitted dot sets differ at 40.6% of locations. Literal spacing-5 lattice reading fails
-          for every nonempty raster (IR-U-02), as for all candidates.<br>
-          <strong>Labelled estimates (PROJECTION, never a score):</strong> M1 in-family diagnostic
-          {est["M1_in_family_upper_bound_diagnostic"]["value"]:.4f} (withdrawn as score estimate);
-          M3 cross-family central {est["M3_cross_family"]["central"]:.4f}, interval
-          [{est["M3_cross_family"]["interval_pm2rmse"][0]:.3f}, {est["M3_cross_family"]["interval_pm2rmse"][1]:.3f}].</p>
-        <div class="table-wrap"><table><thead><tr><th>Arm (same folds, same evaluator)</th>
-          <th>HOLDOUT-DTI [95% CI] — gems57-pooled-hide-v2, 60,988 withheld positives</th></tr></thead>
-          <tbody>{rows}</tbody></table></div>
-        <p class="small">Interpretation (COMPUTED + INFERENCE): halving the mountain budget costs more catalogue
-          credit than the fan specialist gains at the catalogue's 48% piedmont truth mix; the mosaic would only
-          win overall if the hidden expert truth were &gt;57% piedmont. Confirmation on an untouched random
-          component split (seed 3104) repeats the ordering. A future preregistered lane should allocate by
-          marginal credit per dot (roughly 70–80% mountain), not 50/50. Full receipts:
-          <code>evidence/h31y/</code>, preregistration <code>knowledge/2026-10-26_h31y_preregistration.md</code>.</p>
-      </div></section>'''
-
-
-def _h31y_card():
-    p = ROOT / "evidence/h31y/run_card.json"
-    return json.loads(p.read_text()) if p.is_file() else None
-
-
-def h31y_decision_banner() -> str:
-    """First thing a visitor sees: ONE banner with both answers (submit target + newest lane).
-
-    Numbers come only from the selector decision and the H31-Y run card. This replaces the
-    earlier stacked banners, which named different files at the top of the page than the
-    selector section did — a visitor could not tell which file to submit.
-    """
-    dec = _selector()
-    y = _h31y_card()
-    if dec is None:
-        return ""
-    prim = dec["primary_submission"]
-    prim_file = esc(prim["file"].replace("docs/", "", 1))
-    hd = prim["holdout_dti"]
-    y_html = ""
-    if y is not None:
-        yh = y["holdout_dti"]["candidate"]
-        failed = ", ".join(k for k, v in y["gates"].items() if k.startswith("G") and not v)
-        y_html = f'''<li><strong>Newest lane H31-Y (this session): unique research TIFF — DO NOT SUBMIT.</strong>
-          <code>{esc(y["files"]["zeros"])}</code> (SHA-256 <code>{esc(y["raster_sha256"][:16])}…</code>) is format-valid
-          and discrete-unique (max 3-px overlap {100 * y["registry"]["max_final_overlap_3px"]:.1f}%, limit 70%;
-          overlap vs H33 {100 * 0.459:.1f}%) but its preregistered verdict is <strong>negative</strong>
-          (failed gates: {esc(failed)}): HOLDOUT-DTI {yh["dti"]:.4f} [{yh["ci95"][0]:.4f}, {yh["ci95"][1]:.4f}]
-          ({esc(y["holdout_dti"]["evaluator_version"])}, {yh["withheld_positive_pixels"]:,} withheld positives)
-          loses overall to the junction comparator while tripling piedmont-truth credit.
-          <a href="downloads/{esc(y["files"]["zeros"])}" download>Research .tif (do not submit)</a> ·
-          <a href="downloads/{esc(y["files"]["nan"])}" download>NaN-outside twin</a></li>'''
-    return f'''<div class="notice" id="download-decision">
-      <p class="kicker">Read this first · one automated decision · no human inspector · updated 2026-10-26 (H31-Y session)</p>
-      <h2>OK to submit to DrivenData: exactly ONE file — {esc(prim["lane"])}<br>Every other download: research only — DO NOT SUBMIT</h2>
-      <p><a class="button button-primary" href="{prim_file}" download>Download {esc(prim["lane"])} .tif — OK TO SUBMIT (all-finite [0, 1])</a>
-      <a class="button" href="{esc(prim_file.replace('.tif', '.zip'))}" download>Single-TIFF .zip</a>
-      <a class="button button-light" href="executive-summary.html">Executive summary &amp; how to submit</a></p>
-      <ul>
-        <li><strong>File to submit:</strong> <code>{esc(prim["file"].split("/")[-1])}</code> ·
-          SHA-256 <code>{esc(prim["sha256"])}</code> · portal name <code>{esc(prim["portal_name"])}</code> ·
-          portal note ({prim["portal_note_chars"]}/140): <code>{esc(prim["portal_note"])}</code></li>
-        <li><strong>Why:</strong> strongest catalogue hide-and-recover evidence of any unique candidate in this repo —
-          HOLDOUT-DTI {hd["dti"]:.4f} [{hd["ci95"][0]:.4f}, {hd["ci95"][1]:.4f}] ({esc(hd.get("evaluator", ""))},
-          {hd.get("n", 0):,} withheld positives), paired {hd["delta"]:+.4f} vs same-run control, confirmed on an
-          untouched component split. <strong>Live score unknown:</strong> the earlier “PROJECTION 0.355” was withdrawn
-          by the 2026-10-26 cross-family calibration audit (out-of-family RMSE 0.196); the corrected cross-family
-          estimate is 0.125 with an interval of [-0.061, 0.311] — beating the 0.2778 USER-REPORTED incumbent is
-          possible, not established. See the executive summary for the full labelled estimate.</li>
-        {y_html}
-        <li>Upload is manual on DrivenData (this project never contacts DrivenData). The all-finite encoding
-          (every cell finite in [0, 1]) cannot trigger “Predicted values must be in range [0, 1]”.</li>
-      </ul>
-    </div>'''
-
-
 def overview(card):
-    dec = _selector()
-    prim = dec["primary_submission"] if dec else {"lane": "H31-X", "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif", "holdout_dti": {"dti": 0.0, "ci95": [0, 0], "n": 0}, "overlap_vs_h33": 0.0}
-    prim_file = esc(prim["file"].replace("docs/", "", 1))
-    hd = prim["holdout_dti"]
-    y = _h31y_card()
-    y_btn = (f'<a class="button button-light" href="downloads/{esc(y["files"]["zeros"])}" download>'
-             f'H31-Y research .tif (DO NOT SUBMIT)</a>') if y else ""
-    hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · selector decision + H31-Y update 2026-10-26 · automated gates, no human inspector</p>
-      <h1>SUBMIT THIS FILE: {esc(prim["lane"])}<br><span style="font-size:0.45em">All other files: research only — see table below</span></h1>
-      <p class="hero-lede">One frozen gate set (format, leakage canary, catalogue hide-and-recover efficacy,
-        SGMC discovery proxy, discrete-peer uniqueness) judges every candidate.
-        <strong>{esc(prim["lane"])} piedmont-junction</strong> (<code>{esc(prim["file"].split("/")[-1])}</code>) remains the
-        selector primary: HOLDOUT-DTI {hd["dti"]:.4f} (gems57-pooled-hide-v2, n={hd.get("n", 0):,}), SGMC 0.1209 vs the
-        incumbent's 0.0940, {100 * prim["overlap_vs_h33"]:.1f}% overlap with H33 (unique). Its earlier 0.355
-        “projection” was <strong>withdrawn</strong> by a cross-family calibration audit — its live score is unknown,
-        not 0.355. The new H31-Y regime-mosaic lane is unique and format-valid but
-        <strong>negative — DO NOT SUBMIT</strong> (it loses overall to the junction line while tripling piedmont credit).
-        Full table, hashes, portal name/note and the literal-695 disclosure are in the
-        <a href="#selector-decision">selector decision</a> below. (Historical per-lane sections further down retain their original verdicts.)</p>
-      <div class="actions">
-        <a class="button button-primary" href="{prim_file}" download>Download {esc(prim["lane"])} .tif — OK TO SUBMIT</a>
-        <a class="button" href="#selector-decision">Selector decision &amp; candidate table</a>
-        <a class="button button-light" href="executive-summary.html">Executive Summary &amp; Submission Guide</a>
-        {y_btn}
-      </div>
-      </div><aside class="hero-side" aria-label="Submission decision">
-        <strong>One file is cleared to submit: {esc(prim["lane"])} (manual upload by owner)</strong>
-        <p>Everything else on this page — including the new H31-Y, H31-U, H31-S, MAGREST — is <strong>DO NOT SUBMIT</strong>
-          (research download only) for the stated gate failures. No score is ORGANIZER-CONFIRMED;
-          every estimate is a labelled PROJECTION, never a score.</p></aside></div></section>'''
-    return h31y_decision_banner() + hero, _overview_body(card, hero_rbu=False)
+    hero = '''<section class="hero"><div class="wrap hero-grid"><div>
+      <p class="eyebrow">DOE GEMS Prize · automated research validation</p>
+      <h1>Research download available.<br>Submission blocked.</h1>
+      <p class="hero-lede">The current protocol requires registry checks before placement and on final dots.
+      Existing candidates fail the literal overlap gate. H31-Y is a new research TIFF on this page;
+      it is not approved for upload. No weekly slot was used.</p>
+      <div class="actions"><a class="button button-primary" href="#selector-decision">Research TIFF &amp; validation receipt</a>
+      <a class="button" href="executive-summary.html">Nine-site executive summary &amp; submission guide</a></div>
+      </div><aside class="hero-side"><strong>DO NOT SUBMIT</strong><p>No current artifact is approved.
+      Historical projections cannot establish a leaderboard win. Read the explicit file decision below.</p></aside></div></section>'''
+    return hero, _overview_body(card, hero_rbu=False)
 
 
 def _overview_body(card, *, hero_rbu: bool):
     s = card["holdout_dti"]
     delta = card["paired_difference"]
     final = card["registry"]["final"]
-    magrest_notice = '''<div class="notice"><strong>2026-10-26 update:</strong> the selector decision below supersedes
-      earlier blanket “DO NOT SUBMIT” banners for upload choice only. MAGREST itself remains DO NOT SUBMIT
-      (failed efficacy screen). Per-lane sections retain their original run-card verdicts for the audit trail.</div>
-      '''
-    body = f'''{selector_decision_section()}{h31y_download_and_gates()}{magrest_notice}{pgr31_download_and_gates()}
+    magrest_notice = '<div class="notice">Historical lane results below are research evidence only, not current upload permission.</div>'
+    body = f'''{selector_decision_section()}{magrest_notice}{h31y_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
       {h31s_download_and_gates()}
       {h31x_download_and_gates()}
       {h31t_download_and_gates()}
@@ -1425,7 +1313,8 @@ def focus_site_summary() -> str:
             f'<td><a href="{url}" target="_blank" rel="noopener">{artifact}</a>'
             f'<br><span class="small">SHA-256 <code>{sha[:12]}…</code></span></td>'
             f'<td>{score:.4f}<br><span class="badge">USER-REPORTED · no organizer receipt</span></td>'
-            f'<td>{method}</td><td>{overlap_text}</td></tr>'
+            f'<td>{method}</td><td>{overlap_text}<br>Not a unique new submission</td>'
+            f'<td>Unavailable — no validated forecast</td><td>Prior-art download only; DO NOT SUBMIT</td></tr>'
         )
     return f'''<section id="focus-sites"><div class="section-head"><div>
       <p class="kicker">Nine requested repositories · highest claim per site</p>
@@ -1437,7 +1326,7 @@ def focus_site_summary() -> str:
         The selected files are prior art; each has &gt;70% of its positive dots within 3 px of the pinned H33 raster
         (the reference itself is 100%). Do not copy or rename them. Every score in this table remains USER-REPORTED.</div>
       <div class="table-wrap"><table><thead><tr><th>Site</th><th>Highest listed artifact (pinned mirror)</th>
-        <th>Claimed score</th><th>Method / interpretation</th><th>Measured relation to H33</th></tr></thead>
+        <th>Claimed score</th><th>Method / interpretation</th><th>Measured relation to H33</th><th>Estimated score</th><th>Permission</th></tr></thead>
         <tbody>{''.join(rendered)}</tbody></table></div>
       <p class="small">The table shortens each SHA-256 for readability; full digests and evidence classes are in the <a href="register/index.html">submission register</a> and <code>registry/focus_review.json</code>.</p>
       <p class="small"><strong>GEMSDOE31 irregularity:</strong> the user-listed 0.2708 H27-4 claim conflicts with the pinned owner-page status
@@ -1501,17 +1390,13 @@ def review_notice():
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     focus_summary = focus_site_summary()
-    return h31y_decision_banner() + f'''<div class="notice"><strong>Exactly one file on this site is cleared to submit: the selector
-      primary named in the banner above and in the selector decision directly below</strong> (hash, portal name/note
-      and labelled estimates there). H31-T, H31-J and H31-M remain gated alternates from the same audit.
-      Every other download — including the newest H31-Y lane, H31-U, H31-S, XFCOH31, CONCORD31, RBU31-B, HVDC,
-      SCGP and MAGREST — is <strong>DO NOT SUBMIT</strong> (research only)
-      for the gate failures listed in the table. Validation is fully automated; no human inspector is involved.
-      The literal 695-raster overlap reading still fails for every possible file and is disclosed in the decision;
-      promotions use discrete-peer uniqueness under owner-directed rescope IR-U-02.</div>
+    return f'''<div class="notice notice-danger"><strong>No file is cleared to submit under the current protocol.</strong>
+      Download and format validation are separate from uniqueness, scientific efficacy and selector approval.
+      No human sign-off can override a failed gate.</div>
       {selector_decision_section()}
-      {h31y_download_and_gates()}
       {review_notice()}
+      {h31y_download_and_gates()}
+      {h31ym_download_and_gates()}
       {pgr31_download_and_gates()}
       {focus_summary}
       {h31s_download_and_gates()}
@@ -1528,10 +1413,10 @@ def executive(card):
         <p>File validity, registry uniqueness and scientific efficacy are separate questions.</p></div>
         <div class="card"><ul>{failed}</ul></div>
       </section>
-      <section><div class="section-head"><div><p class="kicker">For the approved candidate above</p><h2>How to enter a submission</h2></div>
-        <p>Step-by-step for the selector-primary file named in the banner/selector decision above. Upload is manual; this project never contacts DrivenData.</p></div>
+      <section><div class="section-head"><div><p class="kicker">For a future approved candidate</p><h2>How to enter a submission</h2></div>
+        <p>No current file is cleared; these are future instructions only. Upload is manual; this project never contacts DrivenData.</p></div>
         <div class="card"><ol>
-          <li>Confirm <code>registry/selector_decision_20261026.json</code> lists the exact primary file and SHA-256 shown in the banner above (also in <code>registry/selector_update_20261026_a111fe50.json</code>), and re-download so bytes match that hash. Do not substitute the H31-Y, H31-T, or any research file.</li>
+          <li>Confirm <code>registry/selector_decision_20261026.json</code> lists the exact file and full SHA-256 as an approved primary submission, and re-download so bytes match that hash.</li>
           <li>Download the approved <code>.tif</code> or the ZIP containing that single TIFF. Do not upload a report, run-card JSON, input feature stack or multi-file ZIP.</li>
           <li>Use your own <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData competition page</a> to open New submission, accept the rules and check the remaining weekly quota. This project does not know or spend your current quota.</li>
           <li>Under File to submit, select that approved file. Use its generated unique name and paste its note (at most 140 characters) into Note (optional).</li>

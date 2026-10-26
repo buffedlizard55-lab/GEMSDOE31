@@ -1,0 +1,55 @@
+{
+ "lane": "H31-Y",
+ "lines": [
+  "SYNTH",
+  "ANTI",
+  "GRAVPIED",
+  "BASEPIED",
+  "CTRL",
+  "SLOPE"
+ ],
+ "shape": [
+  3730,
+  3292
+ ],
+ "lidar_ok_pixels": 3894460,
+ "receipts": {
+  "SYNTH": {
+   "min": 0.2960349917411804,
+   "max": 1.0,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "ANTI": {
+   "min": 0.39383384585380554,
+   "max": 1.0,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "GRAVPIED": {
+   "min": 0.14270667731761932,
+   "max": 0.9995276927947998,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "BASEPIED": {
+   "min": 0.142760768532753,
+   "max": 0.9944713711738586,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "CTRL": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "SLOPE": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  }
+ },
+ "note": "label-free footprint percentile-rank lines; see preregistration"
+}

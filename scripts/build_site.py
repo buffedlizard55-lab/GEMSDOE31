@@ -1316,6 +1316,9 @@ def build_experiment_page(exp: dict) -> str:
 
 
 def main() -> None:
+    # Re-read the currently advertised artifact/witness before rendering permission.
+    from verify_protocol_review import main as verify_protocol_review
+    verify_protocol_review()
     if load("registry/current_run.json"):
         from verify_current_run import verify
         readiness = verify()
@@ -1353,7 +1356,10 @@ def main() -> None:
     for exp in EXPERIMENTS:
         pages[DOCS / "experiments" / f"{exp['slug']}.html"] = build_experiment_page(exp)
     feed_json, feed_html = build_feed(submissions, buffer_derivation, union, arms, sources)
-    pages[DOCS / "feed.json"] = feed_json
+    feed_data = json.loads(feed_json)
+    feed_data["current_protocol_review"] = load("evidence/review_9883b598/run_card.json")
+    feed_data["current_selector_decision"] = load("registry/selector_decision_20261026.json")
+    pages[DOCS / "feed.json"] = json.dumps(feed_data, indent=1, allow_nan=False) + "\n"
     pages[DOCS / "feed.html"] = feed_html
 
     for path, text in pages.items():

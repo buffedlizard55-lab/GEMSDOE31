@@ -1,3 +1,12 @@
+# Current override — session 9883b598
+
+**DO NOT SUBMIT.** Current literal owner protocol supersedes prior discrete-only selector approvals.
+[Current review](2026-10-26_protocol_review_9883b598.md). No new TIFF or fit after duplicate STOP.
+`evidence/review_9883b598/run_card.json` rechecks existing H31-X format and lattice overlap.
+All remaining text below is historical, not current upload permission.
+
+---
+
 # Current project status — 2026-10-26
 
 ## H31-X session update (2026-10-26 · branch `arena/3ce68fc7-gemsdoe31`) — READ FIRST
@@ -142,16 +151,16 @@ literal 695-raster failure disclosed (IR-U-02; lattice covers 99.87% of footprin
 No upload, slot, or leaderboard access occurred. Executive summary:
 `knowledge/2026-10-26_selector_executive_summary.md`.
 
-## H31-Y session update (2026-10-26 · branch `arena/a111fe50-gemsdoe31`) — READ FIRST
+## H31-YM session update (2026-10-26 · branch `arena/a111fe50-gemsdoe31`, integrated after PRs #45/#46)
 
-**Primary file unchanged (H31-X, see above), but its PROJECTION 0.355 is WITHDRAWN.** Cross-family
+**Governance: no file approved (literal STOP, see protocol review). The H31-X PROJECTION 0.355 is additionally quantified-withdrawn by this session's audit.** This session originally ran under the branch-point discrete-peer rescope; on merge its lane was renamed H31-YM (KIN-PIED keeps H31-Y) and no promotion from it survives. Cross-family
 calibration audit (`evidence/cross_family_calibration_20261026.json`): selector M1 formula RMSE
 0.196/bias +0.135 out-of-family (n=67); best cross-family M3 LOO RMSE 0.090 ≈ predict-the-mean.
 Corrected H31-X PROJECTION: M3 central 0.125, interval [-0.061, 0.311]. No candidate has a
-defensible live point estimate. Full audit: `knowledge/2026-10-26_h31y_projection_audit.md`;
-selector record: `registry/selector_update_20261026_a111fe50.json`.
+defensible live point estimate. Full audit: `knowledge/2026-10-26_projection_crossfamily_audit_a111fe50.md`;
+record: `registry/projection_audit_update_20261026_a111fe50.json`.
 
-New lane **H31-Y regime-mosaic** (preregistered `knowledge/2026-10-26_h31y_preregistration.md`,
+New lane **H31-YM regime-mosaic** (executed as H31-Y) (preregistered `knowledge/2026-10-26_h31ym_mosaic_preregistration.md`,
 3 experiments): unique format-valid TIFF
 `gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif` (SHA-256 `41f1e63a…`),
 verdict **negative — DO NOT SUBMIT** (G3/G4 fail). HOLDOUT-DTI 0.1550 [0.1401, 0.1701]
@@ -161,7 +170,6 @@ exactly); piedmont subgroup Y3 0.0684 vs Y2 0.0203 (TPw 2,172 vs 642); confirmat
 Y3 0.1406 < Y2 0.1501 > CTRL 0.0573; SGMC 0.0873 < H33 0.0940 < H31-X 0.1209; canary max
 two-sided AUC 0.76; unique max overlap 59.4% (vs H31-X), 45.9% vs H33. Break-even: mosaic wins
 only if hidden truth >57% piedmont (catalogue 48%). Executive summary (nine-site table with
-labelled estimates + how to submit): `knowledge/2026-10-26_h31y_executive_summary.md`.
-Site regenerated with one consistent submit decision (top banner/hero/selector previously
-named three different files). Next lane (fresh preregistration required): marginal-credit
+labelled estimates + how to submit): `knowledge/2026-10-26_h31ym_executive_summary.md`.
+Site integrated under main's literal-STOP decision with an added H31-YM section (this session had originally found the same three-file contradiction the protocol review fixed). Next lane (fresh preregistration required): marginal-credit
 regime allocation ≈70–80% mountain. Zero slots spent; DrivenData never contacted.
