@@ -68,7 +68,7 @@ def shell(prefix: str, title: str, description: str, current: str, hero: str, bo
     current_attr = ' aria-current="page"'
     active_run = load("registry/current_run.json")
     if active_run and current not in {"Overview", "Executive summary", "Research"}:
-        prefix_notice = f'<div class="notice"><strong>Current run: MAGREST · research only, not approved for upload.</strong><a href="{prefix}executive-summary.html">New TIFF and automated submission decision</a>. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores. MAGREST uses an inherited 21.3 km collar; its own range is unknown.</div>'
+        prefix_notice = f'<div class="notice"><strong>Newest candidate: RBU31 regime-balanced union (Experiment 13) — its automated OK / DO-NOT-SUBMIT verdict is on the <a href="{prefix}executive-summary.html">executive summary</a>.</strong> MAGREST and H31-E2 keep their own earlier verdicts there. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores.</div>'
         body = prefix_notice + body
     nav = "".join(
         '<a href="{p}{h}"{c}>{l}</a>'.format(p=prefix, h=href, c=current_attr if label == current else "", l=e(label))
@@ -98,7 +98,7 @@ def shell(prefix: str, title: str, description: str, current: str, hero: str, bo
   </main>
   <footer class="footer"><div class="wrap footer-inner">
     <p>{footer_left or "Every figure on this site is generated from measured artifacts in the repository."}</p>
-    <p><a href="{prefix}feed.html">Evidence feed</a> · <a href="{prefix}ai-disclosure.html">AI use</a> · <a href="{REPO}">Repository</a></p>
+    <p><a href="{prefix}feed.html">Evidence feed</a> · <a href="{prefix}xfcoh31.html">XFCOH31</a> · <a href="{prefix}ai-disclosure.html">AI use</a> · <a href="{REPO}">Repository</a></p>
   </div></footer>
 </body>
 </html>
@@ -257,7 +257,13 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     if current:
         hero, body = current_site.overview(current)
         body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
-        return shell("", "Overview", "Download the new MAGREST research TIFF. Format-valid; not approved for upload.",
+        rbu = load("evidence/regime31b/run_card.json") or load("evidence/regime31/run_card.json")
+        desc = ("Download the new MAGREST research TIFF. Format-valid; not approved for upload."
+                if not rbu else
+                ("RBU31 regime-balanced union: newly computed, duplicate-screened GeoTIFF passing every automated "
+                 "validation gate. OK to download and submit." if rbu.get("ok_to_download_and_submit") else
+                 "Newest candidate RBU31 failed an automated validation gate; research only, do not submit."))
+        return shell("", "Overview", desc,
                      "Overview", hero, body, "Maximize P(Win) · Own the Outcome · negative results preserved.")
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
@@ -387,10 +393,20 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     current = load("registry/current_run.json")
     if current:
-        return shell("", "Executive summary", "New research TIFF, exact validation status, and portal workflow for a future approved file.",
-                     "Executive summary", page_hero("Download + submission guide", "Download for research. Do not submit.",
-                     "The file, unique name, note and automated decision are together below. No weekly slot is authorized."),
-                     current_site.executive(current))
+        rbu = load("evidence/regime31b/run_card.json") or load("evidence/regime31/run_card.json")
+        if rbu and rbu.get("ok_to_download_and_submit"):
+            hero = page_hero("Download + submission guide", "OK to download and submit: RBU31.",
+                             "The approved file, its unique name, portal note and gate-by-gate automated decision "
+                             "are together below. Older artifacts keep their own do-not-submit verdicts.")
+        elif rbu:
+            hero = page_hero("Download + submission guide", "Do not submit.",
+                             "The newest candidate RBU31 failed an automated gate; its file, unique name, note and "
+                             "exact failed gates are together below for research only.")
+        else:
+            hero = page_hero("Download + submission guide", "Download for research. Do not submit.",
+                             "The file, unique name, note and automated decision are together below. No weekly slot is authorized.")
+        return shell("", "Executive summary", "New candidate TIFF, exact automated validation status, and the portal workflow.",
+                     "Executive summary", hero, current_site.executive(current))
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
     variants = table(
@@ -1217,6 +1233,11 @@ EXPERIMENTS = [
          question="Does translation-invariant multi-physics cross-gradient concordance + 1 m LiDAR scarp polarity + submodular 300 m allocation beat Baseline-D on the 21.3 km whole-segment holdout?",
          verdict="Measured: +0.0352 screen (4/4 folds) and +0.0259 (+29.3%, 95 % CI [+0.0167, +0.0355]) fresh confirmation HOLDOUT-DTI; +13.0 % on Piedmont SGMC over GEMSDOE32 H33-2-B2 (0.1233 vs 0.1091); held from auto-slot by strict G5b mountain SGMC (0.0816 vs 0.0940) and the literal 5x5 calibration-lattice rule.",
          detail="Evaluated under gemsdoe31-hide-v2.0 (21.3 km buffer, whole fault components withheld). Exp 1 (H31-E v1, 0.1788 screen / 0.1717 confirm) exposed lateral halo collapse from raw vis_d1_clamped_km (evidence/h31e/exp1_exp2_halo_audit.json). Exp 2 isolated +0.0372 from the 29-offset 300 m submodular allocator. Exp 3 (H31-E2, fa735287) places 11,864 dots (31.5 %) beyond 1.5 km and passes all format, [0,1] range, leakage (max AUC 0.7624), and 22-submission uniqueness checks (max 3-px overlap 51.53 %)."),
+    dict(slug="13-rbu31-regime-union", number=13, title="RBU31 / RBU31-B: regime-balanced union detector + 12 km local standardization (negative)",
+         source="evidence/regime31b/holdout_results.json", status="negative result",
+         question="Does one union HGB (raw-39 + SCGP-40 in the same trees) trained with regime-balanced sample weights — and, as a preregistered amendment, ranked by masked 12 km local standardization — beat Baseline-D on the 21.3 km holdout and H33-2-B2 on off-catalogue SGMC in every regime?",
+         verdict="Negative, both variants. RBU31 screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922 (1/4 folds; SGMC all/piedmont/mountain 0.0736/0.1122/0.0324). RBU31-B improves to 0.0991 (2/4 folds; SGMC 0.0801/0.1236/0.0343) and passes format, leakage (max AUC 0.6118) and uniqueness (max |rho| 0.150, max 3-px dot overlap 53.4 % vs 24 registry/peer rasters incl. the nine focus sites' best), but fails the preregistered >=3/4-fold holdout gate and mountain SGMC vs H33-2-B2 (0.0343 vs 0.0654). Verdict: DO NOT SUBMIT; no fresh confirmation was run after the failed screens.",
+         detail="Preregistered in knowledge/2026-10-25_rbu31_preregistration.md and knowledge/2026-10-25_rbu31b_amendment_preregistration.md; run with scripts/run_rbu31.py on the shared gemsdoe31-hide-v2.0 evaluator (Baseline-D reproduced the H31-E session's 0.09217 exactly). Regime forensics: the catalogue is 72.4 % piedmont while off-catalogue SGMC truth is 62.5 % mountain, and H31-E2's mountain SGMC placement quality (TPw/dot 0.122 vs H33 0.188) motivated the lane. Local standardization at 12 km cannot rebalance regimes that are contiguous at >>12 km scale (piedmont dot share still 77 %). Independent exact-file verification: evidence/regime31b/independent_verification.json. A shared-tool defect in scgp_features.py (retired dist_probe_km/dist_vent_km bands) was fixed once in the shared module and reported in evidence/regime31/shared_tool_defect.json."),
 ]
 
 

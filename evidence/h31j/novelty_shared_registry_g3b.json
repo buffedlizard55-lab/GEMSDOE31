@@ -1,0 +1,33 @@
+{
+  "evidence_class": "COMPUTED literal shared-registry geometry diagnostic (G3b); zero silent exemptions",
+  "calibration_or_density_exemption": false,
+  "registered_counterexample": {
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "cache_file": ".cache/registry-scope/registered-lattice.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif"
+  },
+  "control_positive_pixels": 206895,
+  "control_3px_footprint_coverage": 0.998713,
+  "stages": {
+    "pre_placement_surface": {
+      "spearman_rho": -0.000136,
+      "abs_rho_le_0p90": true,
+      "candidate_support_pixels": 37654,
+      "within_3px_of_control": 37470,
+      "overlap_within_3px": 0.995113,
+      "literal_overlap_le_0p70": false
+    },
+    "post_placement_final_dots": {
+      "spearman_rho": 0.00026,
+      "abs_rho_le_0p90": true,
+      "candidate_support_pixels": 37654,
+      "within_3px_of_control": 37651,
+      "overlap_within_3px": 0.99992,
+      "literal_overlap_le_0p70": false
+    }
+  },
+  "explanation": "Pinned 57GEMSDOE registry includes full-footprint dense prior GEMSDOE48 (5,167,373 positive pixels = 100% of footprint) and 5x5 calibration lattice r13-lattice-s5 (every pixel in Z^2 is <= sqrt(8) = 2.83 px <= 3 px from a lattice point). Spearman |rho| passes cleanly (<= 0.90), while literal 3-px support overlap is mathematically 1.000000 for ANY non-empty subset of the footprint. Disclosed transparently; slot_approved=False."
+}

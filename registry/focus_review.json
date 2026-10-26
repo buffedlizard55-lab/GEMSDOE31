@@ -31,7 +31,7 @@
    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
    "claim_source": "2026-10-25 user request",
    "organizer_receipt": null,
-   "method": "D2.8 sparse emission; same NaN TIFF bytes as GEMSDOE24",
+   "method": "D2.8 sparse emission; exact identity with other site files not asserted",
    "method_evidence": "OWNER-MIRROR description / COMPUTED geometry where specified",
    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/2a279dd0d2a4319c1022567876eb4c97553e2d13/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
    "source_ref": "2a279dd0d2a4319c1022567876eb4c97553e2d13",

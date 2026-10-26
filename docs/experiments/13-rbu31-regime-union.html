@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Does one union HGB (raw-39 + SCGP-40 in the same trees) trained with regime-balanced sample weights — and, as a preregistered amendment, ranked by masked 12 km local standardization — beat Baseline-D on the 21.3 km holdout and H33-2-B2 on off-catalogue SGMC in every regime?">
+  <title>Experiment 13 · RBU31 / RBU31-B: regime-balanced union detector + 12 km local standardization (negative) · GEMSDOE31</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html" aria-label="GEMSDOE31 home"><span class="brand-mark">G31</span><span>GEMSDOE31</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../index.html">Overview</a><a href="../executive-summary.html">Executive summary</a><a href="../research.html">Research</a><a href="../validation.html">Validation</a><a href="../register/index.html">Register</a><a href="../experiments/index.html" aria-current="page">Experiments</a><a href="../sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Experiment 13 · negative result</p>
+      <h1>RBU31 / RBU31-B: regime-balanced union detector + 12 km local standardization (negative)</h1>
+      <p class="hero-lede">Negative, both variants. RBU31 screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922 (1/4 folds; SGMC all/piedmont/mountain 0.0736/0.1122/0.0324). RBU31-B improves to 0.0991 (2/4 folds; SGMC 0.0801/0.1236/0.0343) and passes format, leakage (max AUC 0.6118) and uniqueness (max |rho| 0.150, max 3-px dot overlap 53.4 % vs 24 registry/peer rasters incl. the nine focus sites&#x27; best), but fails the preregistered &gt;=3/4-fold holdout gate and mountain SGMC vs H33-2-B2 (0.0343 vs 0.0654). Verdict: DO NOT SUBMIT; no fresh confirmation was run after the failed screens.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+<div class="notice"><strong>Newest candidate: RBU31 regime-balanced union (Experiment 13) — its automated OK / DO-NOT-SUBMIT verdict is on the <a href="../executive-summary.html">executive summary</a>.</strong> MAGREST and H31-E2 keep their own earlier verdicts there. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores.</div>    <section>
+      <div class="section-head">
+        <div><p class="kicker">Experiment 13</p><h2>RBU31 / RBU31-B: regime-balanced union detector + 12 km local standardization (negative)</h2></div>
+        <p>Does one union HGB (raw-39 + SCGP-40 in the same trees) trained with regime-balanced sample weights — and, as a preregistered amendment, ranked by masked 12 km local standardization — beat Baseline-D on the 21.3 km holdout and H33-2-B2 on off-catalogue SGMC in every regime?</p>
+      </div>
+      <div class="notice"><strong>Negative result</strong>Negative, both variants. RBU31 screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922 (1/4 folds; SGMC all/piedmont/mountain 0.0736/0.1122/0.0324). RBU31-B improves to 0.0991 (2/4 folds; SGMC 0.0801/0.1236/0.0343) and passes format, leakage (max AUC 0.6118) and uniqueness (max |rho| 0.150, max 3-px dot overlap 53.4 % vs 24 registry/peer rasters incl. the nine focus sites&#x27; best), but fails the preregistered &gt;=3/4-fold holdout gate and mountain SGMC vs H33-2-B2 (0.0343 vs 0.0654). Verdict: DO NOT SUBMIT; no fresh confirmation was run after the failed screens.</div>
+      <div class="content"><p>Preregistered in knowledge/2026-10-25_rbu31_preregistration.md and knowledge/2026-10-25_rbu31b_amendment_preregistration.md; run with scripts/run_rbu31.py on the shared gemsdoe31-hide-v2.0 evaluator (Baseline-D reproduced the H31-E session&#x27;s 0.09217 exactly). Regime forensics: the catalogue is 72.4 % piedmont while off-catalogue SGMC truth is 62.5 % mountain, and H31-E2&#x27;s mountain SGMC placement quality (TPw/dot 0.122 vs H33 0.188) motivated the lane. Local standardization at 12 km cannot rebalance regimes that are contiguous at &gt;&gt;12 km scale (piedmont dot share still 77 %). Independent exact-file verification: evidence/regime31b/independent_verification.json. A shared-tool defect in scgp_features.py (retired dist_probe_km/dist_vent_km bands) was fixed once in the shared module and reported in evidence/regime31/shared_tool_defect.json.</p></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Artifact</p><h2>Measured values, as written by the script</h2></div>
+        <p>Source file: <code>evidence/regime31b/holdout_results.json</code> — rendered here directly from the JSON, not transcribed.</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>field</th><th>value</th></tr></thead><tbody><tr><td><code>candidate</code></td><td>RBU31-B locally-standardized regime-balanced union (raw39 + SCGP40)</td></tr><tr><td><code>variant</code></td><td>local</td></tr><tr><td><code>preregistration</code></td><td>knowledge/2026-10-25_rbu31b_amendment_preregistration.md</td></tr><tr><td><code>evaluator_version</code></td><td>gemsdoe31-hide-v2.0</td></tr><tr><td><code>generated_utc</code></td><td>2026-10-25T23:21:16Z</td></tr><tr><td><code>experiments_budget</code></td><td>3</td></tr><tr><td><code>fold_training</code></td><td><code>[{&quot;fold&quot;: &quot;NW&quot;, &quot;train_positives&quot;: 43324, &quot;train_negatives_sampled&quot;: 120000, &quot;pos_piedmont&quot;: 32082, &quot;pos_mountain&quot;: 11165, &quot;fit_seconds&quot;: 48.7}, {&quot;fold&quot;: &quot;NE&quot;, &quot;train_positives&quot;: 45775, &quot;train_negatives_sampled&quot;: 120000, &quot;pos_piedmont&quot;: 31854, &quot;pos_mountain&quot;: 13844, &quot;fit_seconds&quot;: 66.8}, {&quot;fold&quot;: &quot;SW&quot;, &quot;train_positives…</code></td></tr><tr><td><code>union_features</code></td><td><code>[&quot;raw::mag_anom&quot;, &quot;raw::rtp&quot;, &quot;raw::tmi_hg&quot;, &quot;raw::geod_2ndinv&quot;, &quot;raw::iso_grav_anom_slope&quot;, &quot;raw::tc&quot;, &quot;raw::geod_shearrate&quot;, &quot;raw::geod_dilaterate&quot;, &quot;raw::tmi_vg&quot;, &quot;raw::deq_n100a15&quot;, &quot;raw::iso_grav_anom_vg&quot;, &quot;raw::det_elev&quot;, &quot;raw::iso_grav_anom&quot;, &quot;raw::tmi&quot;, &quot;raw::depth_to_base_surf&quot;, &quot;raw::ieq_n100a15&quot;, &quot;raw::cond_…</code></td></tr><tr><td><code>leakage_canary</code></td><td><code>{&quot;features_tested&quot;: 79, &quot;max_two_sided_auc&quot;: 0.611808, &quot;passed&quot;: true}</code></td></tr><tr><td><code>experiment_1_screen_draw_101</code></td><td><code>{&quot;draw&quot;: 101, &quot;withheld_segments_by_fold&quot;: [197, 221, 344, 213], &quot;leakage_canary_summary&quot;: {&quot;features_tested&quot;: 79, &quot;max_two_sided_auc&quot;: 0.611808, &quot;passed&quot;: true}, &quot;baseline_d_poisson&quot;: {&quot;evaluator_version&quot;: &quot;gemsdoe31-hide-v2.0&quot;, &quot;pooled_dti&quot;: 0.0921712554276685, &quot;ci95&quot;: [0.07680232955378505, 0.10910299542654063], &quot;wit…</code></td></tr><tr><td><code>screen_pass</code></td><td>no</td></tr><tr><td><code>experiment_3_sgmc_proxies</code></td><td><code>{&quot;evidence_class&quot;: &quot;COMPUTED (off-catalogue SGMC proxy; not a competition score)&quot;, &quot;truth_pixels&quot;: {&quot;all&quot;: 61664, &quot;piedmont&quot;: 23135, &quot;mountain&quot;: 38492}, &quot;candidates&quot;: {&quot;rbu31&quot;: {&quot;dots&quot;: 37654, &quot;sgmc_all_dti&quot;: 0.0800969869550875, &quot;sgmc_piedmont_dti&quot;: 0.12356479371977941, &quot;sgmc_mountain_dti&quot;: 0.034313777323608435}, &quot;base…</code></td></tr><tr><td><code>duplicate_canary_summary</code></td><td><code>{&quot;checked_count&quot;: 24, &quot;max_surface_spearman_rho&quot;: 0.150244, &quot;max_surface_topn_within_3px&quot;: 0.655415, &quot;max_final_dots_spearman_rho&quot;: 0.044173, &quot;max_final_dots_within_3px&quot;: 0.534073, &quot;duplicates&quot;: [], &quot;passed&quot;: true}</code></td></tr><tr><td><code>automated_gates</code></td><td><code>{&quot;G1_format_and_range_0_1_pass&quot;: true, &quot;G2_leakage_canary_pass&quot;: true, &quot;G3a_uniqueness_genuine_registry_pass&quot;: true, &quot;G3b_literal_695_registry_lattice&quot;: &quot;UNIVERSAL_DEGENERACY_DISCLOSED (spacing-5 lattice covers 100% of interior within 3px for any candidate; see preregistration \u00a75)&quot;, &quot;G4_holdout_screen_and_fresh_co…</code></td></tr><tr><td><code>submission</code></td><td><code>{&quot;name&quot;: &quot;gemsdoe31-rbu31b-localunion-37654-20261025-b7585935&quot;, &quot;note&quot;: &quot;GEMSDOE31 RBU31-B local-standardized union 37654d | HOLDOUT-DTI 0.0991 vs 0.0922 | id b7585935&quot;, &quot;note_chars&quot;: 94, &quot;dots&quot;: 37654, &quot;sha256_nan&quot;: &quot;7b57519fdbcf594231043730c9d86042182c968cd2479be63a8c8a5ea9c71e98&quot;, &quot;sha256_allfinite&quot;: &quot;07c939198a9145…</code></td></tr><tr><td><code>elapsed_seconds</code></td><td>678.700000</td></tr></tbody></table></div>
+      <p class="small">Full artifact:
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/regime31b/holdout_results.json" target="_blank" rel="noopener">view in the repository</a>.</p>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="wrap footer-inner">
+    <p>Artifact: evidence/regime31b/holdout_results.json. Generated by scripts/build_site.py.</p>
+    <p><a href="../feed.html">Evidence feed</a> · <a href="../xfcoh31.html">XFCOH31</a> · <a href="../ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+  </div></footer>
+</body>
+</html>

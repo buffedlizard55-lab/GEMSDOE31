@@ -1,0 +1,35 @@
+{
+ "allfinite": {
+  "file": "gemsdoe31-concord31-minbd-concordance-28115-20261026-allfinite.tif",
+  "sha256": "e7463b56aedc30263a08e9318bd8f336ab424f2c236734017e5b5cba75b89882",
+  "bytes": 123171,
+  "crs": "EPSG:32611",
+  "shape": [
+   3730,
+   3292
+  ],
+  "dtype": "float32",
+  "nan_inside_footprint": 0,
+  "values_in_0_1": true,
+  "outside": "zeros",
+  "positive_pixels": 28115,
+  "pass": true
+ },
+ "nan": {
+  "file": "gemsdoe31-concord31-minbd-concordance-28115-20261026-nan.tif",
+  "sha256": "073b5f031ace199507d3a8765f8681fd02f60f76c3b5888c5c6bdecbadd96a7e",
+  "bytes": 167071,
+  "crs": "EPSG:32611",
+  "shape": [
+   3730,
+   3292
+  ],
+  "dtype": "float32",
+  "nan_inside_footprint": 0,
+  "values_in_0_1": true,
+  "outside": "nan",
+  "positive_pixels": 28115,
+  "pass": true
+ },
+ "duplicate_stop": false
+}

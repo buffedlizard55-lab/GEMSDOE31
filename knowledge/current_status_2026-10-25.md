@@ -1,13 +1,26 @@
-# Current status — 2026-10-25 (H31-E2 SCGP-Submod + MAGREST integrated record)
+# Current status — 2026-10-25 (H31-J TGTD-Submod + H31-E2 SCGP-Submod + MAGREST integrated record)
 
-Read the complete owner prompt at the end of README, AGENTS, [H31-E preregistration](2026-10-25_h31e_preregistration.md), the frozen MAGREST preregistration, this record and `registry/review_passes.json` before continuing.
+Read the complete owner prompt at the end of README, AGENTS, [H31-J preregistration](2026-10-25_h31j_tgtd_preregistration.md), [H31-E preregistration](2026-10-25_h31e_preregistration.md), the frozen MAGREST preregistration, this record and `registry/review_passes.json` before continuing.
+
+## Latest lane (H31-J TGTD-Submod · `gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8`)
+
+- **Primary All-Finite `[0, 1]` GeoTIFF & Single-TIFF ZIP:** `docs/downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.tif` (`04e886cd8f7759e05d5fabb5d7222aaed0d16fda59fdf81e5934c5508eaf3fa3`) and `-zeros.zip` (`44142a9671e4beaa4872a8d5fc11e061f8050ac3e48a4573b415329227536657`); companion NaN-outside `-nan.tif` (`2dcc3a5be6545b51823b9c4385fa436eb19bcde9b21b663156b85e8bcfe79027`) and `-nan.zip` (`12adfb41daa2076f0daa67c9b33c9190948ef6e22cd20440fd4fd06f5aa25aa2`); `37,654` off-catalogue binary dots (`57.59%` beyond `1.5 km`, `0` on catalogue, `0` within `200 m` collar, `0` copied dots).
+- **Automated technical & scientific gates (`evidence/h31j/run_card.json`, verified by `scripts/verify_h31j.py`):**
+  - `G1` Format & `[0, 1]` Range **PASS** (`-zeros.tif` all `12,279,160` finite in `[0.0, 1.0]`; `-nan.tif` all `5,167,373` footprint cells finite in `[0.0, 1.0]` and `NaN` outside);
+  - `G2` Single-Feature Leakage Canary **PASS** (`260/260` checks `<= 0.90`, `max sym AUC = 0.8059`, `max miss AUC = 0.5646`, `dist_known_fault_px` excluded);
+  - `G3a` Discrete Comparator Subset (`142` files / `63` distinct fields across `GEMSDOE24..36 + 31 + 70` — subset only, not broad uniqueness approval) **PASS** (pre-placement continuous `|ρ| = 0.1563 <= 0.90` + disclosed diagnostic unspaced `d=0` clump overlap `80.13%`; final placed `37,654` dots `|ρ| = 0.0370 <= 0.90`, `max 3-px overlap = 65.14% <= 70.0%`);
+  - `G4a` Screen (`HOLDOUT-DTI`, `gems57-pooled-hide-v2`, `seed=31`, `21.3 km` buffer, `n=2,901`) **PASS** (`0.0897 [0.0627, 0.1149]` vs `physical_hgb 0.0483`, `Δ = +0.0414 [+0.0168, +0.0649]`, `+85.7%`, `4/4` quadrants won; `H31-J1` subsurface-only `= 0.0653`; `H31-J2` Poisson `= 0.0862`);
+  - `G4b` Fresh Untouched Confirmation (`HOLDOUT-DTI`, `gems57-pooled-hide-v2`, `seed=32`, `21.3 km` buffer, `n=2,808`) **PASS** (`0.0772 [0.0456, 0.1076]` vs `physical_hgb 0.0482`, `Δ = +0.0290 [+0.0123, +0.0475]`, `+60.2%`, `4/4` quadrants won = **`8/8` quadrants across both seeds**);
+  - `G5` Own-Method OOF Residual Semivariogram **PASS** (`95%`-sill practical range `= 10,719.8 m <= 21,300 m` buffer, covering `99.74%` of sill, $R^2 = 0.7911$);
+  - `G6` Off-Catalogue `SGMC > 300 m` Discovery Proxy (`HOLDOUT-PROXY-SGMC`, report-only, matched `37,654` dots) **REPORTED WIN** (All-elevation `0.1064` vs `GEMSDOE32 H33-2-B2 = 0.0923`, `+15.2%`; Piedmont `< 100 m` `0.1474` vs `H33-2-B2 = 0.1130`, `+30.5%`, and vs `H31-E2 = 0.1289`, `+14.4%`).
+- **Submission-safety & weekly-slot governance (`slot_approved = false`):** Held as research-only (`DO NOT SUBMIT`) per Rule 6 and binding literal `G3b` shared-registry `5×5` synthetic lattice overlap (`r13-lattice-s5` covers `99.99%` of interior pixels within `2.83 <= 3 px`); no human sign-off can override a failed literal gate without a formal protocol amendment.
 
 ## Submission-safety correction (current review)
 
 No artifact is approved for submission. H31-E2's 22-comparator PASS is a historical subset result,
 not a broad-registry uniqueness pass. Literal registry STOP is binding, not merely an automatic-selector
 hold that a human can override. See [review](review_2026-10-25_submission_safety.md).
-No new experiment or TIFF is permitted in this stopped lane.
+No new experiment or TIFF is permitted in a stopped lane.
 
 ## Clean-runtime repository review (Arena continuation)
 
@@ -72,3 +85,17 @@ Main then advanced to `7619b61` (H31-E / PR #13); its code, tests, TIFFs, prereg
 PR #14 merged at 21:57:39Z as `3e8854d6b487f7cf65fac853e4333778cb0f061e`; push/PR/main CI and the Pages deployment succeeded. Fresh GitHub API retrieval of all four TIFF/ZIP blobs at that merge matches the reviewed bytes, and the published current run card is identical and denies upload. `evidence/magrest_delivery_release14_20261025.json` records the commit-specific API proof and limitations (public Pages HTTP and CI logs unavailable under the host allowlist). 89 local tests, 20 pages/281 local links, and 15 local browser viewport checks/six exact downloads passed.
 
 A final wording-only follow-up removes an incorrect “failed confirmation” phrase (confirmation was never run), and withdraws “independent” from the SGMC proxy description because mapping-lineage independence is not established. No data, metric, TIFF or negative/STOP decision changes. The separate selector still has no candidate/slot authorization.
+
+## Arena follow-up review (2026-10-25)
+
+No new experiment or TIFF was authorized. The review's ranked four-hypothesis shortlist is desk-only; the active lane remains closed by the universal full-footprint overlap witness, missing assigned method paragraph, and exhausted three-experiment budget. The existing MAGREST raster remains **OK TO DOWNLOAD FOR RESEARCH ONLY — DO NOT SUBMIT**.
+
+Final clean-runtime verification after restoring the two small pinned input files: 112 pytest tests passed; Ruff passed; DTI fast/brute maximum absolute difference was 4.441e-16; exact-run verifier returned `verdict=negative`, `ok_to_submit=false`; site build/check passed 20 pages and 320 local links. Report: [`knowledge/repo_review_2026-10-25_arena_followup.md`](repo_review_2026-10-25_arena_followup.md). Three current review-pass records are appended to `registry/review_passes.json`.
+
+## 2026-10-26 review continuation
+
+No new experiment, TIFF, or slot was used. Added a generated nine-site highest-claim matrix to the executive summary, with pinned artifact links, hashes, USER-REPORTED labels, and explicit prior-art/no-upload wording. Corrected an unsupported statement that the GEMSDOE25 and GEMSDOE24 TIFFs were exact same bytes; hashes differ and no cross-site pixel identity is now asserted. Full review and limitations: [`repo_review_2026-10-26.md`](repo_review_2026-10-26.md).
+
+Verification after restoring the two exact small inputs: 118 pytest tests passed; Ruff passed; `verify_current_run.py --restore-small-inputs` returned `verdict=negative`, `ok_to_download_for_research=true`, `ok_to_submit=false` for the unchanged MAGREST hash; fast/brute DTI maximum difference `4.441e-16` over 24 grids; regenerated site check passed 21 pages and 364 local links. Initial tests before small-input restoration had 6 documented skips; those were rerun after restore. The full evidence collector reported 124 experiment artifacts and 10 submission records. Its temporary registry/readiness churn was restored where unrelated to this review.
+
+The executive matrix ranks the highest supplied claim at GEMSDOE32 H33-2-B2 (`0.2778`, USER-REPORTED), but does not establish an official rank or score. The active duplicate witness, missing assigned method paragraph, exhausted experiment budget and non-authenticated competition inputs remain blockers. No upload or leaderboard access occurred.
