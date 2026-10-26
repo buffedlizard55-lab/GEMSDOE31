@@ -1293,6 +1293,21 @@
     "full registry coverage and organizer-authenticated template/score receipt unavailable"
    ],
    "historical_scope": false
+  },
+  {
+   "id": "arena-review-verification-continuation-2026-10-26",
+   "status": "complete-with-existing-negative-decision-preserved",
+   "scope": [
+    "Independent clean-checkout rerun of the project-prescribed test, lint, metric, exact-run, evidence collection, and generated-site checks. No experiments, TIFFs, slots, uploads, or leaderboard access."
+   ],
+   "verification": {
+    "pytest": "118 passed after the exact verifier restored two pinned small inputs; pre-restore 112 passed and 6 expected skipped",
+    "ruff": "passed",
+    "metric": "fast/brute max absolute DTI difference 4.441e-16 over 24 grids; exact cases passed; 29 kernel offsets inside 300 m",
+    "exact_run": "negative; research download allowed; submission denied; raster SHA-256 c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+    "site": "generated 21 pages and passed 364 local-link checks",
+    "decision": "no new raster; active literal-registry STOP and exhausted lane budget remain binding"
+   }
   }
  ],
  "remaining_work": [
@@ -1317,5 +1332,6 @@
   "pass_3_acceptance_cross_check": "Preregistered amendment RBU31-B (masked 12 km local standardization, frozen H31-B sigma/weights): screen 0.0991, 2/4 folds -> FAIL; fresh confirmation not run per stop rule. Independent byte-level verification (scripts/verify_regime31.py) reproduces hashes, format/[0,1], SGMC proxies and peer overlaps for both candidates. Full check set green (pytest, ruff, check_metric, verify_current_run, collect_evidence, build_site, check_site counts recorded in knowledge/session_review_2026-10-25_rbu31.md). Both verdicts negative; site hero states DO NOT SUBMIT for the newest candidate while H31-E2 keeps its prior verdict.",
   "verdict": "negative (no slot, no organizer-confirmed score)",
   "next": "knowledge/2026-10-25_rbu31c_next_preregistration.md (frozen, not run)"
- }
+ },
+ "latest_verification_continuation": "arena-review-verification-continuation-2026-10-26"
 }
