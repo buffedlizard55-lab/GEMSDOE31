@@ -47,3 +47,13 @@ deduplicated), while the literal 695-raster reading is still computed and disclo
 alternates H31-J/H31-M). Lane run cards keep their original `slot_approved=false` verdicts. If a
 future owner instruction restores the literal reading, all promotions revert to STOP. Nothing else
 in the rules above is relaxed: no DrivenData contact, no unlabelled numbers, fail-closed gates.
+
+## Amendment 2026-10-26 (session arena/9883b598) — current protocol
+
+The current owner prompt restores the literal any-registry check before placement AND on final dots.
+This supersedes IR-U-02 for current permissions. No current file is approved. Do not run the historical
+selector or choose a slot. Read `knowledge/2026-10-26_protocol_review_9883b598.md` and
+`evidence/review_9883b598/run_card.json`. Run `python scripts/verify_protocol_review.py` after restoring
+small inputs. The lattice gives a counting bound for the stated budget, NOT every nonempty raster.
+Preserve historic receipts; do not present cited holdouts as freshly reproduced. A method paragraph
+is absent, so no new scientific lane was assigned in this review.

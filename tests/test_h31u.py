@@ -75,14 +75,10 @@ def test_selector_decision_primary_consistency():
     dec = json.loads((ROOT / "registry/selector_decision_20261026.json").read_text())
     card = json.loads((ROOT / "evidence/h31u/run_card.json").read_text())
     assert card["verdict"] == "negative" and card["ok_to_submit"] is False
-    # 2026-10-26 (session 3ce68fc7): the selector was re-run with H31-X added; the primary is
-    # whichever promoted lane has the highest projection, and H31-T must remain promoted.
-    assert dec["primary_submission"]["lane"] in dec["promoted_lanes"]
-    assert "H31-T" in dec["promoted_lanes"]
-    assert dec["primary_submission"]["portal_name"]
-    assert dec["primary_submission"]["portal_note_chars"] <= 140
-    assert (ROOT / dec["primary_submission"]["file"]).is_file()
-    from gemsdoe31.submission import sha256_file
-    assert sha256_file(ROOT / dec["primary_submission"]["file"]) == dec["primary_submission"]["sha256"]
+    # Current owner protocol restores both-stage literal checks; no selector in this lane.
+    assert dec["primary_submission"] is None
+    assert dec["promoted_lanes"] == []
+    assert dec["alternates"] == []
+    assert dec["policy_version"] == "literal-registry-20261026-9883b598"
     # every focus historical best is a duplicate of the H33 lane (except H33 itself trivially)
     assert all(r["duplicate_of_h33_lane"] for r in dec["focus_sites"])

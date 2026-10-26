@@ -103,8 +103,8 @@
         </tbody></table></div>
       </section>
       <section id="h31x-piedmont-junction" aria-labelledby="h31x-heading">
-      <div class="section-head"><div><p class="kicker">2026-10-26 · New lane H31-X · piedmont-junction range-front contact line</p>
-        <h2 id="h31x-heading">H31-X: unique label-free GeoTIFF · <span class="badge badge-red">lane card: negative (stricter G5) — selector decision above governs upload</span></h2></div>
+      <div class="section-head"><div><p class="kicker">2026-10-26 · Historical lane H31-X · piedmont-junction range-front contact line</p>
+        <h2 id="h31x-heading">H31-X: unique label-free GeoTIFF · <span class="badge badge-red">DO NOT SUBMIT — both-stage registry STOP</span></h2></div>
         <p>Preregistered before any fitting (<a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_h31x_piedmont_junction_preregistration.md">frozen preregistration</a>);
         three experiments, no tuning after EXP-3. Every number is HOLDOUT-DTI, COMPUTED or PROJECTION; nothing is ORGANIZER-CONFIRMED.</p></div>
       <div class="card download-card">
@@ -138,23 +138,19 @@
                 piedmont slope le 6 deg: 0.0433 vs H33 0.0586 (trade-off, disclosed);
                 mountain slope gt 6 deg: 0.1184 vs 0.0827</td>
             <td><span class="badge badge-green">PASS</span></td></tr>
-        <tr><td><code>G5 uniqueness (lane, stricter)</code></td><td>final-dot <em>and</em> pre-placement top-K 3-px overlap ≤ 0.70; |Spearman| ≤ 0.90 vs every discrete peer</td>
+        <tr><td><code>G5 uniqueness (both stages)</code></td><td>final-dot <em>and</em> pre-placement top-K 3-px overlap ≤ 0.70; |Spearman| ≤ 0.90 vs every discrete peer</td>
             <td>final dots max 63.1% (GEMSDOE27 D1.5 field), 57.0% vs H33 ·
-                pre-placement top-K 86.3% (<strong>fails this stricter lane check</strong>) ·
+                pre-placement top-K 86.3% (<strong>fails the required pre-placement check</strong>) ·
                 |Spearman| surface 0.125, dots 0.050 ·
-                literal 695-lattice reading 99.3% (fails for every nonempty raster; disclosed)</td>
+                literal 695-lattice reading 99.3% (fails for this artifact; no universal claim)</td>
             <td><span class="badge badge-red">FAIL</span></td></tr>
         <tr><td><code>G6 projection</code></td><td>anchor-inversion PROJECTION ≥ 0.2778 (never a score)</td>
             <td>PROJECTION 0.3548 [0.349, 0.360] (in-family LOO RMSE 0.0028; cross-family transfer unproven)</td>
             <td><span class="badge badge-green">PASS</span></td></tr>
       </tbody></table></div>
-      <p class="small"><strong>Why the lane card says <code>negative</code> while the selector promotes:</strong> the lane froze a stricter G5 than the
-        owner's duplicate rule — it also tests the raw top-37,654 surface pixels <em>before</em> catalogue-flank pruning and Poisson spacing.
-        That diagnostic is 86% against the GEMSDOE24/27 D1.5 60k-dot fields (29% of those raw pixels lie within 2 px of the catalogue and are
-        pruned before emission; a uniform random field scores 17%; post-hoc diagnostics in <code>evidence/h31x/exp2_posthoc_diagnostics.json</code>).
-        The submitted dots themselves are 63% / 57% (vs H33) within 3 px — under the owner's rule (&gt;70% dots within 3 px, or |rank correlation| &gt; 0.90)
-        the file is <em>not</em> a duplicate, and its surface rank correlation with every peer is ≤ 0.13. The preregistered lane gate is kept as written
-        (no goalpost moved); the uniform selector decision above, whose rules predate this lane, governs the upload choice.</p>
+      <p class="small"><strong>Current correction:</strong> both pre-placement and final-dot checks are required by the owner prompt.
+      The prior selector excluded the pre-placement top-K failure and broad-registry witness. That permission is withdrawn.
+      A discrete-peer subset pass is not a full uniqueness pass. This frozen lane card remains negative.</p>
       <p class="small">Fixed-dot reference arms (H33-2-B2, H31-T, H31-J, H31-B) were scored in the same folds at the previous session's request and
         are <strong>uninformative under this protocol</strong> (0.000–0.011): their authors pruned every dot within 2 px of the <em>full</em> catalogue,
         which removes nearly all 300 m-kernel credit around withheld segments. They are recorded as handicapped references only.</p>

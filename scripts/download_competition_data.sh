@@ -22,7 +22,6 @@ fi
 "$PY" scripts/download_competition_data.py --data-dir data
 "$PY" scripts/prepare_data.py
 echo
-echo "Inputs restored and verified. Next:"
-echo "  python scripts/derive_buffer.py --oof evidence/oof/oof_D_19_plus_lidar_radiometric.npy"
-echo "  python scripts/run_arms.py"
-echo "  python scripts/build_submission.py --help"
+echo "Inputs restored and verified. This does not authorize fitting or submission."
+echo "Read README.md and the current protocol/STOP records before any experiment."
+echo "  python scripts/verify_protocol_review.py"

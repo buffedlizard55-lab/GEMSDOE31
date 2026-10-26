@@ -767,6 +767,41 @@
    "sha256": "f610749147717748f58984e1874830906ae0144442b37a197c662f468f08be68"
   },
   {
+   "path": "evidence/review_9883b598/browser_checks.json",
+   "bytes": 1701,
+   "sha256": "f36873cd45b9361a456534aa1fd34083eae1d4070dff6d8a043c0b51b310c10b"
+  },
+  {
+   "path": "evidence/review_9883b598/checks.json",
+   "bytes": 6847,
+   "sha256": "bc0bc6528d3a46bf9af6abe1f69a59dd01109ccaa4520dc28c3fe7fb867b32cf"
+  },
+  {
+   "path": "evidence/review_9883b598/data_restore.json",
+   "bytes": 5657,
+   "sha256": "692598d6befbddb09eb17fb0ab970e00bca282ea7e6a5f0984ab43c76a05e319"
+  },
+  {
+   "path": "evidence/review_9883b598/official_reference_README.md",
+   "bytes": 2367,
+   "sha256": "cfa4d55559c9128313beb9417eae7e0a94c31677132afb1120f9e86222804239"
+  },
+  {
+   "path": "evidence/review_9883b598/run_card.json",
+   "bytes": 7820,
+   "sha256": "a4615d29ee99738f24ac0bc3cdff868c802af75dcc1462b6ae85709e86d6f37f"
+  },
+  {
+   "path": "evidence/review_9883b598/source_checks.json",
+   "bytes": 2572,
+   "sha256": "830f4c8380f5929b6230798fdd71d4a3a5e4b07c8dbe6833169e21fa21201a9f"
+  },
+  {
+   "path": "evidence/review_9883b598/superseded_selector_decision.json",
+   "bytes": 10709,
+   "sha256": "2ea15a7c60efcbb8df6ee3193fe9a9979b72f822abcfda4f94b9add6651fb0d9"
+  },
+  {
    "path": "evidence/review_run_card_20261026_1028355f.json",
    "bytes": 11716,
    "sha256": "4c32e47cda08a41c51ccaf7bc9b0d5109c974a80e44f97f82c007d33473314a8"
