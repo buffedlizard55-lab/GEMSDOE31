@@ -5,7 +5,7 @@
 
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
-> **Latest session (2026-10-26 · branch `arena/34f326b4-gemsdoe31`): new unique `H31-S` (`UDAP-SSLIC`) GeoTIFF generated and automatically validated.**
+> **Latest reviewed session (2026-10-26): unique `H31-S` (`UDAP-SSLIC`) GeoTIFF generated and automatically validated. Current decision: research download only; DO NOT SUBMIT.**
 > **DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (`DO NOT SUBMIT`, `slot_approved = false`).**
 > [**Download H31-S Research `.tif` (all-finite `[0, 1]` zeros-outside)**](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) ·
 > [NaN-outside twin `.tif`](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif) ·
