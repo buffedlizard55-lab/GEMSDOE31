@@ -14,7 +14,7 @@
 > [JSON Run Card](docs/downloads/h31s-run-card.json) ·
 > [Frozen Preregistration](knowledge/2026-10-26_h31s_udap_sslic_preregistration.md) ·
 > [Nine-Site Executive Summary](docs/executive-summary.html) ·
-> [Full 2026-10-26 Forensic Review](knowledge/repo_review_2026-10-26.md).
+> [Full 2026-10-26 Forensic Review](knowledge/repo_review_2026-10-26_arena_e40c3412.md).
 >
 > - **Unique submission name:** `gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f`
 > - **Note (`92/140` chars):** `H31-S UDAP+HZAD+SSLIC 37654d B2 | HOLDOUT-DTI s41=0.0948 s42=0.0980 | research-only 9355f21d`
@@ -155,12 +155,11 @@
 ## Read first every session
 
 Read this README **including the complete normalized owner prompt at the end**, `AGENTS.md`,
-[latest status](knowledge/current_status_2026-10-25.md),
-[MAGREST preregistration](knowledge/2026-10-25_magrest_preregistration.md),
-[latest outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.
-The earlier H31-A STOP remains historical. The prior session has receipts for all-eleven-input and template-cache restoration,
-but this clean runtime did not contain the full ignored production data/cache; only the small validation inputs and pinned
-registry witness were restored for this review. Do not restart a stopped lane or add a fourth experiment.
+[latest status](knowledge/current_status_2026-10-26.md),
+[latest review](knowledge/repo_review_2026-10-26_arena_e40c3412.md),
+[H31-S preregistration](knowledge/2026-10-26_h31s_udap_sslic_preregistration.md),
+[H31-S run card](evidence/h31s/run_card.json), and `registry/review_passes.json`.
+H31-S is the latest documented experiment: its three-experiment / two-hour budget is exhausted, it fails the preregistered efficacy and literal broad-registry gates, and no assigned method paragraph was supplied. The current checkout has no `data/` inputs; do not restart a stopped lane, spend a slot, or emit another TIFF without a new authorization and protocol.
 
 **Arena core values for this project: Maximize P(Win) · Own the Outcome.**
 

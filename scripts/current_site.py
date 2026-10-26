@@ -806,10 +806,7 @@ def overview(card):
     hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
       <p class="eyebrow">DOE GEMS Prize · 2026-10-26 Preregistered Discovery · Lanes H31-S, H31-T &amp; H31-J</p>
       <h1>DOWNLOAD FOR RESEARCH: YES<br>DO NOT SUBMIT (Registry STOP)</h1>
-      <p class="hero-lede"><strong>H31-S UDAP-SSLIC</strong> (<code>{esc(h31s_sub)}</code>, 37,654 off-catalogue dots; HOLDOUT-DTI 0.0948 screen seed 41 &amp; 0.0980 untouched seed 42 winning 4/4 quadrants vs Physical-HGB &amp; H31-M),
-        <strong>H31-T Transtension-Dinkelbach</strong> (<code>{h31t_sub}</code>), and <strong>H31-J TGTD-Submod</strong> (<code>{h31j_sub}</code>)
-        pass automated EPSG:32611 &amp; strict [0, 1] validation, leakage canaries, and discrete 9-site peer uniqueness (40.8%&ndash;55.7% 3-px overlap).
-        Under the unexempted 695-raster spacing-5 lattice rule (<code>r13-lattice-s5</code>), all candidates remain <strong>not approved for upload</strong> (<code>slot_approved = false</code>; DO NOT SUBMIT).</p>
+      <p class="hero-lede"><strong>H31-S UDAP-SSLIC</strong> (<code>{esc(h31s_sub)}</code>, 37,654 dots; HOLDOUT-DTI 0.0948 on screen seed 41 and 0.0980 on untouched seed 42). It beats Physical-HGB on both seeds, but the preregistered comparison with H31-M fails the screen gate: 1/4 quadrants on seed 41, then 4/4 on confirmation seed 42. The overall efficacy gate is therefore negative. H31-T and H31-J are older research candidates with their own separate receipts. H31-S passes local file-format validation, but fails the literal unexempted 695-raster shared-registry gate (<code>r13-lattice-s5</code>); no candidate is approved for upload.</p>
       <div class="actions">
         <a class="button button-primary" href="downloads/{esc(h31s_sub)}-zeros.tif" download>Download H31-S Research All-Finite [0, 1] .tif (DO NOT SUBMIT)</a>
         <a class="button" href="downloads/{h31t_sub}-zeros.tif" download>Download H31-T Research All-Finite [0, 1] .tif</a>

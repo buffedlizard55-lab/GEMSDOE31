@@ -67,8 +67,22 @@ def shell(prefix: str, title: str, description: str, current: str, hero: str, bo
           footer_left: str = "") -> str:
     current_attr = ' aria-current="page"'
     active_run = load("registry/current_run.json")
+    latest_h31s = load("evidence/h31s/run_card.json")
     if active_run and current not in {"Overview", "Executive summary", "Research"}:
-        prefix_notice = f'<div class="notice"><strong>Newest candidate: RBU31 regime-balanced union (Experiment 13) — its automated OK / DO-NOT-SUBMIT verdict is on the <a href="{prefix}executive-summary.html">executive summary</a>.</strong> MAGREST and H31-E2 keep their own earlier verdicts there. Older experiment tables below are historical proxy instruments with incomplete evaluator/count/CI metadata; they do not meet the current HOLDOUT-DTI reporting gate and are not comparable current scores.</div>'
+        if latest_h31s:
+            prefix_notice = (
+                f'<div class="notice"><strong>Latest reviewed candidate: H31-S UDAP-SSLIC — research download only; '
+                f'no upload is approved.</strong> Its exact-file verdict and failed gates are on the '
+                f'<a href="{prefix}executive-summary.html">executive summary</a>. Earlier experiment tables are '
+                'historical results and are not comparable unless evaluator, holdout population and uncertainty '
+                'are aligned.</div>'
+            )
+        else:
+            prefix_notice = (
+                f'<div class="notice"><strong>No current candidate is approved for upload.</strong> See the '
+                f'<a href="{prefix}executive-summary.html">executive summary</a> for the current exact-file '
+                'decision. Earlier experiment tables are historical and may use different evaluators.</div>'
+            )
         body = prefix_notice + body
     nav = "".join(
         '<a href="{p}{h}"{c}>{l}</a>'.format(p=prefix, h=href, c=current_attr if label == current else "", l=e(label))
@@ -257,12 +271,10 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     if current:
         hero, body = current_site.overview(current)
         body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
-        rbu = load("evidence/regime31b/run_card.json") or load("evidence/regime31/run_card.json")
-        desc = ("Download the new MAGREST research TIFF. Format-valid; not approved for upload."
-                if not rbu else
-                ("RBU31 regime-balanced union: newly computed, duplicate-screened GeoTIFF passing every automated "
-                 "validation gate. OK to download and submit." if rbu.get("ok_to_download_and_submit") else
-                 "Newest candidate RBU31 failed an automated validation gate; research only, do not submit."))
+        h31s = load("evidence/h31s/run_card.json")
+        desc = ("H31-S UDAP-SSLIC research TIFF; format checks pass, but scientific and registry gates fail. Do not submit."
+                if h31s else
+                "No current candidate is approved for upload. See the executive summary for the exact decision.")
         return shell("", "Overview", desc,
                      "Overview", hero, body, "Maximize P(Win) · Own the Outcome · negative results preserved.")
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
@@ -393,18 +405,14 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     current = load("registry/current_run.json")
     if current:
-        rbu = load("evidence/regime31b/run_card.json") or load("evidence/regime31/run_card.json")
-        if rbu and rbu.get("ok_to_download_and_submit"):
-            hero = page_hero("Download + submission guide", "OK to download and submit: RBU31.",
-                             "The approved file, its unique name, portal note and gate-by-gate automated decision "
-                             "are together below. Older artifacts keep their own do-not-submit verdicts.")
-        elif rbu:
-            hero = page_hero("Download + submission guide", "Do not submit.",
-                             "The newest candidate RBU31 failed an automated gate; its file, unique name, note and "
-                             "exact failed gates are together below for research only.")
+        h31s = load("evidence/h31s/run_card.json")
+        if h31s:
+            hero = page_hero("Download + submission guide", "H31-S: research download only · DO NOT SUBMIT.",
+                             "The exact-file evidence is below. Format validation passes, but the preregistered efficacy "
+                             "gate and literal shared-registry uniqueness gate fail; no weekly slot is authorized.")
         else:
-            hero = page_hero("Download + submission guide", "Download for research. Do not submit.",
-                             "The file, unique name, note and automated decision are together below. No weekly slot is authorized.")
+            hero = page_hero("Download + submission guide", "No candidate approved · DO NOT SUBMIT.",
+                             "The exact-file decision and remaining blockers are below. No weekly slot is authorized.")
         return shell("", "Executive summary", "New candidate TIFF, exact automated validation status, and the portal workflow.",
                      "Executive summary", hero, current_site.executive(current))
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")

@@ -80,3 +80,13 @@ This continuation did **not** fit a model, run a geological experiment, generate
 - `registry/current_run.json` is a legacy MAGREST receipt; H31-S is identified by `registry/h31s_current_run.json` and its dedicated verifier. Both receipts deny submission. Follow-up should normalize this pointer without removing historical verification.
 - Final checks in this continuation: 142 tests passed; Ruff/compileall passed; metric proof max fast/brute difference `4.441e-16` on 24 grids; marginal DTI audit passed 10,000 sign checks; four exact-file verifiers deny slot approval; site check passed 22 pages/439 local links.
 - Remaining blockers: no assigned method paragraph; experiment budget exhausted; broad-registry stop; no organizer-authenticated score receipt; no full production data/cache or exhaustive registry proof.
+
+## Arena continuation — branch `arena/e40c3412-gemsdoe31`, 2026-10-26
+
+This review fixed stale public-facing status text and verified the existing denial; it did not run a geological experiment, generate a TIFF, use a slot, access the live leaderboard, or upload. H31-S remains the latest documented candidate and is still negative. Its original three-experiment cap is reached; no assigned method paragraph was supplied in the current request.
+
+- Fixed the generated site hero that incorrectly said RBU31 was newest and overstated H31-S as 4/4 quadrants versus H31-M on its seed-41 screen. The corrected text states H31-S seed 41 has 1/4 quadrants versus H31-M and seed 42 confirmation has 4/4; the preregistered efficacy result stays negative.
+- Current site is regenerated from `scripts/build_site.py` and `scripts/current_site.py`; local validation passes at 22 pages and 439 links.
+- Installed pinned requirements in ignored `.venv/`, restored only the small test rasters and registered-lattice witness, verified H31-S and legacy MAGREST exact-file denials, ran the metric proof, Ruff, compileall and the full test suite. See [session review](repo_review_2026-10-26_arena_e40c3412.md) for final counts and exact outcomes.
+- Three desk hypotheses are recorded in that review. They are not assigned to the current lane, have no numeric DTI forecast, and are not authorized to run.
+- Full production feature/cache stack, live organizer receipts, and exhaustive global registry proof remain unavailable. No current file is approved to submit.

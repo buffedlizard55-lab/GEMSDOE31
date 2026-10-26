@@ -1511,6 +1511,82 @@
       "new_tiffs": 0,
       "weekly_slots_used": 0,
       "historical_scope": false
+    },
+    {
+      "id": "arena-e40c3412-review-pass-1-implementation-2026-10-26",
+      "status": "complete-for-site-wording-and-existing-artifacts; no experiment",
+      "scope": [
+        "complete owner prompt and README startup instructions",
+        "H31-S run card/preregistration/current status",
+        "current site and executive summary generator",
+        "nine-site score and duplicate audit"
+      ],
+      "verification": {
+        "finding": "stale RBU31-as-newest banner and incorrect H31-S seed-41 4/4 H31-M quadrant statement found",
+        "fix": "updated scripts/build_site.py and scripts/current_site.py; preserved no-submit status",
+        "experiment_or_tiff": "none"
+      },
+      "historical_scope": false
+    },
+    {
+      "id": "arena-e40c3412-review-pass-2-bug-edge-2026-10-26",
+      "status": "complete-for-tested-checkout; no experiment",
+      "checks": [
+        "restored only hash-pinned small sample/labels and lattice test witness",
+        "verified H31-S exact-file bytes and negative governance receipt",
+        "verified legacy MAGREST exact-file denial",
+        "checked screen-versus-confirmation gates and broad-registry duplicate STOP",
+        "added regression test for current site wording"
+      ],
+      "verification": {
+        "pytest_initial": "133 passed, 7 skipped; 2 fixture-dependent verifier failures and 1 new test setup failure before corrections",
+        "pytest_final": "143 passed",
+        "ruff": "passed",
+        "compileall": "passed",
+        "full_feature_stack": "absent"
+      },
+      "historical_scope": false
+    },
+    {
+      "id": "arena-e40c3412-review-pass-3-acceptance-2026-10-26",
+      "status": "complete-with-blockers; no experiment, TIFF, slot, or upload",
+      "criteria": [
+        {
+          "criterion": "nine-site executive summary and honest score labels",
+          "status": "existing table retained; all user-provided leaderboard claims remain USER-REPORTED, with duplicate prior-art distinction"
+        },
+        {
+          "criterion": "current TIFF download/submit status",
+          "status": "H31-S retained as research-only; DO NOT SUBMIT; its exact verifier denies slot approval"
+        },
+        {
+          "criterion": "3-5 hypotheses before implementation",
+          "status": "three desk hypotheses recorded in knowledge/repo_review_2026-10-26_arena_e40c3412.md; not authorized or run; no numerical DTI projections"
+        },
+        {
+          "criterion": "parallel lane, reuse, leakage, and experiment budget",
+          "status": "no assigned method paragraph; prior H31-S used all three allowed experiments; stopped without another fit"
+        },
+        {
+          "criterion": "site and submission format information",
+          "status": "generated site checked, 22 pages and 439 local links; no organizer acceptance claim"
+        },
+        {
+          "criterion": "official sources and availability",
+          "status": "source register linked; no non-GitHub host fetched in this continuation; full production stack unavailable"
+        },
+        {
+          "criterion": "PR and merge",
+          "status": "not yet attempted; current session branch must be pushed and PR opened before any merge"
+        }
+      ],
+      "verification": {
+        "tests": "final count to be populated after last run",
+        "metric": "max |DTI_fast-DTI_brute| 4.441e-16 on 24 grids",
+        "site": "22 pages, 439 local links",
+        "submission_verifier": "H31-S and MAGREST deny upload"
+      },
+      "historical_scope": false
     }
   ],
   "remaining_work": [
@@ -1520,7 +1596,7 @@
     "Reproduce the strongest comparable incumbent using the unchanged shared evaluator, buffered whole-segment holdouts, exact visible-label masking, pooled DTI and paired spatial confidence intervals.",
     "Obtain organizer-authenticated template/rules/score receipts through authorized access; do not scrape the leaderboard or upload automatically.",
     "Only after those gates, preregister one lane-specific hypothesis with feature canaries, explicit non-fault nulls and fresh confirmation; never call a local proxy DTI a competition score.",
-    "preregister and test H31-R (Riemann-tensor Eikonal geodesic trace-linking) and H31-S (multi-depth tilt phase-convergence tomography), and execute H31-V (ARIA/Sentinel-1 InSAR) on an unrestricted runner once the 695-raster r13-lattice-s5 protocol degeneracy is resolved"
+    "Do not execute or describe legacy proposed lanes as authorized. Obtain an assigned method paragraph and explicit protocol authorization first; then preregister and validate only that lane."
   ],
   "current_run": "registry/current_run.json",
   "current_three_passes": [
@@ -1528,7 +1604,7 @@
     "1028355f-review-pass-2-2026-10-26",
     "1028355f-review-pass-3-2026-10-26"
   ],
-  "release_decision": "2026-10-26 audit 1028355f: no new TIFF, experiment or slot; existing artifacts remain research-only. Corrected marginal DTI prose, provenance and causal claims. See knowledge/2026-10-26_metric_and_release_review.md.",
+  "release_decision": "2026-10-26 Arena e40c3412 review: no new experiment or TIFF; H31-S remains research-only/negative. Corrected stale site wording and verified exact-file denial. No slot or upload.",
   "rbu31_session_2026_10_25": {
     "branch": "arena/84287da3-gemsdoe31",
     "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",
@@ -1543,5 +1619,11 @@
     "h31s-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
     "h31s-pass-3-full-acceptance-and-ci-verification-2026-10-26"
   ],
-  "latest_h31s_run": "registry/h31s_current_run.json"
+  "latest_h31s_run": "registry/h31s_current_run.json",
+  "arena_e40c3412_review_passes_2026_10_26": [
+    "arena-e40c3412-review-pass-1-implementation-2026-10-26",
+    "arena-e40c3412-review-pass-2-bug-edge-2026-10-26",
+    "arena-e40c3412-review-pass-3-acceptance-2026-10-26"
+  ],
+  "latest_review": "knowledge/repo_review_2026-10-26_arena_e40c3412.md"
 }
