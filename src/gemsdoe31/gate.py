@@ -1,15 +1,10 @@
 """Automated submission gates: format, range, catalogue masking, uniqueness, evidence, provenance.
 
-Nothing here needs a human to look at a file. ``run_gate`` returns one JSON-serialisable receipt whose
-``verdict`` is one of
-
-* ``READY_TO_SUBMIT``            every gate passed, including the preregistered evidence gate;
-* ``FORMAT_VALID_NOT_PROMOTED``  the file would upload and is unique, but the evidence gate did not pass, so
-                                 spending a weekly slot on it is not recommended;
-* ``BLOCKED``                    a hard gate failed (format, range, duplicate, provenance).
-
-``organizer_acceptance_verified`` is always ``False``: a local gate is not an organizer receipt, and no
-score is ever produced here.
+Legacy diagnostic only: its density-exempt, block-rank comparison is NOT the
+current literal any-registry surface-and-final test. G8 fails closed, so this
+entry point cannot issue upload permission. Historical receipts are unchanged.
+Use registry/release_status.json for the current release decision. A local format
+pass never verifies organizer acceptance or estimates a leaderboard score.
 """
 
 from __future__ import annotations
@@ -26,7 +21,7 @@ from scipy.stats import rankdata
 
 from .submission import sha256_file, validate_submission
 
-GATE_VERSION = "GATE-1"
+GATE_VERSION = "GATE-2-legacy-diagnostic-only"
 DUPLICATE_OVERLAP = 0.70       # more than this share of candidate dots within OVERLAP_PX of one registry raster
 OVERLAP_PX = 3.0
 DUPLICATE_RHO = 0.90           # Spearman of 500 m block densities
@@ -230,17 +225,23 @@ def run_gate(*, tif: Path, template: Path, labels: Path, registry_path: Path, ca
         ev = json.loads(evidence_path.read_text())
         pre = ev.get("preregistered_gates", {})
         bound = procedure_sha256 is not None and ev.get("candidate_procedure_sha256") == procedure_sha256
-        evidence_ok = bool(pre.get("PROMOTE_TO_SELECTOR") and bound)
+        evidence_ok = pre.get("PROMOTE_TO_SELECTOR") is True and pre.get("leakage_canary_ok") is True and bound
         evidence_detail = (f"preregistered PROMOTE_TO_SELECTOR={pre.get('PROMOTE_TO_SELECTOR')}; leakage canary ok={pre.get('leakage_canary_ok')}; "
                            f"evidence bound to this emission procedure={bound}; evaluator {ev.get('evaluator')}")
     gates["G7_preregistered_holdout_evidence"] = gate("evidence", evidence_ok, evidence_detail, hard=False)
 
+    gates["G8_literal_registry_protocol"] = gate(
+        "protocol", False,
+        "STOP: legacy density-exempt/block-rank diagnostics do not implement the current literal "
+        "surface AND final registry gate; no selector authorization or weekly cap verification. "
+        "See registry/release_status.json. This tool cannot approve uploads.")
+
     hard_fail = [k for k, v in gates.items() if v["hard"] and not v["pass"]]
     soft_fail = [k for k, v in gates.items() if not v["hard"] and not v["pass"]]
-    verdict = "BLOCKED" if hard_fail else ("FORMAT_VALID_NOT_PROMOTED" if soft_fail else "READY_TO_SUBMIT")
+    verdict = "BLOCKED" if hard_fail else "FORMAT_VALID_NOT_PROMOTED"
     return {
         "gate_version": GATE_VERSION, "file": tif.name, "sha256": sha, "convention": convention, "submission_name": name,
-        "submission_note": note, "positive_cells": n, "verdict": verdict, "submit_recommended": verdict == "READY_TO_SUBMIT",
+        "submission_note": note, "positive_cells": n, "verdict": verdict, "submit_recommended": False,
         "hard_failures": hard_fail, "evidence_failures": soft_fail, "gates": gates,
         "uniqueness": {k: v for k, v in uniq.items() if k != "rows"},
         "neighbour_projection": neighbour_projection(uniq),

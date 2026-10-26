@@ -969,7 +969,25 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
         feed["automation"]["rule"] = "Deterministic evidence/site build and integrity checks on push/PR. No leaderboard polling, automatic uploads or current-score feed."
         feed["open_items"] = current["failed_or_unknown_gates"] + ["no organizer receipt for any claimed score"]
         feed["proxy_scores_scope"] = "Historical 2026-10-04 instruments below lack comparable current masks/CI; never promotion evidence for MAGREST."
-    payload = json.dumps(feed, indent=1) + "\n"
+    release = load("registry/release_status.json")
+    if release is None:
+        raise ValueError("current release status missing; run scripts/build_release_status.py")
+    feed["schema_version"] = 3
+    feed["historical_magrest_download"] = feed["current_download"]
+    feed["current_download"] = {k: release[k] for k in (
+        "submission_name", "file", "raster_sha256", "note", "verdict",
+        "ok_to_download_for_research", "ok_to_submit", "slot_approved",
+        "holdout_dti", "holdout_provenance", "leaderboard_estimate", "failed_or_unknown_gates",
+    )}
+    # Retain stable consumer aliases, all derived from the same canonical artifact.
+    feed["current_download"].update(name=release["submission_name"], tif=release["file"],
+                                     sha256=release["raster_sha256"])
+    feed["historical_generated_utc"] = feed.pop("generated_utc", None)
+    feed["review_date"] = release["review_date"]
+    feed["current_release_status"] = release
+    feed["open_items"] = release["failed_or_unknown_gates"]
+    feed["source_access"] = "See dated source receipts; no live leaderboard, official receipt or current quota verified."
+    payload = json.dumps(feed, indent=1, allow_nan=False) + "\n"
     rows = [[e(k), f"<code>{e(json.dumps(v))}</code>"] for section, values in feed.items()
             if isinstance(values, dict) and section not in ("sources", "automation")
             for k, v in values.items()]
@@ -1323,6 +1341,8 @@ def main() -> None:
     # Re-read the currently advertised artifact/witness before rendering permission.
     from verify_protocol_review import main as verify_protocol_review
     verify_protocol_review()
+    from build_release_status import main as build_release_status
+    build_release_status()
     if load("registry/current_run.json"):
         from verify_current_run import verify
         readiness = verify()

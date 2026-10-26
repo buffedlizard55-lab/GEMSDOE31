@@ -1,13 +1,12 @@
 {
- "schema_version": 2,
+ "schema_version": 3,
  "project": "GEMSDOE31",
  "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
  "current_download": {
-  "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
-  "tif": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
-  "zip": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
-  "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
-  "note": "MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved",
+  "submission_name": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9",
+  "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+  "raster_sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
+  "note": "RESEARCH ONLY: existing H31-X; literal registry duplicate STOP. No new TIFF, fit or weekly submission slot.",
   "verdict": "negative",
   "ok_to_download_for_research": true,
   "ok_to_submit": false,
@@ -15,83 +14,29 @@
   "holdout_dti": {
    "evidence_class": "HOLDOUT-DTI",
    "evaluator_version": "gems57-pooled-hide-v2",
-   "dti": 0.052972044857535226,
+   "dti": 0.1661329569994631,
    "ci95": [
-    0.04131136300815562,
-    0.06532899139157548
+    0.14985841711445055,
+    0.18210651085093407
    ],
-   "withheld_positive_pixels": 2901,
-   "tpw": 222.69414398245058,
-   "fpw": 9193.274462229707,
-   "fnw": 2678.3058560175496
+   "withheld_positive_pixels": 60988,
+   "tpw": 9624.430506279157,
+   "fpw": 36084.052281319084,
+   "fnw": 51363.56949372086
   },
-  "paired_difference": {
-   "evidence_class": "HOLDOUT-DTI",
-   "evaluator_version": "gems57-pooled-hide-v2",
-   "delta": 0.00467843602723389,
-   "ci95": [
-    -0.017864202465723577,
-    0.022933167391729445
-   ],
-   "withheld_positive_pixels": 2901
-  },
-  "registry": {
-   "scope": "Nine pinned docs/downloads trees PLUS one authentic counterexample from the shared 695-raster template registry. Nine-tree test passes; literal broad-registry gate FAILS. No exhaustive/global pass claimed.",
-   "comparable_files": 119,
-   "distinct_prediction_fields": 51,
-   "surface": {
-    "pass_": false,
-    "duplicate": true,
-    "max_abs_rho": 0.01014651673592438,
-    "max_overlap": 1.0,
-    "counterexample_rho": 0.00021244973679571678,
-    "counterexample_overlap": 1.0,
-    "exhaustive_broad_registry_scan": false
-   },
-   "final": {
-    "pass_": false,
-    "duplicate": true,
-    "max_abs_rho": 0.005421926334620311,
-    "max_overlap": 1.0,
-    "counterexample_rho": 0.0005267017210338992,
-    "counterexample_overlap": 1.0,
-    "exhaustive_broad_registry_scan": false
-   },
-   "global_uniqueness_proven": false,
-   "nine_site_download_scope_original": {
-    "scope": "ALL .tif files under docs/downloads/ (including research subdirectories) in the nine pinned repositories. No claim about private, unlinked, other paths, other sites, or later revisions.",
-    "surface": {
-     "pass_": true,
-     "duplicate": false,
-     "max_abs_rho": 0.01014651673592438,
-     "max_overlap": 0.3214532320603389
-    },
-    "final": {
-     "pass_": true,
-     "duplicate": false,
-     "max_abs_rho": 0.005421926334620311,
-     "max_overlap": 0.3256493334041536
-    }
-   },
-   "literal_rule_pass": false,
-   "scope_correction": "evidence/magrest/registry_scope_correction.json",
-   "calibration_density_exemption": false,
-   "nine_site_comparable_files": 118,
-   "nine_site_distinct_prediction_fields": 50,
-   "shared_manifest_registered_rasters": 695,
-   "additional_registered_controls_compared": 1,
-   "broader_scan_exhaustive": false
-  },
+  "holdout_provenance": "CITED prior receipt, not rerun or independently reproduced this session",
+  "leaderboard_estimate": null,
   "failed_or_unknown_gates": [
-   "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.",
-   "paired spatial holdout screen failed",
-   "fresh confirmation not passed",
-   "own-method residual range not estimated",
-   "global current-best comparison unavailable on identical instrument",
-   "organizer-authenticated data/template provenance unverified",
-   "outside-footprint organizer convention unresolved",
-   "separate selector has not promoted this artifact; weekly cap not checked"
-  ]
+   "Literal any-registry uniqueness STOP (registered lattice); incomplete broad-registry coverage",
+   "Pre-placement surface is cited history, not replayed from unavailable cache",
+   "No single-method paragraph supplied; no new scientific lane assigned",
+   "No same-run retrained global incumbent / fresh confirmation in this review",
+   "Organizer-authenticated template, score receipt and current weekly cap unavailable",
+   "No selector action authorized by this parallel-run protocol"
+  ],
+  "name": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9",
+  "tif": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+  "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9"
  },
  "buffer": {
   "derived_buffer_km": 21.25,
@@ -324,15 +269,12 @@
   "not_automated": "leaderboard reads, score entry and file uploads remain manual by competition terms"
  },
  "open_items": [
-  "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.",
-  "paired spatial holdout screen failed",
-  "fresh confirmation not passed",
-  "own-method residual range not estimated",
-  "global current-best comparison unavailable on identical instrument",
-  "organizer-authenticated data/template provenance unverified",
-  "outside-footprint organizer convention unresolved",
-  "separate selector has not promoted this artifact; weekly cap not checked",
-  "no organizer receipt for any claimed score"
+  "Literal any-registry uniqueness STOP (registered lattice); incomplete broad-registry coverage",
+  "Pre-placement surface is cited history, not replayed from unavailable cache",
+  "No single-method paragraph supplied; no new scientific lane assigned",
+  "No same-run retrained global incumbent / fresh confirmation in this review",
+  "Organizer-authenticated template, score receipt and current weekly cap unavailable",
+  "No selector action authorized by this parallel-run protocol"
  ],
  "historical_download": {
   "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
@@ -355,9 +297,364 @@
   "delta": 0.006008398517191579,
   "slot_approved": false
  },
- "generated_utc": "2026-10-25T21:27:53.911211+00:00",
- "source_access": "GitHub sources freshly retrieved; non-GitHub official references not re-fetched under host allowlist. No DrivenData contact.",
+ "source_access": "See dated source receipts; no live leaderboard, official receipt or current quota verified.",
  "proxy_scores_scope": "Historical 2026-10-04 instruments below lack comparable current masks/CI; never promotion evidence for MAGREST.",
+ "historical_magrest_download": {
+  "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff",
+  "tif": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+  "zip": "docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.zip",
+  "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+  "note": "MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved",
+  "verdict": "negative",
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "holdout_dti": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.052972044857535226,
+   "ci95": [
+    0.04131136300815562,
+    0.06532899139157548
+   ],
+   "withheld_positive_pixels": 2901,
+   "tpw": 222.69414398245058,
+   "fpw": 9193.274462229707,
+   "fnw": 2678.3058560175496
+  },
+  "paired_difference": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": 0.00467843602723389,
+   "ci95": [
+    -0.017864202465723577,
+    0.022933167391729445
+   ],
+   "withheld_positive_pixels": 2901
+  },
+  "registry": {
+   "scope": "Nine pinned docs/downloads trees PLUS one authentic counterexample from the shared 695-raster template registry. Nine-tree test passes; literal broad-registry gate FAILS. No exhaustive/global pass claimed.",
+   "comparable_files": 119,
+   "distinct_prediction_fields": 51,
+   "surface": {
+    "pass_": false,
+    "duplicate": true,
+    "max_abs_rho": 0.01014651673592438,
+    "max_overlap": 1.0,
+    "counterexample_rho": 0.00021244973679571678,
+    "counterexample_overlap": 1.0,
+    "exhaustive_broad_registry_scan": false
+   },
+   "final": {
+    "pass_": false,
+    "duplicate": true,
+    "max_abs_rho": 0.005421926334620311,
+    "max_overlap": 1.0,
+    "counterexample_rho": 0.0005267017210338992,
+    "counterexample_overlap": 1.0,
+    "exhaustive_broad_registry_scan": false
+   },
+   "global_uniqueness_proven": false,
+   "nine_site_download_scope_original": {
+    "scope": "ALL .tif files under docs/downloads/ (including research subdirectories) in the nine pinned repositories. No claim about private, unlinked, other paths, other sites, or later revisions.",
+    "surface": {
+     "pass_": true,
+     "duplicate": false,
+     "max_abs_rho": 0.01014651673592438,
+     "max_overlap": 0.3214532320603389
+    },
+    "final": {
+     "pass_": true,
+     "duplicate": false,
+     "max_abs_rho": 0.005421926334620311,
+     "max_overlap": 0.3256493334041536
+    }
+   },
+   "literal_rule_pass": false,
+   "scope_correction": "evidence/magrest/registry_scope_correction.json",
+   "calibration_density_exemption": false,
+   "nine_site_comparable_files": 118,
+   "nine_site_distinct_prediction_fields": 50,
+   "shared_manifest_registered_rasters": 695,
+   "additional_registered_controls_compared": 1,
+   "broader_scan_exhaustive": false
+  },
+  "failed_or_unknown_gates": [
+   "Literal registry-overlap STOP: 100% of primary dots within 3 px of a registered spacing-5 lattice. The original preflight omitted template-registry/other-path controls; corrected after packaging. No new fit, TIFF or slot after discovery.",
+   "paired spatial holdout screen failed",
+   "fresh confirmation not passed",
+   "own-method residual range not estimated",
+   "global current-best comparison unavailable on identical instrument",
+   "organizer-authenticated data/template provenance unverified",
+   "outside-footprint organizer convention unresolved",
+   "separate selector has not promoted this artifact; weekly cap not checked"
+  ]
+ },
+ "historical_generated_utc": "2026-10-25T21:27:53.911211+00:00",
+ "review_date": "2026-10-26",
+ "current_release_status": {
+  "policy_version": "literal-registry-20261026-9883b598",
+  "hypothesis": "H31-X: catalogue-missing range-bounding faults sit at the piedmont junction - the concave-up slope break where steep bedrock (>~10 deg) meets the gently sloping piedmont (<~5 deg); the directional slope-break line, corroborated by gravity basin-edge / radiometric contact edges, locates them without any catalogue input",
+  "mechanism": "X1: JUNC - J = max(0, -grad(slope).u_down) from det_elev / det_elev_slope (sigma 1.5 px), soft slope window 3-15 deg (0 at 1/25 deg), no NMS; Poisson 2.8 px emission, 37,654 dots, d(catalogue) > 2 px",
+  "non_fault_mimic": "erosional pediment edges / inactive fronts (no gravity step), Lahontan shorelines and wave-cut benches, fan terrace risers, lava-flow snouts, landslide toes, road and canal cuts",
+  "review_scope": "Current release audit of existing H31-X bytes. No assigned scientific method; no new experiment or TIFF.",
+  "experiments_run": 0,
+  "new_tif_generated": false,
+  "holdout_dti": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "dti": 0.1661329569994631,
+   "ci95": [
+    0.14985841711445055,
+    0.18210651085093407
+   ],
+   "withheld_positive_pixels": 60988,
+   "tpw": 9624.430506279157,
+   "fpw": 36084.052281319084,
+   "fnw": 51363.56949372086
+  },
+  "holdout_provenance": "CITED prior receipt, not rerun or independently reproduced this session",
+  "source_run_card_sha256": "50038a33233cc6348cb4338c1067de69625e3455e734b25b2a367246be72dfac",
+  "correlation_overlap_vs_registry": {
+   "surface": {
+    "max_abs_rho": 0.12545129515361136,
+    "max_overlap": 0.8630955542571839,
+    "coverage_complete": false,
+    "provenance": "CITED from frozen H31-X card; array not replayed"
+   },
+   "final": {
+    "max_abs_rho": 0.000909698078,
+    "max_overlap": 0.9934402719498593,
+    "coverage_complete": false,
+    "provenance": "RECOMPUTED against hash-pinned registered lattice only"
+   }
+  },
+  "uniqueness_gate": {
+   "pass_": false,
+   "duplicate": true,
+   "failures": [
+    "surface.max_overlap: duplicate STOP",
+    "surface: registry coverage incomplete",
+    "final.max_overlap: duplicate STOP",
+    "final: registry coverage incomplete"
+   ]
+  },
+  "registered_witness": {
+   "repo": "buffedlizard55-lab/GEMSDOE24",
+   "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+   "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+   "cache_file": ".cache/registry-scope/registered-lattice.tif",
+   "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+   "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif"
+  },
+  "lattice_coverage": {
+   "footprint_pixels": 5167373,
+   "outside_3px_halo": 6649,
+   "coverage_fraction": 0.9987132726822701,
+   "candidate_dots": 37654,
+   "minimum_overlap_any_same_budget": 0.8234184947150369,
+   "qualification": "Counting bound for this dot budget, NOT every nonempty raster"
+  },
+  "raster_sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
+  "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+  "validator": {
+   "file": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+   "bytes": 147703,
+   "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
+   "ok_to_upload_format_only": true,
+   "organizer_acceptance_verified": false,
+   "hard_failures": [],
+   "grid": {
+    "shape": [
+     3730,
+     3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ],
+    "bounds": [
+     243350.0,
+     4135550.0,
+     572550.0,
+     4508550.0
+    ],
+    "dtype": [
+     "float32"
+    ],
+    "bands": 1,
+    "template_footprint_pixels": 5167373,
+    "positive_pixels_inside": 37654,
+    "nodata_tag": null
+   },
+   "checks": {
+    "template_single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "template_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "template_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "template_has_finite_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 finite pixels",
+     "hard": true
+    },
+    "template_expected_shape": {
+     "pass_": true,
+     "detail": "(3730, 3292) (expected (3730, 3292))",
+     "hard": true
+    },
+    "template_expected_transform": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+     "hard": true
+    },
+    "template_expected_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 (expected 5,167,373)",
+     "hard": true
+    },
+    "template_expected_outside": {
+     "pass_": true,
+     "detail": "7,111,787 (expected 7,111,787)",
+     "hard": true
+    },
+    "single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "dtype_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "shape_matches_template": {
+     "pass_": true,
+     "detail": "(3730, 3292) vs (3730, 3292)",
+     "hard": true
+    },
+    "crs_matches_template": {
+     "pass_": true,
+     "detail": "EPSG:32611 vs EPSG:32611",
+     "hard": true
+    },
+    "transform_matches_template": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+     "hard": true
+    },
+    "footprint_all_finite": {
+     "pass_": true,
+     "detail": "0 NaN/Inf inside 5,167,373 template cells",
+     "hard": true
+    },
+    "footprint_values_in_0_1": {
+     "pass_": true,
+     "detail": "min=0.0; max=1.0; required finite [0,1]",
+     "hard": true
+    },
+    "no_infinite_pixels": {
+     "pass_": true,
+     "detail": "0 infinite values",
+     "hard": true
+    },
+    "outside_footprint_nan": {
+     "pass_": true,
+     "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+     "hard": false
+    },
+    "nan_mask_matches_template": {
+     "pass_": true,
+     "detail": "not required under the all-finite convention",
+     "hard": false
+    },
+    "allfinite_values_in_0_1": {
+     "pass_": true,
+     "detail": "finite=True; min=0.0; max=1.0",
+     "hard": true
+    },
+    "outside_footprint_zero": {
+     "pass_": true,
+     "detail": "0 nonzero values outside footprint",
+     "hard": true
+    },
+    "output_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "output_100m_pixels": {
+     "pass_": true,
+     "detail": "xres=100, yres=-100",
+     "hard": true
+    },
+    "nodata_tag_nan_or_none": {
+     "pass_": true,
+     "detail": "nodata=None",
+     "hard": false
+    }
+   }
+  },
+  "submission_name": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9",
+  "note": "RESEARCH ONLY: existing H31-X; literal registry duplicate STOP. No new TIFF, fit or weekly submission slot.",
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "leaderboard_estimate": null,
+  "estimate_reason": "Cross-family calibration unvalidated; no defensible numerical forecast",
+  "verdict": "negative",
+  "diagnostic_serialization": "Final rank correlation rounded to 12 decimals after raw-value gate evaluation; no threshold rounding.",
+  "schema_version": 1,
+  "review_date": "2026-10-26",
+  "review_id": "release-review-bf9d261d",
+  "current_release_status": "registry/release_status.json",
+  "historical_scientific_card": "evidence/h31x/run_card.json",
+  "historical_magrest_card": "registry/current_run.json",
+  "method_lane_assigned": false,
+  "selector_authorized": false,
+  "weekly_cap_verified": false,
+  "budget_preflight": {
+   "evidence_class": "COMPUTED counting bound; not HOLDOUT-DTI or a score",
+   "footprint_pixels": 5167373,
+   "outside_halo_pixels": 6649,
+   "candidate_dots": 37654,
+   "minimum_overlap_pixels": 31005,
+   "minimum_overlap_fraction": 0.8234184947150369,
+   "forced_duplicate_stop": true,
+   "empty_candidate": false,
+   "uniqueness_pass": false,
+   "qualification": "Necessary bound only; does not prove copying or rule out every nonempty raster. No registry exemptions."
+  },
+  "failed_or_unknown_gates": [
+   "Literal any-registry uniqueness STOP (registered lattice); incomplete broad-registry coverage",
+   "Pre-placement surface is cited history, not replayed from unavailable cache",
+   "No single-method paragraph supplied; no new scientific lane assigned",
+   "No same-run retrained global incumbent / fresh confirmation in this review",
+   "Organizer-authenticated template, score receipt and current weekly cap unavailable",
+   "No selector action authorized by this parallel-run protocol"
+  ],
+  "provenance_pins": {
+   "evidence/h31x/run_card.json": "50038a33233cc6348cb4338c1067de69625e3455e734b25b2a367246be72dfac",
+   "registry/shared_registry_57_pin.json": "13b0b4fecebf7161fd2c94354d6db5250fa09396a606359843a0a0c95ca0fe10",
+   "registry/shared_registry_57_snapshot.json": "846eddb9459f0e5b67f33da519bbd62c966bf5f539545ba3dad262fbfbc308c2",
+   "registry/data_manifest.json": "89d4e23523298e28c644f315201da32d3319779dc082c2b2513a0d760d5d1e44"
+  }
+ },
  "current_protocol_review": {
   "policy_version": "literal-registry-20261026-9883b598",
   "hypothesis": "H31-X: catalogue-missing range-bounding faults sit at the piedmont junction - the concave-up slope break where steep bedrock (>~10 deg) meets the gently sloping piedmont (<~5 deg); the directional slope-break line, corroborated by gravity basin-edge / radiometric contact edges, locates them without any catalogue input",

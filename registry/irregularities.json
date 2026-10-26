@@ -592,6 +592,38 @@
       ],
       "impact": "Incorrect emission-economics explanation, not a discovered defect in shared scoring arithmetic. No model was rerun and no existing scientific result changed.",
       "resolution": "Corrected denominator, isolated-kernel-credit interpretation, score evidence wording and private-truth causal limits; added CI regression checks."
+    },
+    {
+      "id": "IR-31-CURRENT-RELEASE-DRIFT-BF9D261D",
+      "severity": "high",
+      "status": "fixed-2026-10-26",
+      "summary": "Review register release_decision still promoted H31-X after the binding selector/site STOP; feed advertised historical MAGREST as current.",
+      "evidence": [
+        "registry/release_status.json",
+        "knowledge/2026-10-26_release_review_bf9d261d.md"
+      ],
+      "action": "Preserved old decision as history; canonical fresh byte-audit release record feeds current site/feed; CI rejects stale or conflicting permission registers."
+    },
+    {
+      "id": "IR-31-LEGACY-GATE-APPROVAL-BYPASS-BF9D261D",
+      "severity": "high",
+      "status": "fixed-2026-10-26",
+      "summary": "Legacy submission gate could emit READY_TO_SUBMIT with density-exempt/block-density uniqueness and no current both-stage literal or separate-selector/quota gate.",
+      "evidence": [
+        "src/gemsdoe31/gate.py",
+        "tests/test_gate.py"
+      ],
+      "action": "Added unconditionally failing hard protocol gate to legacy diagnostic and removed its approval path. No shared evaluator/writer change; historical receipts retained."
+    },
+    {
+      "id": "IR-31-NINE-SITE-SNAPSHOT-DRIFT-BF9D261D",
+      "severity": "medium",
+      "status": "open-not-a-current-exhaustive-audit",
+      "summary": "All nine GitHub main HEADs differ from older pinned raster inventory; fresh HEAD metadata cannot verify uniqueness of new rasters.",
+      "evidence": [
+        "evidence/review_bf9d261d/source_checks.json"
+      ],
+      "action": "Site/report disclose snapshot age. One registered witness proves STOP, but no full current uniqueness pass or live score ranking claimed."
     }
   ]
 }
