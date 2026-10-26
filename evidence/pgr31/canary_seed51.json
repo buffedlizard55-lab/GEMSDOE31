@@ -1,0 +1,83 @@
+{
+ "evaluated_background_sample": 200000,
+ "evaluated_positive_pixels": 2778,
+ "features": [
+  {
+   "feature": "pgr_pg_z",
+   "leakage_flag": false,
+   "missing_auc_two_sided": 0.5,
+   "missing_fraction": 0.0,
+   "raw_auc": 0.47110459143268535,
+   "value_auc_two_sided": 0.5288954085673147
+  },
+  {
+   "feature": "pgr_pg_grad_s15",
+   "leakage_flag": false,
+   "missing_auc_two_sided": 0.5,
+   "missing_fraction": 0.0,
+   "raw_auc": 0.4587429850611951,
+   "value_auc_two_sided": 0.541257014938805
+  },
+  {
+   "feature": "pgr_pg_grad_s30",
+   "leakage_flag": false,
+   "missing_auc_two_sided": 0.5,
+   "missing_fraction": 0.0,
+   "raw_auc": 0.45433607541396687,
+   "value_auc_two_sided": 0.5456639245860331
+  },
+  {
+   "feature": "pgr_grav_grad_s15",
+   "leakage_flag": false,
+   "missing_auc_two_sided": 0.5,
+   "missing_fraction": 0.0,
+   "raw_auc": 0.5766372984161268,
+   "value_auc_two_sided": 0.5766372984161268
+  },
+  {
+   "feature": "pgr_pg_grav_mincoh",
+   "leakage_flag": false,
+   "missing_auc_two_sided": 0.5,
+   "missing_fraction": 0.0,
+   "raw_auc": 0.504219064974802,
+   "value_auc_two_sided": 0.504219064974802
+  },
+  {
+   "feature": "pgr_pg_grav_localcorr6",
+   "leakage_flag": false,
+   "missing_auc_two_sided": 0.5,
+   "missing_fraction": 0.0,
+   "raw_auc": 0.4647408216342693,
+   "value_auc_two_sided": 0.5352591783657308
+  },
+  {
+   "feature": "pgr_pg_grav_slope6",
+   "leakage_flag": false,
+   "missing_auc_two_sided": 0.5,
+   "missing_fraction": 0.0,
+   "raw_auc": 0.49065651817854566,
+   "value_auc_two_sided": 0.5093434818214544
+  },
+  {
+   "feature": "pgr_pg_slope_grad",
+   "leakage_flag": false,
+   "missing_auc_two_sided": 0.5,
+   "missing_fraction": 0.0,
+   "raw_auc": 0.43199468322534196,
+   "value_auc_two_sided": 0.568005316774658
+  },
+  {
+   "feature": "pgr_pg_resid_grad",
+   "leakage_flag": false,
+   "missing_auc_two_sided": 0.5,
+   "missing_fraction": 0.0,
+   "raw_auc": 0.4804494375449964,
+   "value_auc_two_sided": 0.5195505624550036
+  }
+ ],
+ "max_missing_auc_two_sided": 0.5,
+ "max_value_auc_two_sided": 0.5766372984161268,
+ "pass_": true,
+ "stage": "EXP-1 leakage canary (draw seed 51 withheld truth)",
+ "threshold": 0.9
+}

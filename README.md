@@ -17,6 +17,8 @@
 >
 > The complete owner prompt is preserved at the end of this file. Reread it before the next session. Do not refit H31-N or spend a weekly slot.
 >
+> **PGR31 (concurrent lane already on main): research download only, do not submit.** `gemsdoe31-pgr31-poisson-pseudograv-37654-20261026`. Its own card reports HOLDOUT-DTI 0.0764 versus base-38 0.0761 on 2,778 withheld positives, paired interval including zero. Not re-scored here.
+>
 > **CSDU (concurrent lane already on main): research download only, do not submit.** `gemsdoe31-csdu-stepover-8cf9dc27`, 4,000 dots, `slot_approved = false`. Its holdout was not verified in this lane.
 >
 > **XFCOH31 (2026-10-26, prior lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**

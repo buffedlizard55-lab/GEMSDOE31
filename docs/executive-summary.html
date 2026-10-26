@@ -47,6 +47,71 @@
     </div><div class="notice notice-danger"><strong>Do not submit a download from this page yet (DOWNLOAD FOR RESEARCH = YES · SUBMIT TO DRIVENDATA = NO).</strong>
       The new 2026-10-26 H31-S (UDAP-SSLIC) GeoTIFF, H31-T Transtension-Dinkelbach, H31-J TGTD-Submod, XFCOH31, CONCORD31, RBU31-B, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts pass automated EPSG:32611 and strict [0, 1] range checks with zero human intervention and are available to download in one click; all remain research-only (<code>slot_approved = false</code>) while the unexempted 695-raster shared-registry overlap gate remains in force. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
       <div class="notice"><strong>26 October audit: no new TIFF or submission approval.</strong> The literal registry STOP remains binding. Corrected marginal DTI algebra and score-provenance wording; existing downloads are research-only. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_metric_and_release_review.md">Review, limitations and next steps</a>.</div>
+      
+<section id="pgr31-download" aria-labelledby="pgr31-heading">
+  <div class="section-head"><div><p class="kicker">2026-10-26 Newest Lane · PGR31 Poisson Pseudo-Gravity Discordance · 3-Experiment Campaign</p>
+    <h2 id="pgr31-heading">DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (DO NOT SUBMIT)</h2></div>
+    <p>New 37,654-dot GeoTIFF generated this session from Baranov pseudo-gravity (Fourier vertical
+      integration of RTP) locally regressed on isostatic gravity — a buried-basement-juxtaposition signature
+      not previously implemented in this repository. Zero incumbent dots copied
+      (48.6% max 3-px overlap vs any genuine submission; 33.2% vs GEMSDOE32 H33-2-B2).
+      The preregistered holdout screen failed, so the machine verdict is
+      <code>verdict = negative</code>, <code>eligible_for_selector = false</code>, <code>ok_to_submit = false</code>.
+      No human inspector is involved: <code>python scripts/verify_pgr31_run.py</code> re-reads the bytes and
+      reproduces this decision. Full nine-site executive summary:
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_pgr31_executive_summary.md">2026-10-26_pgr31_executive_summary.md</a>
+      · preregistration:
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_pgr31_preregistration.md">2026-10-26_pgr31_preregistration.md</a>.</p></div>
+  <div class="card download-card">
+    <span class="badge badge-red">RESEARCH DOWNLOAD ONLY · DO NOT SUBMIT · HOLDOUT SCREEN FAILED</span>
+    <h3 style="margin-top:18px">gemsdoe31-pgr31-poisson-pseudograv-37654-20261026</h3>
+    <p>The recommended all-finite file has values exactly in [0, 1] (finite {0.0, 1.0} in all 12,279,160 cells),
+      so the portal error &ldquo;Predicted values must be in range [0, 1]&rdquo; cannot trip on it; the
+      NaN-outside twin follows the official-wording convention. Format validity is not scientific
+      promotion or organizer acceptance. HOLDOUT-DTI is a local hide-and-recover proxy, never a
+      leaderboard score; no ORGANIZER-CONFIRMED score exists for any file here.</p>
+    <div class="actions">
+      <a class="button button-primary" href="downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif" download>Download PGR31 Research .tif (all-finite [0,1])</a>
+      <a class="button button-dark" href="downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-nan.tif" download>NaN-outside twin .tif</a>
+      <a class="button" href="downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.zip" download>Single-TIFF .zip</a>
+      <a class="button" href="downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-run-card.json" download>JSON Run Card</a>
+      <a class="button" href="downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-format-check.json" download>Format receipt .json</a>
+    </div>
+    <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 x 3292 · 100 m ·
+      37,654 binary dots · 0 on public catalogue · 0 within 2 px<br>
+      <strong>SHA-256 (all-finite primary):</strong> <code>9dcc2e0c4da3f40c17796cfd4ab306cd6aa0ab218d98f83f3b5cbeb406d4b628</code> (135,374 B)<br>
+      <strong>SHA-256 (NaN-outside twin):</strong> <code>e38fc198e87e2f9c3e3eeeb32ea2f21e1cbf8964e050a138e40b11d4cafed888</code> (1,560,774 B)<br>
+      <strong>Unique submission name:</strong> <code>gemsdoe31-pgr31-poisson-pseudograv-37654-20261026</code><br>
+      <strong>Note (109/140 chars):</strong> <code>PGR31 Poisson pseudo-grav discordance 37654d | HOLDOUT-DTI s51 0.0764 vs 0.0761 | research-only DO NOT SUBMIT</code></p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Automated Gate</th><th>Measured Evidence (unchanged <code>gems57-pooled-hide-v2</code>)</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Format, grid &amp; [0, 1] range (both encodings)</td>
+            <td>EPSG:32611 · 3730x3292 · single float32 band · 0 NaN inside footprint · values exactly {0.0, 1.0} · validator hard failures: none</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>EXP-1 single-feature leakage canary (9 novel features)</td>
+            <td>Max two-sided AUC 0.5766 &le; 0.90 (2,778 withheld positives)</td>
+            <td><span class="badge badge-green">PASS</span></td></tr>
+        <tr><td>EXP-1 holdout screen, draw 51 (2,778 withheld px)</td>
+            <td>HOLDOUT-DTI candidate 0.0764 [0.0449, 0.1102] vs control 0.0761 [0.0440, 0.1122]; paired delta +0.0003 [-0.0202, +0.0240]; 2/4 quadrants; SGMC proxy delta -0.0080</td>
+            <td><span class="badge badge-red">FAIL</span></td></tr>
+        <tr><td>EXP-2 fresh confirmation, draw 52</td>
+            <td>Not run — frozen stop rule (confirmation only after a passed screen; no burned-draw tuning)</td>
+            <td><span class="badge badge-red">GATED OFF</span></td></tr>
+        <tr><td>EXP-3 uniqueness vs genuine submissions (surface, then final dots)</td>
+            <td>48 registry rasters (local docs/downloads + fetched nine-focus bests): surface max |Spearman| 0.1506 &le; 0.90; final dots max 3-px overlap 48.6% &le; 70% (worst docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif)</td>
+            <td><span class="badge badge-green">PASS (genuine-submission scope)</span></td></tr>
+        <tr><td>Calibration-lattice disclosure (695-raster registry)</td>
+            <td>A registered spacing-5 calibration lattice lies within 3 px of essentially every interior cell (measured: 99.26% of PGR31 dots within 3 px, <code>evidence/pgr31/registry_lattice_measured.json</code>); it is a non-submission control, reported here rather than silently exempted</td>
+            <td><span class="badge badge-red">DISCLOSED</span></td></tr>
+        <tr><td>Leaderboard upload approval</td>
+            <td>Research download enabled; DrivenData upload NOT approved; promotion to a weekly slot is a separate selector step and 0 slots were spent</td>
+            <td><span class="badge badge-red">DO NOT SUBMIT</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
       <section id="focus-sites"><div class="section-head"><div>
       <p class="kicker">Nine requested repositories · highest claim per site</p>
       <h2>Prior-art comparison — not a list of upload recommendations</h2></div>

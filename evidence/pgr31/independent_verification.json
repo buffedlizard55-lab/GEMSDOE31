@@ -1,0 +1,48 @@
+{
+ "verified": true,
+ "failures": [],
+ "verdict": "negative",
+ "ok_to_download_for_research": true,
+ "eligible_for_selector": false,
+ "ok_to_submit": false,
+ "evidence_class": "HOLDOUT-DTI",
+ "evaluator_version": "gems57-pooled-hide-v2",
+ "candidate_holdout_dti": 0.0763674616890511,
+ "candidate_holdout_ci95": [
+  0.04489477073277901,
+  0.11021315518366913
+ ],
+ "withheld_positive_pixels": 2778,
+ "paired_difference": {
+  "ci95": [
+   -0.020237275406739922,
+   0.023953400332313836
+  ],
+  "delta": 0.000287282279145637,
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "evidence_class": "HOLDOUT-DTI",
+  "withheld_positive_pixels": 2778
+ },
+ "catalogue_check": "dots within 2px of catalogue: 0",
+ "files": {
+  "zeros": {
+   "sha256": "9dcc2e0c4da3f40c17796cfd4ab306cd6aa0ab218d98f83f3b5cbeb406d4b628",
+   "validator_hard_failures": [],
+   "dots": 37654
+  },
+  "nan": {
+   "sha256": "e38fc198e87e2f9c3e3eeeb32ea2f21e1cbf8964e050a138e40b11d4cafed888",
+   "validator_hard_failures": [],
+   "dots": 37654
+  }
+ },
+ "registry": {
+  "calibration_lattice_disclosure": "The shared 695-raster registry also contains a spacing-5 calibration lattice (non-submission control) whose support lies within 3px of essentially every interior cell, so the literal 70% rule against ALL registry entries is degenerate for any non-empty candidate (evidence/tgj31/registry_universal_blocker.json). It is reported here, not silently exempted; the lane gate above is scoped to genuine submission rasters. No global uniqueness is claimed.",
+  "max_abs_final_spearman": 0.07388831757586961,
+  "max_abs_surface_spearman": 0.15055678470229641,
+  "max_final_3px_overlap": 0.4857120093482764,
+  "pass_": true,
+  "scope": "48 registry rasters (local docs/downloads + fetched nine-focus bests)",
+  "worst_overlap_file": "docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif"
+ }
+}
