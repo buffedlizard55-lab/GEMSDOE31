@@ -1,3 +1,5 @@
+# NOTE ON MERGE: executed as lane "H31-Y" in session a111fe50; renamed H31-YM on merge because parallel session f4d7fb29's KIN-PIED lane keeps the name H31-Y. Text below is the frozen original.
+
 # H31-Y preregistration — frozen BEFORE any fitting (2026-10-26, branch `arena/a111fe50-gemsdoe31`)
 
 Labels everywhere: **HOLDOUT-DTI** (evaluator, withheld positives, 95% CI) · **COMPUTED** ·
@@ -72,7 +74,7 @@ sandbox (non-GitHub egress); official free sources already named in earlier prer
   whole-component split (seed 3104, never used before), visible half for B2 pruning only, same
   evaluator terms. Off-catalogue SGMC DTI full + slope-regime slices vs H33/H31-X recomputed same
   code same day. Score estimation uses the **corrected cross-family calibration** in
-  `knowledge/2026-10-26_h31y_projection_audit.md` (in-family anchor projection reported only as an
+  `knowledge/2026-10-26_projection_crossfamily_audit_a111fe50.md` (in-family anchor projection reported only as an
   upper-bound diagnostic). Package both encodings via vendor `submission_writer`; validate with
   both validators.
 
@@ -91,7 +93,7 @@ sandbox (non-GitHub egress); official free sources already named in earlier prer
 - **G5 uniqueness (discrete-peer scope, IR-U-02):** final-dot 3-px overlap ≤ 0.70 and
   |Spearman| ≤ 0.90 vs every discrete peer; literal lattice reading disclosed.
 - **G6 honest estimate (amended pre-fit, same day, after the calibration audit completed and
-  before EXP-1 ran):** the audit (`knowledge/2026-10-26_h31y_projection_audit.md`) shows the best
+  before EXP-1 ran):** the audit (`knowledge/2026-10-26_projection_crossfamily_audit_a111fe50.md`) shows the best
   cross-family calibration has LOO RMSE 0.0897 — barely better than the mean — so *no* central
   live estimate ≥ 0.26 is attainable for any new family and such a threshold would be theatre.
   G6 therefore requires only that all three labelled estimates be reported (M1 in-family

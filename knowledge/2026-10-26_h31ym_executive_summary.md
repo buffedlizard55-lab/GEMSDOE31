@@ -1,4 +1,12 @@
-# Executive summary — nine focus sites, best file to submit, and the new H31-Y lane (2026-10-26, session a111fe50)
+# Executive summary — nine focus sites, submission decision, and the H31-YM mosaic lane (2026-10-26, session a111fe50)
+
+> **Merge/governance note (added on integration with PRs #45/#46):** current `main` enforces the literal
+> any-registry STOP (session 9883b598): **no file is approved to submit** and `selector_decision` is null.
+> This session originally ran under the branch-point IR-U-02 discrete-peer rescope; where the text below
+> says "SUBMIT THIS" for H31-X, read it as *would-be primary under that retired reading only*. The owner's
+> explicit registry-definition decision is required before any upload. This lane was executed as "H31-Y"
+> and renamed **H31-YM** on merge because a parallel session's KIN-PIED lane keeps the name H31-Y
+> (`evidence/h31ym/RENAME.json`).
 
 Every leaderboard-style number is **USER-REPORTED** (owner-typed; no organizer receipt exists in any
 repo) unless labelled **HOLDOUT-DTI** (computed locally, never a leaderboard score) or **PROJECTION**
@@ -8,12 +16,11 @@ repo) unless labelled **HOLDOUT-DTI** (computed locally, never a leaderboard sco
 
 | Decision | File | Hash / portal note | Evidence (labelled) | Estimated live score |
 |---|---|---|---|---|
-| **SUBMIT THIS** | `docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif` | SHA-256 `eff2b18e…17f9`; name `gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9`; note (88/140) in §5 | HOLDOUT-DTI **0.1661 [0.1499, 0.1821]** (gems57-pooled-hide-v2, 60,988 withheld), independently reproduced this session (arm Y2 = 0.1661); SGMC 0.1209 vs H33 0.0940 (COMPUTED); unique: 57.0% of dots within 3 px of H33, max vs any discrete peer 63.1% (limit 70%) | **UNKNOWN.** Old 0.355 withdrawn (§3). Corrected PROJECTION: M3 cross-family central **0.125**, interval **[−0.061, 0.311]**; M1 in-family diagnostic 0.355 (upper bound only if it behaved exactly like the H19-5 family) |
+| **WOULD-BE PRIMARY under retired discrete-peer reading — NOT APPROVED under current literal STOP** | `docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif` | SHA-256 `eff2b18e…17f9`; name `gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9`; note (88/140) in §5 | HOLDOUT-DTI **0.1661 [0.1499, 0.1821]** (gems57-pooled-hide-v2, 60,988 withheld), independently reproduced this session (arm Y2 = 0.1661); SGMC 0.1209 vs H33 0.0940 (COMPUTED); unique: 57.0% of dots within 3 px of H33, max vs any discrete peer 63.1% (limit 70%) | **UNKNOWN.** Old 0.355 withdrawn (§3). Corrected PROJECTION: M3 cross-family central **0.125**, interval **[−0.061, 0.311]**; M1 in-family diagnostic 0.355 (upper bound only if it behaved exactly like the H19-5 family) |
 | **DO NOT SUBMIT** (new this session) | `docs/downloads/gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif` | SHA-256 `41f1e63a…901e`; reserved note (101/140) ends `DO-NOT-SUBMIT` | HOLDOUT-DTI 0.1550 [0.1401, 0.1701]; beats CTRL/SLOPE (CIs exclude 0), **loses to junction comparator** −0.0112 [−0.0191, −0.0024]; piedmont subgroup 0.0684 vs 0.0203; SGMC 0.0873 < H33 0.0940; unique: max 59.4% (vs H31-X), 45.9% vs H33, \|ρ\| 0.135 | PROJECTION: M3 central 0.125, interval [−0.061, 0.311]; M1 diagnostic 0.255. Verdict **negative** (gates G3/G4 fail) — research download only |
 | Gated alternates (earlier selector audit, estimates withdrawn) | H31-T `…h31t-transtension-dinkelbach-20261025-b37654-zeros.tif`; H31-J `…tgtd-submod-37654-20261025-ab35d4e8-zeros.tif`; H31-M `…h31m-bstep-xmod-submod-20261025-37654-allfinite.tif` | hashes in `registry/selector_decision_20261026.json` | Passed the earlier uniform gate audit on format/canary/holdout/SGMC/uniqueness; H31-T 34.1% vs H33 (lowest overlap alternate) | UNKNOWN (their 0.317/0.312/0.296 M1 values withdrawn as score estimates, §3) |
 
-Submit at most one file per weekly slot (competition allows 3/week; see rules in §5). If the owner
-prefers maximum distance from H33 over maximum holdout margin, H31-T is the conservative alternate.
+Submit NOTHING until the owner resolves the registry-definition question (literal 695-raster reading vs discrete-peer reading). If the discrete-peer reading is restored by explicit owner instruction, H31-X is the file above (H31-T the low-overlap alternate); competition allows 3/week (rules §5).
 
 ## 2. Nine focus sites — best historical submission each: file, estimated score, unique?
 
@@ -54,7 +61,7 @@ out-of-family on all 67 other matched submissions (`scripts/cross_family_calibra
   hidden expert set is newly mapped faults missing from the USGS Quaternary database (official
   problem page, §6) — a different population. All M1 projections are withdrawn as score estimates;
   promotion now rests on catalogue hide-and-recover + uniqueness + format evidence. Full audit:
-  `knowledge/2026-10-26_h31y_projection_audit.md`.
+  `knowledge/2026-10-26_projection_crossfamily_audit_a111fe50.md`.
 
 ## 4. Why H33-2-B2 scored 0.2778 (USER-REPORTED), and what beating it requires
 
@@ -70,7 +77,7 @@ FP-budget savings: deleting 2,545 halo dots cost ≈10 live TPw and gained +0.00
 control H36-1 (37,660 dots, 0.2710) shows it is *which* dots, not how many. 0.2778 ⇒ T≈5.1k
 (≈38% recall); 0.44 ⇒ T≈8.0k. The remaining lever is purely a better far-field ranking surface.
 
-## 5. How to submit the primary file (exact steps)
+## 5. How to submit the would-be primary file IF the owner restores the discrete-peer reading (exact steps; do not use under current literal STOP)
 
 1. Download `gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif` from the site
    banner (or its single-TIFF `.zip`). Verify SHA-256
@@ -96,7 +103,7 @@ control H36-1 (37,660 dots, 0.2710) shows it is *which* dots, not how many. 0.27
 - GeoDAWN data: https://doi.org/10.5066/P93LGLVQ · INGENIOUS/GDR 1391: https://doi.org/10.15121/1881483
 - Grid: https://epsg.io/32611 · Tversky index: https://en.wikipedia.org/wiki/Tversky_index
 
-## 7. H31-Y run card (JSON, protocol §5 — full card in `evidence/h31y/run_card.json`)
+## 7. H31-YM run card (executed as H31-Y) (JSON, protocol §5 — full card in `evidence/h31ym/run_card.json`)
 
 ```json
 {

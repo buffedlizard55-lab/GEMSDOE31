@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """H31-Y lane runner: regime-mosaic dual-specialist emission.
 
-Frozen by knowledge/2026-10-26_h31y_preregistration.md BEFORE any fitting.
+Frozen by knowledge/2026-10-26_h31ym_mosaic_preregistration.md BEFORE any fitting.
 Reuses the shared template unchanged (vendor/gems57: spatial.folds,
 evaluate_holdout = gems57-pooled-hide-v2, metric, uniqueness, submission_writer),
 the H31-U helpers (grid loading, cleaning, ranking, Poisson emission, peer audit,
@@ -54,11 +54,11 @@ SHAPE = (3730, 3292)
 BUDGET = 37_654
 MIN_DIST = 2.8
 B_PX = 2.0
-LANE = "H31-Y"
+LANE = "H31-YM"
 CANDIDATE = "Y3"
-CACHE = ROOT / "data" / "h31y"
-EVID = ROOT / "evidence" / "h31y"
-PREREG = "knowledge/2026-10-26_h31y_preregistration.md"
+CACHE = ROOT / "data" / "h31ym"
+EVID = ROOT / "evidence" / "h31ym"
+PREREG = "knowledge/2026-10-26_h31ym_mosaic_preregistration.md"
 LINES = ["JUNC", "FAN", "FAN_G", "CTRL", "SLOPE"]
 ARMS = ["Y1", "Y2", "Y3", "Y4", "CTRL", "SLOPE"]
 CONFIRM_SEED = 3104

@@ -68,7 +68,7 @@ Named counterexamples (M1 projection vs USER-REPORTED live):
 - All selector-audit projections for the other lanes (H31-B 0.409, H31-T 0.317, H31-J 0.312,
   H31-M 0.296, …) inherit the same defect and are withdrawn as score estimates. Their SGMC and
   holdout measurements themselves are unaffected.
-- Honest estimation going forward (frozen in the H31-Y preregistration, amended G6): report
+- Honest estimation going forward (frozen in the H31-YM preregistration as executed under the name H31-Y, amended G6): report
   (a) M1 in-family value labelled "upper-bound diagnostic if the candidate behaved exactly like
   the H19-5 family", (b) M3 cross-family central estimate with ±2·LOO-RMSE interval,
   (c) catalogue HOLDOUT-DTI with CI. Never a single-point "estimated score" without (b)'s width.
