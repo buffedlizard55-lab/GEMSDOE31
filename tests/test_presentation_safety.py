@@ -45,3 +45,11 @@ def test_readme_leads_with_binding_stop_before_standing_owner_prompt():
     assert 'No current artifact is approved' in lead
     assert 'No human sign-off can override' in lead
     assert '22-SUBMISSION UNIQUENESS' not in lead
+
+
+def test_historical_pages_do_not_promote_stale_rbu31_status():
+    build_site = load_script('build_site')
+    rendered = build_site.shell('' , 'Validation', '', 'Validation', '', '<section>old experiment</section>')
+    assert 'Current protocol decision: no file is approved for submission' in rendered
+    assert 'current protocol review' in rendered
+    assert 'Newest candidate: RBU31' not in rendered
