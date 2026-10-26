@@ -1,0 +1,265 @@
+{
+  "schema_version": "1.0",
+  "site": "GEMSDOE31",
+  "branch": "arena/39afba03-gemsdoe31",
+  "lane_id": "H31-T",
+  "generated_utc": "2026-10-26T02:05:05Z",
+  "experiments_used": 3,
+  "experiment_cap": 3,
+  "experiment_ledger": [
+    "EXP-1: Initial canary + own-variogram (20.75 km) + gems57-pooled-hide-v2 (0.117240 vs 0.109735 ctrl); diagnosed train-set visible_catalogue self-inclusion in Quadrant 1 (`evidence/h31t/exp1_vis_self_inclusion_diagnostic.json`).",
+    "EXP-2: 100% label-free H31-T Dual-Specialist verified on Canary, Own-Method Variogram, unchanged `gems57-pooled-hide-v2`, and disjoint Screen + Untouched Confirmation on `gemsdoe31-holdout-v1`.",
+    "EXP-3: Strictly out-of-fold stitched full-footprint synthesis, complete 9-site + local + 695-registry uniqueness audit, Full/4-Block/Piedmont Off-Catalogue SGMC evaluation, and fail-closed GeoTIFF/ZIP packaging."
+  ],
+  "elapsed_seconds": 228.0,
+  "preregistration": {
+    "path": "knowledge/2026-10-25_h31t_transtension_dinkelbach_preregistration.md",
+    "sha256": "f1669fb7f94a67b6cb4556b2d674318016497ddd915736bb77bb7e18ea021feb",
+    "explicit_lane_assignment_disclosure": "Single self-declared non-overlapping lane H31-T preregistered before any fit per AGENTS.md; all historical MAGREST/H31-B/E/E2/HVDC/M outputs immutable."
+  },
+  "hypothesis": "H31-T: SI-calibrated 3D Magnetic (nT/m) & Gravity (mGal/km) Analytic-Signal Crests and Thompson Inverse Contact-Depth Partitioning, Up-Dip 55-deg Listric Footwall Trace Restoration, Kostrov-Byerlee Transtensional Slip-Dilatation & Microseismic Proximity Localization, Hydrothermal Magnetite-Destruction x K/Th x Clay-Cap Conduit, and Cost-Scaled Dinkelbach 29-Cell Submodular DTI Allocation",
+  "mechanism": "Concealed Great Basin geothermal faults dip 50-60 deg beneath Quaternary alluvial piedmonts and often cut remanently magnetized Neogene volcanics. SI-matched 3D analytic-signal contact-depth crests locate shallow brittle contacts independent of remanent polarity; forward up-dip footwall splatting shifts hanging-wall basement/gravity steps back onto the surface fault trace; positive dilatation-shear partitioning, 1/(1+d_eq/5km) microseismic alignment, and magnetite-destruction x potassic K/Th x lateral clay-gouge ridges isolate active hydrothermal conduits; and Cost-Scaled Dinkelbach 29-cell submodular CELF allocates 37,654 binary dots at d_cat > 200 m by maximizing marginal kernel TP gain per expected FP cost.",
+  "named_non_fault_mimic": "Remanently magnetized tabular basalt lava-flow margins & caldera rims (suppressed by requiring co-axial listric basement/gravity step and positive transtensional dilatation), pluvial Lake Lahontan wave-cut shorelines (suppressed by inverse apparent contact depth), flat evaporite playas (zeroed by lateral cond_surf ridge curvature), and sealed Paleozoic contractional thrust sheets (suppressed by geod_dilaterate > 0).",
+  "own_method_variogram_collar": {
+    "resolved_irregularity": "IR-31-OWN-METHOD-VARIOGRAM",
+    "own_empirical_adopted_buffer_m": 21250.0,
+    "inherited_floor_buffer_m": 21250.0,
+    "adopted_holdout_buffer_m": 21250.0,
+    "adopted_holdout_buffer_px": 213,
+    "best_parametric_model": "exponential",
+    "empirical_95pct_decay_m": 21250.0
+  },
+  "leakage_canary": {
+    "features_tested": 35,
+    "max_symmetric_auc": 0.57107,
+    "max_feature": "base:geod_shearrate",
+    "threshold": 0.9,
+    "passed": true
+  },
+  "holdout_dti": {
+    "primary_shared_template_gems57_pooled_hide_v2": {
+      "evidence_class": "HOLDOUT-DTI",
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "withheld_positive_pixels": 60988,
+      "buffer_m": 21250.0,
+      "ctrl_phys_poisson_dti": 0.109548,
+      "ctrl_phys_poisson_ci95": [
+        0.092469,
+        0.126123
+      ],
+      "h31t_poisson_dti": 0.129088,
+      "h31t_poisson_ci95": [
+        0.1095,
+        0.148317
+      ],
+      "h31t_dinkelbach_dti": 0.13001,
+      "h31t_dinkelbach_ci95": [
+        0.114652,
+        0.145559
+      ],
+      "paired_delta_vs_ctrl": 0.020461,
+      "paired_delta_vs_ctrl_ci95": [
+        0.00454,
+        0.03653
+      ],
+      "paired_delta_dinkelbach_vs_poisson": 0.000922,
+      "paired_delta_dinkelbach_vs_poisson_ci95": [
+        -0.006475,
+        0.008357
+      ]
+    },
+    "gemsdoe31_holdout_v1_screen": {
+      "evidence_class": "HOLDOUT-DTI",
+      "evaluator_version": "gemsdoe31-holdout-v1",
+      "seed": 20261031,
+      "buffer_m": 21250.0,
+      "withheld_positive_pixels": 29862,
+      "ctrl_phys_poisson_dti": 0.100606,
+      "h31t_poisson_dti": 0.117233,
+      "h31t_dinkelbach_dti": 0.11906,
+      "h31t_dinkelbach_ci95": [
+        0.101583,
+        0.137713
+      ],
+      "paired_delta_vs_ctrl": 0.018454,
+      "paired_delta_vs_ctrl_ci95": [
+        0.00067,
+        0.036761
+      ]
+    },
+    "gemsdoe31_holdout_v1_untouched_confirm": {
+      "evidence_class": "HOLDOUT-DTI",
+      "evaluator_version": "gemsdoe31-holdout-v1",
+      "seed": 20261101,
+      "buffer_m": 21250.0,
+      "withheld_positive_pixels": 28763,
+      "ctrl_phys_poisson_dti": 0.101439,
+      "h31t_poisson_dti": 0.121803,
+      "h31t_dinkelbach_dti": 0.12478,
+      "h31t_dinkelbach_ci95": [
+        0.110892,
+        0.138294
+      ],
+      "paired_delta_vs_ctrl": 0.023341,
+      "paired_delta_vs_ctrl_ci95": [
+        0.007538,
+        0.038348
+      ]
+    },
+    "offcat_sgmc_discovery_proxies": {
+      "full_gt300m_h31t_dti": 0.10817,
+      "full_gt300m_h33_2_b2_dti": 0.093965,
+      "piedmont_le6deg_h31t_dti": 0.043441,
+      "piedmont_le6deg_h33_2_b2_dti": 0.058634,
+      "collared_4block_h31t_dti": 0.108073,
+      "collared_4block_h31t_ci95": [
+        0.093162,
+        0.12324
+      ],
+      "collared_4block_h33_2_b2_dti": 0.093915
+    }
+  },
+  "registry_uniqueness": {
+    "scope_disclosed": "104 comparable unique TIFFs across all 9 focus repositories (GEMSDOE24..36) + all local GEMSDOE31 2026-10-25 lanes + 3 pinned 695-raster blanket/lattice controls (`r13-lattice-s5`, `GEMSDOE48`, `17GEMSDOE`); not global organizer archive.",
+    "total_unique_rasters_checked": 122,
+    "pre_placement_max_abs_spearman_rho": 0.221497,
+    "post_placement_max_abs_spearman_rho": 0.046964,
+    "phase_a_competitive_discrete_count": 119,
+    "phase_a_max_3px_overlap": 0.545812,
+    "phase_a_nearest_discrete_submission": "GEMSDOE30:docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+    "phase_a_passed": true,
+    "phase_b_literal_695_max_3px_overlap": 1.0,
+    "phase_b_nearest_control": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+    "phase_b_literal_passed": false,
+    "key_named_comparators": {
+      "gemsdoe32_h33_2_b2": {
+        "submission": "GEMSDOE32:docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+        "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.34084,
+        "spearman_full_footprint": 0.020884,
+        "jaccard_dot_sets": 0.014208
+      },
+      "h27_4_baseline": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+        "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+        "their_dots": 40199,
+        "my_dots_within_3px_of_theirs": 0.346205,
+        "spearman_full_footprint": 0.019736,
+        "jaccard_dot_sets": 0.013737
+      },
+      "h31_b": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif",
+        "sha256": "b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.239098,
+        "spearman_full_footprint": 0.007962,
+        "jaccard_dot_sets": 0.007654
+      },
+      "h31_e2": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif",
+        "sha256": "88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.227997,
+        "spearman_full_footprint": 0.021312,
+        "jaccard_dot_sets": 0.014427
+      },
+      "magrest": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+        "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.174829,
+        "spearman_full_footprint": -0.000839,
+        "jaccard_dot_sets": 0.003237
+      },
+      "h31_hvdc": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+        "sha256": "1cce914c6daa274ce84cfe215540cdb03bef88f880c952e528807378b826262d",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.357412,
+        "spearman_full_footprint": 0.02816,
+        "jaccard_dot_sets": 0.017937
+      },
+      "h31_m": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif",
+        "sha256": "8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.426303,
+        "spearman_full_footprint": 0.036373,
+        "jaccard_dot_sets": 0.022179
+      },
+      "r13_lattice_s5": {
+        "submission": "13GEMSDOE:submissions/r13-lattice-s5-20261004T070000Z-s5-zeros.tif",
+        "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "their_dots": 206895,
+        "my_dots_within_3px_of_theirs": 0.996415,
+        "spearman_full_footprint": -0.000297,
+        "jaccard_dot_sets": 0.006097
+      },
+      "gemsdoe48_continuous": {
+        "submission": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+        "sha256": "59ef8e7d8374e228bc1e41376f03fc67dd5b8a5e6804885a1ae802f399140b89",
+        "their_dots": 5167373,
+        "my_dots_within_3px_of_theirs": 1.0,
+        "spearman_full_footprint": 0.045241,
+        "jaccard_dot_sets": 0.007287
+      }
+    }
+  },
+  "artifacts": {
+    "primary_zeros_tif": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif",
+    "primary_zeros_tif_sha256": "83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298",
+    "primary_zeros_tif_bytes": 145429,
+    "primary_zeros_zip": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.zip",
+    "primary_zeros_zip_sha256": "eb94af0e75c7d25cb0e0491b1897d0d6a72940356f1efa6c43109ace59a2b7ec",
+    "companion_nan_tif": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.tif",
+    "companion_nan_tif_sha256": "1df2c5fb2e5735e120bd59c241fabcced6cdf671fd20ae5c265034235fbfa65e",
+    "companion_nan_tif_bytes": 436060,
+    "companion_nan_zip": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.zip",
+    "companion_nan_zip_sha256": "3077f82194c2758d94ddc250d2feada8f73325573c3090adc7346116f8e231b7"
+  },
+  "validator_output": {
+    "all_21_checks_passed_zeros_tif": true,
+    "all_21_checks_passed_nan_tif": true,
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "dtype": "float32",
+    "no_nan_inside_footprint": true,
+    "values_in_0_1": true,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "emitted_positive_dots": 37654,
+    "min_distance_to_public_catalogue_m": 223.61,
+    "dots_within_200m_of_catalogue": 0,
+    "prevents_portal_range_error_predicted_values_must_be_in_range_0_1": true
+  },
+  "submission_name": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654",
+  "submission_note": "RESEARCH ONLY DO NOT SUBMIT: H31-T 3D AS/depth + listric updip + transtension + Dinkelbach 300m CELF (37654 px; 695-lattice STOP)",
+  "submission_note_chars": 129,
+  "gates": {
+    "leakage_canary_le_0_90": true,
+    "own_method_variogram_measured": true,
+    "gems57_pooled_hide_v2_beats_ctrl_ci_gt_0": true,
+    "gemsdoe31_holdout_v1_screen_beats_ctrl_ci_gt_0": true,
+    "gemsdoe31_holdout_v1_confirm_beats_ctrl_ci_gt_0": true,
+    "format_and_range_21_checks": true,
+    "phase_a_competitive_discrete_uniqueness": true,
+    "phase_b_unexempted_literal_695_registry": false
+  },
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "verdict": "negative",
+  "submission_guidance_banner": "RESEARCH DOWNLOAD ONLY \u2014 DO NOT SUBMIT TO COMPETITION PORTAL: Byte-unique, format-valid H31-T GeoTIFF passes leakage canary, own-method variogram collar, gems57-pooled-hide-v2 & gemsdoe31-holdout-v1 holdout gates, and discrete uniqueness across all 9 focus sites + GEMSDOE31 lanes, but is blocked from weekly slot upload (`slot_approved=false`) by the unexempted literal 695-raster spacing-5 lattice (`r13-lattice-s5`) / blanket (`GEMSDOE48`) STOP rule."
+}

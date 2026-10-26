@@ -262,6 +262,31 @@
    "sha256": "f3e46d86bd5b0f301fecb49d03ddc3bf74f5ee8395f4e3c65ed6cfe5c1ebb8ab"
   },
   {
+   "path": "evidence/h31t/exp1_canary_variogram_gems57.json",
+   "bytes": 20979,
+   "sha256": "7a2a43f2a60bdf2afb1fa8e4473a85b3eeaed3614655e53d95cf97eb34e700aa"
+  },
+  {
+   "path": "evidence/h31t/exp1_vis_self_inclusion_diagnostic.json",
+   "bytes": 21398,
+   "sha256": "13f3ef48745944153fa7f5a7242d3daadcd42d1dc0842d44b8bba0ab3a38bb24"
+  },
+  {
+   "path": "evidence/h31t/exp2_holdout_screen_confirm.json",
+   "bytes": 9461,
+   "sha256": "337c8cfe8956e66ef44f76678861eb864bb1e8500cf4b2dceb0a7c6f9c4cce3e"
+  },
+  {
+   "path": "evidence/h31t/exp3_uniqueness_offcat_package.json",
+   "bytes": 35985,
+   "sha256": "ba15b4e15e411920a383993fa7274014ad9d37f969dd97cc0e53b2913c26e841"
+  },
+  {
+   "path": "evidence/h31t/run_card.json",
+   "bytes": 13027,
+   "sha256": "b8adc0be4f2361fd540c858f273aa2a4b5d6235cdaa573cf2f3d4c21c11665f8"
+  },
+  {
    "path": "evidence/h33_forensics_20261025.json",
    "bytes": 9966,
    "sha256": "8a2873d1b5a4c8b0b8c951ac0285ccf2bc5d23841923ddf846e76412c3018448"

@@ -23,6 +23,16 @@ def test_h31e_component_exposes_binding_stop_and_no_portal_acceptance():
     assert 'Artifact Name (not uniqueness approval)' in rendered
 
 
+def test_h31t_component_exposes_binding_stop_and_no_portal_acceptance():
+    rendered = load_script('current_site').h31t_download_and_gates()
+    assert 'DO NOT SUBMIT · REGISTRY STOP' in rendered
+    assert 'RESEARCH DOWNLOAD ONLY' in rendered
+    assert 'SUBSET ONLY — NOT UNIQUENESS APPROVAL' in rendered
+    assert 'Portal Format' not in rendered
+    assert 'Artifact Name (not uniqueness approval)' in rendered
+    assert '83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298' in rendered
+
+
 def test_archived_readme_generator_cannot_replace_active_release():
     before = (ROOT / 'README.md').read_bytes()
     with pytest.raises(ValueError, match='cannot overwrite'):

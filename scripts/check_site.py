@@ -116,13 +116,22 @@ def main() -> None:
             fail(f"{page_name}: H31-M BStep-XMod-Submod candidate name missing")
         if "ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6" not in html_text:
             fail(f"{page_name}: H31-M BStep-XMod-Submod primary SHA-256 missing")
+        if "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654" not in html_text:
+            fail(f"{page_name}: H31-T Transtension-Dinkelbach candidate name missing")
+        if "83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298" not in html_text:
+            fail(f"{page_name}: H31-T Transtension-Dinkelbach primary SHA-256 missing")
     for name in ("executive-summary.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")
 
     for page_name in ("index.html", "executive-summary.html", "research.html"):
         html_text = (DOCS / page_name).read_text()
-        for card_id, label in (("scgp-submod", "H31-E2"), ("hvdc-submod", "H31-HVDC"), ("h31m-submod", "H31-M")):
+        for card_id, label in (
+            ("scgp-submod", "H31-E2"),
+            ("hvdc-submod", "H31-HVDC"),
+            ("h31m-submod", "H31-M"),
+            ("h31t-dinkelbach", "H31-T"),
+        ):
             if f'id="{card_id}"' in html_text:
                 if "RESEARCH DOWNLOAD ONLY" not in html_text or "DO NOT SUBMIT · REGISTRY STOP" not in html_text:
                     fail(f"{page_name}: {label} research-only/registry STOP warning missing")
