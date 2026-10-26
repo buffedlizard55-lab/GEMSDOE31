@@ -1,13 +1,7 @@
-> **Review 2026-10-26 — no new submission approved.** The existing literal duplicate STOP remains binding;
-> this session ran **zero geological experiments and created no new TIFF**. Do not submit any research download.
-> [Current review and next steps](knowledge/2026-10-26_metric_and_release_review.md) ·
-> [Nine-site executive summary](docs/executive-summary.html).
-> Corrected the marginal DTI formula and unsupported causal/“confirmed score” wording; no historic results were changed.
-
-> **XFCOH31 (2026-10-26, this lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**
-> Download: [gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif) · [run card](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-run-card.json) · [decision page](docs/xfcoh31.html) · [executive summary](knowledge/2026-10-26_xfcoh31_executive_summary.md)
-> HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld): candidate 0.04588 vs same-run base-19 control 0.04812, paired Δ −0.00224 [−0.00483, +0.00012] → verdict **negative**, no weekly slot. Uniqueness vs genuine focus submissions: max ρ 0.087, max 3-px overlap 30.7%. Validator: no hard failures, values in [0,1] (fixes the reported range-error class).
-> **2026-10-26 EXECUTIVE SUMMARY (read first):** `knowledge/2026-10-26_executive_summary_and_hypotheses.md` — 9-site verdict: best claim H33-2-B2 0.2778 (USER-REPORTED, a D2.8 catalogue-prune, NOT submittable as new); new unique CONCORD31 TIF download-for-research / DO NOT SUBMIT (holdout not run). No file is slot-approved.
+> **Review 2026-10-26: no new submission approved and no new TIFF generated.** The latest candidate remains H31-S (`UDAP-SSLIC`), research download only and **DO NOT SUBMIT**: its preregistered screen and literal broad-registry uniqueness gate fail. No experiment, upload, leaderboard access, or weekly slot was used in this review continuation.
+> [Current metric/release audit](knowledge/2026-10-26_metric_and_release_review.md) · [current status](knowledge/current_status_2026-10-26.md) · [nine-site executive summary](docs/executive-summary.html).
+> **Existing H31-S research TIFF:** [all-finite download](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) · [run card](docs/downloads/h31s-run-card.json) · [automated verifier](scripts/verify_h31s_run.py). It is not approved for upload.
+> The marginal DTI gain/false-positive derivation below is corrected and regression-tested; no historical raster results were changed.
 
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 

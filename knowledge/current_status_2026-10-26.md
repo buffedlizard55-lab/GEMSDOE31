@@ -69,3 +69,14 @@ Verification on 2026-10-26:
 3. Have a separate selector decide promotion only after a candidate passes every preregistered efficacy and uniqueness gate.
 4. Obtain organizer-authenticated score receipts and rules/template provenance through permitted access. Local validation is not organizer acceptance.
 5. Do not automate a DrivenData upload or spend a weekly slot from this repository.
+
+
+## Arena continuation — branch aa4c2098, 2026-10-26
+
+This continuation did **not** fit a model, run a geological experiment, generate a TIFF, use a slot, access the live leaderboard, or upload. It reconciled the README to current H31-S status and reviewed the marginal-DTI correction and desk-only hypothesis refinements from the latest release audit.
+
+- Latest candidate: H31-S, dedicated verifier `scripts/verify_h31s_run.py` returns `verdict=negative`, `ok_to_download_for_research=true`, `ok_to_submit=false`, `slot_approved=false`. Its screen vs H31-M was 1/4 quadrants with paired CI crossing zero; later confirmation was positive but does not repair the failed preregistered screen.
+- The broad-registry spacing-5 witness gives 99.931% 3-px overlap, above the literal 70% gate. The full registry comparison is not exhaustive.
+- `registry/current_run.json` is a legacy MAGREST receipt; H31-S is identified by `registry/h31s_current_run.json` and its dedicated verifier. Both receipts deny submission. Follow-up should normalize this pointer without removing historical verification.
+- Final checks in this continuation: 142 tests passed; Ruff/compileall passed; metric proof max fast/brute difference `4.441e-16` on 24 grids; marginal DTI audit passed 10,000 sign checks; four exact-file verifiers deny slot approval; site check passed 22 pages/439 local links.
+- Remaining blockers: no assigned method paragraph; experiment budget exhausted; broad-registry stop; no organizer-authenticated score receipt; no full production data/cache or exhaustive registry proof.
