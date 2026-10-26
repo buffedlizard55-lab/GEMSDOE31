@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Selector audit (NOT an experiment): uniform re-judgement of existing candidates.
+"""DISABLED historical selector: the current prompt restores the literal STOP.
+
+Retained for forensic review and pure-function regression tests only.
+The entry point fails before loading data or writing any approval.
+
+Historical description (not current authority): uniform re-judgement of candidates.
 
 No fitting, no new surfaces, no new dots. For every already-generated unique
 lane raster in this repository it recomputes, with one code path today:
@@ -192,6 +197,13 @@ def phi_binary(a: np.ndarray, b: np.ndarray, foot: np.ndarray) -> float:
 
 
 def main() -> int:
+    raise SystemExit("STOP: current owner protocol restores literal registry checks on both stages. "
+                     "Historical discrete-only selector is disabled; run verify_protocol_review.py. "
+                     "No slot selection is authorized in this lane.")
+
+
+def historical_audit_disabled() -> int:
+    raise RuntimeError("Historical selector is retained for audit, not executable approval")
     foot, cat, sgmc, off_sgmc, d_cat = U.load_grid()
     sample = ROOT / "data/sample_submission.tif"
     # --- projection fit (assert identical to H31-U exp3) ---

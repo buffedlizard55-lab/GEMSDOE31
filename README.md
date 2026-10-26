@@ -1,3 +1,28 @@
+# GEMSDOE31 — current decision, 26 October 2026
+
+**No current artifact is approved. DO NOT SUBMIT.** No human sign-off can override a failed gate.
+The current owner prompt restores the literal registry test on the surface **and** final dots.
+Earlier H31-X/H31-T upload permissions below are superseded, not silently erased.
+
+[Executive summary and nine-site table](docs/executive-summary.html) ·
+[Review, ranked desk hypotheses and limitations](knowledge/2026-10-26_protocol_review_9883b598.md) ·
+[Automated run card](evidence/review_9883b598/run_card.json)
+
+**Download for research only:** [existing H31-X all-finite GeoTIFF](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif).
+Fresh read-back passes local format/range checks, but registered-lattice overlap triggers STOP.
+No new TIFF, fitting experiment, upload or slot this session. A new upload-ready file is not delivered.
+Estimated leaderboard score: **unavailable**; previous cross-family projections are unvalidated.
+A new filename or encoding would not make the existing field scientifically unique.
+
+The complete normalized owner prompt remains below and must be read every session. Current-session clarification:
+- Literal any-registry and both-stage checks are binding; no dense-control exemption or selector step in this lane.
+- The requested single-method paragraph is absent. Desk hypotheses are not authorization to invent a lane.
+- New owner-listed GEMSDOE27 `gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite` has no reported result;
+  it cannot be ranked as a scored winner. The nine-site table is pinned history, not a live leaderboard feed.
+- Core values remain **Maximize P(Win)** and **Own the Outcome**: respect failed gates rather than promise a score.
+
+<details><summary>Superseded historical session banners — NOT current upload instructions</summary>
+
 > ## ✅ SELECTOR DECISION 2026-10-26 — RE-RUN (session `arena/3ce68fc7-gemsdoe31`) — SUBMIT THIS ONE FILE
 >
 > **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**
@@ -249,6 +274,9 @@
 >
 > SHA-256 `c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9`. Name `gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff`.
 > Note (128/140): `MAGREST reciprocal magnetic texture restoration; 2/4px same-sign concordance; independent dots; research-only, not slot-approved`.
+
+
+</details>
 
 ## Read first every session
 
