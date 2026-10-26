@@ -1,4 +1,23 @@
-> **XFCOH31 (2026-10-26, this lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**
+> **H31-N (2026-10-26, this lane): unique research GeoTIFF generated. OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO.**
+> [Download zeros .tif (do not submit)](docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif) ·
+> [one-TIFF zip](docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.zip) ·
+> [NaN-outside twin](docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-nan.tif) ·
+> [run card](docs/downloads/gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-run-card.json) ·
+> [site](docs/index.html) · [nine-site executive summary](docs/executive-summary.html)
+>
+> Name `gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538`. SHA-256 zeros `fecb586e84f48609379df8943dfc12059b2fd4a851b38cf232faab5ce3da9b6c`. 37,654 dots in {0, 1}, 0 on the public catalogue. Local validator `all_checks_passed` true. That is format preflight, not organizer acceptance. `slot_approved = false`.
+>
+> HOLDOUT-DTI (`gems57-pooled-hide-v2`, screen seed 41, 11,360 withheld positives): candidate 0.0747 vs same-run base-19 0.0768, paired delta −0.0021, 95% CI [−0.0078, +0.0033]. Did not beat the control. Not a leaderboard score.
+>
+> Scientific uniqueness in the checked set passed (|Spearman| 0.157, worst 3 px overlap 65.9% vs XFCOH31, 27.2% vs H33-2-B2). Literal spacing-5 lattice overlap of the final dots is 99.75%. No exemption. That alone blocks upload.
+>
+> Nine sites: no file is approved to submit. The owner prompt’s highest listed claim, H33-2-B2 0.2778, is USER-REPORTED, not organizer-confirmed. This session measured those H33 bytes as an exact subset of D2.8 beyond 2 px of the public catalogue. Do not resubmit it as a new unique entry. User-stated 0.4413 and 0.3195 remain unverified claims.
+>
+> Open flags, not resolved: local B10 says “Distance to earthquake”; the official problem page (fetched 2026-10-26) says “Density of earthquakes”. Local B06 says tilt/total curvature; the same page’s `tc` figure caption says radiometric counts. An older rho +0.996 radiometric claim was not recomputed. H31-N used neither band.
+>
+> The complete owner prompt is preserved at the end of this file. Reread it before the next session. Do not refit H31-N or spend a weekly slot.
+>
+> **XFCOH31 (2026-10-26, prior lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**
 > Download: [gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif) · [run card](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-run-card.json) · [decision page](docs/xfcoh31.html) · [executive summary](knowledge/2026-10-26_xfcoh31_executive_summary.md)
 > HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld): candidate 0.04588 vs same-run base-19 control 0.04812, paired Δ −0.00224 [−0.00483, +0.00012] → verdict **negative**, no weekly slot. Uniqueness vs genuine focus submissions: max ρ 0.087, max 3-px overlap 30.7%. Validator: no hard failures, values in [0,1] (fixes the reported range-error class).
 > **2026-10-26 EXECUTIVE SUMMARY (read first):** `knowledge/2026-10-26_executive_summary_and_hypotheses.md` — 9-site verdict: best claim H33-2-B2 0.2778 (USER-REPORTED, a D2.8 catalogue-prune, NOT submittable as new); new unique CONCORD31 TIF download-for-research / DO NOT SUBMIT (holdout not run). No file is slot-approved.
@@ -155,6 +174,7 @@
 ## Read first every session
 
 Read this README **including the complete normalized owner prompt at the end**, `AGENTS.md`,
+[H31-N review](knowledge/2026-10-26_h31n_review.md),
 [latest status](knowledge/current_status_2026-10-25.md),
 [MAGREST preregistration](knowledge/2026-10-25_magrest_preregistration.md),
 [latest outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.
