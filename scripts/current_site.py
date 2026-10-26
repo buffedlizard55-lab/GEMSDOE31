@@ -48,7 +48,7 @@ def selector_decision_section() -> str:
       <td><a href="{filename}" download>{esc(Path(r["file"]).name)}</a><br>Existing H31-X, not new this session</td>
       <td>{h["dti"]:.4f}, 95% CI [{h["ci95"][0]:.4f}, {h["ci95"][1]:.4f}]<br>
       {esc(h["evaluator_version"])}, {h["withheld_positive_pixels"]:,} withheld; cited, not rerun</td>
-      <td>Unavailable: cross-family calibration unvalidated. Historical projection is not a score or reliable interval.</td>
+      <td>Unavailable: cross-family calibration unvalidated. Historical projection is not a score or reliable interval. Quantified this session (a111fe50): the retired in-family formula has out-of-family RMSE 0.196 / bias +0.135 over 67 matched USER-REPORTED submissions; best cross-family LOO RMSE 0.090 barely beats the mean (<code>evidence/cross_family_calibration_20261026.json</code>).</td>
       <td>No: surface top-K {100*u["surface"]["max_overlap"]:.1f}% (prior receipt);
       final dots {100*u["final"]["max_overlap"]:.2f}% vs registered lattice (fresh read-back).</td>
       <td>Research download YES<br><strong>Submission NO</strong></td></tr></tbody></table></div>
@@ -218,6 +218,61 @@ def h31yr_download_and_gates() -> str:
 
 def h31z_download_and_gates() -> str:
     return _h31yz_section("h31z", "H31-Z hard quota split", "2026-10-26 · Lane H31-Z · hard regime quota split (successor to H31-YR)", "h31z-run-card.json")
+
+def h31ym_download_and_gates() -> str:
+    """H31-YM regime-mosaic (session a111fe50; executed as H31-Y, renamed on merge)."""
+    p = ROOT / "evidence/h31ym/run_card.json"
+    if not p.is_file():
+        return ""
+    y = json.loads(p.read_text())
+    exp1_p = ROOT / "evidence/h31ym/exp1_screen.json"
+    rows = ""
+    if exp1_p.is_file():
+        exp1 = json.loads(exp1_p.read_text())
+        labels = {"Y1": "Y1 FAN piedmont specialist only", "Y2": "Y2 junction only (H31-X method comparator; reproduced 0.1661)",
+                  "Y3": "Y3 regime mosaic 50/50 (candidate)", "Y4": "Y4 pixel blend",
+                  "CTRL": "CTRL rank(tmi_hg)", "SLOPE": "SLOPE rank(slope)"}
+        for arm, lab in labels.items():
+            s = exp1["pooled"]["scores"][arm]
+            rows += (f'<tr><td>{esc(lab)}</td><td>{s["dti"]:.4f} [{s["ci95"][0]:.4f}, {s["ci95"][1]:.4f}]</td></tr>')
+        pied = exp1["subgroup_piedmont"]["pooled"]["scores"]
+        rows += (f'<tr><td>Piedmont-truth subgroup: Y3 vs Y2 (29,324 withheld)</td>'
+                 f'<td>Y3 {pied["Y3"]["dti"]:.4f} vs Y2 {pied["Y2"]["dti"]:.4f} (kernel credit 2,172 vs 642)</td></tr>')
+    gates = " · ".join(
+        f'{esc(k)}={"PASS" if v else "FAIL"}' for k, v in y["gates"].items() if k.startswith("G"))
+    return f'''<section id="h31ym"><div class="section-head"><div>
+      <p class="kicker">Parallel lane · 2026-10-26 session a111fe50 · preregistered, automated gates</p>
+      <h2>H31-YM regime-mosaic — unique research TIFF, verdict negative (DO NOT SUBMIT)</h2></div>
+      <p>Mountain dots from the piedmont-junction slope-break line; piedmont dots from one-sided, strike-coherent,
+        low-relief 1 m-LiDAR fan scarps; 50/50 budget. Executed as “H31-Y” in its session and renamed H31-YM on
+        merge (the KIN-PIED lane above keeps H31-Y; see <code>evidence/h31ym/RENAME.json</code>).
+        No prior dots or surfaces used. Under current literal-STOP governance no file is approved in any case.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-red">DO NOT SUBMIT — preregistered gates failed</span>
+        <h3 style="margin-top:18px"><code>{esc(y["files"]["zeros"])}</code></h3>
+        <div class="actions">
+          <a class="button" href="downloads/{esc(y["files"]["zeros"])}" download>Research .tif — all-finite [0,1] (do not submit)</a>
+          <a class="button button-light" href="downloads/{esc(y["files"]["nan"])}" download>NaN-outside twin</a>
+          <a class="button button-light" href="downloads/{esc(y["submission_name"])}-run-card.json" download>Run card JSON</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256:</strong> <code>{esc(y["raster_sha256"])}</code> ·
+          <strong>Gates:</strong> {esc(gates)}<br>
+          <strong>Reserved name (do not use):</strong> <code>{esc(y["submission_name"])}</code> ·
+          <strong>Note ({y["submission_note_chars"]}/140):</strong> <code>{esc(y["submission_note"])}</code><br>
+          <strong>Discrete-unique (not literal-rule unique):</strong> max 3-px final-dot overlap
+          {100 * y["registry"]["max_final_overlap_3px"]:.1f}% vs discrete peers (45.9% vs H33);
+          literal spacing-5 lattice reading fails as for every 37,654-dot field (counting bound in the protocol review).<br>
+          <strong>Score estimate:</strong> unavailable (cross-family RMSE ≈0.09–0.20; see selector section). Any
+          in-family number on the run card is a withdrawn diagnostic, never a score.</p>
+        <div class="table-wrap"><table><thead><tr><th>Arm (same folds, same evaluator)</th>
+          <th>HOLDOUT-DTI [95% CI] — gems57-pooled-hide-v2, 60,988 withheld positives</th></tr></thead>
+          <tbody>{rows}</tbody></table></div>
+        <p class="small">Halving the mountain budget costs more catalogue credit than the fan specialist gains at
+          the catalogue's 48% piedmont truth mix (break-even &gt;57% piedmont); untouched component-split
+          confirmation (seed 3104) repeats the ordering. Next step recorded: marginal-credit allocation
+          (~70–80% mountain) under a fresh preregistration — only after the owner resolves the registry
+          definition. Receipts: <code>evidence/h31ym/</code>.</p>
+      </div></section>'''
 
 
 def h31x_download_and_gates() -> str:
@@ -1270,7 +1325,7 @@ def _overview_body(card, *, hero_rbu: bool):
     delta = card["paired_difference"]
     final = card["registry"]["final"]
     magrest_notice = '<div class="notice">Historical lane results below are research evidence only, not current upload permission.</div>'
-    body = f'''{selector_decision_section()}{magrest_notice}{h31y_download_and_gates()}{h31yr_download_and_gates()}{h31z_download_and_gates()}{pgr31_download_and_gates()}
+    body = f'''{selector_decision_section()}{magrest_notice}{h31y_download_and_gates()}{h31yr_download_and_gates()}{h31z_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
       {h31s_download_and_gates()}
       {h31x_download_and_gates()}
       {h31t_download_and_gates()}
@@ -1441,6 +1496,7 @@ def executive(card):
       {h31y_download_and_gates()}
       {h31yr_download_and_gates()}
       {h31z_download_and_gates()}
+      {h31ym_download_and_gates()}
       {pgr31_download_and_gates()}
       {focus_summary}
       {h31s_download_and_gates()}

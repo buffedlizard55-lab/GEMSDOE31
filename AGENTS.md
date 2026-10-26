@@ -79,3 +79,14 @@ IR-U-03 (chronological duplicate priority in the disabled historical selector) i
 `registry/selector_decision_20261026_regimesplit_579233d5.json` as research ranking evidence only.
 Tooling rule: never edit the same file from parallel tool calls in one block (edits raced twice in
 that session; verify with `git diff` before launching processes).
+## Amendment 2026-10-26 (parallel session arena/a111fe50, integrated after 9883b598)
+
+Quantified cross-family audit (`evidence/cross_family_calibration_20261026.json`): the retired
+in-family SGMC projection has out-of-family RMSE 0.196 / bias +0.135 (n=67 USER-REPORTED); best
+cross-family LOO RMSE 0.090 ≈ predict-the-mean. Never present any in-family projection as an
+estimated live score or narrow interval. This parallel session's regime-mosaic lane ran as
+"H31-Y" under the branch-point discrete-peer rescope and was renamed **H31-YM** on merge
+(the f4d7fb29 KIN-PIED lane keeps H31-Y; see `evidence/h31ym/RENAME.json`); its verdict is
+negative and, under the current literal-STOP governance above, nothing from it is approved.
+Do not re-tune its 50/50 split post hoc; marginal-credit allocation needs a fresh preregistration
+and an owner-resolved registry definition first.

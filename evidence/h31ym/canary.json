@@ -1,0 +1,64 @@
+{
+ "lane": "H31-Y",
+ "evidence_class": "COMPUTED",
+ "auc_ceiling": 0.9,
+ "rows": [
+  {
+   "feature": "JUNC",
+   "auc_catalogue": 0.640432667082049,
+   "auc_off_sgmc": 0.5886451889676311,
+   "auc_catalogue_piedmont": 0.5870344390260538,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "FAN",
+   "auc_catalogue": 0.517849261043156,
+   "auc_off_sgmc": 0.3231011942543462,
+   "auc_catalogue_piedmont": 0.5566340839414814,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "FAN_G",
+   "auc_catalogue": 0.5613566565143963,
+   "auc_off_sgmc": 0.46000806637584324,
+   "auc_catalogue_piedmont": 0.5540438884531442,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "CTRL",
+   "auc_catalogue": 0.5273102602561159,
+   "auc_off_sgmc": 0.4917011553742865,
+   "auc_catalogue_piedmont": 0.5309704208157141,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "SLOPE",
+   "auc_catalogue": 0.5564346105791304,
+   "auc_off_sgmc": 0.7565025439073041,
+   "auc_catalogue_piedmont": 0.6109547184899742,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Y1",
+   "auc_catalogue": 0.517849261043156,
+   "auc_off_sgmc": 0.3231011942543462,
+   "auc_catalogue_piedmont": 0.5566340839414814,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Y3",
+   "auc_catalogue": 0.6351955976175642,
+   "auc_off_sgmc": 0.5984765635135574,
+   "auc_catalogue_piedmont": 0.5818679139101077,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Y4",
+   "auc_catalogue": 0.6227915760067554,
+   "auc_off_sgmc": 0.5875161839160612,
+   "auc_catalogue_piedmont": 0.5917602880746147,
+   "leakage_flagged": false
+  }
+ ],
+ "all_pass": true
+}

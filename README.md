@@ -1,3 +1,30 @@
+> ## 🔎 PARALLEL-SESSION UPDATE 2026-10-26 (session `arena/a111fe50-gemsdoe31`, integrated after PRs #45/#46)
+>
+> **Current decision (unchanged from the protocol review below): NO file is approved to submit** under the
+> literal any-registry STOP. This parallel session ran under the branch-point discrete-peer rescope and its
+> integration therefore does **not** re-promote H31-X or any other file.
+>
+> **Quantified projection audit (new evidence):** the retired in-family SGMC projection formula fails
+> out-of-family with RMSE 0.196 / bias +0.135 over 67 matched USER-REPORTED submissions
+> (`scripts/cross_family_calibration.py`, `evidence/cross_family_calibration_20261026.json`,
+> `knowledge/2026-10-26_projection_crossfamily_audit_a111fe50.md`); even the best cross-family calibration
+> (LOO RMSE 0.090) barely beats predicting the mean. This independently confirms, with numbers, the protocol
+> review's "no defensible leaderboard estimate" finding. The old H31-X "0.355 [0.349, 0.360]" must never be
+> read as an estimated score; corrected cross-family PROJECTION for H31-X is 0.125, interval [-0.061, 0.311].
+>
+> **New parallel lane H31-YM regime-mosaic — ⛔ DO NOT SUBMIT (negative).** Executed as "H31-Y" in its
+> session, renamed on merge (KIN-PIED above keeps H31-Y; `evidence/h31ym/RENAME.json`):
+> [`gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif`](docs/downloads/gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif)
+> (SHA-256 `41f1e63a…`; [run card](evidence/h31ym/run_card.json) ·
+> [preregistration](knowledge/2026-10-26_h31ym_mosaic_preregistration.md) ·
+> [executive summary](knowledge/2026-10-26_h31ym_executive_summary.md)). HOLDOUT-DTI 0.1550 [0.1401, 0.1701]:
+> beats CTRL/SLOPE, loses to the junction comparator (0.1661, reproducing H31-X exactly) while tripling
+> piedmont-truth credit (2,172 vs 642); SGMC 0.0873 < H33 0.0940. Mosaic wins only if hidden truth >57%
+> piedmont (catalogue 48%). Recorded next step (fresh preregistration, after the owner resolves the
+> registry definition): marginal-credit allocation ≈70–80% mountain. Zero slots spent by this session.
+>
+> ---
+>
 # Current release review — 26 October 2026 (bf9d261d)
 
 **OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO. No new TIFF is delivered in this review.**

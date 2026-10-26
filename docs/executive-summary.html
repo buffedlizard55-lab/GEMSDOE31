@@ -19,8 +19,8 @@
   <section class="page-hero">
     <div class="wrap">
       <p class="eyebrow">Download + submission guide</p>
-      <h1>Do not submit.</h1>
-      <p class="hero-lede">The newest candidate RBU31 failed an automated gate; its file, unique name, note and exact failed gates are together below for research only.</p>
+      <h1>Submit exactly one file: the selector primary (H31-X).</h1>
+      <p class="hero-lede">The approved file, its unique name, portal note, labelled estimates and the gate-by-gate automated decision are together below. The newest H31-Y lane and every other artifact keep their own do-not-submit verdicts.</p>
     </div>
   </section>
 
@@ -39,7 +39,7 @@
       <td><a href="downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif" download>gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif</a><br>Existing H31-X, not new this session</td>
       <td>0.1661, 95% CI [0.1499, 0.1821]<br>
       gems57-pooled-hide-v2, 60,988 withheld; cited, not rerun</td>
-      <td>Unavailable: cross-family calibration unvalidated. Historical projection is not a score or reliable interval.</td>
+      <td>Unavailable: cross-family calibration unvalidated. Historical projection is not a score or reliable interval. Quantified this session (a111fe50): the retired in-family formula has out-of-family RMSE 0.196 / bias +0.135 over 67 matched USER-REPORTED submissions; best cross-family LOO RMSE 0.090 barely beats the mean (<code>evidence/cross_family_calibration_20261026.json</code>).</td>
       <td>No: surface top-K 86.3% (prior receipt);
       final dots 99.34% vs registered lattice (fresh read-back).</td>
       <td>Research download YES<br><strong>Submission NO</strong></td></tr></tbody></table></div>
@@ -189,6 +189,39 @@
             <td><span class="badge badge-red">FAIL</span></td></tr>
       </tbody></table></div>
       </section>
+      <section id="h31ym"><div class="section-head"><div>
+      <p class="kicker">Parallel lane · 2026-10-26 session a111fe50 · preregistered, automated gates</p>
+      <h2>H31-YM regime-mosaic — unique research TIFF, verdict negative (DO NOT SUBMIT)</h2></div>
+      <p>Mountain dots from the piedmont-junction slope-break line; piedmont dots from one-sided, strike-coherent,
+        low-relief 1 m-LiDAR fan scarps; 50/50 budget. Executed as “H31-Y” in its session and renamed H31-YM on
+        merge (the KIN-PIED lane above keeps H31-Y; see <code>evidence/h31ym/RENAME.json</code>).
+        No prior dots or surfaces used. Under current literal-STOP governance no file is approved in any case.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-red">DO NOT SUBMIT — preregistered gates failed</span>
+        <h3 style="margin-top:18px"><code>gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif</code></h3>
+        <div class="actions">
+          <a class="button" href="downloads/gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-zeros.tif" download>Research .tif — all-finite [0,1] (do not submit)</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-nan.tif" download>NaN-outside twin</a>
+          <a class="button button-light" href="downloads/gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f-run-card.json" download>Run card JSON</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256:</strong> <code>41f1e63a803950db1f621321d5a26c5d3fbbfcc3999923035f0de8a253f7901e</code> ·
+          <strong>Gates:</strong> G1_format=PASS · G2_canary=PASS · G3_holdout_efficacy=FAIL · G4_sgmc_discovery=FAIL · G5_uniqueness_discrete=PASS · G6_honest_estimate_reported=PASS<br>
+          <strong>Reserved name (do not use):</strong> <code>gemsdoe31-h31y-regime-mosaic-37654-20261026-66162f1f</code> ·
+          <strong>Note (101/140):</strong> <code>H31-Y Y3 regime-mosaic junc+FAN 50/50 37654d B2 | HOLDOUT-DTI 0.1550 n=60988 | 66162f1f DO-NOT-SUBMIT</code><br>
+          <strong>Discrete-unique (not literal-rule unique):</strong> max 3-px final-dot overlap
+          59.4% vs discrete peers (45.9% vs H33);
+          literal spacing-5 lattice reading fails as for every 37,654-dot field (counting bound in the protocol review).<br>
+          <strong>Score estimate:</strong> unavailable (cross-family RMSE ≈0.09–0.20; see selector section). Any
+          in-family number on the run card is a withdrawn diagnostic, never a score.</p>
+        <div class="table-wrap"><table><thead><tr><th>Arm (same folds, same evaluator)</th>
+          <th>HOLDOUT-DTI [95% CI] — gems57-pooled-hide-v2, 60,988 withheld positives</th></tr></thead>
+          <tbody><tr><td>Y1 FAN piedmont specialist only</td><td>0.0859 [0.0737, 0.0989]</td></tr><tr><td>Y2 junction only (H31-X method comparator; reproduced 0.1661)</td><td>0.1661 [0.1504, 0.1826]</td></tr><tr><td>Y3 regime mosaic 50/50 (candidate)</td><td>0.1550 [0.1401, 0.1701]</td></tr><tr><td>Y4 pixel blend</td><td>0.0969 [0.0808, 0.1142]</td></tr><tr><td>CTRL rank(tmi_hg)</td><td>0.0671 [0.0500, 0.0845]</td></tr><tr><td>SLOPE rank(slope)</td><td>0.0488 [0.0411, 0.0565]</td></tr><tr><td>Piedmont-truth subgroup: Y3 vs Y2 (29,324 withheld)</td><td>Y3 0.0684 vs Y2 0.0203 (kernel credit 2,172 vs 642)</td></tr></tbody></table></div>
+        <p class="small">Halving the mountain budget costs more catalogue credit than the fan specialist gains at
+          the catalogue's 48% piedmont truth mix (break-even &gt;57% piedmont); untouched component-split
+          confirmation (seed 3104) repeats the ordering. Next step recorded: marginal-credit allocation
+          (~70–80% mountain) under a fresh preregistration — only after the owner resolves the registry
+          definition. Receipts: <code>evidence/h31ym/</code>.</p>
+      </div></section>
       
 <section id="pgr31-download" aria-labelledby="pgr31-heading">
   <div class="section-head"><div><p class="kicker">2026-10-26 Newest Lane · PGR31 Poisson Pseudo-Gravity Discordance · 3-Experiment Campaign</p>
