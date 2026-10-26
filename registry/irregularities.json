@@ -579,6 +579,19 @@
       ],
       "impact": "Do not cite the rho +0.996 claim as re-verified. Do not treat B06 as either tilt or radiometric counts until the bytes are compared with an official radiometric grid.",
       "action": "Flag in the generated H31-N banner. Do not resolve by renaming the band. Do not refit H31-N."
+    },
+    {
+      "id": "IR-31-MARGINAL-PROSE-20261026",
+      "severity": "high",
+      "status": "corrected-prose-shared-evaluator-unchanged",
+      "summary": "README and current_site H31-T explanation used alpha*S/(1-S), rather than alpha*S/(1-(1-beta)*S), and overstated private-score causality. User-reported H29 claims were called confirmed.",
+      "evidence": [
+        "evidence/marginal_dti_audit_20261026.json",
+        "tests/test_marginal_dti.py",
+        "knowledge/2026-10-26_metric_and_release_review.md"
+      ],
+      "impact": "Incorrect emission-economics explanation, not a discovered defect in shared scoring arithmetic. No model was rerun and no existing scientific result changed.",
+      "resolution": "Corrected denominator, isolated-kernel-credit interpretation, score evidence wording and private-truth causal limits; added CI regression checks."
     }
   ]
 }

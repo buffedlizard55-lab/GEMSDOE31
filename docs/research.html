@@ -164,18 +164,22 @@
           <code>GEMSDOE25 D2.8</code> (44,090 px, 0.2600 <code>USER-REPORTED</code>) →
           <code>GEMSDOE28 H27-4</code> (40,199 px, 0.2708 <code>USER-REPORTED</code>, <code>d_cat &gt; 100 m</code>) →
           <code>GEMSDOE32 H33-2-B2</code> (37,654 px, 0.2778 <code>USER-REPORTED</code>, <code>d_cat &gt; 200 m</code>).
-          Under <code>DTI = TPw / (TPw + 0.2 × FPw + 0.8 × FNw)</code> at operating point <code>D* ≈ 0.2778</code>, an additional pixel improves DTI if and only if
-          <code>ΔTPw / ΔFPw &gt; 0.2 × D* / (1 − D*) ≈ 0.0770</code> (break-even marginal precision ≈ 5.88% for an isolated dot).
-          <code>2.8 px</code> Poisson-disk thinning removed 77,041 kernel-redundant pixels whose <code>TPw</code> was already saturated by <code>max_q k(d(p,q))</code> while each duplicate added full <code>FPw</code> penalty;
-          increasing the public-catalogue exclusion collar from <code>&gt;100 m</code> to <code>&gt;200 m</code> cut 2,545 near-catalogue bleed pixels (+0.0070 over <code>H27-4</code> and +0.0068 over <code>GEMSDOE33 h36-1</code> 0.2710);
-          and <code>GEMSDOE36</code> (38,854 px, 0.2750 <code>USER-REPORTED</code>) regressed −0.0028 by appending 1,200 sub-break-even tail dots onto <code>H33-2-B2</code>.</p>
-        <p><strong>How a submission can genuinely score higher (without projections):</strong>
-          <code>H33-2-B2</code> exhausted post-hoc pruning of the legacy <code>H19-5</code> probability surface (which relied on raw <code>cat_dist ≤ 5 km</code> proximity and suffered 1 m LiDAR survey-coverage confounding).
-          Beating <code>0.2778</code> toward the <code>0.3195 / 0.4413 USER-REPORTED</code> frontier requires genuinely new off-catalogue true-positive fault discovery under range-front alluvial fans:
-          (1) SI-matched 3D magnetic/gravity analytic-signal contact-depth crests insensitive to volcanic remanent polarity,
-          (2) forward up-dip listric footwall restoration shifting hanging-wall basement/gravity steps back onto the concealed range-front fault trace,
-          (3) Kostrov–Byerlee transtensional dilatation × microseismic proximity + magnetite-destruction × K/Th × clay-cap conduit physics, and
-          (4) Dinkelbach fractional-programming 29-cell submodular allocation weighting marginal kernel gain against expected false-positive cost.</p>
+          The measured H33 support is the D2.8 support with dots within two catalogue pixels removed.
+          This adds no geological information. The historical score values remain USER-REPORTED without organizer receipts.</p>
+        <p><strong>Corrected marginal DTI algebra (COMPUTED, not a performance forecast):</strong>
+          Since <code>FNw = N − TPw</code>, fixed-truth DTI is
+          <code>S = T / (0.2T + 0.2F + 0.8N + epsilon)</code>.
+          Improvement for a finite change occurs exactly when
+          <code>(1 − 0.2S) ΔT &gt; 0.2S ΔF</code>.
+          For positive added FP weight, <code>ΔT / ΔF &gt; 0.2S / (1 − 0.2S)</code>.
+          At the unverified illustrative value S=0.2778 this ratio is 0.0588285;
+          in the special one-truth-cell case ΔT=k and ΔF=1−k, the bar is k&gt;0.05556, not a general hit probability.
+          The former denominator 1−S was incorrect. The unchanged shared evaluator agrees with 10,000 finite-change checks.</p>
+        <p><strong>Mechanism is an inference, not established private-score causality:</strong>
+          Sparse spacing can avoid redundant kernel coverage; catalogue-flank pruning can save false-positive cost.
+          Without private truth we cannot say the deleted dots were false positives, that added tail dots caused a decline,
+          or that this pruning exhausted all possible improvement. A new physical detector must beat a same-instrument
+          incumbent and pass confirmation and both registry checks before selection. No improvement is guaranteed.</p>
       </div>
       <div class="table-wrap" style="margin-top:16px"><table>
         <thead><tr><th>Rank &amp; Candidate</th><th>Input Layers &amp; Physical Transform</th><th>Why It Catches Unmapped Faults &amp; Differs from Prior Repo Lanes</th><th>Expected Gain / Cost / External Data</th></tr></thead>

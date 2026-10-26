@@ -1452,6 +1452,95 @@
         "Decision is obvious: download for research yes, submit no, slot_approved false. Nine-site answer: no approved file. H33 0.2778 remains USER-REPORTED. 0.4413 and 0.3195 were not treated as scores.",
         "Owner prompt remains at the end of README. No weekly slot. No fourth H31-N experiment. No H31-K start."
       ]
+    },
+    {
+      "id": "1028355f-review-pass-1-2026-10-26",
+      "status": "complete-with-disclosed-blockers",
+      "scope": [
+        "Reviewed preserved prompt, lane history, nine-site claim registry and binding duplicate STOP; no assigned method paragraph exists in the request.",
+        "Restored pinned small validation inputs and reproduced MAGREST denial; inspected official reference README at pinned aebe92f7c8a990f0e3443451b7a825d9afd6336b.",
+        "Fixed README and generated-site marginal DTI denominator; shared evaluator was correct and unchanged."
+      ]
+    },
+    {
+      "id": "1028355f-review-pass-2-2026-10-26",
+      "status": "complete-with-disclosed-blockers",
+      "scope": [
+        "Added 10000-case finite-change algebra audit and six regression cases covering formula, zero cost, no-op and public wording.",
+        "Removed unsupported confirmed-score language and private-truth causal certainty; moved nine-site summary ahead of detailed lane downloads.",
+        "Preserved existing TIFF bytes, all scientific receipts and owner prompt; no new geological experiment or submission."
+      ]
+    },
+    {
+      "id": "1028355f-review-pass-3-2026-10-26",
+      "status": "complete-with-disclosed-blockers",
+      "scope": [
+        "142 pytest tests pass; ruff and compileall pass; fast/brute metric max difference 4.441e-16.",
+        "MAGREST, H31-S, H31-J and H31-T verifiers all complete with no slot approval.",
+        "collect_evidence and build_site pass; check_site passes 22 pages and 439 local links; git diff --check passes.",
+        "New high-performing unique TIFF remains blocked; no claim of full task completion or global novelty."
+      ]
+    },
+    {
+      "id": "arena-aa4c2098-repo-review-pass-1-2026-10-26",
+      "status": "complete-current-state-audit",
+      "scope": [
+        "Read README and preserved owner prompt, AGENTS.md, current status, current run card, review-pass register, and frozen MAGREST preregistration. Audited current branch, run artifact, nine-site summary and available data directories."
+      ],
+      "findings": [
+        "The latest documented candidate is H31-S, whose dedicated receipt/verifier returns negative and ok_to_submit=false.",
+        "Generic registry/current_run.json and scripts/verify_current_run.py still describe an older MAGREST artifact; they are not the latest H31-S receipt.",
+        "Production data/cache absent; assigned method paragraph missing; H31-S three-experiment budget exhausted.",
+        "Broad-registry witness causes 99.931% final-dot overlap, above the literal 70% threshold; comparator scan is not exhaustive."
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "arena-aa4c2098-repo-review-pass-2-2026-10-26",
+      "status": "complete-with-documentation-fixes",
+      "checks": [
+        "Found competing README session banners and a legacy generic current_run pointer inconsistent with current_status/H31-S run card.",
+        "Compared the dedicated H31-S run card, current status, the legacy MAGREST run card, and both verifiers; H31-S is the latest documented artifact, while both deny submission.",
+        "Regression suite caught missing historical H31-J exact hashes/name/note and required hard-stop wording after README cleanup; restored audit metadata and wording."
+      ],
+      "findings_fixed": [
+        "Replaced competing README headers with the H31-S current no-submit decision, correct holdout and duplicate-stop details, and links to the dedicated verifier/run card.",
+        "Identified generic current_run.json and verify_current_run.py as MAGREST-era legacy artifacts; retained them, clearly labeled their scope, and added a normalization follow-up.",
+        "Added historical/superseded labeling to the older CONCORD31 executive-summary snapshot.",
+        "Retained H31-J exact-file hashes, submission name, and portal note for regression/audit tests."
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "arena-aa4c2098-repo-review-pass-3-2026-10-26",
+      "status": "complete-with-open-gates-no-new-candidate",
+      "scope": [
+        "Cross-checked owner request and safety rules; independently reran exact-current-run verifier, tests, lint, compile, metric proof, evidence collection and generated-site checks. No fit, TIFF, upload, leaderboard access, or slot."
+      ],
+      "verification": {
+        "current_run": "latest H31-S verifier: negative; ok_to_download_for_research=true; ok_to_submit=false; slot_approved=false; zeros TIFF sha256 186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd",
+        "pytest": "142 passed",
+        "ruff": "passed",
+        "compileall": "passed for src, scripts, tests",
+        "metric": "maximum fast/brute DTI absolute difference 4.441e-16 over 24 grids; 29 kernel offsets inside 300 m",
+        "site": "22 pages; 439 local links; all checks passed",
+        "evidence_collection": "155 artifacts inventoried; 13 files registered",
+        "legacy_magrest_run": "verify_current_run.py returns negative/no-submit for older MAGREST raster c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9",
+        "marginal_dti": "10,000 finite addition/removal sign checks passed; existing shared evaluator unchanged",
+        "exact_verifiers": "H31-S, H31-J, H31-T, and legacy MAGREST all deny slot approval"
+      },
+      "remaining_gates": [
+        "Assigned method paragraph/lane authorization missing.",
+        "H31-S three-experiment cap exhausted.",
+        "Literal broad-registry overlap stop remains in force; scan not exhaustive.",
+        "Production inputs and cache absent from checkout.",
+        "Generic current_run.json / verifier still points to the older MAGREST receipt and should be normalized without removing historical verification.",
+        "No organizer-authenticated score receipt or submission approval."
+      ],
+      "new_experiments": 0,
+      "new_tiffs": 0,
+      "weekly_slots_used": 0,
+      "historical_scope": false
     }
   ],
   "remaining_work": [
@@ -1469,7 +1558,7 @@
     "arena-review-pass-2-2026-10-26",
     "arena-review-pass-3-2026-10-26"
   ],
-  "release_decision": "2026-10-26 review: no new experiment/TIFF/slot. Existing MAGREST artifact remains research-download-only and blocked from submission by recorded overlap and efficacy gates. Executive summary now includes the nine-site USER-REPORTED highest-claim matrix. See knowledge/repo_review_2026-10-26.md.",
+  "release_decision": "2026-10-26: H31-N research TIFF is downloadable and not slot-approved (lattice overlap 0.99745; holdout did not beat base-19). Concurrent main reviews corrected marginal DTI prose and left H31-S and CSDU research-only. No weekly slot.",
   "rbu31_session_2026_10_25": {
     "branch": "arena/84287da3-gemsdoe31",
     "pass_1_implementation": "Restored 11 hash-pinned owner-mirror inputs and 9 focus-site peer rasters (all SHA-256 verified); regime forensics on existing files; preregistered and ran RBU31 (union-79 + regime-balanced weights) on gemsdoe31-hide-v2.0. Screen HOLDOUT-DTI 0.0955 vs Baseline-D 0.0922, 1/4 folds -> FAIL. Baseline-D reproduced the prior session's 0.0921712554276685 exactly.",

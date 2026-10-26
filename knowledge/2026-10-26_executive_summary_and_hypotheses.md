@@ -1,5 +1,7 @@
 # Executive summary — 2026-10-26 (CONCORD31 session)
 
+> **Historical CONCORD31 snapshot, not the current run status.** This note records the earlier CONCORD31 session only. The later repository status and active run card supersede any “this session” or file-readiness wording below: [current status](current_status_2026-10-26.md), [current MAGREST run card](../registry/current_run.json), [latest repo review](repo_review_2026-10-26.md). No file is approved to submit.
+
 ## ⛔ BOTTOM LINE — read this first
 **NO file — old or new — is OK TO SUBMIT this session.** Automated gates, not a human inspector, decide this.
 - ✅ **OK to download for research (portal-safe encoding):** `docs/downloads/gemsdoe31-concord31-minbd-concordance-28115-20261026-allfinite.tif` — values strictly {0,1} ⊂ [0,1], 0 NaN inside footprint, zeros outside (this all-finite encoding is the fix for the portal error *"Predicted values must be in range [0, 1]"*: a NaN-outside file read whole-raster contains NaN ∉ [0,1]).

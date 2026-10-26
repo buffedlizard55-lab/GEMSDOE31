@@ -1,0 +1,24 @@
+{
+  "evidence_class": "COMPUTED-MATHEMATICAL-CHECK",
+  "geological_experiments": 0,
+  "seed": 1028355,
+  "cases": 10000,
+  "all_signs_agree": true,
+  "fixed_truth_formula": "S = T / ((1-beta)*T + alpha*F + beta*N + epsilon)",
+  "exact_improvement_condition": "(1-(1-beta)*S)*delta_T > alpha*S*delta_F",
+  "positive_delta_F_ratio": "delta_T/delta_F > alpha*S/(1-(1-beta)*S)",
+  "illustration": {
+    "input": 0.2778,
+    "input_class": "USER-REPORTED; unverified",
+    "gain_to_fp_ratio": 0.05882851213417474,
+    "isolated_one_truth_credit": 0.05556,
+    "caveat": "The isolated-credit simplification requires delta_T=k and delta_F=1-k; not general hit probability."
+  },
+  "shared_implementation_sha256": {
+    "evaluate_holdout.py": "ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a",
+    "holdout.py": "7a0a84176986190b527aa9c6a84216c2dab4b599f25b1143db5f420e85020ab1",
+    "metric.py": "4afe10cbaa229948520c75194b1ebc32676e72544f05582f0725092b097b4d7f",
+    "spatial.py": "fad7b09db9efc512247b9a176a7e7ce8631e287592b4e07902d0b9c38bed00f8"
+  },
+  "limits": "Fixed truth/mask only. Private TP/FP changes are unknown. No causal leaderboard claim."
+}

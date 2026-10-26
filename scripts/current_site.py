@@ -142,18 +142,22 @@ def h31t_phd_forensic_and_hypotheses() -> str:
           <code>GEMSDOE25 D2.8</code> (44,090 px, 0.2600 <code>USER-REPORTED</code>) →
           <code>GEMSDOE28 H27-4</code> (40,199 px, 0.2708 <code>USER-REPORTED</code>, <code>d_cat &gt; 100 m</code>) →
           <code>GEMSDOE32 H33-2-B2</code> (37,654 px, 0.2778 <code>USER-REPORTED</code>, <code>d_cat &gt; 200 m</code>).
-          Under <code>DTI = TPw / (TPw + 0.2 × FPw + 0.8 × FNw)</code> at operating point <code>D* ≈ 0.2778</code>, an additional pixel improves DTI if and only if
-          <code>ΔTPw / ΔFPw &gt; 0.2 × D* / (1 − D*) ≈ 0.0770</code> (break-even marginal precision ≈ 5.88% for an isolated dot).
-          <code>2.8 px</code> Poisson-disk thinning removed 77,041 kernel-redundant pixels whose <code>TPw</code> was already saturated by <code>max_q k(d(p,q))</code> while each duplicate added full <code>FPw</code> penalty;
-          increasing the public-catalogue exclusion collar from <code>&gt;100 m</code> to <code>&gt;200 m</code> cut 2,545 near-catalogue bleed pixels (+0.0070 over <code>H27-4</code> and +0.0068 over <code>GEMSDOE33 h36-1</code> 0.2710);
-          and <code>GEMSDOE36</code> (38,854 px, 0.2750 <code>USER-REPORTED</code>) regressed −0.0028 by appending 1,200 sub-break-even tail dots onto <code>H33-2-B2</code>.</p>
-        <p><strong>How a submission can genuinely score higher (without projections):</strong>
-          <code>H33-2-B2</code> exhausted post-hoc pruning of the legacy <code>H19-5</code> probability surface (which relied on raw <code>cat_dist ≤ 5 km</code> proximity and suffered 1 m LiDAR survey-coverage confounding).
-          Beating <code>0.2778</code> toward the <code>0.3195 / 0.4413 USER-REPORTED</code> frontier requires genuinely new off-catalogue true-positive fault discovery under range-front alluvial fans:
-          (1) SI-matched 3D magnetic/gravity analytic-signal contact-depth crests insensitive to volcanic remanent polarity,
-          (2) forward up-dip listric footwall restoration shifting hanging-wall basement/gravity steps back onto the concealed range-front fault trace,
-          (3) Kostrov–Byerlee transtensional dilatation × microseismic proximity + magnetite-destruction × K/Th × clay-cap conduit physics, and
-          (4) Dinkelbach fractional-programming 29-cell submodular allocation weighting marginal kernel gain against expected false-positive cost.</p>
+          The measured H33 support is the D2.8 support with dots within two catalogue pixels removed.
+          This adds no geological information. The historical score values remain USER-REPORTED without organizer receipts.</p>
+        <p><strong>Corrected marginal DTI algebra (COMPUTED, not a performance forecast):</strong>
+          Since <code>FNw = N − TPw</code>, fixed-truth DTI is
+          <code>S = T / (0.2T + 0.2F + 0.8N + epsilon)</code>.
+          Improvement for a finite change occurs exactly when
+          <code>(1 − 0.2S) ΔT &gt; 0.2S ΔF</code>.
+          For positive added FP weight, <code>ΔT / ΔF &gt; 0.2S / (1 − 0.2S)</code>.
+          At the unverified illustrative value S=0.2778 this ratio is 0.0588285;
+          in the special one-truth-cell case ΔT=k and ΔF=1−k, the bar is k&gt;0.05556, not a general hit probability.
+          The former denominator 1−S was incorrect. The unchanged shared evaluator agrees with 10,000 finite-change checks.</p>
+        <p><strong>Mechanism is an inference, not established private-score causality:</strong>
+          Sparse spacing can avoid redundant kernel coverage; catalogue-flank pruning can save false-positive cost.
+          Without private truth we cannot say the deleted dots were false positives, that added tail dots caused a decline,
+          or that this pruning exhausted all possible improvement. A new physical detector must beat a same-instrument
+          incumbent and pass confirmation and both registry checks before selection. No improvement is guaranteed.</p>
       </div>
       <div class="table-wrap" style="margin-top:16px"><table>
         <thead><tr><th>Rank &amp; Candidate</th><th>Input Layers &amp; Physical Transform</th><th>Why It Catches Unmapped Faults &amp; Differs from Prior Repo Lanes</th><th>Expected Gain / Cost / External Data</th></tr></thead>
@@ -841,6 +845,16 @@ def h31n_decision_banner() -> str:
     h33_txt = f"{100 * h33_ov:.1f}%" if isinstance(h33_ov, float) else "—"
     subset = h33.get("h33_is_subset_of_d28")
     subset_txt = "yes, exact" if subset is True else ("no" if subset is False else "not measured")
+    csdu_path = ROOT / "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json"
+    csdu_html = ""
+    if csdu_path.is_file():
+        csdu = json.loads(csdu_path.read_text())
+        csdu_html = (
+            f"<li>Concurrent CSDU file <code>{esc(csdu.get('submission_name', ''))}</code> "
+            f"is also research-only (ok_to_submit={esc(str(bool(csdu.get('ok_to_submit'))).lower())}, "
+            f"slot_approved={esc(str(bool(csdu.get('slot_approved'))).lower())}). "
+            "This lane did not re-score it.</li>"
+        )
     conflicts = card.get("label_conflicts") or []
     conflict_html = "".join(
         f"<li><strong>{esc(item.get('id', 'flag'))}:</strong> {esc(item.get('summary', ''))}</li>"
@@ -865,6 +879,7 @@ def h31n_decision_banner() -> str:
         <li>Literal spacing-5 lattice overlap: {esc(lattice_txt)} (limit 70%). This alone blocks upload. No exemption.</li>
         <li>If a <em>future approved</em> file is rejected with “Predicted values must be in range [0, 1]”, upload the all-finite zeros file, not a report. The written problem page also asks for NaN outside the footprint; both encodings are provided. Neither encoding is approved today.</li>
         <li>Nine-site file to submit: none. H33-2-B2 is the owner-prompt’s highest USER-REPORTED claim (0.2778, not organizer-confirmed). This session measured H33 as an exact subset of D2.8 beyond 2 px of the public catalogue ({esc(subset_txt)}; H33 dots {esc(h33.get("h33_dots", "—"))}, D2.8 dots {esc(h33.get("d28_dots", "—"))}). Do not resubmit that file as new. A catalogue-segment holdout of those fixed rasters is anti-aligned with the 2 px prune and is not a leaderboard score.</li>
+        {csdu_html}
       </ul>
       {('<p><strong>Open label conflicts (not resolved, not used to change the score):</strong></p><ul>' + conflict_html + '</ul>') if conflicts else ''}
     </div>'''
@@ -1054,15 +1069,20 @@ def _focus_unique_2026_html() -> str:
     </div>'''
 
 
+def review_notice():
+    return '<div class="notice"><strong>26 October audit: no new TIFF or submission approval.</strong> The literal registry STOP remains binding. Corrected marginal DTI algebra and score-provenance wording; existing downloads are research-only. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_metric_and_release_review.md">Review, limitations and next steps</a>.</div>'
+
+
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     focus_summary = focus_site_summary()
     return h31n_decision_banner() + f'''<div class="notice notice-danger"><strong>Do not submit a download from this page yet (DOWNLOAD FOR RESEARCH = YES · SUBMIT TO DRIVENDATA = NO).</strong>
       The new 2026-10-26 H31-S (UDAP-SSLIC) GeoTIFF, H31-T Transtension-Dinkelbach, H31-J TGTD-Submod, XFCOH31, CONCORD31, RBU31-B, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts pass automated EPSG:32611 and strict [0, 1] range checks with zero human intervention and are available to download in one click; all remain research-only (<code>slot_approved = false</code>) while the unexempted 695-raster shared-registry overlap gate remains in force. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      {review_notice()}
+      {focus_summary}
       {h31s_download_and_gates()}
       {h31t_download_and_gates()}
       {h31j_download_and_gates()}
-      {focus_summary}
       {rbu31_download_and_gates()}
       {h31m_download_and_gates()}
       {hvdc_download_and_gates()}
