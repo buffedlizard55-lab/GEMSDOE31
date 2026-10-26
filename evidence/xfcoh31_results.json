@@ -1,0 +1,67 @@
+{
+ "canary": {
+  "xf_grad_rtp_s1.5": 0.5420431862172154,
+  "xf_grad_grav_s1.5": 0.5301837653167809,
+  "xf_grad_depth_s1.5": 0.5359842539093592,
+  "xf_grad_rtp_s3": 0.5443777888547207,
+  "xf_grad_grav_s3": 0.5319830305480846,
+  "xf_samepixel_coherence": 0.533818511726454,
+  "xf_offset_coherence_2px": 0.521101075871825,
+  "xf_orientation_abs_cos": 0.5080489937096222,
+  "xf_rtp_depth_coherence": 0.5620405834155218
+ },
+ "holdout": {
+  "xfcoh": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gemsdoe31-holdout-v1",
+   "dti": 0.04588144093319451,
+   "tpw": 2500.6505769437335,
+   "fpw": 35511.559816011875,
+   "fnw": 56124.349423056265,
+   "withheld_positive_pixels": 58625
+  },
+  "base19": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gemsdoe31-holdout-v1",
+   "dti": 0.0481217388314878,
+   "tpw": 2623.4055861457396,
+   "fpw": 35456.68501826421,
+   "fnw": 56001.59441385426,
+   "withheld_positive_pixels": 58625
+  }
+ },
+ "bootstrap": {
+  "resamples": 1000,
+  "seed": 20261025,
+  "n_blocks": 186,
+  "pooled_dti": {
+   "xfcoh": 0.04588144093319439,
+   "base19": 0.048121738831487675
+  },
+  "ci95": {
+   "xfcoh": [
+    0.04118189699170956,
+    0.05112052395647822
+   ],
+   "base19": [
+    0.04361088449442158,
+    0.052982941538801856
+   ]
+  },
+  "paired_delta_ci95": {
+   "xfcoh_minus_base19": [
+    -0.004828358381309972,
+    0.00011539974396825053
+   ]
+  },
+  "paired_delta_point": {
+   "xfcoh_minus_base19": -0.0022402978982932822
+  }
+ },
+ "bootstrap_error": null,
+ "dots": 37654,
+ "sha256_zeros": "857dd662430c0130c46f920666d70dae5df6148951ad76d42d31a8d540c32972",
+ "sha256_nan": "359227961da5f8b88b9b8d7ff851f427e8413df2952a15e7dff153570ea207c6",
+ "surface_sha256": "28072c515fc42e4af0e12b554f49ae00ccf54b5598c7377a74eb2e47edea0821",
+ "file": "docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif"
+}

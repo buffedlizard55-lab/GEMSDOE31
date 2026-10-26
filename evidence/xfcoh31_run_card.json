@@ -1,0 +1,153 @@
+{
+ "hypothesis": "XFCOH31: cross-field gravity-magnetic edge-transfer coherence (offset 2px RTP-vs-gravity edges, orientation agreement, basement-depth coherence) reveals buried faults missing from the USGS/INGENIOUS catalogue",
+ "mechanism": "HGB on 19 base bands + 9 cross-field coherence features; ridge-NMS + Poisson thinning (2.8px), 37,654 dots, catalogue+2px halo excluded",
+ "named_non_fault_process": "Unfaulted pluton margins / basin-fill lithologic contacts shared by gravity and magnetic fields; survey levelling seams",
+ "holdout_dti": {
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator_version": "gemsdoe31-holdout-v1",
+  "candidate": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gemsdoe31-holdout-v1",
+   "dti": 0.04588144093319451,
+   "tpw": 2500.6505769437335,
+   "fpw": 35511.559816011875,
+   "fnw": 56124.349423056265,
+   "withheld_positive_pixels": 58625
+  },
+  "same_run_control_base19": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gemsdoe31-holdout-v1",
+   "dti": 0.0481217388314878,
+   "tpw": 2623.4055861457396,
+   "fpw": 35456.68501826421,
+   "fnw": 56001.59441385426,
+   "withheld_positive_pixels": 58625
+  },
+  "paired_delta_xfcoh_minus_base19": -0.0022402978982932822,
+  "paired_delta_ci95": [
+   -0.004828358381309972,
+   0.00011539974396825053
+  ]
+ },
+ "leakage_canary_max_auc": 0.5620405834155218,
+ "canary": {
+  "xf_grad_rtp_s1.5": 0.5420431862172154,
+  "xf_grad_grav_s1.5": 0.5301837653167809,
+  "xf_grad_depth_s1.5": 0.5359842539093592,
+  "xf_grad_rtp_s3": 0.5443777888547207,
+  "xf_grad_grav_s3": 0.5319830305480846,
+  "xf_samepixel_coherence": 0.533818511726454,
+  "xf_offset_coherence_2px": 0.521101075871825,
+  "xf_orientation_abs_cos": 0.5080489937096222,
+  "xf_rtp_depth_coherence": 0.5620405834155218
+ },
+ "correlation_overlap_vs_registry": {
+  "scope": "genuine focus-site submissions GEMSDOE24/25/27/28/30/31/32/33/36 (hash-verified fetched rasters)",
+  "max_surface_spearman": 0.08703089800245252,
+  "max_dot_overlap_within_3px": 0.30652785892601053,
+  "rows": [
+   {
+    "site": "GEMSDOE24",
+    "score_user_reported": 0.2477,
+    "dot_overlap_within_3px": 0.2990917299622882,
+    "surface_spearman_sample": 0.0861201739728638,
+    "other_dots": 60069
+   },
+   {
+    "site": "GEMSDOE25",
+    "score_user_reported": 0.26,
+    "dot_overlap_within_3px": 0.2887077070165188,
+    "surface_spearman_sample": 0.07454407932177926,
+    "other_dots": 44090
+   },
+   {
+    "site": "GEMSDOE27",
+    "score_user_reported": 0.2449,
+    "dot_overlap_within_3px": 0.30652785892601053,
+    "surface_spearman_sample": 0.08703089800245252,
+    "other_dots": 61328
+   },
+   {
+    "site": "GEMSDOE28-h27-4",
+    "score_user_reported": 0.2708,
+    "dot_overlap_within_3px": 0.2844850480692622,
+    "surface_spearman_sample": 0.06520778962446429,
+    "other_dots": 40199
+   },
+   {
+    "site": "GEMSDOE28-h32-1",
+    "score_user_reported": 0.2649,
+    "dot_overlap_within_3px": 0.287884421309821,
+    "surface_spearman_sample": 0.0692807913665602,
+    "other_dots": 42294
+   },
+   {
+    "site": "GEMSDOE28-h36-1",
+    "score_user_reported": 0.271,
+    "dot_overlap_within_3px": 0.28018271631168,
+    "surface_spearman_sample": 0.06006272146336478,
+    "other_dots": 37660
+   },
+   {
+    "site": "GEMSDOE28-h38-1",
+    "score_user_reported": 0.2707,
+    "dot_overlap_within_3px": 0.28225420938014556,
+    "surface_spearman_sample": 0.060564509655129585,
+    "other_dots": 37860
+   },
+   {
+    "site": "GEMSDOE30",
+    "score_user_reported": 0.26,
+    "dot_overlap_within_3px": 0.2887077070165188,
+    "surface_spearman_sample": 0.07454407932177926,
+    "other_dots": 44090
+   },
+   {
+    "site": "GEMSDOE32-h33-2-b2",
+    "score_user_reported": 0.2778,
+    "dot_overlap_within_3px": 0.27473840760609763,
+    "surface_spearman_sample": 0.059346224982847216,
+    "other_dots": 37654
+   },
+   {
+    "site": "GEMSDOE33-h33d",
+    "score_user_reported": 0.2632,
+    "dot_overlap_within_3px": 0.2878578637063791,
+    "surface_spearman_sample": 0.06790732799437013,
+    "other_dots": 41865
+   },
+   {
+    "site": "GEMSDOE36-pinn",
+    "score_user_reported": 0.275,
+    "dot_overlap_within_3px": 0.279598449035959,
+    "surface_spearman_sample": 0.06001126070577362,
+    "other_dots": 38854
+   },
+   {
+    "site": "GEMSDOE31-local-h27-4",
+    "score_user_reported": 0.2708,
+    "dot_overlap_within_3px": 0.2844850480692622,
+    "surface_spearman_sample": 0.06520778962446429,
+    "other_dots": 40199
+   }
+  ],
+  "calibration_lattice_disclosure": "spacing-5 calibration lattice (non-submission control) covers interior within 3px of any dot; reported separately per UNIVERSAL_DEGENERACY_DISCLOSED, not a submission comparator"
+ },
+ "raster_sha256": "857dd662430c0130c46f920666d70dae5df6148951ad76d42d31a8d540c32972",
+ "raster_sha256_nan_twin": "359227961da5f8b88b9b8d7ff851f427e8413df2952a15e7dff153570ea207c6",
+ "validator_output": {
+  "zeros_all_finite": "no hard failures (evidence/xfcoh31_validate_all-finite.json)",
+  "nan_outside": "no hard failures (evidence/xfcoh31_validate_nan-outside.json)",
+  "nan_inside_footprint": 0,
+  "values_in_[0,1]": true,
+  "CRS_shape_transform_match": "EPSG:32611, 3730x3292, Affine(100,0,243350,0,-100,4508550)",
+  "single_float32_band": true,
+  "organizer_acceptance_verified": false
+ },
+ "submission_name": "gems31-xfcoh31-xfield-coherence-37654-20261026",
+ "note": "XFCOH31 cross-field offset-coherence HGB 37,654 dots; holdout-negative vs base19; research only, do not submit",
+ "verdict": "negative",
+ "ok_to_download_research": true,
+ "ok_to_submit": false,
+ "reason": "Paired HOLDOUT-DTI delta -0.00224, 95% CI [-0.00483, +0.00012] vs same-run base-19 control: does not beat control, so no weekly slot per preregistered gate. No ORGANIZER-CONFIRMED score; 0.2778/0.3195/0.4413 remain USER-REPORTED."
+}

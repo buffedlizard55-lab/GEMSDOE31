@@ -20,7 +20,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-MAX_PAGES = 21  # +1 for Experiment 13 (RBU31/RBU31-B), added 2026-10-25
+MAX_PAGES = 22  # +1 for Experiment 13 (RBU31/RBU31-B), +1 for XFCOH31 decision page, added 2026-10-26
 ALLOWED_STATUS_PICTOGRAMS: set[str] = set()
 
 FAILURES: list[str] = []
