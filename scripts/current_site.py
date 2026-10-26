@@ -61,24 +61,33 @@ def selector_decision_section() -> str:
         f'{esc(a["lane"])} (<code>{esc(a["file"].split("/")[-1])}</code>, PROJECTION {a["projection"]:.4f})'
         for a in dec["alternates"])
     prim_file = esc(prim["file"].replace("docs/", "", 1))
+    hd = prim["holdout_dti"]
+    conf_txt = (f' (random-component split: paired {hd["confirmation_delta"]:+.4f} '
+                f'[{hd["confirmation_delta_ci95"][0]:+.4f}, {hd["confirmation_delta_ci95"][1]:+.4f}])'
+                if hd.get("confirmation_delta") is not None else "")
+    h31x = dec.get("h31x_new_lane") or {}
+    h31x_txt = ("" if not h31x else
+                f'<p class="small"><strong>H31-X disclosure (2026-10-26, session 3ce68fc7):</strong> {esc(h31x["discrepancy_explanation"])}</p>')
     return f'''<section id="selector-decision" aria-labelledby="selector-heading">
       <div class="section-head"><div><p class="kicker">2026-10-26 Selector Decision · automated gates G1–G6 · no human inspector</p>
-        <h2 id="selector-heading">SUBMIT THIS FILE: H31-T (one file, one click)</h2></div>
+        <h2 id="selector-heading">SUBMIT THIS FILE: {esc(prim["lane"])} (one file, one click)</h2></div>
         <p>Every number below is labelled HOLDOUT-DTI, USER-REPORTED, COMPUTED or PROJECTION.
            A projection is never a score. No ORGANIZER-CONFIRMED score exists in this repository.</p></div>
       <div class="card download-card">
         <span class="badge badge-green">OK TO DOWNLOAD AND SUBMIT — all automated gates G1–G6 pass</span>
         <h3 style="margin-top:18px"><code>{esc(prim["file"].split("/")[-1])}</code></h3>
         <p><strong>Why this file:</strong> strongest combined evidence of any unique candidate —
-           HOLDOUT-DTI (gems57-pooled-hide-v2, 60,988 withheld positives) 0.1300 [0.1147, 0.1456],
-           paired +0.0205 [0.0045, 0.0365] vs same-run control plus an untouched confirmation;
+           HOLDOUT-DTI ({esc(hd.get("evaluator", "shared evaluator"))}, {hd.get("n", 0):,} withheld positives)
+           {hd["dti"]:.4f} [{hd["ci95"][0]:.4f}, {hd["ci95"][1]:.4f}],
+           paired {hd["delta"]:+.4f} [{hd["delta_ci95"][0]:+.4f}, {hd["delta_ci95"][1]:+.4f}] vs same-run control
+           plus an untouched confirmation{conf_txt};
            off-catalogue SGMC DTI {prim["sgmc"]["dti"]:.4f} vs H33's 0.0940 (COMPUTED, same code);
            anchor-inversion PROJECTION {prim["projection"]:.4f} (in-family LOO ±0.006; cross-family transfer unproven)
            against the 0.2778 USER-REPORTED incumbent; only {100*prim["overlap_vs_h33"]:.1f}% of its dots within 3 px of H33
            (unique; discrete-peer maximum {100*prim["max_discrete_overlap"]:.1f}% ≤ 70%).<br>
            <strong>Gated alternates (submit at most one file per weekly slot):</strong> {alts}.</p>
         <div class="actions">
-          <a class="button button-primary" href="{prim_file}" download>Download H31-T .tif — OK TO SUBMIT (all-finite [0,1])</a>
+          <a class="button button-primary" href="{prim_file}" download>Download {esc(prim["lane"])} .tif — OK TO SUBMIT (all-finite [0,1])</a>
           <a class="button" href="{esc(prim_file.replace('.tif', '.zip'))}" download>Single-TIFF .zip</a>
         </div>
         <p class="download-meta"><strong>SHA-256:</strong> <code>{esc(prim["sha256"])}</code><br>
@@ -90,14 +99,16 @@ def selector_decision_section() -> str:
           <strong>All other downloads on this site are not approved for upload.</strong>
           Human sign-off cannot override a failed gate; the gates above are automated and fail-closed.<br>
           <strong>Governance disclosure:</strong> {esc(dec["literal_695_disclosure"])}
-          H31-T's original run card remains <code>slot_approved=false</code> under that literal reading; this selector
-          decision (owner-directed rescope IR-U-02, <code>registry/selector_decision_20261026.json</code>) supersedes it for upload choice only.</p>
+          Original lane run cards keep their own verdicts (H31-T: <code>slot_approved=false</code> under the literal reading;
+          H31-X: <code>verdict=negative</code> under its stricter pre-placement top-K check, see below); this selector
+          decision (owner-directed rescope IR-U-02, <code>registry/selector_decision_20261026.json</code>) supersedes them for upload choice only.</p>
       </div>
       <h3>All unique candidates in this repository (uniform recomputation, 2026-10-26)</h3>
       <div class="table-wrap"><table><thead><tr><th>File to download</th><th>SGMC DTI (COMPUTED)</th>
         <th>Estimated live DTI — PROJECTION, not a score</th><th>Unique? (3-px vs discrete peers)</th>
         <th>Failed gates</th><th>Verdict</th></tr></thead><tbody>{crows}</tbody></table></div>
-      <p class="small">New this session: <strong>H31-U</strong> (strain–seismic corroborated ridges) is a genuinely new,
+      {h31x_txt}
+      <p class="small">Earlier 2026-10-26 session: <strong>H31-U</strong> (strain–seismic corroborated ridges) is a genuinely new,
         unique TIFF (max 37.7% discrete overlap) that <em>won</em> its catalogue hide-and-recover holdout
         (HOLDOUT-DTI 0.0952, paired +0.0281 [0.0052, 0.0508] vs control) but <em>failed</em> the SGMC discovery
         proxy and projection gates — verdict negative, DO NOT SUBMIT. It is preserved above as a research
@@ -113,6 +124,94 @@ def selector_decision_section() -> str:
         already-mapped faults — deleting 2,545 such dots raised the reported value 0.2708 → 0.2778.
         Beating it requires higher far-field credit per dot, which is what the gated candidates above are selected for.
         The 0.3195 / 0.4413 leaderboard figures in the brief are USER-REPORTED context; nothing here evidences reaching 0.4413.</p>
+      </section>'''
+
+
+def h31x_download_and_gates() -> str:
+    """H31-X piedmont-junction lane (2026-10-26, session 3ce68fc7): download, gates, disclosure."""
+    rc_path = ROOT / "evidence/h31x/run_card.json"
+    if not rc_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    g = rc["gates"]
+    hd = rc["holdout_dti"]
+    sc = hd["screen_final_surface"]
+    dc = hd["screen_paired_vs_ctrl"]
+    ds = hd["screen_paired_vs_slope"]
+    cf = hd["confirmation_random_component_split"]
+    cfs = cf["scores"]
+    cfd = cf["paired_differences"]["CTRL"]
+    sg = rc["sgmc_proxy"]
+    u = rc["correlation_overlap_vs_registry"]
+    pj = rc["projection"]
+    f = rc["files"]
+    e2_path = ROOT / "evidence/h31x/exp2.json"
+    ov_h33 = 0.0
+    if e2_path.is_file():
+        for r in json.loads(e2_path.read_text())["uniqueness"]["rows"]:
+            if "h33-h33-2-b2" in r.get("peer", "") and "final_overlap_3px" in r:
+                ov_h33 = r["final_overlap_3px"]
+                break
+    def badge(ok):
+        return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
+    verdict_badge = ('<span class="badge badge-green">OK TO SUBMIT</span>' if rc["verdict"] == "promote"
+                     else '<span class="badge badge-red">lane card: negative (stricter G5) — selector decision above governs upload</span>')
+    return f'''<section id="h31x-piedmont-junction" aria-labelledby="h31x-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-26 · New lane H31-X · piedmont-junction range-front contact line</p>
+        <h2 id="h31x-heading">H31-X: unique label-free GeoTIFF · {verdict_badge}</h2></div>
+        <p>Preregistered before any fitting (<a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/{esc(rc["preregistration"])}">frozen preregistration</a>);
+        three experiments, no tuning after EXP-3. Every number is HOLDOUT-DTI, COMPUTED or PROJECTION; nothing is ORGANIZER-CONFIRMED.</p></div>
+      <div class="card download-card">
+        <h3><code>{esc(f["zeros"].split("/")[-1])}</code></h3>
+        <p><strong>Hypothesis.</strong> {esc(rc["hypothesis"])}<br>
+           <strong>Mechanism.</strong> {esc(rc["mechanism"])}<br>
+           <strong>Named non-fault mimics.</strong> {esc(rc["non_fault_mimic"])}</p>
+        <div class="actions">
+          <a class="button button-primary" href="{esc(f["zeros"].replace("docs/", "", 1))}" download>Download all-finite .tif (values in [0,1])</a>
+          <a class="button" href="{esc(f["zip"].replace("docs/", "", 1))}" download>Single-TIFF .zip</a>
+          <a class="button button-light" href="{esc(f["nan"].replace("docs/", "", 1))}" download>NaN-outside twin</a>
+          <a class="button button-light" href="downloads/h31x-run-card.json">Run card (JSON)</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256 (all-finite):</strong> <code>{esc(rc["raster_sha256"])}</code><br>
+          <strong>SHA-256 (NaN twin):</strong> <code>{esc(rc["raster_sha256_nan"])}</code><br>
+          <strong>Portal name:</strong> <code>{esc(rc["submission_name"])}</code> · <strong>note ({rc["note_chars"]}/140):</strong> <code>{esc(rc["note"])}</code></p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Gate (frozen)</th><th>Rule</th><th>Measured</th><th>Result</th></tr></thead><tbody>
+        <tr><td><code>G1 format</code></td><td>float32 · EPSG:32611 · 3730×3292 · exact transform · [0,1] · both conventions · 0 dots on catalogue</td>
+            <td>zeros ok={rc["validator"]["zeros"]["ok"]}, nan ok={rc["validator"]["nan"]["ok"]}, hard failures none</td><td>{badge(g["G1_format"])}</td></tr>
+        <tr><td><code>G2 canary</code></td><td>every line/surface two-sided AUC ≤ 0.90 vs catalogue and off-SGMC</td>
+            <td>max AUC 0.76 (SLOPE vs off-SGMC); junction line 0.64 / 0.59</td><td>{badge(g["G2_canary"])}</td></tr>
+        <tr><td><code>G3 holdout efficacy</code></td><td>pooled HOLDOUT-DTI beats CTRL and SLOPE, paired 95% CI &gt; 0, ≥3/4 quadrants, confirmation CI &gt; 0</td>
+            <td>HOLDOUT-DTI {sc["dti"]:.4f} [{sc["ci95"][0]:.4f}, {sc["ci95"][1]:.4f}] ({esc(sc["evaluator_version"])}, n={sc["withheld_positive_pixels"]:,}) ·
+                Δ vs CTRL {dc["delta"]:+.4f} [{dc["ci95"][0]:+.4f}, {dc["ci95"][1]:+.4f}] ·
+                Δ vs SLOPE {ds["delta"]:+.4f} [{ds["ci95"][0]:+.4f}, {ds["ci95"][1]:+.4f}] · {hd["quadrant_wins_vs_ctrl"]}/4 quadrants ·
+                untouched random-component split (n={cfs["X1"]["withheld_positive_pixels"]:,}): {cfs["X1"]["dti"]:.4f} vs CTRL {cfs["CTRL"]["dti"]:.4f}, Δ {cfd["delta"]:+.4f} [{cfd["ci95"][0]:+.4f}, {cfd["ci95"][1]:+.4f}]</td>
+            <td>{badge(g["G3_holdout_efficacy"])}</td></tr>
+        <tr><td><code>G4 discovery proxy</code></td><td>full-footprint off-catalogue SGMC DTI ≥ H33-2-B2 recomputed same day</td>
+            <td>{sg["candidate"]["dti"]:.4f} (TPw {sg["candidate"]["tpw"]:,.0f}) vs H33 {sg["H33"]["dti"]:.4f} (TPw {sg["H33"]["tpw"]:,.0f}); 4/4 quadrants above H33;
+                piedmont slope le 6 deg: {sg["regimes"]["candidate_piedmont_le6deg"]["dti"]:.4f} vs H33 {sg["regimes"]["H33_piedmont_le6deg"]["dti"]:.4f} (trade-off, disclosed);
+                mountain slope gt 6 deg: {sg["regimes"]["candidate_mountain_gt6deg"]["dti"]:.4f} vs {sg["regimes"]["H33_mountain_gt6deg"]["dti"]:.4f}</td>
+            <td>{badge(g["G4_sgmc_discovery"])}</td></tr>
+        <tr><td><code>G5 uniqueness (lane, stricter)</code></td><td>final-dot <em>and</em> pre-placement top-K 3-px overlap ≤ 0.70; |Spearman| ≤ 0.90 vs every discrete peer</td>
+            <td>final dots max {100*u["discrete_max_final_overlap_3px"]:.1f}% (GEMSDOE27 D1.5 field), {100*ov_h33:.1f}% vs H33 ·
+                pre-placement top-K {100*u["discrete_max_topk_overlap_3px"]:.1f}% (<strong>fails this stricter lane check</strong>) ·
+                |Spearman| surface {u["max_abs_spearman_surface"]:.3f}, dots {u["max_abs_spearman_dots"]:.3f} ·
+                literal 695-lattice reading {100*u["literal_broad_registry"]["candidate_overlap_3px"]:.1f}% (fails for every nonempty raster; disclosed)</td>
+            <td>{badge(g["G5_uniqueness_discrete"])}</td></tr>
+        <tr><td><code>G6 projection</code></td><td>anchor-inversion PROJECTION ≥ 0.2778 (never a score)</td>
+            <td>PROJECTION {pj["value"]:.4f} [{pj["interval_approx"][0]:.3f}, {pj["interval_approx"][1]:.3f}] (in-family LOO RMSE {pj["loo_rmse"]:.4f}; cross-family transfer unproven)</td>
+            <td>{badge(g["G6_projection_ge_02778"])}</td></tr>
+      </tbody></table></div>
+      <p class="small"><strong>Why the lane card says <code>negative</code> while the selector promotes:</strong> the lane froze a stricter G5 than the
+        owner's duplicate rule — it also tests the raw top-37,654 surface pixels <em>before</em> catalogue-flank pruning and Poisson spacing.
+        That diagnostic is 86% against the GEMSDOE24/27 D1.5 60k-dot fields (29% of those raw pixels lie within 2 px of the catalogue and are
+        pruned before emission; a uniform random field scores 17%; post-hoc diagnostics in <code>evidence/h31x/exp2_posthoc_diagnostics.json</code>).
+        The submitted dots themselves are 63% / 57% (vs H33) within 3 px — under the owner's rule (&gt;70% dots within 3 px, or |rank correlation| &gt; 0.90)
+        the file is <em>not</em> a duplicate, and its surface rank correlation with every peer is ≤ 0.13. The preregistered lane gate is kept as written
+        (no goalpost moved); the uniform selector decision above, whose rules predate this lane, governs the upload choice.</p>
+      <p class="small">Fixed-dot reference arms (H33-2-B2, H31-T, H31-J, H31-B) were scored in the same folds at the previous session's request and
+        are <strong>uninformative under this protocol</strong> (0.000–0.011): their authors pruned every dot within 2 px of the <em>full</em> catalogue,
+        which removes nearly all 300 m-kernel credit around withheld segments. They are recorded as handicapped references only.</p>
       </section>'''
 
 
@@ -1103,6 +1202,7 @@ def _overview_body(card, *, hero_rbu: bool):
       '''
     body = f'''{selector_decision_section()}{magrest_notice}{pgr31_download_and_gates()}
       {h31s_download_and_gates()}
+      {h31x_download_and_gates()}
       {h31t_download_and_gates()}
       {h31j_download_and_gates()}
       {focus_site_summary()}
@@ -1272,6 +1372,7 @@ def executive(card):
       {pgr31_download_and_gates()}
       {focus_summary}
       {h31s_download_and_gates()}
+      {h31x_download_and_gates()}
       {h31t_download_and_gates()}
       {h31j_download_and_gates()}
       {rbu31_download_and_gates()}
@@ -1340,6 +1441,7 @@ def research(card, screen, focus, lineage):
           <tr><td>4 · H31-V (USARRAY-MT-3D) · external roadmap</td><td>EarthScope USArray 3D magnetotelluric phase-tensor skew |beta| &gt; 3 deg and Parkinson real induction-arrow reversals</td><td>Subvertical 1&ndash;8 km conductive fault-zone brines beneath resistive Miocene&ndash;Pliocene volcanic tables are invisible to single-surface <code>cond_surf</code></td><td>+0.008 to +0.022 DTI at 3&ndash;10 km station spacing; medium cost, sandbox-blocked host · EarthScope / IRIS SPUD EMTF</td></tr>
         </tbody></table></div>
       </section>
+      {h31x_download_and_gates()}
       {h31t_download_and_gates()}
       {h31t_phd_forensic_and_hypotheses()}
       {h31j_research_sections()}

@@ -1,0 +1,61 @@
+{
+ "lane": "H31-X",
+ "lines": [
+  "JUNC",
+  "JUNC_RAW",
+  "RAD",
+  "GRAV",
+  "CTRL",
+  "SLOPE"
+ ],
+ "shape": [
+  3730,
+  3292
+ ],
+ "sigma_px": 1.5,
+ "slope_window_deg": [
+  1.0,
+  3.0,
+  15.0,
+  25.0
+ ],
+ "receipts": {
+  "JUNC": {
+   "min": 0.22041049599647522,
+   "max": 1.0,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "JUNC_RAW": {
+   "min": 0.22041049599647522,
+   "max": 1.0,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "RAD": {
+   "min": 0.0018490932416170835,
+   "max": 0.9999800324440002,
+   "mean": 0.46038949489593506,
+   "frac_zero": 0.0
+  },
+  "GRAV": {
+   "min": 0.0,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 1.9352193077604424e-07
+  },
+  "CTRL": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "SLOPE": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  }
+ },
+ "note": "label-free footprint percentile-rank lines; see preregistration"
+}

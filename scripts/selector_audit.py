@@ -62,6 +62,8 @@ CANDIDATES = [
          card="docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json"),
     dict(lane="H31-U", file="docs/downloads/gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif",
          card="evidence/h31u/run_card.json"),
+    dict(lane="H31-X", file="docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+         card="evidence/h31x/run_card.json"),
 ]
 
 
@@ -102,6 +104,19 @@ def lane_holdout(lane: str, card: dict) -> dict:
             return dict(pass_=ok, evaluator=h["evaluator_version"], dti=h["final_surface"]["dti"],
                         ci95=h["final_surface"]["ci95"], n=h["final_surface"]["withheld_positive_pixels"],
                         delta=d["delta"], delta_ci95=d["ci95"], summary="paired CIs vs CTRL & best single-line")
+        if lane == "H31-X":
+            h = card["holdout_dti"]
+            d = h["screen_paired_vs_ctrl"]
+            d2 = h["screen_paired_vs_slope"]
+            c = h["confirmation_random_component_split"]["paired_differences"]["CTRL"]
+            ok = bool(d["delta"] > 0 and d["ci95"][0] > 0 and d2["delta"] > 0 and d2["ci95"][0] > 0
+                      and c["delta"] > 0 and c["ci95"][0] > 0 and h["quadrant_wins_vs_ctrl"] >= 3)
+            return dict(pass_=ok, evaluator=h["evaluator_version"], dti=h["screen_final_surface"]["dti"],
+                        ci95=h["screen_final_surface"]["ci95"], n=h["screen_final_surface"]["withheld_positive_pixels"],
+                        delta=d["delta"], delta_ci95=d["ci95"],
+                        confirmation_delta=c["delta"], confirmation_delta_ci95=c["ci95"],
+                        summary="paired CIs vs CTRL & SLOPE (213-px quadrant folds) + untouched random-component "
+                                "split confirmation vs CTRL; all exclude 0 (card verbatim)")
         if lane == "H31-S":
             # preregistered rule required both comparators on both seeds; screen vs H31-M failed
             return dict(pass_=False, evaluator="gems57-pooled-hide-v2",
@@ -145,6 +160,8 @@ def lane_canary(lane: str, card: dict) -> bool:
     if lane == "H31-J":
         return bool(card.get("leakage_canary_pass"))
     if lane == "H31-U":
+        return bool(card["gates"]["G2_canary"])
+    if lane == "H31-X":
         return bool(card["gates"]["G2_canary"])
     if lane == "CONCORD31":
         return False  # canary not run (card)
@@ -333,16 +350,24 @@ def main() -> int:
     prom = [r for r in rows_sorted if r["selector_promote"]]
     prom.sort(key=lambda r: -r["projection"])
     primary = prom[0] if prom else None
-    note = ("H31-T analytic-signal+listric+transtension Dinkelbach 37654d B2 | "
-            "HOLDOUT-DTI 0.1300 n=60988 | selector G1-G6 pass 83fbc267")
+    if primary and primary["lane"] == "H31-T":
+        portal_name = "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654"
+        note = ("H31-T analytic-signal+listric+transtension Dinkelbach 37654d B2 | "
+                "HOLDOUT-DTI 0.1300 n=60988 | selector G1-G6 pass 83fbc267")
+    elif primary:
+        card_obj = next(c["card_obj"] for c in cand if c["lane"] == primary["lane"])
+        portal_name = card_obj["submission_name"]
+        note = card_obj["note"]
+    else:
+        portal_name, note = None, "no promoted candidate"
     assert len(note) <= 140, len(note)
     decision = dict(
-        date="2026-10-26", session_branch="arena/5b378be2-gemsdoe31",
+        date="2026-10-26", session_branch="arena/3ce68fc7-gemsdoe31 (re-run; first issued on arena/5b378be2-gemsdoe31)",
         rule="Frozen gates G1-G6 (knowledge/2026-10-26_h31u_preregistration.md); uniqueness judged "
              "on discrete peer submissions with literal 695-raster reading disclosed (IR-U-02)",
         primary_submission=(dict(
             lane=primary["lane"], file=primary["file"], sha256=primary["sha256"],
-            portal_name="gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654",
+            portal_name=portal_name,
             portal_note=note, portal_note_chars=len(note),
             holdout_dti=primary["holdout_from_card"], sgmc=primary["sgmc"],
             projection=primary["projection"], projection_interval=primary["projection_interval"],
@@ -356,9 +381,23 @@ def main() -> int:
         promoted_lanes=[r["lane"] for r in prom],
         not_promoted=[dict(lane=r["lane"], failed_gates=[k for k, v in r["gates"].items() if not v],
                            projection=r["projection"]) for r in rows_sorted if not r["selector_promote"]],
-        h31u_new_lane=dict(verdict="negative — DO NOT SUBMIT (G4/G6 fail); unique research TIFF generated this session",
+        h31u_new_lane=dict(verdict="negative — DO NOT SUBMIT (G4/G6 fail); unique research TIFF generated 2026-10-26 (session 5b378be2)",
                            file="docs/downloads/gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif",
                            run_card="evidence/h31u/run_card.json"),
+        h31x_new_lane=dict(
+            lane_card_verdict=next((c["card_obj"].get("verdict") for c in cand if c["lane"] == "H31-X"), None),
+            selector_verdict=("promote" if "H31-X" in [r["lane"] for r in prom] else "not promoted"),
+            discrepancy_explanation=(
+                "The H31-X lane card applies a STRICTER preregistered G5 than this selector: it also requires the "
+                "pre-placement top-K (top 37,654 surface pixels, before catalogue-flank pruning and Poisson spacing) "
+                "to overlap <= 70% with every discrete peer; that diagnostic is 86.3% vs the GEMSDOE27/GEMSDOE24 "
+                "D1.5 60k-dot fields because the raw top-K piles onto catalogue-adjacent range-front pixels that are "
+                "then pruned. The selector's G5 implements the owner's duplicate rule literally (final submitted dots "
+                "within 3 px of a peer <= 70%; |rank correlation| <= 0.90), under which H31-X measures 63.1% / 0.125. "
+                "Both readings are disclosed; the lane card stays verdict=negative and this selector decision governs "
+                "upload choice only (same governance as IR-U-02)."),
+            file="docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+            run_card="evidence/h31x/run_card.json"),
         focus_sites=focus_rows,
         literal_695_disclosure="Literal broad-registry reading FAILS for every nonempty candidate: the registered "
                                 "spacing-5 lattice is within 3 px of 99.87% of the footprint (COMPUTED). Promotions "

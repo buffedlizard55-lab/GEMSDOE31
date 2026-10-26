@@ -75,7 +75,11 @@ def test_selector_decision_primary_consistency():
     dec = json.loads((ROOT / "registry/selector_decision_20261026.json").read_text())
     card = json.loads((ROOT / "evidence/h31u/run_card.json").read_text())
     assert card["verdict"] == "negative" and card["ok_to_submit"] is False
-    assert dec["primary_submission"]["lane"] == "H31-T"
+    # 2026-10-26 (session 3ce68fc7): the selector was re-run with H31-X added; the primary is
+    # whichever promoted lane has the highest projection, and H31-T must remain promoted.
+    assert dec["primary_submission"]["lane"] in dec["promoted_lanes"]
+    assert "H31-T" in dec["promoted_lanes"]
+    assert dec["primary_submission"]["portal_name"]
     assert dec["primary_submission"]["portal_note_chars"] <= 140
     assert (ROOT / dec["primary_submission"]["file"]).is_file()
     from gemsdoe31.submission import sha256_file

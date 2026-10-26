@@ -1,5 +1,31 @@
 # Current project status — 2026-10-26
 
+## H31-X session update (2026-10-26 · branch `arena/3ce68fc7-gemsdoe31`) — READ FIRST
+
+**Selector decision re-run: SUBMIT `gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif`**
+(SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9`; portal name
+`gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9`; note
+`H31-X X1 piedmont-junction slope-break 37654d B2 | HOLDOUT-DTI 0.1661 n=60988 | 5a956da9`).
+Alternates passing the same selector gates: H31-T (0.317), H31-J (0.312), H31-M (0.296) — one file per slot.
+Full record: `knowledge/2026-10-26_h31x_executive_summary.md`, `evidence/h31x/run_card.json`,
+`registry/selector_decision_20261026.json`, `evidence/selector_audit_20261026.json`.
+
+- New label-free lane **H31-X** (piedmont-junction range-front contact line), preregistered before fitting
+  (`knowledge/2026-10-26_h31x_piedmont_junction_preregistration.md`), 3 experiments, ~1 h compute.
+- HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld, buffer 213): **0.1661 [0.1499, 0.1821]**; Δ vs CTRL
+  +0.0991 [+0.0720, +0.1258]; Δ vs slope-magnitude baseline +0.1173 [+0.1024, +0.1314]; 4/4 quadrants;
+  untouched random-component split (29,965 withheld): 0.1462 vs CTRL 0.0659 (Δ +0.0804 [+0.0536, +0.1081]).
+- Off-catalogue SGMC proxy 0.1209 vs H33 0.0940 (4/4 quadrants); PROJECTION 0.355 [0.349, 0.360] (never a score).
+- Uniqueness: final dots 63.1% max within 3 px of any discrete peer (57.0% vs H33), |Spearman| ≤ 0.13.
+  **Lane card verdict = negative** solely because its stricter preregistered G5 also tested pre-placement raw
+  top-K overlap (86.3%); the uniform selector (owner's rule, rules frozen before this lane) promotes it. Both
+  readings disclosed; nothing relaxed post hoc. Literal 695-lattice reading still fails for every nonempty raster.
+- Canary max AUC 0.76; validators pass both conventions; 0 slots spent; DrivenData never contacted.
+- Fixed-dot references (H33/H31-T/H31-J/H31-B) are uninformative in hide-and-recover folds (0.000–0.011) because
+  they were pruned against the full catalogue — recorded as handicapped references only.
+- Remaining: live transfer unproven (anchors USER-REPORTED); piedmont regime trade-off (0.043 vs 0.059 SGMC slice);
+  KIN/TEX hypotheses costed but not run; budget-split lane (junction + piedmont specialist) is the natural next step.
+
 ## PGR31 session update (2026-10-26 · branch `arena/71e9be2c-gemsdoe31`)
 
 **Decision unchanged: no competition submission is approved.** A new lane (PGR31, Poisson
