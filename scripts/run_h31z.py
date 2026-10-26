@@ -424,9 +424,10 @@ def run_package() -> dict:
     name = f"gemsdoe31-h31z-maxunion-{int(dots.sum())}-20261026-{support_sha[:8]}"
     hold = gates["detail"]["final_holdout"]
     variant_tag = "" if choice["variant"] == "single" else choice["variant"]
-    note = (f"H31-Z {choice['arm']}{('-' + variant_tag) if variant_tag else ''} maxunion JUNC+SCARPX+GRAV"
-            f" {int(dots.sum())}d B2 | HOLDOUT-DTI {hold['dti']:.4f} n={hold['withheld_positive_pixels']}"
-            f" | {support_sha[:8]}")[:140]
+    lines_used = [("S0" if (n == "SCARPX" and choice["variant"] == "nocoh") else n) for n in choice["lines"]]
+    note = (f"H31-Z {choice['arm']}{('-' + variant_tag) if variant_tag else ''} maxunion "
+            f"{'+'.join(lines_used)} {int(dots.sum())}d B2 | HOLDOUT-DTI {hold['dti']:.4f} "
+            f"n={hold['withheld_positive_pixels']} | {support_sha[:8]}")[:140]
     out_tif = ROOT / "docs/downloads" / f"{name}-zeros.tif"
     sample = ROOT / "data/sample_submission.tif"
     receipt = submission_writer.write_submission(
@@ -448,7 +449,6 @@ def run_package() -> dict:
     promote = bool(all(gates[k] for k in gates if k.startswith("G")))
     u = exp2["uniqueness"]
     sg = exp3["sgmc_full"]
-    lines_used = [("S0" if (n == "SCARPX" and choice["variant"] == "nocoh") else n) for n in choice["lines"]]
     card = dict(
         lane=LANE, session_branch=SESSION, generated_utc="2026-10-26",
         hypothesis=("H31-Z: catalogue-missing faults express per physiographic regime (range-front "

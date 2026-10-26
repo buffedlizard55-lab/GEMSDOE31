@@ -1,0 +1,64 @@
+{
+ "lane": "H31-Z",
+ "session_branch": "arena/15e685db-gemsdoe31",
+ "preregistration": "knowledge/2026-10-26_h31z_preregistration.md",
+ "preregistration_sha256": "61ba7bee44bb9213c6f06070cf2adfce62f9f7e2646203fd31e3d51848b0b0c0",
+ "lines": [
+  "JUNC",
+  "S0",
+  "SCARPX",
+  "GRAV",
+  "CTRL",
+  "SLOPE"
+ ],
+ "shape": [
+  3730,
+  3292
+ ],
+ "lidar_ok_pixels": 3894460,
+ "coherence_on_lidar_ok": {
+  "mean": 0.44921788573265076,
+  "p50": 0.42959195375442505,
+  "p90": 0.7701557874679565,
+  "p99": 0.9573113322257996
+ },
+ "receipts": {
+  "JUNC": {
+   "min": 0.22041049599647522,
+   "max": 1.0,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "S0": {
+   "min": 0.1231682151556015,
+   "max": 0.999885618686676,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "SCARPX": {
+   "min": 0.1231682151556015,
+   "max": 1.0,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "GRAV": {
+   "min": 0.0,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 1.9352193077604424e-07
+  },
+  "CTRL": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  },
+  "SLOPE": {
+   "min": 0.0004996737116016448,
+   "max": 0.9995003342628479,
+   "mean": 0.5,
+   "frac_zero": 0.0
+  }
+ },
+ "note": "label-free footprint percentile-rank lines; JUNC exact H31-X reuse (nms=False)"
+}

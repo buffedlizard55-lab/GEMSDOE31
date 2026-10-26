@@ -1,0 +1,79 @@
+{
+ "lane": "H31-Z",
+ "evidence_class": "COMPUTED",
+ "auc_ceiling": 0.9,
+ "rows": [
+  {
+   "feature": "JUNC",
+   "kind": "line",
+   "auc_catalogue": 0.640432667082049,
+   "auc_off_sgmc": 0.5886451889676311,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "S0",
+   "kind": "line",
+   "auc_catalogue": 0.5691387544271004,
+   "auc_off_sgmc": 0.5709939102231448,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "SCARPX",
+   "kind": "line",
+   "auc_catalogue": 0.5892171625975602,
+   "auc_off_sgmc": 0.5321116127724442,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "GRAV",
+   "kind": "line",
+   "auc_catalogue": 0.5287957660523381,
+   "auc_off_sgmc": 0.439243253235275,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "CTRL",
+   "kind": "line",
+   "auc_catalogue": 0.5273102602561159,
+   "auc_off_sgmc": 0.4917011553742865,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "SLOPE",
+   "kind": "line",
+   "auc_catalogue": 0.5564346105791304,
+   "auc_off_sgmc": 0.7565025439073041,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "SCARPX",
+   "kind": "surface",
+   "auc_catalogue": 0.5892171625975602,
+   "auc_off_sgmc": 0.5321116127724442,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "GRAV",
+   "kind": "surface",
+   "auc_catalogue": 0.5287957660523381,
+   "auc_off_sgmc": 0.439243253235275,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Z2",
+   "kind": "surface",
+   "auc_catalogue": 0.6481369803485932,
+   "auc_off_sgmc": 0.6249783497259341,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "Z3",
+   "kind": "surface",
+   "auc_catalogue": 0.6365932980668328,
+   "auc_off_sgmc": 0.5610034902860664,
+   "leakage_flagged": false
+  }
+ ],
+ "all_pass": true,
+ "preregistration_sha256": "61ba7bee44bb9213c6f06070cf2adfce62f9f7e2646203fd31e3d51848b0b0c0"
+}
