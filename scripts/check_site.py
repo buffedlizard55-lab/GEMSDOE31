@@ -93,6 +93,16 @@ def main() -> None:
     if "do not submit a download from this page yet" not in executive.lower():
         fail("executive-summary.html: the no-upload-approval warning is missing")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
+        if "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8" not in html_text:
+            fail(f"{page_name}: H31-J TGTD-Submod candidate name missing")
+        if "04e886cd8f7759e05d5fabb5d7222aaed0d16fda59fdf81e5934c5508eaf3fa3" not in html_text:
+            fail(f"{page_name}: H31-J TGTD-Submod primary -zeros.tif SHA-256 missing")
+        if "44142a9671e4beaa4872a8d5fc11e061f8050ac3e48a4573b415329227536657" not in html_text:
+            fail(f"{page_name}: H31-J TGTD-Submod primary -zeros.zip SHA-256 missing")
+        if "GEMSDOE31 H31-J TGTD+GDR1391 geotherm+PTCF 4-quad OOF 300m submod 37654d b2px (ab35d4e8)" not in html_text:
+            fail(f"{page_name}: H31-J TGTD-Submod portal note missing")
+        if html_text.find("gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8") > html_text.find("gemsdoe31-scgp-submod-37654-20261025-fa735287"):
+            fail(f"{page_name}: H31-J TGTD-Submod must appear at the top above prior candidates")
         if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in html_text:
             fail(f"{page_name}: H31-E2 SCGP-Submod candidate name missing")
         if "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8" not in html_text:

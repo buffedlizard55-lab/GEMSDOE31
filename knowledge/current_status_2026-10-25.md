@@ -1,8 +1,21 @@
-# Current status — 2026-10-25 (H31-E2 SCGP-Submod + MAGREST integrated record)
+# Current status — 2026-10-25 (H31-J TGTD-Submod + H31-E2 SCGP-Submod + MAGREST integrated record)
 
-Read the complete owner prompt at the end of README, AGENTS, [H31-E preregistration](2026-10-25_h31e_preregistration.md), the frozen MAGREST preregistration, this record and `registry/review_passes.json` before continuing.
+Read the complete owner prompt at the end of README, AGENTS, [H31-J preregistration](2026-10-25_h31j_tgtd_preregistration.md), [H31-E preregistration](2026-10-25_h31e_preregistration.md), the frozen MAGREST preregistration, this record and `registry/review_passes.json` before continuing.
 
-## Latest lane (H31-E2 SCGP-Submod · `gemsdoe31-scgp-submod-37654-20261025-fa735287`)
+## Latest lane (H31-J TGTD-Submod · `gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8`)
+
+- **Primary All-Finite `[0, 1]` GeoTIFF & Single-TIFF ZIP:** `docs/downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.tif` (`04e886cd8f7759e05d5fabb5d7222aaed0d16fda59fdf81e5934c5508eaf3fa3`) and `-zeros.zip` (`44142a9671e4beaa4872a8d5fc11e061f8050ac3e48a4573b415329227536657`); companion NaN-outside `-nan.tif` (`2dcc3a5be6545b51823b9c4385fa436eb19bcde9b21b663156b85e8bcfe79027`) and `-nan.zip` (`d73169da57975e888adb662bcc5b93376c8a5e99c3de262072089e54b230f1fe`); `37,654` off-catalogue binary dots (`57.59%` beyond `1.5 km`, `0` on catalogue, `0` within `200 m` collar, `0` copied dots).
+- **Automated technical & scientific gates (`evidence/h31j/run_card.json`, verified by `scripts/verify_h31j.py`):**
+  - `G1` Format & `[0, 1]` Range **PASS** (`-zeros.tif` all `12,279,160` finite in `[0.0, 1.0]`; `-nan.tif` all `5,167,373` footprint cells finite in `[0.0, 1.0]` and `NaN` outside);
+  - `G2` Single-Feature Leakage Canary **PASS** (`260/260` checks `<= 0.90`, `max sym AUC = 0.8059`, `max miss AUC = 0.5646`, `dist_known_fault_px` excluded);
+  - `G3a` Discrete Sibling Uniqueness (`130` files / `57` distinct fields across `GEMSDOE24..36 + 31 + 70`) **PASS** (pre-placement continuous `|ρ| = 0.1563 <= 0.90` + disclosed diagnostic unspaced `d=0` clump overlap `80.13%`; final placed `37,654` dots `|ρ| = 0.0370 <= 0.90`, `max 3-px overlap = 65.14% <= 70.0%`);
+  - `G4a` Screen (`HOLDOUT-DTI`, `gems57-pooled-hide-v2`, `seed=31`, `21.3 km` buffer, `n=2,901`) **PASS** (`0.0897 [0.0627, 0.1149]` vs `physical_hgb 0.0483`, `Δ = +0.0414 [+0.0168, +0.0649]`, `+85.7%`, `4/4` quadrants won; `H31-J1` subsurface-only `= 0.0653`; `H31-J2` Poisson `= 0.0862`);
+  - `G4b` Fresh Untouched Confirmation (`HOLDOUT-DTI`, `gems57-pooled-hide-v2`, `seed=32`, `21.3 km` buffer, `n=2,808`) **PASS** (`0.0772 [0.0456, 0.1076]` vs `physical_hgb 0.0482`, `Δ = +0.0290 [+0.0123, +0.0475]`, `+60.2%`, `4/4` quadrants won = **`8/8` quadrants across both seeds**);
+  - `G5` Own-Method OOF Residual Semivariogram **PASS** (`95%`-sill practical range `= 10,719.8 m <= 21,300 m` buffer, covering `99.74%` of sill, $R^2 = 0.7911$);
+  - `G6` Off-Catalogue `SGMC > 300 m` Discovery Proxy (`HOLDOUT-PROXY-SGMC`, report-only, matched `37,654` dots) **REPORTED WIN** (All-elevation `0.1064` vs `GEMSDOE32 H33-2-B2 = 0.0923`, `+15.2%`; Piedmont `< 100 m` `0.1474` vs `H33-2-B2 = 0.1130`, `+30.5%`, and vs `H31-E2 = 0.1289`, `+14.4%`).
+- **Weekly-slot governance (`slot_approved = false`, scientific Run Card `verdict = "promote"`):** Held from automatic agent portal upload per Parallel-Run Rule 6 and transparent disclosure of `G3b` (`r13-lattice-s5` synthetic `5×5` grid covers `99.99%` of interior pixels within `2.83 <= 3 px`).
+
+## Prior multi-physics lane (H31-E2 SCGP-Submod · `gemsdoe31-scgp-submod-37654-20261025-fa735287`)
 
 - **Primary NaN-outside GeoTIFF:** `docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif` (`d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8`); all-finite fallback `88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6`; `37,654` off-catalogue binary dots (`31.5%` beyond `1.5 km`).
 - **Automated validation gates (`evidence/h31e/run_card.json`):** `G1` Format & `[0, 1]` Range **PASS** (`0` NaN inside footprint); `G2` Single-Feature Leakage **PASS** (`max AUC = 0.7624 <= 0.90`); `G3a` Uniqueness across all 22 genuine submissions **PASS** (`max surface |ρ| = 0.1073 <= 0.90`, `max 3-px overlap = 51.53% <= 70.0%`); `G4a` Screen (`draw=101`, `21.3 km` buffer) **PASS** (`0.1274` vs `0.0922`, `+0.0352`, `4/4` quadrants); `G4b` Fresh Untouched Confirmation (`draws=[202, 303]`, `n=35,599`) **PASS** (`0.1145 [0.1071, 0.1232]` vs `0.0886`, `+0.0259`, `+29.3%`); `G5a` Piedmont SGMC **PASS** (`0.1233` vs `GEMSDOE32 H33-2-B2 = 0.1091`, `+13.0%`).

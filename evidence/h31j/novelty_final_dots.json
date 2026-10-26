@@ -1,0 +1,731 @@
+{
+  "phase": "post-placement-final-dots",
+  "evidence_class": "COMPUTED duplicate diagnostics, NOT DTI or a competition score",
+  "correlation_limit": 0.9,
+  "overlap_limit": 0.7,
+  "scope": "Complete 9-focus-repo inventory (GEMSDOE24,25,27,28,30,31,32,33,36) + current GEMSDOE31 (MAGREST, H31-E2) + GEMSDOE70 s2-oof38k",
+  "incomparable": [
+    {
+      "source": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/c9ad59ec6f969ed931d089a03044c1567a633e84/docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
+      "reason": "different grid; NOT a comparable competition raster",
+      "shape": [
+        32,
+        48
+      ]
+    }
+  ],
+  "comparable_files": 130,
+  "distinct_prediction_fields": 57,
+  "arms": {
+    "h31j3_dual_submod": {
+      "pass_": true,
+      "surface_footprint_sha256": "1d63f524cd2e69ba76ccf7687fbe4a6255636b273991608020a9acef36060863",
+      "support_sha256": "ab35d4e86859da4514170405f85e36b2fe0434654975357cfe893251241cd55b",
+      "duplicate": false,
+      "max_abs_rho": 0.037014871980671556,
+      "max_overlap": 0.6514048972220747,
+      "comparisons": [
+        {
+          "prior_content_sha256": "453357ce7c445af14a7abf4bf0593b1b1ac2649421b76854d25583c70ab8fccd",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-aspc-20261025-6393e9d9b0df-RESEARCH-NOT-SUBMISSION-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-aspc-20261025-6393e9d9b0df-RESEARCH-NOT-SUBMISSION-zeros.tif"
+          ],
+          "spearman_rho": 0.002638336530303805,
+          "overlap_within_3px": 0.2422850162001381,
+          "within_3px": 9123,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "cd60a7f90faeb482d3d2b618ace52d8937d859f7691454571e119ccae16e5261",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h24-0-mirror-h19-5-group-best-20261002-e27054cf-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h24-0-mirror-h19-5-group-best-20261002-e27054cf-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-reference-h19-5-20261002-80d47e1ab2ee-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-reference-h19-5-20261002-80d47e1ab2ee-nan.tif"
+          ],
+          "spearman_rho": 0.037014871980671556,
+          "overlap_within_3px": 0.44478674244436184,
+          "within_3px": 16748,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "b8858b87e08fbf18e6ebfc1f6a4777644f6c514ec44d4ca116b6cdec6c6db934",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-d15-poisson200m-offcat-60069-20261003T233210Z-68d0e2e4.tif"
+          ],
+          "spearman_rho": 0.023356162625129177,
+          "overlap_within_3px": 0.4180963509852871,
+          "within_3px": 15743,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "2610c8dc6554d98e5a08c70eaebde92a53de701f89f465a613b3ec09e075abf6",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h25-1-dotted-h19-5-d2-8-20261002-e56ea318af89-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h25-1-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/2a279dd0d2a4319c1022567876eb4c97553e2d13/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/2a279dd0d2a4319c1022567876eb4c97553e2d13/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gems24-h25-1-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gems24-h25-1-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gems32-probe-S1-ANCHOR-identical-to-live-02600.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-d28-ref02600-repro-44090-20261004T183200Z-426073b6-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-d28-ref02600-repro-44090-20261004T183200Z-426073b6-zeros.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/gemsdoe33-d28-reference-20261004-426073b6b4ab-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/gemsdoe33-d28-reference-20261004-426073b6b4ab-zeros.tif"
+          ],
+          "spearman_rho": 0.020946618726638225,
+          "overlap_within_3px": 0.4020555585064004,
+          "within_3px": 15139,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "001c91f0c1b2f004bc8d03d82c9206933710804b121141184752703545857ba0",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-mtr1-negative-paired-trough-20261025-ed7243e6d163-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-mtr1-negative-paired-trough-20261025-ed7243e6d163-zeros.tif"
+          ],
+          "spearman_rho": 0.0011259291342646815,
+          "overlap_within_3px": 0.2035109151750146,
+          "within_3px": 7663,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "679e0d829ecb497b64ffd61d03da9a69a10a9e620eefa016f40eb61f598dc623",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/2a279dd0d2a4319c1022567876eb4c97553e2d13/docs/downloads/gems25-gem1-blind-magnetics-20261025-279a305b80d2-nan.tif"
+          ],
+          "spearman_rho": 0.0031628600652531657,
+          "overlap_within_3px": 0.17852021033621926,
+          "within_3px": 6722,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "b8a1edeb6d3e58e09759cbd74e11a121025be0f949a6a21c7e8ec29f3e1e210f",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/2a279dd0d2a4319c1022567876eb4c97553e2d13/docs/downloads/gems25-h31-control-sapd2-4-k3p5-bde7-20261025-9edd6bed8268-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/2a279dd0d2a4319c1022567876eb4c97553e2d13/docs/downloads/gems25-h31-control-sapd2-4-k3p5-bde7-20261025-9edd6bed8268-zeros.tif"
+          ],
+          "spearman_rho": 0.013421715699692603,
+          "overlap_within_3px": 0.3392202687629468,
+          "within_3px": 12773,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "5dd21306b5bd86771fc33171548dd1a63b19530b36ad3f0f8bebbdc711b33899",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-all-increments-d2-8-h27-4-r1-t-v2-20261002-23ad46a4d7ba-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-all-increments-d2-8-h27-4-r1-t-v2-20261002-23ad46a4d7ba-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems27-all-increments-d2-8-h27-4-r1-t-v2-20261002-23ad46a4d7ba-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems27-all-increments-d2-8-h27-4-r1-t-v2-20261002-23ad46a4d7ba-nan.tif"
+          ],
+          "spearman_rho": 0.02221581908140486,
+          "overlap_within_3px": 0.40447230041961013,
+          "within_3px": 15230,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "6ba45fdbb0070c75796e6475fa632c47754798ad66c444c94be8f2c370eaa9c7",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-farfield-swap-augmented-detector-probe-20261002-a34b0799df59-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-farfield-swap-augmented-detector-probe-20261002-a34b0799df59-nan.tif"
+          ],
+          "spearman_rho": 0.023908074523838103,
+          "overlap_within_3px": 0.39947947097253944,
+          "within_3px": 15042,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "c199c93d5fcacff3c79fc8dadcb23f684e03d30bf111b35f416954b8f7e1c1c9",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-h28-1-edge-coherence-plus-t-v2-h27-4-20261002-1113fba5f6cb-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-h28-1-edge-coherence-plus-t-v2-h27-4-20261002-1113fba5f6cb-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems27-h28-1-edge-coherence-plus-t-v2-h27-4-20261002-1113fba5f6cb-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems27-h28-1-edge-coherence-plus-t-v2-h27-4-20261002-1113fba5f6cb-nan.tif"
+          ],
+          "spearman_rho": 0.018289579475212304,
+          "overlap_within_3px": 0.38381048494183884,
+          "within_3px": 14452,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "14bb0e945a8bb3391e3860377c56a90d238ed60ddaaaa429b27dd941bfcf483c",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif"
+          ],
+          "spearman_rho": 0.023072348670729596,
+          "overlap_within_3px": 0.42146916662240397,
+          "within_3px": 15870,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "f70cdf4c19281e245b3c1f0e1968f4de6c10abe1ac6cb0010e635939b07d5dc2",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-topo-gap-closure-t-v2-on-d2-8-20261002-3ebd51534bb1-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-topo-gap-closure-t-v2-on-d2-8-20261002-3ebd51534bb1-nan.tif"
+          ],
+          "spearman_rho": 0.02056884650666095,
+          "overlap_within_3px": 0.40553460455728474,
+          "within_3px": 15270,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "a0dc7bcb6260b61650ed70501ae91da80b53bc5ce915f8f045cea5a4eef56d92",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-topo-gap-closure-t-v2-plus-h27-4-r1-on-d1-5-20261002-d466b251f309-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-topo-gap-closure-t-v2-plus-h27-4-r1-on-d1-5-20261002-d466b251f309-nan.tif"
+          ],
+          "spearman_rho": 0.024988676547555856,
+          "overlap_within_3px": 0.42075211132947365,
+          "within_3px": 15843,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "40f1114502974c25026698db9377d650598183b2f854fd534813e295dd48f002",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-unique-scatter-farfield-20261025-98e59bf8e3ce-allfinite.tif"
+          ],
+          "spearman_rho": 0.008171245163471041,
+          "overlap_within_3px": 0.1485632336537951,
+          "within_3px": 5594,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "f3f882db9cb1535f947da2908b2cbe32af98ea85b370bcbfafa230c86045599f",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/research/gems27-h28-3-strain-conductivity-negative-research-20261025-27d6875f3b22-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/research/gems27-h28-3-strain-conductivity-negative-research-20261025-27d6875f3b22-nan.tif"
+          ],
+          "spearman_rho": 0.018408748911981857,
+          "overlap_within_3px": 0.38580230519997877,
+          "within_3px": 14527,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "65c4e12bbf0aa2a93cc7ad58bff4a9a9a18c97a74e29b7e413bf987287efd0ad",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/research/gems27-lane-subsurface-buried-fault-20261025-fc6d8c3acf6c-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/research/gems27-lane-subsurface-buried-fault-20261025-fc6d8c3acf6c-nan.tif"
+          ],
+          "spearman_rho": 0.004370174922221031,
+          "overlap_within_3px": 0.24382535719976628,
+          "within_3px": 9181,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "61254affb5dc02a4545102915a680b5ab5fff5f075b948807245e1baa86c99c3",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems27-h27-4-r1-pruned-d1-5-20261003-450eb6859636-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems27-h27-4-r1-pruned-d1-5-20261003-450eb6859636-nan.tif"
+          ],
+          "spearman_rho": 0.025327083198120742,
+          "overlap_within_3px": 0.4173527380889149,
+          "within_3px": 15715,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "2fd68f4802a13e01bfdc0a4a6b21db4a1cda9c0f69128dd231715289a31eab0a",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif"
+          ],
+          "spearman_rho": 0.0226629295669743,
+          "overlap_within_3px": 0.400940139161842,
+          "within_3px": 15097,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "e3691dceaa5bfc0c0ac2dc74a7451d2a8e8614b04039ab5ddb0183fc6242f507",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif"
+          ],
+          "spearman_rho": 0.021688241860212495,
+          "overlap_within_3px": 0.4033303234716099,
+          "within_3px": 15187,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "d7657ac52335b18f5a4ee6da27ac1c7c571ef8db83533e4d7a6f13114ca760aa",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h32-1-tip-euler-dejitter-d2-8-20261003-c3aeda1d31a3-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h32-1-tip-euler-dejitter-d2-8-20261003-c3aeda1d31a3-nan.tif"
+          ],
+          "spearman_rho": 0.02199607743450506,
+          "overlap_within_3px": 0.4014447336272375,
+          "within_3px": 15116,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "77fea717bc4af6d6b9ca70085bae7bf22b92909173f0ce70423536901f8a7921",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif"
+          ],
+          "spearman_rho": 0.02138901000241538,
+          "overlap_within_3px": 0.39679715302491103,
+          "within_3px": 14941,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "9fdd02a9152c4d616af52221640595ae1c831b4f4f66f8c3e8d4b0e22a67bc31",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h37-1-coverprob-h19-5-r1-20261003-0bbddf41eb6d-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h37-1-coverprob-h19-5-r1-20261003-0bbddf41eb6d-nan.tif"
+          ],
+          "spearman_rho": 0.022107940122582572,
+          "overlap_within_3px": 0.41222712062463485,
+          "within_3px": 15522,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "b4da58c4a9ea415320ee64d2b131467345748dc031572635f2276c1d9be1dbaf",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h37-1-probe-union-pool-r1-20261003-52a13184267e-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h37-1-probe-union-pool-r1-20261003-52a13184267e-nan.tif"
+          ],
+          "spearman_rho": 0.015975443148417104,
+          "overlap_within_3px": 0.43626175173952303,
+          "within_3px": 16427,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "db2ae40b21c350f6ae278f08014918c8ba3a379324c6aecf99de596ec46e4a9b",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif"
+          ],
+          "spearman_rho": 0.021427374006061907,
+          "overlap_within_3px": 0.3978328995591438,
+          "within_3px": 14980,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "3bc376d7d7b9dd0f0585dc967d3ec0e53836872fd02451fc94f0880b1cc04883",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h39-1-depthslice-persist-b2-20261025-a86b8ed33727-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h39-1-depthslice-persist-b2-20261025-a86b8ed33727-nan.tif"
+          ],
+          "spearman_rho": 0.011051424935566602,
+          "overlap_within_3px": 0.3168056514580124,
+          "within_3px": 11929,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "60a8df238158a1a0a1eea2f33f32678d77bfef4b393f36c3c2a61bce9095aab9",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/GEMSDOE30_oof-gbm-adaptive-r5_20261003T170425181215Z_aedb3d13-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/GEMSDOE30_oof-gbm-adaptive-r5_20261003T170425181215Z_aedb3d13-zeros.tif"
+          ],
+          "spearman_rho": 0.020528524594962655,
+          "overlap_within_3px": 0.47442502788548363,
+          "within_3px": 17864,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "fdb1b90fa72c0cdb377252bb2824114ff88d02a340b108b99c7baaf507c34a96",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-edge-hybrid-80k-02845bd4-20261003T234340Z-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-edge-hybrid-80k-02845bd4-nan.tif"
+          ],
+          "spearman_rho": 0.00012993192564514892,
+          "overlap_within_3px": 0.34118553141764485,
+          "within_3px": 12847,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "14ceed93f7e81047560d9b440fc891b00f84bee60823ec27080ed8258203bb24",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e.tif"
+          ],
+          "spearman_rho": 0.011588461109454535,
+          "overlap_within_3px": 0.6514048972220747,
+          "within_3px": 24528,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "87a8c051a7c625bc1dd607c64fe757717e1777f69ffbe1e365dc62659411e792",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-add-arm-d28-20261004-8acb75e1-nan.tif"
+          ],
+          "spearman_rho": 0.024722093040278226,
+          "overlap_within_3px": 0.4165560099856589,
+          "within_3px": 15685,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "0651dd2e39c668791d54753f4b05034b445fb0b7c45fe718d79fb57c737703df",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif"
+          ],
+          "spearman_rho": 0.03162783173328698,
+          "overlap_within_3px": 0.46271312476762094,
+          "within_3px": 17423,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "58a1c48b50b1085088bef949c7439ce65c4b2f9840a6d30a790b291b226ac702",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gems32-bayesopt-dilation-scarp-d28-20261004-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gems32-bayesopt-dilation-scarp-d28-20261004-zeros.tif"
+          ],
+          "spearman_rho": 0.0032837800108696806,
+          "overlap_within_3px": 0.25567004833483825,
+          "within_3px": 9627,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "2ff2aa22ce4c3aeacd7f0ab3d57a2c3ef3d68b2214acf872f3fa18765234ca19",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gems32-lazygreedy-maxcov-44090-supconfined-zeros.tif"
+          ],
+          "spearman_rho": 0.02176298899967908,
+          "overlap_within_3px": 0.38888298719923514,
+          "within_3px": 14643,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "8a62acba2f3055569d4f5aef71bfbbe95981121518bea1db6de4d2a7b30e7ff5",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gems32-probe-S2-SCALE-lambda-0.5.tif"
+          ],
+          "spearman_rho": 0.020946618726638225,
+          "overlap_within_3px": 0.4020555585064004,
+          "within_3px": 15139,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "bec889fec8863877ef29e7b46b2c62e8826f5ef5389a9ce1f85c4125373bed9e",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gems32-probe-S3-NULLADD-2000px.tif"
+          ],
+          "spearman_rho": 0.020162614582220552,
+          "overlap_within_3px": 0.40216178892016785,
+          "within_3px": 15143,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "a739c11384b358c338fe009bafeb88544657a733291a75f1d59da9b33726a3dc",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-arena41-pfonly-blindbasin-37654-20261025T202725Z-530d08d1-zeros.tif"
+          ],
+          "spearman_rho": 0.00475178765592175,
+          "overlap_within_3px": 0.2063525787432942,
+          "within_3px": 7770,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "0db92a1c7b71d75af4bdeba292b80a94d77c9b94d634d9b57377ff2b2d5afa3e",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32-newvariant-43200-20261025T202557Z-2cf1447f-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32-newvariant-43200-20261025T202557Z-2cf1447f-zeros.tif"
+          ],
+          "spearman_rho": 0.020832602960187477,
+          "overlap_within_3px": 0.39870930047272535,
+          "within_3px": 15013,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "5328e8f42ab8f71e8bdd0acf3ea84445bf9f86824ad98b3c335d37e3eef57bca",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32-winning-46090-prune400-20261025T203017Z-c3459dcd-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32-winning-46090-prune400-20261025T203017Z-c3459dcd-zeros.tif"
+          ],
+          "spearman_rho": 0.020211015625018064,
+          "overlap_within_3px": 0.40935889945291337,
+          "within_3px": 15414,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "9cc2ce0993ecd073c300edb7b833da829ef6be05b897f263005764e8af5436b4",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32a-dip-projected-step-46090-20261004T183200Z-838fcd84-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32a-dip-projected-step-46090-20261004T183200Z-838fcd84-zeros.tif"
+          ],
+          "spearman_rho": 0.020574023445997437,
+          "overlap_within_3px": 0.41642322196844955,
+          "within_3px": 15680,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "a7a5c2b96acc7199f07f567c7e9a9cb667cb1e1123c54cfa17ae118c7318825b",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32b-transtensional-swarm-45890-20261004T183200Z-27b7c9e6-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32b-transtensional-swarm-45890-20261004T183200Z-27b7c9e6-zeros.tif"
+          ],
+          "spearman_rho": 0.02075076167505014,
+          "overlap_within_3px": 0.41690125883040313,
+          "within_3px": 15698,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "fc3ac5e17ffe8be8501b6c7f2864c1db6f2dd636cb1e929eab47a73e90f15f3b",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32c-mt-claycap-breach-45890-20261004T183200Z-a5963d0a-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32c-mt-claycap-breach-45890-20261004T183200Z-a5963d0a-zeros.tif"
+          ],
+          "spearman_rho": 0.0208477725808034,
+          "overlap_within_3px": 0.41084612524565783,
+          "within_3px": 15470,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "354a9feb4a3673f5e025317893b7d5d361b516c76ab5e6ebe65acd780c9e5a71",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32d-equalbudget-44090-20261004T183200Z-350cdc3f-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32d-equalbudget-44090-20261004T183200Z-350cdc3f-zeros.tif"
+          ],
+          "spearman_rho": 0.0207239722885363,
+          "overlap_within_3px": 0.40301163223030756,
+          "within_3px": 15175,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "70c599c00286784647b83ba722d77b7913815a263b28cf8e200ed07adb879186",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32d-submodular-multipysics-46090-20261004T183200Z-4de30601-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h32d-submodular-multipysics-46090-20261004T183200Z-4de30601-zeros.tif"
+          ],
+          "spearman_rho": 0.02057402344599748,
+          "overlap_within_3px": 0.41520157221012377,
+          "within_3px": 15634,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "15c51e5173924ec162539b77a3863defb57e7f6b0e6e05acdaf1b90cbbf157a2",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif"
+          ],
+          "spearman_rho": 0.023906610515975882,
+          "overlap_within_3px": 0.3950709088011898,
+          "within_3px": 14876,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "c59cf9345ee3fa1f6ad60a5eaf4ad9de8b38889324193353223e62ef4b1a9686",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h33-h33-2b2-plus-h33-1-20261004T220000Z-31588dc7-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h33-h33-2b2-plus-h33-1-20261004T220000Z-31588dc7-zeros.tif"
+          ],
+          "spearman_rho": 0.02345459556912531,
+          "overlap_within_3px": 0.39621288574919,
+          "within_3px": 14919,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "dd11916d76ae67ded3c828a58adbe88500f67500c53a7f303c1eb38eae5d826b",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h35-cv-altfusion-b2-42600-20261025T202439Z-35887fc3-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h35-cv-altfusion-b2-42600-20261025T202439Z-35887fc3-zeros.tif"
+          ],
+          "spearman_rho": 0.0206236838088057,
+          "overlap_within_3px": 0.3974345355075158,
+          "within_3px": 14965,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "8d7b3c4b4af892b28c8a9b29c604e280e0e8d6e121da3c3f1c4428aac8d07e26",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif"
+          ],
+          "spearman_rho": 0.021446022284908082,
+          "overlap_within_3px": 0.4043926276092845,
+          "within_3px": 15227,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "cf441026b374b32b1847626dacfc081a3d8bfebc122dc575cc7623d81427f628",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/gemsdoe33-h33f-analog-xfer-20261004-d042874b26ef-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/gemsdoe33-h33f-analog-xfer-20261004-d042874b26ef-zeros.tif"
+          ],
+          "spearman_rho": 0.003679150527155181,
+          "overlap_within_3px": 0.21076114091464387,
+          "within_3px": 7936,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "44f075d149ba904f182d658ff2580bbfe0480a63fe32257bea2b3275a0111b3b",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/research/GEMSDOE33-H33-6-edge-consensus-research-20261004-6c888d2ce0f7-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/research/GEMSDOE33-H33-6-edge-consensus-research-20261004-6c888d2ce0f7-zeros.tif"
+          ],
+          "spearman_rho": 0.021989574457795022,
+          "overlap_within_3px": 0.4039411483507728,
+          "within_3px": 15210,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "04740443fe3c994e6a22c1c038fc217343bc0879f5deb3ae5dddc1bb609fd1f4",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/c9ad59ec6f969ed931d089a03044c1567a633e84/docs/downloads/GEMS36_h6_offcatalog_network_prior_20261004T193432.021282Z_3276c04090_3c064db2.tif"
+          ],
+          "spearman_rho": 0.0034741797398447813,
+          "overlap_within_3px": 0.049981409677590696,
+          "within_3px": 1882,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "666b650bb546c0653077608273bfd3b7cb59def2fdeeff6487efa8f70b0775e3",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/c9ad59ec6f969ed931d089a03044c1567a633e84/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif",
+            "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/c9ad59ec6f969ed931d089a03044c1567a633e84/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif"
+          ],
+          "spearman_rho": 0.023491350050152536,
+          "overlap_within_3px": 0.3976735539384926,
+          "within_3px": 14974,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "7b7b86df1aecdc4b87aac62fa03a7b8e759f1f7eea228687c520f82aa7c2a836",
+          "prior_sources": [
+            "local://docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif"
+          ],
+          "spearman_rho": -0.004986761309675472,
+          "overlap_within_3px": 0.08554204068624847,
+          "within_3px": 3221,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "8f78f62f4ad59c15490b4a3ccc5174bf2d4d07aad21755aadfc54c43bb9db960",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-h31b-corroborated-b2-hybrid-20261025-37654-nan.tif"
+          ],
+          "spearman_rho": 0.021204603380688178,
+          "overlap_within_3px": 0.38548361395867636,
+          "within_3px": 14515,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "718fa64735fddec8d4f2996cd62657d0e983123eee8ba507c1f4f110a38648bf",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-nan.tif"
+          ],
+          "spearman_rho": 0.009219462820208354,
+          "overlap_within_3px": 0.29975567004833487,
+          "within_3px": 11287,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "bdb00b43f4af33977222290430e6df342bf69ef89e9d7f026698cef43d275eea",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-h31e-surfexpr-20261025-8817f551-nan.tif"
+          ],
+          "spearman_rho": 0.015022938905138046,
+          "overlap_within_3px": 0.3670526371700218,
+          "within_3px": 13821,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "ce13eb72f7a4edb697807a23b0f28a6c69dd9b8dbe4a9fc06ccc6eb40f686ade",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+            "local://docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif"
+          ],
+          "spearman_rho": -0.00017068078855583298,
+          "overlap_within_3px": 0.17594412280235833,
+          "within_3px": 6625,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "76c66ea1b856bbe8736159bdc83873c6257f84a2e4bff6388cb5bd68057dcf40",
+          "prior_sources": [
+            "local://docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif",
+            "local://docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-nan.tif"
+          ],
+          "spearman_rho": 0.03219989974308577,
+          "overlap_within_3px": 0.32299357305996707,
+          "within_3px": 12162,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        },
+        {
+          "prior_content_sha256": "f0a7d9026bc9052a85e914a45ad499404a6edc88ef0ac5efc139e307bcbf568b",
+          "prior_sources": [
+            "https://github.com/buffedlizard55-lab/GEMSDOE70/blob/main/docs/downloads/gems70-p5-dual-submod300-oof38k-20261020.tif"
+          ],
+          "spearman_rho": 0.02321104432273136,
+          "overlap_within_3px": 0.33667073883252774,
+          "within_3px": 12677,
+          "candidate_support_pixels": 37654,
+          "duplicate": false
+        }
+      ]
+    }
+  }
+}

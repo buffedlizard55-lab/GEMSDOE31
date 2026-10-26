@@ -59,6 +59,15 @@ PROTOCOL = {
 
 SUBMISSIONS = [
     {
+        "id": "candidate-h31j-tgtd-submod",
+        "name": "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8",
+        "role": "unique H31-J TGTD-Submod 4-quadrant OOF candidate (PASS format/[0,1]/leakage/130-raster discrete uniqueness/both 21.3 km holdout seeds 8/8 quadrants +85.7% & +60.2%/own-method variogram 10.72 km/both SGMC off-catalogue proxies +15.2% all-elev & +30.5% piedmont; held from auto-slot by Rule 6 & literal 5x5 lattice G3b)",
+        "provenance": "Lane H31-J (scripts/run_h31j.py, preregistered in knowledge/2026-10-25_h31j_tgtd_preregistration.md): Pedersen-Rasmussen 3-D Laplace gravity-tensor 2-D tabular index + GDR-1391 chemical geothermometer disequilibrium conduit coupling + V-canyon-suppressed piedmont flexure + leave-one-quadrant-out OOF hybrid HGB/GLM + 300 m ridge-submodular DTI allocator (37,654 off-catalogue dots, d_vis > 2.0 px, 0 copied dots)",
+        "note_for_portal": "GEMSDOE31 H31-J TGTD+GDR1391 geotherm+PTCF 4-quad OOF 300m submod 37654d b2px (ab35d4e8)",
+        "slot_approved": False,
+        "why_not_slot_approved": "Passes G1-G6 technical & scientific gates (including both all-elevation +15.2% and piedmont +30.5% SGMC off-catalogue proxies over GEMSDOE32 H33-2-B2 and 8/8 quadrants across seeds 31 & 32), but Rule 6 forbids automatic weekly-slot spending and literal G3b shared-registry 5x5 synthetic lattice overlap (99.99%) requires explicit human selector sign-off.",
+    },
+    {
         "id": "candidate-h31e2-scgp-submod",
         "name": "gemsdoe31-scgp-submod-37654-20261025-fa735287",
         "role": "unique H31-E2 SCGP-Submod multi-physics candidate (PASS format/[0,1]/leakage/22-submission uniqueness/21.3 km confirmation +29.3% & Piedmont SGMC +13.0%; held from auto-slot by strict G5b & 5x5 lattice rule)",
@@ -295,6 +304,53 @@ def submissions_register() -> dict:
                     "incumbent_h33_off_catalogue_proxy_DTI": all_sgmc.get("h33_2_b2_reference_dti"),
                 }
                 record["automated_gates"] = hdata.get("automated_gates", {})
+
+    h31j_rc = ROOT / "evidence" / "h31j" / "run_card.json"
+    if h31j_rc.is_file():
+        jcard = json.loads(h31j_rc.read_text())
+        hd = jcard.get("holdout_dti", {})
+        scr = hd.get("screen_seed31", {})
+        conf = hd.get("confirmation_seed32", {})
+        sgmc = jcard.get("off_catalogue_sgmc_proxy", {})
+        j3_sgmc = sgmc.get("h31j3_dual_submod", {})
+        h33_sgmc = sgmc.get("gemsdoe32_h33_2_b2", {})
+        for record in files:
+            if record["id"] == "candidate-h31j-tgtd-submod":
+                record["measured"] = {
+                    "evaluator_version": hd.get("evaluator_version"),
+                    "buffer_m": hd.get("buffer_m"),
+                    "screen_holdout_dti": scr.get("scores", {}).get("h31j3_dual_submod", {}).get("dti"),
+                    "screen_ci95": scr.get("scores", {}).get("h31j3_dual_submod", {}).get("ci95"),
+                    "screen_baseline_dti": scr.get("scores", {}).get("physical_hgb", {}).get("dti"),
+                    "screen_delta": scr.get("paired_vs_physical_hgb", {}).get("delta"),
+                    "screen_delta_ci95": scr.get("paired_vs_physical_hgb", {}).get("ci95"),
+                    "confirm_holdout_dti": conf.get("scores", {}).get("h31j3_dual_submod", {}).get("dti"),
+                    "confirm_ci95": conf.get("scores", {}).get("h31j3_dual_submod", {}).get("ci95"),
+                    "confirm_baseline_dti": conf.get("scores", {}).get("physical_hgb", {}).get("dti"),
+                    "confirm_delta": conf.get("paired_vs_physical_hgb", {}).get("delta"),
+                    "confirm_delta_ci95": conf.get("paired_vs_physical_hgb", {}).get("ci95"),
+                    "own_method_variogram_95sill_m": jcard.get("own_method_variogram_summary", {}).get("practical_range_95_sill_m"),
+                    "off_catalogue_proxy_DTI": j3_sgmc.get("sgmc_all_elevation_dti"),
+                    "incumbent_h33_off_catalogue_proxy_DTI": h33_sgmc.get("sgmc_all_elevation_dti"),
+                    "piedmont_sgmc_proxy_DTI": j3_sgmc.get("sgmc_piedmont_lt100m_dti"),
+                    "incumbent_h33_piedmont_sgmc_proxy_DTI": h33_sgmc.get("sgmc_piedmont_lt100m_dti"),
+                    "far_field_gt_1p5km_fraction": j3_sgmc.get("far_field_gt_1p5km_fraction"),
+                }
+                record["automated_gates"] = {
+                    "technical_format_valid": jcard.get("technical_format_valid"),
+                    "leakage_canary_pass": jcard.get("leakage_canary_pass"),
+                    "discrete_uniqueness_pass": jcard.get("discrete_uniqueness_pass"),
+                    "scientific_screen_pass": jcard.get("scientific_screen_pass"),
+                    "scientific_confirmation_pass": jcard.get("scientific_confirmation_pass"),
+                    "literal_shared_registry_5x5_lattice_pass": jcard.get("literal_shared_registry_5x5_lattice_pass"),
+                    "slot_approved": jcard.get("slot_approved"),
+                }
+                nan_zip_path = ROOT / jcard["artifacts"]["companion_nan_zip"]
+                if nan_zip_path.is_file():
+                    record["zip_nan"] = jcard["artifacts"]["companion_nan_zip"]
+                    record["sha256_zip_nan"] = sha256(nan_zip_path)
+                    record["bytes_zip_nan"] = nan_zip_path.stat().st_size
+                record["current_run_card"] = f"docs/downloads/{jcard['submission_name']}-run-card.json"
 
     primary = next((r for r in files if r["id"] == "primary-h27-4-solo-d28"), None)
     best_research = None

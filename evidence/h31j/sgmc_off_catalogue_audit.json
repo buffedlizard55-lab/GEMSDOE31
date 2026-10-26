@@ -1,0 +1,38 @@
+{
+  "h31j3_dual_submod": {
+    "evidence_class": "HOLDOUT-PROXY-SGMC (report-only; never training truth; NOT organizer DTI)",
+    "dots": 37654,
+    "sgmc_all_elevation_dti": 0.106391,
+    "sgmc_all_elevation_truth_px": 61664,
+    "sgmc_piedmont_lt100m_dti": 0.147423,
+    "sgmc_piedmont_lt100m_truth_px": 28115,
+    "far_field_gt_1p5km_dots": 21685,
+    "far_field_gt_1p5km_fraction": 0.575902,
+    "deep_basin_gt_5km_dots": 7023,
+    "deep_basin_gt_5km_fraction": 0.186514
+  },
+  "gemsdoe32_h33_2_b2": {
+    "evidence_class": "HOLDOUT-PROXY-SGMC (report-only; never training truth; NOT organizer DTI)",
+    "dots": 37654,
+    "sgmc_all_elevation_dti": 0.092345,
+    "sgmc_all_elevation_truth_px": 61664,
+    "sgmc_piedmont_lt100m_dti": 0.112995,
+    "sgmc_piedmont_lt100m_truth_px": 28115,
+    "far_field_gt_1p5km_dots": 21989,
+    "far_field_gt_1p5km_fraction": 0.583975,
+    "deep_basin_gt_5km_dots": 7501,
+    "deep_basin_gt_5km_fraction": 0.199209
+  },
+  "h31e2_scgp_submod": {
+    "evidence_class": "HOLDOUT-PROXY-SGMC (report-only; never training truth; NOT organizer DTI)",
+    "dots": 37654,
+    "sgmc_all_elevation_dti": 0.081564,
+    "sgmc_all_elevation_truth_px": 61664,
+    "sgmc_piedmont_lt100m_dti": 0.128901,
+    "sgmc_piedmont_lt100m_truth_px": 28115,
+    "far_field_gt_1p5km_dots": 11866,
+    "far_field_gt_1p5km_fraction": 0.315133,
+    "deep_basin_gt_5km_dots": 4073,
+    "deep_basin_gt_5km_fraction": 0.108169
+  }
+}
