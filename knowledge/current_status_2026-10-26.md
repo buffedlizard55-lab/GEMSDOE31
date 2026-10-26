@@ -1,5 +1,15 @@
 # Current project status — 2026-10-26
 
+## Latest audit continuation (`arena/1028355f-gemsdoe31`)
+
+See [metric and release review](2026-10-26_metric_and_release_review.md).
+Zero new geological experiments, TIFFs or slots in this continuation. Corrected marginal DTI prose
+and unsupported confirmed-score/causal claims. Revalidated MAGREST, H31-S, H31-J and H31-T;
+none is slot-approved. Current validation: **142 tests pass**, Ruff/compileall pass, 22 pages and
+439 local links pass. The earlier H31-S review below is preserved, not a new experiment here.
+`registry/current_run.json` remains the historical MAGREST card; `registry/h31s_current_run.json`
+identifies the separately preserved H31-S artifact. Neither authorizes submission.
+
 ## Executive decision
 
 **No competition submission is approved. Do not upload any repository TIFF.** The latest fully automated candidate is H31-S (`UDAP-SSLIC`). It is a genuinely generated, downloadable research artifact—not a copy—but its run-card verdict is **negative**, `slot_approved=false`, and `ok_to_submit=false`.
@@ -10,7 +20,7 @@
 - Unique name: `gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f`
 - Portal note (92/140 characters): `H31-S UDAP+HZAD+SSLIC 37654d B2 | HOLDOUT-DTI s41=0.0948 s42=0.0980 | research-only 9355f21d`
 
-The all-finite TIFF fixes the prior portal-range failure mechanically: it is single-band float32, finite everywhere, and every value is in `[0,1]`. Passing format validation does **not** establish scientific efficacy, uniqueness against every possible private submission, organizer acceptance, or permission to spend a weekly slot.
+The all-finite TIFF passes local range validation; the exact cause of the prior portal rejection is unknown: it is single-band float32, finite everywhere, and every value is in `[0,1]`. Passing format validation does **not** establish scientific efficacy, uniqueness against every possible private submission, organizer acceptance, or permission to spend a weekly slot.
 
 ## H31-S measured result
 
