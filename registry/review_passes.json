@@ -1422,6 +1422,35 @@
         "Verified automated non-human GeoTIFF validation (scripts/verify_h31s_run.py & scripts/verify_current_run.py), 22-page static site + feed.json build, Ruff lint, check_metric.py, and full pytest suite"
       ],
       "historical_scope": false
+    },
+    {
+      "id": "pgr31-pass-1-implementation-and-execution-2026-10-26",
+      "status": "complete",
+      "scope": [
+        "Restored 11 hash-pinned owner-mirror inputs (core+external, all_verified true; evidence/pgr31_data_restore_*.json); verified band descriptions from the files (rtp=2, iso_grav_anom=13, lidar valid=12 excluded)",
+        "Froze knowledge/2026-10-26_pgr31_preregistration.md (SHA-256 a161635faadb95eefd301e1058c688f0da6e00a961893abf8dacf622380a7ae1) ranking 5 untried hypotheses before any fit; disclosed the missing assigned-method-paragraph irregularity",
+        "Implemented src/gemsdoe31/pgr31_features.py (Baranov pseudo-gravity + masked local Poisson regression) with synthetic unit tests; ran EXP-1 canary PASS (max two-sided AUC 0.5766) then screen draw 51 HOLDOUT-DTI candidate 0.0764 vs control 0.0761 (gems57-pooled-hide-v2, 2778 withheld, paired +0.0003 [-0.0202,+0.0240], SGMC -0.0080) -> FAIL; EXP-2 draw 52 gated off; EXP-3 packaged 37,654-dot research TIFF (SHA-256 9dcc2e0c4da3f40c17796cfd4ab306cd6aa0ab218d98f83f3b5cbeb406d4b628) via unchanged vendor submission_writer"
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "pgr31-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
+      "status": "complete-with-fixes",
+      "checks": [
+        "Fixed a parallel-edit race in scripts/run_pgr31.py (reg_paths NameError; same failure mode as recorded RBU31 races) by sequential edit + py_compile read-back; final surface SHA-256 70bfab89 reproduced bit-identically on rerun; removed a 48-mask registry cache memory risk by re-reading rasters per gate",
+        "Independent byte verifier scripts/verify_pgr31_run.py re-reads TIFF/ZIP bytes: hashes, {0,1} support, 37,654 dots, both validator conventions (0 hard failures), one-TIFF ZIP identity, preregistration hash, 0 dots within 2 px of catalogue",
+        "Measured the literal calibration-lattice overlap for PGR31 (99.26% within 3 px; evidence/pgr31/registry_lattice_measured.json) instead of quoting the generic degeneracy; genuine-submission scope max overlap 48.6%, surface max |rho| 0.1506; fixed site lattice wording to the measured 99.26% and a note-length typo (109/140)"
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "pgr31-pass-3-full-acceptance-and-ci-verification-2026-10-26",
+      "status": "complete-with-honest-stop-gates",
+      "checks": [
+        "Full AGENTS.md check set: pytest 142 passed (after verify_current_run --restore-small-inputs restored the pinned lattice; pre-restore 136 passed/6 errors on that missing cache), ruff clean, check_metric max |dDTI| 4.441e-16, verify_current_run verdict negative ok_to_submit false, collect_evidence 165 artifacts, build_site + check_site 22 pages / 452 local links passed",
+        "Executive summary (knowledge/2026-10-26_pgr31_executive_summary.md) states the nine focus sites' best USER-REPORTED artifacts are one D2.8 duplicate family and that no file - including PGR31 - is approved to submit; every number labelled HOLDOUT-DTI (evaluator, withheld n, CI) or USER-REPORTED; no ORGANIZER-CONFIRMED score claimed; no slot picked"
+      ],
+      "historical_scope": false
     }
   ],
   "remaining_work": [
@@ -1454,5 +1483,11 @@
     "h31s-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
     "h31s-pass-3-full-acceptance-and-ci-verification-2026-10-26"
   ],
-  "latest_h31s_run": "registry/h31s_current_run.json"
+  "latest_h31s_run": "registry/h31s_current_run.json",
+  "pgr31_three_passes_2026_10_26": [
+    "pgr31-pass-1-implementation-and-execution-2026-10-26",
+    "pgr31-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
+    "pgr31-pass-3-full-acceptance-and-ci-verification-2026-10-26"
+  ],
+  "latest_pgr31_run": "registry/pgr31_current_run.json"
 }
