@@ -1163,8 +1163,8 @@ def overview(card):
       <p class="eyebrow">DOE GEMS Prize · automated research validation</p>
       <h1>Research download available.<br>Submission blocked.</h1>
       <p class="hero-lede">The current protocol requires registry checks before placement and on final dots.
-      Existing candidates fail the literal overlap gate. H31-Y is a new research TIFF on this page;
-      it is not approved for upload. No weekly slot was used.</p>
+      Existing candidates fail the literal overlap gate. H31-Y is a historical research TIFF from an earlier run,
+      not a new artifact from this review, and it is not approved for upload. No weekly slot was used.</p>
       <div class="actions"><a class="button button-primary" href="#selector-decision">Research TIFF &amp; validation receipt</a>
       <a class="button" href="executive-summary.html">Nine-site executive summary &amp; submission guide</a></div>
       </div><aside class="hero-side"><strong>DO NOT SUBMIT</strong><p>No current artifact is approved.

@@ -46,6 +46,22 @@ The complete normalized owner prompt remains below and must be read every sessio
 
 <details><summary>Superseded historical session banners — NOT current upload instructions</summary>
 
+Concurrent review #47 (also NO SUBMIT; preserved):
+
+> ## Current decision — 26 October 2026: **DO NOT SUBMIT**
+>
+> No current TIFF is cleared under the literal duplicate rule. At the project's 37,654-dot reference budget, the computed minimum 3-pixel overlap with a registered spacing-5 lattice is 82.34%, above the 70% gate. No new raster or experiment was run in this review; the method paragraph is missing. Earlier TIFFs, including H31-X and H31-Y, are research-only artifacts and must not be relabeled or submitted.
+>
+> [Executive summary and nine-site table](docs/executive-summary.html) · [current protocol review and ranked hypotheses](knowledge/2026-10-26_protocol_review_9883b598.md) · [machine run card](evidence/review_9883b598/run_card.json)
+>
+> **Existing H31-X for research only:** [download `.tif` — DO NOT SUBMIT](docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif) · SHA-256 `eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9`. Its local file-format checks pass, but registry uniqueness fails; no validated leaderboard estimate is available. The prior H31-X holdout is cited, not freshly reproduced.
+>
+> The complete owner prompt remains preserved at the end of this file and must be reread each session.
+>
+> ---
+
+
+
 > ## H31-Y (2026-10-26, session `arena/f4d7fb29-gemsdoe31`): unique GeoTIFF generated. **OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO.**
 >
 > **[Download H31-Y research `.tif` (all-finite `[0,1]` — DO NOT SUBMIT)](docs/downloads/gemsdoe31-h31y-kinpied-37654-20261026-46a5b6c3-zeros.tif)** ·
