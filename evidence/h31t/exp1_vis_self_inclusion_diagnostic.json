@@ -1,0 +1,718 @@
+{
+  "experiment_id": "EXP-1",
+  "completed_utc": "2026-10-26T00:32:47Z",
+  "preregistration_path": "knowledge/2026-10-25_h31t_transtension_dinkelbach_preregistration.md",
+  "preregistration_sha256": "f1669fb7f94a67b6cb4556b2d674318016497ddd915736bb77bb7e18ea021feb",
+  "leakage_canary": {
+    "threshold_symmetric_auc": 0.9,
+    "features_tested": 37,
+    "withheld_positives_tested": 29319,
+    "max_symmetric_auc": 0.571076,
+    "max_feature": "base:geod_shearrate",
+    "passed": true,
+    "top_10_features": [
+      {
+        "feature": "base:geod_shearrate",
+        "raw_auc": 0.571076,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.571076,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:geod_2ndinv",
+        "raw_auc": 0.567328,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.567328,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:ieq_n100a15",
+        "raw_auc": 0.549927,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.549927,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:det_elev_slope",
+        "raw_auc": 0.546959,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.546959,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:seismic_proximity_intensity",
+        "raw_auc": 0.544913,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.544913,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:iso_grav_anom",
+        "raw_auc": 0.458209,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.541791,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:step_max",
+        "raw_auc": 0.537476,
+        "missingness_sym_auc": 0.503242,
+        "symmetric_auc": 0.537476,
+        "finite_coverage": 0.778615,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:tc",
+        "raw_auc": 0.463511,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.536489,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:iso_grav_anom_hg",
+        "raw_auc": 0.467436,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.532564,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:cross_max",
+        "raw_auc": 0.524987,
+        "missingness_sym_auc": 0.531215,
+        "symmetric_auc": 0.531215,
+        "finite_coverage": 0.607558,
+        "pass_le_0_90": true
+      }
+    ],
+    "all_features": [
+      {
+        "feature": "base:geod_shearrate",
+        "raw_auc": 0.571076,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.571076,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:geod_2ndinv",
+        "raw_auc": 0.567328,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.567328,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:ieq_n100a15",
+        "raw_auc": 0.549927,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.549927,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:det_elev_slope",
+        "raw_auc": 0.546959,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.546959,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:seismic_proximity_intensity",
+        "raw_auc": 0.544913,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.544913,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:iso_grav_anom",
+        "raw_auc": 0.458209,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.541791,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:step_max",
+        "raw_auc": 0.537476,
+        "missingness_sym_auc": 0.503242,
+        "symmetric_auc": 0.537476,
+        "finite_coverage": 0.778615,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:tc",
+        "raw_auc": 0.463511,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.536489,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:iso_grav_anom_hg",
+        "raw_auc": 0.467436,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.532564,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:cross_max",
+        "raw_auc": 0.524987,
+        "missingness_sym_auc": 0.531215,
+        "symmetric_auc": 0.531215,
+        "finite_coverage": 0.607558,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:lidar_scarp_asymmetry",
+        "raw_auc": 0.512153,
+        "missingness_sym_auc": 0.531215,
+        "symmetric_auc": 0.531215,
+        "finite_coverage": 0.607558,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:updip_listric_trace",
+        "raw_auc": 0.530403,
+        "missingness_sym_auc": 0.5,
+        "symmetric_auc": 0.530403,
+        "finite_coverage": 1.0,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:euler_grav_invdepth",
+        "raw_auc": 0.529893,
+        "missingness_sym_auc": 0.500033,
+        "symmetric_auc": 0.529893,
+        "finite_coverage": 0.999946,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:iso_grav_anom_slope",
+        "raw_auc": 0.528965,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.528965,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:deq_n100a15",
+        "raw_auc": 0.52788,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.52788,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:tmi_hg",
+        "raw_auc": 0.527006,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.527006,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:UK",
+        "raw_auc": 0.52689,
+        "missingness_sym_auc": 0.500089,
+        "symmetric_auc": 0.52689,
+        "finite_coverage": 0.999665,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:euler_mag_invdepth",
+        "raw_auc": 0.519226,
+        "missingness_sym_auc": 0.500033,
+        "symmetric_auc": 0.519226,
+        "finite_coverage": 0.999946,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:asig_grav_crest",
+        "raw_auc": 0.517406,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.517406,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:asig_mag_crest",
+        "raw_auc": 0.5158,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.5158,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:depth_to_base_surf",
+        "raw_auc": 0.5157,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.5157,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:iso_grav_anom_vg",
+        "raw_auc": 0.514303,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.514303,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:transtensional_coulomb",
+        "raw_auc": 0.48787,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.51213,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:piedmont_flexure_bridge",
+        "raw_auc": 0.508391,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.508391,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:tmi_vg",
+        "raw_auc": 0.491804,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.508196,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:cond_surf",
+        "raw_auc": 0.507014,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.507014,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:ThK",
+        "raw_auc": 0.493364,
+        "missingness_sym_auc": 0.500089,
+        "symmetric_auc": 0.506636,
+        "finite_coverage": 0.999665,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:rtp",
+        "raw_auc": 0.505805,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.505805,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t_fold_vis:vis_wingcrack_tip_lobe",
+        "raw_auc": 0.505416,
+        "missingness_sym_auc": 0.5,
+        "symmetric_auc": 0.505416,
+        "finite_coverage": 1.0,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:hydrothermal_vent_corridor",
+        "raw_auc": 0.494987,
+        "missingness_sym_auc": 0.5,
+        "symmetric_auc": 0.505013,
+        "finite_coverage": 1.0,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:tmi",
+        "raw_auc": 0.496393,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.503607,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:hydrothermal_alteration_demag",
+        "raw_auc": 0.502563,
+        "missingness_sym_auc": 0.5,
+        "symmetric_auc": 0.502563,
+        "finite_coverage": 1.0,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:det_elev",
+        "raw_auc": 0.497524,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.502476,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:mag_anom",
+        "raw_auc": 0.497706,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.502294,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "base:geod_dilaterate",
+        "raw_auc": 0.497774,
+        "missingness_sym_auc": 0.500171,
+        "symmetric_auc": 0.502226,
+        "finite_coverage": 0.999525,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t:crustal_coaxial_alignment",
+        "raw_auc": 0.502143,
+        "missingness_sym_auc": 0.5,
+        "symmetric_auc": 0.502143,
+        "finite_coverage": 1.0,
+        "pass_le_0_90": true
+      },
+      {
+        "feature": "h31t_fold_vis:vis_relay_dilation_bridge",
+        "raw_auc": 0.500829,
+        "missingness_sym_auc": 0.5,
+        "symmetric_auc": 0.500829,
+        "finite_coverage": 1.0,
+        "pass_le_0_90": true
+      }
+    ]
+  },
+  "own_method_variogram": {
+    "method": "H31-T 4-quadrant collared OOF residuals `1 - p_oof` along 8-connected traces",
+    "own_adopted_buffer_m": 20750.0,
+    "inherited_floor_buffer_m": 21250.0,
+    "final_adopted_buffer_m": 21250.0,
+    "final_adopted_buffer_px": 213,
+    "best_wrmse_model": "spherical",
+    "decision": {
+      "buffer_m": 20750.0,
+      "buffer_km": 20.75,
+      "empirical_decay_range_m": 20750.0,
+      "empirical_peak_lag_m": 10250.0,
+      "empirical_peak_gamma": 0.0039681564368111545,
+      "model_practical_ranges_m": {
+        "spherical": 14623.28054806095,
+        "exponential": 34414.75528215715,
+        "gaussian": 8804.305358490092
+      },
+      "model_practical_range_median_m": 14623.28054806095,
+      "max_fitted_range_m": 34414.75528215715,
+      "bootstrap_p05_m": {
+        "spherical": 1492.0275656073513,
+        "exponential": 1489.7769105028015,
+        "gaussian": 1217.9579021051436
+      },
+      "bootstrap_median_m": {
+        "spherical": 12380.572659236597,
+        "exponential": 25903.64181871147,
+        "gaussian": 6850.520621998301
+      },
+      "bootstrap_p95_upper_m": {
+        "spherical": 499999.84638716985,
+        "exponential": 499288.71225899796,
+        "gaussian": 14418.347996436516
+      },
+      "observed_lag_support_m": 26750.0,
+      "models_reaching_80pct_sill_in_support": [
+        "exponential",
+        "gaussian",
+        "spherical"
+      ],
+      "models_extrapolating_beyond_support": [
+        "exponential"
+      ],
+      "rule": "buffer = max(empirical lag at 95 % of the peak semivariance, median fitted practical range over spherical/exponential/gaussian). The maximum fitted range and the bootstrap 95th percentile are reported as a sensitivity band, not used as the buffer, because they can exceed the populated lag support.",
+      "sensitivity_band_m": [
+        1217.9579021051436,
+        34414.75528215715
+      ],
+      "warning": "Two of the three models can exceed the populated lag support; every number that does is an extrapolation and is flagged in models_extrapolating_beyond_support. The buffer must be re-derived as more traces enter the sample.",
+      "notes": [
+        "Pairs are restricted to the same 8-connected fault component, so the curve is a within-trace residual dependence estimate, not a global one.",
+        "The buffer applies to the *validation* geography (a collar deleted around every training block and every held-out block), not to the submission raster, which must cover the full footprint."
+      ]
+    },
+    "fits": {
+      "spherical": {
+        "nugget": 0.00033150898626822236,
+        "partial_sill": 0.003248214602972498,
+        "total_sill": 0.0035797235892407204,
+        "range_m": 14623.28054806095,
+        "practical_range_m": 14623.28054806095,
+        "weighted_rmse": 0.0001678948559580122,
+        "r_squared": 0.49175560702500476,
+        "bins_used": 54,
+        "max_lag_m": 26750.0,
+        "sill_fraction_at_max_lag": 1.0
+      },
+      "exponential": {
+        "nugget": 0.00031051303288183457,
+        "partial_sill": 0.004430701963439551,
+        "total_sill": 0.004741214996321385,
+        "range_m": 34463.78261432137,
+        "practical_range_m": 34414.75528215715,
+        "weighted_rmse": 0.00024397503254483803,
+        "r_squared": 0.04119911063832893,
+        "bins_used": 54,
+        "max_lag_m": 26750.0,
+        "sill_fraction_at_max_lag": 0.9089427458213848
+      },
+      "gaussian": {
+        "nugget": 0.0004699904718500276,
+        "partial_sill": 0.002727053621227414,
+        "total_sill": 0.003197044093077441,
+        "range_m": 8810.574442436953,
+        "practical_range_m": 8804.305358490092,
+        "weighted_rmse": 0.00021450551179363184,
+        "r_squared": 0.5865717068945435,
+        "bins_used": 54,
+        "max_lag_m": 26750.0,
+        "sill_fraction_at_max_lag": 0.9999999999991666
+      }
+    },
+    "bootstrap": {
+      "spherical": {
+        "draws": 60,
+        "median_m": 12380.572659236597,
+        "p05_m": 1492.0275656073513,
+        "p95_m": 499999.84638716985,
+        "max_m": 499999.9973186344
+      },
+      "exponential": {
+        "draws": 60,
+        "median_m": 25903.64181871147,
+        "p05_m": 1489.7769105028015,
+        "p95_m": 499288.71225899796,
+        "max_m": 499288.7122589984
+      },
+      "gaussian": {
+        "draws": 60,
+        "median_m": 6850.520621998301,
+        "p05_m": 1217.9579021051436,
+        "p95_m": 14418.347996436516,
+        "max_m": 18827.918693181102
+      }
+    },
+    "empirical_decay_m": 20750.0,
+    "n_components": 3199,
+    "n_fault_pixels": 60988
+  },
+  "gems57_pooled_hide_v2": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "alpha": 0.2,
+    "beta": 0.8,
+    "triangular_radius_m": 300.0,
+    "pooled": true,
+    "scores": {
+      "ctrl_phys_poisson": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "gems57-pooled-hide-v2",
+        "dti": 0.10973525587479839,
+        "ci95": [
+          0.09280068376811326,
+          0.12711062129045514
+        ],
+        "withheld_positive_pixels": 60988,
+        "tpw": 6262.503627057436,
+        "fpw": 35131.51288939331,
+        "fnw": 54725.49637294257
+      },
+      "h31t_poisson": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "gems57-pooled-hide-v2",
+        "dti": 0.09409165178380965,
+        "ci95": [
+          0.0791252586729294,
+          0.10942429686716015
+        ],
+        "withheld_positive_pixels": 60988,
+        "tpw": 5361.89605670822,
+        "fpw": 35615.52940539424,
+        "fnw": 55626.1039432918
+      },
+      "h31t_dinkelbach": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "gems57-pooled-hide-v2",
+        "dti": 0.11723996042183871,
+        "ci95": [
+          0.10449824019659329,
+          0.13032024214863142
+        ],
+        "withheld_positive_pixels": 60988,
+        "tpw": 6712.503688410778,
+        "fpw": 35607.50050958846,
+        "fnw": 54275.496311589246
+      }
+    },
+    "best_comparable_control": "ctrl_phys_poisson",
+    "paired_differences": {
+      "ctrl_phys_poisson": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "gems57-pooled-hide-v2",
+        "delta": 0.007504704547040317,
+        "ci95": [
+          -0.006757277422332427,
+          0.021518436269368734
+        ],
+        "withheld_positive_pixels": 60988
+      },
+      "h31t_poisson": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "gems57-pooled-hide-v2",
+        "delta": 0.023148308638029053,
+        "ci95": [
+          0.015747648239671067,
+          0.030655627727829166
+        ],
+        "withheld_positive_pixels": 60988
+      }
+    },
+    "bootstrap": {
+      "method": "paired physical spatial-cluster percentile",
+      "clusters": 161,
+      "draws": 1000,
+      "seed": 520810,
+      "confidence": 0.95,
+      "caveat": "Conditional on fitted folds, catalogue labels and fixed budgets; not a leaderboard interval."
+    },
+    "implementation_sha256": {
+      "evaluate_holdout.py": "ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a",
+      "holdout.py": "7a0a84176986190b527aa9c6a84216c2dab4b599f25b1143db5f420e85020ab1",
+      "metric.py": "4afe10cbaa229948520c75194b1ebc32676e72544f05582f0725092b097b4d7f",
+      "spatial.py": "fad7b09db9efc512247b9a176a7e7ce8631e287592b4e07902d0b9c38bed00f8"
+    },
+    "buffer_px": 213,
+    "buffer_m": 21250.0,
+    "per_quadrant": {
+      "ctrl_phys_poisson": [
+        {
+          "quadrant": 0,
+          "budget_q": 18059,
+          "emitted": 18059,
+          "n_truth": 29319,
+          "dti": 0.096171,
+          "tpw": 2628.75,
+          "fpw": 16765.29
+        },
+        {
+          "quadrant": 1,
+          "budget_q": 10076,
+          "emitted": 10076,
+          "n_truth": 12596,
+          "dti": 0.141035,
+          "tpw": 1730.63,
+          "fpw": 9239.88
+        },
+        {
+          "quadrant": 2,
+          "budget_q": 4160,
+          "emitted": 4160,
+          "n_truth": 9473,
+          "dti": 0.11123,
+          "tpw": 947.25,
+          "fpw": 3741.55
+        },
+        {
+          "quadrant": 3,
+          "budget_q": 5809,
+          "emitted": 5809,
+          "n_truth": 9600,
+          "dti": 0.106824,
+          "tpw": 955.87,
+          "fpw": 5384.79
+        }
+      ],
+      "h31t_poisson": [
+        {
+          "quadrant": 0,
+          "budget_q": 18059,
+          "emitted": 18059,
+          "n_truth": 29319,
+          "dti": 0.098309,
+          "tpw": 2689.23,
+          "fpw": 16808.65
+        },
+        {
+          "quadrant": 1,
+          "budget_q": 10076,
+          "emitted": 10076,
+          "n_truth": 12596,
+          "dti": 0.06932,
+          "tpw": 844.09,
+          "fpw": 9655.95
+        },
+        {
+          "quadrant": 2,
+          "budget_q": 4160,
+          "emitted": 4160,
+          "n_truth": 9473,
+          "dti": 0.112495,
+          "tpw": 957.97,
+          "fpw": 3728.25
+        },
+        {
+          "quadrant": 3,
+          "budget_q": 5809,
+          "emitted": 5809,
+          "n_truth": 9600,
+          "dti": 0.097398,
+          "tpw": 870.61,
+          "fpw": 5422.68
+        }
+      ],
+      "h31t_dinkelbach": [
+        {
+          "quadrant": 0,
+          "budget_q": 18059,
+          "emitted": 18059,
+          "n_truth": 29319,
+          "dti": 0.120392,
+          "tpw": 3308.22,
+          "fpw": 16809.55
+        },
+        {
+          "quadrant": 1,
+          "budget_q": 10076,
+          "emitted": 10076,
+          "n_truth": 12596,
+          "dti": 0.109299,
+          "tpw": 1339.62,
+          "fpw": 9558.43
+        },
+        {
+          "quadrant": 2,
+          "budget_q": 4160,
+          "emitted": 4160,
+          "n_truth": 9473,
+          "dti": 0.123493,
+          "tpw": 1055.43,
+          "fpw": 3785.23
+        },
+        {
+          "quadrant": 3,
+          "budget_q": 5809,
+          "emitted": 5809,
+          "n_truth": 9600,
+          "dti": 0.112478,
+          "tpw": 1009.23,
+          "fpw": 5454.29
+        }
+      ]
+    }
+  }
+}

@@ -134,6 +134,20 @@ Preregistered before execution in [`knowledge/2026-10-26_h31s_udap_sslic_preregi
 
 ## 5. Remaining Limitations & Next-Session Priorities
 
-1. **Literal 695-Raster Lattice Degeneracy (`r13-lattice-s5` / `GEMSDOE48`):** Under `AGENTS.md`, dense continuous surfaces and spacing-5 calibration grids in the historical 695-raster manifest are not silently exempted, causing `99.93%–100%` 3-px overlap for any nonempty Nevada prediction. An explicit owner/selector protocol amendment scoping uniqueness to discrete submission candidates (`<= 100,000` dots, where `H31-S` already passes at `max = 66.5%` final-dot overlap across all 9 sites and local lanes) is required before flipping `ok_to_submit` to `true`.
+1. **Literal 695-Raster Lattice Degeneracy (`r13-lattice-s5` / `GEMSDOE48`):** Under `AGENTS.md`, dense continuous surfaces and spacing-5 calibration grids in the historical 695-raster manifest are not silently exempted, causing `99.93%–100%` 3-px overlap for any nonempty Nevada prediction. An explicit owner/selector protocol amendment scoping uniqueness to discrete submission candidates (`<= 100,000` dots, where `H31-S` already passes at `max = 66.5%` final-dot overlap across all 9 sites and concurrent local lanes including `XFCOH31` `40.8%`, `CONCORD31` `42.0%`, `H31-T` `46.9%`, `H31-J` `54.8%`) is required before flipping `ok_to_submit` to `true`.
 2. **Stabilizing `NW/SW/SE` Fold Gains vs `H31-M`:** While `H31-S` won `4/4` quadrants against both `Physical-HGB` and `H31-M` on untouched confirmation `seed=42` (`+0.0262`, CI `[+0.0001, +0.0544]`), its `+0.0235` pooled gain over `H31-M` on `seed=41` was concentrated in `NE` (`0.1375` vs `0.0341`) with minor `-0.005` to `-0.012` deltas in the other three quadrants. Combining `H31-S`'s `UDAP + SSLIC` features with `H31-M`'s multi-scale regional magnetic/gravity tilt concordance in a future preregistered run should lift piedmont & mountain stability across all quadrants.
 3. **External InSAR (`H31-U`) & 3D USArray MT (`H31-V`) Ingestion:** When running in an environment with outbound access to NASA ASF DAAC (`asf.alaska.edu`) and EarthScope/IRIS (`ds.iris.edu`), ingesting Sentinel-1 ARIA seasonal phase-gradient barriers and MT phase-tensor skew $|\beta|$ offers the strongest independent physical signal for zero-relief intra-playa geothermal faults.
+
+---
+
+## Prior Independent Verification Continuation — 2026-10-26 (Preserved from `main`)
+
+This continuation re-ran the checks from `AGENTS.md` in a clean checkout after installing the pinned `requirements.txt` into ignored `.venv`. It did not change code, fit a model, create or modify a submission raster, inspect the DrivenData leaderboard, or use a slot.
+
+- `python -m pytest -q`: **118 passed** after the exact-input verifier restored the two small pinned inputs; there were no remaining skips. The pre-restore run was 112 passed / 6 expected skips.
+- `python -m ruff check .`: passed.
+- `python scripts/check_metric.py`: maximum fast/brute pooled-DTI absolute difference **4.441e-16** across 24 grids; exact cases passed; 29 kernel offsets are inside the 300 m radius.
+- `python scripts/verify_current_run.py --restore-small-inputs`: returned `verdict=negative`, `ok_to_download_for_research=true`, `ok_to_submit=false`; unchanged MAGREST all-finite raster SHA-256 `c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9`.
+- `python scripts/collect_evidence.py`, `build_site.py`, and `check_site.py`: reported 124 experiment artifacts, 10 submission records, and a passing generated site with 21 pages and 364 local links. The collector's unrelated generated changes to readiness/experiment registers were restored; they are not review findings.
+
+The independent rerun confirms the prior decision, not the scientific validity of a competition score: no new TIFF is approved to submit. The all-finite research raster remains explicitly **OK TO DOWNLOAD FOR RESEARCH ONLY — DO NOT SUBMIT**. The lane still fails the literal 70% duplicate test against a registered full-footprint witness (100% forward overlap), the three-experiment cap is exhausted, and no newly assigned method paragraph is present. No user-reported leaderboard number was accessed or upgraded to ORGANIZER-CONFIRMED.

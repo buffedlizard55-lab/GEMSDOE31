@@ -116,9 +116,10 @@ def submodular_dti_emit(
     cand_flat = np.flatnonzero(init_gain > 0.0)
     if cand_flat.size == 0:
         return out
-    if cand_flat.size > max_pool:
+    effective_pool = max(int(max_pool), int(n_dots) * 24)
+    if cand_flat.size > effective_pool:
         gains_cand = init_gain.ravel()[cand_flat]
-        keep_idx = np.argpartition(gains_cand, -max_pool)[-max_pool:]
+        keep_idx = np.argpartition(gains_cand, -effective_pool)[-effective_pool:]
         cand_flat = cand_flat[keep_idx]
 
     # Exclusion disk offsets for min_dist_px

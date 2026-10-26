@@ -98,7 +98,7 @@ def shell(prefix: str, title: str, description: str, current: str, hero: str, bo
   </main>
   <footer class="footer"><div class="wrap footer-inner">
     <p>{footer_left or "Every figure on this site is generated from measured artifacts in the repository."}</p>
-    <p><a href="{prefix}feed.html">Evidence feed</a> · <a href="{prefix}ai-disclosure.html">AI use</a> · <a href="{REPO}">Repository</a></p>
+    <p><a href="{prefix}feed.html">Evidence feed</a> · <a href="{prefix}xfcoh31.html">XFCOH31</a> · <a href="{prefix}ai-disclosure.html">AI use</a> · <a href="{REPO}">Repository</a></p>
   </div></footer>
 </body>
 </html>
@@ -800,6 +800,8 @@ def build_validation(buf: dict, buffer_derivation: dict, experiments: dict, metr
 python -m pip install -r requirements.txt
 bash scripts/download_competition_data.sh      # restore + SHA-256 verify the 11 hash-pinned inputs
 python scripts/prepare_data.py --verify-only   # grid/hash re-check; add no flag to build features.f32
+python scripts/run_h31t.py                     # full 12-fold H31-T campaign + GeoTIFFs + evidence/h31t/*.json
+python scripts/verify_h31t.py                  # <3 s fresh-clone SHA-256, [0,1] range, collar &amp; Run Card check
 python scripts/check_metric.py                 # metric vs brute force -&gt; evidence/metric_check.json
 python scripts/derive_buffer.py                # semivariogram -&gt; evidence/buffer_derivation.json
 python scripts/run_union.py                    # filtering + union tables -&gt; evidence/union_results.json

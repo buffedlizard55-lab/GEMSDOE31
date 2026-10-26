@@ -1,0 +1,315 @@
+{
+ "schema_version": 1,
+ "name": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654",
+ "note": "RESEARCH ONLY DO NOT SUBMIT: H31-T 3D AS/depth + listric updip + transtension + Dinkelbach 300m CELF (37654 px; 695-lattice STOP)",
+ "dots": 37654,
+ "dots_on_catalogue": 0,
+ "files": {
+  "nan": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.tif",
+  "allfinite": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif",
+  "zip": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.zip"
+ },
+ "validation": {
+  "nan": {
+   "file": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.tif",
+   "bytes": 436060,
+   "sha256": "1df2c5fb2e5735e120bd59c241fabcced6cdf671fd20ae5c265034235fbfa65e",
+   "ok_to_upload_format_only": true,
+   "organizer_acceptance_verified": false,
+   "hard_failures": [],
+   "grid": {
+    "shape": [
+     3730,
+     3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ],
+    "bounds": [
+     243350.0,
+     4135550.0,
+     572550.0,
+     4508550.0
+    ],
+    "dtype": [
+     "float32"
+    ],
+    "bands": 1,
+    "template_footprint_pixels": 5167373,
+    "positive_pixels_inside": 37654,
+    "nodata_tag": "NaN"
+   },
+   "checks": {
+    "template_single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "template_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "template_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "template_has_finite_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 finite pixels",
+     "hard": true
+    },
+    "template_expected_shape": {
+     "pass_": true,
+     "detail": "(3730, 3292) (expected (3730, 3292))",
+     "hard": true
+    },
+    "template_expected_transform": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+     "hard": true
+    },
+    "template_expected_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 (expected 5,167,373)",
+     "hard": true
+    },
+    "template_expected_outside": {
+     "pass_": true,
+     "detail": "7,111,787 (expected 7,111,787)",
+     "hard": true
+    },
+    "single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "dtype_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "shape_matches_template": {
+     "pass_": true,
+     "detail": "(3730, 3292) vs (3730, 3292)",
+     "hard": true
+    },
+    "crs_matches_template": {
+     "pass_": true,
+     "detail": "EPSG:32611 vs EPSG:32611",
+     "hard": true
+    },
+    "transform_matches_template": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+     "hard": true
+    },
+    "footprint_all_finite": {
+     "pass_": true,
+     "detail": "0 NaN/Inf inside 5,167,373 template cells",
+     "hard": true
+    },
+    "footprint_values_in_0_1": {
+     "pass_": true,
+     "detail": "min=0.0; max=1.0; required finite [0,1]",
+     "hard": true
+    },
+    "no_infinite_pixels": {
+     "pass_": true,
+     "detail": "0 infinite values",
+     "hard": true
+    },
+    "outside_footprint_nan": {
+     "pass_": true,
+     "detail": "7,111,787/7,111,787 outside pixels are NaN; finite outside pixels are forbidden",
+     "hard": true
+    },
+    "nan_mask_matches_template": {
+     "pass_": true,
+     "detail": "NaN cells exactly match the template's outside-footprint mask",
+     "hard": true
+    },
+    "output_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "output_100m_pixels": {
+     "pass_": true,
+     "detail": "xres=100, yres=-100",
+     "hard": true
+    },
+    "nodata_tag_nan_or_none": {
+     "pass_": true,
+     "detail": "nodata=nan",
+     "hard": false
+    }
+   }
+  },
+  "allfinite": {
+   "file": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif",
+   "bytes": 145429,
+   "sha256": "83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298",
+   "ok_to_upload_format_only": true,
+   "organizer_acceptance_verified": false,
+   "hard_failures": [],
+   "grid": {
+    "shape": [
+     3730,
+     3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ],
+    "bounds": [
+     243350.0,
+     4135550.0,
+     572550.0,
+     4508550.0
+    ],
+    "dtype": [
+     "float32"
+    ],
+    "bands": 1,
+    "template_footprint_pixels": 5167373,
+    "positive_pixels_inside": 37654,
+    "nodata_tag": null
+   },
+   "checks": {
+    "template_single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "template_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "template_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "template_has_finite_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 finite pixels",
+     "hard": true
+    },
+    "template_expected_shape": {
+     "pass_": true,
+     "detail": "(3730, 3292) (expected (3730, 3292))",
+     "hard": true
+    },
+    "template_expected_transform": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+     "hard": true
+    },
+    "template_expected_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 (expected 5,167,373)",
+     "hard": true
+    },
+    "template_expected_outside": {
+     "pass_": true,
+     "detail": "7,111,787 (expected 7,111,787)",
+     "hard": true
+    },
+    "single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "dtype_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "shape_matches_template": {
+     "pass_": true,
+     "detail": "(3730, 3292) vs (3730, 3292)",
+     "hard": true
+    },
+    "crs_matches_template": {
+     "pass_": true,
+     "detail": "EPSG:32611 vs EPSG:32611",
+     "hard": true
+    },
+    "transform_matches_template": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+     "hard": true
+    },
+    "footprint_all_finite": {
+     "pass_": true,
+     "detail": "0 NaN/Inf inside 5,167,373 template cells",
+     "hard": true
+    },
+    "footprint_values_in_0_1": {
+     "pass_": true,
+     "detail": "min=0.0; max=1.0; required finite [0,1]",
+     "hard": true
+    },
+    "no_infinite_pixels": {
+     "pass_": true,
+     "detail": "0 infinite values",
+     "hard": true
+    },
+    "outside_footprint_nan": {
+     "pass_": true,
+     "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+     "hard": false
+    },
+    "nan_mask_matches_template": {
+     "pass_": true,
+     "detail": "not required under the all-finite convention",
+     "hard": false
+    },
+    "allfinite_values_in_0_1": {
+     "pass_": true,
+     "detail": "finite=True; min=0.0; max=1.0",
+     "hard": true
+    },
+    "outside_footprint_zero": {
+     "pass_": true,
+     "detail": "0 nonzero values outside footprint",
+     "hard": true
+    },
+    "output_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "output_100m_pixels": {
+     "pass_": true,
+     "detail": "xres=100, yres=-100",
+     "hard": true
+    },
+    "nodata_tag_nan_or_none": {
+     "pass_": true,
+     "detail": "nodata=None",
+     "hard": false
+    }
+   }
+  }
+ },
+ "warnings": [
+  "Format validation is local. It cannot prove organizer acceptance and is not a score.",
+  "Competition claims without exact-file organizer receipts are USER-REPORTED; local metrics are separate HOLDOUT-DTI.",
+  "Blocked from weekly slot upload (slot_approved=false) under the unexempted 695-raster r13-lattice-s5 / GEMSDOE48 STOP rule."
+ ]
+}

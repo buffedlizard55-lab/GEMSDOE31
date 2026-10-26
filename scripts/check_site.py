@@ -20,7 +20,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-MAX_PAGES = 21  # +1 for Experiment 13 (RBU31/RBU31-B), added 2026-10-25
+MAX_PAGES = 22  # +1 for Experiment 13 (RBU31/RBU31-B), +1 for XFCOH31 decision page, added 2026-10-26
 ALLOWED_STATUS_PICTOGRAMS: set[str] = set()
 
 FAILURES: list[str] = []
@@ -94,6 +94,16 @@ def main() -> None:
     if "Human sign-off cannot override a failed gate" not in executive:
         fail("executive-summary.html: human selector is incorrectly implied to override a hard stop")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
+        if "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8" not in html_text:
+            fail(f"{page_name}: H31-J TGTD-Submod candidate name missing")
+        if "04e886cd8f7759e05d5fabb5d7222aaed0d16fda59fdf81e5934c5508eaf3fa3" not in html_text:
+            fail(f"{page_name}: H31-J TGTD-Submod primary -zeros.tif SHA-256 missing")
+        if "44142a9671e4beaa4872a8d5fc11e061f8050ac3e48a4573b415329227536657" not in html_text:
+            fail(f"{page_name}: H31-J TGTD-Submod primary -zeros.zip SHA-256 missing")
+        if "GEMSDOE31 H31-J TGTD+GDR1391 geotherm+PTCF 4-quad OOF 300m submod 37654d b2px (ab35d4e8)" not in html_text:
+            fail(f"{page_name}: H31-J TGTD-Submod portal note missing")
+        if html_text.find("gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8") > html_text.find("gemsdoe31-scgp-submod-37654-20261025-fa735287"):
+            fail(f"{page_name}: H31-J TGTD-Submod must appear at the top above prior candidates")
         if "gemsdoe31-scgp-submod-37654-20261025-fa735287" not in html_text:
             fail(f"{page_name}: H31-E2 SCGP-Submod candidate name missing")
         if "d5ae3715c4ee727195ec6c023d5c852497538c3e60ff559997984f397b4d2fa8" not in html_text:
@@ -106,13 +116,22 @@ def main() -> None:
             fail(f"{page_name}: H31-M BStep-XMod-Submod candidate name missing")
         if "ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6" not in html_text:
             fail(f"{page_name}: H31-M BStep-XMod-Submod primary SHA-256 missing")
+        if "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654" not in html_text:
+            fail(f"{page_name}: H31-T Transtension-Dinkelbach candidate name missing")
+        if "83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298" not in html_text:
+            fail(f"{page_name}: H31-T Transtension-Dinkelbach primary SHA-256 missing")
     for name in ("executive-summary.html", "feed.json"):
         if not (DOCS / name).exists():
             fail(f"{name} missing")
 
     for page_name in ("index.html", "executive-summary.html", "research.html"):
         html_text = (DOCS / page_name).read_text()
-        for card_id, label in (("scgp-submod", "H31-E2"), ("hvdc-submod", "H31-HVDC"), ("h31m-submod", "H31-M")):
+        for card_id, label in (
+            ("scgp-submod", "H31-E2"),
+            ("hvdc-submod", "H31-HVDC"),
+            ("h31m-submod", "H31-M"),
+            ("h31t-dinkelbach", "H31-T"),
+        ):
             if f'id="{card_id}"' in html_text:
                 if "RESEARCH DOWNLOAD ONLY" not in html_text or "DO NOT SUBMIT · REGISTRY STOP" not in html_text:
                     fail(f"{page_name}: {label} research-only/registry STOP warning missing")

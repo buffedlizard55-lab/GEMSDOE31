@@ -1,0 +1,976 @@
+{
+  "experiment_id": "EXP-3",
+  "completed_utc": "2026-10-26T02:05:05Z",
+  "elapsed_total_seconds": 228.0,
+  "allocation": {
+    "n_dots": 37654,
+    "total_weighted_gain": 196349.6786,
+    "total_fp_cost": 32325.6775,
+    "min_marginal_ratio": 4.866553,
+    "mean_selected_prob": 0.282792
+  },
+  "pre_placement_uniqueness": {
+    "comparators_checked": 122,
+    "max_abs_spearman_full_footprint": 0.221497,
+    "two_phase": {
+      "evidence_class": "REGISTRY-MEASUREMENT",
+      "rasters_checked": 122,
+      "rasters_expected": null,
+      "scope_note": "Checked against every registry raster whose bytes are present locally (plus any explicitly fetched witnesses). Un-fetched registry entries are a stated scope limitation, never a claim of absence.",
+      "footprint_cells": 5167373,
+      "dense_support_fraction": 0.2,
+      "thresholds": {
+        "rho": 0.9,
+        "forward_overlap": 0.7,
+        "jaccard": 0.5
+      },
+      "literal_reading": {
+        "worst_spearman_full_footprint": 0.22149693949354188,
+        "worst_spearman_submission": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+        "worst_forward_overlap": 1.0,
+        "worst_overlap_submission": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+        "forward_overlap_firings": 3,
+        "rho_firings": 0,
+        "duplicate": true,
+        "note": "Keeps the inherited literal support definition. A continuous-surface prior fires on every nonempty candidate, so a firing here is not evidence of duplication; it is reported for completeness."
+      },
+      "like_for_like_reading": {
+        "dot_field_rasters": 120,
+        "continuous_surface_rasters": 2,
+        "worst_forward_overlap_dot_fields": 0.9987294515314963,
+        "worst_forward_overlap_dot_field_submission": "13GEMSDOE:submissions/r13-lattice-s5-20261004T070000Z-s5-zeros.tif",
+        "worst_reverse_overlap": 1.0,
+        "worst_reverse_overlap_submission": "GEMSDOE27:docs/downloads/gems27-unique-scatter-farfield-20261025-98e59bf8e3ce-allfinite.tif",
+        "worst_jaccard": 0.9409940021747994,
+        "worst_jaccard_submission": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+        "forward_overlap_firings": 1,
+        "duplicate": true,
+        "note": "Inherited thresholds, applied to dot fields only; rank correlation still applies to every raster including the continuous surfaces."
+      },
+      "literal_firings": [
+        {
+          "submission": "13GEMSDOE:submissions/r13-lattice-s5-20261004T070000Z-s5-zeros.tif",
+          "repo": "13GEMSDOE",
+          "representation": "dot_field",
+          "forward_overlap": 0.9987294515314963,
+          "their_dots": 206895
+        },
+        {
+          "submission": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+          "repo": "GEMSDOE48",
+          "representation": "continuous_surface",
+          "forward_overlap": 1.0,
+          "their_dots": 5167373
+        },
+        {
+          "submission": "17GEMSDOE:docs/downloads/17GEMSDOE_E-proba-multiscale_20260930T044527Z.tif",
+          "repo": "17GEMSDOE",
+          "representation": "continuous_surface",
+          "forward_overlap": 1.0,
+          "their_dots": 5167373
+        }
+      ]
+    }
+  },
+  "post_placement_uniqueness": {
+    "comparators_checked": 122,
+    "phase_a_discrete_comparators_checked": 119,
+    "phase_a_max_3px_overlap": 0.545812,
+    "phase_a_nearest_discrete": {
+      "submission": "GEMSDOE30:docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+      "sha256": "d7977d7b93287f17fbf3cb85f10fdbee4acc5c8453a7faa451e760363433a286",
+      "their_dots": 85526,
+      "my_dots_within_3px_of_theirs": 0.545812,
+      "spearman_full_footprint": 0.008949
+    },
+    "phase_a_top_10_discrete": [
+      {
+        "submission": "GEMSDOE30:docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+        "sha256": "d7977d7b93287f17fbf3cb85f10fdbee4acc5c8453a7faa451e760363433a286",
+        "their_dots": 85526,
+        "my_dots_within_3px_of_theirs": 0.545812,
+        "spearman_full_footprint": 0.008949
+      },
+      {
+        "submission": "GEMSDOE30:docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e.tif",
+        "sha256": "fed5232e8efeefef00728ce9d5884f08e007c542f317cb11419452d14ff866da",
+        "their_dots": 85526,
+        "my_dots_within_3px_of_theirs": 0.545812,
+        "spearman_full_footprint": 0.008949
+      },
+      {
+        "submission": "GEMSDOE30:docs/downloads/GEMSDOE30_oof-gbm-adaptive-r5_20261003T170425181215Z_aedb3d13-nan.tif",
+        "sha256": "f5d137b9c010873f0b4fc11e841d923f359d33c7272ded0da9ac9b7c1efc7cc2",
+        "their_dots": 90358,
+        "my_dots_within_3px_of_theirs": 0.488155,
+        "spearman_full_footprint": 0.029625
+      },
+      {
+        "submission": "GEMSDOE30:docs/downloads/GEMSDOE30_oof-gbm-adaptive-r5_20261003T170425181215Z_aedb3d13-zeros.tif",
+        "sha256": "dd5cd18a721196602eaccd8946b047eb8c929cbfdcac033512628f6dd0030f50",
+        "their_dots": 90358,
+        "my_dots_within_3px_of_theirs": 0.488155,
+        "spearman_full_footprint": 0.029625
+      },
+      {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+        "sha256": "b44248ee7ca46405326b81998c5e4c417971d0596c01d3f995f6dd73f3997707",
+        "their_dots": 106138,
+        "my_dots_within_3px_of_theirs": 0.439157,
+        "spearman_full_footprint": 0.046964
+      },
+      {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-nan.tif",
+        "sha256": "a4b8ffa59655d2e4ca1bf77fa27a53c86d168bebb55e8d7ee2bc82720261cb23",
+        "their_dots": 106138,
+        "my_dots_within_3px_of_theirs": 0.439157,
+        "spearman_full_footprint": 0.046964
+      },
+      {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif",
+        "sha256": "8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.426303,
+        "spearman_full_footprint": 0.036373
+      },
+      {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-nan.tif",
+        "sha256": "ad9784c07456d9bbd897c5b47de56c96659bc619b0b23c5238c3d17846a3f3a6",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.426303,
+        "spearman_full_footprint": 0.036373
+      },
+      {
+        "submission": "GEMSDOE28:docs/downloads/gems28-h37-1-probe-union-pool-r1-20261003-52a13184267e-allfinite.tif",
+        "sha256": "8a59bc5ea68df8c64f2467fd5e8b3652a324fa3d5e364b9e974d993401c2ec1f",
+        "their_dots": 38545,
+        "my_dots_within_3px_of_theirs": 0.391353,
+        "spearman_full_footprint": 0.020444
+      },
+      {
+        "submission": "GEMSDOE28:docs/downloads/gems28-h37-1-probe-union-pool-r1-20261003-52a13184267e-nan.tif",
+        "sha256": "4d00b72c78fa21c258061079daad55c3a99b1bc91dc5d3e2516ad4c0e90ba334",
+        "their_dots": 38545,
+        "my_dots_within_3px_of_theirs": 0.391353,
+        "spearman_full_footprint": 0.020444
+      }
+    ],
+    "phase_b_blanket_and_lattice_controls": [
+      {
+        "submission": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+        "sha256": "59ef8e7d8374e228bc1e41376f03fc67dd5b8a5e6804885a1ae802f399140b89",
+        "their_dots": 5167373,
+        "my_dots_within_3px_of_theirs": 1.0,
+        "spearman_full_footprint": 0.045241
+      },
+      {
+        "submission": "17GEMSDOE:docs/downloads/17GEMSDOE_E-proba-multiscale_20260930T044527Z.tif",
+        "sha256": "ab0a0a62eecf066a82713b09dd49f0f638a91fa3dd81f54cc34ae89afa3872be",
+        "their_dots": 5167373,
+        "my_dots_within_3px_of_theirs": 1.0,
+        "spearman_full_footprint": 0.039095
+      },
+      {
+        "submission": "13GEMSDOE:submissions/r13-lattice-s5-20261004T070000Z-s5-zeros.tif",
+        "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "their_dots": 206895,
+        "my_dots_within_3px_of_theirs": 0.996415,
+        "spearman_full_footprint": -0.000297
+      }
+    ],
+    "key_named_comparators": {
+      "gemsdoe32_h33_2_b2": {
+        "submission": "GEMSDOE32:docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+        "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.34084,
+        "spearman_full_footprint": 0.020884,
+        "jaccard_dot_sets": 0.014208
+      },
+      "h27_4_baseline": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+        "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+        "their_dots": 40199,
+        "my_dots_within_3px_of_theirs": 0.346205,
+        "spearman_full_footprint": 0.019736,
+        "jaccard_dot_sets": 0.013737
+      },
+      "h31_b": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h31b-scarp-hessian-20261025-37654-allfinite.tif",
+        "sha256": "b469962c01f9ee546d7331e4ae4d2a72ac0bd84375ed072cbc986db8ea374e41",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.239098,
+        "spearman_full_footprint": 0.007962,
+        "jaccard_dot_sets": 0.007654
+      },
+      "h31_e2": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-scgp-submod-37654-20261025-fa735287-allfinite.tif",
+        "sha256": "88860b14b2808e910ad72544996e41ccb59a80e2e190cda1467d7f0eb16a2ed6",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.227997,
+        "spearman_full_footprint": 0.021312,
+        "jaccard_dot_sets": 0.014427
+      },
+      "magrest": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+        "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.174829,
+        "spearman_full_footprint": -0.000839,
+        "jaccard_dot_sets": 0.003237
+      },
+      "h31_hvdc": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h31-hvdc-submod300-37654-20261025-43714168-allfinite.tif",
+        "sha256": "1cce914c6daa274ce84cfe215540cdb03bef88f880c952e528807378b826262d",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.357412,
+        "spearman_full_footprint": 0.02816,
+        "jaccard_dot_sets": 0.017937
+      },
+      "h31_m": {
+        "submission": "GEMSDOE31:docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif",
+        "sha256": "8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0",
+        "their_dots": 37654,
+        "my_dots_within_3px_of_theirs": 0.426303,
+        "spearman_full_footprint": 0.036373,
+        "jaccard_dot_sets": 0.022179
+      },
+      "r13_lattice_s5": {
+        "submission": "13GEMSDOE:submissions/r13-lattice-s5-20261004T070000Z-s5-zeros.tif",
+        "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "their_dots": 206895,
+        "my_dots_within_3px_of_theirs": 0.996415,
+        "spearman_full_footprint": -0.000297,
+        "jaccard_dot_sets": 0.006097
+      },
+      "gemsdoe48_continuous": {
+        "submission": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+        "sha256": "59ef8e7d8374e228bc1e41376f03fc67dd5b8a5e6804885a1ae802f399140b89",
+        "their_dots": 5167373,
+        "my_dots_within_3px_of_theirs": 1.0,
+        "spearman_full_footprint": 0.045241,
+        "jaccard_dot_sets": 0.007287
+      }
+    },
+    "two_phase": {
+      "evidence_class": "REGISTRY-MEASUREMENT",
+      "rasters_checked": 122,
+      "rasters_expected": null,
+      "scope_note": "Checked against every registry raster whose bytes are present locally (plus any explicitly fetched witnesses). Un-fetched registry entries are a stated scope limitation, never a claim of absence.",
+      "footprint_cells": 5167373,
+      "dense_support_fraction": 0.2,
+      "thresholds": {
+        "rho": 0.9,
+        "forward_overlap": 0.7,
+        "jaccard": 0.5
+      },
+      "literal_reading": {
+        "worst_spearman_full_footprint": 0.04696381605059669,
+        "worst_spearman_submission": "GEMSDOE31:docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+        "worst_forward_overlap": 1.0,
+        "worst_overlap_submission": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+        "forward_overlap_firings": 3,
+        "rho_firings": 0,
+        "duplicate": true,
+        "note": "Keeps the inherited literal support definition. A continuous-surface prior fires on every nonempty candidate, so a firing here is not evidence of duplication; it is reported for completeness."
+      },
+      "like_for_like_reading": {
+        "dot_field_rasters": 120,
+        "continuous_surface_rasters": 2,
+        "worst_forward_overlap_dot_fields": 0.9964147235353482,
+        "worst_forward_overlap_dot_field_submission": "13GEMSDOE:submissions/r13-lattice-s5-20261004T070000Z-s5-zeros.tif",
+        "worst_reverse_overlap": 0.5816115153768524,
+        "worst_reverse_overlap_submission": "GEMSDOE31:docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif",
+        "worst_jaccard": 0.026418542233262666,
+        "worst_jaccard_submission": "GEMSDOE31:docs/downloads/gemsdoe31-union-b-p060-20261004-8acb75e1-allfinite.tif",
+        "forward_overlap_firings": 1,
+        "duplicate": true,
+        "note": "Inherited thresholds, applied to dot fields only; rank correlation still applies to every raster including the continuous surfaces."
+      },
+      "literal_firings": [
+        {
+          "submission": "13GEMSDOE:submissions/r13-lattice-s5-20261004T070000Z-s5-zeros.tif",
+          "repo": "13GEMSDOE",
+          "representation": "dot_field",
+          "forward_overlap": 0.9964147235353482,
+          "their_dots": 206895
+        },
+        {
+          "submission": "GEMSDOE48:docs/downloads/gemsdoe48-h58-continuous-pignistic-20261008T175914Z-e58.tif",
+          "repo": "GEMSDOE48",
+          "representation": "continuous_surface",
+          "forward_overlap": 1.0,
+          "their_dots": 5167373
+        },
+        {
+          "submission": "17GEMSDOE:docs/downloads/17GEMSDOE_E-proba-multiscale_20260930T044527Z.tif",
+          "repo": "17GEMSDOE",
+          "representation": "continuous_surface",
+          "forward_overlap": 1.0,
+          "their_dots": 5167373
+        }
+      ]
+    }
+  },
+  "offcat_sgmc_benchmarks": {
+    "offcat_sgmc_full_gt300m": {
+      "H31-T (Dinkelbach)": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-full-v1",
+        "withheld_positive_pixels": 61664,
+        "dti": 0.10817,
+        "tpw": 6235.75,
+        "fpw": 35346.48,
+        "n_emitted": 37654
+      },
+      "GEMSDOE32 H33-2-B2": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-full-v1",
+        "withheld_positive_pixels": 61664,
+        "dti": 0.093965,
+        "tpw": 5399.78,
+        "fpw": 35272.4,
+        "n_emitted": 37654
+      },
+      "H27-4 Baseline": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-full-v1",
+        "withheld_positive_pixels": 61664,
+        "dti": 0.093965,
+        "tpw": 5399.78,
+        "fpw": 35272.4,
+        "n_emitted": 37654
+      },
+      "H31-B Scarp-Hessian": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-full-v1",
+        "withheld_positive_pixels": 61664,
+        "dti": 0.139144,
+        "tpw": 8042.17,
+        "fpw": 34289.59,
+        "n_emitted": 37654
+      },
+      "H31-E2 SCGP-Submod": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-full-v1",
+        "withheld_positive_pixels": 61664,
+        "dti": 0.081623,
+        "tpw": 4674.3,
+        "fpw": 35004.4,
+        "n_emitted": 37654
+      },
+      "MAGREST Concordant": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-full-v1",
+        "withheld_positive_pixels": 61664,
+        "dti": 0.070835,
+        "tpw": 4030.69,
+        "fpw": 33824.81,
+        "n_emitted": 35364
+      },
+      "H31-HVDC Conduit": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-full-v1",
+        "withheld_positive_pixels": 61664,
+        "dti": 0.082441,
+        "tpw": 4732.05,
+        "fpw": 35607.2,
+        "n_emitted": 37654
+      },
+      "H31-M Subsurface": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-full-v1",
+        "withheld_positive_pixels": 61664,
+        "dti": 0.100955,
+        "tpw": 5806.75,
+        "fpw": 35128.54,
+        "n_emitted": 37654
+      }
+    },
+    "offcat_sgmc_piedmont_le6deg_gt300m": {
+      "H31-T (Dinkelbach)": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-piedmont-le6deg-v1",
+        "withheld_positive_pixels": 11573,
+        "dti": 0.043441,
+        "tpw": 513.35,
+        "fpw": 12280.82,
+        "n_emitted_in_piedmont": 12523
+      },
+      "GEMSDOE32 H33-2-B2": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-piedmont-le6deg-v1",
+        "withheld_positive_pixels": 11573,
+        "dti": 0.058634,
+        "tpw": 683.24,
+        "fpw": 11287.75,
+        "n_emitted_in_piedmont": 11659
+      },
+      "H27-4 Baseline": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-piedmont-le6deg-v1",
+        "withheld_positive_pixels": 11573,
+        "dti": 0.058634,
+        "tpw": 683.24,
+        "fpw": 11287.75,
+        "n_emitted_in_piedmont": 11659
+      },
+      "H31-B Scarp-Hessian": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-piedmont-le6deg-v1",
+        "withheld_positive_pixels": 11573,
+        "dti": 0.005221,
+        "tpw": 49.37,
+        "fpw": 936.8,
+        "n_emitted_in_piedmont": 964
+      },
+      "H31-E2 SCGP-Submod": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-piedmont-le6deg-v1",
+        "withheld_positive_pixels": 11573,
+        "dti": 0.069717,
+        "tpw": 838.76,
+        "fpw": 13023.8,
+        "n_emitted_in_piedmont": 13567
+      },
+      "MAGREST Concordant": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-piedmont-le6deg-v1",
+        "withheld_positive_pixels": 11573,
+        "dti": 0.038653,
+        "tpw": 528.47,
+        "fpw": 21539.8,
+        "n_emitted_in_piedmont": 21796
+      },
+      "H31-HVDC Conduit": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-piedmont-le6deg-v1",
+        "withheld_positive_pixels": 11573,
+        "dti": 0.068426,
+        "tpw": 886.23,
+        "fpw": 17580.27,
+        "n_emitted_in_piedmont": 18065
+      },
+      "H31-M Subsurface": {
+        "evidence_class": "HOLDOUT-DTI",
+        "evaluator_version": "usgs-sgmc-offcat-gt300m-piedmont-le6deg-v1",
+        "withheld_positive_pixels": 11573,
+        "dti": 0.064106,
+        "tpw": 777.86,
+        "fpw": 13599.82,
+        "n_emitted_in_piedmont": 14013
+      }
+    },
+    "offcat_sgmc_4block_collared": {
+      "evidence_class": "HOLDOUT-DTI",
+      "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+      "alpha": 0.2,
+      "beta": 0.8,
+      "triangular_radius_m": 300.0,
+      "pooled": true,
+      "scores": {
+        "H31-T (Dinkelbach)": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "dti": 0.10807343805268695,
+          "ci95": [
+            0.0931619973628916,
+            0.12324029215057855
+          ],
+          "withheld_positive_pixels": 61664,
+          "tpw": 6230.091373408607,
+          "fpw": 35348.070769715196,
+          "fnw": 55433.90862659144
+        },
+        "GEMSDOE32 H33-2-B2": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "dti": 0.09391527811514205,
+          "ci95": [
+            0.08350875232062066,
+            0.1049716778485798
+          ],
+          "withheld_positive_pixels": 61664,
+          "tpw": 5396.866394614871,
+          "fpw": 35273.46127691685,
+          "fnw": 56267.13360538516
+        },
+        "H27-4 Baseline": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "dti": 0.09391527811514205,
+          "ci95": [
+            0.08350875232062066,
+            0.1049716778485798
+          ],
+          "withheld_positive_pixels": 61664,
+          "tpw": 5396.866394614871,
+          "fpw": 35273.46127691685,
+          "fnw": 56267.13360538516
+        },
+        "H31-B Scarp-Hessian": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "dti": 0.13897157686347805,
+          "ci95": [
+            0.12096702809132875,
+            0.15851598319091076
+          ],
+          "withheld_positive_pixels": 61664,
+          "tpw": 8032.043626977968,
+          "fpw": 34293.480806195475,
+          "fnw": 53631.95637302206
+        },
+        "H31-E2 SCGP-Submod": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "dti": 0.0815926546734536,
+          "ci95": [
+            0.06418521798231601,
+            0.09975870650962393
+          ],
+          "withheld_positive_pixels": 61664,
+          "tpw": 4672.536964457118,
+          "fpw": 35004.64971498915,
+          "fnw": 56991.46303554291
+        },
+        "MAGREST Concordant": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "dti": 0.07076529613524335,
+          "ci95": [
+            0.06532932939825932,
+            0.07612759028218499
+          ],
+          "withheld_positive_pixels": 61664,
+          "tpw": 4026.6565253195313,
+          "fpw": 33825.19868268881,
+          "fnw": 57637.3434746805
+        },
+        "H31-HVDC Conduit": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "dti": 0.08238104162021895,
+          "ci95": [
+            0.06958348556711685,
+            0.0977180474069355
+          ],
+          "withheld_positive_pixels": 61664,
+          "tpw": 4728.548705821062,
+          "fpw": 35607.980935884894,
+          "fnw": 56935.45129417897
+        },
+        "H31-M Subsurface": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "dti": 0.10089054215750667,
+          "ci95": [
+            0.0841553027710141,
+            0.12090566271626078
+          ],
+          "withheld_positive_pixels": 61664,
+          "tpw": 5802.990186314267,
+          "fpw": 35129.42306925368,
+          "fnw": 55861.009813685734
+        }
+      },
+      "best_comparable_control": "H31-B Scarp-Hessian",
+      "paired_differences": {
+        "GEMSDOE32 H33-2-B2": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "delta": 0.014158159937544892,
+          "ci95": [
+            -0.0024401230477404915,
+            0.030336071660827902
+          ],
+          "withheld_positive_pixels": 61664
+        },
+        "H27-4 Baseline": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "delta": 0.014158159937544892,
+          "ci95": [
+            -0.0024401230477404915,
+            0.030336071660827902
+          ],
+          "withheld_positive_pixels": 61664
+        },
+        "H31-B Scarp-Hessian": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "delta": -0.030898138810791106,
+          "ci95": [
+            -0.05155865256031076,
+            -0.010230452882957363
+          ],
+          "withheld_positive_pixels": 61664
+        },
+        "H31-E2 SCGP-Submod": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "delta": 0.026480783379233347,
+          "ci95": [
+            0.008273082169043612,
+            0.04396848345877436
+          ],
+          "withheld_positive_pixels": 61664
+        },
+        "MAGREST Concordant": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "delta": 0.037308141917443596,
+          "ci95": [
+            0.02158757337072849,
+            0.053773295921230445
+          ],
+          "withheld_positive_pixels": 61664
+        },
+        "H31-HVDC Conduit": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "delta": 0.025692396432467998,
+          "ci95": [
+            0.009044330382150276,
+            0.04237560944790697
+          ],
+          "withheld_positive_pixels": 61664
+        },
+        "H31-M Subsurface": {
+          "evidence_class": "HOLDOUT-DTI",
+          "evaluator_version": "usgs-sgmc-offcat-gt300m-4block-v1",
+          "delta": 0.007182895895180272,
+          "ci95": [
+            -0.011711217808475002,
+            0.02634081784287659
+          ],
+          "withheld_positive_pixels": 61664
+        }
+      },
+      "bootstrap": {
+        "method": "paired physical spatial-cluster percentile",
+        "clusters": 160,
+        "draws": 1000,
+        "seed": 20261031,
+        "confidence": 0.95,
+        "caveat": "Conditional on fitted folds, catalogue labels and fixed budgets; not a leaderboard interval."
+      },
+      "implementation_sha256": {
+        "evaluate_holdout.py": "ad86640b46f3c5fc6b1aceec4c4bfc82d03e35008b37ab2a8ad6076e6810ff3a",
+        "holdout.py": "7a0a84176986190b527aa9c6a84216c2dab4b599f25b1143db5f420e85020ab1",
+        "metric.py": "4afe10cbaa229948520c75194b1ebc32676e72544f05582f0725092b097b4d7f",
+        "spatial.py": "fad7b09db9efc512247b9a176a7e7ce8631e287592b4e07902d0b9c38bed00f8"
+      }
+    }
+  },
+  "packaging": {
+    "zeros_tif": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif",
+    "zeros_tif_sha256": "83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298",
+    "zeros_tif_bytes": 145429,
+    "zeros_zip": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.zip",
+    "zeros_zip_sha256": "eb94af0e75c7d25cb0e0491b1897d0d6a72940356f1efa6c43109ace59a2b7ec",
+    "zeros_zip_bytes": 111740,
+    "nan_tif": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.tif",
+    "nan_tif_sha256": "1df2c5fb2e5735e120bd59c241fabcced6cdf671fd20ae5c265034235fbfa65e",
+    "nan_tif_bytes": 436060,
+    "nan_zip": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.zip",
+    "nan_zip_sha256": "3077f82194c2758d94ddc250d2feada8f73325573c3090adc7346116f8e231b7",
+    "nan_zip_bytes": 354477,
+    "zeros_validator_checks": {
+      "file": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif",
+      "bytes": 145429,
+      "sha256": "83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298",
+      "ok_to_upload_format_only": true,
+      "organizer_acceptance_verified": false,
+      "hard_failures": [],
+      "grid": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bounds": [
+          243350.0,
+          4135550.0,
+          572550.0,
+          4508550.0
+        ],
+        "dtype": [
+          "float32"
+        ],
+        "bands": 1,
+        "template_footprint_pixels": 5167373,
+        "positive_pixels_inside": 37654,
+        "nodata_tag": null
+      },
+      "checks": {
+        "template_single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "template_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "template_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "template_has_finite_footprint": {
+          "pass_": true,
+          "detail": "5,167,373 finite pixels",
+          "hard": true
+        },
+        "template_expected_shape": {
+          "pass_": true,
+          "detail": "(3730, 3292) (expected (3730, 3292))",
+          "hard": true
+        },
+        "template_expected_transform": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+          "hard": true
+        },
+        "template_expected_footprint": {
+          "pass_": true,
+          "detail": "5,167,373 (expected 5,167,373)",
+          "hard": true
+        },
+        "template_expected_outside": {
+          "pass_": true,
+          "detail": "7,111,787 (expected 7,111,787)",
+          "hard": true
+        },
+        "single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "dtype_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "shape_matches_template": {
+          "pass_": true,
+          "detail": "(3730, 3292) vs (3730, 3292)",
+          "hard": true
+        },
+        "crs_matches_template": {
+          "pass_": true,
+          "detail": "EPSG:32611 vs EPSG:32611",
+          "hard": true
+        },
+        "transform_matches_template": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+          "hard": true
+        },
+        "footprint_all_finite": {
+          "pass_": true,
+          "detail": "0 NaN/Inf inside 5,167,373 template cells",
+          "hard": true
+        },
+        "footprint_values_in_0_1": {
+          "pass_": true,
+          "detail": "min=0.0; max=1.0; required finite [0,1]",
+          "hard": true
+        },
+        "no_infinite_pixels": {
+          "pass_": true,
+          "detail": "0 infinite values",
+          "hard": true
+        },
+        "outside_footprint_nan": {
+          "pass_": true,
+          "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+          "hard": false
+        },
+        "nan_mask_matches_template": {
+          "pass_": true,
+          "detail": "not required under the all-finite convention",
+          "hard": false
+        },
+        "allfinite_values_in_0_1": {
+          "pass_": true,
+          "detail": "finite=True; min=0.0; max=1.0",
+          "hard": true
+        },
+        "outside_footprint_zero": {
+          "pass_": true,
+          "detail": "0 nonzero values outside footprint",
+          "hard": true
+        },
+        "output_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "output_100m_pixels": {
+          "pass_": true,
+          "detail": "xres=100, yres=-100",
+          "hard": true
+        },
+        "nodata_tag_nan_or_none": {
+          "pass_": true,
+          "detail": "nodata=None",
+          "hard": false
+        }
+      }
+    },
+    "nan_validator_checks": {
+      "file": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.tif",
+      "bytes": 436060,
+      "sha256": "1df2c5fb2e5735e120bd59c241fabcced6cdf671fd20ae5c265034235fbfa65e",
+      "ok_to_upload_format_only": true,
+      "organizer_acceptance_verified": false,
+      "hard_failures": [],
+      "grid": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bounds": [
+          243350.0,
+          4135550.0,
+          572550.0,
+          4508550.0
+        ],
+        "dtype": [
+          "float32"
+        ],
+        "bands": 1,
+        "template_footprint_pixels": 5167373,
+        "positive_pixels_inside": 37654,
+        "nodata_tag": "NaN"
+      },
+      "checks": {
+        "template_single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "template_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "template_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "template_has_finite_footprint": {
+          "pass_": true,
+          "detail": "5,167,373 finite pixels",
+          "hard": true
+        },
+        "template_expected_shape": {
+          "pass_": true,
+          "detail": "(3730, 3292) (expected (3730, 3292))",
+          "hard": true
+        },
+        "template_expected_transform": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+          "hard": true
+        },
+        "template_expected_footprint": {
+          "pass_": true,
+          "detail": "5,167,373 (expected 5,167,373)",
+          "hard": true
+        },
+        "template_expected_outside": {
+          "pass_": true,
+          "detail": "7,111,787 (expected 7,111,787)",
+          "hard": true
+        },
+        "single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "dtype_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "shape_matches_template": {
+          "pass_": true,
+          "detail": "(3730, 3292) vs (3730, 3292)",
+          "hard": true
+        },
+        "crs_matches_template": {
+          "pass_": true,
+          "detail": "EPSG:32611 vs EPSG:32611",
+          "hard": true
+        },
+        "transform_matches_template": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+          "hard": true
+        },
+        "footprint_all_finite": {
+          "pass_": true,
+          "detail": "0 NaN/Inf inside 5,167,373 template cells",
+          "hard": true
+        },
+        "footprint_values_in_0_1": {
+          "pass_": true,
+          "detail": "min=0.0; max=1.0; required finite [0,1]",
+          "hard": true
+        },
+        "no_infinite_pixels": {
+          "pass_": true,
+          "detail": "0 infinite values",
+          "hard": true
+        },
+        "outside_footprint_nan": {
+          "pass_": true,
+          "detail": "7,111,787/7,111,787 outside pixels are NaN; finite outside pixels are forbidden",
+          "hard": true
+        },
+        "nan_mask_matches_template": {
+          "pass_": true,
+          "detail": "NaN cells exactly match the template's outside-footprint mask",
+          "hard": true
+        },
+        "output_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "output_100m_pixels": {
+          "pass_": true,
+          "detail": "xres=100, yres=-100",
+          "hard": true
+        },
+        "nodata_tag_nan_or_none": {
+          "pass_": true,
+          "detail": "nodata=nan",
+          "hard": false
+        }
+      }
+    }
+  }
+}

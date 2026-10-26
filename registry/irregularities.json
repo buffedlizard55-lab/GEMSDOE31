@@ -531,6 +531,29 @@
       ],
       "impact": "Risked misleading an entrant with an unverified live-score projection and mislabeled holdout column.",
       "action": "Removed the projection column from scripts/build_site.py, corrected all column headers and band names, and populated sha256_zip in scripts/collect_evidence.py."
+    },
+    {
+      "id": "IR-31-OWN-METHOD-VARIOGRAM",
+      "severity": "medium",
+      "status": "resolved-in-h31t-2026-10-25",
+      "summary": "Prior 2026-10-25 research lanes (H31-E2, H31-HVDC, H31-M) inherited the historical 21.25 km spatial collar from evidence/buffer_derivation.json without fitting a candidate-specific OOF residual semivariogram.",
+      "evidence": [
+        "COMPUTED 2026-10-25 (evidence/h31t/exp1_canary_variogram_gems57.json): 100% label-free H31-T 4-quadrant OOF residuals fit via gemsdoe31.buffer.derive_buffer yield best_wrmse_model=exponential, empirical_95pct_decay_m=21,250.0 m, own_adopted_buffer_m=21,250.0 m (213 px)."
+      ],
+      "impact": "Confirms that 21.25 km (213 px) captures >=95% of H31-T's empirical OOF residual autocorrelation without extrapolating beyond observed lag support.",
+      "action": "Measured and recorded H31-T's own-method residual semivariogram in evidence/h31t/exp1_canary_variogram_gems57.json and enforced max(21,250 m, own_adopted_buffer_m) = 21,250 m across all 12 holdout folds."
+    },
+    {
+      "id": "IR-31-H31T-EXP1-VISIBLE-CATALOGUE-SELF-INCLUSION",
+      "severity": "high",
+      "status": "resolved-in-exp2-2026-10-25",
+      "summary": "In EXP-1 of H31-T, including visible_catalogue-derived tip/relay features (vis_wingcrack_tip_lobe, vis_relay_dilation_bridge) in tree training caused d0_m = 0 self-inclusion on train_mask positives (collapsing Quadrant 1 Poisson DTI to 0.0693 vs 0.1410 ctrl) and violated src/gemsdoe31/holdout.py's caller contract prohibiting catalogue-derived model features.",
+      "evidence": [
+        "Preserved verbatim in evidence/h31t/exp1_vis_self_inclusion_diagnostic.json (EXP-1 overall gems57-pooled-hide-v2 h31t_dinkelbach=0.117240 vs ctrl=0.109735; Q1 h31t_poisson=0.0693 vs ctrl=0.1410).",
+        "COMPUTED 2026-10-25 (evidence/h31t/exp1_canary_variogram_gems57.json): removing visible_catalogue features in EXP-2 lifted gems57-pooled-hide-v2 h31t_dinkelbach to 0.130010 vs ctrl 0.109548 (+18.68%, 4/4 quadrants won; Q1 jumped +0.0396 to 0.148892)."
+      ],
+      "impact": "Proves that fold-visible catalogue features create severe train/test distribution mismatch in GBDT splits even when withheld faults are zero-leakage.",
+      "action": "Preserved EXP-1 verbatim as Experiment 1 of 3, restricted H31-T in EXP-2 and EXP-3 to 100% label-free static crustal-mechanics channels, and logged the self-inclusion failure mode for future lanes."
     }
   ]
 }

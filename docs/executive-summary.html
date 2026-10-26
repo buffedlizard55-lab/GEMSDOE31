@@ -26,7 +26,7 @@
 
   <main class="wrap">
 <div class="notice notice-danger"><strong>Do not submit a download from this page yet (DOWNLOAD FOR RESEARCH = YES · SUBMIT TO DRIVENDATA = NO).</strong>
-      The new 2026-10-26 H31-S (UDAP-SSLIC) GeoTIFF, RBU31-B, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts pass automated EPSG:32611 and strict [0, 1] range checks with zero human intervention and are available to download in one click; all remain research-only (<code>slot_approved = false</code>) because the unexempted 695-raster shared registry contains a spacing-5 calibration lattice covering 99.5%&ndash;100% of Nevada within 3 px. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
+      The new 2026-10-26 H31-S (UDAP-SSLIC) GeoTIFF, H31-T Transtension-Dinkelbach, H31-J TGTD-Submod, XFCOH31, CONCORD31, RBU31-B, H31-M BStep-XMod-Submod, H31-HVDC-Submod300, H31-E2 SCGP-Submod, and MAGREST artifacts pass automated EPSG:32611 and strict [0, 1] range checks with zero human intervention and are available to download in one click; all remain research-only (<code>slot_approved = false</code>) while the unexempted 695-raster shared-registry overlap gate remains in force. Human sign-off cannot override a failed gate; scientific and registry validation must pass before any separate selector decision.</div>
       
 <section id="h31s-download" aria-labelledby="h31s-heading">
   <div class="section-head"><div><p class="kicker">2026-10-26 Featured Lane · H31-S (UDAP-SSLIC) · 3-Experiment Campaign</p>
@@ -92,6 +92,107 @@
   </div>
 </section>
 
+      <section id="h31t-dinkelbach" aria-labelledby="h31t-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-25 Latest Campaign · SI Crustal-Mechanics + Listric Restoration + Dinkelbach 29-Cell Submodular · H31-T</p>
+        <h2 id="h31t-heading">H31-T Transtension-Dinkelbach: Research Download Only · DO NOT SUBMIT</h2></div>
+        <p>Newly computed 100% label-free Dual-Specialist OOF HGB across 12 spatially collared folds (with H31-T's own measured 21.25 km OOF residual variogram, resolving <code>IR-31-OWN-METHOD-VARIOGRAM</code>) +
+           Cost-Scaled Dinkelbach 29-cell submodular CELF allocation (37,654 binary {0.0, 1.0} dots, 0 within 200 m of public catalogue).
+           Passes all 21/21 format &amp; [0, 1] checks, 35-plane leakage canary, unchanged <code>gems57-pooled-hide-v2</code> (+18.68%, 4/4 quadrants),
+           disjoint <code>gemsdoe31-holdout-v1</code> Screen &amp; untouched Confirmation (+23.01%, 4/4 folds), Full &amp; 4-Block Off-Catalogue SGMC (+15.1% vs GEMSDOE32 H33-2-B2),
+           and Phase A uniqueness across all 119 discrete fault maps in all 9 focus sites + GEMSDOE31 —
+           but is <strong>blocked from weekly slot upload (DO NOT SUBMIT, slot_approved = false)</strong> under the unexempted 695-raster <code>r13-lattice-s5</code> / <code>GEMSDOE48</code> STOP rule.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-green">LOCAL FORMAT &amp; 7/7 SCIENTIFIC GATES PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
+        <h3 style="margin-top:18px">gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654</h3>
+        <p>12 100% label-free SI-calibrated crustal-mechanics channels (<code>mag_as3d</code>, <code>mag_inv_depth</code>, <code>grav_as3d</code>, <code>grav_inv_depth</code>,
+           <code>mag_grav_crest_coh</code>, <code>listric_updip_bstep</code>, <code>listric_updip_grav</code>, <code>transtension_slip_index</code>, <code>eq_transtension_couple</code>,
+           <code>hydro_mag_destr_kth</code>, <code>cond_clay_cap_ridge</code>, <code>piedmont_scarp_asi</code>) + stitched 12-fold OOF Dual-Specialist HGB +
+           Cost-Scaled Dinkelbach 29-cell submodular CELF allocator (37,654 off-catalogue binary {0.0, 1.0} dots; min distance to public catalogue 223.61 m).</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif" download>Download H31-T Research .tif (All-finite zeros)</a>
+          <a class="button" href="downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.zip" download>Download Single-TIFF .zip (All-finite)</a>
+          <a class="button" href="downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.tif" download>NaN-outside companion .tif</a>
+          <a class="button" href="downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-nan.zip" download>NaN Single-TIFF .zip</a>
+          <a class="button" href="downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-format-check.json" download>Format receipt .json</a>
+          <a class="button" href="downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-run-card.json" download>Run Card .json</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; Range:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 0 NaN/Inf inside 5,167,373-cell footprint · footprint values strictly {0.0, 1.0} in [0.0, 1.0] (prevents “Predicted values must be in range [0, 1]”) · 0 dots within 200 m of public catalogue.<br>
+          <strong>SHA-256 (All-finite primary):</strong> <code>83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298</code><br>
+          <strong>SHA-256 (All-finite ZIP):</strong> <code>eb94af0e75c7d25cb0e0491b1897d0d6a72940356f1efa6c43109ace59a2b7ec</code><br>
+          <strong>SHA-256 (NaN companion):</strong> <code>1df2c5fb2e5735e120bd59c241fabcced6cdf671fd20ae5c265034235fbfa65e</code><br>
+          <strong>SHA-256 (NaN ZIP):</strong> <code>3077f82194c2758d94ddc250d2feada8f73325573c3090adc7346116f8e231b7</code><br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654</code><br>
+          <strong>Note (129/140):</strong> <code>RESEARCH ONLY DO NOT SUBMIT: H31-T 3D AS/depth + listric updip + transtension + Dinkelbach 300m CELF (37654 px; 695-lattice STOP)</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated Gate</th><th>Threshold</th><th>Measured H31-T Value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 · GeoTIFF Format &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1]</td><td>37,654 dots in {0.0, 1.0}; 0 NaN inside; min catalogue distance 223.61 m (21/21 checks)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G2 · Single-Feature Leakage</code></td><td>Two-sided ROC-AUC ≤ 0.90 across all 35 static planes</td><td>max symmetric AUC = 0.5711 (<code>base:geod_shearrate</code>)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3 · Own-Method Variogram Collar</code></td><td>Candidate-specific OOF residual 95% decay (<code>IR-31-OWN-METHOD-VARIOGRAM</code>)</td><td>21,250 m (213 px, exponential WRMSE fit)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4a · Shared Template Holdout</code></td><td>Unchanged <code>gems57-pooled-hide-v2</code> (n=60,988, 21.25 km), paired 95% CI &gt; 0</td><td>HOLDOUT-DTI 0.1300 [0.1147, 0.1456] vs 0.1095 ctrl (delta +0.0205, 95% CI [+0.0045, +0.0365], 4/4 quadrants)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4b · Disjoint Screen Holdout</code></td><td><code>gemsdoe31-holdout-v1</code> seed 20261031 (n=29,862), paired 95% CI &gt; 0</td><td>HOLDOUT-DTI 0.1191 vs 0.1006 ctrl (delta +0.0185, 95% CI [+0.0007, +0.0368])</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4c · Untouched Confirm Holdout</code></td><td><code>gemsdoe31-holdout-v1</code> seed 20261101 (n=28,763, 0 tuning), paired 95% CI &gt; 0</td><td>HOLDOUT-DTI 0.1248 [0.1109, 0.1383] vs 0.1014 ctrl (delta +0.0233, 95% CI [+0.0075, +0.0383], 4/4 folds)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5 · Off-Catalogue SGMC (&gt;300 m)</code></td><td>Statewide &amp; 4-block collared vs GEMSDOE32 H33-2-B2; piedmont reported transparently</td><td>Full Off-SGMC 0.1082 vs 0.0940 (+15.1%); 4-Block 0.1081 vs 0.0939; Piedmont (slope ≤ 6 deg) 0.0434 vs 0.0586 (label-free trade-off)</td><td><span class="badge badge-green">REPORTED</span></td></tr>
+          <tr><td><code>G6a · 119-Submission Discrete Subset</code></td><td>All 9 focus repos + all GEMSDOE31 discrete lanes (|ρ| ≤ 0.90, 3-px ≤ 70%)</td><td>pre-surface max |ρ| = 0.2215; post max |ρ| = 0.0470; max 3-px = 54.58% (34.08% vs H33-2-B2, 42.63% vs H31-M)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G6b · Literal 695-Raster Controls</code></td><td>Unexempted <code>r13-lattice-s5</code> &amp; <code>GEMSDOE48</code> continuous blanket</td><td>99.64% vs <code>r13-lattice-s5</code>; 100.0% vs <code>GEMSDOE48</code></td><td><span class="badge badge-red">LITERAL STOP (slot_approved=false)</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">HOLDOUT-DTI evaluators: <code>gems57-pooled-hide-v2</code> (n=60,988 withheld positives, 21,250 m own-method collar, 1,000 block-bootstrap replicates) and
+        <code>gemsdoe31-holdout-v1</code> (disjoint Screen n=29,862 + untouched Confirmation n=28,763). None of these figures is a competition score or projection.
+        Receipts: <a href="downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-run-card.json">H31-T JSON Run Card</a> ·
+        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/tree/main/evidence/h31t">full EXP-1..3 evidence directory</a> ·
+        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_h31t_transtension_dinkelbach_preregistration.md">frozen H31-T preregistration</a>.</p>
+    </section>
+      <section id="tgtd-submod-h31j" aria-labelledby="h31j-heading">
+      <div class="section-head"><div><p class="kicker">Latest Preregistered Discovery Candidate · 2026-10-25 · Lane H31-J</p>
+        <h2 id="h31j-heading">H31-J TGTD-Submod: All 6 Technical &amp; Scientific Gates PASS · Research Download Only · DO NOT SUBMIT</h2></div>
+        <p>Genuinely new 37,654-dot Basin-and-Range blind/piedmont fault detector combining Pedersen–Rasmussen 3-D Laplace gravity-tensor 2-D tabular invariants,
+           DOE GDR #1391 chemical geothermometer disequilibrium conduit channeling, and V-canyon-suppressed piedmont flexure via 4-quadrant OOF + 300 m ridge-submodular emission.
+           Verified automatically by <code>scripts/verify_h31j.py</code> without human inspector intervention; held as research-only (<code>slot_approved = false</code>) under Rule 6 and the unexempted 695-raster spacing-5 lattice STOP.</p></div>
+      <div class="card download-card">
+        <span class="badge badge-green">LOCAL FORMAT [0, 1] &amp; 8/8 QUADRANTS PASS · RESEARCH DOWNLOAD ONLY</span>
+        <span class="badge badge-red" style="margin-left:8px">DO NOT SUBMIT · REGISTRY STOP (slot_approved = false)</span>
+        <h3 style="margin-top:18px">gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8</h3>
+        <p><strong>Immediate Automated Readiness Summary:</strong> All <code>12,279,160</code> pixels in the primary <code>-zeros.tif</code> / <code>-zeros.zip</code>
+           are finite <code>float32</code> in <code>[0.0, 1.0]</code> (eliminating <em>“Predicted values must be in range [0, 1]”</em> range rejections);
+           companion <code>-nan.tif</code> / <code>-nan.zip</code> carries identical <code>37,654</code> footprint dots with exact <code>NaN</code> outside.
+           Zero dots overlap the public fault catalogue or its <code>≤ 200 m</code> dead collar; zero dots are copied from prior submissions.
+           Upload remains disabled (<code>slot_approved = false</code>) under Parallel-Run Rule 6 and the binding literal 695-raster 5×5 lattice STOP (<code>G3b</code>).</p>
+        <div class="actions">
+          <a class="button button-primary" href="downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.zip" download>Download H31-J Research All-Finite [0, 1] .zip</a>
+          <a class="button" href="downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.tif" download>Download Primary All-Finite .tif</a>
+          <a class="button" href="downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-nan.zip" download>Companion NaN-Outside .zip</a>
+          <a class="button" href="downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-nan.tif" download>Companion NaN-Outside .tif</a>
+          <a class="button" href="downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-run-card.json" download>JSON Run Card</a>
+          <a class="button" href="downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-format-check.json" download>Format Receipt</a>
+        </div>
+        <p class="download-meta"><strong>Grid &amp; [0, 1] Verification:</strong> 1-band float32 · EPSG:32611 · 3730 × 3292 · 100 m · 37,654 dots in {0.0, 1.0} · 0 NaN/Inf inside 5,167,373-cell footprint · 0 on public catalogue · 0 within 200 m collar · 57.59% beyond 1.5 km.<br>
+          <strong>Artifact Name (not uniqueness approval):</strong> <code>gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8</code><br>
+          <strong>Note (88/140 chars):</strong> <code>GEMSDOE31 H31-J TGTD+GDR1391 geotherm+PTCF 4-quad OOF 300m submod 37654d b2px (ab35d4e8)</code><br>
+          <strong>SHA-256 (-zeros.tif, 141,688 B):</strong> <code>04e886cd8f7759e05d5fabb5d7222aaed0d16fda59fdf81e5934c5508eaf3fa3</code><br>
+          <strong>SHA-256 (-zeros.zip, 106,820 B):</strong> <code>44142a9671e4beaa4872a8d5fc11e061f8050ac3e48a4573b415329227536657</code><br>
+          <strong>SHA-256 (-nan.tif, 187,549 B):</strong> <code>2dcc3a5be6545b51823b9c4385fa436eb19bcde9b21b663156b85e8bcfe79027</code> · <strong>(-nan.zip, 137,561 B):</strong> <code>12adfb41daa2076f0daa67c9b33c9190948ef6e22cd20440fd4fd06f5aa25aa2</code></p>
+      </div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <thead><tr><th>Automated Gate</th><th>Preregistered Rule</th><th>Measured H31-J3 Result (Evidence Class Stated)</th><th>Verdict</th></tr></thead>
+        <tbody>
+          <tr><td><code>G1 · Local GeoTIFF &amp; [0, 1]</code></td><td>EPSG:32611, 3730×3292, float32, 0 NaN inside, [0, 1], 1-TIFF ZIP</td><td>COMPUTED: 37,654 dots in {0.0, 1.0}; -zeros all 12,279,160 finite; ZIP SHA-256 verified</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G2 · Leakage Canary</code></td><td>Single-feature two-sided ROC-AUC ≤ 0.90 across all 4 folds × 65 cols</td><td>COMPUTED (not DTI): 260/260 checks ≤ 0.90; max sym AUC = 0.8059; miss AUC = 0.5646; <code>dist_known_fault_px</code> excluded</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G3a · 142-File Discrete Subset</code></td><td>Pre-placement |ρ| ≤ 0.90; Final dots |ρ| ≤ 0.90 &amp; 3-px ≤ 70.0%</td><td>COMPUTED across 142 files (63 distinct fields, GEMSDOE24..36+31+70): pre |ρ| = 0.1563 (unspaced d=0 diagnostic clump 80.13%); final |ρ| = 0.0370, max 3-px = 65.14% (vs H33-2-B2: 41.5%)</td><td><span class="badge">SUBSET ONLY — NOT UNIQUENESS APPROVAL</span></td></tr>
+          <tr><td><code>G3b · Shared-Registry 5×5 Lattice</code></td><td>Unexempted 695-raster shared registry (<code>r13-lattice-s5</code>)</td><td>COMPUTED: |ρ| = 0.0003 ≤ 0.90; 3-px overlap = 99.99% (synthetic 5×5 spacing-5 grid covers Nevada interior within 2.83 ≤ 3 px)</td><td><span class="badge badge-red">LITERAL STOP</span></td></tr>
+          <tr><td><code>G4a · Screen Holdout (seed=31)</code></td><td><code>gems57-pooled-hide-v2</code>, 21.3 km buffer, n = 2,901, paired 95% CI &gt; 0</td><td>HOLDOUT-DTI: H31-J3 <strong>0.0897</strong> [0.0627, 0.1149] vs physical_hgb 0.0483 (Δ = +0.0414 [+0.0168, +0.0649], +85.7%, 4/4 quadrants) &amp; MAGREST 0.0530; H31-J1 subsurface = 0.0653; H31-J2 Poisson = 0.0862</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G4b · Untouched Confirm (seed=32)</code></td><td>Zero retuning, <code>gems57-pooled-hide-v2</code>, 21.3 km buffer, n = 2,808</td><td>HOLDOUT-DTI: H31-J3 <strong>0.0772</strong> [0.0456, 0.1076] vs physical_hgb 0.0482 [0.0227, 0.0756] (Δ = +0.0290 [+0.0123, +0.0475], +60.2%, 4/4 quadrants = 8/8 total)</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G5 · Own-Method OOF Variogram</code></td><td>95%-sill residual practical range ≤ 21,300 m holdout buffer</td><td>COMPUTED: 95%-sill range = <strong>10,719.8 m</strong> (scale 3,578.4 m, R² = 0.7911); 21.3 km collar covers 99.74% of sill</td><td><span class="badge badge-green">PASS</span></td></tr>
+          <tr><td><code>G6 · Off-Catalogue SGMC (&gt;300 m)</code></td><td>Report-only matched 37,654-dot discovery proxy (never training truth)</td><td>HOLDOUT-PROXY-SGMC: All-elev (61,664 px) <strong>0.1064</strong> vs GEMSDOE32 H33-2-B2 0.0923 (+15.2%); Piedmont &lt;100 m (28,115 px) <strong>0.1474</strong> vs H33-2-B2 0.1130 (+30.5%)</td><td><span class="badge badge-green">REPORTED WIN</span></td></tr>
+          <tr><td><code>G7 / Rule 6 · Weekly Live Slot</code></td><td>Never auto-spend DrivenData weekly submission quota</td><td><code>slot_approved = false</code>; blocked from upload while the literal 695-raster G3b rule remains unamended</td><td><span class="badge badge-red">DO NOT SUBMIT</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Reproduce verification offline in ~2 s: <code>.venv/bin/python scripts/verify_h31j.py</code> ·
+        Preregistration: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-25_h31j_tgtd_preregistration.md">frozen H31-J specification</a> ·
+        Evidence directory: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/tree/main/evidence/h31j">evidence/h31j/</a>.</p>
+    </section>
       <section id="focus-sites"><div class="section-head"><div>
       <p class="kicker">Nine requested repositories · highest claim per site</p>
       <h2>Prior-art comparison — not a list of upload recommendations</h2></div>
@@ -399,7 +500,7 @@ python scripts/validate_submission.py &lt;candidate.tif&gt; --template data/samp
   </main>
   <footer class="footer"><div class="wrap footer-inner">
     <p>Every figure on this site is generated from measured artifacts in the repository.</p>
-    <p><a href="feed.html">Evidence feed</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
+    <p><a href="feed.html">Evidence feed</a> · <a href="xfcoh31.html">XFCOH31</a> · <a href="ai-disclosure.html">AI use</a> · <a href="https://github.com/buffedlizard55-lab/GEMSDOE31">Repository</a></p>
   </div></footer>
 </body>
 </html>
