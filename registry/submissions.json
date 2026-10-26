@@ -192,7 +192,197 @@
   },
   "slot_approved": false
  },
+ "latest_2026_10_26_candidate": {
+  "name": "gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f",
+  "file": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif",
+  "sha256": "186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd",
+  "slot_approved": false,
+  "ok_to_submit": false,
+  "run_card": "docs/downloads/h31s-run-card.json",
+  "holdout_dti": {
+   "confirmation_seed42": {
+    "ci95": [
+     0.07279594783997272,
+     0.12485370997034032
+    ],
+    "holdout_dti": 0.09795971963984905,
+    "incumbent_h31m_submod_dti": 0.07175679272380257,
+    "physical_hgb_dti": 0.05440447608962854,
+    "vs_incumbent_h31m_submod": {
+     "ci95": [
+      9.605808770445827e-05,
+      0.05441091501049573
+     ],
+     "delta": 0.026202926916046476,
+     "evaluator_version": "gems57-pooled-hide-v2",
+     "evidence_class": "HOLDOUT-DTI",
+     "passed": true,
+     "quadrant_wins": 4,
+     "withheld_positive_pixels": 2823,
+     "worst_quadrant_delta": 0.009875426328952452
+    },
+    "vs_physical_hgb": {
+     "ci95": [
+      0.017908759026477816,
+      0.06951101961659628
+     ],
+     "delta": 0.04355524355022051,
+     "evaluator_version": "gems57-pooled-hide-v2",
+     "evidence_class": "HOLDOUT-DTI",
+     "passed": true,
+     "quadrant_wins": 4,
+     "withheld_positive_pixels": 2823,
+     "worst_quadrant_delta": 0.010577238189924267
+    },
+    "withheld_positive_pixels": 2823
+   },
+   "description": "Full 2-Stage Nested OOF Strike-Steered Line-Integral Continuity (SSLIC) + 29-cell Submodular B=2 cover on Screen seed=41 & untouched Confirmation seed=42",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "id": "EXP-3",
+   "screen_seed41": {
+    "ci95": [
+     0.06119949089067603,
+     0.12924618824153788
+    ],
+    "holdout_dti": 0.09477790525798552,
+    "vs_incumbent_h31m_submod": {
+     "ci95": [
+      -0.020424304062768968,
+      0.06979289542380826
+     ],
+     "delta": 0.023452897656954422,
+     "evaluator_version": "gems57-pooled-hide-v2",
+     "evidence_class": "HOLDOUT-DTI",
+     "passed": false,
+     "quadrant_wins": 1,
+     "withheld_positive_pixels": 2820,
+     "worst_quadrant_delta": -0.011809985705157414
+    },
+    "vs_physical_hgb": {
+     "ci95": [
+      0.008205382997062272,
+      0.06590052955704209
+     ],
+     "delta": 0.03569465802056354,
+     "evaluator_version": "gems57-pooled-hide-v2",
+     "evidence_class": "HOLDOUT-DTI",
+     "passed": true,
+     "quadrant_wins": 3,
+     "withheld_positive_pixels": 2820,
+     "worst_quadrant_delta": -0.0022467468651412095
+    },
+    "withheld_positive_pixels": 2820
+   }
+  },
+  "sgmc_regime_proxies": null
+ },
  "files": [
+  {
+   "id": "h31s-udap-sslic-20261026",
+   "name": "gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f",
+   "role": "newly computed 2026-10-26 unique H31-S (UDAP-SSLIC) research GeoTIFF; passes format/[0,1], 57-feature leakage canaries, discrete 9-site uniqueness (<=66.5% 3-px), and untouched seed=42 confirmation (4/4 folds vs Physical-HGB & H31-M); held from submission by literal 695-raster r13-lattice-s5 STOP and seed=41 H31-M fold gate",
+   "provenance": "scripts/run_h31s.py: 2-stage nested OOF UDAP + HZAD + Null-Suppressor + SSLIC HistGradientBoosting + Bayes prevalence prior + 29-cell CELF submodular cover at B=2 (>200 m off catalogue), 37,654 binary dots. Preregistered in knowledge/2026-10-26_h31s_udap_sslic_preregistration.md; evidence in evidence/h31s/.",
+   "note_for_portal": "H31-S UDAP+HZAD+SSLIC 37654d B2 | HOLDOUT-DTI s41=0.0948 s42=0.0980 | research-only 9355f21d",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "why_not_slot_approved": "Literal 695-registry overlap STOP (AGENTS.md unexempted rule): 99.93% of dots fall within 3 px of registered 13GEMSDOE spacing-5 lattice r13-lattice-s5 (and 100% within GEMSDOE48 dense baseline).; Discrete competitor uniqueness threshold exceeded.; Preregistered efficacy gate vs both physical_hgb AND same-instrument incumbent_h31m_submod did not pass across both screen seed=41 and confirmation seed=42.; No assigned method paragraph was supplied in the 2026-10-26 prompt; promotion requires separate selector/owner step.",
+   "positive_pixels": 37654,
+   "positive_pixels_on_public_catalogue": 0,
+   "format_status": "locally validated under both zeros-outside and NaN-outside conventions; not organizer acceptance",
+   "file_nan": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif",
+   "sha256_nan": "665619b452553b25e7474ebe24cd466764550662744b36e0e7395f980ea241c1",
+   "bytes_nan": 188437,
+   "file_allfinite": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif",
+   "sha256_allfinite": "186d35d8c671cb36c9e3afb0b365c47c2962727248b0acaa8196d6b767f03ffd",
+   "bytes_allfinite": 143032,
+   "format_ok_nan": true,
+   "format_ok_allfinite": true,
+   "organizer_acceptance_verified_nan": false,
+   "organizer_acceptance_verified_allfinite": false,
+   "hard_failures_nan": [],
+   "hard_failures_allfinite": [],
+   "receipt": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.json",
+   "zip": "docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.zip",
+   "sha256_zip": "862d4971202580540a33b6eb2d913eea49376fe9a0918150f021238afa0bc07e",
+   "bytes_zip": 108160,
+   "holdout_dti": {
+    "confirmation_seed42": {
+     "ci95": [
+      0.07279594783997272,
+      0.12485370997034032
+     ],
+     "holdout_dti": 0.09795971963984905,
+     "incumbent_h31m_submod_dti": 0.07175679272380257,
+     "physical_hgb_dti": 0.05440447608962854,
+     "vs_incumbent_h31m_submod": {
+      "ci95": [
+       9.605808770445827e-05,
+       0.05441091501049573
+      ],
+      "delta": 0.026202926916046476,
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "evidence_class": "HOLDOUT-DTI",
+      "passed": true,
+      "quadrant_wins": 4,
+      "withheld_positive_pixels": 2823,
+      "worst_quadrant_delta": 0.009875426328952452
+     },
+     "vs_physical_hgb": {
+      "ci95": [
+       0.017908759026477816,
+       0.06951101961659628
+      ],
+      "delta": 0.04355524355022051,
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "evidence_class": "HOLDOUT-DTI",
+      "passed": true,
+      "quadrant_wins": 4,
+      "withheld_positive_pixels": 2823,
+      "worst_quadrant_delta": 0.010577238189924267
+     },
+     "withheld_positive_pixels": 2823
+    },
+    "description": "Full 2-Stage Nested OOF Strike-Steered Line-Integral Continuity (SSLIC) + 29-cell Submodular B=2 cover on Screen seed=41 & untouched Confirmation seed=42",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "id": "EXP-3",
+    "screen_seed41": {
+     "ci95": [
+      0.06119949089067603,
+      0.12924618824153788
+     ],
+     "holdout_dti": 0.09477790525798552,
+     "vs_incumbent_h31m_submod": {
+      "ci95": [
+       -0.020424304062768968,
+       0.06979289542380826
+      ],
+      "delta": 0.023452897656954422,
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "evidence_class": "HOLDOUT-DTI",
+      "passed": false,
+      "quadrant_wins": 1,
+      "withheld_positive_pixels": 2820,
+      "worst_quadrant_delta": -0.011809985705157414
+     },
+     "vs_physical_hgb": {
+      "ci95": [
+       0.008205382997062272,
+       0.06590052955704209
+      ],
+      "delta": 0.03569465802056354,
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "evidence_class": "HOLDOUT-DTI",
+      "passed": true,
+      "quadrant_wins": 3,
+      "withheld_positive_pixels": 2820,
+      "worst_quadrant_delta": -0.0022467468651412095
+     },
+     "withheld_positive_pixels": 2820
+    }
+   },
+   "sgmc_regime_proxies": null,
+   "current_run_card": "docs/downloads/h31s-run-card.json"
+  },
   {
    "id": "candidate-h31t-transtension-dinkelbach",
    "name": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654",

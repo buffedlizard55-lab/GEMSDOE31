@@ -1,0 +1,29 @@
+{
+  "comparators": {
+    "gemsdoe27_h29_hpvc": {
+      "all": 0.081987,
+      "mountain": 0.076687,
+      "piedmont": 0.050045
+    },
+    "gemsdoe31_h31m": {
+      "all": 0.100994,
+      "mountain": 0.094711,
+      "piedmont": 0.064106
+    },
+    "gemsdoe31_magrest": {
+      "all": 0.070677,
+      "mountain": 0.07177,
+      "piedmont": 0.038469
+    },
+    "gemsdoe32_h33_2_b2": {
+      "all": 0.093965,
+      "mountain": 0.082809,
+      "piedmont": 0.058585
+    }
+  },
+  "h31s_sgmc_all_dti": 0.08372509197891859,
+  "h31s_sgmc_mountain_dti": 0.07844172772748544,
+  "h31s_sgmc_piedmont_dti": 0.0400063591013803,
+  "instrument": "SGMC-PROXY; external 1:500k bedrock geology (>300 m off catalogue); never training truth; NOT hidden competition truth",
+  "piedmont_dot_fraction": 0.31181282201094174
+}

@@ -1,10 +1,12 @@
 {
  "normalization": "Link markup/whitespace only; branch-status wrapper omitted. Claims in prompt are not endorsed as verified.",
  "readme_embeds_full_normalized_body": true,
- "normalized_body_sha256": "e739a79766503d9d2870841cdf7db1cccff1343e6ddfbc32359539ad034ef7cb",
- "copy": "knowledge/owner_prompt_2026-10-25.md",
+ "normalized_body_sha256": "2c6bcdda7e746227a0a1bf55c516f494222ff2f2ce8bfd94ae0bb17e589e2f37",
+ "copy": "knowledge/owner_prompt_2026-10-26.md",
  "transcription_aid_owner_archive": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/README.md",
  "requirements_checked": [
+  "nine-site executive summary of best unique vs duplicate submissions",
+  "five newly reported 2026-10-25 leaderboard scores (0.0859, 0.0742, 0.2190, 0.0217, 0.1462)",
   "unique TIFF; clear download/submit status",
   "parallel six-rule protocol; 3 experiments/2 hours",
   "full site/result list through GEMSDOE92",
@@ -12,5 +14,6 @@
   "Core Values and Own the Outcome",
   "automated validation; range error; executive guide",
   "three passes; pull request and merge"
- ]
+ ],
+ "previous_copy": "knowledge/owner_prompt_2026-10-25.md"
 }

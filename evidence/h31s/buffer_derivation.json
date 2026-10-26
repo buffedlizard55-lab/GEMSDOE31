@@ -1,0 +1,116 @@
+{
+  "adopted_buffer_m": 21300.0,
+  "adopted_buffer_px": 213,
+  "bootstrap": {
+    "exponential": {
+      "draws": 80,
+      "max_m": 499288.7122589979,
+      "median_m": 8870.23026456789,
+      "p05_m": 943.4657486836207,
+      "p95_m": 91215.311960715
+    },
+    "gaussian": {
+      "draws": 80,
+      "max_m": 499644.229552679,
+      "median_m": 4091.0770763956534,
+      "p05_m": 945.3436201378686,
+      "p95_m": 8791.70675018601
+    },
+    "spherical": {
+      "draws": 80,
+      "max_m": 499999.9999999963,
+      "median_m": 6134.717070789216,
+      "p05_m": 1093.4174558606444,
+      "p95_m": 101905.06319870311
+    }
+  },
+  "components_used": 3161,
+  "decision": {
+    "bootstrap_median_m": {
+      "exponential": 8870.23026456789,
+      "gaussian": 4091.0770763956534,
+      "spherical": 6134.717070789216
+    },
+    "bootstrap_p05_m": {
+      "exponential": 943.4657486836207,
+      "gaussian": 945.3436201378686,
+      "spherical": 1093.4174558606444
+    },
+    "bootstrap_p95_upper_m": {
+      "exponential": 91215.311960715,
+      "gaussian": 8791.70675018601,
+      "spherical": 101905.06319870311
+    },
+    "buffer_km": 20.75,
+    "buffer_m": 20750.0,
+    "empirical_decay_range_m": 20750.0,
+    "empirical_peak_gamma": 0.0013119175211906387,
+    "empirical_peak_lag_m": 20750.0,
+    "max_fitted_range_m": 19330.191929834942,
+    "model_practical_range_median_m": 11409.002644368597,
+    "model_practical_ranges_m": {
+      "exponential": 19330.191929834942,
+      "gaussian": 5973.039260053063,
+      "spherical": 11409.002644368597
+    },
+    "models_extrapolating_beyond_support": [],
+    "models_reaching_80pct_sill_in_support": [
+      "exponential",
+      "gaussian",
+      "spherical"
+    ],
+    "notes": [
+      "Pairs are restricted to the same 8-connected fault component, so the curve is a within-trace residual dependence estimate, not a global one.",
+      "The buffer applies to the *validation* geography (a collar deleted around every training block and every held-out block), not to the submission raster, which must cover the full footprint."
+    ],
+    "observed_lag_support_m": 26250.0,
+    "rule": "buffer = max(empirical lag at 95 % of the peak semivariance, median fitted practical range over spherical/exponential/gaussian). The maximum fitted range and the bootstrap 95th percentile are reported as a sensitivity band, not used as the buffer, because they can exceed the populated lag support.",
+    "sensitivity_band_m": [
+      943.4657486836207,
+      20750.0
+    ],
+    "warning": "Two of the three models can exceed the populated lag support; every number that does is an extrapolation and is flagged in models_extrapolating_beyond_support. The buffer must be re-derived as more traces enter the sample."
+  },
+  "fits": {
+    "exponential": {
+      "bins_used": 53,
+      "max_lag_m": 26250.0,
+      "nugget": 2.704909894992709e-05,
+      "partial_sill": 0.0003683705686109244,
+      "practical_range_m": 19330.191929834942,
+      "r_squared": -0.21103379493842578,
+      "range_m": 19357.72976158101,
+      "sill_fraction_at_max_lag": 0.9840612268677527,
+      "total_sill": 0.0003954196675608515,
+      "weighted_rmse": 0.00012293324898735204
+    },
+    "gaussian": {
+      "bins_used": 53,
+      "max_lag_m": 26250.0,
+      "nugget": 4.6726156075416215e-05,
+      "partial_sill": 0.00024398821202445525,
+      "practical_range_m": 5973.039260053063,
+      "r_squared": -0.5014954142812318,
+      "range_m": 5977.292347947506,
+      "sill_fraction_at_max_lag": 1.0,
+      "total_sill": 0.00029071436809987146,
+      "weighted_rmse": 0.00013806553985421262
+    },
+    "spherical": {
+      "bins_used": 53,
+      "max_lag_m": 26250.0,
+      "nugget": 3.204056621309312e-05,
+      "partial_sill": 0.00033666654336013223,
+      "practical_range_m": 11409.002644368597,
+      "r_squared": -0.20263452493743306,
+      "range_m": 11409.002644368597,
+      "sill_fraction_at_max_lag": 1.0,
+      "total_sill": 0.00036870710957322535,
+      "weighted_rmse": 0.00011924506513337199
+    }
+  },
+  "method": "Matheron OOF residual semivariogram along 8-connected fault components (H31-S own residuals)",
+  "note": "Own H31-S OOF residual buffer rule gives 20750.0 m; adopted holdout collar is 213 px (21.3 km), honoring >= 21.3 km historical floor and quadrant geometry.",
+  "raw_derived_buffer_m": 20750.0,
+  "residual_pixels_used": 30494
+}

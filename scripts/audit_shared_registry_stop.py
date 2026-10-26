@@ -12,7 +12,6 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
-import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,12 +38,18 @@ def load_counterexample(root=ROOT, *, restore=False):
         raise ValueError("counterexample is not actually registered")
     path = root / ref["cache_file"]
     if not path.exists() and restore:
-        b = subprocess.check_output(["gh", "api", f"repos/{ref['repo']}/contents/{ref['path']}?ref={ref['ref']}",
-                                     "-H", "Accept: application/vnd.github.raw"])
-        if hashlib.sha256(b).hexdigest() != ref["sha256"]:
-            raise ValueError("downloaded registry control hash mismatch")
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from download_competition_data import _download
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(b)
+        tmp = path.with_name(path.name + ".partial")
+        tmp.unlink(missing_ok=True)
+        try:
+            _download(ref["repo"], ref["ref"], ref["path"], tmp)
+            if sha(tmp) != ref["sha256"]:
+                raise ValueError("downloaded registry control hash mismatch")
+            tmp.replace(path)
+        finally:
+            tmp.unlink(missing_ok=True)
     if not path.exists() or sha(path) != ref["sha256"]:
         raise ValueError("registered counterexample absent/changed; use --restore-small-inputs")
     with rasterio.open(path) as ds, rasterio.open(root / "data/sample_submission.tif") as sample:

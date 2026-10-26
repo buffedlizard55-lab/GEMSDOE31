@@ -1394,6 +1394,34 @@
       "verification": {
         "full_suite": "all pytest tests, ruff, compileall, check_metric, check_site (22/22 pages), verify_current_run, verify_h31j, and verify_h31t pass"
       }
+    },
+    {
+      "id": "h31s-pass-1-implementation-and-execution-2026-10-26",
+      "status": "complete",
+      "scope": [
+        "Cloned and byte-audited 26 GeoTIFF deliverables across all 9 requested repositories (GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36), including the 5 newly reported 2026-10-25 leaderboard scores (0.0859, 0.0742, 0.2190, 0.0217, 0.1462 USER-REPORTED) and 9 current HEAD unscored candidates",
+        "Froze knowledge/2026-10-26_h31s_udap_sslic_preregistration.md (SHA-256 fe9464365d34d84ea2205579c50a3960ba0dc4c843c66d0519ae355e19f8de03) ranking 4 untried hypotheses (H31-S, H31-T-SWARM, H31-U, H31-V) before fitting",
+        "Implemented src/gemsdoe31/h31s_features.py and scripts/run_h31s.py reusing unchanged vendor/gems57/evaluate_holdout.py and submission_writer.py; executed 3-experiment budget (20.75 km own OOF residual variogram -> 21.3 km collar; 57/57 canaries <= 0.6479; screen seed=41 0.0948; untouched confirmation seed=42 0.0980 winning 4/4 quads vs Physical-HGB & H31-M)"
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "h31s-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
+      "status": "complete-with-fixes",
+      "checks": [
+        "Eliminated distance_to(visible) catalogue features (catalogue_features_used=False) after auditing vendor/gems57/holdout.py:296",
+        "Fixed scripts/audit_shared_registry_stop.py raw gh api REST rate-limit failure using download_competition_data._download git-fetch fallback",
+        "Fixed scripts/current_site.py missing f-string prefix, duplicate download sections, and pictogram entities; merged cleanly with concurrent H31-T, H31-J, XFCOH31, and CONCORD31 lanes (verified 40.84%-54.78% 3-px separation)"
+      ],
+      "historical_scope": false
+    },
+    {
+      "id": "h31s-pass-3-full-acceptance-and-ci-verification-2026-10-26",
+      "status": "complete-with-honest-stop-gates",
+      "checks": [
+        "Verified automated non-human GeoTIFF validation (scripts/verify_h31s_run.py & scripts/verify_current_run.py), 22-page static site + feed.json build, Ruff lint, check_metric.py, and full pytest suite"
+      ],
+      "historical_scope": false
     }
   ],
   "remaining_work": [
@@ -1420,5 +1448,11 @@
     "verdict": "negative (no slot, no organizer-confirmed score)",
     "next": "knowledge/2026-10-25_rbu31c_next_preregistration.md (frozen, not run)"
   },
-  "latest_verification_continuation": "arena-review-verification-continuation-2026-10-26"
+  "latest_verification_continuation": "arena-review-verification-continuation-2026-10-26",
+  "h31s_three_passes_2026_10_26": [
+    "h31s-pass-1-implementation-and-execution-2026-10-26",
+    "h31s-pass-2-independent-bug-leakage-and-edge-audit-2026-10-26",
+    "h31s-pass-3-full-acceptance-and-ci-verification-2026-10-26"
+  ],
+  "latest_h31s_run": "registry/h31s_current_run.json"
 }
