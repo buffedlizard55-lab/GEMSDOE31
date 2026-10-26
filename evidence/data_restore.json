@@ -16,23 +16,19 @@
   },
   {
    "id": "labels",
-   "status": "restored",
+   "status": "already-verified",
    "bytes": 425830,
    "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
    "dest": "labels.tif",
-   "repo": "buffedlizard55-lab/GEMSDOE24",
-   "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
    "group": "core",
    "provenance": "Owner-supplied mirror of the competition public catalogue raster (int8; -1 outside footprint, 0 background, 1 catalogue fault)."
   },
   {
    "id": "sample_submission",
-   "status": "restored",
+   "status": "already-verified",
    "bytes": 1599597,
    "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
    "dest": "sample_submission.tif",
-   "repo": "buffedlizard55-lab/GEMSDOE24",
-   "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
    "group": "core",
    "provenance": "Owner-supplied grid template used for format validation. float32, values {0,1} inside the footprint, NaN outside, nodata=nan."
   },

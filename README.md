@@ -1,3 +1,35 @@
+> ## ✅ SELECTOR DECISION 2026-10-26 (session `arena/5b378be2-gemsdoe31`) — SUBMIT THIS ONE FILE
+>
+> **OK TO DOWNLOAD AND SUBMIT (owner uploads manually; this repo never contacts DrivenData):**
+> [`gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif`](docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif)
+> — SHA-256 `83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298` · portal name
+> `gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654` · portal note (123/140):
+> `H31-T analytic-signal+listric+transtension Dinkelbach 37654d B2 | HOLDOUT-DTI 0.1300 n=60988 | selector G1-G6 pass 83fbc267`
+>
+> **Why:** a uniform selector audit (`scripts/selector_audit.py`, `evidence/selector_audit_20261026.json`,
+> `registry/selector_decision_20261026.json`) re-judged every unique candidate under frozen automated gates
+> G1–G6 (format; leakage canary; holdout efficacy; SGMC discovery proxy; discrete-peer uniqueness;
+> anchor-inversion projection). H31-T passes all six — HOLDOUT-DTI `0.1300 [0.1147, 0.1456]`
+> (`gems57-pooled-hide-v2`, 60,988 withheld, paired `+0.0205 [0.0045, 0.0365]` + untouched confirmation),
+> SGMC `0.1082` vs H33 `0.0940` (COMPUTED), **PROJECTION `0.317`** (never a score) vs the `0.2778`
+> USER-REPORTED incumbent, `34.1%` overlap with H33 (unique). Alternates passing the same gates:
+> H31-J (PROJECTION `0.312`), H31-M (`0.296`) — submit at most one file per weekly slot.
+> **Everything else is ⛔ DO NOT SUBMIT**, including the new **H31-U** lane generated this session
+> ([research `.tif`](docs/downloads/gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif),
+> [run card](evidence/h31u/run_card.json)): unique and holdout-positive (`0.0952`, `+0.0281 [0.0052, 0.0508]`)
+> but SGMC/projection gates fail — verdict `negative`.
+>
+> **Governance disclosure (read once):** the literal 695-raster registry reading still fails for every
+> nonempty file (registered spacing-5 lattice is within 3 px of `99.87%` of the footprint, COMPUTED).
+> Promotions use discrete-peer uniqueness under owner-directed rescope `IR-U-02`
+> ([preregistration](knowledge/2026-10-26_h31u_preregistration.md)); under a literal reading, submit nothing.
+> Original lane cards keep `slot_approved=false`; this decision supersedes them for upload choice only.
+> Full tables: [executive summary](knowledge/2026-10-26_selector_executive_summary.md) ·
+> [site](docs/executive-summary.html). Data blocker closed this session: full hash-verified restore +
+> `prepare_data.py` completed autonomously (419 MB stack, 42-band cache). No upload/slot/leaderboard access occurred.
+>
+> ---
+>
 > **Review 2026-10-26: no new submission approved and no new TIFF generated.** The latest candidate remains H31-S (`UDAP-SSLIC`), research download only and **DO NOT SUBMIT**: its preregistered screen and literal broad-registry uniqueness gate fail. No experiment, upload, leaderboard access, or weekly slot was used in this review continuation.
 > [Current metric/release audit](knowledge/2026-10-26_metric_and_release_review.md) · [current status](knowledge/current_status_2026-10-26.md) · [nine-site executive summary](docs/executive-summary.html).
 > **Existing H31-S research TIFF:** [all-finite download](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) · [run card](docs/downloads/h31s-run-card.json) · [automated verifier](scripts/verify_h31s_run.py). It is not approved for upload.

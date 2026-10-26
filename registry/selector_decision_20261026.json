@@ -1,0 +1,276 @@
+{
+ "date": "2026-10-26",
+ "session_branch": "arena/5b378be2-gemsdoe31",
+ "rule": "Frozen gates G1-G6 (knowledge/2026-10-26_h31u_preregistration.md); uniqueness judged on discrete peer submissions with literal 695-raster reading disclosed (IR-U-02)",
+ "primary_submission": {
+  "lane": "H31-T",
+  "file": "docs/downloads/gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654-zeros.tif",
+  "sha256": "83fbc267a754d5d58c950baddc92891b53a4cad2c2f90a114f1c2177b4567298",
+  "portal_name": "gemsdoe31-h31t-transtension-dinkelbach-20261025-b37654",
+  "portal_note": "H31-T analytic-signal+listric+transtension Dinkelbach 37654d B2 | HOLDOUT-DTI 0.1300 n=60988 | selector G1-G6 pass 83fbc267",
+  "portal_note_chars": 123,
+  "holdout_dti": {
+   "pass_": true,
+   "evaluator": "gems57-pooled-hide-v2",
+   "dti": 0.13001,
+   "ci95": [
+    0.114652,
+    0.145559
+   ],
+   "n": 60988,
+   "delta": 0.020461,
+   "delta_ci95": [
+    0.00454,
+    0.03653
+   ],
+   "summary": "screen+untouched-confirm paired CIs exclude 0 (card verbatim)"
+  },
+  "sgmc": {
+   "dti": 0.10817003352547121,
+   "tpw": 6235.747813594021,
+   "fpw": 35346.48279237438,
+   "n_truth": 61664,
+   "n_dots": 37654
+  },
+  "projection": 0.31735635958997116,
+  "projection_interval": [
+   0.31179462437643995,
+   0.32291809480350236
+  ],
+  "overlap_vs_h33": 0.3408402825729006,
+  "max_discrete_overlap": 0.43915653051468634,
+  "verdict": "OK TO DOWNLOAD AND SUBMIT (owner uploads manually; repo never contacts DrivenData)"
+ },
+ "alternates": [
+  {
+   "lane": "H31-J",
+   "file": "docs/downloads/gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8-zeros.tif",
+   "sha256": "04e886cd8f7759e05d5fabb5d7222aaed0d16fda59fdf81e5934c5508eaf3fa3",
+   "projection": 0.3120708178443292,
+   "sgmc_dti": 0.10639372766657704,
+   "overlap_vs_h33": 0.3950709088011898
+  },
+  {
+   "lane": "H31-M",
+   "file": "docs/downloads/gemsdoe31-h31m-bstep-xmod-submod-20261025-37654-allfinite.tif",
+   "sha256": "8434ac7c248bcd3f1b06859320c87f891488e601b6aeaffd961fe6756daa64f0",
+   "projection": 0.29552318103621567,
+   "sgmc_dti": 0.1009548443296572,
+   "overlap_vs_h33": 0.40245392255802837
+  }
+ ],
+ "promoted_lanes": [
+  "H31-T",
+  "H31-J",
+  "H31-M"
+ ],
+ "not_promoted": [
+  {
+   "lane": "H31-B-standalone",
+   "failed_gates": [
+    "G3_holdout_efficacy"
+   ],
+   "projection": 0.40929080805482576
+  },
+  {
+   "lane": "H31-B-hybrid",
+   "failed_gates": [
+    "G3_holdout_efficacy"
+   ],
+   "projection": 0.3538751329063005
+  },
+  {
+   "lane": "H31-S",
+   "failed_gates": [
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.24476792303881692
+  },
+  {
+   "lane": "HVDC",
+   "failed_gates": [
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.24082870578877064
+  },
+  {
+   "lane": "SCGP",
+   "failed_gates": [
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.23788956715445295
+  },
+  {
+   "lane": "RBU31-B",
+   "failed_gates": [
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.23376076637804336
+  },
+  {
+   "lane": "XFCOH31",
+   "failed_gates": [
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.22886697423378788
+  },
+  {
+   "lane": "MAGREST",
+   "failed_gates": [
+    "G2_canary",
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.20633978641936412
+  },
+  {
+   "lane": "H31-U",
+   "failed_gates": [
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.20498174163582136
+  },
+  {
+   "lane": "CONCORD31",
+   "failed_gates": [
+    "G2_canary",
+    "G3_holdout_efficacy",
+    "G4_sgmc_discovery",
+    "G6_projection_ge_02778"
+   ],
+   "projection": 0.1821436248988117
+  }
+ ],
+ "h31u_new_lane": {
+  "verdict": "negative \u2014 DO NOT SUBMIT (G4/G6 fail); unique research TIFF generated this session",
+  "file": "docs/downloads/gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif",
+  "run_card": "evidence/h31u/run_card.json"
+ },
+ "focus_sites": [
+  {
+   "site_tag": "GEMSDOE32-h33-2-b2",
+   "artifact": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+   "user_reported": 0.2778,
+   "dots": 37654,
+   "overlap_vs_h33_3px": 1.0,
+   "sgmc_dti": 0.09396541728952715,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE36-pinn",
+   "artifact": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+   "user_reported": 0.275,
+   "dots": 38854,
+   "overlap_vs_h33_3px": 0.9740309878004839,
+   "sgmc_dti": 0.09536457384413603,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE28-h36-1",
+   "artifact": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+   "user_reported": 0.271,
+   "dots": 37660,
+   "overlap_vs_h33_3px": 0.9547265002655337,
+   "sgmc_dti": 0.09186668228418525,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE28-h27-4",
+   "artifact": "docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+   "user_reported": 0.2708,
+   "dots": 40199,
+   "overlap_vs_h33_3px": 0.9539043259782581,
+   "sgmc_dti": 0.0938481489873344,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE28-h38-1",
+   "artifact": "docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+   "user_reported": 0.2707,
+   "dots": 37860,
+   "overlap_vs_h33_3px": 0.9501320655044903,
+   "sgmc_dti": 0.0921216104400928,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE28-h32-1",
+   "artifact": "docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+   "user_reported": 0.2649,
+   "dots": 42294,
+   "overlap_vs_h33_3px": 0.9158982361564288,
+   "sgmc_dti": 0.09331671648383115,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE33-h33d",
+   "artifact": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+   "user_reported": 0.2632,
+   "dots": 41865,
+   "overlap_vs_h33_3px": 0.9264301922847247,
+   "sgmc_dti": 0.09424537701961515,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE25",
+   "artifact": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+   "user_reported": 0.26,
+   "dots": 44090,
+   "overlap_vs_h33_3px": 0.8817192107053754,
+   "sgmc_dti": 0.09273846081357219,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE30",
+   "artifact": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+   "user_reported": 0.26,
+   "dots": 44090,
+   "overlap_vs_h33_3px": 0.8817192107053754,
+   "sgmc_dti": 0.09273846081357219,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE24",
+   "artifact": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+   "user_reported": 0.2477,
+   "dots": 60069,
+   "overlap_vs_h33_3px": 0.88476585260284,
+   "sgmc_dti": 0.09838854407962805,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  },
+  {
+   "site_tag": "GEMSDOE27",
+   "artifact": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+   "user_reported": 0.2449,
+   "dots": 61328,
+   "overlap_vs_h33_3px": 0.8671895382207149,
+   "sgmc_dti": 0.0996226832426806,
+   "duplicate_of_h33_lane": true,
+   "score_label": "USER-REPORTED (no organizer receipt)"
+  }
+ ],
+ "literal_695_disclosure": "Literal broad-registry reading FAILS for every nonempty candidate: the registered spacing-5 lattice is within 3 px of 99.87% of the footprint (COMPUTED). Promotions above use discrete-peer uniqueness per owner-directed rescope IR-U-02; under a literal reading the correct action is to submit nothing.",
+ "score_labels": "0.2778/0.3195/0.4413 are USER-REPORTED (no organizer receipts); projections are never scores",
+ "evidence": "evidence/selector_audit_20261026.json"
+}

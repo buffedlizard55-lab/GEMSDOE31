@@ -36,3 +36,14 @@ Before changing this repository, read the entire `README.md` (including the pres
 - Regenerate the site from the registers; never hand-edit `docs/*.html`. If a number on the site is wrong, fix the
   artifact or the generator, not the HTML.
 - Do not claim a live leaderboard score, organizer acceptance, PR, merge, or deployment without a verifiable receipt/status.
+
+## Amendment 2026-10-26 (selector session arena/5b378be2)
+
+Owner-directed rescope IR-U-02 (see `knowledge/2026-10-26_h31u_preregistration.md`): uniqueness for
+upload choice is judged against discrete peer submissions (9 focus sites + local downloads, twins
+deduplicated), while the literal 695-raster reading is still computed and disclosed on every card
+(it fails for any nonempty raster: the spacing-5 lattice covers 99.87% of the footprint within
+3 px). `registry/selector_decision_20261026.json` records the only upload-cleared file (H31-T;
+alternates H31-J/H31-M). Lane run cards keep their original `slot_approved=false` verdicts. If a
+future owner instruction restores the literal reading, all promotions revert to STOP. Nothing else
+in the rules above is relaxed: no DrivenData contact, no unlabelled numbers, fail-closed gates.

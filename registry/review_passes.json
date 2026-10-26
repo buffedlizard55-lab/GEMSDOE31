@@ -1511,6 +1511,47 @@
       "new_tiffs": 0,
       "weekly_slots_used": 0,
       "historical_scope": false
+    },
+    {
+      "id": "pass-2026-10-26-h31u-selector-1-implementation",
+      "status": "complete-for-current-artifacts",
+      "scope": [
+        "full hash-verified data restore + 42-band cache build in sandbox (standing blocker closed)",
+        "preregistered H31-U lane: 6 label-free lines, leakage canaries, 3 experiments on vendor gems57-pooled-hide-v2, discrete-peer uniqueness, vendor-writer packaging",
+        "uniform selector audit of 13 existing candidates + 11 focus anchors; registry/selector_decision_20261026.json; site/README/knowledge integration"
+      ],
+      "verification": {
+        "h31u": "canary max two-sided AUC 0.61; HOLDOUT-DTI U5 0.0952 vs CTRL 0.0671 paired +0.0281 [0.0052,0.0508] n=60988; SGMC 0.0703 vs H33 0.0940 -> negative",
+        "selector": "H31-T/H31-J/H31-M pass G1-G6; projections 0.317/0.312/0.296 (anchor inversion LOO RMSE 0.0028 in-family); recomputed anchor TPw matches nine-site audit exactly",
+        "site": "build_site + check_site pass (22 pages, 469 links) after governance-aware checker update"
+      }
+    },
+    {
+      "id": "pass-2026-10-26-h31u-selector-2-bug-review",
+      "status": "complete-for-current-artifacts",
+      "scope": [
+        "fixed GEMSDOE28 anchor mis-resolution (all four tags had loaded one fetched raster) with per-artifact hash verification; dot counts asserted vs audit",
+        "fixed selector twin-encoding self-overlap (identical-support peers excluded and logged); phi==vendor Spearman cross-checked to 1e-6",
+        "gate G3 re-pointed to final packaged surface; buffer-invariance of label-free arms disclosed; H31-B kept fail-closed on G3 despite highest projection"
+      ],
+      "verification": {
+        "anchors": "11/11 hash/dot-count verified; TPw identical to evidence/nine_site_forensic_audit.json",
+        "uniqueness": "discrete max overlaps recomputed (H31-T 43.9%, H31-J 49.9%, H31-M 59.9%, H31-U 37.7%); literal lattice witness 98.9% candidate overlap / 99.87% footprint coverage disclosed"
+      }
+    },
+    {
+      "id": "pass-2026-10-26-h31u-selector-3-charter-crosscheck",
+      "status": "complete-for-current-artifacts",
+      "scope": [
+        "every number labelled HOLDOUT-DTI/USER-REPORTED/COMPUTED/PROJECTION; no ORGANIZER-CONFIRMED claim; no DrivenData contact; no slot spent",
+        "unique new TIFF generated and judged negative on frozen gates; single obvious submit file (H31-T) with hash, portal name and 123/140 note on site, README and executive summary",
+        "IR-U-01 (missing lane paragraph -> disclosed self-assignment) and IR-U-02 (degenerate literal registry -> disclosed discrete-peer scope) recorded in preregistration"
+      ],
+      "verification": {
+        "pytest": "149 passed (full suite incl. tests/test_h31u.py)",
+        "ruff": "all checks passed",
+        "metric": "check_metric max |fast-brute| 4.441e-16; verify_current_run + verify_h31t + verify_h31s pass"
+      }
     }
   ],
   "remaining_work": [

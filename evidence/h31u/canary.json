@@ -1,0 +1,77 @@
+{
+ "evidence_class": "COMPUTED",
+ "auc_ceiling": 0.9,
+ "rows": [
+  {
+   "feature": "STRAIN",
+   "kind": "line",
+   "auc_catalogue": 0.5524082482209615,
+   "auc_off_sgmc": 0.4688260772087442,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "SEIS",
+   "kind": "line",
+   "auc_catalogue": 0.5105199934413327,
+   "auc_off_sgmc": 0.4981606607177608,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "TILT",
+   "kind": "line",
+   "auc_catalogue": 0.5353198317701843,
+   "auc_off_sgmc": 0.47529813136514015,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "SCARP",
+   "kind": "line",
+   "auc_catalogue": 0.5670873739916049,
+   "auc_off_sgmc": 0.5701618867572651,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "BASE",
+   "kind": "line",
+   "auc_catalogue": 0.5396571264429068,
+   "auc_off_sgmc": 0.3949216478820706,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "ALT",
+   "kind": "line",
+   "auc_catalogue": 0.5075691667623139,
+   "auc_off_sgmc": 0.5689160144492735,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "CTRL",
+   "kind": "line",
+   "auc_catalogue": 0.5273102602561159,
+   "auc_off_sgmc": 0.4917011553742865,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "U1",
+   "kind": "surface",
+   "auc_catalogue": 0.5690548029530399,
+   "auc_off_sgmc": 0.4833412403914764,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "U4",
+   "kind": "surface",
+   "auc_catalogue": 0.557985585811963,
+   "auc_off_sgmc": 0.5104922600301635,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "U5",
+   "kind": "surface",
+   "auc_catalogue": 0.5707193768036335,
+   "auc_off_sgmc": 0.4816249104015309,
+   "leakage_flagged": false
+  }
+ ],
+ "all_pass": true
+}
