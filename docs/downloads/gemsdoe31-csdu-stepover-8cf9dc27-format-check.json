@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "name": "gemsdoe31-csdu-stepover-8cf9dc27",
+  "note": "CSDU concealed stepover-dilation upflow 4,000d blind-fault hypothesis; unique new geometry no incumbent dots; research-only 8cf9dc27",
+  "note_length": 132,
+  "dots": 4000,
+  "dots_on_catalogue": 0,
+  "files": {
+    "nan": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
+    "allfinite": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+    "zip": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.zip"
+  },
+  "validation": {
+    "nan": {
+      "file": "gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
+      "bytes": 104818,
+      "sha256": "774c7c5aa3784d7c52dc67870e1cc8b0e0a34d1697092ad9f3b08c33dcaf2546",
+      "ok_to_upload_format_only": true,
+      "organizer_acceptance_verified": false,
+      "hard_failures": [],
+      "grid": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bounds": [
+          243350.0,
+          4135550.0,
+          572550.0,
+          4508550.0
+        ],
+        "dtype": [
+          "float32"
+        ],
+        "bands": 1,
+        "template_footprint_pixels": 5281049,
+        "positive_pixels_inside": 4000,
+        "nodata_tag": "NaN"
+      },
+      "checks": {
+        "template_single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "template_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "template_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "template_has_finite_footprint": {
+          "pass_": true,
+          "detail": "5,281,049 finite pixels",
+          "hard": true
+        },
+        "single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "dtype_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "shape_matches_template": {
+          "pass_": true,
+          "detail": "(3730, 3292) vs (3730, 3292)",
+          "hard": true
+        },
+        "crs_matches_template": {
+          "pass_": true,
+          "detail": "EPSG:32611 vs EPSG:32611",
+          "hard": true
+        },
+        "transform_matches_template": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+          "hard": true
+        },
+        "footprint_all_finite": {
+          "pass_": true,
+          "detail": "0 NaN/Inf inside 5,281,049 template cells",
+          "hard": true
+        },
+        "footprint_values_in_0_1": {
+          "pass_": true,
+          "detail": "min=0.0; max=1.0; required finite [0,1]",
+          "hard": true
+        },
+        "no_infinite_pixels": {
+          "pass_": true,
+          "detail": "0 infinite values",
+          "hard": true
+        },
+        "outside_footprint_nan": {
+          "pass_": true,
+          "detail": "6,998,111/6,998,111 outside pixels are NaN; finite outside pixels are forbidden",
+          "hard": true
+        },
+        "nan_mask_matches_template": {
+          "pass_": true,
+          "detail": "NaN cells exactly match the template's outside-footprint mask",
+          "hard": true
+        },
+        "nodata_tag_nan_or_none": {
+          "pass_": true,
+          "detail": "nodata=nan",
+          "hard": false
+        }
+      }
+    },
+    "allfinite": {
+      "file": "gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
+      "bytes": 66550,
+      "sha256": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
+      "ok_to_upload_format_only": true,
+      "organizer_acceptance_verified": false,
+      "hard_failures": [],
+      "grid": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "bounds": [
+          243350.0,
+          4135550.0,
+          572550.0,
+          4508550.0
+        ],
+        "dtype": [
+          "float32"
+        ],
+        "bands": 1,
+        "template_footprint_pixels": 5281049,
+        "positive_pixels_inside": 4000,
+        "nodata_tag": null
+      },
+      "checks": {
+        "template_single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "template_epsg_32611": {
+          "pass_": true,
+          "detail": "EPSG:32611",
+          "hard": true
+        },
+        "template_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "template_has_finite_footprint": {
+          "pass_": true,
+          "detail": "5,281,049 finite pixels",
+          "hard": true
+        },
+        "single_band": {
+          "pass_": true,
+          "detail": "count=1",
+          "hard": true
+        },
+        "dtype_float32": {
+          "pass_": true,
+          "detail": "dtypes=('float32',)",
+          "hard": true
+        },
+        "shape_matches_template": {
+          "pass_": true,
+          "detail": "(3730, 3292) vs (3730, 3292)",
+          "hard": true
+        },
+        "crs_matches_template": {
+          "pass_": true,
+          "detail": "EPSG:32611 vs EPSG:32611",
+          "hard": true
+        },
+        "transform_matches_template": {
+          "pass_": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+          "hard": true
+        },
+        "footprint_all_finite": {
+          "pass_": true,
+          "detail": "0 NaN/Inf inside 5,281,049 template cells",
+          "hard": true
+        },
+        "footprint_values_in_0_1": {
+          "pass_": true,
+          "detail": "min=0.0; max=1.0; required finite [0,1]",
+          "hard": true
+        },
+        "no_infinite_pixels": {
+          "pass_": true,
+          "detail": "0 infinite values",
+          "hard": true
+        },
+        "outside_footprint_nan": {
+          "pass_": true,
+          "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+          "hard": false
+        },
+        "nan_mask_matches_template": {
+          "pass_": true,
+          "detail": "not required under the all-finite convention",
+          "hard": false
+        },
+        "allfinite_values_in_0_1": {
+          "pass_": true,
+          "detail": "finite=True; min=0.0; max=1.0",
+          "hard": true
+        },
+        "outside_footprint_zero": {
+          "pass_": true,
+          "detail": "0 nonzero values outside footprint",
+          "hard": true
+        },
+        "nodata_tag_nan_or_none": {
+          "pass_": true,
+          "detail": "nodata=None",
+          "hard": false
+        }
+      }
+    }
+  },
+  "warnings": [
+    "Format validation is local against an owner-mirror template (competition truth/template not accessible from this sandbox). Not organizer acceptance, not a score.",
+    "Holdout efficacy NOT RUN: private labels/SGMC rasters unavailable offline."
+  ]
+}

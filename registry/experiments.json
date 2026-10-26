@@ -467,6 +467,11 @@
    "sha256": "cd643025a871c905f509bc18a80b5f0115e133090076b2ac748bc344d3717730"
   },
   {
+   "path": "evidence/marginal_dti_audit_20261026.json",
+   "bytes": 1167,
+   "sha256": "ec8db08a7f9ee3364f7e4d2552aa4f290de0c31bc83172a2ba5fdb771ac563cd"
+  },
+  {
    "path": "evidence/metric_check.json",
    "bytes": 5940,
    "sha256": "75a556851de64739ebf438647383415a1112ef99c342d95fedeac1a0d9830aee"
@@ -485,6 +490,11 @@
    "path": "evidence/official_reference_audit_20261025.json",
    "bytes": 2105,
    "sha256": "a0d92f964a00bd3e4328f87260ae14dbe56e42f483be645f3f5540804efcbe0d"
+  },
+  {
+   "path": "evidence/official_reference_review_20261026.json",
+   "bytes": 846,
+   "sha256": "b7a3eb28c197f7686bf41f597f8bb623b7c91bb94c1575340ecdaa30cab1ad24"
   },
   {
    "path": "evidence/oof/oof_B_19_plus_lidar_u16.npz",
@@ -540,6 +550,11 @@
    "path": "evidence/pgr31/independent_verification.json",
    "bytes": 1877,
    "sha256": "3e4b994d1e99a029d13bc9ff815c742b1dd4cebc1b6aae6af6453f302d37f990"
+  },
+  {
+   "path": "evidence/pgr31/registry_csdu_concurrent.json",
+   "bytes": 804,
+   "sha256": "19c53822238aad8433730c2844318c70a69c36c8c124ff21a1effbe440ad8df4"
   },
   {
    "path": "evidence/pgr31/registry_final.json",
@@ -675,6 +690,11 @@
    "path": "evidence/regime31b/run_card.json",
    "bytes": 3805,
    "sha256": "f610749147717748f58984e1874830906ae0144442b37a197c662f468f08be68"
+  },
+  {
+   "path": "evidence/review_run_card_20261026_1028355f.json",
+   "bytes": 11716,
+   "sha256": "4c32e47cda08a41c51ccaf7bc9b0d5109c974a80e44f97f82c007d33473314a8"
   },
   {
    "path": "evidence/review_verification_20261025.json",

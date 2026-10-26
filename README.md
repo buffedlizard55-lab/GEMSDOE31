@@ -2,14 +2,28 @@
 > Download: [gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif](docs/downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-zeros.tif) (37,654 dots, SHA-256 `9dcc2e0c…d4b628`, all-finite `{0,1}` in `[0,1]`) · [run card](docs/downloads/gemsdoe31-pgr31-poisson-pseudograv-37654-20261026-run-card.json) · [executive summary (9 focus sites, read first)](knowledge/2026-10-26_pgr31_executive_summary.md) · [preregistration](knowledge/2026-10-26_pgr31_preregistration.md) · verify with `python scripts/verify_pgr31_run.py` (no human inspector).
 > HOLDOUT-DTI (`gems57-pooled-hide-v2`, 2,778 withheld positives): candidate 0.0764 [0.0449, 0.1102] vs same-run base-38 control 0.0761, paired Δ +0.0003 [−0.0202, +0.0240], SGMC proxy Δ −0.0080 → verdict **negative**, confirmation gated off, no weekly slot. Uniqueness vs 48 genuine submission rasters: surface max |ρ| 0.1506, final-dots max 3-px overlap 48.6% (33.2% vs H33-2-B2). Named mimic: unfaulted pluton/caldera contacts. **No file in this repo is slot-approved; best nine-site claim remains H33-2-B2 0.2778 USER-REPORTED (a D2.8 catalogue-prune, not submittable as new).**
 >
+
+# GEMSDOE31 — auditable GEMS Prize fault-mapping research
+
+## Current status — 2026-10-26 (read first)
+
+**Parallel unique candidate on main: CSDU concealed stepover-dilation upflow (`gemsdoe31-csdu-stepover-8cf9dc27`).**
+- **OK to download for research:** YES — format-valid GeoTIFF, 4,000 binary dots, 0 on public catalogue, finite [0,1] inside footprint, EPSG:32611, 3730×3292, 100 m. One-click downloads, validation receipt and run card on the [executive-summary page](docs/executive-summary.html).
+- **OK to submit to DrivenData:** NO — holdout efficacy and registry uniqueness cannot be verified offline (no competition truth); `slot_approved = false`, `verdict = negative`. Not uploaded.
+
+**Nine focus sites (GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36):** the highest listed claim is GEMSDOE32 H33-2-B2 at USER-REPORTED 0.2778, but every listed "best" is >86% within 3 px of H33 — a duplicate lane, not a submittable new entry. **No file is slot-approved.**
+
+> **Review 2026-10-26 (main branch):** no new submission approved and no new TIFF generated on that review continuation; the latest candidate remains H31-S (`UDAP-SSLIC`), research download only and **DO NOT SUBMIT**. No experiment, upload, leaderboard access, or weekly slot was used in that review.
+
+See `docs/executive-summary.html` for the full per-site table, the H33-2-B2 analysis, the portal submission how-to, and five new hypotheses. All claims are labelled OFFICIAL / OWNER-MIRROR / COMPUTED / USER-REPORTED; no organizer receipt exists for any score.
+
 > **XFCOH31 (2026-10-26, this lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**
 > Download: [gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif) · [run card](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-run-card.json) · [decision page](docs/xfcoh31.html) · [executive summary](knowledge/2026-10-26_xfcoh31_executive_summary.md)
 > HOLDOUT-DTI (gemsdoe31-holdout-v1, 58,625 withheld): candidate 0.04588 vs same-run base-19 control 0.04812, paired Δ −0.00224 [−0.00483, +0.00012] → verdict **negative**, no weekly slot. Uniqueness vs genuine focus submissions: max ρ 0.087, max 3-px overlap 30.7%. Validator: no hard failures, values in [0,1] (fixes the reported range-error class).
 > **2026-10-26 EXECUTIVE SUMMARY (read first):** `knowledge/2026-10-26_executive_summary_and_hypotheses.md` — 9-site verdict: best claim H33-2-B2 0.2778 (USER-REPORTED, a D2.8 catalogue-prune, NOT submittable as new); new unique CONCORD31 TIF download-for-research / DO NOT SUBMIT (holdout not run). No file is slot-approved.
-
 # GEMSDOE31 — auditable GEMS Prize fault-mapping research
 
-> **Latest session (2026-10-26 · branch `arena/34f326b4-gemsdoe31`): new unique `H31-S` (`UDAP-SSLIC`) GeoTIFF generated and automatically validated.**
+> **Latest reviewed session (2026-10-26): unique `H31-S` (`UDAP-SSLIC`) GeoTIFF generated and automatically validated. Current decision: research download only; DO NOT SUBMIT.**
 > **DOWNLOAD FOR RESEARCH: YES · SUBMIT TO DRIVENDATA: NO (`DO NOT SUBMIT`, `slot_approved = false`).**
 > [**Download H31-S Research `.tif` (all-finite `[0, 1]` zeros-outside)**](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif) ·
 > [NaN-outside twin `.tif`](docs/downloads/gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-nan.tif) ·
@@ -38,7 +52,7 @@
 > | --- | --- | --- | --- | --- | --- | --- |
 > | **GEMSDOE24** | `H25-1` `0.2477` (`88.5%`) | `GVC1` **`0.0859`** (`36.6%` vs H33) | `gems24-rshg1-regime-hydro-hgb-20261025-98f69d77e868-zeros.tif` (`37,722`d) | `42.8% / 40.3%` | `0.0785 / 0.0719 / 0.0686` | `DO NOT SUBMIT` |
 > | **GEMSDOE25** | `D2.8` `0.2600` (`88.2%`) | `H66-MGD` **`0.0742`** (`30.4%` vs H33) | `gems25-h36-spigm-subsurface-submod300-20261025-3937b96ce366-zeros.tif` (`37,654`d) | `24.0% / 19.6%` | `0.0679 / 0.0717 / 0.0572` | `DO NOT SUBMIT` |
-> | **GEMSDOE27** | `T-v2` `0.2449` (`86.7%`) | **`H29-HPVC` `0.2190`** (**best confirmed unique score**, `56.1%` vs H33) | `gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif` (`38,000`d) | `40.9% / 36.9%` | `0.0897 / 0.0553 / 0.0838` | Passed GEMSDOE27 holdout & 12-peer uniqueness; awaits owner selector |
+> | **GEMSDOE27** | `T-v2` `0.2449` (`86.7%`) | **`H29-HPVC` `0.2190`** (**highest user-reported newer-batch claim; subset novelty only**, `56.1%` vs H33) | `gems27-h29-1-drefill-b2-38k-20261025-c24b6371179c-allfinite.tif` (`38,000`d) | `40.9% / 36.9%` | `0.0897 / 0.0553 / 0.0838` | Passed GEMSDOE27 holdout & 12-peer uniqueness; awaits owner selector |
 > | **GEMSDOE28** | `H36-1` `0.2710` (`95.5%`) | `S18-MXTP` **`0.0217`** (`11,082`d starved) | `gems28-s19-ascp-20261026-dc717c1ab13b-allfinite.tif` (`37,654`d) | `22.5% / 19.1%` | `0.1457 / 0.0275 / 0.1569` | `DO NOT SUBMIT` (failed 1.5 km holdout) |
 > | **GEMSDOE30** | `D2.8` `0.2600` (`88.2%`) | `MSDB1` **`0.1462`** (`44,090`d, `39.2%` vs H33) | `GEMSDOE30-nearslay-annulus-d3-offcat-20261025T235837Z-662af003-nan.tif` (`40,000`d) | `22.3% / 22.1%` | `0.0649 / 0.0846 / 0.0507` | `NOT cleared to submit` (catalogue-annulus heuristic) |
 > | **GEMSDOE31** | `H27-4` `0.2708` (`95.4%`) | none reported | **`gemsdoe31-h31s-udap-sslic-37654-20261026-9355f21d9f-zeros.tif`** (`37,654`d; prior `H31-M` SGMC `0.1010 / 0.0641 / 0.0947`) | `47.4% / 55.7%` | `0.0837 / 0.0400 / 0.0784` | `RESEARCH ONLY · DO NOT SUBMIT` (`99.93%` literal 695-lattice STOP) |
@@ -201,16 +215,34 @@ Direct SHA-256 and pixel-by-pixel set-algebra across all 9 focus repositories (`
 | **`GEMSDOE32` `H33-2-B2`** (`h33-h33-2-b2-...-zeros`) | `c55bafc470054e82` | **`37,654`** | **`d_cat > 200 m` (`2 px`)** | **`0.2778` (`USER-REPORTED`)** | **`D2.8` minus `6,436` (`H27-4` minus `2,545`) near-catalogue bleed pixels** |
 | `GEMSDOE36` `h36-conduit-union` | `781f8bf12a102619` | `38,854` | `d_cat > 200 m` (`2 px`) | `0.2750` (`USER-REPORTED`) | `H33-2-B2` **plus `1,200` sub-break-even tail dots (`-0.0028` regression)** |
 
-**Why `GEMSDOE32` achieved `0.2778` (`USER-REPORTED`) — exact Tversky fractional calculus:**
-Under the competition's distance-weighted Tversky index (`alpha = 0.2`, `beta = 0.8`, `300 m` triangular kernel `k(d) = max(1 - d/300 m, 0)`), each ground-truth pixel's coverage `c_q(S) = max_{p in S} k(d(p, q))` is a **saturating `max`**, whereas false-positive mass `FPw(S) = sum_{p in S} (1 - max_{q in G} k(d(p, q)))` is **linearly additive** over every emitted pixel. Differentiating `DTI = TPw / (TPw + 0.2 * FPw + 0.8 * FNw)` at operating point `D* = 0.2778` shows that adding or retaining a dot `p` increases DTI **if and only if**:
+**Why GEMSDOE32 may have performed well — geometry is measured; private-score causality is not.**
+
+The fixed-truth DTI algebra is `S = T / ((1-beta)*T + alpha*F + beta*N + epsilon)` because `FN = N-T`.
+For any finite change with positive denominators, improvement occurs exactly when
+`(1-(1-beta)*S)*delta_T > alpha*S*delta_F`. With positive added FP weight:
 
 ```text
-Delta_TPw(p | S) / Delta_FPw(p) > (0.2 * D*) / (1 - D*) = 0.07693   (marginal precision p_hit > 0.0588 for an isolated dot)
+delta_T / delta_F > 0.2*S / (1 - 0.2*S)
 ```
 
-1. **Kernel-scale (`2.8 px`) thinning (`+0.0678` `USER-REPORTED` from `0.1922` to `0.2600`):** Removed `77,041` adjacent ridge pixels whose `300 m` kernel footprints overlapped already-covered truth (`Delta_TPw approx 0`) while paying full `0.2 * Delta_FPw` denominator cost.
-2. **`d_cat > 200 m` collar exclusion (`+0.0178` `USER-REPORTED` from `0.2600` to `0.2778`):** Because the organizer scorer masks known public faults pixel-exactly (`labels == 1`), `D2.8` predictions at `100–200 m` (`1–2 px`) from known fault traces were false-positive probability halos bleeding off mapped scarps into unmapped wall rock without intersecting distinct unmapped fault strands (`100%` of dots beyond `300 m` are identical across `D2.8`, `H27-4`, and `H33-2-B2`).
-3. **Why `GEMSDOE36` regressed (`0.2778 -> 0.2750` `USER-REPORTED`) & how to score higher:** Appending `1,200` tail dots below the `0.07693` marginal gain-to-cost threshold diluted the denominator. Conversely, because `H33-2-B2` is purely a geometric prune of `H19-5` (which depended heavily on `cat_dist <= 5 km` proximity and suffered 1 m LiDAR survey-footprint confounding), surpassing `0.2778` toward the `0.3195` / `0.4413` (`USER-REPORTED`) benchmarks requires **genuinely new label-free geophysical discovery of concealed range-front and basin-floor faults** combined with **cost-scaled submodular DTI allocation** (never projected numerically without an organizer receipt).
+**COMPUTED algebra illustration, not HOLDOUT-DTI or a forecast:** plugging in the
+USER-REPORTED (unverified) value 0.2778 gives a gain/FP threshold of 0.0588285.
+For the special isolated one-truth-cell case `delta_T=k`, `delta_F=1-k`, this is
+`k > 0.05556`; it is not a general probability of hitting a fault. The earlier
+`1-S` denominator and associated marginal-precision statement were wrong.
+The unchanged shared evaluator passes 10,000 finite-addition/removal sign checks:
+[`evidence/marginal_dti_audit_20261026.json`](evidence/marginal_dti_audit_20261026.json).
+
+1. **Measured geometry:** H33 is the D2.8 support pruned within two catalogue pixels;
+   it removes 2,545 H27 dots and adds none. See
+   [`evidence/h33_forensics_20261025.json`](evidence/h33_forensics_20261025.json).
+2. **Inference:** kernel-scale thinning can reduce redundant predictions and catalogue-flank
+   pruning can reduce FP cost. Neither proves that each removed dot was false positive.
+   The private truth is unavailable, so the exact causal explanation of the reported improvement is unknown.
+3. **No guaranteed winner:** the reported GEMSDOE36 decline cannot establish the private
+   marginal contribution of its additional dots. New geophysical evidence and cost-aware placement
+   are testable strategies, not necessary or sufficient conditions to exceed any reported score.
+   No current file is approved under the literal registry gate.
 
 ### 2. Ranked Crustal-Mechanics Hypotheses (Preregistered Before Fitting)
 
