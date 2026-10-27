@@ -1770,6 +1770,40 @@
     "owner_prompt_sha256": "preserved byte-exact in README.md",
     "site_budget": "22 pages <= 22 budget, 0 broken links, 0 forbidden approval strings"
    }
+  },
+  {
+   "id": "pass-2026-10-27-current-branch-executive-review",
+   "status": "complete-with-explicit-blockers; no new experiment or submission artifact",
+   "scope": [
+    "reread entire README charter and AGENTS.md, current release policy/status, run card, preregistration, score/raster registries and nine-site executive table",
+    "reconcile highest listed artifact for each of GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36 with pinned artifact hashes and H33 3-px overlap",
+    "preserve USER-REPORTED score classification, separate historical H33 mechanism inference from verified causation, and report no defensible new leaderboard-score estimate",
+    "confirm no new TIFF, fit, weekly slot use, live leaderboard access, or DrivenData upload"
+   ],
+   "verification": {
+    "pytest": "208 passed",
+    "ruff": "passed",
+    "compileall": "passed for src/, scripts/, tests/",
+    "metric": "max fast-vs-brute DTI difference 4.441e-16 across 24 grids",
+    "release_status": "negative; ok_to_submit=false; lattice preflight min overlap 0.8234184947150369 at 37,654 dots",
+    "current_run_verifier": "ok_to_download_for_research=true; ok_to_submit=false; verdict=negative (historical MAGREST file)",
+    "site": "22 pages, 534 local links; all checks passed",
+    "claim_provenance": "no organizer-authenticated score receipt present/used; official non-GitHub links listed for manual review but not freshly retrieved"
+   },
+   "findings_fixed_or_recorded": [
+    "added an active-branch current review link and summary to README without changing the preserved owner prompt",
+    "created a current-branch executive review that distinguishes GEMSDOE36 historical leader Anderson 0.2750 from the later lower KPL36 0.1647",
+    "recorded per-site highest historical artifacts, reported scores, H33 proximity and unavailable estimate instead of recommending historical prior art",
+    "reconciled competing user-provided leaderboard maxima 0.2778, 0.3195 and 0.4413 as unverified claims rather than a confirmed live ranking"
+   ],
+   "open_gates": [
+    "no method paragraph / lane assignment for fresh fit; H31-AA three-experiment budget was already spent",
+    "literal broad-registry rule still fails at 37,654 dots; no control exemption authorized",
+    "no organizer-authenticated score receipt, live leaderboard verification, or defensible cross-family live-score estimate",
+    "site inventory is pinned historical data, not an automatically refreshed feed; DrivenData automation remains prohibited without written permission"
+   ],
+   "review_report": "knowledge/repo_review_2026-10-27_arena_3f5f35a9.md",
+   "historical_scope": false
   }
  ],
  "remaining_work": [

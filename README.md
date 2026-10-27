@@ -19,6 +19,7 @@ not a claim that all historical instructions were fulfilled.
 - [Executive summary](docs/executive-summary.html#nine-site-decision)
 - [Session run card](evidence/review_3b1ed545/run_card.json)
 - Current binding permissions remain [release status](registry/release_status.json).
+- [Supplemental review from active branch `arena/3f5f35a9-gemsdoe31`](knowledge/repo_review_2026-10-27_arena_3f5f35a9.md): per-artifact H33 overlap audit, H31-AA prior-session run card, explicit validation results, and the H33 pruning interpretation with causal limits.
 
 Maximize P(Win): prioritize falsifiable discovery and same-run evidence, not an unsupported score claim.
 Own the Outcome: automated denial is a valid deliverable; no human inspector is needed to reproduce STOP.
