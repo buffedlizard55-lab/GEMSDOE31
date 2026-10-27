@@ -1,16 +1,56 @@
-> ## Current Arena review — 2026-10-27 (`arena/b3d80ae9-gemsdoe31`)
+# Current Arena review — 2026-10-27 (`arena/b3d80ae9-gemsdoe31`)
+
+**No new TIFF or experiment was made; no current file is approved to submit.** The requested single-method paragraph is absent, the full production feature cache is absent, and the binding broad-registry gate remains negative. No slot was selected or used. All pasted historical scores are USER-REPORTED; no new-candidate leaderboard estimate is justified.
+
+- [This branch's three-pass review, focus-site table, hypotheses, and run card](knowledge/repo_review_2026-10-27_session-b3d80ae9.md)
+- [Parallel review and updated executive site](knowledge/repo_review_2026-10-27_arena_3f5f35a9.md) · [executive summary / submission guide](docs/executive-summary.html#nine-site-decision)
+- [Additional parallel audit](knowledge/2026-10-27_review_3b1ed545.md) · [pinned run card](evidence/review_3b1ed545/run_card.json)
+
+These independent reviews agree: **no TIFF is OK to submit**. H31-AA is a prior-session research artifact, not a current upload recommendation. The top-level decision and release register supersede conflicting old banners below. Read the complete preserved owner prompt and `AGENTS.md` before further work.
+
+---
+
+## Parallel-session review — 27 October 2026 (3b1ed545)
+
+**DO NOT SUBMIT.** No new TIFF, scientific experiment or weekly slot in this session.
+The nine-site executive comparison now lists pinned historical files, reported-result provenance,
+proxy evidence and explicit estimate/permission columns. Historical best reported focus entry is
+GEMSDOE32, not a new submission recommendation. The literal lattice gate remains STOP, and this
+prompt does not include its promised single-method lane paragraph.
+
+Read this README and its preserved complete owner prompt every session. The current request reiterates:
+“MUST GENERATE A UNIQUE TIF SUBMISSION FOR THE COMPETITION. DO NOT COPY A PREVIOUS SUBMISSION”;
+“Check this on the surface before placement AND on the final dots”;
+“Do not pick submissions: promotion to a real slot is a separate selector step”.
+These are simultaneous requirements: we do not write a new TIFF after a duplicate STOP to satisfy
+file delivery at the expense of the uniqueness protocol. No numeric leaderboard forecast is justified.
+The prior preserved prompt remains below; this dated section records the current session interpretation,
+not a claim that all historical instructions were fulfilled.
+
+- [Review, three proposed hypotheses, limitations and next steps](knowledge/2026-10-27_review_3b1ed545.md)
+- [Executive summary](docs/executive-summary.html#nine-site-decision)
+- [Session run card](evidence/review_3b1ed545/run_card.json)
+- Current binding permissions remain [release status](registry/release_status.json).
+- [Supplemental review from active branch `arena/3f5f35a9-gemsdoe31`](knowledge/repo_review_2026-10-27_arena_3f5f35a9.md): per-artifact H33 overlap audit, H31-AA prior-session run card, explicit validation results, and the H33 pruning interpretation with causal limits.
+
+Maximize P(Win): prioritize falsifiable discovery and same-run evidence, not an unsupported score claim.
+Own the Outcome: automated denial is a valid deliverable; no human inspector is needed to reproduce STOP.
+
+> ## Parallel historical review — 2026-10-27 (`arena/56618cf9-gemsdoe31`)
 >
-> **No new TIFF or experiment was made; no current file is approved to submit.** The prompt's referenced single-method paragraph is absent, the full production cache is not present, and the binding broad-registry gate remains negative. The site contains the nine-site historical comparison; all pasted scores are USER-REPORTED and new-candidate leaderboard estimates are unavailable.
+> **Decision: NO TIFF is cleared to submit.** This review did not create a raster, run a fit, use a weekly slot, upload, or access the leaderboard. The requested protocol references an assigned single-method paragraph, but none is present in this prompt; prior H31-AA work is historical and not authorization to continue that lane. The literal registry gate remains failed, and the H31-AA run card records a negative comparison to the same-run incumbent. A score estimate for a new submission is unavailable.
 >
-> This branch's [three-pass review](knowledge/repo_review_2026-10-27_session-b3d80ae9.md) and [executive summary / submission guide](docs/executive-summary.html#nine-site-decision) are the starting point. A parallel review now integrated from `main` is at [review 3b1ed545](knowledge/2026-10-27_review_3b1ed545.md), with its run card in `evidence/review_3b1ed545/run_card.json`. Both reviews deny submission; neither creates a new raster or selects a slot.
+> Available verification: the website check passes (22 pages, 534 local links). The full test/release check is blocked because `data/sample_submission.tif` and the competition data/cache are absent; do not represent this as a full test pass. System dependencies were installed into ignored `.venv/` only. See [`knowledge/repo_review_2026-10-27_arena-current.md`](knowledge/repo_review_2026-10-27_arena-current.md) for the three-pass audit, nine-site evidence caveats, hypotheses, checks, and next steps.
+>
+> The recurring complete owner prompt remains preserved below; read it before each substantive session. Core values: **Maximize P(Win)** and **Own the Outcome**. Historical session banners below refer to their explicitly named branches and must not be mistaken for this review.
 >
 > ---
 >
-> ## Prior experiment record — 2026-10-27 (`arena/f5b2211b-gemsdoe31` · Lane `H31-AA` SLFS)
+> ## Historical session record — 2026-10-27 (`arena/f5b2211b-gemsdoe31` · Lane `H31-AA` SLFS)
 >
 > **No current artifact is approved. DO NOT SUBMIT (`slot_approved = false`, `ok_to_submit = false`, `verdict = "negative"`).** No human sign-off can override a failed literal registry gate under `literal-registry-20261026-9883b598`.
 >
-> - **H31-AA Research GeoTIFF (prior session, 2026-10-27 — OK TO DOWNLOAD FOR RESEARCH ONLY, DO NOT SUBMIT):**
+> - **New Unique Research GeoTIFF (`H31-AA` / `SLFS`, generated 2026-10-27 — OK TO DOWNLOAD FOR RESEARCH ONLY, DO NOT SUBMIT):**
 >   - [**All-finite `[0, 1]` `.tif` (`-zeros.tif`)**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-zeros.tif) (`SHA-256: d272d5babb9523a70f77e76ad6843830d67a9eabaaa60f8c3f46ca57bde9a1ef`) · [**Single-TIFF `.zip`**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-zeros.zip) (`c465a03b1bed…`) · [**NaN-outside twin `.tif`**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-nan.tif) (`7c3f288ec6a1…`) · [**Format Receipt**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-format-check.json) · [**JSON Run Card**](docs/downloads/h31aa-run-card.json)
 >   - **Unique name:** `gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746` · **Portal note (`92/140` chars):** `H31-AA AA2 SLFS log-flexure+shoreline-null 37654d B2 | HOLDOUT-DTI 0.1489 n=60988 | fdb34746`
 >   - **Measured `HOLDOUT-DTI` (`gems57-pooled-hide-v2`, `60,988` withheld positives, `21.3 km` collar):** `AA2` **`0.1489` `[0.1368, 0.1604]`** (`AA4` **`0.1556` `[0.1435, 0.1666]`**, beating `H31-X` on NW Fold 0 `0.1512 > 0.1454` [`29,319` positives]) vs same-run `H31-X` incumbent **`0.1661` `[0.1491, 0.1825]`**, `CTRL` `0.0671`, `SLOPE` `0.0488`; untouched `seed=3107` confirmation (`31,346` withheld): `AA2` **`0.1302` `[0.1181, 0.1424]`** vs `H31-X` `0.1517`, `CTRL` `0.0571`.
@@ -416,12 +456,10 @@ Concurrent review #47 (also NO SUBMIT; preserved):
 ## Read first every session
 
 Read this README **including the complete normalized owner prompt at the end**, `AGENTS.md`,
-[this latest session review](knowledge/repo_review_2026-10-27_session-b3d80ae9.md),
 [H31-N review](knowledge/2026-10-26_h31n_review.md),
 [latest status](knowledge/current_status_2026-10-25.md),
 [MAGREST preregistration](knowledge/2026-10-25_magrest_preregistration.md),
 [latest outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.
-Where older status banners conflict, the current session review and `registry/release_status.json` are authoritative; prior run cards remain historical.
 The earlier H31-A STOP remains historical. The prior session has receipts for all-eleven-input and template-cache restoration,
 but this clean runtime did not contain the full ignored production data/cache; only the small validation inputs and pinned
 registry witness were restored for this review. Do not restart a stopped lane or add a fourth experiment.
