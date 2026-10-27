@@ -1,0 +1,28 @@
+{
+  "review_id": "20261027-3b1ed545",
+  "passes": [
+    {
+      "pass": 1,
+      "result": "Audit complete; no lane assigned; literal duplicate STOP retained; nine-site historical table implemented"
+    },
+    {
+      "pass": 2,
+      "result": "Provenance and fail-closed regression tests added; missing-input test failures resolved by pinned small-input restoration"
+    },
+    {
+      "pass": 3,
+      "result": "211 tests passed; ruff passed; metric error <=4.441e-16; 22 pages and 534 local links passed; release byte audit reproduced STOP"
+    }
+  ],
+  "new_experiments": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "official_reference_commit": "aebe92f7c8a990f0e3443451b7a825d9afd6336b",
+  "official_reference_url": "https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md",
+  "limitations": [
+    "Historical holdout cited, not retrained",
+    "No organizer score receipt",
+    "Not an exhaustive current remote-site audit",
+    "No viable new submission claimed"
+  ]
+}

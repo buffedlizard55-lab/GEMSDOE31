@@ -1,15 +1,40 @@
-> ## Current review — 2026-10-27 (`arena/3f5f35a9-gemsdoe31`)
+# Current session review — 27 October 2026 (3b1ed545)
+
+**DO NOT SUBMIT.** No new TIFF, scientific experiment or weekly slot in this session.
+The nine-site executive comparison now lists pinned historical files, reported-result provenance,
+proxy evidence and explicit estimate/permission columns. Historical best reported focus entry is
+GEMSDOE32, not a new submission recommendation. The literal lattice gate remains STOP, and this
+prompt does not include its promised single-method lane paragraph.
+
+Read this README and its preserved complete owner prompt every session. The current request reiterates:
+“MUST GENERATE A UNIQUE TIF SUBMISSION FOR THE COMPETITION. DO NOT COPY A PREVIOUS SUBMISSION”;
+“Check this on the surface before placement AND on the final dots”;
+“Do not pick submissions: promotion to a real slot is a separate selector step”.
+These are simultaneous requirements: we do not write a new TIFF after a duplicate STOP to satisfy
+file delivery at the expense of the uniqueness protocol. No numeric leaderboard forecast is justified.
+The prior preserved prompt remains below; this dated section records the current session interpretation,
+not a claim that all historical instructions were fulfilled.
+
+- [Review, three proposed hypotheses, limitations and next steps](knowledge/2026-10-27_review_3b1ed545.md)
+- [Executive summary](docs/executive-summary.html#nine-site-decision)
+- [Session run card](evidence/review_3b1ed545/run_card.json)
+- Current binding permissions remain [release status](registry/release_status.json).
+- [Supplemental review from active branch `arena/3f5f35a9-gemsdoe31`](knowledge/repo_review_2026-10-27_arena_3f5f35a9.md): per-artifact H33 overlap audit, H31-AA prior-session run card, explicit validation results, and the H33 pruning interpretation with causal limits.
+
+Maximize P(Win): prioritize falsifiable discovery and same-run evidence, not an unsupported score claim.
+Own the Outcome: automated denial is a valid deliverable; no human inspector is needed to reproduce STOP.
+
+> ## Parallel historical review — 2026-10-27 (`arena/56618cf9-gemsdoe31`)
 >
-> **Current decision: NO FILE IS APPROVED TO SUBMIT.** This review made no new TIFF, fit, leaderboard access, upload, or slot use. It reviewed the complete charter below and reconciled the nine requested site's highest listed historical artifacts with the repository's pinned raster/score audit.
+> **Decision: NO TIFF is cleared to submit.** This review did not create a raster, run a fit, use a weekly slot, upload, or access the leaderboard. The requested protocol references an assigned single-method paragraph, but none is present in this prompt; prior H31-AA work is historical and not authorization to continue that lane. The literal registry gate remains failed, and the H31-AA run card records a negative comparison to the same-run incumbent. A score estimate for a new submission is unavailable.
 >
-> - **Nine-site executive comparison:** [current review report](knowledge/repo_review_2026-10-27_arena_3f5f35a9.md) and [submission executive summary](docs/executive-summary.html#focus-sites). Highest historical listed claim is GEMSDOE32 H33-2-B2, `0.2778 USER-REPORTED`; every focus artifact in that pinned comparison is above the 70% 3-pixel overlap stop against H33. New-score estimate: **unavailable**. The `0.3195` and `0.4413` claims are conflicting/unverified; no organizer receipt exists in this repository.
-> - **H33 interpretation:** raster forensics support the hypothesis that deleting predictions in the <=2-pixel public-catalogue halo reduced false-positive cost while retaining far-field spacing. This does not prove causality against private competition truth and is not evidence that a new raster will beat H33.
-> - **Latest candidate:** H31-AA is a prior-session research artifact, not approved for upload. `HOLDOUT-DTI (gems57-pooled-hide-v2, 60,988 withheld positives, 95% CI [0.1368, 0.1604]) = 0.1489`; same-run H31-X incumbent was `0.1661 [0.1491, 0.1825]`. It fails efficacy against the local incumbent and the literal registry gate. Downloading it for research is not permission to submit it.
-> - **Verification this review:** 208 tests passed; Ruff/compileall passed; DTI fast-vs-brute max difference `4.441e-16`; release status and exact current-run verifier both returned negative; site check passed 22 pages / 534 local links. Full details, manual-review links, blockers, and the prior experiment's run card: [review report](knowledge/repo_review_2026-10-27_arena_3f5f35a9.md).
+> Available verification: the website check passes (22 pages, 534 local links). The full test/release check is blocked because `data/sample_submission.tif` and the competition data/cache are absent; do not represent this as a full test pass. System dependencies were installed into ignored `.venv/` only. See [`knowledge/repo_review_2026-10-27_arena-current.md`](knowledge/repo_review_2026-10-27_arena-current.md) for the three-pass audit, nine-site evidence caveats, hypotheses, checks, and next steps.
+>
+> The recurring complete owner prompt remains preserved below; read it before each substantive session. Core values: **Maximize P(Win)** and **Own the Outcome**. Historical session banners below refer to their explicitly named branches and must not be mistaken for this review.
 >
 > ---
 >
-> ## Current session — 2026-10-27 (`arena/f5b2211b-gemsdoe31` · Lane `H31-AA` SLFS)
+> ## Historical session record — 2026-10-27 (`arena/f5b2211b-gemsdoe31` · Lane `H31-AA` SLFS)
 >
 > **No current artifact is approved. DO NOT SUBMIT (`slot_approved = false`, `ok_to_submit = false`, `verdict = "negative"`).** No human sign-off can override a failed literal registry gate under `literal-registry-20261026-9883b598`.
 >
