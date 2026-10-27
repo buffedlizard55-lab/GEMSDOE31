@@ -1,3 +1,14 @@
+> ## Current review — 2026-10-27 (`arena/3f5f35a9-gemsdoe31`)
+>
+> **Current decision: NO FILE IS APPROVED TO SUBMIT.** This review made no new TIFF, fit, leaderboard access, upload, or slot use. It reviewed the complete charter below and reconciled the nine requested site's highest listed historical artifacts with the repository's pinned raster/score audit.
+>
+> - **Nine-site executive comparison:** [current review report](knowledge/repo_review_2026-10-27_arena_3f5f35a9.md) and [submission executive summary](docs/executive-summary.html#focus-sites). Highest historical listed claim is GEMSDOE32 H33-2-B2, `0.2778 USER-REPORTED`; every focus artifact in that pinned comparison is above the 70% 3-pixel overlap stop against H33. New-score estimate: **unavailable**. The `0.3195` and `0.4413` claims are conflicting/unverified; no organizer receipt exists in this repository.
+> - **H33 interpretation:** raster forensics support the hypothesis that deleting predictions in the <=2-pixel public-catalogue halo reduced false-positive cost while retaining far-field spacing. This does not prove causality against private competition truth and is not evidence that a new raster will beat H33.
+> - **Latest candidate:** H31-AA is a prior-session research artifact, not approved for upload. `HOLDOUT-DTI (gems57-pooled-hide-v2, 60,988 withheld positives, 95% CI [0.1368, 0.1604]) = 0.1489`; same-run H31-X incumbent was `0.1661 [0.1491, 0.1825]`. It fails efficacy against the local incumbent and the literal registry gate. Downloading it for research is not permission to submit it.
+> - **Verification this review:** 208 tests passed; Ruff/compileall passed; DTI fast-vs-brute max difference `4.441e-16`; release status and exact current-run verifier both returned negative; site check passed 22 pages / 534 local links. Full details, manual-review links, blockers, and the prior experiment's run card: [review report](knowledge/repo_review_2026-10-27_arena_3f5f35a9.md).
+>
+> ---
+>
 > ## Current session — 2026-10-27 (`arena/f5b2211b-gemsdoe31` · Lane `H31-AA` SLFS)
 >
 > **No current artifact is approved. DO NOT SUBMIT (`slot_approved = false`, `ok_to_submit = false`, `verdict = "negative"`).** No human sign-off can override a failed literal registry gate under `literal-registry-20261026-9883b598`.
