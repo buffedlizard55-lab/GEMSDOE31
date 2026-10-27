@@ -1,0 +1,331 @@
+{
+ "schema_version": 2,
+ "verify_only": false,
+ "files": [
+  {
+   "id": "training_features",
+   "dest": "training_features.tif",
+   "exists": true,
+   "bytes": 418912844,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "float32",
+   "bands": 19,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "labels",
+   "dest": "labels.tif",
+   "exists": true,
+   "bytes": 425830,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "int8",
+   "bands": 1,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "sample_submission",
+   "dest": "sample_submission.tif",
+   "exists": true,
+   "bytes": 1599597,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "float32",
+   "bands": 1,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "lidar_scarp_features",
+   "dest": "external/lidar_scarp_features_u8.tif",
+   "exists": true,
+   "bytes": 36943606,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 12,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "geodawn_rad",
+   "dest": "external/geodawn_rad_u8.tif",
+   "exists": true,
+   "bytes": 26612970,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 4,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "geodawn_extensions",
+   "dest": "external/geodawn_extensions_u8.tif",
+   "exists": true,
+   "bytes": 27132925,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 4,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "sgmc_faults",
+   "dest": "external/derived_sgmc_faults_100m_u8.tif",
+   "exists": true,
+   "bytes": 213034,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "gdr_volcanics",
+   "dest": "external/derived_gdr_volcanics_100m_u8.tif",
+   "exists": true,
+   "bytes": 72349,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "gdr_2m_probes",
+   "dest": "external/derived_gdr_2m_probes_100m_u8.tif",
+   "exists": true,
+   "bytes": 78021,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "gdr_paleo",
+   "dest": "external/derived_gdr_paleo_100m_u8.tif",
+   "exists": true,
+   "bytes": 70221,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  },
+  {
+   "id": "gdr_qfaults_v2",
+   "dest": "external/derived_gdr_qfaults_v2_100m_u8.tif",
+   "exists": true,
+   "bytes": 191289,
+   "sha256_match": true,
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs_epsg": 32611,
+   "dtype": "uint8",
+   "bands": 1,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "grid_matches": true
+  }
+ ],
+ "all_hashes_match": true,
+ "all_grids_match": true,
+ "ok": true,
+ "prepared": {
+  "bands": [
+   "mag_anom",
+   "rtp",
+   "tmi_hg",
+   "geod_2ndinv",
+   "iso_grav_anom_slope",
+   "tc",
+   "geod_shearrate",
+   "geod_dilaterate",
+   "tmi_vg",
+   "deq_n100a15",
+   "iso_grav_anom_vg",
+   "det_elev",
+   "iso_grav_anom",
+   "tmi",
+   "depth_to_base_surf",
+   "ieq_n100a15",
+   "cond_surf",
+   "iso_grav_anom_hg",
+   "det_elev_slope",
+   "ex_max",
+   "ex_mean",
+   "step_max",
+   "lapneg_max",
+   "lappos_max",
+   "downface_max",
+   "upface_max",
+   "cross_max",
+   "relief",
+   "coh100",
+   "strike",
+   "valid",
+   "K",
+   "Th",
+   "U",
+   "TC",
+   "ThK",
+   "UK",
+   "UTh",
+   "TMI_up150",
+   "mean_k_500m",
+   "upface_minus_downface",
+   "th_minus_k"
+  ],
+  "shape": [
+   3730,
+   3292
+  ],
+  "crs_epsg": 32611,
+  "transform": [
+   100.0,
+   0.0,
+   243350.0,
+   0.0,
+   -100.0,
+   4508550.0
+  ],
+  "footprint_pixels": 5167373,
+  "bytes": 2062898880,
+  "missing_data_policy": "0 means 'no survey coverage' in the LiDAR and GeoDAWN layers and is converted to NaN; the competition layers keep their own -3.4028235e38 nodata and are also converted to NaN.",
+  "provenance": "owner-mirror competition and derived external layers; not organizer-authenticated",
+  "label_derived_features": false,
+  "retired_unsafe_planes": [
+   "dist_cat_km",
+   "dist_sgmc_km"
+  ],
+  "warning": "Catalogue-derived features must be rebuilt per fold from visible faults; SGMC never enters features."
+ }
+}

@@ -7,6 +7,16 @@
  "promoted_lanes": [],
  "not_promoted": [
   {
+   "lane": "H31-AA",
+   "failed_gates": [
+    "G3_beats_holdout_best FAIL (0.1489 vs same-run H31-X 0.1661; AA4 reached 0.1556 overall and 0.1512 > 0.1454 on NW Fold 0)",
+    "G4_sgmc_discovery overall FAIL (0.0688 < H33 0.0940 despite #1 Piedmont SGMC 0.0929)",
+    "G5_discrete_two_stage FAIL on unspaced top-K vs local H31-X (85.0% > 70%, while external-focus two-stage PASSES at 69.3% top-K / 57.0% final)",
+    "literal 695-registry STOP (r13-lattice-s5 98.28% > 70%; mathematical floor 82.34%)",
+    "no selector action or weekly cap verified"
+   ]
+  },
+  {
    "lane": "H31-Y",
    "failed_gates": [
     "lane G5 top-K 90.5% (final dots 63.0% unique vs discrete peers)",

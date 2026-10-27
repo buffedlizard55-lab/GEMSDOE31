@@ -261,8 +261,8 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
     if current:
         hero, body = current_site.overview(current)
         body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
-        desc = ("Exactly one file is cleared to submit (selector primary H31-X); every other download "
-                "including the newest H31-Y lane is research only — do not submit. Automated gates, no human inspector.")
+        desc = ("No file is cleared to submit under the binding literal registry STOP; download newly generated "
+                "H31-AA (2026-10-27) or prior lanes for research only. Automated gates, no human inspector.")
         return shell("", "Overview", desc,
                      "Overview", hero, body, "Maximize P(Win) · Own the Outcome · negative results preserved.")
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
@@ -393,11 +393,10 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     current = load("registry/current_run.json")
     if current:
-        hero = page_hero("Download + submission guide", "Submit exactly one file: the selector primary (H31-X).",
-                         "The approved file, its unique name, portal note, labelled estimates and the gate-by-gate "
-                         "automated decision are together below. The newest H31-Y lane and every other artifact keep "
-                         "their own do-not-submit verdicts.")
-        return shell("", "Executive summary", "New candidate TIFF, exact automated validation status, and the portal workflow.",
+        hero = page_hero("Download + submission guide", "No file is cleared to submit — research downloads only.",
+                         "Every candidate (including newly generated H31-AA, 2026-10-27), its unique name, portal note, "
+                         "labelled HOLDOUT-DTI / USER-REPORTED values, and gate-by-gate automated verdicts are audited below.")
+        return shell("", "Executive summary", "New H31-AA research TIFF, exact automated validation status, and the portal workflow.",
                      "Executive summary", hero, current_site.executive(current))
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
@@ -1383,6 +1382,7 @@ def main() -> None:
     feed_data = json.loads(feed_json)
     feed_data["current_protocol_review"] = load("evidence/review_9883b598/run_card.json")
     feed_data["current_selector_decision"] = load("registry/selector_decision_20261026.json")
+    feed_data["current_h31aa_run"] = load("evidence/h31aa/run_card.json")
     pages[DOCS / "feed.json"] = json.dumps(feed_data, indent=1, allow_nan=False) + "\n"
     pages[DOCS / "feed.html"] = feed_html
 

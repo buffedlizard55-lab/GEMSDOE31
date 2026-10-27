@@ -1,3 +1,16 @@
+> ## Current session — 2026-10-27 (`arena/f5b2211b-gemsdoe31` · Lane `H31-AA` SLFS)
+>
+> **No current artifact is approved. DO NOT SUBMIT (`slot_approved = false`, `ok_to_submit = false`, `verdict = "negative"`).** No human sign-off can override a failed literal registry gate under `literal-registry-20261026-9883b598`.
+>
+> - **New Unique Research GeoTIFF (`H31-AA` / `SLFS`, generated 2026-10-27 — OK TO DOWNLOAD FOR RESEARCH ONLY, DO NOT SUBMIT):**
+>   - [**All-finite `[0, 1]` `.tif` (`-zeros.tif`)**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-zeros.tif) (`SHA-256: d272d5babb9523a70f77e76ad6843830d67a9eabaaa60f8c3f46ca57bde9a1ef`) · [**Single-TIFF `.zip`**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-zeros.zip) (`c465a03b1bed…`) · [**NaN-outside twin `.tif`**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-nan.tif) (`7c3f288ec6a1…`) · [**Format Receipt**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-format-check.json) · [**JSON Run Card**](docs/downloads/h31aa-run-card.json)
+>   - **Unique name:** `gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746` · **Portal note (`92/140` chars):** `H31-AA AA2 SLFS log-flexure+shoreline-null 37654d B2 | HOLDOUT-DTI 0.1489 n=60988 | fdb34746`
+>   - **Measured `HOLDOUT-DTI` (`gems57-pooled-hide-v2`, `60,988` withheld positives, `21.3 km` collar):** `AA2` **`0.1489` `[0.1368, 0.1604]`** (`AA4` **`0.1556` `[0.1435, 0.1666]`**, beating `H31-X` on NW Fold 0 `0.1512 > 0.1454` [`29,319` positives]) vs same-run `H31-X` incumbent **`0.1661` `[0.1491, 0.1825]`**, `CTRL` `0.0671`, `SLOPE` `0.0488`; untouched `seed=3107` confirmation (`31,346` withheld): `AA2` **`0.1302` `[0.1181, 0.1424]`** vs `H31-X` `0.1517`, `CTRL` `0.0571`.
+>   - **Off-Catalogue USGS-SGMC Proxy (`COMPUTED`) & Uniqueness:** Achieves **`#1 Piedmont (<=6 deg) SGMC = 0.0929`** across all 9 focus sites (`+58.5%` above `H33 = 0.0586`, `+110%` above `H31-X = 0.0442`; overall SGMC `0.0688`) while **passing external 9-site two-stage discrete uniqueness (`69.27% <= 70%` pre-placement top-K and `57.03% <= 70%` final dots, solving `H31-X`'s `86.3%` external top-K failure; `60.56%` max final overlap across all 45 peers; `max |Spearman| = 0.1140 <= 0.90`)**. Blocked from upload (`slot_approved = false`) by `G3_beats_holdout_best = false` (`0.1489 < 0.1661`), `G4` overall SGMC, local `H31-X` unspaced top-K (`84.98%`), and the binding 695-raster `r13-lattice-s5` STOP (`98.28%`, `>=82.34%` floor). Estimated leaderboard score: **Unavailable**.
+> - **Full 2026-10-27 Deliverables:** [Executive Summary & Submission Guide](docs/executive-summary.html) · [Frozen Preregistration & 4 Ranked Hypotheses](knowledge/2026-10-27_h31aa_preregistration.md) · [PhD Forensic Audit of `GEMSDOE32` (`0.2778` vs `0.4413`/`0.3195`) & Oct 25–26 Wave (`G27 H31-DRCG 0.2250` vs `G28 S21 0.0206`)](knowledge/2026-10-27_h31aa_session_review.md).
+>
+> ---
+>
 > ## Current repository review — 2026-10-27 (`arena/74acc325-gemsdoe31`)
 >
 > **Decision remains: NO TIFF is approved to submit.** No new TIFF, fit, slot selection, upload, or leaderboard access was performed. This review reread the complete charter below, checked the current release gate, ranked three desk-only hypotheses, and reran the repository checks after restoring only the small ignored validation inputs.
@@ -732,6 +745,25 @@ Full results: [`evidence/h31m_results.json`](evidence/h31m_results.json) ·
 - **EXP-1 (48-Feature Canary):** `48/48` features `AUC <= 0.7740 <= 0.90` (`max_new_H31M_AUC = 0.6139`).
 - **EXP-2 (`gemsdoe31-holdout-v1`, `58,625` withheld positives, `21.25 km` inherited collar):** Screen `0.1350` vs `0.1135` (`4/4` folds, Δ CI `[+0.0064, +0.0380]`); Fresh Confirm `0.1372` vs `0.1127` (`4/4` folds, Δ CI `[+0.0107, +0.0392]`).
 - **EXP-3 (`37,654` `B=2` binary dots, `37.2%` piedmont):** Full Off-SGMC **`0.1010`** vs `H33-2-B2` `0.0940` (`+7.4%`), 4-Block Off-SGMC **`0.1077`** vs `0.0984` (`+9.5%`), Piedmont Off-SGMC **`0.0641`** vs `0.0586` (`+9.4%`, vs `H31-B` `0.0052`). 13-submission subset `max |ρ| = 0.7204`, `max 3-px = 53.16%` (`51.59%` vs `HVDC`, `40.25%` vs `H33-2-B2`, `33.57%` vs `H31-E2`, `18.13%` vs `MAGREST`); held as research-only (`DO NOT SUBMIT`) by unexempted `r13-lattice-s5` (`99.6255%`) 695-raster STOP and inherited `21.25 km` collar.
+
+## 2026-10-27 Prompt Delta — Newly Pasted Oct 25–26 Claims & Sibling Sites (Preserved Above Immutable 2026-10-26 Prompt Block)
+
+<details><summary>2026-10-27 additions to the owner brief (all score values are USER-REPORTED with no organizer receipt)</summary>
+
+- **Competition leaderboard anchor update in prompt:** `"The highest score on the competition leaderboard right now is 0.4413"` (alongside the recurring `"0.3195 is the highest score right now"` and `GEMSDOE32` `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros: 0.2778`; all treated as `USER-REPORTED` without organizer receipts).
+- **Newly pasted 2026-10-26 scored lines across focus & sibling repositories:**
+  - `GEMSDOE27`: `gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite: 0.2250` (`USER-REPORTED`; alongside `gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite: 0.2190`)
+  - `GEMSDOE28`: `gems28-s21-puhgb-20261026-16bbf281ba9b-allfinite: 0.0206` (`USER-REPORTED`; alongside `gems28-s18-mxtp-20261025-3e95505c011a-allfinite: 0.0217`)
+  - `GEMSDOE33`: `gemsdoe33-s33-seisdil-strain-seismicity-37654-20261026-3463540a7e02-zeros: 0.0963` (`USER-REPORTED`)
+  - `GEMSDOE36`: `gemsdoe36-kpl36-exp3-20261026-fc869911e88c-zeros: 0.1647` (`USER-REPORTED`)
+  - `GEMSDOE91`: `gems91-s22-omtj-e1-37654dots-20261026T161800Z-334a0649-zeros: 0.0298` (`USER-REPORTED`)
+- **Newly pasted unscored sibling sites (`:` blank entries):**
+  - `https://buffedlizard55-lab.github.io/KANLERGEMSDOE1/`, `KANLERGEMSDOE2/`, `KANLERGEMSDOE3/`
+  - `https://buffedlizard55-lab.github.io/EUGGEMSDOE1/`, `EUGGEMSDOE2/`, `EUGGEMSDOE3/`
+  - `https://buffedlizard55-lab.github.io/WBGGEMSDOE1/`, `WBGGEMSDOE2/`, `WBGGEMSDOE3/`
+  - `https://buffedlizard55-lab.github.io/GINNYGEMSDOE1/`, `GINNYGEMSDOE2/`, `GINNYGEMSDOE3/`
+
+</details>
 
 ## Complete owner prompt — reread at every session start
 

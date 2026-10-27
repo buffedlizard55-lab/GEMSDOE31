@@ -1,0 +1,132 @@
+{
+  "lane": "H31-AA",
+  "preregistration": {
+    "preregistration": "knowledge/2026-10-27_h31aa_preregistration.md",
+    "sha256": "3c810c12015960848324d6062e9dfd4370d270aa543da8fcf4c85cb301432e50",
+    "frozen_utc": "2026-10-27T17:45:00Z"
+  },
+  "footprint_pixels": 5167373,
+  "lidar_coverage_fraction": 0.7536634185300732,
+  "shoreline_damped_fraction_lt_080": 0.05817985270271761,
+  "fields": {
+    "LFLEX_COH": {
+      "path": "work/h31aa_lines/LFLEX_COH.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "LFLEX_SHORE": {
+      "path": "work/h31aa_lines/LFLEX_SHORE.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "SUB_EDGE": {
+      "path": "work/h31aa_lines/SUB_EDGE.npy",
+      "min": 0.0013821566244587302,
+      "median": 0.4222785532474518,
+      "p99": 0.8540142774581909,
+      "max": 0.9917258024215698
+    },
+    "LIDAR_TOE": {
+      "path": "work/h31aa_lines/LIDAR_TOE.npy",
+      "min": 0.0014690520474687219,
+      "median": 0.5,
+      "p99": 0.9796092510223389,
+      "max": 0.999742865562439
+    },
+    "AA1_crest": {
+      "path": "work/h31aa_lines/AA1_crest.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "AA2_crest": {
+      "path": "work/h31aa_lines/AA2_crest.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "AA3_crest": {
+      "path": "work/h31aa_lines/AA3_crest.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "AA4_crest": {
+      "path": "work/h31aa_lines/AA4_crest.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "AA1_nocrest": {
+      "path": "work/h31aa_lines/AA1_nocrest.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "AA2_nocrest": {
+      "path": "work/h31aa_lines/AA2_nocrest.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "AA3_nocrest": {
+      "path": "work/h31aa_lines/AA3_nocrest.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "AA4_nocrest": {
+      "path": "work/h31aa_lines/AA4_nocrest.npy",
+      "min": 0.17179825901985168,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "w_shore": {
+      "path": "work/h31aa_lines/w_shore.npy",
+      "min": 0.3607661724090576,
+      "median": 1.0,
+      "p99": 1.0,
+      "max": 1.0
+    },
+    "dz_strike": {
+      "path": "work/h31aa_lines/dz_strike.npy",
+      "min": 0.0,
+      "median": 5.158377647399902,
+      "p99": 82.1259994506836,
+      "max": 238.49069213867188
+    },
+    "JUNC_INC": {
+      "path": "work/h31aa_lines/JUNC_INC.npy",
+      "min": 0.22041049599647522,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 1.0
+    },
+    "CTRL": {
+      "path": "work/h31aa_lines/CTRL.npy",
+      "min": 0.0004996737116016448,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 0.9995003342628479
+    },
+    "SLOPE": {
+      "path": "work/h31aa_lines/SLOPE.npy",
+      "min": 0.0004996737116016448,
+      "median": 0.5,
+      "p99": 0.9900000095367432,
+      "max": 0.9995003342628479
+    }
+  }
+}

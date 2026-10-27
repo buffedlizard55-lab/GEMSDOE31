@@ -1,0 +1,99 @@
+{
+  "lane": "H31-AA",
+  "stage": "pre-placement-uniqueness",
+  "n_unique_peers": 45,
+  "arms": {
+    "AA1_crest": {
+      "discrete_max_topk_overlap": 0.8413448770382961,
+      "worst_topk_peer": "GEMSDOE31:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+      "external_focus_max_topk_overlap": 0.684309767886546,
+      "external_focus_worst_topk_peer": "GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "max_abs_surface_spearman": 0.11363665540656993,
+      "preplacement_surface_rho_pass": true,
+      "preplacement_external_focus_topk_pass": true,
+      "preplacement_discrete_pass": false
+    },
+    "AA1_nocrest": {
+      "discrete_max_topk_overlap": 0.927789876241568,
+      "worst_topk_peer": "GEMSDOE31:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+      "external_focus_max_topk_overlap": 0.6995007170552929,
+      "external_focus_worst_topk_peer": "GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "max_abs_surface_spearman": 0.12130196262147167,
+      "preplacement_surface_rho_pass": true,
+      "preplacement_external_focus_topk_pass": true,
+      "preplacement_discrete_pass": false
+    },
+    "AA2_crest": {
+      "discrete_max_topk_overlap": 0.8497636373293674,
+      "worst_topk_peer": "GEMSDOE31:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+      "external_focus_max_topk_overlap": 0.6927285281776172,
+      "external_focus_worst_topk_peer": "GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "max_abs_surface_spearman": 0.113998147597504,
+      "preplacement_surface_rho_pass": true,
+      "preplacement_external_focus_topk_pass": true,
+      "preplacement_discrete_pass": false
+    },
+    "AA2_nocrest": {
+      "discrete_max_topk_overlap": 0.9323577840335688,
+      "worst_topk_peer": "GEMSDOE31:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+      "external_focus_max_topk_overlap": 0.706591597174271,
+      "external_focus_worst_topk_peer": "GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "max_abs_surface_spearman": 0.1217561166478516,
+      "preplacement_surface_rho_pass": true,
+      "preplacement_external_focus_topk_pass": false,
+      "preplacement_discrete_pass": false
+    },
+    "AA3_crest": {
+      "discrete_max_topk_overlap": 0.8385297710734584,
+      "worst_topk_peer": "GEMSDOE31:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+      "external_focus_max_topk_overlap": 0.7028735326924098,
+      "external_focus_worst_topk_peer": "GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "max_abs_surface_spearman": 0.11533137067429168,
+      "preplacement_surface_rho_pass": true,
+      "preplacement_external_focus_topk_pass": false,
+      "preplacement_discrete_pass": false
+    },
+    "AA3_nocrest": {
+      "discrete_max_topk_overlap": 0.9239390237424975,
+      "worst_topk_peer": "GEMSDOE31:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+      "external_focus_max_topk_overlap": 0.7283953896000425,
+      "external_focus_worst_topk_peer": "GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "max_abs_surface_spearman": 0.12346991282835955,
+      "preplacement_surface_rho_pass": true,
+      "preplacement_external_focus_topk_pass": false,
+      "preplacement_discrete_pass": false
+    },
+    "AA4_crest": {
+      "discrete_max_topk_overlap": 0.8535082594146705,
+      "worst_topk_peer": "GEMSDOE31:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+      "external_focus_max_topk_overlap": 0.7136293620863653,
+      "external_focus_worst_topk_peer": "GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "max_abs_surface_spearman": 0.11755474793076943,
+      "preplacement_surface_rho_pass": true,
+      "preplacement_external_focus_topk_pass": false,
+      "preplacement_discrete_pass": false
+    },
+    "AA4_nocrest": {
+      "discrete_max_topk_overlap": 0.9332341849471504,
+      "worst_topk_peer": "GEMSDOE31:gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+      "external_focus_max_topk_overlap": 0.7370000531152069,
+      "external_focus_worst_topk_peer": "GEMSDOE27:gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "max_abs_surface_spearman": 0.12517553779763713,
+      "preplacement_surface_rho_pass": true,
+      "preplacement_external_focus_topk_pass": false,
+      "preplacement_discrete_pass": false
+    }
+  },
+  "literal_registry_preflight": {
+    "evidence_class": "COMPUTED counting bound; not HOLDOUT-DTI or a score",
+    "footprint_pixels": 5167373,
+    "outside_halo_pixels": 6649,
+    "candidate_dots": 37654,
+    "minimum_overlap_pixels": 31005,
+    "minimum_overlap_fraction": 0.8234184947150369,
+    "forced_duplicate_stop": true,
+    "empty_candidate": false,
+    "uniqueness_pass": false,
+    "qualification": "Necessary bound only; does not prove copying or rule out every nonempty raster. No registry exemptions."
+  }
+}
