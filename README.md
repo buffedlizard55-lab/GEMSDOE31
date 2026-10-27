@@ -1,4 +1,29 @@
-> ## Current review — 2026-10-27 (`arena/56618cf9-gemsdoe31`)
+# Current session review — 27 October 2026 (3b1ed545)
+
+**DO NOT SUBMIT.** No new TIFF, scientific experiment or weekly slot in this session.
+The nine-site executive comparison now lists pinned historical files, reported-result provenance,
+proxy evidence and explicit estimate/permission columns. Historical best reported focus entry is
+GEMSDOE32, not a new submission recommendation. The literal lattice gate remains STOP, and this
+prompt does not include its promised single-method lane paragraph.
+
+Read this README and its preserved complete owner prompt every session. The current request reiterates:
+“MUST GENERATE A UNIQUE TIF SUBMISSION FOR THE COMPETITION. DO NOT COPY A PREVIOUS SUBMISSION”;
+“Check this on the surface before placement AND on the final dots”;
+“Do not pick submissions: promotion to a real slot is a separate selector step”.
+These are simultaneous requirements: we do not write a new TIFF after a duplicate STOP to satisfy
+file delivery at the expense of the uniqueness protocol. No numeric leaderboard forecast is justified.
+The prior preserved prompt remains below; this dated section records the current session interpretation,
+not a claim that all historical instructions were fulfilled.
+
+- [Review, three proposed hypotheses, limitations and next steps](knowledge/2026-10-27_review_3b1ed545.md)
+- [Executive summary](docs/executive-summary.html#nine-site-decision)
+- [Session run card](evidence/review_3b1ed545/run_card.json)
+- Current binding permissions remain [release status](registry/release_status.json).
+
+Maximize P(Win): prioritize falsifiable discovery and same-run evidence, not an unsupported score claim.
+Own the Outcome: automated denial is a valid deliverable; no human inspector is needed to reproduce STOP.
+
+> ## Parallel historical review — 2026-10-27 (`arena/56618cf9-gemsdoe31`)
 >
 > **Decision: NO TIFF is cleared to submit.** This review did not create a raster, run a fit, use a weekly slot, upload, or access the leaderboard. The requested protocol references an assigned single-method paragraph, but none is present in this prompt; prior H31-AA work is historical and not authorization to continue that lane. The literal registry gate remains failed, and the H31-AA run card records a negative comparison to the same-run incumbent. A score estimate for a new submission is unavailable.
 >
