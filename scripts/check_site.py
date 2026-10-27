@@ -101,6 +101,10 @@ def main() -> None:
         if "protocol-review-run-card.json" not in text:
             fail(f"{name}: current protocol receipt missing")
     for page_name, html_text in (("index.html", index), ("executive-summary.html", executive)):
+        if "gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746" not in html_text:
+            fail(f"{page_name}: H31-AA SLFS candidate name missing")
+        if "d272d5babb9523a70f77e76ad6843830d67a9eabaaa60f8c3f46ca57bde9a1ef" not in html_text:
+            fail(f"{page_name}: H31-AA SLFS primary -zeros.tif SHA-256 missing")
         if "gemsdoe31-tgtd-submod-37654-20261025-ab35d4e8" not in html_text:
             fail(f"{page_name}: H31-J TGTD-Submod candidate name missing")
         if "04e886cd8f7759e05d5fabb5d7222aaed0d16fda59fdf81e5934c5508eaf3fa3" not in html_text:

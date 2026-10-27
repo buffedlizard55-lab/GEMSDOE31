@@ -1,0 +1,128 @@
+{
+  "lane": "H31-AA",
+  "evidence_class": "COMPUTED",
+  "auc_ceiling": 0.9,
+  "rows": [
+    {
+      "feature": "LFLEX_COH",
+      "kind": "single_line",
+      "auc_catalogue": 0.6268078356807896,
+      "auc_off_sgmc": 0.491819708338739,
+      "max_two_sided_auc": 0.6268078356807896,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "LFLEX_SHORE",
+      "kind": "single_line",
+      "auc_catalogue": 0.6273045774578606,
+      "auc_off_sgmc": 0.4925539517789958,
+      "max_two_sided_auc": 0.6273045774578606,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "SUB_EDGE",
+      "kind": "single_line",
+      "auc_catalogue": 0.5480699422427363,
+      "auc_off_sgmc": 0.40349181815970425,
+      "max_two_sided_auc": 0.5965081818402957,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "LIDAR_TOE",
+      "kind": "single_line",
+      "auc_catalogue": 0.5427030103462975,
+      "auc_off_sgmc": 0.6634784130935393,
+      "max_two_sided_auc": 0.6634784130935393,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "JUNC_INC",
+      "kind": "single_line",
+      "auc_catalogue": 0.640432667082049,
+      "auc_off_sgmc": 0.5902913524503762,
+      "max_two_sided_auc": 0.640432667082049,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "CTRL",
+      "kind": "single_line",
+      "auc_catalogue": 0.5273102602561159,
+      "auc_off_sgmc": 0.49112101201673586,
+      "max_two_sided_auc": 0.5273102602561159,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "SLOPE",
+      "kind": "single_line",
+      "auc_catalogue": 0.5564346105791304,
+      "auc_off_sgmc": 0.7574267819554359,
+      "max_two_sided_auc": 0.7574267819554359,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "AA1_crest",
+      "kind": "candidate_surface",
+      "auc_catalogue": 0.6268290146832163,
+      "auc_off_sgmc": 0.49180546542553194,
+      "max_two_sided_auc": 0.6268290146832163,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "AA1_nocrest",
+      "kind": "candidate_surface",
+      "auc_catalogue": 0.6376205478536762,
+      "auc_off_sgmc": 0.4873546853107161,
+      "max_two_sided_auc": 0.6376205478536762,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "AA2_crest",
+      "kind": "candidate_surface",
+      "auc_catalogue": 0.6273045774578606,
+      "auc_off_sgmc": 0.4925539517789958,
+      "max_two_sided_auc": 0.6273045774578606,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "AA2_nocrest",
+      "kind": "candidate_surface",
+      "auc_catalogue": 0.6380191495458123,
+      "auc_off_sgmc": 0.488225379719123,
+      "max_two_sided_auc": 0.6380191495458123,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "AA3_crest",
+      "kind": "candidate_surface",
+      "auc_catalogue": 0.6280683292614941,
+      "auc_off_sgmc": 0.4909171212133497,
+      "max_two_sided_auc": 0.6280683292614941,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "AA3_nocrest",
+      "kind": "candidate_surface",
+      "auc_catalogue": 0.6390367742014823,
+      "auc_off_sgmc": 0.4863238291385573,
+      "max_two_sided_auc": 0.6390367742014823,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "AA4_crest",
+      "kind": "candidate_surface",
+      "auc_catalogue": 0.6304445922558537,
+      "auc_off_sgmc": 0.49332267218312137,
+      "max_two_sided_auc": 0.6304445922558537,
+      "leakage_flagged": false
+    },
+    {
+      "feature": "AA4_nocrest",
+      "kind": "candidate_surface",
+      "auc_catalogue": 0.6406621762887782,
+      "auc_off_sgmc": 0.4894528377578491,
+      "max_two_sided_auc": 0.6406621762887782,
+      "leakage_flagged": false
+    }
+  ],
+  "all_pass": true
+}

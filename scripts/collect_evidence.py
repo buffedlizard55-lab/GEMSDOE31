@@ -336,6 +336,45 @@ def submissions_register() -> dict:
             "current_run_card": "docs/downloads/h31s-run-card.json",
         })
 
+    h31aa_path = ROOT / "registry/h31aa_current_run.json"
+    if h31aa_path.exists():
+        h31aa = json.loads(h31aa_path.read_text())
+        v0_aa = h31aa["validator"]["zeros"]
+        vn_aa = h31aa["validator"]["nan"]
+        failed_aa = [k for k, v in h31aa["gates"].items() if not v]
+        files.insert(0, {
+            "id": "h31aa-slfs-flexure-20261027",
+            "name": h31aa["submission_name"],
+            "role": "newly computed 2026-10-27 unique H31-AA (SLFS) research GeoTIFF; passes format/[0,1], 15-feature leakage canary (<=0.7574), external 9-site two-stage uniqueness (69.27% pre / 57.03% final <=70%), and achieves #1 Piedmont SGMC (0.0929) across all 9 sites; DO NOT SUBMIT (negative verdict: fails H31-X holdout best 0.1489 < 0.1661 and literal 695-raster r13-lattice-s5 STOP)",
+            "provenance": "scripts/run_h31aa.py (frozen preregistration knowledge/2026-10-27_h31aa_preregistration.md): Multi-Scale Steered Log-Flexure + Pluvial Paleoshoreline Null-Suppressor + Subsurface Gravity/Magnetic + Coverage-Neutral LiDAR + 1-px Ridge-Crest Filter + 29-Cell Submodular Cover at B=2 (>200 m off catalogue), 37,654 binary dots.",
+            "note_for_portal": h31aa["note"],
+            "slot_approved": False,
+            "ok_to_submit": False,
+            "why_not_slot_approved": f"Failed gates: {', '.join(failed_aa)}. {h31aa['instruction']}",
+            "positive_pixels": v0_aa["grid"]["positive_pixels_inside"],
+            "positive_pixels_on_public_catalogue": receipts.get(h31aa["submission_name"], {}).get("dots_on_catalogue", 0),
+            "format_status": "locally validated under both zeros-outside and NaN-outside conventions; not organizer acceptance",
+            "file_nan": h31aa["files"]["nan"],
+            "sha256_nan": h31aa["raster_sha256_nan"],
+            "bytes_nan": (ROOT / h31aa["files"]["nan"]).stat().st_size,
+            "file_allfinite": h31aa["files"]["zeros"],
+            "sha256_allfinite": h31aa["raster_sha256"],
+            "bytes_allfinite": (ROOT / h31aa["files"]["zeros"]).stat().st_size,
+            "format_ok_nan": vn_aa["ok"],
+            "format_ok_allfinite": v0_aa["ok"],
+            "organizer_acceptance_verified_nan": False,
+            "organizer_acceptance_verified_allfinite": False,
+            "hard_failures_nan": vn_aa["hard_failures"],
+            "hard_failures_allfinite": v0_aa["hard_failures"],
+            "receipt": f"docs/downloads/{h31aa['submission_name']}-format-check.json",
+            "zip": h31aa["files"]["zip"],
+            "sha256_zip": h31aa["zip_sha256"],
+            "bytes_zip": (ROOT / h31aa["files"]["zip"]).stat().st_size,
+            "holdout_dti": h31aa["holdout_dti"],
+            "sgmc_regime_proxies": h31aa["sgmc_proxy"],
+            "current_run_card": "docs/downloads/h31aa-run-card.json",
+        })
+
     union = ROOT / "evidence" / "union_results.json"
     if union.is_file():
         data = json.loads(union.read_text())
@@ -593,6 +632,20 @@ def submissions_register() -> dict:
                 "sgmc_regime_proxies": h31s.get("secondary_sgmc_proxy"),
             }
             if h31s_path.exists()
+            else None
+        ),
+        "latest_2026_10_27_candidate": (
+            {
+                "name": h31aa["submission_name"],
+                "file": h31aa["files"]["zeros"],
+                "sha256": h31aa["raster_sha256"],
+                "slot_approved": False,
+                "ok_to_submit": False,
+                "run_card": "docs/downloads/h31aa-run-card.json",
+                "holdout_dti": h31aa["holdout_dti"],
+                "sgmc_regime_proxies": h31aa["sgmc_proxy"],
+            }
+            if h31aa_path.exists()
             else None
         ),
         "files": files,

@@ -1,0 +1,19 @@
+{
+  "lane": "H31-AA",
+  "status": "VERIFIED",
+  "submission_name": "gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746",
+  "raster_sha256_zeros": "d272d5babb9523a70f77e76ad6843830d67a9eabaaa60f8c3f46ca57bde9a1ef",
+  "raster_sha256_nan": "7c3f288ec6a12c5c54dce7aeb9757f940c78e988c1ee14275dff82452a7416b6",
+  "zip_sha256_zeros": "c465a03b1bed924fc3bad95bdf6a0a6ddc937b0079ce682c55ed66bed4e5c793",
+  "preregistration_sha256": "3c810c12015960848324d6062e9dfd4370d270aa543da8fcf4c85cb301432e50",
+  "experiments_executed": 3,
+  "max_canary_two_sided_auc": 0.7574267819554359,
+  "verdict": "negative",
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "checks": {
+    "grid_and_range_verified": true,
+    "format_receipt": "docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-format-check.json"
+  }
+}

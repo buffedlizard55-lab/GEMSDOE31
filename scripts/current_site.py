@@ -127,6 +127,114 @@ def h31y_download_and_gates() -> str:
       </section>'''
 
 
+def h31aa_download_and_gates() -> str:
+    """2026-10-27 Lane H31-AA (SLFS) unique research GeoTIFF + updated 2026-10-27 executive audit."""
+    rc_path = ROOT / "evidence/h31aa/run_card.json"
+    if not rc_path.is_file():
+        return ""
+    rc = json.loads(rc_path.read_text())
+    g = rc["gates"]
+    det = g["detail"]
+    hd = rc["holdout_dti"]
+    sc = hd["screen_final_surface"]
+    inc = hd["incumbent_h31x_same_run"]
+    d_inc = hd["screen_paired_vs_h31x"]
+    d_ctrl = hd["screen_paired_vs_ctrl"]
+    cf = hd["confirmation_random_component_split"]
+    cfs = cf["scores"][det["winner"]]
+    cf_inc = cf["scores"]["JUNC_INC"]
+    sg = rc["sgmc_proxy"]
+    u = rc["correlation_overlap_vs_registry"]
+    diag = rc["diagnostics"]
+    f = rc["files"]
+    fmt_rel = f"downloads/{rc['submission_name']}-format-check.json"
+
+    def badge(ok):
+        return '<span class="badge badge-green">PASS</span>' if ok else '<span class="badge badge-red">FAIL</span>'
+
+    return f'''<section id="h31aa-slfs" aria-labelledby="h31aa-heading">
+      <div class="section-head"><div><p class="kicker">2026-10-27 · H31-AA (SLFS) newly generated unique research GeoTIFF</p>
+        <h2 id="h31aa-heading">H31-AA: Strike-Coherent Log-Flexure &amp; Paleoshoreline-Null · <span class="badge badge-red">DO NOT SUBMIT</span></h2></div>
+        <p>Frozen preregistration before any data touch (SHA-256 <code>{esc(rc["preregistration"]["sha256"][:12])}…</code>).
+           Three-experiment budget executed via shared <code>evaluate_holdout.py</code> and <code>submission_writer.py</code>.
+           Validated all-finite <code>[0, 1]</code> GeoTIFF for research download only (<code>slot_approved = false</code>).</p></div>
+      <div class="card download-card">
+        <h3><code>{esc(f["zeros"].split("/")[-1])}</code></h3>
+        <p><strong>OK TO DOWNLOAD FOR RESEARCH: YES · DO NOT SUBMIT (<code>verdict = negative</code>, <code>slot_approved = false</code>).</strong><br>
+           Unique name: <code>{esc(rc["submission_name"])}</code> · Portal note ({rc["note_chars"]}/140): <code>{esc(rc["note"])}</code></p>
+        <p><strong>Hypothesis.</strong> {esc(rc["hypothesis"])}<br>
+           <strong>Mechanism.</strong> {esc(rc["mechanism"])}<br>
+           <strong>Named non-fault mimics.</strong> {esc(rc["non_fault_mimic"])}</p>
+        <div class="actions">
+          <a class="button button-primary" href="{esc(f["zeros"].replace("docs/", "", 1))}" download>Download H31-AA research .tif (all-finite [0,1] — DO NOT SUBMIT)</a>
+          <a class="button" href="{esc(f["zip"].replace("docs/", "", 1))}" download>Single-TIFF .zip</a>
+          <a class="button button-light" href="{esc(f["nan"].replace("docs/", "", 1))}" download>NaN-outside twin (.tif)</a>
+          <a class="button button-light" href="{esc(fmt_rel)}">Automated format receipt</a>
+          <a class="button button-light" href="downloads/h31aa-run-card.json">H31-AA Run Card (JSON)</a>
+        </div>
+        <p class="download-meta"><strong>SHA-256 (all-finite zeros .tif):</strong> <code>{esc(rc["raster_sha256"])}</code><br>
+          <strong>SHA-256 (zeros .zip):</strong> <code>{esc(rc["zip_sha256"])}</code> · <strong>SHA-256 (nan .tif):</strong> <code>{esc(rc["raster_sha256_nan"])}</code><br>
+          <strong>HOLDOUT-DTI ({esc(sc["evaluator_version"])}, {sc["withheld_positive_pixels"]:,} withheld, 21.3 km collar):</strong>
+          AA2 <strong>{sc["dti"]:.4f}</strong> [{sc["ci95"][0]:.4f}, {sc["ci95"][1]:.4f}]
+          (arm AA4 reached <strong>{det["exp1_screen_scores"]["AA4"]["dti"]:.4f}</strong> overall and <strong>0.1512 vs 0.1454</strong> beating H31-X on NW Fold 0 [29,319 positives])
+          vs same-run H31-X incumbent <strong>{inc["dti"]:.4f}</strong> [{inc["ci95"][0]:.4f}, {inc["ci95"][1]:.4f}]
+          (paired delta {d_inc["delta"]:+.4f} [{d_inc["ci95"][0]:+.4f}, {d_inc["ci95"][1]:+.4f}]) and CTRL {d_ctrl["delta"]:+.4f} [{d_ctrl["ci95"][0]:+.4f}, {d_ctrl["ci95"][1]:+.4f}].<br>
+          <strong>Untouched Confirmation (seed=3107, {cfs["withheld_positive_pixels"]:,} withheld):</strong>
+          AA2 {cfs["dti"]:.4f} [{cfs["ci95"][0]:.4f}, {cfs["ci95"][1]:.4f}] vs H31-X {cf_inc["dti"]:.4f}.<br>
+          <strong>Off-catalogue USGS-SGMC discovery proxy (COMPUTED):</strong> All {sg["candidate"]["dti"]:.4f} vs H33 {sg["H33"]["dti"]:.4f};
+          <strong>Piedmont (&le;6 deg) 0.0929 (#1 across all 9 focus sites, +58.5% over H33 0.0586 &amp; +110% over H31-X 0.0442)</strong>;
+          median catalogue distance {diag["median_d_cat_px"]:.1f} px; steep bedrock &gt;15 deg cut from 18.6% (H31-X) to {100*diag["frac_slope_gt_15deg"]:.2f}%.<br>
+          <strong>Estimated leaderboard score:</strong> Unavailable (cross-family projection unvalidated; M3 zero-catalogue diagnostic {rc["projection"]["m3_zero_catalogue_central"]:.3f} &plusmn; 0.186 PROJECTION, never a score).</p>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Automated Gate</th><th>Status</th><th>Measured Receipt</th></tr></thead><tbody>
+        <tr><td>G1 GeoTIFF format &amp; [0, 1] range</td><td>{badge(g["G1_format"])}</td><td>EPSG:32611 · 3730&times;3292 · float32 · 0 NaN · 37,654 binary dots · 0 on catalogue</td></tr>
+        <tr><td>G2 Single-feature leakage canary (&le;0.90)</td><td>{badge(g["G2_canary"])}</td><td>15/15 lines &amp; surfaces pass (max two-sided AUC 0.7574)</td></tr>
+        <tr><td>G3a Beats physical CTRL &amp; SLOPE</td><td>{badge(g["G3_beats_baselines"])}</td><td>+{d_ctrl["delta"]:.4f} vs CTRL on screen; +0.0731 on seed-3107 confirmation</td></tr>
+        <tr><td>G3b Beats global holdout best (H31-X 0.1661)</td><td>{badge(g["G3_beats_holdout_best"])}</td><td>AA2 0.1489 (AA4 0.1556; wins NW Fold 0 0.1512 &gt; 0.1454, loses high-relief NE Fold 1)</td></tr>
+        <tr><td>G4 Off-catalogue SGMC overall (&ge;H33 0.0940)</td><td>{badge(g["G4_sgmc_discovery"])}</td><td>Overall 0.0688 &lt; 0.0940 (#1 Piedmont 0.0929, lower Mountain 0.0393 due to 18 deg cap)</td></tr>
+        <tr><td>G5a Protocol surface |&rho;| &le;0.90 &amp; final dots &le;70%</td><td>{badge(g["G5_protocol_surface_rho_and_final_dots"])}</td><td>Max |Spearman| {u["max_abs_spearman_surface"]:.4f}; max final 3-px overlap {100*u["discrete_max_final_overlap_3px"]:.2f}% across 45 peers</td></tr>
+        <tr><td>G5b External 9-site two-stage (top-K &amp; final &le;70%)</td><td>{badge(g["G5_external_focus_two_stage"])}</td><td>Max external top-K {100*u["external_focus_max_topk_overlap_3px"]:.2f}% &le; 70%; max external final {100*u["external_focus_max_final_overlap_3px"]:.2f}% (solves H31-X 86.3% external top-K failure)</td></tr>
+        <tr><td>G5c Unspaced top-K vs local GEMSDOE31 H31-X</td><td>{badge(g["G5_discrete_two_stage"])}</td><td>Unspaced crest top-K 85.0% vs local H31-X (post-Poisson final dots 60.6% &le; 70%)</td></tr>
+        <tr><td>G5d Binding literal 695-raster broad registry</td><td>{badge(g["G5_literal_broad_registry"])}</td><td>{100*u["literal_broad_registry"]["candidate_overlap_3px"]:.2f}% vs spacing-5 lattice r13-lattice-s5 (&ge;82.34% mathematical floor at 37,654 dots; no exemption)</td></tr>
+      </tbody></table></div>
+      <div class="table-wrap" style="margin-top:18px"><table>
+        <caption>2026-10-27 Master Audit Summary — Newly Generated H31-AA, Local Holdout Leader H31-X, &amp; Newly Scored Oct 25–26 Focus/Sibling Runs</caption>
+        <thead><tr><th>Artifact / Site</th><th>Evidence-Labeled Metric</th><th>Estimated Leaderboard Score</th><th>Uniqueness Across GEMSDOE Sites</th><th>Download &amp; Upload Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>GEMSDOE31 · H31-AA (new 2026-10-27)</strong><br><a href="{esc(f["zeros"].replace("docs/", "", 1))}" download><code>{esc(f["zeros"].split("/")[-1])}</code></a></td>
+              <td>HOLDOUT-DTI (gems57-pooled-hide-v2, 60,988, 95% CI [0.1368, 0.1604]): <strong>0.1489</strong> (AA4: 0.1556; Piedmont SGMC <strong>0.0929</strong>)</td>
+              <td>Unavailable (no validated cross-family model)</td>
+              <td>External 9-site 2-stage PASS (69.3% / 57.0%); all-peer final PASS (60.6%); literal 695-lattice STOP (98.3%)</td>
+              <td><span class="badge badge-red">DO NOT SUBMIT</span><br>Research download YES</td></tr>
+          <tr><td><strong>GEMSDOE31 · H31-X (local holdout best)</strong><br><a href="downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif" download><code>gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif</code></a></td>
+              <td>HOLDOUT-DTI (gems57-pooled-hide-v2, 60,988, 95% CI [0.1491, 0.1825]): <strong>0.1661</strong> (SGMC 0.1209)</td>
+              <td>Unavailable</td>
+              <td>Final discrete PASS (63.1%); Stage-1 external top-K FAIL (86.3% vs D1.5); literal lattice STOP (99.3%)</td>
+              <td><span class="badge badge-red">DO NOT SUBMIT</span><br>Research download YES</td></tr>
+          <tr><td><strong>GEMSDOE32 · H33-2-B2 (historical family high)</strong><br><code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</code></td>
+              <td><strong>0.2778</strong> <code>USER-REPORTED · no organizer receipt</code> (prompt cites 0.4413 current competition high &amp; 0.3195 earlier anchor)</td>
+              <td>Already scored claim (unverified receipt)</td>
+              <td>Exact subset of D2.8 at d_cat &gt; 2 px (100% self-overlap; 86.7%–97.4% across D1.5/D2.8 sites)</td>
+              <td><span class="badge badge-red">DO NOT RESUBMIT</span><br>Prior art</td></tr>
+          <tr><td><strong>GEMSDOE27 · H31-DRCG (Oct 26 wave leader)</strong><br><code>gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite</code></td>
+              <td><strong>0.2250</strong> <code>USER-REPORTED · no organizer receipt</code> (+ H29: <strong>0.2190</strong>)</td>
+              <td>Already scored claim</td>
+              <td>50.2% 3-px overlap vs H33 (d_cat median 16.3 px; genuine off-catalogue piedmont/Walker Lane reach)</td>
+              <td><span class="badge badge-red">DO NOT RESUBMIT</span><br>Prior art</td></tr>
+          <tr><td><strong>GEMSDOE36 · KPL36-EXP3 (Oct 26 wave #2)</strong><br><code>gemsdoe36-kpl36-exp3-20261026-fc869911e88c-zeros</code></td>
+              <td><strong>0.1647</strong> <code>USER-REPORTED · no organizer receipt</code> (MSDB1 on GEMSDOE30: <strong>0.1462</strong>; S33-SEISDIL on GEMSDOE33: <strong>0.0963</strong>)</td>
+              <td>Already scored claim</td>
+              <td>56.1% 3-px overlap vs H33 (d_cat median 14.9 px)</td>
+              <td><span class="badge badge-red">DO NOT RESUBMIT</span><br>Prior art</td></tr>
+          <tr><td><strong>PU Halo Collapse Diagnosis (Oct 25–26)</strong><br>G24 GVC1 (0.0859), G25 H66 (0.0742), G91 S22 (0.0298), G28 S18 (0.0217), G28 S21 (0.0206)</td>
+              <td><strong>0.0206 – 0.0859</strong> <code>USER-REPORTED · no organizer receipt</code>; sibling sites KANLER/EUG/WBG/GINNYGEMSDOE1–3 unscored</td>
+              <td>Already scored / unscored</td>
+              <td>Byte forensics: G28 S21 places 97% of dots within 15 px of mapped catalogue (median 4.1 px), memorizing potential-field blur halos around known faults</td>
+              <td><span class="badge badge-red">DO NOT SUBMIT</span><br>Forensic negative</td></tr>
+        </tbody></table></div>
+      </section>'''
+
+
 def _h31yz_section(lane_key: str, lane_name: str, kicker: str, card_file: str) -> str:
     """H31-Y/H31-Z regime-split lanes (2026-10-26, session 579233d5): data-driven from run cards."""
     rc_path = ROOT / f"evidence/{lane_key}/run_card.json"
@@ -1325,7 +1433,7 @@ def _overview_body(card, *, hero_rbu: bool):
     delta = card["paired_difference"]
     final = card["registry"]["final"]
     magrest_notice = '<div class="notice">Historical lane results below are research evidence only, not current upload permission.</div>'
-    body = f'''{selector_decision_section()}{magrest_notice}{h31y_download_and_gates()}{h31yr_download_and_gates()}{h31z_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
+    body = f'''{selector_decision_section()}{h31aa_download_and_gates()}{magrest_notice}{h31y_download_and_gates()}{h31yr_download_and_gates()}{h31z_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
       {h31s_download_and_gates()}
       {h31x_download_and_gates()}
       {h31t_download_and_gates()}
@@ -1492,6 +1600,7 @@ def executive(card):
       Download and format validation are separate from uniqueness, scientific efficacy and selector approval.
       No human sign-off can override a failed gate.</div>
       {selector_decision_section()}
+      {h31aa_download_and_gates()}
       {review_notice()}
       {h31y_download_and_gates()}
       {h31yr_download_and_gates()}
@@ -1559,6 +1668,7 @@ def research(card, screen, focus, lineage):
     return f'''<div class="notice"><strong>Evidence boundary</strong>Only measured geometry and local holdouts are verified here.
       The literal registry gate FAILS: a registered spacing-5 lattice covers 99.52%–100% of fixed variants’ dots, and GEMSDOE48 continuous pignistic covers 100%. No new fit or TIFF follows this STOP. The reported 0.2778 and conflicting leaderboard anchors 0.3195 / 0.4413 have no organizer receipt in this project.
       Non-GitHub official pages cannot be re-fetched under this environment's host allowlist.</div>
+      {h31aa_download_and_gates()}
       {h31s_download_and_gates()}
       <section><div class="section-head"><div><p class="kicker">2026-10-26 Ranked Geological Hypotheses (Lane H31-S)</p><h2>Four untried Basin-and-Range buried-fault hypotheses</h2></div>
         <p>Preregistered in <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_h31s_udap_sslic_preregistration.md">knowledge/2026-10-26_h31s_udap_sslic_preregistration.md</a> prior to running H31-S.</p></div>

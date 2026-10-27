@@ -31,6 +31,7 @@ jobs:
           python scripts/build_release_status.py --check
           python scripts/verify_h31j.py
           python scripts/verify_h31t.py
+          python scripts/verify_h31aa_run.py --check
       - name: Unit, leakage, metric, writer and regression tests
         run: python -m pytest -q
       - name: Lint and compile
