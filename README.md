@@ -1,8 +1,8 @@
-> ## Current review — 2026-10-27 (`arena/b3d80ae9-gemsdoe31`)
+> ## Current Arena review — 2026-10-27 (`arena/b3d80ae9-gemsdoe31`)
 >
-> **No new TIFF or experiment was made; no current file is approved to submit.** The prompt's referenced single-method paragraph is absent, the full production cache is not present, and the binding broad-registry gate remains negative. The site already contains the nine-site historic-high table, but all scores are USER-REPORTED and new-candidate leaderboard estimates are unavailable.
+> **No new TIFF or experiment was made; no current file is approved to submit.** The prompt's referenced single-method paragraph is absent, the full production cache is not present, and the binding broad-registry gate remains negative. The site contains the nine-site historical comparison; all pasted scores are USER-REPORTED and new-candidate leaderboard estimates are unavailable.
 >
-> Read [this session's three-pass review](knowledge/repo_review_2026-10-27_session-b3d80ae9.md) and [the existing executive summary / submission guide](docs/executive-summary.html#focus-sites) before changing or downloading anything. Existing H31-AA is an earlier research artifact only, not a submit recommendation.
+> This branch's [three-pass review](knowledge/repo_review_2026-10-27_session-b3d80ae9.md) and [executive summary / submission guide](docs/executive-summary.html#nine-site-decision) are the starting point. A parallel review now integrated from `main` is at [review 3b1ed545](knowledge/2026-10-27_review_3b1ed545.md), with its run card in `evidence/review_3b1ed545/run_card.json`. Both reviews deny submission; neither creates a new raster or selects a slot.
 >
 > ---
 >
