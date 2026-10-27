@@ -1,3 +1,11 @@
+> ## Current repository review — 2026-10-27 (`arena/74acc325-gemsdoe31`)
+>
+> **Decision remains: NO TIFF is approved to submit.** No new TIFF, fit, slot selection, upload, or leaderboard access was performed. This review reread the complete charter below, checked the current release gate, ranked three desk-only hypotheses, and reran the repository checks after restoring only the small ignored validation inputs.
+>
+> The full report is [`knowledge/repo_review_2026-10-27_arena.md`](knowledge/repo_review_2026-10-27_arena.md). It includes the nine-site table, an evidence-qualified explanation of the H33-2-B2 result, qualitative candidate ranking, source/access limits, three review passes, exact verification outcomes, and blockers. **No validated new-submission score estimate exists.**
+>
+> ---
+>
 > ## 🔎 PARALLEL-SESSION UPDATE 2026-10-26 (session `arena/a111fe50-gemsdoe31`, integrated after PRs #45/#46)
 >
 > **Current decision (unchanged from the protocol review below): NO file is approved to submit** under the

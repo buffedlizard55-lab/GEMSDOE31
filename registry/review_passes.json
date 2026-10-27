@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-26",
+ "generated_utc": "2026-10-27",
  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
  "passes": [
   {
@@ -1895,6 +1895,19 @@
    "pass2_review": "Found+fixed: (1) selector M1 projections invalid cross-family (RMSE 0.196) -> withdrawn everywhere incl. site/README; (2) site named 3 different submit files (top banner H31-N, hero H31-T, selector H31-X) -> single consistent decision via generator; (3) executive() how-to-submit hardcoded superseded H31-T/hash -> selector-primary; (4) AGENTS selector note stale (H31-T) -> amended. Verified H31-X junction holdout independently reproduces (Y2=0.1661). Disclosed (not hidden): Y3 top-K overlap vs H31-X 0.930 diagnostic; literal-695 lattice failure.",
    "pass3_recheck": "Independent validate_submission re-run on both H31-Y encodings + direct raster read-back ({0,1}, finite, EPSG:32611, 37,654 dots); pytest/ruff/check_metric/build_site/check_site re-run after regeneration (results in PR); every executive-summary number traced to an evidence JSON. Remaining limits: live score of every candidate UNKNOWN (cross-family interval includes 0.2778 and far below); round-2 label-set ambiguity flagged; next lane = marginal-credit allocation under fresh preregistration.",
    "merge_integration": "PR #48 conflicted with merged PRs #45 (9883b598 literal-STOP governance) and #46 (f4d7fb29 KIN-PIED lane also named H31-Y). Resolved by renaming this session's lane to H31-YM namespace (evidence/h31ym, scripts/run_h31ym.py; RENAME.json; TIFF bytes/names unchanged) and integrating under main's literal-STOP decision: no file re-promoted; quantified projection audit + negative mosaic receipts preserved; site regenerated from main generator + H31-YM section. Full suite re-run post-merge: 187 pytest, ruff, metric, verify_protocol_review, verify_current_run, collect_evidence, build/check site."
+  },
+  {
+   "session": "arena/74acc325-gemsdoe31",
+   "date": "2026-10-27",
+   "lane": "repository review only; no scientific lane assigned",
+   "pass1_implement": "Read the full README including the preserved prompt, AGENTS.md, current release status, current release/protocol reviews, historical current_run, review_passes and frozen MAGREST preregistration. Audited the nine-site executive summary and current release decision. No fit, TIFF generation, upload, slot selection or leaderboard access.",
+   "pass2_review": "Initial pytest failed because system Python lacked pytest; after creating ignored .venv and installing requirements, two integration tests exposed absent data/sample_submission.tif and data/labels.tif. Restored only the small pinned validation inputs via verify_current_run.py --restore-small-inputs. Re-ran current release and historical artifact verifiers; both deny submission. Confirmed no production data/cache in this checkout, no assigned method paragraph, and strict registered-lattice budget STOP. Discarded collect_evidence timestamp-only readiness.json change.",
+   "pass3_recheck": "After restoring the small validation inputs: pytest 202 passed; Ruff and compileall passed; check_metric passed (max fast/brute absolute DTI difference 4.441e-16); build_release_status --check passed; collect_evidence completed; build_site generated 22 pages; check_site passed 22 pages / 513 local links. Three qualitative hypotheses documented; top hypothesis not validated, no score forecast, no new run card or raster. Official non-GitHub sources not freshly fetched because outside the allowed network hosts.",
+   "artifacts": [
+    "knowledge/repo_review_2026-10-27_arena.md",
+    "README.md"
+   ],
+   "decision": "No TIFF is approved to submit; no new TIFF or experiment. Existing nine-site table remains prior-art history and all supplied numeric scores remain USER-REPORTED absent organizer receipts."
   }
  ]
 }
