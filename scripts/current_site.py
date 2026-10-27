@@ -5,6 +5,8 @@ import html
 import json
 from pathlib import Path, PurePosixPath
 
+import focus_review
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -1433,7 +1435,7 @@ def _overview_body(card, *, hero_rbu: bool):
     delta = card["paired_difference"]
     final = card["registry"]["final"]
     magrest_notice = '<div class="notice">Historical lane results below are research evidence only, not current upload permission.</div>'
-    body = f'''{selector_decision_section()}{h31aa_download_and_gates()}{magrest_notice}{h31y_download_and_gates()}{h31yr_download_and_gates()}{h31z_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
+    body = f'''{selector_decision_section()}{focus_review.section(ROOT)}{h31aa_download_and_gates()}{magrest_notice}{h31y_download_and_gates()}{h31yr_download_and_gates()}{h31z_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
       {h31s_download_and_gates()}
       {h31x_download_and_gates()}
       {h31t_download_and_gates()}
@@ -1599,7 +1601,7 @@ def executive(card):
     return f'''<div class="notice notice-danger"><strong>No file is cleared to submit under the current protocol.</strong>
       Download and format validation are separate from uniqueness, scientific efficacy and selector approval.
       No human sign-off can override a failed gate.</div>
-      {selector_decision_section()}
+      {selector_decision_section()}{focus_review.section(ROOT)}
       {h31aa_download_and_gates()}
       {review_notice()}
       {h31y_download_and_gates()}
