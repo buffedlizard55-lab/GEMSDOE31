@@ -1770,6 +1770,64 @@
     "owner_prompt_sha256": "preserved byte-exact in README.md",
     "site_budget": "22 pages <= 22 budget, 0 broken links, 0 forbidden approval strings"
    }
+  },
+  {
+   "id": "pass-2026-10-27-b3d80ae9-1-state-and-provenance",
+   "status": "complete-for-reviewed-records; no experiment authorized",
+   "scope": [
+    "current branch and README charter",
+    "nine focus-site score/focus registers",
+    "release and protocol stop receipts",
+    "existing H31-AA run card, TIFF receipt and submission guide"
+   ],
+   "findings": [
+    "all nine supplied historic highs remain USER-REPORTED; no organizer receipt is registered",
+    "the 0.3195 and 0.4413 anchors are conflicting and not freshly verified",
+    "the required single-method paragraph is absent; full production data/cache are not present",
+    "the stored executive summary already provides the requested nine-site table and submission instructions"
+   ],
+   "actions": [
+    "no method was self-assigned",
+    "no holdout experiment, TIFF, selector, slot, upload or leaderboard access was performed"
+   ],
+   "historical_scope": false
+  },
+  {
+   "id": "pass-2026-10-27-b3d80ae9-2-bug-assumption-and-gate-review",
+   "status": "complete-with-blockers-preserved",
+   "checks": [
+    "initial pytest run had 2 missing-small-input failures and 10 expected skips; after repo-supported restoration the suite passed",
+    "existing H31-AA --check verifier confirms stored artifact hashes, local grid/range receipt, saved canary and negative permission flags; it does not rerun holdout or exhaustively replay the registry",
+    "release and protocol checkers reproduce a negative verdict and the 37,654-dot counting-bound duplicate stop"
+   ],
+   "scope_caveats": [
+    "overlap table is measured against the named H33 peer and does not prove global uniqueness",
+    "the budget bound applies only to 37,654 dots",
+    "archived HOLDOUT-DTI values are prior evidence, not rerun in this review"
+   ],
+   "historical_scope": false
+  },
+  {
+   "id": "pass-2026-10-27-b3d80ae9-3-whole-request-and-ci",
+   "status": "complete-with-open-gates",
+   "verification": {
+    "pytest": "208 passed after restoring small ignored inputs",
+    "ruff": "all checks passed",
+    "compileall": "passed for src/, scripts/, and tests/",
+    "metric": "max fast-vs-brute DTI difference 4.441e-16 over 24 grids; implementation check only, not a score",
+    "release_and_protocol": "build_release_status.py --check and verify_protocol_review.py passed; verdict negative / ok_to_submit false",
+    "h31aa": "verify_h31aa_run.py --check passed for archived artifact/receipt; status remains negative; no holdout rerun",
+    "site": "22 pages and 534 local links checked; all passed"
+   },
+   "open_gates": [
+    "method paragraph/lane assignment",
+    "full authorized feature cache restoration",
+    "registry rule resolution",
+    "new spatial holdout and untouched confirmation under one authorized lane",
+    "organizer receipt and weekly selector/cap check"
+   ],
+   "delivery_state": "No new TIFF; no slot used; no DrivenData page accessed; all historic scores remain USER-REPORTED absent a receipt.",
+   "historical_scope": false
   }
  ],
  "remaining_work": [

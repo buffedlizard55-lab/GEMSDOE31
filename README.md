@@ -1,8 +1,16 @@
-> ## Current session — 2026-10-27 (`arena/f5b2211b-gemsdoe31` · Lane `H31-AA` SLFS)
+> ## Current review — 2026-10-27 (`arena/b3d80ae9-gemsdoe31`)
+>
+> **No new TIFF or experiment was made; no current file is approved to submit.** The prompt's referenced single-method paragraph is absent, the full production cache is not present, and the binding broad-registry gate remains negative. The site already contains the nine-site historic-high table, but all scores are USER-REPORTED and new-candidate leaderboard estimates are unavailable.
+>
+> Read [this session's three-pass review](knowledge/repo_review_2026-10-27_session-b3d80ae9.md) and [the existing executive summary / submission guide](docs/executive-summary.html#focus-sites) before changing or downloading anything. Existing H31-AA is an earlier research artifact only, not a submit recommendation.
+>
+> ---
+>
+> ## Prior experiment record — 2026-10-27 (`arena/f5b2211b-gemsdoe31` · Lane `H31-AA` SLFS)
 >
 > **No current artifact is approved. DO NOT SUBMIT (`slot_approved = false`, `ok_to_submit = false`, `verdict = "negative"`).** No human sign-off can override a failed literal registry gate under `literal-registry-20261026-9883b598`.
 >
-> - **New Unique Research GeoTIFF (`H31-AA` / `SLFS`, generated 2026-10-27 — OK TO DOWNLOAD FOR RESEARCH ONLY, DO NOT SUBMIT):**
+> - **H31-AA Research GeoTIFF (prior session, 2026-10-27 — OK TO DOWNLOAD FOR RESEARCH ONLY, DO NOT SUBMIT):**
 >   - [**All-finite `[0, 1]` `.tif` (`-zeros.tif`)**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-zeros.tif) (`SHA-256: d272d5babb9523a70f77e76ad6843830d67a9eabaaa60f8c3f46ca57bde9a1ef`) · [**Single-TIFF `.zip`**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-zeros.zip) (`c465a03b1bed…`) · [**NaN-outside twin `.tif`**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-nan.tif) (`7c3f288ec6a1…`) · [**Format Receipt**](docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-format-check.json) · [**JSON Run Card**](docs/downloads/h31aa-run-card.json)
 >   - **Unique name:** `gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746` · **Portal note (`92/140` chars):** `H31-AA AA2 SLFS log-flexure+shoreline-null 37654d B2 | HOLDOUT-DTI 0.1489 n=60988 | fdb34746`
 >   - **Measured `HOLDOUT-DTI` (`gems57-pooled-hide-v2`, `60,988` withheld positives, `21.3 km` collar):** `AA2` **`0.1489` `[0.1368, 0.1604]`** (`AA4` **`0.1556` `[0.1435, 0.1666]`**, beating `H31-X` on NW Fold 0 `0.1512 > 0.1454` [`29,319` positives]) vs same-run `H31-X` incumbent **`0.1661` `[0.1491, 0.1825]`**, `CTRL` `0.0671`, `SLOPE` `0.0488`; untouched `seed=3107` confirmation (`31,346` withheld): `AA2` **`0.1302` `[0.1181, 0.1424]`** vs `H31-X` `0.1517`, `CTRL` `0.0571`.
@@ -408,10 +416,12 @@ Concurrent review #47 (also NO SUBMIT; preserved):
 ## Read first every session
 
 Read this README **including the complete normalized owner prompt at the end**, `AGENTS.md`,
+[this latest session review](knowledge/repo_review_2026-10-27_session-b3d80ae9.md),
 [H31-N review](knowledge/2026-10-26_h31n_review.md),
 [latest status](knowledge/current_status_2026-10-25.md),
 [MAGREST preregistration](knowledge/2026-10-25_magrest_preregistration.md),
 [latest outcome](knowledge/session_review_2026-10-25_magrest.md), and `registry/review_passes.json`.
+Where older status banners conflict, the current session review and `registry/release_status.json` are authoritative; prior run cards remain historical.
 The earlier H31-A STOP remains historical. The prior session has receipts for all-eleven-input and template-cache restoration,
 but this clean runtime did not contain the full ignored production data/cache; only the small validation inputs and pinned
 registry witness were restored for this review. Do not restart a stopped lane or add a fourth experiment.
