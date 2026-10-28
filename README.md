@@ -12,9 +12,11 @@ The standing owner prompt is preserved below and must be read at the start of ev
 
 ---
 
-# Current repository review — 28 October 2026 (`arena/8083ba56-gemsdoe31`)
+# Parallel review — 28 October 2026 (`arena/98de2643-gemsdoe31`)
 
-**DO NOT SUBMIT:** no new TIFF or experiment was made; no file is approved under the literal registry protocol. The assigned single-method paragraph is missing, and a registered lattice forces STOP for the historical dot budget. The current leaderboard and a new-candidate estimate are unverified. See the [three-pass review](knowledge/2026-10-28_review_8083ba56.md), [existing executive summary](docs/executive-summary.html#nine-site-decision), and [negative run card](evidence/review_8083ba56/run_card.json). The complete owner charter remains below.
+**DO NOT SUBMIT:** that parallel review generated no TIFF, ran no experiment, and used no weekly slot. No current file is approved under the literal registry protocol. The prompt does not supply the required single-method paragraph, and the pinned spacing-5 registry witness forces a duplicate STOP at the ordinary 37,654-dot budget. Do not evade this gate by changing the raster density. A new candidate's leaderboard estimate is unavailable. See the [three-pass review](knowledge/repo_review_2026-10-28_arena-98de2643.md), [executive summary / nine-site comparison](docs/executive-summary.html#nine-site-decision), and [machine-readable negative run card](evidence/review_98de2643/run_card.json).
+
+This pass also corrected a provenance-labeling bug in the generated executive table: the cited 4-block SGMC proxy values are now labelled **COMPUTED SGMC-PROXY-DTI**, not HOLDOUT-DTI. The owner-reported historical scores remain unconfirmed; the live leaderboard and weekly quota were not accessed. Read the full owner charter below before substantive work.
 
 ---
 
