@@ -1940,6 +1940,61 @@
    "run_card": "evidence/review_98de2643/run_card.json",
    "report": "knowledge/repo_review_2026-10-28_arena-98de2643.md",
    "historical_scope": false
+  },
+  {
+   "id": "pass-2026-10-28-arena-41e3ba3f-1-implementation-and-verification",
+   "status": "complete-for-read-only-release-review; no scientific lane assigned",
+   "scope": [
+    "Re-read the full README including preserved prompts, AGENTS.md, latest release status, historical current_run, review register, H31-CC preregistration/run card, focus-site score/artifact registers, H33 forensics, site generator and relevant tests.",
+    "Restore only pinned sample, catalogue, and registered-lattice witness for byte/format verification; do not restore production features/cache or run an experiment.",
+    "Add an independent H31-CC exact-byte/format/ZIP/lattice verifier and CI check; rebuild canonical status and generated site around the latest existing H31-CC research file without changing the negative decision."
+   ],
+   "verification": {
+    "h31cc_verifier": "VERIFIED_NEGATIVE_RESEARCH_ONLY; 37,654 dots; SHA-256 0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+    "final_registered_control_overlap": "COMPUTED 37,508 / 37,654 = 99.6123%; literal STOP; not exhaustive 695-raster coverage",
+    "release_status": "release-review-arena-41e3ba3f; negative; ok_to_submit=false; slot_approved=false; leaderboard_estimate=null",
+    "site": "22 pages; 551 local links; passed"
+   }
+  },
+  {
+   "id": "pass-2026-10-28-arena-41e3ba3f-2-independent-bug-assumption-and-gate-review",
+   "status": "complete-with-blockers-preserved",
+   "findings_fixed": [
+    "Canonical release status had an older H31-X artifact pointer while the generated front door showed the later H31-CC research artifact; archived the old status byte-for-byte and rebuilt the current status from H31-CC bytes.",
+    "H31-CC tests checked basic local format/dot fields but did not independently bind both TIFFs and the one-TIFF ZIP to all frozen hashes or reproduce the registered-witness overlap; added an independent verifier and regression test.",
+    "README prompt-preservation test caught an initial mismatch after a second closing details tag was appended; moved the current prompt copy outside the byte-exact preserved block, then verified its preservation test."
+   ],
+   "scope_caveats": [
+    "H31-CC HOLDOUT-DTI and pre-placement metrics remain cited from its frozen prior card, not rerun.",
+    "One hash-pinned owner-mirror registered witness proves STOP but is not an exhaustive registry scan.",
+    "All focus-site scores remain USER-REPORTED; 0.3195 and 0.4413 conflict; no organizer receipt or live leaderboard was accessed.",
+    "No scientific canary or experiment was run because the method paragraph is missing and no lane was authorized."
+   ]
+  },
+  {
+   "id": "pass-2026-10-28-arena-41e3ba3f-3-whole-request-and-ci-recheck",
+   "status": "complete-with-open-gates",
+   "verification": {
+    "pytest": "214 passed",
+    "ruff": "all checks passed",
+    "compileall": "passed for src, scripts, tests",
+    "metric": "maximum fast/brute difference 4.441e-16 over 24 grids; 29 kernel offsets",
+    "marginal_dti": "10,000 fixed-truth sign checks passed; geological_experiments=0",
+    "current_run": "verify_current_run.py --restore-small-inputs passed; historical MAGREST remains negative",
+    "protocol_review": "negative; 82.34% minimum-overlap bound preserved as specific to 37,654 dots",
+    "h31cc": "exact hashes, both formats, ZIP roundtrip, catalogue mask, 37,654 dots, 2.828427 px spacing, and 99.6123% registered-control overlap verified; no score rerun",
+    "release_status": "check passed; H31-CC is current audited artifact; no file approved",
+    "other_archived_verifiers": "H31-J, H31-T and H31-AA passed; each remains not slot-approved",
+    "site": "22 pages / 552 local links passed",
+    "evidence_collection": "250 artifacts inventoried; 14 submission files registered; no legacy cache copies"
+   },
+   "open_gates": [
+    "required single-method paragraph and explicit lane authorization",
+    "literal registry scope/policy remains STOP; no density workaround or control exemption",
+    "full authorized feature stack/cache and fresh holdout/confirmation remain unavailable/unauthorized",
+    "organizer-authenticated score receipts, live leaderboard, weekly cap and selector approval remain unavailable"
+   ],
+   "delivery_state": "No new TIFF, experiment, candidate, slot, DrivenData access, or leaderboard estimate; current release remains negative."
   }
  ],
  "remaining_work": [
@@ -2027,7 +2082,7 @@
  },
  "historical_release_decision_pre_bf9d261d": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here.",
  "current_release_status": "registry/release_status.json",
- "current_scientific_run": "evidence/h31x/run_card.json (historical; no new scientific run)",
+ "current_scientific_run": "evidence/h31cc/run_card.json (latest prior-session scientific artifact; no new scientific run in arena/41e3ba3f)",
  "current_run_scope": "registry/current_run.json is the historical MAGREST scientific receipt, not current release permission",
  "previous_current_three_passes": [
   "arena-review-pass-1-2026-10-26",
@@ -2107,6 +2162,22 @@
     "README.md"
    ],
    "decision": "No TIFF is approved to submit; no new TIFF or experiment. Existing nine-site table remains prior-art history and all supplied numeric scores remain USER-REPORTED absent organizer receipts."
+  },
+  {
+   "session": "arena/41e3ba3f-gemsdoe31",
+   "date": "2026-10-28",
+   "lane": "Read-only repository/release review; no scientific lane assigned",
+   "pass1_implement": "Re-read README/AGENTS and pinned evidence; revalidated the existing H31-CC artifact bytes and fixed canonical release/site alignment without changing denial.",
+   "pass2_review": "Reproduced 99.6123% final-dot overlap against one registered owner-mirror control; added verifier and CI/test coverage; kept holdout/pre-placement numbers cited, the registry scan non-exhaustive, and the 82.34% bound specific to 37,654 dots (STOP by count only at N >= 22,164).",
+   "pass3_recheck": "214 pytest passed; Ruff/compileall/metric/marginal DTI passed; historical and H31-CC verifiers passed; evidence collection inventoried 250 artifacts; 22 generated pages and 552 local links passed after integrating main PR #62.",
+   "artifacts": [
+    "knowledge/repo_review_2026-10-28_arena-41e3ba3f.md",
+    "knowledge/owner_prompt_2026-10-28_41e3ba3f.md",
+    "evidence/review_41e3ba3f/run_card.json",
+    "evidence/h31cc/verification_receipt.json"
+   ],
+   "decision": "No artifact is approved. No new TIFF, experiment, candidate, slot, leaderboard access, or score estimate; all focus-site leaderboard claims remain USER-REPORTED absent organizer receipts.",
+   "base_integration": "origin/main 4bae11a3f884507d19c6c978c3f495e28e385d94 (merged PR #62); preserves the earlier count-bound review, no new science."
   }
  ],
  "session_review_20261027_3b1ed545": {
@@ -2157,5 +2228,24 @@
   "ok_to_submit": false,
   "review": "knowledge/2026-10-28_h31cc_session_review.md",
   "run_card": "evidence/h31cc/run_card.json"
+ },
+ "session_review_20261028_41e3ba3f": {
+  "review_id": "20261028-arena-41e3ba3f",
+  "pass_1": "Read full README/AGENTS and the relevant release, run, score, focus-site, H31-CC, H33, and test evidence; restored only pinned small read-only inputs; added exact-byte H31-CC verification and updated current status/site pointers.",
+  "pass_2": "Independent gate review found no new scientific permission; reproduced 99.6123% final overlap against one registered owner-mirror witness; holdout and pre-placement metrics remain cited; verified the count bound is 82.34% at 37,654 dots and forces STOP only for N >= 22,164; fixed README prompt-preservation test after initial failure.",
+  "pass_3": "214 tests, Ruff, compileall, metric and marginal-DTI checks, current/previous artifact verifiers, release check, evidence collection (250 artifacts), and 22-page/552-link site checks passed after integrating main PR #62.",
+  "new_experiments": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "ok_to_submit": false,
+  "leaderboard_estimate": null,
+  "review": "knowledge/repo_review_2026-10-28_arena-41e3ba3f.md",
+  "run_card": "evidence/review_41e3ba3f/run_card.json",
+  "h31cc_receipt": "evidence/h31cc/verification_receipt.json",
+  "base_integration": {
+   "source_commit": "4bae11a3f884507d19c6c978c3f495e28e385d94",
+   "included_review": "PR #62 / arena/fcbbeea8-gemsdoe31",
+   "scientific_work_added": false
+  }
  }
 }

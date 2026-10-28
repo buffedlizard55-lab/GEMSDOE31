@@ -31,45 +31,54 @@ def _selector():
 
 
 def selector_decision_section() -> str:
-    """The current literal protocol overrides archived discrete-only approvals."""
+    """The latest byte-backed release status; historical lane cards never grant permission."""
     p = ROOT / "registry/release_status.json"
     if not p.is_file():
-        return '<div class="notice notice-danger">DO NOT SUBMIT: current protocol audit missing.</div>'
+        return '<div class="notice notice-danger">DO NOT SUBMIT: current release audit missing.</div>'
     r = json.loads(p.read_text())
     h = r["holdout_dti"]
     u = r["correlation_overlap_vs_registry"]
+    pair = h.get("paired_vs_null") or {}
     filename = esc(r["file"].replace("docs/", "", 1))
+    report_link = "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-28_arena-41e3ba3f.md"
+    paired_ci = pair["ci95"]
     return f'''<section id="selector-decision" aria-labelledby="selector-heading">
-      <p class="kicker">Current release audit · 26 October 2026 · no new experiment</p>
+      <p class="kicker">Current release audit · 28 October 2026 · existing H31-CC bytes; no new experiment</p>
       <h2 id="selector-heading">DO NOT SUBMIT — literal registry STOP</h2>
       <div class="notice notice-danger"><strong>No current artifact is approved.</strong>
-      Earlier H31-X / H31-T selector upload permissions are withdrawn under the current prompt.
-      A format pass cannot override failed uniqueness. No new TIFF was generated after STOP.</div>
-      <div class="table-wrap"><table><thead><tr><th>File to download</th><th>HOLDOUT-DTI (prior receipt)</th>
-      <th>Estimated leaderboard score</th><th>Unique under requested rule?</th><th>Permission</th></tr></thead><tbody><tr>
-      <td><a href="{filename}" download>{esc(Path(r["file"]).name)}</a><br>Existing H31-X, not new this session</td>
+      H31-CC is the latest research TIFF, generated in the prior scientific session. This review only re-read its
+      bytes and rechecked one registered witness. Its same-run paired HOLDOUT-DTI is negative, and its final dots
+      overlap the registered spacing-5 control above the literal 70% limit. No new TIFF or weekly slot was used.</div>
+      <div class="table-wrap"><table><thead><tr><th>Existing research file</th><th>HOLDOUT-DTI (cited prior result)</th>
+      <th>New-file leaderboard estimate</th><th>Unique under requested rule?</th><th>Permission</th></tr></thead><tbody><tr>
+      <td><a href="{filename}" download>{esc(Path(r["file"]).name)}</a><br>H31-CC · not generated in this review</td>
       <td>{h["dti"]:.4f}, 95% CI [{h["ci95"][0]:.4f}, {h["ci95"][1]:.4f}]<br>
-      {esc(h["evaluator_version"])}, {h["withheld_positive_pixels"]:,} withheld; cited, not rerun</td>
-      <td>Unavailable: cross-family calibration unvalidated. Historical projection is not a score or reliable interval. Quantified this session (a111fe50): the retired in-family formula has out-of-family RMSE 0.196 / bias +0.135 over 67 matched USER-REPORTED submissions; best cross-family LOO RMSE 0.090 barely beats the mean (<code>evidence/cross_family_calibration_20261026.json</code>).</td>
-      <td>No: surface top-K {100*u["surface"]["max_overlap"]:.1f}% (prior receipt);
-      final dots {100*u["final"]["max_overlap"]:.2f}% vs registered lattice (fresh read-back).</td>
+      {esc(h["evaluator_version"])}, {h["withheld_positive_pixels"]:,} withheld; cited, not rerun.
+      Paired vs same-run NULL {pair["delta"]:+.4f} [{paired_ci[0]:+.4f}, {paired_ci[1]:+.4f}].</td>
+      <td>Unavailable. HOLDOUT-DTI and proxy metrics are not leaderboard scores; no organizer score receipt or calibrated cross-family forecast exists.</td>
+      <td>No: final-dot overlap is {100*u["final"]["lattice_overlap"]:.2f}% against one hash-pinned registered witness (&gt;70%).
+      This counterexample is sufficient for STOP; no exhaustive registry pass is claimed.</td>
       <td>Research download YES<br><strong>Submission NO</strong></td></tr></tbody></table></div>
-      <div class="actions"><a class="button button-primary" href="{filename}" download>Download existing H31-X research .tif — DO NOT SUBMIT</a>
+      <div class="actions"><a class="button button-primary" href="{filename}" download>Download existing H31-CC research .tif — DO NOT SUBMIT</a>
       <a class="button" href="downloads/current-release-status.json">Current automated release / format receipt</a>
-      <a class="button" href="downloads/protocol-review-run-card.json">Prior protocol audit</a></div>
+      <a class="button" href="downloads/h31cc-run-card.json">H31-CC scientific run card</a>
+      <a class="button" href="downloads/h31cc-verification.json">Independent byte-verification receipt</a>
+      <a class="button" href="downloads/protocol-review-run-card.json">Earlier H31-X protocol audit</a></div>
       <p><strong>SHA-256:</strong> <code>{esc(r["raster_sha256"])}</code><br>
       <strong>Research name:</strong> <code>{esc(r["submission_name"])}</code><br>
       <strong>Note:</strong> {esc(r["note"])}</p>
-      <p>Values are finite in [0,1]; one float32 band; CRS, shape and transform match the hash-pinned mirror template.
-      This is local validation, not organizer acceptance. Private truth, authenticated score receipts and current weekly quota are unavailable.</p>
-      <p>One authentic registry witness suffices for STOP; no exhaustive registry pass is claimed.
-      The lattice covers {100*r["lattice_coverage"]["coverage_fraction"]:.3f}% of the footprint within 3 px.
-      At this dot budget any placement must overlap at least {100*r["lattice_coverage"]["minimum_overlap_any_same_budget"]:.2f}%.
-      This counting bound does not apply to every nonempty raster. Moving dots to evade the test is not geological discovery.
-      A budget-only preflight now detects this unavoidable STOP before any new fit or placement.
-      The current permission is published once in <a href="downloads/current-release-status.json">release status JSON</a>;
-      historical lane cards are not upload permissions.</p>
-      <p><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_release_review_bf9d261d.md">Review, hypotheses, evidence and remaining work</a></p>
+      <p>Both H31-CC encodings revalidate against the hash-pinned owner-mirror sample: one float32 band, EPSG:32611,
+      exact shape/transform, and finite [0,1] values under their respective outside-footprint conventions.
+      That is local format validation only, not organizer acceptance.</p>
+      <p>The final-dot overlap was recomputed from the served TIFF and a registered owner-mirror control.
+      The spacing-5 3-px halo covers {100*r["lattice_coverage"]["coverage_fraction"]:.3f}% of the footprint;
+      at 37,654 dots the computed minimum overlap is {100*r["lattice_coverage"]["minimum_overlap_any_same_budget"]:.2f}%.
+      This counting bound is specific to that budget and does not prove every nonempty raster must fail.
+      No density change or registry exemption was used. Pre-placement surface metrics and HOLDOUT-DTI are cited
+      from the frozen run card, not rerun here. Private truth, organizer receipts, current weekly quota, and selector
+      authorization remain unavailable. No human sign-off can override the failed gate.</p>
+      <p><a href="{report_link}">Current review, nine-site comparison, hypotheses, limitations and next steps</a> ·
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_release_review_bf9d261d.md">Historical H31-X release review</a></p>
     </section>'''
 
 
@@ -1418,15 +1427,15 @@ def h31n_decision_banner() -> str:
 
 def overview(card):
     hero = '''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · 28 October 2026 · H31-CC</p>
-      <h1>DO NOT SUBMIT.<br>A new unique TIFF was generated and it failed the score gates.</h1>
-      <p class="hero-lede">H31-CC is a new cover-concealed basement-step map. It is not a copy of H33-2-B2.
-      Format is valid, including values in [0, 1]. It does not beat the same-run chance map, and the
-      calibration-lattice rule still blocks a weekly slot. No leaderboard estimate is offered.</p>
-      <div class="actions"><a class="button button-primary" href="downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif" download>Download all-finite .tif — DO NOT SUBMIT</a>
-      <a class="button" href="executive-summary.html#h31cc">Why this file is blocked</a></div>
+      <p class="eyebrow">DOE GEMS Prize · 28 October 2026 · release audit</p>
+      <h1>DO NOT SUBMIT.<br>The latest research TIFF failed its score and registry gates.</h1>
+      <p class="hero-lede">H31-CC is the latest research artifact; it was generated in the previous scientific session.
+      This review rechecked existing bytes only—no new experiment, TIFF, or slot. Its same-run paired HOLDOUT-DTI
+      is negative, and the registered spacing-5 control triggers the literal 3-px duplicate STOP. No leaderboard estimate is offered.</p>
+      <div class="actions"><a class="button button-primary" href="downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif" download>Download existing research .tif — DO NOT SUBMIT</a>
+      <a class="button" href="executive-summary.html#selector-decision">Current release decision</a></div>
       </div><aside class="hero-side"><strong>DO NOT SUBMIT</strong><p>No current artifact is approved.
-      No human sign-off can override a failed gate. The all-finite file avoids the NaN range error; that is not permission to upload.</p></aside></div></section>'''
+      No human sign-off can override a failed gate. The all-finite file avoids a NaN range error; that is not permission to upload.</p></aside></div></section>'''
     return hero, h31cc_front_door() + _overview_body(card, hero_rbu=False)
 
 
@@ -1452,7 +1461,7 @@ def _overview_body(card, *, hero_rbu: bool):
         <p>These statuses are rebuilt from the exact file, receipts, holdout terms and registry checks.</p></div>
         <div class="grid grid-4">
           <div class="card stat"><span class="badge badge-green">PASS</span><h3>File format</h3><p>Exact grid. No NaN inside. All values in [0,1].</p></div>
-          <div class="card stat"><span class="badge badge-red">STOP · 100% overlap</span><h3>Registry separation</h3><p>Nine-tree audit passed, but an authentic shared-registry lattice exceeds the literal 70% rule.</p></div>
+          <div class="card stat"><span class="badge badge-red">STOP · 100% overlap</span><h3>Registry separation</h3><p>Nine-tree audit passed, but a hash-pinned owner-mirror shared-registry lattice exceeds the literal 70% rule.</p></div>
           <div class="card stat"><span class="badge badge-red">FAIL</span><h3>Scientific screen</h3><p>Paired 95% interval crosses zero; worst block exceeds loss limit.</p></div>
           <div class="card stat"><span class="badge badge-red">BLOCKED</span><h3>Submit?</h3><p>No confirmation, no selector promotion, no organizer receipt.</p></div>
         </div>
@@ -1592,7 +1601,7 @@ def _focus_unique_2026_html() -> str:
 
 
 def review_notice():
-    return '<div class="notice"><strong>26 October audit: no new TIFF or submission approval.</strong> The literal registry STOP remains binding. Corrected marginal DTI algebra and score-provenance wording; existing downloads are research-only. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_metric_and_release_review.md">Review, limitations and next steps</a>.</div>'
+    return '<div class="notice"><strong>28 October release audit: existing H31-CC bytes revalidated; no new experiment or TIFF.</strong> The paired HOLDOUT-DTI remains a cited negative result, and the measured registered-lattice overlap keeps the literal STOP binding. Every research download remains unapproved for upload. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-28_arena-41e3ba3f.md">Current review, limitations and next steps</a>.</div>'
 
 
 def executive(card):
@@ -1807,12 +1816,12 @@ def h31cc_front_door() -> str:
     )
     name = esc(Path(files["zeros"]).name)
     return f'''<section id="h31cc">
-      <p class="kicker">28 October 2026 · lane H31-CC · new file, negative result</p>
+      <p class="kicker">28 October 2026 · previous scientific session · latest H31-CC research artifact</p>
       <h2>DO NOT SUBMIT this TIFF</h2>
       <div class="notice notice-danger"><strong>Not approved for the competition.</strong>
-      The file is unique against the nine named sites and its values are finite in [0, 1], but it lost to a
-      same-run chance map and the calibration lattice still exceeds the 70% rule. No weekly slot was used.
-      No human sign-off can override this.</div>
+      The prior H31-CC nine-site audit found this file distinct from those nine pinned rasters; its values are finite in [0, 1].
+      It lost to a same-run chance map, and the registered spacing-5 control exceeds the literal 70% rule.
+      The current review verified bytes only; no new experiment or weekly slot was used. No human sign-off can override this.</div>
       <div class="table-wrap"><table>
         <caption>What to download, what the number means, and whether it is a new submission</caption>
         <thead><tr><th>File</th><th>Number</th><th>Unique?</th><th>Download and submit?</th></tr></thead>
@@ -1823,10 +1832,9 @@ def h31cc_front_door() -> str:
             {esc(hold["evaluator_version"])}, {hold["withheld_positive_pixels"]:,} withheld positives.
             Paired difference versus same-run NULL {paired["delta"]:+.4f} [{paired["ci95"][0]:+.4f}, {paired["ci95"][1]:+.4f}].
             Leaderboard estimate: unavailable.</td>
-            <td>Yes versus the nine focus submissions (maximum {100*nine_max:.1f}% of dots within 3 px; H33-2-B2 is {100*h33["overlap_3px"]:.1f}%).
-            Maximum versus local submission rasters {100*final["max_overlap_submission"]:.1f}%.
-            Spearman |ρ| {final["max_abs_rho_submission"]:.3f}.
-            Calibration lattice overlap {100*final["lattice_overlap"]:.1f}% — literal registry STOP, not a copied lane.</td>
+            <td>Yes versus the nine pinned focus rasters (maximum {100*nine_max:.1f}% of dots within 3 px; H33-2-B2 is {100*h33["overlap_3px"]:.1f}%).
+            The frozen local-peer audit reports max final-dot overlap {100*final["max_overlap_submission"]:.1f}% and surface |ρ| {final["max_abs_rho_submission"]:.3f}; that is a partial peer scope, not global uniqueness.
+            The current byte verifier recomputed {100*final["lattice_overlap"]:.2f}% final-dot overlap against the registered control — literal registry STOP.</td>
             <td><strong>DO NOT SUBMIT</strong><br>Research download only</td>
           </tr>
         </tbody>
@@ -1835,6 +1843,7 @@ def h31cc_front_door() -> str:
         <a class="button button-primary" href="downloads/{name}" download>Download all-finite .tif — DO NOT SUBMIT</a>
         <a class="button" href="downloads/{esc(Path(files["zip"]).name)}" download>Download single-TIFF .zip — DO NOT SUBMIT</a>
         <a class="button" href="downloads/h31cc-run-card.json">Run card</a>
+        <a class="button" href="downloads/h31cc-verification.json">Independent byte-verification receipt</a>
       </div>
       <p><strong>Name:</strong> <code>{esc(files["name"])}</code><br>
       <strong>Note ({files["note_chars"]}/140):</strong> {esc(files["note"])}<br>
@@ -1843,14 +1852,14 @@ def h31cc_front_door() -> str:
       That fixes the range error only. It does not make the file a valid scientific entry.
       The NaN-outside twin is <a href="downloads/{esc(Path(files["nan"]).name)}">{esc(Path(files["nan"]).name)}</a>.</p>
       <h3>Nine-site historical files — do not resubmit</h3>
-      <p>Overlaps below are this session’s H31-CC dots versus each pinned historical raster.
+      <p>Overlaps below are the prior H31-CC session’s dots versus each pinned historical raster.
       Listed scores are USER-REPORTED. None is an estimate for a new file. None is organizer-confirmed.</p>
       <div class="table-wrap"><table>
         <thead><tr><th>Site</th><th>H31-CC dots within 3 px</th><th>Historical claim</th><th>Resubmit?</th><th>New-file estimate</th></tr></thead>
         <tbody>{nine_rows}</tbody>
       </table></div>
       <p>H33-2-B2’s USER-REPORTED 0.2778 is a catalogue-flank prune of a 300 m dotted structural field, not a new fault discovery.
-      On this session’s same code it scores SGMC off-catalogue proxy DTI 0.0940 versus H31-CC 0.0078
+      The prior H31-CC session’s same-code comparison recorded SGMC off-catalogue proxy DTI 0.0940 for H33 versus 0.0078 for H31-CC
       (61,664 proxy positives; not a competition score). Catalogue-gap HOLDOUT-DTI cannot explain that historical claim:
-      H33 was built to avoid the public catalogue, so it scores 0.0067 here. No result in this session supports a score above 0.2778, 0.3195, or 0.4413.</p>
+      H33 was built to avoid the public catalogue, so its cited value on that instrument is 0.0067. No organizer-confirmed result in this repository supports a score above 0.2778, 0.3195, or 0.4413.</p>
     </section>'''

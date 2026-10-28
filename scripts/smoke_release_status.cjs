@@ -29,7 +29,7 @@ const assert = (v, m) => { if (!v) throw new Error(m); };
         assert(text.includes('DO NOT SUBMIT'), 'missing STOP');
         assert(!text.includes('OK TO SUBMIT') && !text.includes('SUBMIT THIS FILE'), 'stale approval');
         const pending = page.waitForEvent('download');
-        await page.getByRole('link', {name: 'Download existing H31-X research .tif — DO NOT SUBMIT', exact: true}).click();
+        await page.getByRole('link', {name: 'Download existing H31-CC research .tif — DO NOT SUBMIT', exact: true}).click();
         const download = await pending;
         const filePath = await download.path();
         assert(!await download.failure(), 'download failure');
@@ -49,7 +49,7 @@ const assert = (v, m) => { if (!v) throw new Error(m); };
     assert(JSON.stringify(await statusResponse.json()) === JSON.stringify(card), 'public status differs');
     result.feed_and_public_status_agree = true;
     assert(!result.errors.length, 'browser errors');
-    fs.writeFileSync(path.join(ROOT, 'evidence/review_bf9d261d/browser_checks.json'), JSON.stringify(result, null, 2) + '\n');
+    fs.writeFileSync(path.join(ROOT, 'evidence/review_41e3ba3f/browser_checks.json'), JSON.stringify(result, null, 2) + '\n');
     console.log('PASS: 6 responsive page visits and 6 exact-hash research downloads');
   } finally { await browser.close(); }
 })().catch(e => { console.error(e); process.exitCode = 1; });

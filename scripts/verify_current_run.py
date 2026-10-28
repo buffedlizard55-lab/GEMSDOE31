@@ -2,7 +2,7 @@
 """Re-derive current-file integrity and submission denial without a human inspector.
 
 Only --restore-small-inputs uses the network (the existing pinned GitHub mirror
-restorer for sample + catalogue plus one authentic registered control). No
+restorer for sample + catalogue plus one hash-pinned owner-mirror registered control). No
 DrivenData calls. Nine-tree repetition is scripts/recheck_magrest.py; the
 broader literal registry STOP is independently re-derived from served dots.
 """

@@ -262,6 +262,11 @@
    "sha256": "af6289655dc2bd4443effecf3dfbd4f80f9c9014f4259334576ebf0b63d87ca2"
   },
   {
+   "path": "evidence/h31cc/verification_receipt.json",
+   "bytes": 13250,
+   "sha256": "293be029d487ed72f1d6b77c19811ac6229048189a43b6cc023ead3614dd6d37"
+  },
+  {
    "path": "evidence/h31e/duplicate_canary.json",
    "bytes": 10801,
    "sha256": "69becc95e45e4374561541c2ffc2903373d6137fdbd9240ba194f27ab54d2053"
@@ -982,6 +987,11 @@
    "sha256": "f610749147717748f58984e1874830906ae0144442b37a197c662f468f08be68"
   },
   {
+   "path": "evidence/release_status/release-status-2026-10-26-bf9d261d.json",
+   "bytes": 9845,
+   "sha256": "ce76d989c6ca20aced87c57b65827d990be3dd1475736392c69ebb3cb413fc16"
+  },
+  {
    "path": "evidence/review_3b1ed545/nine_site_comparison.json",
    "bytes": 14208,
    "sha256": "1c63bf76a5d8ebe9f6160851d2f2be7bcf4eee6505217878795f205c6d569b53"
@@ -995,6 +1005,11 @@
    "path": "evidence/review_3b1ed545/verification.json",
    "bytes": 1062,
    "sha256": "e48b44d78a6e564ebd4ed67782e726f0f128b7ec95693ab2111844981ca9b439"
+  },
+  {
+   "path": "evidence/review_41e3ba3f/run_card.json",
+   "bytes": 6468,
+   "sha256": "872d675ac2403f043e65e6989126bb89c66eec1f002bf2fbbea6356c7dd4ca79"
   },
   {
    "path": "evidence/review_8083ba56/run_card.json",

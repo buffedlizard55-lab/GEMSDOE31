@@ -52,6 +52,15 @@ def test_current_status_matches_registers_and_public_copy():
     assert status['slot_approved'] is False and status['leaderboard_estimate'] is None
     assert status['holdout_provenance'].startswith('CITED')
     assert status['validator']['hard_failures'] == []
+    assert status['file'] == json.loads((ROOT / 'evidence/h31cc/run_card.json').read_text())['files']['zeros']
+    assert status['review_id'] == 'release-review-arena-41e3ba3f'
+    assert status['experiments_run_in_this_review'] == 0
+    assert status['new_tif_generated_in_this_review'] is False
+    assert status['correlation_overlap_vs_registry']['final']['lattice_overlap'] > 0.70
+    assert status['correlation_overlap_vs_registry']['final']['provenance'].startswith('COMPUTED')
+    assert status['correlation_overlap_vs_registry']['surface']['provenance'].startswith('CITED')
+    assert status['registered_witness']['evidence_class'] == 'OWNER-MIRROR'
+    assert 'not organizer-authenticated' in status['registered_witness']['qualification']
     assert 0 < len(status['note']) <= 140
 
 

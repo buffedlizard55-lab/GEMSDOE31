@@ -3,10 +3,10 @@
  "project": "GEMSDOE31",
  "generated_from": "registry/*.json + evidence/*.json by scripts/build_site.py",
  "current_download": {
-  "submission_name": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9",
-  "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
-  "raster_sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
-  "note": "RESEARCH ONLY: existing H31-X; literal registry duplicate STOP. No new TIFF, fit or weekly submission slot.",
+  "submission_name": "gems31-h31cc-basement-step-37654d-20261028",
+  "file": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+  "raster_sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+  "note": "RESEARCH ONLY: H31-CC; negative screen and literal lattice STOP. No new experiment, TIFF, or weekly slot in this review.",
   "verdict": "negative",
   "ok_to_download_for_research": true,
   "ok_to_submit": false,
@@ -14,29 +14,41 @@
   "holdout_dti": {
    "evidence_class": "HOLDOUT-DTI",
    "evaluator_version": "gems57-pooled-hide-v2",
-   "dti": 0.1661329569994631,
-   "ci95": [
-    0.14985841711445055,
-    0.18210651085093407
-   ],
+   "arm": "CC3",
    "withheld_positive_pixels": 60988,
-   "tpw": 9624.430506279157,
-   "fpw": 36084.052281319084,
-   "fnw": 51363.56949372086
+   "dti": 0.047069900074153195,
+   "ci95": [
+    0.03323168323881463,
+    0.06181643961343269
+   ],
+   "tpw": 2673.22811538755,
+   "fpw": 37338.42075323,
+   "fnw": 58314.77188461243,
+   "paired_vs_null": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "delta": -0.009669665602735938,
+    "ci95": [
+     -0.02345607786902358,
+     0.0052006781922370095
+    ],
+    "withheld_positive_pixels": 60988
+   },
+   "best_comparable_control": "NULL"
   },
-  "holdout_provenance": "CITED prior receipt, not rerun or independently reproduced this session",
+  "holdout_provenance": "CITED from frozen H31-CC run card; not rerun in this integrity review",
   "leaderboard_estimate": null,
   "failed_or_unknown_gates": [
-   "Literal any-registry uniqueness STOP (registered lattice); incomplete broad-registry coverage",
-   "Pre-placement surface is cited history, not replayed from unavailable cache",
-   "No single-method paragraph supplied; no new scientific lane assigned",
-   "No same-run retrained global incumbent / fresh confirmation in this review",
-   "Organizer-authenticated template, score receipt and current weekly cap unavailable",
-   "No selector action authorized by this parallel-run protocol"
+   "Literal any-registry uniqueness STOP: the final H31-CC dots overlap the pinned spacing-5 witness by 99.612% (>70%).",
+   "The pre-placement surface comparison is cited from the frozen card, not replayed in this integrity review.",
+   "Only one hash-pinned registered owner-mirror witness was rechecked; no exhaustive 695-raster pass is claimed.",
+   "HOLDOUT-DTI is a cited prior result; its paired interval versus NULL crosses zero and no confirmation ran.",
+   "The active prompt supplies no single-method paragraph; no new lane or experiment was authorized.",
+   "Organizer-authenticated template/score receipts, current weekly cap, and selector approval are unavailable."
   ],
-  "name": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9",
-  "tif": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
-  "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9"
+  "name": "gems31-h31cc-basement-step-37654d-20261028",
+  "tif": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+  "sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44"
  },
  "buffer": {
   "derived_buffer_km": 21.25,
@@ -269,12 +281,12 @@
   "not_automated": "leaderboard reads, score entry and file uploads remain manual by competition terms"
  },
  "open_items": [
-  "Literal any-registry uniqueness STOP (registered lattice); incomplete broad-registry coverage",
-  "Pre-placement surface is cited history, not replayed from unavailable cache",
-  "No single-method paragraph supplied; no new scientific lane assigned",
-  "No same-run retrained global incumbent / fresh confirmation in this review",
-  "Organizer-authenticated template, score receipt and current weekly cap unavailable",
-  "No selector action authorized by this parallel-run protocol"
+  "Literal any-registry uniqueness STOP: the final H31-CC dots overlap the pinned spacing-5 witness by 99.612% (>70%).",
+  "The pre-placement surface comparison is cited from the frozen card, not replayed in this integrity review.",
+  "Only one hash-pinned registered owner-mirror witness was rechecked; no exhaustive 695-raster pass is claimed.",
+  "HOLDOUT-DTI is a cited prior result; its paired interval versus NULL crosses zero and no confirmation ran.",
+  "The active prompt supplies no single-method paragraph; no new lane or experiment was authorized.",
+  "Organizer-authenticated template/score receipts, current weekly cap, and selector approval are unavailable."
  ],
  "historical_download": {
   "name": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1",
@@ -391,49 +403,63 @@
   ]
  },
  "historical_generated_utc": "2026-10-25T21:27:53.911211+00:00",
- "review_date": "2026-10-26",
+ "review_date": "2026-10-28",
  "current_release_status": {
   "policy_version": "literal-registry-20261026-9883b598",
-  "hypothesis": "H31-X: catalogue-missing range-bounding faults sit at the piedmont junction - the concave-up slope break where steep bedrock (>~10 deg) meets the gently sloping piedmont (<~5 deg); the directional slope-break line, corroborated by gravity basin-edge / radiometric contact edges, locates them without any catalogue input",
-  "mechanism": "X1: JUNC - J = max(0, -grad(slope).u_down) from det_elev / det_elev_slope (sigma 1.5 px), soft slope window 3-15 deg (0 at 1/25 deg), no NMS; Poisson 2.8 px emission, 37,654 dots, d(catalogue) > 2 px",
-  "non_fault_mimic": "erosional pediment edges / inactive fronts (no gravity step), Lahontan shorelines and wave-cut benches, fan terrace risers, lava-flow snouts, landslide toes, road and canal cuts",
-  "review_scope": "Current release audit of existing H31-X bytes. No assigned scientific method; no new experiment or TIFF.",
+  "hypothesis": "Catalogue-missing normal faults under basin fill sit on basement-depth steps where surface slope is below 4 degrees, corroborated by a gravity horizontal gradient and positive dilatation.",
+  "mechanism": "CC3: rank(grad depth_to_base_surf, sigma 2px) geometric-mean rank(|iso_grav_anom_hg|), gated to det_elev_slope<4 and geod_dilaterate>0; Poisson 2.8px, 37654 budget, >2px from visible catalogue.",
+  "non_fault_mimic": "depositional isopach pinch-out, lithologic density contact, gravity terrain residual, playa compaction",
+  "review_scope": "Current release integrity audit of the existing H31-CC research artifact. No new experiment, TIFF, slot selection, or upload. HOLDOUT-DTI and the pre-placement surface metrics are cited from the frozen H31-CC card; only the served TIFF/ZIP and one registered witness are re-read here.",
   "experiments_run": 0,
   "new_tif_generated": false,
   "holdout_dti": {
    "evidence_class": "HOLDOUT-DTI",
    "evaluator_version": "gems57-pooled-hide-v2",
-   "dti": 0.1661329569994631,
-   "ci95": [
-    0.14985841711445055,
-    0.18210651085093407
-   ],
+   "arm": "CC3",
    "withheld_positive_pixels": 60988,
-   "tpw": 9624.430506279157,
-   "fpw": 36084.052281319084,
-   "fnw": 51363.56949372086
+   "dti": 0.047069900074153195,
+   "ci95": [
+    0.03323168323881463,
+    0.06181643961343269
+   ],
+   "tpw": 2673.22811538755,
+   "fpw": 37338.42075323,
+   "fnw": 58314.77188461243,
+   "paired_vs_null": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "delta": -0.009669665602735938,
+    "ci95": [
+     -0.02345607786902358,
+     0.0052006781922370095
+    ],
+    "withheld_positive_pixels": 60988
+   },
+   "best_comparable_control": "NULL"
   },
-  "holdout_provenance": "CITED prior receipt, not rerun or independently reproduced this session",
-  "source_run_card_sha256": "50038a33233cc6348cb4338c1067de69625e3455e734b25b2a367246be72dfac",
+  "holdout_provenance": "CITED from frozen H31-CC run card; not rerun in this integrity review",
+  "source_run_card_sha256": "2b6b168481496ef895d581f75da3c2890396e487b3eae3a223261a8fc21c2b24",
   "correlation_overlap_vs_registry": {
    "surface": {
-    "max_abs_rho": 0.12545129515361136,
-    "max_overlap": 0.8630955542571839,
+    "max_abs_rho": 0.13191868045209426,
+    "max_overlap": 0.3199660062675944,
+    "lattice_overlap": 0.9961225898974877,
     "coverage_complete": false,
-    "provenance": "CITED from frozen H31-X card; array not replayed"
+    "provenance": "CITED from frozen H31-CC card; not replayed in this integrity review"
    },
    "final": {
-    "max_abs_rho": 0.000909698078,
-    "max_overlap": 0.9934402719498593,
+    "max_abs_rho": 7.680769e-05,
+    "max_overlap": 0.9961225898974877,
+    "lattice_overlap": 0.9961225898974877,
+    "lattice_dot_spearman_rho": -7.680769e-05,
     "coverage_complete": false,
-    "provenance": "RECOMPUTED against hash-pinned registered lattice only"
+    "provenance": "COMPUTED from final TIFF dots versus one hash-pinned registered owner-mirror control; not an exhaustive registry pass"
    }
   },
   "uniqueness_gate": {
    "pass_": false,
    "duplicate": true,
    "failures": [
-    "surface.max_overlap: duplicate STOP",
     "surface: registry coverage incomplete",
     "final.max_overlap: duplicate STOP",
     "final: registry coverage incomplete"
@@ -445,7 +471,11 @@
    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
    "cache_file": ".cache/registry-scope/registered-lattice.tif",
    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
-   "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif"
+   "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+   "registry_manifest_sha256": "846eddb9459f0e5b67f33da519bbd62c966bf5f539545ba3dad262fbfbc308c2",
+   "registered_rasters_in_manifest": 695,
+   "evidence_class": "OWNER-MIRROR",
+   "qualification": "Hash-pinned repository mirror bytes; not organizer-authenticated."
   },
   "lattice_coverage": {
    "footprint_pixels": 5167373,
@@ -453,14 +483,27 @@
    "coverage_fraction": 0.9987132726822701,
    "candidate_dots": 37654,
    "minimum_overlap_any_same_budget": 0.8234184947150369,
-   "qualification": "Counting bound for this dot budget, NOT every nonempty raster"
+   "evidence_class": "COMPUTED counting bound; not HOLDOUT-DTI or a score",
+   "qualification": "Specific to the 37,654-dot budget; not a claim that every nonempty raster must fail."
   },
-  "raster_sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
-  "file": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+  "budget_preflight": {
+   "evidence_class": "COMPUTED counting bound; not HOLDOUT-DTI or a score",
+   "footprint_pixels": 5167373,
+   "outside_halo_pixels": 6649,
+   "candidate_dots": 37654,
+   "minimum_overlap_pixels": 31005,
+   "minimum_overlap_fraction": 0.8234184947150369,
+   "forced_duplicate_stop": true,
+   "empty_candidate": false,
+   "uniqueness_pass": false,
+   "qualification": "Necessary bound only; does not prove copying or rule out every nonempty raster. No registry exemptions."
+  },
+  "raster_sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+  "file": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
   "validator": {
-   "file": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
-   "bytes": 147703,
-   "sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
+   "file": "gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+   "bytes": 116314,
+   "sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
    "ok_to_upload_format_only": true,
    "organizer_acceptance_verified": false,
    "hard_failures": [],
@@ -610,46 +653,183 @@
     }
    }
   },
-  "submission_name": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9",
-  "note": "RESEARCH ONLY: existing H31-X; literal registry duplicate STOP. No new TIFF, fit or weekly submission slot.",
+  "validator_nan": {
+   "file": "gems31-h31cc-basement-step-37654d-20261028-nan.tif",
+   "bytes": 157743,
+   "sha256": "da2a1d708ee138e9586e59de9c5562756b793aa66cbd18e61c3f0b03049f0d11",
+   "ok_to_upload_format_only": true,
+   "organizer_acceptance_verified": false,
+   "hard_failures": [],
+   "grid": {
+    "shape": [
+     3730,
+     3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ],
+    "bounds": [
+     243350.0,
+     4135550.0,
+     572550.0,
+     4508550.0
+    ],
+    "dtype": [
+     "float32"
+    ],
+    "bands": 1,
+    "template_footprint_pixels": 5167373,
+    "positive_pixels_inside": 37654,
+    "nodata_tag": "NaN"
+   },
+   "checks": {
+    "template_single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "template_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "template_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "template_has_finite_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 finite pixels",
+     "hard": true
+    },
+    "template_expected_shape": {
+     "pass_": true,
+     "detail": "(3730, 3292) (expected (3730, 3292))",
+     "hard": true
+    },
+    "template_expected_transform": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+     "hard": true
+    },
+    "template_expected_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 (expected 5,167,373)",
+     "hard": true
+    },
+    "template_expected_outside": {
+     "pass_": true,
+     "detail": "7,111,787 (expected 7,111,787)",
+     "hard": true
+    },
+    "single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "dtype_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "shape_matches_template": {
+     "pass_": true,
+     "detail": "(3730, 3292) vs (3730, 3292)",
+     "hard": true
+    },
+    "crs_matches_template": {
+     "pass_": true,
+     "detail": "EPSG:32611 vs EPSG:32611",
+     "hard": true
+    },
+    "transform_matches_template": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+     "hard": true
+    },
+    "footprint_all_finite": {
+     "pass_": true,
+     "detail": "0 NaN/Inf inside 5,167,373 template cells",
+     "hard": true
+    },
+    "footprint_values_in_0_1": {
+     "pass_": true,
+     "detail": "min=0.0; max=1.0; required finite [0,1]",
+     "hard": true
+    },
+    "no_infinite_pixels": {
+     "pass_": true,
+     "detail": "0 infinite values",
+     "hard": true
+    },
+    "outside_footprint_nan": {
+     "pass_": true,
+     "detail": "7,111,787/7,111,787 outside pixels are NaN; finite outside pixels are forbidden",
+     "hard": true
+    },
+    "nan_mask_matches_template": {
+     "pass_": true,
+     "detail": "NaN cells exactly match the template's outside-footprint mask",
+     "hard": true
+    },
+    "output_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "output_100m_pixels": {
+     "pass_": true,
+     "detail": "xres=100, yres=-100",
+     "hard": true
+    },
+    "nodata_tag_nan_or_none": {
+     "pass_": true,
+     "detail": "nodata=nan",
+     "hard": false
+    }
+   }
+  },
+  "verification_receipt": "evidence/h31cc/verification_receipt.json",
+  "verification_receipt_sha256": "293be029d487ed72f1d6b77c19811ac6229048189a43b6cc023ead3614dd6d37",
+  "submission_name": "gems31-h31cc-basement-step-37654d-20261028",
+  "note": "RESEARCH ONLY: H31-CC; negative screen and literal lattice STOP. No new experiment, TIFF, or weekly slot in this review.",
   "ok_to_download_for_research": true,
   "ok_to_submit": false,
   "slot_approved": false,
+  "submission_slots_used": 0,
   "leaderboard_estimate": null,
-  "estimate_reason": "Cross-family calibration unvalidated; no defensible numerical forecast",
+  "estimate_reason": "No organizer score receipt or calibrated cross-family forecast exists.",
   "verdict": "negative",
-  "diagnostic_serialization": "Final rank correlation rounded to 12 decimals after raw-value gate evaluation; no threshold rounding.",
-  "schema_version": 1,
-  "review_date": "2026-10-26",
-  "review_id": "release-review-bf9d261d",
-  "current_release_status": "registry/release_status.json",
-  "historical_scientific_card": "evidence/h31x/run_card.json",
-  "historical_magrest_card": "registry/current_run.json",
   "method_lane_assigned": false,
   "selector_authorized": false,
   "weekly_cap_verified": false,
-  "budget_preflight": {
-   "evidence_class": "COMPUTED counting bound; not HOLDOUT-DTI or a score",
-   "footprint_pixels": 5167373,
-   "outside_halo_pixels": 6649,
-   "candidate_dots": 37654,
-   "minimum_overlap_pixels": 31005,
-   "minimum_overlap_fraction": 0.8234184947150369,
-   "forced_duplicate_stop": true,
-   "empty_candidate": false,
-   "uniqueness_pass": false,
-   "qualification": "Necessary bound only; does not prove copying or rule out every nonempty raster. No registry exemptions."
-  },
+  "experiments_run_in_this_review": 0,
+  "new_tif_generated_in_this_review": false,
+  "diagnostic_serialization": "Displayed rank correlations rounded to 12 decimals only after raw-value gate evaluation; no threshold or permission is rounded.",
+  "schema_version": 1,
+  "review_date": "2026-10-28",
+  "review_id": "release-review-arena-41e3ba3f",
+  "current_release_status": "registry/release_status.json",
+  "historical_scientific_card": "evidence/h31cc/run_card.json",
+  "historical_magrest_card": "registry/current_run.json",
   "failed_or_unknown_gates": [
-   "Literal any-registry uniqueness STOP (registered lattice); incomplete broad-registry coverage",
-   "Pre-placement surface is cited history, not replayed from unavailable cache",
-   "No single-method paragraph supplied; no new scientific lane assigned",
-   "No same-run retrained global incumbent / fresh confirmation in this review",
-   "Organizer-authenticated template, score receipt and current weekly cap unavailable",
-   "No selector action authorized by this parallel-run protocol"
+   "Literal any-registry uniqueness STOP: the final H31-CC dots overlap the pinned spacing-5 witness by 99.612% (>70%).",
+   "The pre-placement surface comparison is cited from the frozen card, not replayed in this integrity review.",
+   "Only one hash-pinned registered owner-mirror witness was rechecked; no exhaustive 695-raster pass is claimed.",
+   "HOLDOUT-DTI is a cited prior result; its paired interval versus NULL crosses zero and no confirmation ran.",
+   "The active prompt supplies no single-method paragraph; no new lane or experiment was authorized.",
+   "Organizer-authenticated template/score receipts, current weekly cap, and selector approval are unavailable."
   ],
   "provenance_pins": {
-   "evidence/h31x/run_card.json": "50038a33233cc6348cb4338c1067de69625e3455e734b25b2a367246be72dfac",
+   "evidence/h31cc/run_card.json": "2b6b168481496ef895d581f75da3c2890396e487b3eae3a223261a8fc21c2b24",
+   "evidence/h31cc/verification_receipt.json": "293be029d487ed72f1d6b77c19811ac6229048189a43b6cc023ead3614dd6d37",
    "registry/shared_registry_57_pin.json": "13b0b4fecebf7161fd2c94354d6db5250fa09396a606359843a0a0c95ca0fe10",
    "registry/shared_registry_57_snapshot.json": "846eddb9459f0e5b67f33da519bbd62c966bf5f539545ba3dad262fbfbc308c2",
    "registry/data_manifest.json": "89d4e23523298e28c644f315201da32d3319779dc082c2b2513a0d760d5d1e44"

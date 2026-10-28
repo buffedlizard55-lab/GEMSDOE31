@@ -1,10 +1,15 @@
-# Current review/permission front door (2026-10-26 bf9d261d)
+# Current review/permission front door (2026-10-28, `arena/41e3ba3f-gemsdoe31`)
 
-Read `registry/release_status.json` and `knowledge/2026-10-26_release_review_bf9d261d.md` first.
-No file is approved. `registry/current_run.json` is historical MAGREST evidence, not the latest release decision.
-Run `python scripts/build_release_status.py --check` after restoring small inputs. Never use the legacy
-`submission_gate.py` diagnostic to approve a slot. It cannot implement the binding two-stage literal registry gate.
-Preserve historical run cards; do not interpret their promotion flags as current authorization.
+Read `registry/release_status.json` and `knowledge/repo_review_2026-10-28_arena-41e3ba3f.md` first.
+No file is approved. The canonical status now audits the latest existing H31-CC research bytes; its scientific
+HOLDOUT-DTI and pre-placement metrics remain cited from the frozen prior card, not rerun. The final-dot overlap
+against one registered owner-mirror witness is independently rechecked. `registry/current_run.json` remains the
+historical MAGREST record, not the latest research artifact or release permission. Restore only pinned small inputs
+for the read-only verification; do not restore the feature stack or run a new experiment under the missing-method
+paragraph / literal registry STOP. Run `python scripts/verify_h31cc_run.py --check` and
+`python scripts/build_release_status.py --check`. Never use the legacy `submission_gate.py` diagnostic to approve a
+slot. Preserve historical run cards; do not interpret their promotion flags as current authorization. The former
+2026-10-26 status is preserved at `evidence/release_status/release-status-2026-10-26-bf9d261d.json`.
 
 # GEMSDOE31 agent instructions
 
@@ -36,8 +41,10 @@ Before changing this repository, read the entire `README.md` (including the pres
   never switch, create or push another branch.
 - Keep large input rasters and regenerable caches out of Git. Pin hashes and provenance in `registry/`.
 - Run the full local check set before any PR: `python -m pytest -q`, `python -m ruff check .`,
-  `python scripts/check_metric.py`, `python scripts/verify_current_run.py --restore-small-inputs`,
-  `python scripts/collect_evidence.py`, `python scripts/build_site.py`, `python scripts/check_site.py`.
+  `python -m compileall -q src scripts tests`, `python scripts/check_metric.py`,
+  `python scripts/verify_current_run.py --restore-small-inputs`, `python scripts/verify_protocol_review.py`,
+  `python scripts/verify_h31cc_run.py --check`, `python scripts/build_release_status.py --check`,
+  `python scripts/collect_evidence.py`, `python scripts/build_site.py`, and `python scripts/check_site.py`.
   The verifier re-reads TIFF/ZIP bytes and reproduces pooled DTI/CI and denial gates without a human inspector.
   `scripts/recheck_magrest.py` repeats only the original nine-download-tree comparison and requires the ignored `.cache/magrest/responses.npy`; it does not test the broad 695-raster registry. On a clean checkout that cache is unavailable and must not be recreated after the registered STOP. `scripts/verify_current_run.py --restore-small-inputs` instead re-derives the served raster's literal overlap STOP against the pinned registered counterexample.
   Update `registry/review_passes.json` with what each pass actually found.
