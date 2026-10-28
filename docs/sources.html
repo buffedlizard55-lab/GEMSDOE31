@@ -31,13 +31,26 @@
         <p>Every claim carries its class. A class is a statement about where the evidence came from — not about how confident anyone feels.</p>
       </div>
       <ul class="pill-list">
-        <li><strong>OFFICIAL</strong> — direct retrieval recorded on the row's accessed date. Only the pinned organizer GitHub reference was freshly retrieved on 2026-10-25; other official links retain historical access dates.</li>
+        <li><strong>OFFICIAL</strong> — direct retrieval recorded on the row's accessed date. Public GitHub HEAD metadata is checked separately; that check does not refresh non-GitHub official pages or re-audit changed repository contents.</li>
         <li><strong>OWNER-MIRROR</strong> — published in one of this project's own repositories; a hash match proves byte identity to that mirror only.</li>
         <li><strong>COMPUTED</strong> — reproduced by a script in this repository, with the artifact path recorded.</li>
         <li><strong>INFERENCE</strong> — reasoning to be tested, not a measurement.</li>
         <li><strong>USER-REPORTED</strong> — stated by the project owner; no organizer receipt in the repository.</li>
         <li><strong>TRUSTED-PEER-REVIEWED</strong> — peer-reviewed methods literature cited for a design choice; it supplies no value for this dataset.</li>
       </ul>
+    </section>
+
+    <section id="public-source-health" aria-labelledby="public-source-health-heading">
+      <div class="section-head">
+        <div><p class="kicker">Public metadata · no score polling</p><h2 id="public-source-health-heading">Check pinned GitHub sources</h2></div>
+        <p>This on-visit check reads public commit metadata for the nine focus repositories and the organizer reference-solution repository. It never opens DrivenData or changes scientific results.</p>
+      </div>
+      <div class="card">
+        <p id="feed-status" role="status" aria-live="polite">Checking public GitHub commit metadata. If browser access is unavailable, the dated snapshot remains below.</p>
+        <div id="source-health" class="source-health-list" role="list" aria-label="Public GitHub repository HEAD checks"></div>
+        <p class="small">A changed HEAD means “not re-audited,” not “new score.” This check does not fetch raster contents, leaderboard entries, organizer receipts, weekly quota, or upload pages. Open the <a href="source-health.json">dated metadata snapshot</a> or the <a href="feed.json">machine-readable project feed</a>.</p>
+      </div>
+      <script defer src="assets/feed.js"></script>
     </section>
 
     <section>
@@ -255,6 +268,18 @@
           <span class="small"> · DrivenData (drivendataorg) · 2026-10-25</span>
           <ul class="small" style="margin:8px 0 0"><li>Official organizer Monte Carlo U-Net cross-validation baseline at commit aebe92f7c8a9</li></ul>
           <p class="small" style="margin:8px 0 0"><em>Limit:</em> Does not provide private competition test labels or leaderboard receipts.</p>
+        </li><li>
+          <strong><a href="https://www.usgs.gov/landsat-missions/landsat-collection-2" target="_blank" rel="noopener">Landsat Collection 2 data and products — thermal time-series source lead</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · U.S. Geological Survey · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Link retained as an official-source lead only. Not fetched in this review. Product-level coverage, thermal native support, acquisition cadence, QA, license details, and no-account download path across the GEMS footprint are unverified; candidate is not viability-cleared.</p>
+        </li><li>
+          <strong><a href="https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-2" target="_blank" rel="noopener">Sentinel-2 data collection — seasonal surface-reflectance source lead</a></strong>
+          <span class="badge badge-green">OFFICIAL</span>
+          <span class="small"> · Copernicus Data Space Ecosystem / European Union · not fetched this session</span>
+          <ul class="small" style="margin:8px 0 0"><li>No claim verified this session.</li></ul>
+          <p class="small" style="margin:8px 0 0"><em>Limit:</em> Link retained as an official-source lead only. Not fetched in this review. Exact scene coverage, seasonal cadence, cloud-quality filtering, licensing, and anonymous/no-account access for the GEMS footprint are unverified; candidate is not viability-cleared.</p>
         </li></ul>
     </section>
 

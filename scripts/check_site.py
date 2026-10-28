@@ -89,6 +89,21 @@ def main() -> None:
     if "Download submission TIFF" in index:
         fail("index.html: an unapproved legacy file is labeled as a submission TIFF")
     executive = (DOCS / "executive-summary.html").read_text()
+    for page_name, text in (("index.html", index), ("executive-summary.html", executive)):
+        if 'id="repository-review-2026-10-28"' not in text:
+            fail(f"{page_name}: current three-pass repository review notice is missing")
+        if text.count('id="focus-sites"') != 1 or 'id="nine-site-decision"' in text:
+            fail(f"{page_name}: duplicate or missing nine-site summary section")
+        for artifact in ("repo-review-2026-10-28.md", "repo-review-2026-10-28-run-card.json"):
+            if artifact not in text:
+                fail(f"{page_name}: current review deliverable link {artifact} is missing")
+    research_page = (DOCS / "research.html").read_text()
+    if 'id="desk-hypotheses-2026-10-28"' not in research_page or "Validation status: NOT RUN" not in research_page:
+        fail("research.html: current desk-only hypothesis list or blocked-validation label is missing")
+    sources_page = (DOCS / "sources.html").read_text()
+    if ('id="public-source-health"' not in sources_page or 'id="feed-status"' not in sources_page
+            or 'id="source-health"' not in sources_page or 'src="assets/feed.js"' not in sources_page):
+        fail("sources.html: public GitHub metadata widget is missing or not wired")
     # Current owner protocol restores the literal both-stage registry rule.
     if "no file is cleared to submit" not in executive.lower():
         fail("executive-summary.html: explicit no-upload decision is missing")
@@ -177,6 +192,12 @@ def main() -> None:
         release = json.loads((ROOT / "registry/release_status.json").read_text())
         public = json.loads((DOCS / "downloads/current-release-status.json").read_text())
         feed_data = json.loads(feed)
+        source_health = json.loads((DOCS / "source-health.json").read_text())
+        expected_sources = [{"repo": row["repo"], "pin": row["pin"]} for row in source_health["checks"]]
+        if feed_data.get("public_sources") != expected_sources:
+            fail("feed public-source targets differ from the dated metadata snapshot")
+        if feed_data.get("source_health_snapshot", {}).get("file") != "source-health.json":
+            fail("feed omits the source-health snapshot reference")
         if public != release or feed_data.get("current_release_status") != release:
             fail("current release status differs between register, public copy and feed")
         if feed_data["current_download"]["raster_sha256"] != release["raster_sha256"]:

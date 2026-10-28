@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Refresh public GitHub HEAD metadata, never predictions, scores or weekly slots.
 
-The scheduled Pages workflow publishes the dated snapshot without committing it
-or changing the frozen scientific run. Failures remain explicitly unverified.
+This optional snapshot utility reads its target list from the public source-health
+snapshot or the generated feed. It does not contact DrivenData or re-audit changed
+repository contents. The Sources page also performs public metadata checks in the
+visitor's browser and falls back to the dated snapshot.
 """
 from __future__ import annotations
 
@@ -11,9 +13,44 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
+REPO_RE = re.compile(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+\Z")
+SHA_RE = re.compile(r"[0-9a-f]{40}\Z")
+
+
+def load_targets(root=ROOT):
+    """Load the bounded public GitHub metadata targets, with a snapshot fallback."""
+    root = Path(root)
+    feed_path = root / "docs/feed.json"
+    feed = json.loads(feed_path.read_text()) if feed_path.is_file() else {}
+    targets = feed.get("public_sources")
+    if not targets:
+        health_path = root / "docs/source-health.json"
+        if health_path.is_file():
+            health = json.loads(health_path.read_text())
+            targets = [{"repo": row.get("repo"), "pin": row.get("pin")}
+                       for row in health.get("checks", [])]
+    if not isinstance(targets, list) or not targets:
+        raise ValueError("no public_sources targets in feed.json or source-health.json")
+
+    clean = []
+    seen = set()
+    for source in targets:
+        if not isinstance(source, dict):
+            raise ValueError("public source target must be an object")
+        repo, pin = source.get("repo"), source.get("pin")
+        if not isinstance(repo, str) or not REPO_RE.fullmatch(repo):
+            raise ValueError(f"invalid public GitHub repository target: {repo!r}")
+        if not isinstance(pin, str) or not SHA_RE.fullmatch(pin):
+            raise ValueError(f"invalid audited commit pin for {repo}")
+        if repo in seen:
+            raise ValueError(f"duplicate public GitHub repository target: {repo}")
+        seen.add(repo)
+        clean.append({"repo": repo, "pin": pin})
+    return clean
 
 
 def check(source):
@@ -33,9 +70,9 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--out", default="docs/source-health.json")
     args = ap.parse_args()
-    feed = json.loads((ROOT / "docs/feed.json").read_text())
+    targets = load_targets(ROOT)
     with ThreadPoolExecutor(max_workers=3) as pool:
-        checks = list(pool.map(check, feed["public_sources"]))
+        checks = list(pool.map(check, targets))
     good = sum(r["ok"] for r in checks)
     report = {"schema_version": 1, "evidence_class": "PUBLIC-GITHUB-METADATA",
               "checked_utc": datetime.now(timezone.utc).isoformat(), "verified_count": good,

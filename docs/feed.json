@@ -261,6 +261,18 @@
    "class": "OFFICIAL",
    "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
    "accessed_utc": "2026-10-25"
+  },
+  {
+   "id": "usgs-landsat-collection2-review-lead",
+   "class": "OFFICIAL",
+   "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2",
+   "accessed_utc": null
+  },
+  {
+   "id": "copernicus-sentinel2-review-lead",
+   "class": "OFFICIAL",
+   "url": "https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-2",
+   "accessed_utc": null
   }
  ],
  "automation": {
@@ -654,6 +666,68 @@
    "registry/shared_registry_57_snapshot.json": "846eddb9459f0e5b67f33da519bbd62c966bf5f539545ba3dad262fbfbc308c2",
    "registry/data_manifest.json": "89d4e23523298e28c644f315201da32d3319779dc082c2b2513a0d760d5d1e44"
   }
+ },
+ "public_sources": [
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE24",
+   "pin": "05f6f85c695ff25546dcc2cbbfa34b3c2a8f4f4c"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE25",
+   "pin": "0f73c51dc954306468875c02cf98634e64ac0751"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE27",
+   "pin": "b8dd298e10884afffa05436673ac73aeaf850b8c"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE28",
+   "pin": "78e724f95337a6528b1248be5c113c6d6d502891"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE30",
+   "pin": "3d5bec2af5f29291617f97c9e2dfe443be6f55c3"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE31",
+   "pin": "cf13282fcd86290f1539f0a86446c8ba7205a79b"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE32",
+   "pin": "012e17b2a115c3c0d5e7885bea625bf9657c99fc"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE33",
+   "pin": "f52533110fe62cd03e77f1228e9e5ecac412c463"
+  },
+  {
+   "repo": "buffedlizard55-lab/GEMSDOE36",
+   "pin": "c9ad59ec6f969ed931d089a03044c1567a633e84"
+  },
+  {
+   "repo": "drivendataorg/gems-prize-reference-solution",
+   "pin": "aebe92f7c8a990f0e3443451b7a825d9afd6336b"
+  }
+ ],
+ "source_health_snapshot": {
+  "evidence_class": "PUBLIC-GITHUB-METADATA",
+  "checked_utc": "2026-10-28T12:06:44.052079+00:00",
+  "verified_count": 10,
+  "total": 10,
+  "limitation": "Public repository HEAD metadata only; changed sources are not scientifically re-audited. No leaderboard, receipt, weekly-cap or upload access.",
+  "file": "source-health.json"
+ },
+ "current_repository_review": {
+  "review_id": "repo-review-2026-10-28",
+  "review_date": "2026-10-28",
+  "verdict": "negative",
+  "new_experiments": 0,
+  "new_tiff_generated": false,
+  "submission_slots_used": 0,
+  "new_candidate_download_eligible": false,
+  "new_candidate_submission_eligible": false,
+  "report": "downloads/repo-review-2026-10-28.md",
+  "run_card": "downloads/repo-review-2026-10-28-run-card.json"
  },
  "current_protocol_review": {
   "policy_version": "literal-registry-20261026-9883b598",

@@ -1,12 +1,12 @@
-# Current Arena review — 2026-10-27 (`arena/b3d80ae9-gemsdoe31`)
+# Current Arena review — 2026-10-28 (`arena/fe4be867-gemsdoe31`)
 
-**No new TIFF or experiment was made; no current file is approved to submit.** The requested single-method paragraph is absent, the full production feature cache is absent, and the binding broad-registry gate remains negative. No slot was selected or used. All pasted historical scores are USER-REPORTED; no new-candidate leaderboard estimate is justified.
+**Decision: no new experiment or TIFF; nothing is cleared to submit.** The assigned single-method paragraph is absent, the production feature stack is unavailable, and the literal registry gate remains STOP. No slot or leaderboard was touched. Existing H31-X is research-downloadable only. Historical scores are USER-REPORTED absent organizer receipts; no new-candidate score estimate is justified.
 
-- [This branch's three-pass review, focus-site table, hypotheses, and run card](knowledge/repo_review_2026-10-27_session-b3d80ae9.md)
-- [Parallel review and updated executive site](knowledge/repo_review_2026-10-27_arena_3f5f35a9.md) · [executive summary / submission guide](docs/executive-summary.html#nine-site-decision)
-- [Additional parallel audit](knowledge/2026-10-27_review_3b1ed545.md) · [pinned run card](evidence/review_3b1ed545/run_card.json)
+- [This branch's three-pass review, nine-site comparison, ranked hypotheses, source checks, and limitations](knowledge/repo_review_2026-10-28.md)
+- [Negative JSON run card](evidence/repo_review_2026-10-28/run_card.json) · [current release status](registry/release_status.json)
+- [Executive summary / submission guide](docs/executive-summary.html) · [Sources page with public GitHub metadata checks](docs/sources.html#public-source-health) · [dated source snapshot](docs/source-health.json)
 
-These independent reviews agree: **no TIFF is OK to submit**. H31-AA is a prior-session research artifact, not a current upload recommendation. The top-level decision and release register supersede conflicting old banners below. Read the complete preserved owner prompt and `AGENTS.md` before further work.
+The 28 October check verified public GitHub commit metadata for 10/10 targets; all nine focus repositories have moved beyond the pinned candidate snapshots. This checks HEAD metadata only—not changed raster contents, scientific results, scores, receipts, or current submission quotas. The review adds no experimental result. The historical sections below are preserved records; current permissions come only from `registry/release_status.json`. Read the complete preserved owner prompt and `AGENTS.md` before further work.
 
 ---
 

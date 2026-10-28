@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-25",
+ "generated_utc": "2026-10-28",
  "claim_classes": {
   "OFFICIAL": "Direct source retrieval recorded on the row accessed_utc date; not necessarily fresh in the current session. See current_access_audit for this environment.",
   "OWNER-MIRROR": "bytes or claims published in one of this project's own public GitHub repositories; a hash match proves byte identity to that mirror only",
@@ -14,7 +14,7 @@
    "id": "dd-gems-problem-format-metric",
    "class": "OFFICIAL",
    "publisher": "DrivenData / DOE GEMS Prize",
-   "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge \u2014 problem description",
+   "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge — problem description",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
    "accessed_utc": "2026-10-04",
    "sections_read": [
@@ -88,7 +88,7 @@
    "id": "dd-gems-leaderboard-static-link",
    "class": "OFFICIAL",
    "publisher": "DrivenData / DOE GEMS Prize",
-   "title": "GEMS public leaderboard \u2014 static manual-review link",
+   "title": "GEMS public leaderboard — static manual-review link",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
    "accessed_utc": null,
    "status": "not fetched or monitored; static link only",
@@ -105,7 +105,7 @@
    "url": "https://gdr.openei.org/submissions/1501",
    "accessed_utc": "2026-10-04",
    "claims_verified": [
-    "The record lists OPR and LiDAR point cloud data and links to a coverage-map PDF and work-unit 1\u20136 source directories.",
+    "The record lists OPR and LiDAR point cloud data and links to a coverage-map PDF and work-unit 1–6 source directories.",
     "The GDR page displays a CC-BY 4.0 license."
    ],
    "limits": "The page's map and directory listings do not establish exact tile overlap with the entire GEMS footprint or point-field consistency."
@@ -163,7 +163,7 @@
    "id": "gdr-1391-ingenious",
    "class": "OFFICIAL",
    "publisher": "INGENIOUS / Geothermal Data Repository",
-   "title": "INGENIOUS \u2014 Great Basin Regional Dataset Compilation, DOI 10.15121/1881483",
+   "title": "INGENIOUS — Great Basin Regional Dataset Compilation, DOI 10.15121/1881483",
    "url": "https://gdr.openei.org/submissions/1391",
    "accessed_utc": "2026-10-04",
    "claims_verified": [
@@ -181,7 +181,7 @@
    "accessed_utc": "2026-10-04",
    "claims_verified": [
     "The product reports 30 m spatial posting and line-of-sight displacement from Sentinel-1 interferometric time-series analysis.",
-    "The collection has broad North American coverage and temporal extent beginning 2016-07-01; the page also describes the Sentinel data as 2016\u20132025."
+    "The collection has broad North American coverage and temporal extent beginning 2016-07-01; the page also describes the Sentinel data as 2016–2025."
    ],
    "limits": "A product-wide extent does not prove a usable granule/track for every GEMS cell; no granule selection or access test was run."
   },
@@ -201,7 +201,7 @@
    "title": "blockCV: An R package for generating spatially or environmentally separated folds for k-fold cross-validation of species distribution models",
    "url": "https://doi.org/10.1111/2041-210X.13107",
    "accessed_utc": null,
-   "used_for": "Motivation for separated spatial folds; no fixed 4\u20135 pixel buffer is inferred."
+   "used_for": "Motivation for separated spatial folds; no fixed 4–5 pixel buffer is inferred."
   },
   {
    "id": "owner-mirror-gemsdoe28-h27-4-audit",
@@ -264,7 +264,7 @@
    "id": "usgs-waterdata-field-measurements-preflight",
    "class": "OFFICIAL",
    "publisher": "U.S. Geological Survey Water Data for the Nation",
-   "title": "Modernized Water Data OGC API \u2014 field measurements",
+   "title": "Modernized Water Data OGC API — field measurements",
    "url": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements?f=json",
    "accessed_utc": "2026-10-04",
    "sample_query_url": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements/items?f=json&bbox=-120.1,37.2,-115.0,40.8&limit=10",
@@ -292,7 +292,7 @@
    "id": "dd-gems-overview",
    "class": "OFFICIAL",
    "publisher": "DrivenData / U.S. Department of Energy GEMS Prize",
-   "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge \u2014 overview and rules",
+   "title": "The Geologic Enhanced Mapping System (GEMS) Prize Challenge — overview and rules",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/",
    "accessed_utc": null,
    "claims_verified": [
@@ -390,7 +390,7 @@
    "id": "sgmc",
    "class": "OFFICIAL",
    "publisher": "U.S. Geological Survey, Mineral Resources Program",
-   "title": "State Geologic Map Compilation (SGMC) \u2014 state geological map packages",
+   "title": "State Geologic Map Compilation (SGMC) — state geological map packages",
    "url": "https://mrdata.usgs.gov/geology/state/",
    "accessed_utc": null,
    "claims_verified": [
@@ -446,7 +446,7 @@
    "id": "miller-singh-1994-tilt-angle",
    "class": "TRUSTED-PEER-REVIEWED",
    "publisher": "Journal of Applied Geophysics",
-   "title": "Miller, H. G., & Singh, V. (1994). Potential field tilt \u2014 a new concept for location of potential field sources, J. Appl. Geophys. 32(2-3), 213-217",
+   "title": "Miller, H. G., & Singh, V. (1994). Potential field tilt — a new concept for location of potential field sources, J. Appl. Geophys. 32(2-3), 213-217",
    "url": "https://doi.org/10.1016/0926-9851(94)90022-1",
    "accessed_utc": "2026-10-25",
    "claims_verified": [
@@ -505,7 +505,29 @@
     "Official organizer Monte Carlo U-Net cross-validation baseline at commit aebe92f7c8a9"
    ],
    "limits": "Does not provide private competition test labels or leaderboard receipts."
+  },
+  {
+   "id": "usgs-landsat-collection2-review-lead",
+   "class": "OFFICIAL",
+   "publisher": "U.S. Geological Survey",
+   "title": "Landsat Collection 2 data and products — thermal time-series source lead",
+   "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2",
+   "accessed_utc": null,
+   "claims_verified": [],
+   "used_for": "Desk-proposed seasonal surface-temperature amplitude/phase analysis; no data retrieved or used.",
+   "limits": "Link retained as an official-source lead only. Not fetched in this review. Product-level coverage, thermal native support, acquisition cadence, QA, license details, and no-account download path across the GEMS footprint are unverified; candidate is not viability-cleared."
+  },
+  {
+   "id": "copernicus-sentinel2-review-lead",
+   "class": "OFFICIAL",
+   "publisher": "Copernicus Data Space Ecosystem / European Union",
+   "title": "Sentinel-2 data collection — seasonal surface-reflectance source lead",
+   "url": "https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-2",
+   "accessed_utc": null,
+   "claims_verified": [],
+   "used_for": "Desk-proposed multi-season vegetation/moisture response analysis; no data retrieved or used.",
+   "limits": "Link retained as an official-source lead only. Not fetched in this review. Exact scene coverage, seasonal cadence, cloud-quality filtering, licensing, and anonymous/no-account access for the GEMS footprint are unverified; candidate is not viability-cleared."
   }
  ],
- "current_access_audit": "2026-10-25: only GitHub sources re-fetched; non-GitHub official links remain historically recorded, not fresh verification."
+ "current_access_audit": "2026-10-28: public GitHub HEAD metadata checked for the 10 bounded repository targets only. No repository contents, rasters, scores, or DrivenData pages were fetched; non-GitHub official links remain historically recorded, not fresh verification."
 }

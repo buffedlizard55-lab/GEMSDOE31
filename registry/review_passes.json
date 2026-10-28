@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-27",
+ "generated_utc": "2026-10-28",
  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
  "passes": [
   {
@@ -1875,9 +1875,9 @@
  ],
  "current_run": "registry/current_run.json",
  "current_three_passes": [
-  "bf9d261d-pass-1-2026-10-26",
-  "bf9d261d-pass-2-2026-10-26",
-  "bf9d261d-pass-3-2026-10-26"
+  "repo-review-2026-10-28-pass-1",
+  "repo-review-2026-10-28-pass-2",
+  "repo-review-2026-10-28-pass-3"
  ],
  "release_decision": "DO NOT SUBMIT \u2014 literal registry STOP",
  "rbu31_session_2026_10_25": {
@@ -1949,7 +1949,7 @@
  },
  "historical_release_decision_pre_bf9d261d": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here.",
  "current_release_status": "registry/release_status.json",
- "current_scientific_run": "evidence/h31x/run_card.json (historical; no new scientific run)",
+ "current_scientific_run": "None \u2014 repository review only; no new scientific run. Review card: evidence/repo_review_2026-10-28/run_card.json",
  "current_run_scope": "registry/current_run.json is the historical MAGREST scientific receipt, not current release permission",
  "previous_current_three_passes": [
   "arena-review-pass-1-2026-10-26",
@@ -2029,6 +2029,29 @@
     "README.md"
    ],
    "decision": "No TIFF is approved to submit; no new TIFF or experiment. Existing nine-site table remains prior-art history and all supplied numeric scores remain USER-REPORTED absent organizer receipts."
+  },
+  {
+   "session": "arena/fe4be867-gemsdoe31",
+   "date": "2026-10-28",
+   "lane": "repository review only; no scientific lane assigned",
+   "pass1_implement": "Re-read README project charter, AGENTS.md, current release/selector decisions, nine-site score and raster registers, H33 forensic evidence, relevant prior-art records, and site generators. Confirmed the lane paragraph is absent, production feature cache is unavailable, and literal 695-raster STOP remains. Added the dated nine-site report/run card, GitHub-only freshness widget and snapshot feed; no DrivenData access, fit, TIFF, slot or upload.",
+   "pass2_review": "Independent review found the freshness utility\u2019s old feed dependency could fail before querying, the generated feed omitted its bounded public target list, the page lacked the on-visit widget, and the review notice read the wrong run-card key (which could display a false 0.00% overlap bound). Added validated feed/snapshot fallback, per-repository dated fallback, 1-hour browser cache, regression coverage, and corrected the notice to the 82.34% counting lower bound. Clarified GEMSDOE32 claimed zeros filename versus pinned NaN geometry twin; kept the measured support claim separate from byte identity. No science was run.",
+   "pass3_recheck": "Final checks: pytest 220 passed; Ruff, compileall and Node syntax check passed; metric check max fast/brute error 4.441e-16; marginal-DTI sign checks agreed in 10,000 cases; current-run verifier remained research-download true / submission false; protocol and release checks remained negative with forced duplicate STOP. Public GitHub metadata refresh verified 10/10 targets, with 9/9 focus HEADs changed. collect_evidence inventoried 239 artifacts/14 registered files; build_site generated 22 pages and check_site passed with 556 local links. No holdout, new experiment, TIFF, slot or leaderboard access.",
+   "artifacts": [
+    "README.md",
+    "knowledge/repo_review_2026-10-28.md",
+    "evidence/repo_review_2026-10-28/run_card.json",
+    "registry/review_passes.json",
+    "docs/source-health.json",
+    "docs/assets/feed.js",
+    "scripts/current_site.py",
+    "scripts/build_site.py",
+    "scripts/check_site.py",
+    "scripts/refresh_source_status.py",
+    "tests/test_focus_site_summary.py",
+    "tests/test_source_status.py"
+   ],
+   "decision": "Negative review only. No score estimate, new candidate, holdout result, TIFF, selected slot, upload or organizer-confirmed score. Current H31-X remains research-downloadable only; submission and slot are not approved."
   }
  ],
  "session_review_20261027_3b1ed545": {

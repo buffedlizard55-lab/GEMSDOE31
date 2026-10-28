@@ -837,13 +837,26 @@ def build_sources(sources: dict, experiments: dict) -> str:
         <p>Every claim carries its class. A class is a statement about where the evidence came from — not about how confident anyone feels.</p>
       </div>
       <ul class="pill-list">
-        <li><strong>OFFICIAL</strong> — direct retrieval recorded on the row's accessed date. Only the pinned organizer GitHub reference was freshly retrieved on 2026-10-25; other official links retain historical access dates.</li>
+        <li><strong>OFFICIAL</strong> — direct retrieval recorded on the row's accessed date. Public GitHub HEAD metadata is checked separately; that check does not refresh non-GitHub official pages or re-audit changed repository contents.</li>
         <li><strong>OWNER-MIRROR</strong> — published in one of this project's own repositories; a hash match proves byte identity to that mirror only.</li>
         <li><strong>COMPUTED</strong> — reproduced by a script in this repository, with the artifact path recorded.</li>
         <li><strong>INFERENCE</strong> — reasoning to be tested, not a measurement.</li>
         <li><strong>USER-REPORTED</strong> — stated by the project owner; no organizer receipt in the repository.</li>
         <li><strong>TRUSTED-PEER-REVIEWED</strong> — peer-reviewed methods literature cited for a design choice; it supplies no value for this dataset.</li>
       </ul>
+    </section>
+
+    <section id="public-source-health" aria-labelledby="public-source-health-heading">
+      <div class="section-head">
+        <div><p class="kicker">Public metadata · no score polling</p><h2 id="public-source-health-heading">Check pinned GitHub sources</h2></div>
+        <p>This on-visit check reads public commit metadata for the nine focus repositories and the organizer reference-solution repository. It never opens DrivenData or changes scientific results.</p>
+      </div>
+      <div class="card">
+        <p id="feed-status" role="status" aria-live="polite">Checking public GitHub commit metadata. If browser access is unavailable, the dated snapshot remains below.</p>
+        <div id="source-health" class="source-health-list" role="list" aria-label="Public GitHub repository HEAD checks"></div>
+        <p class="small">A changed HEAD means “not re-audited,” not “new score.” This check does not fetch raster contents, leaderboard entries, organizer receipts, weekly quota, or upload pages. Open the <a href="source-health.json">dated metadata snapshot</a> or the <a href="feed.json">machine-readable project feed</a>.</p>
+      </div>
+      <script defer src="assets/feed.js"></script>
     </section>
 
     <section>
@@ -996,6 +1009,14 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
         <p>Regenerated from the register and evidence files, so it cannot drift from the measurements. Also published as <a href="feed.json">feed.json</a>.</p>
       </div>
       {table(["field", "value"], rows)}
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><p class="kicker">Public metadata</p><h2>Repository freshness without leaderboard polling</h2></div>
+        <p>The public-source snapshot is separate from the scientific and score registers.</p>
+      </div>
+      <div class="card"><p>Open <a href="sources.html#public-source-health">the Sources page</a> for on-visit GitHub HEAD comparisons and <a href="source-health.json">the dated metadata snapshot</a>. Changed commits are not scientifically re-audited; no leaderboard, receipt, quota, or submission page is accessed.</p></div>
     </section>
 
     <section>
@@ -1376,10 +1397,53 @@ def main() -> None:
         DOCS / "register" / "index.html": build_register(data, sources, buffer_derivation),
         DOCS / "experiments" / "index.html": build_experiments_index(submissions),
     }
+    review_report_path = ROOT / "knowledge/repo_review_2026-10-28.md"
+    review_card_path = ROOT / "evidence/repo_review_2026-10-28/run_card.json"
+    if not review_report_path.is_file() or not review_card_path.is_file():
+        raise SystemExit("the dated repository review report and negative run card are required")
+    report_copy = review_report_path.read_text()
+    report_copy = report_copy.replace("../evidence/repo_review_2026-10-28/run_card.json",
+                                      "repo-review-2026-10-28-run-card.json")
+    report_copy = report_copy.replace("../registry/release_status.json",
+                                      "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/release_status.json")
+    report_copy = report_copy.replace("../docs/source-health.json", "../source-health.json")
+    pages[DOCS / "downloads" / "repo-review-2026-10-28.md"] = report_copy
+    pages[DOCS / "downloads" / "repo-review-2026-10-28-run-card.json"] = review_card_path.read_text()
     for exp in EXPERIMENTS:
         pages[DOCS / "experiments" / f"{exp['slug']}.html"] = build_experiment_page(exp)
     feed_json, feed_html = build_feed(submissions, buffer_derivation, union, arms, sources)
     feed_data = json.loads(feed_json)
+    source_health = load("docs/source-health.json", {})
+    source_checks = source_health.get("checks", []) if isinstance(source_health, dict) else []
+    if not source_checks:
+        raise SystemExit("docs/source-health.json must contain the public GitHub repository target snapshot")
+    feed_data["public_sources"] = [
+        {"repo": row["repo"], "pin": row["pin"]} for row in source_checks
+        if isinstance(row, dict) and row.get("repo") and row.get("pin")
+    ]
+    if len(feed_data["public_sources"]) != len(source_checks):
+        raise SystemExit("every source-health row must include a repository and audited commit pin")
+    feed_data["source_health_snapshot"] = {
+        "evidence_class": source_health.get("evidence_class"),
+        "checked_utc": source_health.get("checked_utc"),
+        "verified_count": source_health.get("verified_count"),
+        "total": source_health.get("total"),
+        "limitation": source_health.get("limitation"),
+        "file": "source-health.json",
+    }
+    current_repository_review = load("evidence/repo_review_2026-10-28/run_card.json")
+    feed_data["current_repository_review"] = {
+        "review_id": current_repository_review["review_id"],
+        "review_date": current_repository_review["review_date"],
+        "verdict": current_repository_review["verdict"],
+        "new_experiments": current_repository_review["new_experiments"],
+        "new_tiff_generated": current_repository_review["new_tiff_generated"],
+        "submission_slots_used": current_repository_review["submission_slots_used"],
+        "new_candidate_download_eligible": current_repository_review["new_candidate_download_eligible"],
+        "new_candidate_submission_eligible": current_repository_review["new_candidate_submission_eligible"],
+        "report": "downloads/repo-review-2026-10-28.md",
+        "run_card": "downloads/repo-review-2026-10-28-run-card.json",
+    }
     feed_data["current_protocol_review"] = load("evidence/review_9883b598/run_card.json")
     feed_data["current_selector_decision"] = load("registry/selector_decision_20261026.json")
     feed_data["current_h31aa_run"] = load("evidence/h31aa/run_card.json")

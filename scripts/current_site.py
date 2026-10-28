@@ -5,8 +5,6 @@ import html
 import json
 from pathlib import Path, PurePosixPath
 
-import focus_review
-
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -1435,7 +1433,7 @@ def _overview_body(card, *, hero_rbu: bool):
     delta = card["paired_difference"]
     final = card["registry"]["final"]
     magrest_notice = '<div class="notice">Historical lane results below are research evidence only, not current upload permission.</div>'
-    body = f'''{selector_decision_section()}{focus_review.section(ROOT)}{h31aa_download_and_gates()}{magrest_notice}{h31y_download_and_gates()}{h31yr_download_and_gates()}{h31z_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
+    body = f'''{selector_decision_section()}{repo_review_notice()}{h31aa_download_and_gates()}{magrest_notice}{h31y_download_and_gates()}{h31yr_download_and_gates()}{h31z_download_and_gates()}{h31ym_download_and_gates()}{pgr31_download_and_gates()}
       {h31s_download_and_gates()}
       {h31x_download_and_gates()}
       {h31t_download_and_gates()}
@@ -1483,20 +1481,63 @@ def _overview_body(card, *, hero_rbu: bool):
 
 
 def focus_site_summary() -> str:
-    """Show the highest owner-reported artifact per requested site, never as upload advice."""
+    """Show the highest owner-reported artifact per focus site, never as upload advice."""
     path = ROOT / "registry/focus_review.json"
     if not path.is_file():
         return ""
     rows = json.loads(path.read_text()).get("rows", [])
+    unique_path = ROOT / "registry/focus_unique_2026.json"
+    unique_rows = json.loads(unique_path.read_text()).get("sites", []) if unique_path.is_file() else []
+    unique_by_site = {row.get("site"): row for row in unique_rows}
     best = {}
-    for row in rows:
-        try:
-            score = float(row["claim_value"])
-        except (KeyError, TypeError, ValueError):
-            continue
-        site = row.get("repository")
+
+    def keep(site, score, row):
         if site and (site not in best or score > best[site][0]):
             best[site] = (score, row)
+
+    for row in rows:
+        try:
+            keep(row.get("repository"), float(row["claim_value"]), row)
+        except (KeyError, TypeError, ValueError):
+            continue
+
+    # Cross-check the display against the owner-claim ledger. A newer claim only
+    # replaces a pinned row when its fragment maps to a pinned artifact record.
+    score_path = ROOT / "registry/user_reported_scores.json"
+    if score_path.is_file():
+        claims = json.loads(score_path.read_text()).get("entries", [])
+        for claim in claims:
+            site, fragment = claim.get("site"), claim.get("fragment", "")
+            if site not in unique_by_site:
+                continue
+            try:
+                score = float(claim["score"])
+            except (KeyError, TypeError, ValueError):
+                continue
+            if site in best and score <= best[site][0]:
+                continue
+            match = next((row for row in rows if row.get("repository") == site
+                          and fragment and fragment in row.get("artifact", "")), None)
+            if match is None:
+                snapshot = unique_by_site[site]
+                current_artifact = snapshot.get("current_unique_artifact", "")
+                scored_artifact = snapshot.get("scored_20261025_artifact", "")
+                if fragment and fragment in current_artifact:
+                    match = {"repository": site, "artifact": current_artifact,
+                             "source_url": snapshot.get("current_unique_url"),
+                             "sha256": snapshot.get("current_sha256"),
+                             "fraction_within_3px_of_h33": snapshot.get("overlap_3px_vs_h33"),
+                             "method": snapshot.get("site_gate_status", "Pinned focus candidate")}
+                elif fragment and fragment in scored_artifact:
+                    match = {"repository": site, "artifact": scored_artifact,
+                             "source_url": snapshot.get("scored_20261025_url"),
+                             "method": "Pinned score-ledger artifact; exact hash not recorded in focus summary"}
+                else:
+                    match = {"repository": site, "artifact": fragment or "artifact not identified",
+                             "source_url": None, "sha256": None,
+                             "fraction_within_3px_of_h33": None,
+                             "method": "Score claim is in the ledger, but no exact artifact mapping was found"}
+            keep(site, score, {**match, "claim_value": score, "score_evidence_class": "USER-REPORTED"})
 
     site_order = ["GEMSDOE24", "GEMSDOE25", "GEMSDOE27", "GEMSDOE28",
                   "GEMSDOE30", "GEMSDOE31", "GEMSDOE32", "GEMSDOE33", "GEMSDOE36"]
@@ -1504,42 +1545,68 @@ def focus_site_summary() -> str:
     for site in site_order:
         result = best.get(site)
         if result is None:
-            rendered.append(f"<tr><td>{esc(site)}</td><td colspan=\"4\">No pinned candidate record in the current audit.</td></tr>")
+            rendered.append(f'<tr><td><strong>{esc(site)}</strong></td><td colspan="6">No pinned candidate record in the current audit.</td></tr>')
             continue
         score, row = result
-        overlap = row.get("fraction_within_3px_of_h33")
-        overlap_text = "not available" if overlap is None else f"{100 * overlap:.1f}% of dots within 3 px of H33"
-        artifact = esc(row["artifact"])
-        url = esc(row["source_url"])
+        overlap = row.get("fraction_within_3px_of_h33", row.get("overlap_3px_vs_h33"))
+        overlap_text = ("Not measured in this pinned snapshot" if overlap is None else
+                        f"COMPUTED: {100 * float(overlap):.1f}% of dots within 3 px of H33")
+        artifact = esc(row.get("artifact", "artifact not identified"))
+        raw_url = row.get("source_url") or ""
+        if raw_url:
+            artifact_cell = f'<a href="{esc(raw_url)}" target="_blank" rel="noopener">{artifact}</a>'
+        else:
+            artifact_cell = f'{artifact}<br><span class="small">No exact pinned artifact link</span>'
+        sha = row.get("sha256")
+        sha_cell = f'<br><span class="small">SHA-256 <code>{esc(sha[:12])}…</code></span>' if sha else ""
         method = esc(row.get("method", "Not established in the current audit"))
-        sha = esc(row.get("sha256", ""))
+        permission = "Prior-art claim only; DO NOT SUBMIT"
+        if overlap is not None and float(overlap) > 0.70:
+            uniqueness = "No — prior submission; also &gt;70% overlap vs H33"
+        elif raw_url:
+            uniqueness = "No — already-submitted prior art; not a new candidate"
+        else:
+            uniqueness = "Unknown — file not pinned; not cleared"
         rendered.append(
             f'<tr><td><strong>{esc(site)}</strong></td>'
-            f'<td><a href="{url}" target="_blank" rel="noopener">{artifact}</a>'
-            f'<br><span class="small">SHA-256 <code>{sha[:12]}…</code></span></td>'
+            f'<td>{artifact_cell}{sha_cell}</td>'
             f'<td>{score:.4f}<br><span class="badge">USER-REPORTED · no organizer receipt</span></td>'
-            f'<td>{method}</td><td>{overlap_text}<br>Not a unique new submission</td>'
-            f'<td>Unavailable — no validated forecast</td><td>Prior-art download only; DO NOT SUBMIT</td></tr>'
+            f'<td>{method}</td><td>{overlap_text}<br>{uniqueness}</td>'
+            f'<td>Unavailable — no validated forecast</td><td>{permission}</td></tr>'
         )
+
+    pinned_overlaps = []
+    for site in site_order:
+        row = best.get(site, (None, {}))[1]
+        value = row.get("fraction_within_3px_of_h33", row.get("overlap_3px_vs_h33"))
+        if value is not None and row.get("source_url"):
+            pinned_overlaps.append(float(value))
+    all_pinned_over_70 = len(pinned_overlaps) == len(site_order) and all(value > 0.70 for value in pinned_overlaps)
+    health_path = ROOT / "docs/source-health.json"
+    health = json.loads(health_path.read_text()) if health_path.is_file() else {}
+    checked = esc(health.get("checked_utc", "not checked"))
+    verified, total = health.get("verified_count", 0), health.get("total", 0)
+    health_checks = health.get("checks", [])
+    focus_repos = [row for row in health_checks if row.get("repo", "").rsplit("/", 1)[-1] in site_order]
+    changed_focus = sum(bool(row.get("ok")) and row.get("current") != row.get("pin") for row in focus_repos)
+    overlap_notice = ("All nine pinned winners exceed the 70% dot-overlap stop against H33."
+                      if all_pinned_over_70 else
+                      "Any unpinned higher claim remains uncleared; per-file overlap status is shown below.")
     return f'''<section id="focus-sites"><div class="section-head"><div>
-      <p class="kicker">Nine requested repositories · highest claim per site</p>
+      <p class="kicker">Nine requested repositories · pinned best reported claim per site</p>
       <h2>Prior-art comparison — not a list of upload recommendations</h2></div>
-      <p>Scores below are the claims supplied by the owner and pinned to repository artifacts where available.
-        They are not organizer-confirmed scores. The highest listed claim is GEMSDOE32 H33-2-B2 (0.2778),
-        but H33 is a D2.8 catalogue-distance prune, not a new detector, and is not eligible as a unique new submission.</p></div>
+      <p>Scores are the highest available USER-REPORTED claims across the focus review and score ledger; none has an organizer receipt. The highest listed claim is GEMSDOE32 H33-2-B2 (0.2778), but its raster is a catalogue-distance prune, not a new detector, and is not eligible as a unique new submission.</p></div>
       <div class="notice notice-danger"><strong>Decision: none of these historical files is cleared to submit as a new unique candidate.</strong>
-        The selected files are prior art; each has &gt;70% of its positive dots within 3 px of the pinned H33 raster
-        (the reference itself is 100%). Do not copy or rename them. Every score in this table remains USER-REPORTED.</div>
-      <div class="table-wrap"><table><thead><tr><th>Site</th><th>Highest listed artifact (pinned mirror)</th>
-        <th>Claimed score</th><th>Method / interpretation</th><th>Measured relation to H33</th><th>Estimated score</th><th>Permission</th></tr></thead>
+        {overlap_notice} H33 itself is 100%. Do not copy or rename historical files. No numerical leaderboard forecast is available.</div>
+      <div class="table-wrap"><table><thead><tr><th>Site</th><th>Highest listed artifact (pinned source where available)</th>
+        <th>Claimed score</th><th>Method / interpretation</th><th>Computed relation to H33 / uniqueness</th><th>Estimated score</th><th>Permission</th></tr></thead>
         <tbody>{''.join(rendered)}</tbody></table></div>
-      <p class="small"><strong>Snapshot warning:</strong> this is historical pinned prior art, not a live feed.
-        Fresh 26 October GitHub metadata checks found newer main revisions at all nine sites; changed rasters are not exhaustively re-audited.
-        <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/review_bf9d261d/source_checks.json">Dated source-check receipt</a>.</p>
-      <p class="small">The table shortens each SHA-256 for readability; full digests and evidence classes are in the <a href="register/index.html">submission register</a> and <code>registry/focus_review.json</code>.</p>
+      <p class="small"><strong>Snapshot warning:</strong> this is pinned historical prior art, not a live leaderboard feed.
+        The candidate inventory is from pinned repository snapshots dated 25–26 October 2026; public GitHub HEAD metadata was last checked {checked}
+        ({verified}/{total} queries verified; {changed_focus}/{len(focus_repos)} focus-repository HEADs differ from their pin). A changed HEAD is not a scientific re-audit; see the <a href="sources.html#public-source-health">Sources page</a> and <a href="source-health.json">dated metadata snapshot</a>. No DrivenData score or submission page was accessed.</p>
+      <p class="small">The table shortens each SHA-256 where available; full digests and claim evidence classes are in the <a href="register/index.html">submission register</a>, <code>registry/focus_review.json</code>, and <code>registry/user_reported_scores.json</code>. GEMSDOE32’s user claim names the <code>-zeros.tif</code>; the linked pinned geometry row is its <code>-nan.tif</code> audit twin, with the 3-px comparison attached to the audited positive-dot support, not a claim that the encoded bytes are identical. See <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/012e17b2a115c3c0d5e7885bea625bf9657c99fc/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif" target="_blank" rel="noopener">score-claimed zeros file</a> and <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif" target="_blank" rel="noopener">pinned NaN audit twin</a>.</p>
       <p class="small"><strong>GEMSDOE31 irregularity:</strong> the user-listed 0.2708 H27-4 claim conflicts with the pinned owner-page status
-        recorded in <code>registry/irregularities.json</code> (listed as unscored); exact organizer receipt-to-file attribution is absent.
-        This table is a forensic index, not a live leaderboard snapshot or a recommendation to spend a slot.</p>
+        recorded in <code>registry/irregularities.json</code> (listed as unscored); exact organizer receipt-to-file attribution is absent.</p>
       {_focus_unique_2026_html()}
     </section>'''
 
@@ -1582,17 +1649,50 @@ def _focus_unique_2026_html() -> str:
             f'<td>{gate_txt}</td></tr>'
         )
     return f'''<div style="margin-top:28px">
-      <h3>2026-10-25 newly reported unique scores &amp; 2026-10-26 current HEAD unique candidates across all 9 sites</h3>
-      <p class="small">Unlike the historical D1.5/D2.8 family above (86.7%&ndash;100% 3-px overlap with H33), all nine current HEAD candidates below have &le;56% 3-px dot overlap with H33-2-B2 and pass automated EPSG:32611 / [0, 1] grid checks. Every reported leaderboard number carries <code>USER-REPORTED · no organizer receipt</code>. Off-catalogue USGS SGMC proxy DTI is reported as <code>All / Piedmont (&le;6 deg) / Mountain (&gt;6 deg)</code> to expose steep-bedrock mimicry (for example, GEMSDOE32 R6-stepprofile reaches 0.1424 overall SGMC but collapses to 0.0030 Piedmont SGMC and 0.0034 Quaternary holdout DTI).</p>
-      <div class="table-wrap"><table><thead><tr><th>Site</th><th>2026-10-25 newly reported unique batch</th>
-        <th>Current HEAD unique candidate (2026-10-26)</th><th>3-px overlap</th>
-        <th>SGMC-PROXY (All / Pied / Mtn)</th><th>Measured status &amp; site gate verdict</th></tr></thead>
+      <h3>Additional pinned score claims and candidate files (snapshot through 26 October 2026)</h3>
+      <p class="small">These rows are pinned historical owner-mirror records, not current HEAD or live leaderboard data. The registry field named <code>scored_20261025_*</code> contains at least one artifact dated 2026-10-26 (GEMSDOE27 H31-DRCG); dates are shown as recorded and this inconsistency is flagged rather than silently corrected. All competition-score claims are <code>USER-REPORTED · no organizer receipt</code>. The numeric SGMC column is <strong>COMPUTED SGMC-PROXY-DTI</strong> against an off-catalogue state-map proxy (All / Piedmont / Mountain), not HOLDOUT-DTI and not a competition score; it does not establish fault discovery or leaderboard performance. Current public HEAD metadata and its scope are shown on the <a href="sources.html#public-source-health">Sources page</a>.</p>
+      <div class="table-wrap"><table><thead><tr><th>Site</th><th>User-reported score claim in the registry</th>
+        <th>Pinned candidate artifact snapshot</th><th>Computed 3-px overlap vs H33 / H29</th>
+        <th>COMPUTED SGMC-PROXY-DTI, not competition score (All / Pied / Mtn)</th><th>Historical site gate status — not permission</th></tr></thead>
         <tbody>{''.join(rows_html)}</tbody></table></div>
     </div>'''
 
 
+def repo_review_notice() -> str:
+    """Current repository review summary, rendered from the review and release receipts."""
+    card_path = ROOT / "evidence/repo_review_2026-10-28/run_card.json"
+    status_path = ROOT / "registry/release_status.json"
+    if not card_path.is_file() or not status_path.is_file():
+        return ""
+    review = json.loads(card_path.read_text())
+    status = json.loads(status_path.read_text())
+    health_path = ROOT / "docs/source-health.json"
+    health = json.loads(health_path.read_text()) if health_path.is_file() else {}
+    preflight = review.get("correlation_overlap_vs_registry", {}).get("literal_registry_preflight", {})
+    pct = 100 * float(preflight.get("minimum_overlap_fraction_at_reference_budget", 0.0))
+    checked = esc(health.get("checked_utc", "not checked"))
+    verified, total = health.get("verified_count", 0), health.get("total", 0)
+    research = "YES" if status.get("ok_to_download_for_research") else "NO"
+    submit = "YES" if status.get("ok_to_submit") else "NO"
+    return f'''<section id="repository-review-2026-10-28" aria-labelledby="repository-review-heading">
+      <div class="section-head"><div><p class="kicker">Repository review · 28 October 2026 · three passes</p>
+        <h2 id="repository-review-heading">No new candidate is authorized</h2></div>
+        <p>The release remains negative. This review made no fit, placement, TIFF, selector action, slot use, upload, or leaderboard read.</p></div>
+      <div class="notice notice-danger"><strong>Existing H31-X: research download {research}; submission {submit}; slot approval NO.</strong>
+        Its 26 October release record is format-valid only; no format pass overrides the literal registry STOP.</div>
+      <ul>
+        <li>No new HOLDOUT-DTI was measured. The assigned method paragraph is absent and the full shared feature arrays are not present in this checkout.</li>
+        <li>At the historical 37,654-dot reference budget, a <strong>COMPUTED counting bound, not a score</strong>, forces at least {pct:.2f}% overlap with the registered witness. This applies to that budget only; it is not proof that every nonempty raster is duplicate.</li>
+        <li>Public GitHub HEAD metadata checked {checked}: {verified}/{total} queries verified. Changed repositories are not content- or score-audited; no DrivenData leaderboard or submission endpoint is accessed.</li>
+      </ul>
+      <div class="actions"><a class="button button-light" href="downloads/repo-review-2026-10-28.md">Three-pass review report</a>
+        <a class="button button-light" href="downloads/repo-review-2026-10-28-run-card.json">Negative run card (JSON)</a>
+        <a class="button button-light" href="sources.html#public-source-health">Public source status</a></div>
+    </section>'''
+
+
 def review_notice():
-    return '<div class="notice"><strong>26 October audit: no new TIFF or submission approval.</strong> The literal registry STOP remains binding. Corrected marginal DTI algebra and score-provenance wording; existing downloads are research-only. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_metric_and_release_review.md">Review, limitations and next steps</a>.</div>'
+    return '<div class="notice"><strong>Historical 26 October audit: no new TIFF or submission approval.</strong> The literal registry STOP remains binding. Existing downloads are research-only. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_metric_and_release_review.md">Review, limitations and next steps</a>.</div>'
 
 
 def executive(card):
@@ -1601,7 +1701,8 @@ def executive(card):
     return f'''<div class="notice notice-danger"><strong>No file is cleared to submit under the current protocol.</strong>
       Download and format validation are separate from uniqueness, scientific efficacy and selector approval.
       No human sign-off can override a failed gate.</div>
-      {selector_decision_section()}{focus_review.section(ROOT)}
+      {selector_decision_section()}{repo_review_notice()}
+      {focus_summary}
       {h31aa_download_and_gates()}
       {review_notice()}
       {h31y_download_and_gates()}
@@ -1609,7 +1710,6 @@ def executive(card):
       {h31z_download_and_gates()}
       {h31ym_download_and_gates()}
       {pgr31_download_and_gates()}
-      {focus_summary}
       {h31s_download_and_gates()}
       {h31x_download_and_gates()}
       {h31t_download_and_gates()}
@@ -1659,6 +1759,21 @@ def parallel_archives():
       The old workflow, extra HTML page and obsolete active-homepage assertion are archived rather than re-enabled. The current site remains 20 pages.</p></section>'''
 
 
+def current_desk_hypotheses_section() -> str:
+    return '''<section id="desk-hypotheses-2026-10-28" aria-labelledby="desk-hypotheses-heading">
+      <div class="section-head"><div><p class="kicker">Desk proposals only · 28 October 2026 · none selected or tested</p>
+        <h2 id="desk-hypotheses-heading">Three distinct next hypotheses — no score forecasts</h2></div>
+        <p>Qualitative research priorities only. The prior-art screen excluded methods already implemented or proposed in this repository. No numerical HOLDOUT-DTI estimate or leaderboard projection is justified.</p></div>
+      <div class="notice notice-danger"><strong>Validation status: NOT RUN.</strong> The required lane-assignment paragraph is absent and the production feature stack is unavailable. No candidate was selected, fitted, placed, or packaged; the leading hypothesis must pass the buffered holdout and both registry screens before any separate slot selector can consider it.</div>
+      <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Hypothesis / specific signature</th><th>Why it may reveal an unmapped fault</th><th>Novelty screen and named mimics</th><th>Data source, access, qualitative potential and cost</th></tr></thead><tbody>
+        <tr><td>1</td><td>Cross-cutting stratigraphic-contact displacement: correlate independent mapped formation contacts and detect consistent termination/throw across a candidate structure; exclude mapped fault lines from predictors.</td><td>A concealed normal fault can vertically offset or truncate older marker contacts beneath alluvium without a continuous surface scarp.</td><td>No formation-unit polygons or contact-offset/throw detector were found in the local feature manifest/code/preregistrations. Mimics: facies pinch-outs, depositional onlap, lava-flow margins, map-sheet seams and age/datum inconsistencies.</td><td><a href="https://ngmdb.usgs.gov/mapview/">USGS NGMDB MapView</a> is an existing source lead; its specific product, vector download, scale, footprint coverage and license were not verified. Potential specificity: moderate, uncertain; cost: high digitization/registration. Not viability-cleared.</td></tr>
+        <tr><td>2</td><td>Seasonal thermal-inertia discontinuity: multi-year surface-temperature amplitude and phase-lag contrasts after controlling for aspect, elevation, emissivity and land cover.</td><td>A shallow fault conduit or barrier may alter moisture/heat transport, producing a persistent narrow thermal-response boundary even where static topography is weak.</td><td>Distinct from existing static GDR well-temperature/geothermometer and vent/probe-distance features; no satellite thermal time-series feature was found. Mimics: irrigation, geothermal surface manifestations unrelated to the mapped fault, playa emissivity, aspect and land-cover change.</td><td><a href="https://www.usgs.gov/landsat-missions/landsat-collection-2">USGS Landsat Collection 2</a> is a source lead only. Scene availability, native thermal support, seasonal sampling, QA and no-account access were not checked. Potential: low-to-moderate, very uncertain; cost: high. Not viability-cleared.</td></tr>
+        <tr><td>3</td><td>Post-rain optical phenology anomaly: multi-season Sentinel-2 surface-reflectance NDMI/vegetation trajectories and lagged recovery, with spatially matched terrain/land-cover controls.</td><td>Fault-controlled shallow groundwater may create a persistent soil-moisture or vegetation-response boundary that is absent from static fault catalogs.</td><td>No Sentinel/Landsat vegetation time series or rainfall-response feature was found. This is not a static radiometric/mineral ratio or fault-distance feature. Mimics: irrigation, springs, salinity, vegetation type, precipitation gradients, roads and land-management boundaries.</td><td><a href="https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-2">Copernicus Sentinel-2 data</a> is a source lead only. Exact scene/season coverage, product access, cloud QA and license path were not checked. Potential: low and highly uncertain; cost: high compositing and confounder control. Not viability-cleared.</td></tr>
+      </tbody></table></div>
+      <p class="small">Prior-art families deliberately excluded from this short list include cross-field phase/coherence and offsets (XFCOH31/H31-AB), matched-catchment steepness (H31-AC), drainage/knickpoint deflection (H31-T), scarp/flexure and shoreline-null methods (H31-AA), Curie-depth edges, strain/seismicity (H31-U/PGR31), InSAR, ASTER alteration, and groundwater-head/temperature-proximity methods. See <a href="downloads/repo-review-2026-10-28.md">the review report</a> and the official-source limits in <a href="sources.html">Sources</a>. These three proposals are not implemented, preregistered, or scientifically validated.</p>
+    </section>'''
+
+
 def research(card, screen, focus, lineage):
     score_rows = "".join(f"<tr><td>{esc(name)}</td><td>{score_text(row)}</td><td>{row['withheld_positive_pixels']:,}</td></tr>"
                          for name, row in screen["holdout"]["scores"].items())
@@ -1667,18 +1782,17 @@ def research(card, screen, focus, lineage):
       for r in focus["rows"])
     rel = lineage["relations"]
     proxy = card["sgmc_proxy"]
-    return f'''<div class="notice"><strong>Evidence boundary</strong>Only measured geometry and local holdouts are verified here.
-      The literal registry gate FAILS: a registered spacing-5 lattice covers 99.52%–100% of fixed variants’ dots, and GEMSDOE48 continuous pignistic covers 100%. No new fit or TIFF follows this STOP. The reported 0.2778 and conflicting leaderboard anchors 0.3195 / 0.4413 have no organizer receipt in this project.
-      Non-GitHub official pages cannot be re-fetched under this environment's host allowlist.</div>
+    return f'''{repo_review_notice()}{current_desk_hypotheses_section()}
+      <div class="notice"><strong>Historical research archive follows.</strong> The sections below record earlier runs and preregistrations; they do not assign a current lane or override the current negative release status. Only measured geometry and local holdouts are reported as computed evidence. The reported 0.2778 and conflicting 0.3195 / 0.4413 anchors have no organizer receipt in this project. Non-GitHub official pages were not re-fetched in this session.</div>
       {h31aa_download_and_gates()}
       {h31s_download_and_gates()}
-      <section><div class="section-head"><div><p class="kicker">2026-10-26 Ranked Geological Hypotheses (Lane H31-S)</p><h2>Four untried Basin-and-Range buried-fault hypotheses</h2></div>
-        <p>Preregistered in <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_h31s_udap_sslic_preregistration.md">knowledge/2026-10-26_h31s_udap_sslic_preregistration.md</a> prior to running H31-S.</p></div>
-        <div class="table-wrap"><table><thead><tr><th>Rank / ID</th><th>Specific layers &amp; physical signature</th><th>Why missing from USGS/INGENIOUS &amp; novelty vs repo</th><th>Expected DTI impact, cost &amp; verified free source</th></tr></thead><tbody>
-          <tr><td>1 · H31-S (UDAP-SSLIC) · executed</td><td><code>depth_to_base_surf</code>, <code>iso_grav_anom_slope</code>, GeoDAWN <code>TMI_up150</code>/<code>K</code>/<code>Th</code>, <code>rtp</code>, <code>cond_surf</code>, GDR-1391 thermal/sinter/volcanics; Cordell&ndash;Grauch 45/55/65 deg up-dip advection + axial demagnetized trough + 2-stage strike-steered line-integral continuity</td><td>Dipping range-front &amp; intra-basin normal faults have gravity/magnetic steps shifted 200&ndash;1,200 m basinward (outside the 300 m DTI kernel), while hydrothermal conduits destroy magnetite along fault cores. First up-dip coordinate projection + nested OOF SSLIC in GEMSDOE31</td><td>Measured HOLDOUT-DTI 0.0948 (s41) &amp; 0.0980 (s42) vs 0.0591 / 0.0544 Physical-HGB (+61% to +80%); ~25 min on 2 CPUs · USGS INGENIOUS / GeoDAWN / GDR-1391</td></tr>
-          <tr><td>2 · H31-T-SWARM (SWARM-COULOMB) · desk-ranked</td><td><code>ieq_n100a15</code>, <code>deq_n100a15</code>, <code>geod_2ndinv</code>, <code>geod_shearrate</code>, <code>geod_dilaterate</code>; microseismic swarm-excess log-ratio interacted with Andersonian Mohr&ndash;Coulomb optimal-slip alignment</td><td>Transtensional Walker Lane / Humboldt stepovers host active fluid-driven microseismic swarms without coalesced Holocene scarps; seismic bands were never tested as a swarm-excess x slip-tendency interaction</td><td>+0.004 to +0.012 HOLDOUT-DTI (coarse 10&ndash;15 km kernel limits standalone 300 m precision); low cost (~4 min) · local cached bands 4, 7, 8, 10, 16</td></tr>
-          <tr><td>3 · H31-U (INSAR-3DEP-DIFF) · external roadmap</td><td>Sentinel-1 ARIA unwrapped LOS interseismic/seasonal phase gradients + raw 1 m USGS 3DEP stream-channel knickpoints</td><td>Blind intra-playa faults act as cemented groundwater aquitards creating sharp 2&ndash;5 mm/yr seasonal poroelastic InSAR phase steps with &lt;0.2 m surface relief</td><td>+0.020 to +0.045 DTI in play-fairway basins; high I/O (~40 GB), sandbox-blocked host · NASA JPL ARIA / ASF DAAC &amp; USGS TNM 3DEP</td></tr>
-          <tr><td>4 · H31-V (USARRAY-MT-3D) · external roadmap</td><td>EarthScope USArray 3D magnetotelluric phase-tensor skew |beta| &gt; 3 deg and Parkinson real induction-arrow reversals</td><td>Subvertical 1&ndash;8 km conductive fault-zone brines beneath resistive Miocene&ndash;Pliocene volcanic tables are invisible to single-surface <code>cond_surf</code></td><td>+0.008 to +0.022 DTI at 3&ndash;10 km station spacing; medium cost, sandbox-blocked host · EarthScope / IRIS SPUD EMTF</td></tr>
+      <section><div class="section-head"><div><p class="kicker">Historical 2026-10-26 proposal set · H31-S preregistration</p><h2>Earlier Basin-and-Range hypotheses — not current lane assignments</h2></div>
+        <p>These are preserved historical ideas and outcomes. Some were subsequently implemented; they are not presented as untried current candidates. See the 28 October desk-only candidates above. Original preregistration: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_h31s_udap_sslic_preregistration.md">H31-S record</a>.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Rank / ID</th><th>Specific layers &amp; physical signature</th><th>Why missing from USGS/INGENIOUS &amp; novelty vs repo</th><th>Historical value / effort note — no current score forecast</th></tr></thead><tbody>
+          <tr><td>1 · H31-S (UDAP-SSLIC) · executed historically</td><td><code>depth_to_base_surf</code>, <code>iso_grav_anom_slope</code>, GeoDAWN <code>TMI_up150</code>/<code>K</code>/<code>Th</code>, <code>rtp</code>, <code>cond_surf</code>, GDR-1391 thermal/sinter/volcanics; Cordell&ndash;Grauch 45/55/65 deg up-dip advection + axial demagnetized trough + 2-stage strike-steered line-integral continuity</td><td>Dipping range-front &amp; intra-basin normal faults have gravity/magnetic steps shifted 200&ndash;1,200 m basinward (outside the 300 m DTI kernel), while hydrothermal conduits destroy magnetite along fault cores. First up-dip coordinate projection + nested OOF SSLIC in GEMSDOE31</td><td>Historical experiment; see its run card for fully labelled HOLDOUT-DTI values. Not a leaderboard score; prior-session outcome only · USGS INGENIOUS / GeoDAWN / GDR-1391</td></tr>
+          <tr><td>2 · H31-T-SWARM (SWARM-COULOMB) · desk proposal</td><td><code>ieq_n100a15</code>, <code>deq_n100a15</code>, <code>geod_2ndinv</code>, <code>geod_shearrate</code>, <code>geod_dilaterate</code>; microseismic swarm-excess log-ratio interacted with Andersonian Mohr&ndash;Coulomb optimal-slip alignment</td><td>Transtensional Walker Lane / Humboldt stepovers host active fluid-driven microseismic swarms without coalesced Holocene scarps; seismic bands were never tested as a swarm-excess x slip-tendency interaction</td><td>Qualitative potential only; no measured or forecast DTI. Moderate feature-engineering cost; data/cache absent in this checkout. Historical concept, not current candidate.</td></tr>
+          <tr><td>3 · H31-U (INSAR-3DEP-DIFF) · external roadmap</td><td>Sentinel-1 ARIA unwrapped LOS interseismic/seasonal phase gradients + raw 1 m USGS 3DEP stream-channel knickpoints</td><td>Blind intra-playa faults act as cemented groundwater aquitards creating seasonal poroelastic InSAR phase steps under very low-relief playas</td><td>Qualitative potential only; no measured or forecast DTI. High I/O and data-processing cost; source access/coverage is not verified here. Historical roadmap, not current candidate.</td></tr>
+          <tr><td>4 · H31-V (USARRAY-MT-3D) · external roadmap</td><td>EarthScope USArray 3D magnetotelluric phase-tensor skew and induction-arrow reversals</td><td>Subvertical conductive fault-zone brines beneath resistive Miocene&ndash;Pliocene volcanic tables are invisible to single-surface <code>cond_surf</code></td><td>Qualitative potential only; no measured or forecast DTI. High access and data-resolution cost; product-specific coverage was not verified. Historical roadmap, not current candidate.</td></tr>
         </tbody></table></div>
       </section>
       {h31x_download_and_gates()}

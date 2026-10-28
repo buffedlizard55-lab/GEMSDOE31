@@ -141,3 +141,11 @@ hr { margin: 34px 0; border: 0; border-top: 1px solid var(--line); }
 
 /* Long scientific gate labels must wrap rather than widen mobile pages. */
 .section-head > * { min-width: 0; }
+
+.source-health-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; }
+.health-row { display: grid; gap: 4px; padding: 13px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.health-row a { font-weight: 700; overflow-wrap: anywhere; }
+.health-row small { color: var(--ink-soft); overflow-wrap: anywhere; }
+@media (max-width: 620px) {
+  .source-health-list { grid-template-columns: 1fr; }
+}
