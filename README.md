@@ -1,3 +1,13 @@
+# Current session — 28 October 2026 (`arena/fcbbeea8-gemsdoe31`)
+
+**DO NOT SUBMIT. No file is cleared to submit. No new TIFF was generated this session.** The literal registry-lattice rule forces a duplicate STOP for any 37,654-dot raster before placement (COMPUTED counting bound: at least 82.34% of dots within 3 px of the registered lattice, gate 70%). Estimated leaderboard score for any new file: **unavailable**.
+
+- Download, research only (DO NOT SUBMIT): [gems31-h31cc-basement-step-37654d-20261028-zeros.tif](docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif). Format read-back passes; it is not a submission.
+- [Executive summary and nine-site table](docs/executive-summary.html) · [review, verification log and owner decisions](knowledge/2026-10-28_review_fcbbeea8.md) · [run card](evidence/review_fcbbeea8/run_card.json) · [re-derivation script](scripts/session_fcbbeea8_gate.py)
+- Owner decision needed: the count bound forces a STOP only at N ≥ 22,164 dots, and the same rule would also stop the highest user-reported file (GEMSDOE32 H33-2-B2, 37,654 dots, USER-REPORTED 0.2778). Choosing a rule is the owner's call; the repository does not exempt or evade it.
+
+---
+
 # Current session — 28 October 2026 (`arena/bb6d6287-gemsdoe31`)
 
 **DO NOT SUBMIT.** No current artifact is approved. No human sign-off can override a failed gate.

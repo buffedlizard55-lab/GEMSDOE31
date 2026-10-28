@@ -1601,6 +1601,7 @@ def executive(card):
     return h31cc_front_door() + f'''<div class="notice notice-danger"><strong>No file is cleared to submit under the current protocol.</strong>
       Download and format validation are separate from uniqueness, scientific efficacy and selector approval.
       No human sign-off can override a failed gate.</div>
+      {session_fcbbeea8_notice()}
       {selector_decision_section()}{focus_review.section(ROOT)}
       {h31aa_download_and_gates()}
       {review_notice()}
@@ -1753,6 +1754,35 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
           <p><a href="downloads/magrest-run-card.json">Complete JSON run card</a> ·
           <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/tree/main/evidence/magrest">All measurements</a>.</p>
       </section>{scgp_download_and_gates()}{parallel_archives()}'''
+
+
+def session_fcbbeea8_notice() -> str:
+    """Session fcbbeea8 (2026-10-28). Reads evidence/review_fcbbeea8/run_card.json; fails closed if absent."""
+    path = ROOT / "evidence/review_fcbbeea8/run_card.json"
+    if not path.is_file():
+        return '<div class="notice notice-danger">DO NOT SUBMIT. fcbbeea8 review card missing; fail closed.</div>'
+    card = json.loads(path.read_text())
+    b = card["pre_placement_count_bound"]
+    h = card["same_bound_applied_to_highest_user_reported_file"]
+    return f'''<section id="fcbbeea8">
+      <p class="kicker">28 October 2026 · session fcbbeea8 · repository review, no new TIFF</p>
+      <h2>Decision: no TIFF is cleared to submit, and no new TIFF was generated</h2>
+      <div class="notice notice-danger"><strong>Stop before placement.</strong>
+      The literal registry-lattice rule forces STOP for any {b["candidate_dots"]:,}-dot raster:
+      at least {100*b["min_overlap_at_candidate_dots"]:.2f}% of its dots fall within 3 px of the registered lattice
+      (gate {100*b["gate_overlap"]:.0f}%). This is COMPUTED by counting ({b["outside_3px_halo"]:,} uncovered footprint
+      pixels), not a score. Estimated leaderboard score for any new file: unavailable.</div>
+      <div class="table-wrap"><table>
+        <caption>Count-bound checks (COMPUTED, run card evidence/review_fcbbeea8/run_card.json)</caption>
+        <thead><tr><th>Check</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Dots at the project budget</td><td>{b["candidate_dots"]:,} — forced STOP: {b["forced_stop_at_candidate_dots"]}</td></tr>
+          <tr><td>Smallest dot count where the count alone forces STOP</td><td>{b["min_dots_for_forced_stop"]:,}. Below this the count forces nothing. The repository forbids exploiting that; flagged for owner review.</td></tr>
+          <tr><td>Same bound on the highest user-reported file (GEMSDOE32 H33-2-B2, {h["positive_pixels"]:,} dots)</td><td>Minimum overlap {100*h["min_overlap_by_count"]:.2f}% — forced STOP by the same rule: {h["forced_stop_by_same_rule"]}. The literal rule therefore disagrees with the leaderboard's acceptance of that file, which is USER-REPORTED. Owner decision required.</td></tr>
+        </tbody></table></div>
+      <p>Every number above is COMPUTED or USER-REPORTED; none is HOLDOUT-DTI or an organizer receipt. The existing research-only file is still
+      <a href="downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif" download>gems31-h31cc-basement-step-37654d-20261028-zeros.tif</a> (DO NOT SUBMIT).</p>
+    </section>'''
 
 
 def h31cc_front_door() -> str:

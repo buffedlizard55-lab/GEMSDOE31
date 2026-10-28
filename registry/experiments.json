@@ -237,6 +237,31 @@
    "sha256": "6863e771499a7a95b5104c142018e314f3a541801e17e807effe242998413731"
   },
   {
+   "path": "evidence/h31cc/canary.json",
+   "bytes": 1185,
+   "sha256": "bd654519b710b8598e99f3dd566ed7ad513ffdbef6803e54f5930a8b4dbeed79"
+  },
+  {
+   "path": "evidence/h31cc/nine_site_overlap.json",
+   "bytes": 2336,
+   "sha256": "516401be3cd2e5220527fc99614ea3ef053a050bd102b30414d6bee870138092"
+  },
+  {
+   "path": "evidence/h31cc/run_card.json",
+   "bytes": 24150,
+   "sha256": "2b6b168481496ef895d581f75da3c2890396e487b3eae3a223261a8fc21c2b24"
+  },
+  {
+   "path": "evidence/h31cc/screen.json",
+   "bytes": 10343,
+   "sha256": "32849d6eaeb66b28f5edda56c5445cc1af9bec17613cd687c18a343fa8f9037d"
+  },
+  {
+   "path": "evidence/h31cc/surface_uniqueness.json",
+   "bytes": 7350,
+   "sha256": "af6289655dc2bd4443effecf3dfbd4f80f9c9014f4259334576ebf0b63d87ca2"
+  },
+  {
    "path": "evidence/h31e/duplicate_canary.json",
    "bytes": 10801,
    "sha256": "69becc95e45e4374561541c2ffc2903373d6137fdbd9240ba194f27ab54d2053"
@@ -1037,6 +1062,11 @@
    "sha256": "5a4c79ff9c8438e4f2dbb577c37b7f7207bb3f6fb72242393eb36379e0c1e776"
   },
   {
+   "path": "evidence/review_fcbbeea8/run_card.json",
+   "bytes": 2088,
+   "sha256": "e0ba0438c5ef3514de42c0b069f7f66b87455f024343bfa5130f40a88169067d"
+  },
+  {
    "path": "evidence/review_run_card_20261026_1028355f.json",
    "bytes": 11716,
    "sha256": "4c32e47cda08a41c51ccaf7bc9b0d5109c974a80e44f97f82c007d33473314a8"
@@ -1073,6 +1103,11 @@
   },
   {
    "path": "evidence/session_core_restore_20261025.json",
+   "bytes": 1651,
+   "sha256": "844629bccc1ba4d8dd2378e427f17aad947535ee87c13a3d5513dfd5750fed77"
+  },
+  {
+   "path": "evidence/session_data_restore.json",
    "bytes": 1651,
    "sha256": "844629bccc1ba4d8dd2378e427f17aad947535ee87c13a3d5513dfd5750fed77"
   },
