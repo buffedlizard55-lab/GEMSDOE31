@@ -1,8 +1,10 @@
 """The executive prior-art table must stay sourced and non-actionable for uploads."""
 import importlib.util
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 
 
 def load_current_site():

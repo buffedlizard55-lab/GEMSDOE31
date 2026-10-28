@@ -36,14 +36,15 @@ def build(root=ROOT):
                     and r['requested_artifact'] in h['artifact_path']]
         if len(holdouts) > 1:
             raise ValueError('ambiguous holdout evidence')
-        holdout = holdouts[0].get('holdout_off_sgmc_4block') if holdouts else None
+        proxy = holdouts[0].get('holdout_off_sgmc_4block') if holdouts else None
         rows.append(dict(site=name, historical_file=artifact, sha256=r['sha256'],
                          source_url=f"https://github.com/buffedlizard55-lab/{name}/blob/{r['ref']}/{artifact}",
                          reported_result=r['reported_value_quarantined'],
                          result_class='USER-REPORTED; not organizer-confirmed',
                          estimated_leaderboard_score=None,
                          estimate_reason='No validated cross-family calibration or organizer receipt',
-                         holdout=holdout, holdout_provenance='CITED historical SGMC proxy; not rerun; not hide-and-recover certification',
+                         sgmc_proxy_dti=proxy,
+                         sgmc_proxy_provenance='CITED historical SGMC proxy; not rerun; not a hide-and-recover holdout',
                          unique_new_submission=False, ok_to_submit=False,
                          permission='PRIOR ART — learning only; do not resubmit'))
     return dict(review_id='20261027-3b1ed545', scope='Nine focus artifacts at pinned historical revisions; not a live or exhaustive site ranking',
@@ -57,13 +58,15 @@ def section(root=ROOT):
     esc = html.escape
     rows = []
     for r in report['rows']:
-        h = r['holdout']
-        proxy = ('Not available for this exact artifact' if h is None else
-                 f"HOLDOUT-DTI {h['mean_holdout_dti']:.4f}; 95% CI [{h['ci95_low']:.4f}, {h['ci95_high']:.4f}]; "
-                 f"{h['withheld_positives_total']:,} positives; {esc(h['evaluator_version'])}. Historical SGMC proxy, not fresh hide-and-recover validation.")
+        proxy = r['sgmc_proxy_dti']
+        proxy_text = ('Not available for this exact artifact' if proxy is None else
+                      f"COMPUTED SGMC-PROXY-DTI {proxy['mean_holdout_dti']:.4f}; 95% CI "
+                      f"[{proxy['ci95_low']:.4f}, {proxy['ci95_high']:.4f}]; "
+                      f"{proxy['withheld_positives_total']:,} proxy-positive pixels; "
+                      f"{esc(proxy['evaluator_version'])}. Historical, cited, not rerun; not a hide-and-recover holdout.")
         rows.append(f'''<tr><td>{esc(r['site'])}</td><td><a href="{esc(r['source_url'])}">{esc(Path(r['historical_file']).name)}</a><br>
           <small>SHA-256: {esc(r['sha256'])}</small></td><td>{r['reported_result']:.4f} USER-REPORTED<br>Estimate: unavailable</td>
-          <td>{proxy}</td><td>No — prior submission. DO NOT SUBMIT.</td></tr>''')
+          <td>{proxy_text}</td><td>No — prior submission. DO NOT SUBMIT.</td></tr>''')
     return '''<section id="nine-site-decision"><h2>Nine focus sites: historical best reported entries, not upload recommendations</h2>
       <p><strong>Best historical claim: GEMSDOE32 (0.2778 USER-REPORTED). Approved new submission: NONE.</strong>
       Links below open pinned prior-art files for learning, not a new submission download. No organizer receipts exist in this evidence.

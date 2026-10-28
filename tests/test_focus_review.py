@@ -20,14 +20,18 @@ def test_nine_sites_not_a_selector():
         assert r['ok_to_submit'] is False
         assert r['unique_new_submission'] is False
         assert r['estimated_leaderboard_score'] is None
+        assert r['sgmc_proxy_provenance'].startswith('CITED historical SGMC proxy')
+        assert r['sgmc_proxy_dti'] is None or r['sgmc_proxy_dti']['withheld_positives_total'] > 0
         assert len(r['sha256']) == 64
         assert '/blob/' in r['source_url']
         assert r['historical_file'].endswith('.tif')
 
 
-def test_proxy_not_passed_off_as_fresh_holdout():
+def test_sgmc_proxy_not_mislabeled_as_hide_and_recover_holdout():
     text = review.section()
-    assert 'not fresh hide-and-recover validation' in text
+    assert 'COMPUTED SGMC-PROXY-DTI' in text
+    assert 'not a hide-and-recover holdout' in text
+    assert 'HOLDOUT-DTI' not in text
     assert 'No TIFF was generated in this review' in text
     assert text.count('No — prior submission. DO NOT SUBMIT.') == 9
     assert 'Estimate: unavailable' in text

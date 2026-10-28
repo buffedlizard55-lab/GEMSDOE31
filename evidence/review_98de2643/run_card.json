@@ -1,0 +1,85 @@
+{
+  "review_id": "2026-10-28-arena-98de2643",
+  "scope": "Repository review and current release-gate audit only; no assigned new method lane, experiment, or TIFF generation.",
+  "hypothesis": "No new hypothesis was assigned or tested. The report ranks H31-AD, H31-AB, and H31-AC as desk-only future candidates; the existing H31-X file is audited prior art, not this run's submission.",
+  "mechanism": "No new mechanism run. Existing H31-X reference uses a directional piedmont-junction slope-break surface; the release decision is blocked by literal registered-raster overlap.",
+  "named_non_fault_process": "For the audited H31-X reference: erosional pediment edges/inactive fronts, Lahontan shorelines and wave-cut benches, fan-terrace risers, lava-flow snouts, landslide toes, and road/canal cuts.",
+  "experiments_run": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": null,
+    "withheld_positive_pixels": null,
+    "dti": null,
+    "ci95": null,
+    "status": "Not run in this review; no candidate was fitted or evaluated."
+  },
+  "cited_historical_holdout_dti_reference_only": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "withheld_positive_pixels": 60988,
+    "dti": 0.1661329569994631,
+    "ci95": [0.14985841711445055, 0.18210651085093407],
+    "status": "Cited from the prior H31-X run card; not rerun or independently reproduced in this review. Not a leaderboard score."
+  },
+  "correlation_overlap_vs_registry": {
+    "evidence_class": "COMPUTED or CITED registry diagnostics; not DTI and not a leaderboard score",
+    "surface_before_placement": {
+      "max_abs_spearman_rho": 0.12545129515361136,
+      "max_dot_overlap_3px": 0.8630955542571839,
+      "scope": "Cited from the frozen H31-X card; surface array not replayed; registry coverage incomplete."
+    },
+    "final_existing_h31x_dots": {
+      "abs_spearman_rho": 0.0009096980780139884,
+      "overlap_3px": 0.9934402719498593,
+      "scope": "Recomputed against the hash-pinned registered spacing-5 witness only; no exhaustive registry pass."
+    },
+    "new_candidate_surface_or_dots": "None generated; not applicable."
+  },
+  "registry_budget_preflight": {
+    "evidence_class": "COMPUTED counting bound, not a score",
+    "registered_witness_footprint_pixels": 5167373,
+    "cells_outside_witness_3px_halo": 6649,
+    "coverage_fraction": 0.9987132726822701,
+    "usual_dot_budget": 37654,
+    "minimum_overlap_fraction_at_that_budget": 0.8234184947150369,
+    "result": "STOP: lower bound exceeds the 0.70 overlap threshold. This bound applies to the 37,654-dot budget; it does not claim every nonempty raster must fail."
+  },
+  "raster_sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
+  "raster_sha256_scope": "Existing H31-X research-only artifact audited; no new raster was written.",
+  "existing_artifact": "docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif",
+  "validator_output": {
+    "evidence_class": "Local format validation against a pinned owner-mirror sample; not organizer acceptance",
+    "no_nan_or_infinity_inside_footprint": true,
+    "values_inside_footprint_in_0_1": true,
+    "crs_matches_template": "EPSG:32611",
+    "shape_matches_template": [3730, 3292],
+    "transform_matches_template": [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0],
+    "single_float32_band": true,
+    "format_only_validation_pass": true,
+    "organizer_acceptance_verified": false,
+    "uniqueness_validation_pass": false
+  },
+  "submission_name": null,
+  "submission_note": "No new submission was generated. Existing H31-X is research-only; DO NOT SUBMIT.",
+  "existing_artifact_name": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9",
+  "existing_artifact_portal_note": "RESEARCH ONLY: existing H31-X; literal registry duplicate STOP. No new TIFF, fit or weekly submission slot.",
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "leaderboard_estimate": null,
+  "leaderboard_estimate_reason": "No calibrated cross-family estimate; supplied leaderboard anchors conflict and no organizer receipt was verified.",
+  "verdict": "negative",
+  "source_access": {
+    "official_reference_github": "Inspected during this review.",
+    "drivendata_usgs_gdr_nlr_epsg_hosts": "Not accessible under this sandbox's outbound host allowlist; current pages/data/status not verified."
+  },
+  "validation_commands": {
+    "pytest": "211 passed",
+    "ruff": "passed",
+    "metric_check": "passed; max absolute fast/brute difference 4.441e-16",
+    "build_release_status_check": "passed; verdict negative; ok_to_submit false",
+    "site_check": "passed; 22 pages and 534 local links"
+  }
+}
