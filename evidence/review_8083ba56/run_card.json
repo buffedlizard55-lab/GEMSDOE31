@@ -1,0 +1,47 @@
+{
+  "hypothesis": "H31-X: catalogue-missing range-bounding faults sit at the piedmont junction - the concave-up slope break where steep bedrock (>~10 deg) meets the gently sloping piedmont (<~5 deg); the directional slope-break line, corroborated by gravity basin-edge / radiometric contact edges, locates them without any catalogue input",
+  "mechanism": "X1: JUNC - J = max(0, -grad(slope).u_down) from det_elev / det_elev_slope (sigma 1.5 px), soft slope window 3-15 deg (0 at 1/25 deg), no NMS; Poisson 2.8 px emission, 37,654 dots, d(catalogue) > 2 px",
+  "non_fault_process": "erosional pediment edges / inactive fronts (no gravity step), Lahontan shorelines and wave-cut benches, fan terrace risers, lava-flow snouts, landslide toes, road and canal cuts",
+  "scope": "Existing H31-X audit, not an assigned lane or a new experiment.",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "dti": 0.1661329569994631,
+    "ci95": [
+      0.14985841711445055,
+      0.18210651085093407
+    ],
+    "withheld_positive_pixels": 60988,
+    "tpw": 9624.430506279157,
+    "fpw": 36084.052281319084,
+    "fnw": 51363.56949372086
+  },
+  "holdout_provenance": "Cited historical receipt; not independently rerun.",
+  "correlation_overlap_vs_registry": {
+    "surface": {
+      "max_abs_rho": 0.12545129515361136,
+      "max_overlap": 0.8630955542571839,
+      "coverage_complete": false,
+      "provenance": "CITED from frozen H31-X card; array not replayed"
+    },
+    "final": {
+      "max_abs_rho": 0.0009096980780139884,
+      "max_overlap": 0.9934402719498593,
+      "coverage_complete": false,
+      "provenance": "RECOMPUTED against hash-pinned registered lattice only"
+    }
+  },
+  "raster_sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9",
+  "validator": {
+    "provenance": "Fresh check of existing artifact against hash-pinned owner-mirror sample, not organizer acceptance.",
+    "format_pass": true,
+    "hard_failures": [],
+    "full_receipt": "evidence/review_9883b598/run_card.json"
+  },
+  "submission_name": "gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9",
+  "note": "RESEARCH ONLY: H31-X; registry duplicate STOP; do not submit.",
+  "new_tif_generated": false,
+  "experiments_run": 0,
+  "ok_to_submit": false,
+  "verdict": "negative"
+}

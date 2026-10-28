@@ -2058,5 +2058,15 @@
    "Not an exhaustive current remote-site audit",
    "No viable new submission claimed"
   ]
+ },
+ "session_review_20261028_8083ba56": {
+  "pass_1": "Audited the current release, protocol and nine-site historical evidence; restored only pinned small inputs.",
+  "pass_2": "Reproduced existing-artifact lattice STOP and local format check; historical holdout and surface comparison not replayed.",
+  "pass_3": "211 tests, Ruff, metric, release status, site generation and site link checks passed; no scientific run or submission authorization.",
+  "new_experiments": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "review": "knowledge/2026-10-28_review_8083ba56.md",
+  "run_card": "evidence/review_8083ba56/run_card.json"
  }
 }

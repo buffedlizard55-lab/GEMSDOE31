@@ -1,3 +1,9 @@
+# Current repository review — 28 October 2026 (`arena/8083ba56-gemsdoe31`)
+
+**DO NOT SUBMIT:** no new TIFF or experiment was made; no file is approved under the literal registry protocol. The assigned single-method paragraph is missing, and a registered lattice forces STOP for the historical dot budget. The current leaderboard and a new-candidate estimate are unverified. See the [three-pass review](knowledge/2026-10-28_review_8083ba56.md), [existing executive summary](docs/executive-summary.html#nine-site-decision), and [negative run card](evidence/review_8083ba56/run_card.json). The complete owner charter remains below.
+
+---
+
 # Current Arena review — 2026-10-27 (`arena/b3d80ae9-gemsdoe31`)
 
 **No new TIFF or experiment was made; no current file is approved to submit.** The requested single-method paragraph is absent, the full production feature cache is absent, and the binding broad-registry gate remains negative. No slot was selected or used. All pasted historical scores are USER-REPORTED; no new-candidate leaderboard estimate is justified.
