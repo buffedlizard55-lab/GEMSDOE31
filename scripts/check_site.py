@@ -185,9 +185,18 @@ def main() -> None:
             fail("current STOP review cannot approve submission")
         if hashlib.sha256((ROOT / release["file"]).read_bytes()).hexdigest() != release["raster_sha256"]:
             fail("current release download changed since byte audit")
+        latest_card = json.loads((ROOT / "evidence/h31cc/run_card.json").read_text())
+        if release["file"] != latest_card["files"]["zeros"]:
+            fail("current release status does not point to the latest H31-CC research artifact")
+        if release.get("review_id") != "release-review-arena-41e3ba3f":
+            fail("current release review identifier is stale")
+        if release.get("experiments_run_in_this_review") != 0 or release.get("new_tif_generated_in_this_review") is not False:
+            fail("current release review incorrectly claims new scientific work")
         for name, text in (("index", index), ("executive", executive)):
             if "current-release-status.json" not in text or Path(release["file"]).name not in text:
                 fail(f"{name}: current release artifact/receipt missing")
+            if "h31cc-verification.json" not in text:
+                fail(f"{name}: H31-CC byte-verification receipt missing")
     except (OSError, KeyError, TypeError, ValueError) as exc:
         fail(f"cannot verify canonical current release: {exc}")
     if "no organizer receipt" not in feed:

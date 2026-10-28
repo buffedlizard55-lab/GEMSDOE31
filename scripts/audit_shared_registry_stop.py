@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Correct the original nine-download-tree scope using a shared-registry counterexample.
 
-An existential duplicate STOP needs one authentic registered raster, not an
-exhaustive scan. No comparator is excluded for being dense/calibration-only.
+An existential duplicate STOP needs one hash-pinned owner-mirror raster listed
+in the registry, not an exhaustive scan. No comparator is excluded for being dense/calibration-only.
 This audits only the three already-frozen surfaces/supports, never fits/tunes or
 writes a new TIFF. The original pre-placement reports remain untouched.
 """
@@ -75,7 +75,7 @@ def main():
         gate="STOP: literal shared-registry overlap limit exceeded", literal_gate_pass=False,
         registered_counterexample=pin["counterexample"], registry_manifest_sha256=pin["manifest_sha256"],
         registered_rasters_in_manifest=pin["registered_rasters"],
-        coverage_complete=False, reason="One authentic registered counterexample is sufficient for STOP; no full 695-raster pass is claimed.",
+        coverage_complete=False, reason="One hash-pinned owner-mirror registered counterexample is sufficient for STOP; no full 695-raster pass is claimed.",
         calibration_or_density_exemption=False, no_new_fit_tuning_candidate_or_slot=True,
         original_nine_site_reports_retained=True,
         original_preflight_defect="Only nine docs/downloads trees were tested before scoring/packaging; template registry and other paths were incorrectly outside that preflight scope.",
