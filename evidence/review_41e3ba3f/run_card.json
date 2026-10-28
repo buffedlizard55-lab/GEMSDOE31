@@ -64,6 +64,12 @@
     "previous_status_archive_sha256": "ce76d989c6ca20aced87c57b65827d990be3dd1475736392c69ebb3cb413fc16",
     "current_release_review_id": "release-review-arena-41e3ba3f"
   },
+  "base_integration": {
+    "source_branch": "origin/main",
+    "source_commit": "4bae11a3f884507d19c6c978c3f495e28e385d94",
+    "included_review": "PR #62, arena/fcbbeea8-gemsdoe31",
+    "purpose": "Resolve the new base divergence, preserve the prior count-bound decision, and regenerate combined evidence/site; no scientific run was added."
+  },
   "external_sources": {
     "web_pages_fetched_this_review": 0,
     "drivendata_accessed": false,
@@ -87,9 +93,9 @@
     "verify_h31j": "passed; slot_approved=false",
     "verify_h31t": "passed; ok_to_submit=false; slot_approved=false",
     "verify_h31aa_run": "passed; negative; slot_approved=false",
-    "collect_evidence": "249 artifacts inventoried; 14 submission files registered",
+    "collect_evidence": "250 artifacts inventoried; 14 submission files registered",
     "build_site": "22 pages generated",
-    "check_site": "22 pages, 551 local links; passed",
+    "check_site": "22 pages, 552 local links; passed",
     "optional_browser_smoke": "not run; ignored .cache/browser/node_modules/playwright-core is absent"
   },
   "limitations": [
@@ -98,6 +104,6 @@
     "The prior H31-CC HOLDOUT-DTI and pre-placement statistics were cited, not rerun.",
     "Only one registered control was rechecked; no exhaustive 695-raster pass is claimed.",
     "All focus-site scores remain USER-REPORTED without organizer receipts; no live leaderboard was accessed.",
-    "The 82.34% minimum-overlap bound is specific to 37,654 dots and does not prove every nonempty raster must fail."
+    "The 82.34% minimum-overlap bound is specific to 37,654 dots; the count alone forces STOP only at N >= 22,164 and proves nothing below that. Density evasion remains forbidden."
   ]
 }

@@ -70,6 +70,7 @@ Manual next step for any of these: an authorized lane assignment, exact data/cac
 - Rebuilt the canonical release status from the latest existing H31-CC artifact. The permission decision is still `negative`, `ok_to_submit=false`, `slot_approved=false`, `leaderboard_estimate=null`. The surface and HOLDOUT-DTI values are explicitly cited, not rerun. The broad registry inventory is explicitly incomplete; the single witness suffices only to prove STOP.
 - Updated the site generator and optional browser smoke test so the front door and canonical status refer to the same existing artifact. The hero now distinguishes prior-session H31-CC generation from this review's read-only verification. README and AGENTS point to this current review, while older session artifacts remain historical.
 - `registry/current_run.json` remains the historical MAGREST run; its scope is not rewritten. `registry/review_passes.json` retains the `DO NOT SUBMIT — literal registry STOP` decision and identifies H31-CC as the latest scientific artifact.
+- Integrated the already-merged main update from PR #62 into this fixed Arena branch after GitHub identified a merge conflict. Preserved its prior count-bound review and regenerated the combined evidence inventory and site; this was repository maintenance, not a new scientific run.
 
 ## Three review passes
 
@@ -112,8 +113,9 @@ These links are provided for human review. They were **not fetched in this revie
 3. Require exact-byte organizer receipts before upgrading any score from USER-REPORTED to ORGANIZER-CONFIRMED. Reconcile the GEMSDOE31 0.2708/unscored conflict and the H27 parent-count discrepancy.
 4. Treat H31-AD, H31-AB, and H31-AC as desk-only and locally unfit, not selected or globally novel. Re-rank only after a current, complete prior-art and source-availability check.
 5. Keep the site static; do not create an automated DrivenData leaderboard feed. The linked leaderboard is for permitted manual review only.
-6. The optional Playwright browser smoke was not run because ignored `.cache/browser/node_modules` is absent; static generation and link checks passed.
-7. No current file is cleared to submit. A format-valid research TIFF and a high historical USER-REPORTED score do not establish scientific efficacy, uniqueness under the binding gate, or organizer acceptance.
+6. The 82.34% minimum-overlap bound is specific to 37,654 dots. The count alone forces STOP only at `N ≥ 22,164`; below that it proves nothing, and the repository forbids evading the literal gate by changing density.
+7. The optional Playwright browser smoke was not run because ignored `.cache/browser/node_modules` is absent; static generation and link checks passed.
+8. No current file is cleared to submit. A format-valid research TIFF and a high historical USER-REPORTED score do not establish scientific efficacy, uniqueness under the binding gate, or organizer acceptance.
 
 ## Local verification results
 
@@ -129,6 +131,6 @@ These links are provided for human review. They were **not fetched in this revie
 | `python -m compileall -q src scripts tests` | Passed. |
 | `python scripts/check_metric.py` | Maximum fast/brute DTI difference `4.441e-16` over 24 grids; 29 kernel offsets. |
 | `python scripts/check_marginal_dti.py` | 10,000 fixed-truth sign checks passed; zero geological experiments. |
-| `python scripts/collect_evidence.py` | 249 artifacts inventoried; 14 submission files registered; 0 legacy cache files copied. |
-| `python scripts/build_site.py` / `python scripts/check_site.py` | 22 pages generated; 22 pages and 551 local links passed. |
+| `python scripts/collect_evidence.py` | 250 artifacts inventoried; 14 submission files registered; 0 legacy cache files copied. |
+| `python scripts/build_site.py` / `python scripts/check_site.py` | 22 pages generated; 22 pages and 552 local links passed. |
 | External source/leaderboard access | No web pages fetched; no DrivenData access; manual links provided with limitations. |

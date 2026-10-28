@@ -1985,8 +1985,8 @@
     "h31cc": "exact hashes, both formats, ZIP roundtrip, catalogue mask, 37,654 dots, 2.828427 px spacing, and 99.6123% registered-control overlap verified; no score rerun",
     "release_status": "check passed; H31-CC is current audited artifact; no file approved",
     "other_archived_verifiers": "H31-J, H31-T and H31-AA passed; each remains not slot-approved",
-    "site": "22 pages / 551 local links passed",
-    "evidence_collection": "249 artifacts inventoried; 14 submission files registered; no legacy cache copies"
+    "site": "22 pages / 552 local links passed",
+    "evidence_collection": "250 artifacts inventoried; 14 submission files registered; no legacy cache copies"
    },
    "open_gates": [
     "required single-method paragraph and explicit lane authorization",
@@ -2168,15 +2168,16 @@
    "date": "2026-10-28",
    "lane": "Read-only repository/release review; no scientific lane assigned",
    "pass1_implement": "Re-read README/AGENTS and pinned evidence; revalidated the existing H31-CC artifact bytes and fixed canonical release/site alignment without changing denial.",
-   "pass2_review": "Reproduced 99.6123% final-dot overlap against one registered owner-mirror control; added verifier and CI/test coverage; kept holdout/pre-placement numbers cited and no exhaustive registry claim.",
-   "pass3_recheck": "214 pytest passed; Ruff/compileall/metric/marginal DTI passed; historical and H31-CC verifiers passed; evidence collection inventoried 249 artifacts; 22 generated pages and 551 local links passed.",
+   "pass2_review": "Reproduced 99.6123% final-dot overlap against one registered owner-mirror control; added verifier and CI/test coverage; kept holdout/pre-placement numbers cited, the registry scan non-exhaustive, and the 82.34% bound specific to 37,654 dots (STOP by count only at N >= 22,164).",
+   "pass3_recheck": "214 pytest passed; Ruff/compileall/metric/marginal DTI passed; historical and H31-CC verifiers passed; evidence collection inventoried 250 artifacts; 22 generated pages and 552 local links passed after integrating main PR #62.",
    "artifacts": [
     "knowledge/repo_review_2026-10-28_arena-41e3ba3f.md",
     "knowledge/owner_prompt_2026-10-28_41e3ba3f.md",
     "evidence/review_41e3ba3f/run_card.json",
     "evidence/h31cc/verification_receipt.json"
    ],
-   "decision": "No artifact is approved. No new TIFF, experiment, candidate, slot, leaderboard access, or score estimate; all focus-site leaderboard claims remain USER-REPORTED absent organizer receipts."
+   "decision": "No artifact is approved. No new TIFF, experiment, candidate, slot, leaderboard access, or score estimate; all focus-site leaderboard claims remain USER-REPORTED absent organizer receipts.",
+   "base_integration": "origin/main 4bae11a3f884507d19c6c978c3f495e28e385d94 (merged PR #62); preserves the earlier count-bound review, no new science."
   }
  ],
  "session_review_20261027_3b1ed545": {
@@ -2231,8 +2232,8 @@
  "session_review_20261028_41e3ba3f": {
   "review_id": "20261028-arena-41e3ba3f",
   "pass_1": "Read full README/AGENTS and the relevant release, run, score, focus-site, H31-CC, H33, and test evidence; restored only pinned small read-only inputs; added exact-byte H31-CC verification and updated current status/site pointers.",
-  "pass_2": "Independent gate review found no new scientific permission; reproduced 99.6123% final overlap against one registered owner-mirror witness; holdout and pre-placement metrics remain cited; fixed README prompt-preservation test after initial failure.",
-  "pass_3": "214 tests, Ruff, compileall, metric and marginal-DTI checks, current/previous artifact verifiers, release check, evidence collection (249 artifacts), and 22-page/551-link site checks passed.",
+  "pass_2": "Independent gate review found no new scientific permission; reproduced 99.6123% final overlap against one registered owner-mirror witness; holdout and pre-placement metrics remain cited; verified the count bound is 82.34% at 37,654 dots and forces STOP only for N >= 22,164; fixed README prompt-preservation test after initial failure.",
+  "pass_3": "214 tests, Ruff, compileall, metric and marginal-DTI checks, current/previous artifact verifiers, release check, evidence collection (250 artifacts), and 22-page/552-link site checks passed after integrating main PR #62.",
   "new_experiments": 0,
   "new_tif_generated": false,
   "submission_slots_used": 0,
@@ -2240,6 +2241,11 @@
   "leaderboard_estimate": null,
   "review": "knowledge/repo_review_2026-10-28_arena-41e3ba3f.md",
   "run_card": "evidence/review_41e3ba3f/run_card.json",
-  "h31cc_receipt": "evidence/h31cc/verification_receipt.json"
+  "h31cc_receipt": "evidence/h31cc/verification_receipt.json",
+  "base_integration": {
+   "source_commit": "4bae11a3f884507d19c6c978c3f495e28e385d94",
+   "included_review": "PR #62 / arena/fcbbeea8-gemsdoe31",
+   "scientific_work_added": false
+  }
  }
 }

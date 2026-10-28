@@ -7,6 +7,12 @@
 - Existing research download only: [gems31-h31cc-basement-step-37654d-20261028-zeros.tif — DO NOT SUBMIT](docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif)
 - H31-CC SHA-256 `0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44` · [previous scientific run card](evidence/h31cc/run_card.json) · [previous preregistration](knowledge/2026-10-28_h31cc_preregistration.md)
 
+## Prior governance review — 28 October 2026 (`arena/fcbbeea8-gemsdoe31`; PR #62)
+
+That review also generated no TIFF or placed no dots. At the usual 37,654-dot budget, the COMPUTED minimum overlap with the pinned spacing-5 owner-mirror witness is 82.34%, above the literal 70% STOP. The count bound forces STOP only for `N ≥ 22,164`; below that, this bound proves nothing. The repository forbids changing density to evade the gate. The same rule would also stop the highest listed historical claim, H33-2-B2 at 37,654 dots (USER-REPORTED 0.2778); this inconsistency is an owner-policy question, not permission to exempt or bypass the rule.
+
+- [Prior review, full calculation and manual links](knowledge/2026-10-28_review_fcbbeea8.md) · [run card](evidence/review_fcbbeea8/run_card.json) · [bound re-derivation](scripts/session_fcbbeea8_gate.py)
+
 The complete earlier owner charter remains preserved below and must be read each session. The current request is preserved in the linked operative prompt; it supplements, rather than replaces, [the previous session’s full parallel-run charter](knowledge/owner_prompt_2026-10-28_bb6d6287.md). Core values: Maximize P(Win); Own the Outcome.
 
 ---
