@@ -1,6 +1,20 @@
-# Current repository review — 28 October 2026 (`arena/98de2643-gemsdoe31`)
+# Current session — 28 October 2026 (`arena/bb6d6287-gemsdoe31`)
 
-**DO NOT SUBMIT:** this review generated no TIFF, ran no experiment, and used no weekly slot. No current file is approved under the literal registry protocol. The prompt does not supply the required single-method paragraph, and the pinned spacing-5 registry witness forces a duplicate STOP at the ordinary 37,654-dot budget. Do not evade this gate by changing the raster density. A new candidate's leaderboard estimate is unavailable. See the [three-pass review](knowledge/repo_review_2026-10-28_arena-98de2643.md), [executive summary / nine-site comparison](docs/executive-summary.html#nine-site-decision), and [machine-readable negative run card](evidence/review_98de2643/run_card.json).
+**DO NOT SUBMIT.** No current artifact is approved. No human sign-off can override a failed gate.
+
+H31-CC generated a new all-finite GeoTIFF. It is unique versus the nine named sites (maximum 9.64% of dots within 3 px; H33-2-B2 is 8.01%). HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld) is 0.0471 [0.0332, 0.0618], worse than the same-run chance map. Leaderboard estimate: unavailable. Lattice overlap 99.61% blocks the literal registry rule.
+
+- Download, research only: [gems31-h31cc-basement-step-37654d-20261028-zeros.tif](docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif)
+- SHA-256 `0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44`
+- [Run card](evidence/h31cc/run_card.json) · [preregistration](knowledge/2026-10-28_h31cc_preregistration.md) · [review](knowledge/2026-10-28_h31cc_session_review.md) · [executive summary](docs/executive-summary.html#h31cc)
+
+The standing owner prompt is preserved below and must be read at the start of every session. This session’s full working charter, including the parallel-run protocol, is [knowledge/owner_prompt_2026-10-28_bb6d6287.md](knowledge/owner_prompt_2026-10-28_bb6d6287.md). Core values: Maximize P(Win); Own the Outcome.
+
+---
+
+# Parallel review — 28 October 2026 (`arena/98de2643-gemsdoe31`)
+
+**DO NOT SUBMIT:** that parallel review generated no TIFF, ran no experiment, and used no weekly slot. No current file is approved under the literal registry protocol. The prompt does not supply the required single-method paragraph, and the pinned spacing-5 registry witness forces a duplicate STOP at the ordinary 37,654-dot budget. Do not evade this gate by changing the raster density. A new candidate's leaderboard estimate is unavailable. See the [three-pass review](knowledge/repo_review_2026-10-28_arena-98de2643.md), [executive summary / nine-site comparison](docs/executive-summary.html#nine-site-decision), and [machine-readable negative run card](evidence/review_98de2643/run_card.json).
 
 This pass also corrected a provenance-labeling bug in the generated executive table: the cited 4-block SGMC proxy values are now labelled **COMPUTED SGMC-PROXY-DTI**, not HOLDOUT-DTI. The owner-reported historical scores remain unconfirmed; the live leaderboard and weekly quota were not accessed. Read the full owner charter below before substantive work.
 

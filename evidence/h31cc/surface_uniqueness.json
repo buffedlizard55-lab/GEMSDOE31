@@ -1,0 +1,212 @@
+{
+ "CC1": {
+  "prospective_dots": 37654,
+  "max_overlap_submission": 0.28026238912200563,
+  "max_abs_rho_submission": 0.14606485222071808,
+  "lattice_overlap": 0.9875975991926489,
+  "lattice_rho": -0.00012057286544064766,
+  "duplicate_submission_lane": false,
+  "worst": [
+   {
+    "site": "calibration",
+    "name": "r13-lattice-s5",
+    "class": "calibration-lattice",
+    "overlap": 0.9875975991926489,
+    "rho": -0.00012057286544064766,
+    "prior_dots": 206895,
+    "support_fraction": 0.04003871986790967,
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+    "class": "submission",
+    "overlap": 0.28026238912200563,
+    "rho": 0.14606485222071808,
+    "prior_dots": 255289,
+    "support_fraction": 0.04940402018588556,
+    "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+    "class": "submission",
+    "overlap": 0.16080628884049503,
+    "rho": 0.0013608289369358645,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+    "class": "submission",
+    "overlap": 0.16080628884049503,
+    "rho": 0.0013608289369358645,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-nan.tif",
+    "class": "submission",
+    "overlap": 0.15095341796356296,
+    "rho": -0.00030678476473477675,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "99b6d5bf30e05f7be24c9b1bcd1ef338980885c862bfdcf366e77a9f679d812b"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif",
+    "class": "submission",
+    "overlap": 0.15095341796356296,
+    "rho": -0.00030678476473477675,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "5a7e3b3e8d56e505e329bf7043db648785afa1c392cdc27c7e12296af21a910f"
+   }
+  ]
+ },
+ "CC2": {
+  "prospective_dots": 37654,
+  "max_overlap_submission": 0.339193711159505,
+  "max_abs_rho_submission": 0.15640011422469235,
+  "lattice_overlap": 0.9958304562596272,
+  "lattice_rho": -7.979786037790982e-05,
+  "duplicate_submission_lane": false,
+  "worst": [
+   {
+    "site": "calibration",
+    "name": "r13-lattice-s5",
+    "class": "calibration-lattice",
+    "overlap": 0.9958304562596272,
+    "rho": -7.979786037790982e-05,
+    "prior_dots": 206895,
+    "support_fraction": 0.04003871986790967,
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+    "class": "submission",
+    "overlap": 0.339193711159505,
+    "rho": 0.15640011422469235,
+    "prior_dots": 255289,
+    "support_fraction": 0.04940402018588556,
+    "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-nan.tif",
+    "class": "submission",
+    "overlap": 0.26849737079725927,
+    "rho": 0.008423913109596969,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "99b6d5bf30e05f7be24c9b1bcd1ef338980885c862bfdcf366e77a9f679d812b"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif",
+    "class": "submission",
+    "overlap": 0.26849737079725927,
+    "rho": 0.008423913109596969,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "5a7e3b3e8d56e505e329bf7043db648785afa1c392cdc27c7e12296af21a910f"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+    "class": "submission",
+    "overlap": 0.17089817814840388,
+    "rho": 0.001452767454569624,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+    "class": "submission",
+    "overlap": 0.17089817814840388,
+    "rho": 0.001452767454569624,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9"
+   }
+  ]
+ },
+ "CC3": {
+  "prospective_dots": 37654,
+  "max_overlap_submission": 0.3199660062675944,
+  "max_abs_rho_submission": 0.13191868045209426,
+  "lattice_overlap": 0.9961225898974877,
+  "lattice_rho": 8.201247921201492e-05,
+  "duplicate_submission_lane": false,
+  "worst": [
+   {
+    "site": "calibration",
+    "name": "r13-lattice-s5",
+    "class": "calibration-lattice",
+    "overlap": 0.9961225898974877,
+    "rho": 8.201247921201492e-05,
+    "prior_dots": 206895,
+    "support_fraction": 0.04003871986790967,
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+    "class": "submission",
+    "overlap": 0.3199660062675944,
+    "rho": 0.13191868045209426,
+    "prior_dots": 255289,
+    "support_fraction": 0.04940402018588556,
+    "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-nan.tif",
+    "class": "submission",
+    "overlap": 0.2702236150209805,
+    "rho": 0.007441780986222167,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "99b6d5bf30e05f7be24c9b1bcd1ef338980885c862bfdcf366e77a9f679d812b"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif",
+    "class": "submission",
+    "overlap": 0.2702236150209805,
+    "rho": 0.007441780986222167,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "5a7e3b3e8d56e505e329bf7043db648785afa1c392cdc27c7e12296af21a910f"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+    "class": "submission",
+    "overlap": 0.1721198279067297,
+    "rho": 0.0011512393099141899,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3"
+   },
+   {
+    "site": "GEMSDOE31-local",
+    "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+    "class": "submission",
+    "overlap": 0.1721198279067297,
+    "rho": 0.0011512393099141899,
+    "prior_dots": 37654,
+    "support_fraction": 0.007286874781441169,
+    "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9"
+   }
+  ]
+ }
+}

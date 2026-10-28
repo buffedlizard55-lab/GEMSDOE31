@@ -1418,16 +1418,16 @@ def h31n_decision_banner() -> str:
 
 def overview(card):
     hero = '''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · automated research validation</p>
-      <h1>Research download available.<br>Submission blocked.</h1>
-      <p class="hero-lede">The current protocol requires registry checks before placement and on final dots.
-      Existing candidates fail the literal overlap gate. H31-Y is a historical research TIFF from an earlier run,
-      not a new artifact from this review, and it is not approved for upload. No weekly slot was used.</p>
-      <div class="actions"><a class="button button-primary" href="#selector-decision">Research TIFF &amp; validation receipt</a>
-      <a class="button" href="executive-summary.html">Nine-site executive summary &amp; submission guide</a></div>
+      <p class="eyebrow">DOE GEMS Prize · 28 October 2026 · H31-CC</p>
+      <h1>DO NOT SUBMIT.<br>A new unique TIFF was generated and it failed the score gates.</h1>
+      <p class="hero-lede">H31-CC is a new cover-concealed basement-step map. It is not a copy of H33-2-B2.
+      Format is valid, including values in [0, 1]. It does not beat the same-run chance map, and the
+      calibration-lattice rule still blocks a weekly slot. No leaderboard estimate is offered.</p>
+      <div class="actions"><a class="button button-primary" href="downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif" download>Download all-finite .tif — DO NOT SUBMIT</a>
+      <a class="button" href="executive-summary.html#h31cc">Why this file is blocked</a></div>
       </div><aside class="hero-side"><strong>DO NOT SUBMIT</strong><p>No current artifact is approved.
-      Historical projections cannot establish a leaderboard win. Read the explicit file decision below.</p></aside></div></section>'''
-    return hero, _overview_body(card, hero_rbu=False)
+      No human sign-off can override a failed gate. The all-finite file avoids the NaN range error; that is not permission to upload.</p></aside></div></section>'''
+    return hero, h31cc_front_door() + _overview_body(card, hero_rbu=False)
 
 
 def _overview_body(card, *, hero_rbu: bool):
@@ -1598,7 +1598,7 @@ def review_notice():
 def executive(card):
     failed = "".join(f"<li>{esc(x)}</li>" for x in card["failed_or_unknown_gates"])
     focus_summary = focus_site_summary()
-    return f'''<div class="notice notice-danger"><strong>No file is cleared to submit under the current protocol.</strong>
+    return h31cc_front_door() + f'''<div class="notice notice-danger"><strong>No file is cleared to submit under the current protocol.</strong>
       Download and format validation are separate from uniqueness, scientific efficacy and selector approval.
       No human sign-off can override a failed gate.</div>
       {selector_decision_section()}{focus_review.section(ROOT)}
@@ -1753,3 +1753,74 @@ TPw = T; FPw = n − M; FNw = K − T.</code></pre>
           <p><a href="downloads/magrest-run-card.json">Complete JSON run card</a> ·
           <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/tree/main/evidence/magrest">All measurements</a>.</p>
       </section>{scgp_download_and_gates()}{parallel_archives()}'''
+
+
+def h31cc_front_door() -> str:
+    """Session arena/bb6d6287 decision. Research file only. Never an upload permission."""
+    card_path = ROOT / "evidence/h31cc/run_card.json"
+    overlap_path = ROOT / "evidence/h31cc/nine_site_overlap.json"
+    if not card_path.is_file():
+        return '<div class="notice notice-danger">DO NOT SUBMIT. H31-CC card missing; fail closed.</div>'
+    card = json.loads(card_path.read_text())
+    hold = card["holdout_dti"]
+    paired = hold["paired_vs_null"]
+    final = card["correlation_overlap_vs_registry"]["final"]
+    files = card["files"]
+    nine = json.loads(overlap_path.read_text())["rows"] if overlap_path.is_file() else []
+    nine_max = max((r["overlap_3px"] for r in nine), default=0.0)
+    h33 = next((r for r in nine if r["site"] == "GEMSDOE32"), {"overlap_3px": float("nan")})
+    nine_rows = "".join(
+        "<tr><td>{site}</td><td>{ov:.1f}%</td><td>USER-REPORTED {score:.4f}; not organizer-confirmed</td>"
+        "<td>No. Prior art. DO NOT SUBMIT.</td><td>Unavailable</td></tr>".format(
+            site=esc(r["site"]), ov=100 * r["overlap_3px"], score=r["user_reported"])
+        for r in nine
+    )
+    name = esc(Path(files["zeros"]).name)
+    return f'''<section id="h31cc">
+      <p class="kicker">28 October 2026 · lane H31-CC · new file, negative result</p>
+      <h2>DO NOT SUBMIT this TIFF</h2>
+      <div class="notice notice-danger"><strong>Not approved for the competition.</strong>
+      The file is unique against the nine named sites and its values are finite in [0, 1], but it lost to a
+      same-run chance map and the calibration lattice still exceeds the 70% rule. No weekly slot was used.
+      No human sign-off can override this.</div>
+      <div class="table-wrap"><table>
+        <caption>What to download, what the number means, and whether it is a new submission</caption>
+        <thead><tr><th>File</th><th>Number</th><th>Unique?</th><th>Download and submit?</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="downloads/{name}" download>{name}</a><br>all-finite float32, zeros outside the footprint</td>
+            <td>HOLDOUT-DTI {hold["dti"]:.4f} [{hold["ci95"][0]:.4f}, {hold["ci95"][1]:.4f}]<br>
+            {esc(hold["evaluator_version"])}, {hold["withheld_positive_pixels"]:,} withheld positives.
+            Paired difference versus same-run NULL {paired["delta"]:+.4f} [{paired["ci95"][0]:+.4f}, {paired["ci95"][1]:+.4f}].
+            Leaderboard estimate: unavailable.</td>
+            <td>Yes versus the nine focus submissions (maximum {100*nine_max:.1f}% of dots within 3 px; H33-2-B2 is {100*h33["overlap_3px"]:.1f}%).
+            Maximum versus local submission rasters {100*final["max_overlap_submission"]:.1f}%.
+            Spearman |ρ| {final["max_abs_rho_submission"]:.3f}.
+            Calibration lattice overlap {100*final["lattice_overlap"]:.1f}% — literal registry STOP, not a copied lane.</td>
+            <td><strong>DO NOT SUBMIT</strong><br>Research download only</td>
+          </tr>
+        </tbody>
+      </table></div>
+      <div class="actions">
+        <a class="button button-primary" href="downloads/{name}" download>Download all-finite .tif — DO NOT SUBMIT</a>
+        <a class="button" href="downloads/{esc(Path(files["zip"]).name)}" download>Download single-TIFF .zip — DO NOT SUBMIT</a>
+        <a class="button" href="downloads/h31cc-run-card.json">Run card</a>
+      </div>
+      <p><strong>Name:</strong> <code>{esc(files["name"])}</code><br>
+      <strong>Note ({files["note_chars"]}/140):</strong> {esc(files["note"])}<br>
+      <strong>SHA-256:</strong> <code>{esc(files["sha256"])}</code></p>
+      <p>Use the all-finite file if a portal rejected NaN with “Predicted values must be in range [0, 1]”.
+      That fixes the range error only. It does not make the file a valid scientific entry.
+      The NaN-outside twin is <a href="downloads/{esc(Path(files["nan"]).name)}">{esc(Path(files["nan"]).name)}</a>.</p>
+      <h3>Nine-site historical files — do not resubmit</h3>
+      <p>Overlaps below are this session’s H31-CC dots versus each pinned historical raster.
+      Listed scores are USER-REPORTED. None is an estimate for a new file. None is organizer-confirmed.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Site</th><th>H31-CC dots within 3 px</th><th>Historical claim</th><th>Resubmit?</th><th>New-file estimate</th></tr></thead>
+        <tbody>{nine_rows}</tbody>
+      </table></div>
+      <p>H33-2-B2’s USER-REPORTED 0.2778 is a catalogue-flank prune of a 300 m dotted structural field, not a new fault discovery.
+      On this session’s same code it scores SGMC off-catalogue proxy DTI 0.0940 versus H31-CC 0.0078
+      (61,664 proxy positives; not a competition score). Catalogue-gap HOLDOUT-DTI cannot explain that historical claim:
+      H33 was built to avoid the public catalogue, so it scores 0.0067 here. No result in this session supports a score above 0.2778, 0.3195, or 0.4413.</p>
+    </section>'''

@@ -1,0 +1,847 @@
+{
+ "lane": "H31-CC",
+ "hypothesis": "Catalogue-missing normal faults under basin fill sit on basement-depth steps where surface slope is below 4 degrees, corroborated by a gravity horizontal gradient and positive dilatation.",
+ "mechanism": "CC3: rank(grad depth_to_base_surf, sigma 2px) geometric-mean rank(|iso_grav_anom_hg|), gated to det_elev_slope<4 and geod_dilaterate>0; Poisson 2.8px, 37654 budget, >2px from visible catalogue.",
+ "named_non_fault_mimic": "depositional isopach pinch-out, lithologic density contact, gravity terrain residual, playa compaction",
+ "preregistration": "knowledge/2026-10-28_h31cc_preregistration.md",
+ "preregistration_sha256": "c40bfd352fe46bc5eaa9a35f6ff97868c434f42c1e98440b42cddec889fdd3fd",
+ "method_paragraph_in_prompt": false,
+ "lane_assignment": "Self-assigned from the prompt order to rank new hypotheses and validate the top one. Disclosed because the coordinator method paragraph was absent.",
+ "support_pixels": {
+  "CC1": 2659205,
+  "CC2": 2659205,
+  "CC3": 2358507,
+  "NULL": 2659205
+ },
+ "footprint_pixels": 5167373,
+ "catalogue_pixels": 60988,
+ "experiments_run": 2,
+ "verdict": "negative",
+ "ok_to_submit": false,
+ "ok_to_download_for_research": true,
+ "slot_approved": false,
+ "submission_slots_used": 0,
+ "new_tif_generated": true,
+ "stop": null,
+ "holdout_dti": {
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "arm": "CC3",
+  "withheld_positive_pixels": 60988,
+  "dti": 0.047069900074153195,
+  "ci95": [
+   0.03323168323881463,
+   0.06181643961343269
+  ],
+  "tpw": 2673.22811538755,
+  "fpw": 37338.42075323,
+  "fnw": 58314.77188461243,
+  "paired_vs_null": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "delta": -0.009669665602735938,
+   "ci95": [
+    -0.02345607786902358,
+    0.0052006781922370095
+   ],
+   "withheld_positive_pixels": 60988
+  },
+  "best_comparable_control": "NULL"
+ },
+ "holdout_table": {
+  "CC1": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "arm": "CC1",
+   "withheld_positive_pixels": 60988,
+   "dti": 0.040983518493391595,
+   "ci95": [
+    0.02878309952219992,
+    0.05369039086506342
+   ],
+   "tpw": 2325.0509742285776,
+   "fpw": 37379.77739245765,
+   "fnw": 58662.949025771406,
+   "paired_vs_null": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "delta": -0.01575604718349754,
+    "ci95": [
+     -0.02782410512637708,
+     -0.0029758155112926234
+    ],
+    "withheld_positive_pixels": 60988
+   },
+   "best_comparable_control": "NULL"
+  },
+  "CC2": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "arm": "CC2",
+   "withheld_positive_pixels": 60988,
+   "dti": 0.04918337162311443,
+   "ci95": [
+    0.034985398971248444,
+    0.06324086080253459
+   ],
+   "tpw": 2794.3456369185933,
+   "fpw": 37327.87952308957,
+   "fnw": 58193.65436308141,
+   "paired_vs_null": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "delta": -0.007556194053774702,
+    "ci95": [
+     -0.02119795943865123,
+     0.006216704671890048
+    ],
+    "withheld_positive_pixels": 60988
+   },
+   "best_comparable_control": "NULL"
+  },
+  "CC3": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "arm": "CC3",
+   "withheld_positive_pixels": 60988,
+   "dti": 0.047069900074153195,
+   "ci95": [
+    0.03323168323881463,
+    0.06181643961343269
+   ],
+   "tpw": 2673.22811538755,
+   "fpw": 37338.42075323,
+   "fnw": 58314.77188461243,
+   "paired_vs_null": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "delta": -0.009669665602735938,
+    "ci95": [
+     -0.02345607786902358,
+     0.0052006781922370095
+    ],
+    "withheld_positive_pixels": 60988
+   },
+   "best_comparable_control": "NULL"
+  },
+  "NULL": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "arm": "NULL",
+   "withheld_positive_pixels": 60988,
+   "dti": 0.056739565676889134,
+   "ci95": [
+    0.05076429696153471,
+    0.06288879300522855
+   ],
+   "tpw": 3230.662950064936,
+   "fpw": 37509.58940716724,
+   "fnw": 57757.33704993511,
+   "paired_vs_null": null,
+   "best_comparable_control": "CC3"
+  },
+  "REF_H31X": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "arm": "REF_H31X",
+   "withheld_positive_pixels": 60988,
+   "dti": 0.018470633071166767,
+   "ci95": [
+    0.01647217203307238,
+    0.020693711049077686
+   ],
+   "tpw": 1041.398874082138,
+   "fpw": 36913.25534552715,
+   "fnw": 59946.60112591786,
+   "paired_vs_null": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "delta": -0.03826893260572237,
+    "ci95": [
+     -0.04566500843643979,
+     -0.030814907123462975
+    ],
+    "withheld_positive_pixels": 60988
+   },
+   "best_comparable_control": "NULL"
+  },
+  "REF_H33": {
+   "evidence_class": "HOLDOUT-DTI",
+   "evaluator_version": "gems57-pooled-hide-v2",
+   "arm": "REF_H33",
+   "withheld_positive_pixels": 60988,
+   "dti": 0.006697041784474405,
+   "ci95": [
+    0.005969120964122151,
+    0.007449522541025754
+   ],
+   "tpw": 377.3190358808101,
+   "fpw": 37376.43107272676,
+   "fnw": 60610.68096411921,
+   "paired_vs_null": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "delta": -0.05004252389241473,
+    "ci95": [
+     -0.056321661682121896,
+     -0.04387596359467578
+    ],
+    "withheld_positive_pixels": 60988
+   },
+   "best_comparable_control": "NULL"
+  }
+ },
+ "confirmation": null,
+ "confirmation_passed": false,
+ "beats_same_run_null": false,
+ "beats_h31x_point": true,
+ "correlation_overlap_vs_registry": {
+  "surface": {
+   "prospective_dots": 37654,
+   "max_overlap_submission": 0.3199660062675944,
+   "max_abs_rho_submission": 0.13191868045209426,
+   "lattice_overlap": 0.9961225898974877,
+   "lattice_rho": 8.201247921201492e-05,
+   "duplicate_submission_lane": false,
+   "worst": [
+    {
+     "site": "calibration",
+     "name": "r13-lattice-s5",
+     "class": "calibration-lattice",
+     "overlap": 0.9961225898974877,
+     "rho": 8.201247921201492e-05,
+     "prior_dots": 206895,
+     "support_fraction": 0.04003871986790967,
+     "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+     "class": "submission",
+     "overlap": 0.3199660062675944,
+     "rho": 0.13191868045209426,
+     "prior_dots": 255289,
+     "support_fraction": 0.04940402018588556,
+     "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-nan.tif",
+     "class": "submission",
+     "overlap": 0.2702236150209805,
+     "rho": 0.007441780986222167,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "99b6d5bf30e05f7be24c9b1bcd1ef338980885c862bfdcf366e77a9f679d812b"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif",
+     "class": "submission",
+     "overlap": 0.2702236150209805,
+     "rho": 0.007441780986222167,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "5a7e3b3e8d56e505e329bf7043db648785afa1c392cdc27c7e12296af21a910f"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+     "class": "submission",
+     "overlap": 0.1721198279067297,
+     "rho": 0.0011512393099141899,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+     "class": "submission",
+     "overlap": 0.1721198279067297,
+     "rho": 0.0011512393099141899,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9"
+    }
+   ]
+  },
+  "final": {
+   "max_overlap_submission": 0.3199660062675944,
+   "max_abs_rho_submission": 0.13191868045209426,
+   "lattice_overlap": 0.9961225898974877,
+   "lattice_rho": 8.201247921201492e-05,
+   "duplicate_submission_lane": false,
+   "rows_head": [
+    {
+     "site": "calibration",
+     "name": "r13-lattice-s5",
+     "class": "calibration-lattice",
+     "overlap": 0.9961225898974877,
+     "rho": 8.201247921201492e-05,
+     "prior_dots": 206895,
+     "support_fraction": 0.04003871986790967,
+     "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif",
+     "class": "submission",
+     "overlap": 0.3199660062675944,
+     "rho": 0.13191868045209426,
+     "prior_dots": 255289,
+     "support_fraction": 0.04940402018588556,
+     "sha256": "41b1b9809b8603dc6a75a55f4c98b0caf2d9f43c686369702e8ecbd6bc9e4fdb"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-nan.tif",
+     "class": "submission",
+     "overlap": 0.2702236150209805,
+     "rho": 0.007441780986222167,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "99b6d5bf30e05f7be24c9b1bcd1ef338980885c862bfdcf366e77a9f679d812b"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-h31z-quotasplit-split50-37654-20261026-de0eae67-zeros.tif",
+     "class": "submission",
+     "overlap": 0.2702236150209805,
+     "rho": 0.007441780986222167,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "5a7e3b3e8d56e505e329bf7043db648785afa1c392cdc27c7e12296af21a910f"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-nan.tif",
+     "class": "submission",
+     "overlap": 0.1721198279067297,
+     "rho": 0.0011512393099141899,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "1ceb1b3e3cd79ab3368f761e934eb066f88c9e0828fb0d6b8aae503f6ac8d6b3"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-magrest-concordant-37654-20261025-2c800a59ff-zeros.tif",
+     "class": "submission",
+     "overlap": 0.1721198279067297,
+     "rho": 0.0011512393099141899,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-nan.tif",
+     "class": "submission",
+     "overlap": 0.1634354915812397,
+     "rho": -0.03353901239080286,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "1228d597e7609e45a4623a0cdf57903a75f682d58c035e38a868e522ca169468"
+    },
+    {
+     "site": "GEMSDOE31-local",
+     "name": "gemsdoe31-h31n-pseudograv-37654-20261026-70fd6538-zeros.tif",
+     "class": "submission",
+     "overlap": 0.1634354915812397,
+     "rho": -0.03353901239080286,
+     "prior_dots": 37654,
+     "support_fraction": 0.007286874781441169,
+     "sha256": "fecb586e84f48609379df8943dfc12059b2fd4a851b38cf232faab5ce3da9b6c"
+    }
+   ]
+  }
+ },
+ "sgmc_proxy": {
+  "evidence_class": "SGMC-OFFCATALOGUE-PROXY-DTI",
+  "not_a_competition_score": true,
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "n_truth": 61664,
+  "dti": 0.007849134384801644,
+  "tpw": 446.59522916918013,
+  "fpw": 37384.3349691001,
+  "fnw": 61217.40477083082
+ },
+ "sgmc_h33_same_code": {
+  "evidence_class": "SGMC-OFFCATALOGUE-PROXY-DTI",
+  "not_a_competition_score": true,
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "n_truth": 61664,
+  "dti": 0.09396541728952715,
+  "tpw": 5399.782592048414,
+  "fpw": 35272.40408595845,
+  "fnw": 56264.21740795158
+ },
+ "raster_sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+ "files": {
+  "name": "gems31-h31cc-basement-step-37654d-20261028",
+  "note": "H31-CC basement-step low-slope grav dilate 37654d B2 | HOLDOUT-DTI 0.0471 | not a live score",
+  "note_chars": 92,
+  "zeros": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+  "nan": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-nan.tif",
+  "zip": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.zip",
+  "sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+  "sha256_nan": "da2a1d708ee138e9586e59de9c5562756b793aa66cbd18e61c3f0b03049f0d11",
+  "sha256_zip": "912adee9ca4f98ff102bef72849a9e71ea4600cc9f17240d9ca0b7089a323505",
+  "dots": 37654,
+  "validator": {
+   "file": "gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+   "bytes": 116314,
+   "sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+   "ok_to_upload_format_only": true,
+   "organizer_acceptance_verified": false,
+   "hard_failures": [],
+   "grid": {
+    "shape": [
+     3730,
+     3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ],
+    "bounds": [
+     243350.0,
+     4135550.0,
+     572550.0,
+     4508550.0
+    ],
+    "dtype": [
+     "float32"
+    ],
+    "bands": 1,
+    "template_footprint_pixels": 5167373,
+    "positive_pixels_inside": 37654,
+    "nodata_tag": null
+   },
+   "checks": {
+    "template_single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "template_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "template_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "template_has_finite_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 finite pixels",
+     "hard": true
+    },
+    "template_expected_shape": {
+     "pass_": true,
+     "detail": "(3730, 3292) (expected (3730, 3292))",
+     "hard": true
+    },
+    "template_expected_transform": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+     "hard": true
+    },
+    "template_expected_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 (expected 5,167,373)",
+     "hard": true
+    },
+    "template_expected_outside": {
+     "pass_": true,
+     "detail": "7,111,787 (expected 7,111,787)",
+     "hard": true
+    },
+    "single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "dtype_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "shape_matches_template": {
+     "pass_": true,
+     "detail": "(3730, 3292) vs (3730, 3292)",
+     "hard": true
+    },
+    "crs_matches_template": {
+     "pass_": true,
+     "detail": "EPSG:32611 vs EPSG:32611",
+     "hard": true
+    },
+    "transform_matches_template": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+     "hard": true
+    },
+    "footprint_all_finite": {
+     "pass_": true,
+     "detail": "0 NaN/Inf inside 5,167,373 template cells",
+     "hard": true
+    },
+    "footprint_values_in_0_1": {
+     "pass_": true,
+     "detail": "min=0.0; max=1.0; required finite [0,1]",
+     "hard": true
+    },
+    "no_infinite_pixels": {
+     "pass_": true,
+     "detail": "0 infinite values",
+     "hard": true
+    },
+    "outside_footprint_nan": {
+     "pass_": true,
+     "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+     "hard": false
+    },
+    "nan_mask_matches_template": {
+     "pass_": true,
+     "detail": "not required under the all-finite convention",
+     "hard": false
+    },
+    "allfinite_values_in_0_1": {
+     "pass_": true,
+     "detail": "finite=True; min=0.0; max=1.0",
+     "hard": true
+    },
+    "outside_footprint_zero": {
+     "pass_": true,
+     "detail": "0 nonzero values outside footprint",
+     "hard": true
+    },
+    "output_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "output_100m_pixels": {
+     "pass_": true,
+     "detail": "xres=100, yres=-100",
+     "hard": true
+    },
+    "nodata_tag_nan_or_none": {
+     "pass_": true,
+     "detail": "nodata=None",
+     "hard": false
+    }
+   }
+  },
+  "validator_nan": {
+   "file": "gems31-h31cc-basement-step-37654d-20261028-nan.tif",
+   "bytes": 157743,
+   "sha256": "da2a1d708ee138e9586e59de9c5562756b793aa66cbd18e61c3f0b03049f0d11",
+   "ok_to_upload_format_only": true,
+   "organizer_acceptance_verified": false,
+   "hard_failures": [],
+   "grid": {
+    "shape": [
+     3730,
+     3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ],
+    "bounds": [
+     243350.0,
+     4135550.0,
+     572550.0,
+     4508550.0
+    ],
+    "dtype": [
+     "float32"
+    ],
+    "bands": 1,
+    "template_footprint_pixels": 5167373,
+    "positive_pixels_inside": 37654,
+    "nodata_tag": "NaN"
+   },
+   "checks": {
+    "template_single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "template_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "template_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "template_has_finite_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 finite pixels",
+     "hard": true
+    },
+    "template_expected_shape": {
+     "pass_": true,
+     "detail": "(3730, 3292) (expected (3730, 3292))",
+     "hard": true
+    },
+    "template_expected_transform": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+     "hard": true
+    },
+    "template_expected_footprint": {
+     "pass_": true,
+     "detail": "5,167,373 (expected 5,167,373)",
+     "hard": true
+    },
+    "template_expected_outside": {
+     "pass_": true,
+     "detail": "7,111,787 (expected 7,111,787)",
+     "hard": true
+    },
+    "single_band": {
+     "pass_": true,
+     "detail": "count=1",
+     "hard": true
+    },
+    "dtype_float32": {
+     "pass_": true,
+     "detail": "dtypes=('float32',)",
+     "hard": true
+    },
+    "shape_matches_template": {
+     "pass_": true,
+     "detail": "(3730, 3292) vs (3730, 3292)",
+     "hard": true
+    },
+    "crs_matches_template": {
+     "pass_": true,
+     "detail": "EPSG:32611 vs EPSG:32611",
+     "hard": true
+    },
+    "transform_matches_template": {
+     "pass_": true,
+     "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+     "hard": true
+    },
+    "footprint_all_finite": {
+     "pass_": true,
+     "detail": "0 NaN/Inf inside 5,167,373 template cells",
+     "hard": true
+    },
+    "footprint_values_in_0_1": {
+     "pass_": true,
+     "detail": "min=0.0; max=1.0; required finite [0,1]",
+     "hard": true
+    },
+    "no_infinite_pixels": {
+     "pass_": true,
+     "detail": "0 infinite values",
+     "hard": true
+    },
+    "outside_footprint_nan": {
+     "pass_": true,
+     "detail": "7,111,787/7,111,787 outside pixels are NaN; finite outside pixels are forbidden",
+     "hard": true
+    },
+    "nan_mask_matches_template": {
+     "pass_": true,
+     "detail": "NaN cells exactly match the template's outside-footprint mask",
+     "hard": true
+    },
+    "output_epsg_32611": {
+     "pass_": true,
+     "detail": "EPSG:32611",
+     "hard": true
+    },
+    "output_100m_pixels": {
+     "pass_": true,
+     "detail": "xres=100, yres=-100",
+     "hard": true
+    },
+    "nodata_tag_nan_or_none": {
+     "pass_": true,
+     "detail": "nodata=nan",
+     "hard": false
+    }
+   }
+  },
+  "portal_range_file": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+  "portal_range_reason": "All-finite zeros-outside float32 in [0, 1]. NaN-outside twin is research-only; a portal that rejects NaN returns Predicted values must be in range [0, 1]."
+ },
+ "submission_name": "gems31-h31cc-basement-step-37654d-20261028",
+ "note": "H31-CC basement-step low-slope grav dilate 37654d B2 | HOLDOUT-DTI 0.0471 | not a live score",
+ "validator": {
+  "file": "gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+  "bytes": 116314,
+  "sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+  "ok_to_upload_format_only": true,
+  "organizer_acceptance_verified": false,
+  "hard_failures": [],
+  "grid": {
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs": "EPSG:32611",
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "bounds": [
+    243350.0,
+    4135550.0,
+    572550.0,
+    4508550.0
+   ],
+   "dtype": [
+    "float32"
+   ],
+   "bands": 1,
+   "template_footprint_pixels": 5167373,
+   "positive_pixels_inside": 37654,
+   "nodata_tag": null
+  },
+  "checks": {
+   "template_single_band": {
+    "pass_": true,
+    "detail": "count=1",
+    "hard": true
+   },
+   "template_epsg_32611": {
+    "pass_": true,
+    "detail": "EPSG:32611",
+    "hard": true
+   },
+   "template_float32": {
+    "pass_": true,
+    "detail": "dtypes=('float32',)",
+    "hard": true
+   },
+   "template_has_finite_footprint": {
+    "pass_": true,
+    "detail": "5,167,373 finite pixels",
+    "hard": true
+   },
+   "template_expected_shape": {
+    "pass_": true,
+    "detail": "(3730, 3292) (expected (3730, 3292))",
+    "hard": true
+   },
+   "template_expected_transform": {
+    "pass_": true,
+    "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+    "hard": true
+   },
+   "template_expected_footprint": {
+    "pass_": true,
+    "detail": "5,167,373 (expected 5,167,373)",
+    "hard": true
+   },
+   "template_expected_outside": {
+    "pass_": true,
+    "detail": "7,111,787 (expected 7,111,787)",
+    "hard": true
+   },
+   "single_band": {
+    "pass_": true,
+    "detail": "count=1",
+    "hard": true
+   },
+   "dtype_float32": {
+    "pass_": true,
+    "detail": "dtypes=('float32',)",
+    "hard": true
+   },
+   "shape_matches_template": {
+    "pass_": true,
+    "detail": "(3730, 3292) vs (3730, 3292)",
+    "hard": true
+   },
+   "crs_matches_template": {
+    "pass_": true,
+    "detail": "EPSG:32611 vs EPSG:32611",
+    "hard": true
+   },
+   "transform_matches_template": {
+    "pass_": true,
+    "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+    "hard": true
+   },
+   "footprint_all_finite": {
+    "pass_": true,
+    "detail": "0 NaN/Inf inside 5,167,373 template cells",
+    "hard": true
+   },
+   "footprint_values_in_0_1": {
+    "pass_": true,
+    "detail": "min=0.0; max=1.0; required finite [0,1]",
+    "hard": true
+   },
+   "no_infinite_pixels": {
+    "pass_": true,
+    "detail": "0 infinite values",
+    "hard": true
+   },
+   "outside_footprint_nan": {
+    "pass_": true,
+    "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+    "hard": false
+   },
+   "nan_mask_matches_template": {
+    "pass_": true,
+    "detail": "not required under the all-finite convention",
+    "hard": false
+   },
+   "allfinite_values_in_0_1": {
+    "pass_": true,
+    "detail": "finite=True; min=0.0; max=1.0",
+    "hard": true
+   },
+   "outside_footprint_zero": {
+    "pass_": true,
+    "detail": "0 nonzero values outside footprint",
+    "hard": true
+   },
+   "output_epsg_32611": {
+    "pass_": true,
+    "detail": "EPSG:32611",
+    "hard": true
+   },
+   "output_100m_pixels": {
+    "pass_": true,
+    "detail": "xres=100, yres=-100",
+    "hard": true
+   },
+   "nodata_tag_nan_or_none": {
+    "pass_": true,
+    "detail": "nodata=None",
+    "hard": false
+   }
+  }
+ },
+ "leaderboard_estimate": null,
+ "estimate_reason": "No cross-family projection is reported as a score. User-reported 0.2778/0.3195/0.4413 are not organizer receipts."
+}
