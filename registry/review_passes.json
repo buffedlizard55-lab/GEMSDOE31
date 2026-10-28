@@ -2068,5 +2068,16 @@
   "submission_slots_used": 0,
   "review": "knowledge/2026-10-28_review_8083ba56.md",
   "run_card": "evidence/review_8083ba56/run_card.json"
+ },
+ "session_review_20261028_bb6d6287": {
+  "pass_1": "Preregistered H31-CC, restored pinned feature cache (19 hashes), ran canaries and the four-fold screen.",
+  "pass_2": "Fixed empty canary negatives and the 4 GB prior-load crash; no threshold was changed after scores. CC1 paired CI versus NULL is entirely negative.",
+  "pass_3": "213 pytest passed, ruff passed, check_metric max abs error 4.44e-16, build_release_status --check negative, check_site 22 pages / 545 links. ok_to_submit remains false.",
+  "new_experiments": 2,
+  "new_tif_generated": true,
+  "submission_slots_used": 0,
+  "ok_to_submit": false,
+  "review": "knowledge/2026-10-28_h31cc_session_review.md",
+  "run_card": "evidence/h31cc/run_card.json"
  }
 }

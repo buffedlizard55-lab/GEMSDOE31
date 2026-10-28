@@ -1,3 +1,17 @@
+# Current session — 28 October 2026 (`arena/bb6d6287-gemsdoe31`)
+
+**DO NOT SUBMIT.** No current artifact is approved. No human sign-off can override a failed gate.
+
+H31-CC generated a new all-finite GeoTIFF. It is unique versus the nine named sites (maximum 9.64% of dots within 3 px; H33-2-B2 is 8.01%). HOLDOUT-DTI (`gems57-pooled-hide-v2`, 60,988 withheld) is 0.0471 [0.0332, 0.0618], worse than the same-run chance map. Leaderboard estimate: unavailable. Lattice overlap 99.61% blocks the literal registry rule.
+
+- Download, research only: [gems31-h31cc-basement-step-37654d-20261028-zeros.tif](docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif)
+- SHA-256 `0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44`
+- [Run card](evidence/h31cc/run_card.json) · [preregistration](knowledge/2026-10-28_h31cc_preregistration.md) · [review](knowledge/2026-10-28_h31cc_session_review.md) · [executive summary](docs/executive-summary.html#h31cc)
+
+The standing owner prompt is preserved below and must be read at the start of every session. This session’s full working charter, including the parallel-run protocol, is [knowledge/owner_prompt_2026-10-28_bb6d6287.md](knowledge/owner_prompt_2026-10-28_bb6d6287.md). Core values: Maximize P(Win); Own the Outcome.
+
+---
+
 # Current repository review — 28 October 2026 (`arena/8083ba56-gemsdoe31`)
 
 **DO NOT SUBMIT:** no new TIFF or experiment was made; no file is approved under the literal registry protocol. The assigned single-method paragraph is missing, and a registered lattice forces STOP for the historical dot budget. The current leaderboard and a new-candidate estimate are unverified. See the [three-pass review](knowledge/2026-10-28_review_8083ba56.md), [existing executive summary](docs/executive-summary.html#nine-site-decision), and [negative run card](evidence/review_8083ba56/run_card.json). The complete owner charter remains below.

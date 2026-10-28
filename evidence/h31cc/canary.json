@@ -1,0 +1,57 @@
+{
+ "evidence_class": "LEAKAGE-CANARY",
+ "auc_ceiling": 0.9,
+ "evaluator": "Mann-Whitney on screen-fold withheld catalogue pixels vs frozen off-catalogue negatives",
+ "rows": [
+  {
+   "feature": "depth_gradient",
+   "auc": 0.5357225887674625,
+   "positives": 60988,
+   "negatives": 80000,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "low_slope_gate",
+   "auc": 0.4339575014757001,
+   "positives": 60988,
+   "negatives": 80000,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "abs_grav_hg",
+   "auc": 0.5301911371428967,
+   "positives": 60988,
+   "negatives": 80000,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "positive_dilatation",
+   "auc": 0.4953039229028661,
+   "positives": 60988,
+   "negatives": 80000,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "CC1",
+   "auc": 0.4344691425977241,
+   "positives": 60988,
+   "negatives": 80000,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "CC2",
+   "auc": 0.43516089302403754,
+   "positives": 60988,
+   "negatives": 80000,
+   "leakage_flagged": false
+  },
+  {
+   "feature": "CC3",
+   "auc": 0.43756012022856955,
+   "positives": 60988,
+   "negatives": 80000,
+   "leakage_flagged": false
+  }
+ ],
+ "all_pass": true
+}
