@@ -60,6 +60,23 @@ def test_no_slot_without_cap_and_separate_authorization():
     assert not selector_permission(**(args | {'scientific_gates': {'efficacy': 'true'}}))
 
 
+@pytest.mark.parametrize('malformed', [None, [], 'surface', 1])
+def test_malformed_uniqueness_stages_fail_closed(malformed):
+    assert not uniqueness_gate(malformed)['pass_']
+    assert not uniqueness_gate({'surface': malformed, 'final': stages()['final']})['pass_']
+
+
+def test_selector_rejects_contradictory_or_missing_failures():
+    gates = {k: True for k in ('format', 'canary', 'same_run_best',
+                               'fresh_confirmation', 'discovery_proxy', 'provenance')}
+    for uniqueness in (None, {}, {'pass_': True, 'duplicate': False},
+                       {'pass_': True, 'duplicate': False, 'failures': ['duplicate STOP']}):
+        assert not selector_permission(uniqueness=uniqueness, scientific_gates=gates,
+                                       selector_authorized=True, weekly_cap_verified=True)
+    assert not selector_permission(uniqueness=uniqueness_gate(stages()), scientific_gates=None,
+                                   selector_authorized=True, weekly_cap_verified=True)
+
+
 def test_current_decision_and_ui_deny_prior_selector_approvals():
     dec = json.loads((ROOT / 'registry/selector_decision_20261026.json').read_text())
     assert dec['primary_submission'] is None and not dec['promoted_lanes']
