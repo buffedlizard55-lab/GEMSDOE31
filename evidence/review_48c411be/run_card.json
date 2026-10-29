@@ -1,0 +1,70 @@
+{
+  "budget": "3 experiments or 2 hours; 0 experiments used",
+  "correlation_overlap_vs_registry": {
+    "gemsdoe32_3px_pruned_variant_share_within_3px": 1.0,
+    "new_raster": null,
+    "uniqueness_counting_bound": {
+      "candidate_dots": 37654,
+      "evidence_class": "COMPUTED counting bound; not a score",
+      "forced_minimum_overlap": 0.8234184947150369,
+      "uncovered_pixels": 6649
+    }
+  },
+  "date_utc": "2026-10-29",
+  "experiments_run": 0,
+  "holdout_dti": {
+    "evidence_class": "NOT RUN",
+    "reason": "No feature stack and no method lane; HOLDOUT-DTI cannot be produced.",
+    "value": null
+  },
+  "hypothesis": "No new hypothesis was tested. Candidates H-CC-A to H-CC-D and H48-E were re-checked against the repository only.",
+  "lane": "none assigned (no method paragraph in this session's owner prompt)",
+  "leaderboard_estimate": {
+    "estimate_class": "not estimable",
+    "reason": "No holdout-validated model and no organizer receipt.",
+    "value": null
+  },
+  "mechanism": "Not applicable (no experiment). Verified mechanism for the 0.2778 claim: D2.8 with exactly the dots within 2 px of the restored catalogue deleted.",
+  "non_fault_mimic": "Catalogue-proximity artifact: pruning dots near mapped faults lowers the false-positive term without finding any new fault.",
+  "note": "No submission: no new raster generated. DO NOT SUBMIT.",
+  "note_chars": 54,
+  "ok_to_download_for_research": "study only; these files are already published by the owner",
+  "ok_to_submit": false,
+  "raster_sha256": null,
+  "referenced_rasters_sha256": {
+    "GEMSDOE32_nan": "baeae3219bba6a19bc8cfe79224e28555c50184b7c1ca65c2a822f54807c77dd",
+    "GEMSDOE32_zeros": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9"
+  },
+  "schema_version": 1,
+  "session": "arena/48c411be-gemsdoe31",
+  "submission_name": null,
+  "user_reported_score_for_reference": {
+    "evidence_class": "USER-REPORTED",
+    "organizer_receipt": null,
+    "value": 0.2778
+  },
+  "validator_output_referenced_GEMSDOE32": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "grid_shape": [
+      3730,
+      3292
+    ],
+    "nan_variant_outside_footprint_is_nan": true,
+    "no_new_validator_run": true,
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "values_in_0_1": true,
+    "zeros_variant_nan_pixels": 0,
+    "zeros_variant_outside_footprint_values": [
+      0.0
+    ]
+  },
+  "verdict": "negative"
+}

@@ -720,6 +720,104 @@
         "registry/session_cc130eb1_decision.json"
       ],
       "action": "Label every anchor USER-REPORTED. Obtain organizer receipts before any claim."
+    },
+    {
+      "id": "IR-48C4-01",
+      "severity": "medium",
+      "status": "open",
+      "summary": "GEMSDOE32 has two files. The owner list names the -zeros file for 0.2778; the registry row names the -nan file. Both exist on GitHub. Inside the footprint their dots are identical (37,654 dots).",
+      "evidence": [
+        "evidence/review_48c411be/gemsdoe32_forensics.json",
+        "registry/session_48c411be_addendum.json"
+      ],
+      "action": "Quote both names everywhere. Any organizer receipt must name the file and its SHA-256 before the 0.2778 claim is attributed to either file."
+    },
+    {
+      "id": "IR-48C4-02",
+      "severity": "high",
+      "status": "open",
+      "summary": "The -zeros file has no NaN anywhere (all 12,279,160 grid cells finite, zeros outside the footprint). The -nan file has NaN outside the 5,167,373-pixel footprint. The official page says data outside the bounds is null or nan. The -zeros file complies only if 'bounds' means the full grid extent; the -nan file complies under either reading.",
+      "evidence": [
+        "evidence/review_48c411be/gemsdoe32_forensics.json",
+        "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/"
+      ],
+      "action": "Do not upload either file. Ask the organizer which reading of 'bounds' applies. Treat -nan as the conservative form only after organizer confirmation."
+    },
+    {
+      "id": "IR-48C4-03",
+      "severity": "medium",
+      "status": "open",
+      "summary": "GEMSDOE32 main moved to 0ffda716 (committed 2026-10-29T15:15:05Z). The registry pins 9863c82a (for -nan) and the -zeros file last changed in c39ee46e (2026-10-04). The leaderboard was not checked for the current head.",
+      "evidence": [
+        "registry/focus_review.json",
+        "evidence/review_48c411be/gemsdoe32_forensics.json"
+      ],
+      "action": "Re-pin only after the organizer receipt is obtained. Do not treat the current head as the scored file."
+    },
+    {
+      "id": "IR-48C4-04",
+      "severity": "high",
+      "status": "open-owner-decision",
+      "summary": "Uniqueness rules conflict. The owner's first paragraph asks for a file that is not an exact duplicate. The parallel protocol stops any file with more than 70% of dots within 3 px of one registry raster. At the 37,654-dot budget the registered spacing-5 control forces at least 82.34% overlap, so the protocol rule cannot be met at that budget.",
+      "evidence": [
+        "evidence/review_48c411be/lattice_bound.json",
+        "registry/session_48c411be_addendum.json"
+      ],
+      "action": "Owner decision: keep the literal rule (no full-budget file can be unique), or redefine the comparison set. No bypass is applied in this session."
+    },
+    {
+      "id": "IR-48C4-05",
+      "severity": "medium",
+      "status": "open",
+      "summary": "The 0.2778 family cannot be climbed by pruning. Deleting dots within 3 px of the catalogue would remove 2,171 more dots from GEMSDOE32, leaving 35,483 dots, of which 100% lie within 3 px of GEMSDOE32 (a duplicate). A higher score needs a new dot family.",
+      "evidence": [
+        "evidence/review_48c411be/gemsdoe32_forensics.json"
+      ],
+      "action": "Do not submit a pruned variant of the D2.8 family. Any new candidate must start from a new method lane."
+    },
+    {
+      "id": "IR-48C4-06",
+      "severity": "medium",
+      "status": "open",
+      "summary": "Unverified cause of the user-reported error 'Predicted values must be in range [0, 1]'. A NaN convention is one candidate cause; this session did not reproduce the portal validator, so no cause is established.",
+      "evidence": [
+        "registry/irregularities.json (IR-CC130-01)"
+      ],
+      "action": "Obtain the organizer's validator message or sample. Do not infer the cause from this repository alone."
+    },
+    {
+      "id": "IR-48C4-07",
+      "severity": "high",
+      "status": "open-owner-decision",
+      "summary": "The feature stack (training_features.tif, 418,912,844 bytes) is pinned in registry/data_manifest.json and reachable through GitHub parts. AGENTS.md forbids restoring it under the current STOP without owner authorization. The labels file was restored (small input) for the forensic check.",
+      "evidence": [
+        "registry/data_manifest.json",
+        "AGENTS.md"
+      ],
+      "action": "Owner decision on the feature-stack restore, together with an assigned method lane. Without both, no holdout DTI can be produced."
+    },
+    {
+      "id": "IR-48C4-08",
+      "severity": "low",
+      "status": "open",
+      "summary": "Three tests (test_h31aa, test_h31j, test_h31s) fail on a clean checkout until scripts/verify_current_run.py --restore-small-inputs has run. The failure is documented in AGENTS.md but is not caught by the test suite.",
+      "evidence": [
+        "tests/test_h31aa.py",
+        "tests/test_h31j.py",
+        "tests/test_h31s.py"
+      ],
+      "action": "Run the restore before pytest (already the documented order). A future change could skip with a clear message instead of failing."
+    },
+    {
+      "id": "IR-48C4-09",
+      "severity": "medium",
+      "status": "open",
+      "summary": "Two hypotheses in the cc130eb1 list are not new. H-CC-C is the earlier H5 (NOT RUN, expected gain low at 300 m). The H-CC-D heat-flow source (SMU) could not be fetched on 2026-10-29, and the World Stress Map licence text was not read.",
+      "evidence": [
+        "knowledge/2026-10-25_lane_hypotheses.md",
+        "registry/session_48c411be_addendum.json"
+      ],
+      "action": "Relabel H-CC-C as a rescope of H5. Keep H-CC-D blocked until the SMU node is reachable and its licence is read."
     }
   ]
 }

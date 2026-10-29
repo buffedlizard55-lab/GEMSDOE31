@@ -1,4 +1,83 @@
-# Current session — 29 October 2026 (`arena/eebfaae2-gemsdoe31`): fail-closed repository review
+# Current session — 29 October 2026 (`arena/48c411be-gemsdoe31`): GEMSDOE32 0.2778 audit, uniqueness bound, executive summary
+
+**Core values: Maximize P(Win) · Own the Outcome.** Read this section, `AGENTS.md`, and the owner prompt restatement below at every session start.
+
+## Decision: DO NOT SUBMIT
+
+No file is cleared to submit. No new TIFF was generated, no experiment ran (0 of 3), no weekly slot was used, and no leaderboard score is claimed. Every leaderboard number is **USER-REPORTED**; no organizer receipt exists in this repository.
+
+Why no new TIFF (each is verified, not assumed):
+
+1. **No method lane.** The protocol says "your lane is the single method paragraph below". No such paragraph follows, so no experiment is authorised.
+2. **The feature stack is not restored.** Restoring it requires owner authorisation under the current STOP (IR-48C4-07).
+3. **The uniqueness rule cannot be met at the 37,654-dot budget.** The registered spacing-5 control forces at least 82.34% of dots within 3 px of one registry raster. The rule stops any file above 70%. Placing dots only in the 6,649 pixels outside that halo would game the rule, and the repository forbids it. No bypass was made (IR-48C4-04).
+
+Full status record: [knowledge/current_status_2026-10-29_48c411be.md](knowledge/current_status_2026-10-29_48c411be.md). Executive summary (per-site table, decision, verified facts): [docs/executive-summary.html](docs/executive-summary.html).
+
+## Owner prompt for this session (structured restatement)
+
+This restates the requested work; the acceptance criteria are below. It is not a verbatim copy.
+
+1. Executive summary for GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36. Clear best submission. Table giving file to download, estimated score, and uniqueness against the other GEMSDOE sites.
+2. A unique, downloadable TIF that may be submitted. It must be obvious whether it is OK to download and submit. Answer: **no file qualifies today.**
+3. Explain why GEMSDOE32 (0.2778) scored highest, and whether a higher score is reachable.
+4. 3 to 5 untested hypotheses, ranked, each with its layer, signature and non-fault mimic. Validate the top one on a spatially blocked holdout before using a slot. Not possible this session (blockers above).
+5. Official, free, verifiable sources with links for manual review. Flag irregularities.
+6. Standing rules: no hallucinations, line-by-line verification, no manual input, multi-pass review, and the README is the charter.
+
+## Nine-site table (USER-REPORTED scores; the file is the top file per site)
+
+| Site | Reported top | File to download (study only) | Unique vs the other eight? | Estimated score for a new file |
+|---|---|---|---|---|
+| GEMSDOE24 | 0.2477 | `gems24-h25-1-dotted-h19-5-d1-5-…-nan.tif` | No (duplicate) | not estimable |
+| GEMSDOE25 | 0.2600 | `gems25-dotted-h19-5-d2-8-…-nan.tif` (D2.8, 44,090 dots) | No (duplicate) | not estimable |
+| GEMSDOE27 | 0.2449 | `gems27-topo-gap-closure-t-v2-on-d1-5-…-nan.tif` | No (duplicate) | not estimable |
+| GEMSDOE28 | 0.2710 | `gems28-h36-1-rung30-blind-r1-…-nan.tif` | No (duplicate) | not estimable |
+| GEMSDOE30 | 0.2600 | `gemsdoe30-d28-poisson300m-offcat-44090-…-nanoutside.tif` | No (duplicate of D2.8) | not estimable |
+| GEMSDOE31 | 0.2708 | `gemsdoe31-h27-4-solo-d28-…-nan.tif` (D2.8 minus 1 px) | No (duplicate) | not estimable |
+| GEMSDOE32 | 0.2778 | `gemsdoe32-h33-…-e5eb6e7e-zeros.tif` (owner list) or `…-nan.tif` (registry); identical dots | No (duplicate) | not estimable |
+| GEMSDOE33 | 0.2632 | `GEMSDOE33-h33d-analog-tip-stepover-r30-…-nanoutside.tif` | No (duplicate) | not estimable |
+| GEMSDOE36 | 0.2750 | `gemsdoe36-anderson-geothermal-pinn-…-nan.tif` | No (duplicate) | not estimable |
+
+"Duplicate" means: for every pair of the nine files, the larger of the two directional 3 px overlaps is at least 0.9731 (the minimum over the 36 pairs; 36 of 36 pairs flagged by the overlap rule; `evidence/review_cc130eb1/focus_site_verification.json`). Estimated score is "not estimable" because no holdout-validated model exists and no organizer receipt exists. GEMSDOE27's 0.2449 (registry) conflicts with 0.2250 in `registry/focus_unique_2026.json`; this is unresolved.
+
+## Why 0.2778 scored highest (verified in bytes)
+
+- D2.8 (44,090 dots, 0.2600) → H27-4 (40,199 dots, 0.2708) → H33-2-B2 (37,654 dots, 0.2778). Each step deletes exactly the dots within 1 px (3,891 dots) or within 2 px (6,436 dots in total) of the catalogue. Verified with `scripts/verify_gemsdoe32_forensics.py` against the restored `data/labels.tif`.
+- The two GEMSDOE32 files are identical inside the footprint. The `-zeros` file writes 0 outside it and has no NaN. The `-nan` file writes NaN. The official text says "null or nan" (IR-48C4-02).
+- **Can it be beaten by pruning? No.** A 3 px step removes 2,171 more dots, and 100% of the remaining dots lie within 3 px of GEMSDOE32. Under the owner's rule that is a duplicate. A higher score needs a new dot family from an assigned method lane.
+- INFERENCE: deleting catalogue-adjacent dots lowers the false-positive term of the official metric, which is consistent with the reported gain. This is not measured here.
+
+## Hypotheses (re-checked; none run)
+
+H-CC-A (thermal-spring collinearity), H-CC-B (World Stress Map SHmax prior), H-CC-C (seismicity nodal planes; this is the earlier H5, NOT RUN), H-CC-D (SMU heat-flow residual; blocked, node unreachable), and H48-E (catalogue-flank radius; exhausted under the uniqueness rule). Details and ranking: [knowledge/current_status_2026-10-29_48c411be.md](knowledge/current_status_2026-10-29_48c411be.md).
+
+## Machine-readable outputs
+
+- `evidence/review_48c411be/run_card.json`: the protocol run card (negative verdict; no raster; `ok_to_submit: false`).
+- `evidence/review_48c411be/gemsdoe32_forensics.json` and `lattice_bound.json`: computed from pinned bytes.
+- `registry/session_48c411be_addendum.json`: built by `scripts/build_session_addendum.py` (`--check` guards it). The executive summary reads it.
+- `registry/irregularities.json` (IR-48C4-01 to -09) and `registry/review_passes.json` (new pass entry).
+- Tests: `tests/test_session_48c411be.py`.
+
+## Limitations and access needed (owner decisions)
+
+1. The uniqueness rule (literal versus comparison set). This decides whether any full-budget file can be unique.
+2. A method paragraph (lane) to assign.
+3. Authorisation to restore the feature stack from the owner mirror (418 MB).
+4. Organizer text on "bounds" (grid or footprint), and the organizer sample or validator message.
+5. Licence text for the WSM database (CC BY 4.0 is claimed, not read here) and for the SMU, NBMG and INGENIOUS data.
+6. Eligibility under the rules (not verified here; the competitor's obligation).
+
+## Suggested next work
+
+- Once items 1–3 are answered: run a spatially blocked holdout for one new family, with a collar derived from out-of-fold residuals, then the duplicate screen on the surface and on the final dots.
+- Re-try the SMU node, and read the WSM licence before H-CC-B or H-CC-D use.
+- Pin the GEMSDOE32 leaderboard receipt when it exists, and re-pin the file hash.
+
+---
+
+# Previous session — 29 October 2026 (`arena/eebfaae2-gemsdoe31`): fail-closed repository review
 
 **Core values: Maximize P(Win) · Own the Outcome.** Start every session by reading this current decision, `AGENTS.md`, the preserved owner charter below, `registry/current_run.json`, `registry/release_status.json`, `registry/review_passes.json`, and the active scientific preregistration. Do not treat a prior branch's status as current.
 
