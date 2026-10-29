@@ -1601,7 +1601,19 @@ def _focus_unique_2026_html() -> str:
 
 
 def review_notice():
-    return '<div class="notice"><strong>28 October release audit: existing H31-CC bytes revalidated; no new experiment or TIFF.</strong> The paired HOLDOUT-DTI remains a cited negative result, and the measured registered-lattice overlap keeps the literal STOP binding. Every research download remains unapproved for upload. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-28_arena-41e3ba3f.md">Current review, limitations and next steps</a>.</div>'
+    source = json.loads((ROOT / "evidence/review_a668bcb6/source_access.json").read_text())
+    heads = source["owner_repository_heads"]
+    changed = sum(h["changed_since_all_pins"] for h in heads)
+    return f'''<div class="notice"><strong>29 October safety review: no new TIFF or experiment; DO NOT SUBMIT.</strong>
+      Legacy packaging now fails closed on the canonical STOP. Local writer receipts can no longer turn
+      a format pass into submission approval. Existing TIFF bytes and scientific cards are unchanged.
+      <strong>Source freshness:</strong> GitHub HEAD metadata checked for {len(heads)} focus repositories;
+      {changed} have changed since their pinned artifact revisions. This does not refresh their raster audit,
+      historical scores, organizer receipts or the leaderboard.
+      The official reference README confirms a CPU-only option; a GPU is faster, not mandatory for that reference.
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_a668bcb6.md">Three-pass review, ranked hypotheses, limitations and next steps</a> ·
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/review_a668bcb6/source_access.json">Dated source evidence</a>.
+      Historical HOLDOUT-DTI remains cited, not rerun; research downloads remain unapproved for upload.</div>'''
 
 
 def executive(card):
