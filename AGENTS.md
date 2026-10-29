@@ -1,15 +1,16 @@
-# Current review/permission front door (2026-10-28, `arena/41e3ba3f-gemsdoe31`)
+# Current review/permission front door (2026-10-29; active Arena branch is supplied by session instructions)
 
-Read `registry/release_status.json` and `knowledge/repo_review_2026-10-28_arena-41e3ba3f.md` first.
-No file is approved. The canonical status now audits the latest existing H31-CC research bytes; its scientific
-HOLDOUT-DTI and pre-placement metrics remain cited from the frozen prior card, not rerun. The final-dot overlap
-against one registered owner-mirror witness is independently rechecked. `registry/current_run.json` remains the
-historical MAGREST record, not the latest research artifact or release permission. Restore only pinned small inputs
-for the read-only verification; do not restore the feature stack or run a new experiment under the missing-method
-paragraph / literal registry STOP. Run `python scripts/verify_h31cc_run.py --check` and
-`python scripts/build_release_status.py --check`. Never use the legacy `submission_gate.py` diagnostic to approve a
-slot. Preserve historical run cards; do not interpret their promotion flags as current authorization. The former
-2026-10-26 status is preserved at `evidence/release_status/release-status-2026-10-26-bf9d261d.json`.
+Read `registry/release_status.json` and `knowledge/repo_review_2026-10-29_arena-4d582f3d.md` first.
+No file is approved. The canonical status audits the latest existing H31-CC research bytes; its scientific
+HOLDOUT-DTI and pre-placement metrics are cited from the frozen prior card, not rerun in the repository review.
+The final-dot overlap against one registered owner-mirror witness is independently rechecked.
+`registry/current_run.json` remains the historical MAGREST record, not the latest research artifact or release
+permission. Restore only pinned small inputs for read-only verification; do not restore the feature stack or run a new
+experiment under the missing-method paragraph / literal registry STOP. Run `python scripts/verify_h31cc_run.py --check`
+and `python scripts/build_release_status.py --check`. Never use the legacy `submission_gate.py` diagnostic to approve
+a slot. Preserve historical run cards; do not interpret their promotion flags as current authorization. See
+`evidence/review_4d582f3d/run_card.json` for this review's negative run card. The former 2026-10-26 status is
+preserved at `evidence/release_status/release-status-2026-10-26-bf9d261d.json`.
 
 # GEMSDOE31 agent instructions
 

@@ -1,3 +1,17 @@
+# Current repository review — 29 October 2026 (`arena/4d582f3d-gemsdoe31`)
+
+**DO NOT SUBMIT. No new TIFF, experiment, slot selection, or leaderboard contact in this review.** The cited H31-CC research artifact fails the literal registry overlap gate; its format checks do not imply submission approval. No new-file leaderboard estimate is supported. Historical nine-site claims remain USER-REPORTED, not organizer receipts.
+
+- [Three-pass repository review, nine-site decision table, ranked desk hypotheses and next steps](knowledge/repo_review_2026-10-29_arena-4d582f3d.md)
+- [Machine-readable negative run card](evidence/review_4d582f3d/run_card.json) · [current release status](registry/release_status.json) · [nine-site evidence register](registry/focus_review.json)
+- All nine pinned historical top entries have >70% computed 3-px support overlap with H33; they are prior art, not upload choices. The H33 `0.2778` value is USER-REPORTED and its private-truth cause is unknown.
+- Three candidate hypotheses are desk-only. The promised method paragraph is absent, the full feature cache is absent, and no candidate was validated. No current TIFF is OK to submit.
+- Automated checks: 214 tests passed; Ruff, compileall, metric, current/protocol/H31-CC verifiers, release-status check and 22-page/552-link site check passed. The generated timestamp-only readiness diff was discarded.
+
+This dated review supersedes earlier README banners as the latest repository review; historical cards remain preserved. Read the complete README, including the preserved owner prompt, and `AGENTS.md` at every project session start.
+
+---
+
 # Current session — 28 October 2026 (`arena/41e3ba3f-gemsdoe31`)
 
 **DO NOT SUBMIT.** This review generated no TIFF, ran no experiment, selected no candidate or weekly slot, and made no DrivenData contact. The latest existing scientific artifact is H31-CC from the previous session. It remains research-only: cited HOLDOUT-DTI 0.0471 [0.0332, 0.0618], paired difference versus same-run NULL −0.0097 [−0.0235, +0.0052], and COMPUTED final overlap 99.6123% with the registered spacing-5 witness. New-file leaderboard estimate: unavailable.

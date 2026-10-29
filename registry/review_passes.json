@@ -2178,6 +2178,24 @@
    ],
    "decision": "No artifact is approved. No new TIFF, experiment, candidate, slot, leaderboard access, or score estimate; all focus-site leaderboard claims remain USER-REPORTED absent organizer receipts.",
    "base_integration": "origin/main 4bae11a3f884507d19c6c978c3f495e28e385d94 (merged PR #62); preserves the earlier count-bound review, no new science."
+  },
+  {
+   "session": "arena/4d582f3d-gemsdoe31",
+   "date": "2026-10-29",
+   "lane": "repository review only; no scientific lane assigned",
+   "pass1_implement": "Read full README and preserved prompt, AGENTS, release status, historical current_run, review-pass register, pinned focus evidence, H31-CC receipts, sources and site generator. Restored only pinned small validation inputs and witness. Added three-pass review and negative run card; no scientific code or TIFF changed.",
+   "pass2_review": "Confirmed all nine historical high-water claims are USER-REPORTED; pinned pairwise 3-px overlaps against H33 all exceed 70%, which makes them prior-art references under the stated gate but is not exhaustive global uniqueness. H33 causal explanation remains inference. Current H31-CC fails the literal gate; production cache and assigned method paragraph are absent. No leaderboard or non-GitHub source was fetched.",
+   "pass3_recheck": "214 pytest passed; Ruff, compileall, metric check, current-run/protocol/H31-CC verifiers, release check, evidence collection, 22-page site build and 552-local-link check passed. Readiness timestamp-only diff discarded. No holdout experiment, TIFF, slot, upload, or score estimate.",
+   "artifacts": [
+    "knowledge/repo_review_2026-10-29_arena-4d582f3d.md",
+    "evidence/review_4d582f3d/run_card.json"
+   ],
+   "new_experiments": 0,
+   "new_tif_generated": false,
+   "submission_slots_used": 0,
+   "ok_to_submit": false,
+   "leaderboard_estimate": null,
+   "decision": "No TIFF is approved. Existing H31-CC remains research-only and stopped by the literal registered-raster overlap gate; new candidate hypotheses are desk-only and unvalidated."
   }
  ],
  "session_review_20261027_3b1ed545": {

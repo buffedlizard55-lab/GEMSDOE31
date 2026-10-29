@@ -40,10 +40,10 @@ def selector_decision_section() -> str:
     u = r["correlation_overlap_vs_registry"]
     pair = h.get("paired_vs_null") or {}
     filename = esc(r["file"].replace("docs/", "", 1))
-    report_link = "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-28_arena-41e3ba3f.md"
+    report_link = "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-4d582f3d.md"
     paired_ci = pair["ci95"]
     return f'''<section id="selector-decision" aria-labelledby="selector-heading">
-      <p class="kicker">Current release audit · 28 October 2026 · existing H31-CC bytes; no new experiment</p>
+      <p class="kicker">29 October 2026 repository review · existing H31-CC bytes; no new experiment</p>
       <h2 id="selector-heading">DO NOT SUBMIT — literal registry STOP</h2>
       <div class="notice notice-danger"><strong>No current artifact is approved.</strong>
       H31-CC is the latest research TIFF, generated in the prior scientific session. This review only re-read its
@@ -1601,7 +1601,7 @@ def _focus_unique_2026_html() -> str:
 
 
 def review_notice():
-    return '<div class="notice"><strong>28 October release audit: existing H31-CC bytes revalidated; no new experiment or TIFF.</strong> The paired HOLDOUT-DTI remains a cited negative result, and the measured registered-lattice overlap keeps the literal STOP binding. Every research download remains unapproved for upload. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-28_arena-41e3ba3f.md">Current review, limitations and next steps</a>.</div>'
+    return '<div class="notice"><strong>29 October repository review: no new experiment or TIFF.</strong> The cited paired HOLDOUT-DTI remains negative, and the measured registered-lattice overlap keeps the literal STOP binding. Every research download remains unapproved for upload. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-4d582f3d.md">Current review, nine-site comparison, limitations and next steps</a>.</div>'
 
 
 def executive(card):
