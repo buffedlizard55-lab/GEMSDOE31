@@ -1427,7 +1427,7 @@ def h31n_decision_banner() -> str:
 
 def overview(card):
     hero = '''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · 28 October 2026 · release audit</p>
+      <p class="eyebrow">DOE GEMS Prize · 29 October 2026 · safety review</p>
       <h1>DO NOT SUBMIT.<br>The latest research TIFF failed its score and registry gates.</h1>
       <p class="hero-lede">H31-CC is the latest research artifact; it was generated in the previous scientific session.
       This review rechecked existing bytes only—no new experiment, TIFF, or slot. Its same-run paired HOLDOUT-DTI
@@ -1436,7 +1436,7 @@ def overview(card):
       <a class="button" href="executive-summary.html#selector-decision">Current release decision</a></div>
       </div><aside class="hero-side"><strong>DO NOT SUBMIT</strong><p>No current artifact is approved.
       No human sign-off can override a failed gate. The all-finite file avoids a NaN range error; that is not permission to upload.</p></aside></div></section>'''
-    return hero, h31cc_front_door() + _overview_body(card, hero_rbu=False)
+    return hero, review_notice() + h31cc_front_door() + _overview_body(card, hero_rbu=False)
 
 
 def _overview_body(card, *, hero_rbu: bool):

@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-28",
+ "generated_utc": "2026-10-29",
  "review_policy": "Cumulative passes: implementation and source verification; independent bug/assumption/leakage/edge review; whole-charter acceptance cross-check. A completed review does not imply organizer verification or completion of blocked gates.",
  "passes": [
   {
@@ -2178,6 +2178,21 @@
    ],
    "decision": "No artifact is approved. No new TIFF, experiment, candidate, slot, leaderboard access, or score estimate; all focus-site leaderboard claims remain USER-REPORTED absent organizer receipts.",
    "base_integration": "origin/main 4bae11a3f884507d19c6c978c3f495e28e385d94 (merged PR #62); preserves the earlier count-bound review, no new science."
+  },
+  {
+   "session": "arena/a668bcb6-gemsdoe31",
+   "date": "2026-10-29",
+   "lane": "Repository and legacy-writer safety review only; no assigned scientific method",
+   "pass1_implement": "Verified existing H31-CC bytes/STOP, inspected writer approval path, fixed false format-to-upload approval and guarded legacy packaging; fetched official GitHub reference README and nine owner HEAD metadata.",
+   "pass2_review": "28 new synthetic/mocked packaging tests plus three evidence/presentation tests; no new TIFF generated; malformed/missing/truthy/stale diagnostics and no-write-before-STOP covered. Corrected source-receipt schema and deduplicated site metadata.",
+   "pass3_recheck": "250 tests passed; Ruff/compile, metric/marginal, current/protocol/H31-CC/release/J/T/AA verifiers, evidence collection and 22-page/552-link static site checks passed. No TIFF or ZIP changes. Main PR #64 integrated without switching branch.",
+   "review": "knowledge/repo_review_2026-10-29_a668bcb6.md",
+   "run_card": "evidence/review_a668bcb6/run_card.json",
+   "new_experiments": 0,
+   "new_tif_generated": false,
+   "submission_slots_used": 0,
+   "ok_to_submit": false,
+   "leaderboard_estimate": null
   }
  ],
  "session_review_20261027_3b1ed545": {
@@ -2258,5 +2273,20 @@
   "ok_to_submit": false,
   "review": "knowledge/repo_review_2026-10-29_b187d4af.md",
   "run_card": "evidence/review_b187d4af/run_card.json"
+ },
+ "session_review_20261029_a668bcb6": {
+  "session": "arena/a668bcb6-gemsdoe31",
+  "date": "2026-10-29",
+  "lane": "Repository and legacy-writer safety review only; no assigned scientific method",
+  "pass1_implement": "Verified existing H31-CC bytes/STOP, inspected writer approval path, fixed false format-to-upload approval and guarded legacy packaging; fetched official GitHub reference README and nine owner HEAD metadata.",
+  "pass2_review": "28 new synthetic/mocked packaging tests plus three evidence/presentation tests; no new TIFF generated; malformed/missing/truthy/stale diagnostics and no-write-before-STOP covered. Corrected source-receipt schema and deduplicated site metadata.",
+  "pass3_recheck": "250 tests passed; Ruff/compile, metric/marginal, current/protocol/H31-CC/release/J/T/AA verifiers, evidence collection and 22-page/552-link static site checks passed. No TIFF or ZIP changes. Main PR #64 integrated without switching branch.",
+  "review": "knowledge/repo_review_2026-10-29_a668bcb6.md",
+  "run_card": "evidence/review_a668bcb6/run_card.json",
+  "new_experiments": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "ok_to_submit": false,
+  "leaderboard_estimate": null
  }
 }

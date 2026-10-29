@@ -1383,6 +1383,7 @@ def main() -> None:
     feed_data["current_protocol_review"] = load("evidence/review_9883b598/run_card.json")
     feed_data["current_selector_decision"] = load("registry/selector_decision_20261026.json")
     feed_data["current_h31aa_run"] = load("evidence/h31aa/run_card.json")
+    feed_data["current_repository_review"] = load("evidence/review_a668bcb6/run_card.json")
     pages[DOCS / "feed.json"] = json.dumps(feed_data, indent=1, allow_nan=False) + "\n"
     pages[DOCS / "feed.html"] = feed_html
 

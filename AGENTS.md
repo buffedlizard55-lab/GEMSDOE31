@@ -1,3 +1,15 @@
+# Safety amendment — 2026-10-29 (`arena/a668bcb6-gemsdoe31`)
+
+Read the latest README front door and `knowledge/repo_review_2026-10-29_a668bcb6.md`.
+Canonical release status remains the existing H31-CC integrity audit, not a new scientific run.
+`scripts/build_submission.py` and both local `scripts/submission_writer.py` wrappers now block packaging
+before output writes unless the canonical policy has a literal-true assigned lane and complete passing
+surface/final uniqueness evidence with a consistent recorded decision. No override switches.
+Local format passes and caller-supplied gate summaries must never grant submission/slot permission.
+This hardens legacy local wrappers only; pinned `vendor/gems57` tools remain unchanged. Do not run old
+runners that directly serialize through the template as a way around the current STOP. No new method
+paragraph is present. No current file is approved. No density/comparator exemptions.
+
 # Current review/permission front door (2026-10-28, `arena/41e3ba3f-gemsdoe31`)
 
 Read `registry/release_status.json` and `knowledge/repo_review_2026-10-28_arena-41e3ba3f.md` first.
