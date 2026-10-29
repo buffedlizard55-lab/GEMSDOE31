@@ -1,4 +1,11 @@
-# Current repository review — 29 October 2026 (`arena/4d582f3d-gemsdoe31`)
+# Current repository review — 29 October 2026 (`arena/75534796-gemsdoe31`)
+
+**DO NOT SUBMIT. No TIFF was generated or approved in this session.** No method paragraph, no training feature stack, and the literal any-registry uniqueness gate is still negative. No score estimate exists for any new file. H33 `0.2778` and the other nine-site scores are USER-REPORTED. Leaderboard anchors in the request conflict (0.3195 vs 0.4413) and are unverified. Read `knowledge/repo_review_2026-10-29_arena-75534796.md` for the run card, blockers, irregularities (including a receipt-downgrade bug fixed here), and next steps.
+
+- [This session's review and run card](knowledge/repo_review_2026-10-29_arena-75534796.md)
+- Read-only denial audit: `python scripts/audit_download.py` (exit 2 = verified denial; this is expected).
+
+---
 
 **DO NOT SUBMIT. No new TIFF, experiment, slot selection, or leaderboard contact in this review.** The cited H31-CC research artifact fails the literal registry overlap gate; its format checks do not imply submission approval. No new-file leaderboard estimate is supported. Historical nine-site claims remain USER-REPORTED, not organizer receipts.
 

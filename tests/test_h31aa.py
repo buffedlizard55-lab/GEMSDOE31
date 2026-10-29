@@ -150,3 +150,26 @@ def test_h31aa_packaged_artifacts_and_fail_closed_governance():
     assert receipt["status"] == "VERIFIED"
     assert receipt["ok_to_submit"] is False
     assert receipt["slot_approved"] is False
+
+
+def test_h31aa_write_mode_refuses_to_downgrade_receipt_without_template(tmp_path):
+    """Regression: a write-mode verify without data/sample_submission.tif must raise the
+    explicit guard and leave the committed receipt byte-identical."""
+    import importlib.util
+    import shutil
+
+    spec = importlib.util.spec_from_file_location("verify_h31aa_run_regress", ROOT / "scripts/verify_h31aa_run.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+
+    # Copy the evidence tree the verifier reads; deliberately omit data/ (template absent).
+    fake = tmp_path / "repo"
+    for sub in ("evidence", "registry", "docs", "knowledge"):
+        shutil.copytree(ROOT / sub, fake / sub, ignore=shutil.ignore_patterns("__pycache__"))
+    rec = fake / "evidence/h31aa/verification_receipt.json"
+    prev_text = rec.read_text()
+    assert '"grid_and_range_verified": true' in prev_text
+
+    with pytest.raises(ValueError, match="Refusing to overwrite a passing H31-AA receipt"):
+        mod.verify(fake, check_only=False)
+    assert rec.read_text() == prev_text
