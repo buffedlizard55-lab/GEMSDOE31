@@ -25,7 +25,7 @@ Machine card: [`evidence/review_9f242e65/run_card.json`](evidence/review_9f242e6
 
 The pinned comparison covers all nine requested sites. All nine historical values remain USER-REPORTED; no organizer receipt was found. The 36 pairwise top-file comparisons all exceed 70% 3-px overlap (minimum 0.97313), so none is unique against the other eight focus artifacts. The exact file names, pinned commits, values, and qualification are in [`registry/session_cc130eb1_decision.json`](registry/session_cc130eb1_decision.json), [`evidence/review_cc130eb1/focus_site_verification.json`](evidence/review_cc130eb1/focus_site_verification.json), and the new [review table](knowledge/repo_review_2026-10-29_arena-9f242e65.md).
 
-The plausible reason for H33-2-B2’s reported 0.2778 is pruning redundant catalogue-adjacent predictions, which may reduce false-positive cost under the reported 0.2/0.8 asymmetric metric while preserving much of the triangular-kernel credit. This is **INFERENCE**, not proof of performance on private truth. H33 remains prior art; 0.2778 is not organizer-confirmed. User-supplied 0.3195 and 0.4413 anchors conflict and are unverified.
+A hash-pinned byte audit finds H33-2-B2 is exactly the D2.8 raster after removing 6,436 catalogue-adjacent dots (all within 2 px), leaving 37,654 from 44,090; a 1 px prune exactly matches H27-4. The plausible reason for the reported 0.2778 is that removing redundant catalogue-adjacent predictions may reduce false-positive cost under the reported 0.2/0.8 asymmetric metric while preserving much of the triangular-kernel credit. This is **INFERENCE**, not proof of private-truth causation. The byte findings are in [`evidence/review_48c411be/gemsdoe32_forensics.json`](evidence/review_48c411be/gemsdoe32_forensics.json) and [`registry/session_48c411be_addendum.json`](registry/session_48c411be_addendum.json). H33 remains prior art; 0.2778 is not organizer-confirmed. User-supplied 0.3195 and 0.4413 anchors conflict and are unverified.
 
 ## Ranked geological leads and source access
 
@@ -38,6 +38,107 @@ Manual source links are maintained for the competition problem/rules, organizer 
 This session uses `.venv` with `requirements.txt`; use `.venv/bin/python`, not system Python, for geospatial checks. `scripts/audit_archived_candidates.py` replays the existing H-STEO mask, validates both variants of H-STEO and CSDU against the exact pinned template, and writes no TIFF. `scripts/generate_unique_submission.py` and `scripts/run_unique_stepover_submission.py` now fail before any output. Keep `registry/review_passes.json` accurate about the three passes actually run. The review log and source/score distinctions are maintained in the linked report and registers.
 
 Historical sections below are preserved for traceability. Their branch names, status banners, selector claims and generated artifacts describe prior snapshots and do not supersede this current no-submit decision. In particular, `docs/downloads/readiness.json` is a generated historical file receipt, not current permission.
+
+---
+
+# Prior session — 29 October 2026 (`arena/48c411be-gemsdoe31`): GEMSDOE32 0.2778 audit, uniqueness bound, executive summary
+
+**Core values: Maximize P(Win) · Own the Outcome.** Read this section, `AGENTS.md`, and the owner prompt restatement below at every session start.
+
+## Decision: DO NOT SUBMIT
+
+No file is cleared to submit. No new TIFF was generated, no experiment ran (0 of 3), no weekly slot was used, and no leaderboard score is claimed. Every leaderboard number is **USER-REPORTED**; no organizer receipt exists in this repository.
+
+Why no new TIFF (each is verified, not assumed):
+
+1. **No method lane.** The protocol says "your lane is the single method paragraph below". No such paragraph follows, so no experiment is authorised.
+2. **The feature stack is not restored.** Restoring it requires owner authorisation under the current STOP (IR-48C4-07).
+3. **The uniqueness rule cannot be met at the 37,654-dot budget.** The registered spacing-5 control forces at least 82.34% of dots within 3 px of one registry raster. The rule stops any file above 70%. Placing dots only in the 6,649 pixels outside that halo would game the rule, and the repository forbids it. No bypass was made (IR-48C4-04).
+
+Full status record: [knowledge/current_status_2026-10-29_48c411be.md](knowledge/current_status_2026-10-29_48c411be.md). Executive summary (per-site table, decision, verified facts): [docs/executive-summary.html](docs/executive-summary.html).
+
+## Owner prompt for this session (structured restatement)
+
+This restates the requested work; the acceptance criteria are below. It is not a verbatim copy.
+
+1. Executive summary for GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36. Clear best submission. Table giving file to download, estimated score, and uniqueness against the other GEMSDOE sites.
+2. A unique, downloadable TIF that may be submitted. It must be obvious whether it is OK to download and submit. Answer: **no file qualifies today.**
+3. Explain why GEMSDOE32 (0.2778) scored highest, and whether a higher score is reachable.
+4. 3 to 5 untested hypotheses, ranked, each with its layer, signature and non-fault mimic. Validate the top one on a spatially blocked holdout before using a slot. Not possible this session (blockers above).
+5. Official, free, verifiable sources with links for manual review. Flag irregularities.
+6. Standing rules: no hallucinations, line-by-line verification, no manual input, multi-pass review, and the README is the charter.
+
+## Nine-site table (USER-REPORTED scores; the file is the top file per site)
+
+| Site | Reported top | File to download (study only) | Unique vs the other eight? | Estimated score for a new file |
+|---|---|---|---|---|
+| GEMSDOE24 | 0.2477 | `gems24-h25-1-dotted-h19-5-d1-5-…-nan.tif` | No (duplicate) | not estimable |
+| GEMSDOE25 | 0.2600 | `gems25-dotted-h19-5-d2-8-…-nan.tif` (D2.8, 44,090 dots) | No (duplicate) | not estimable |
+| GEMSDOE27 | 0.2449 | `gems27-topo-gap-closure-t-v2-on-d1-5-…-nan.tif` | No (duplicate) | not estimable |
+| GEMSDOE28 | 0.2710 | `gems28-h36-1-rung30-blind-r1-…-nan.tif` | No (duplicate) | not estimable |
+| GEMSDOE30 | 0.2600 | `gemsdoe30-d28-poisson300m-offcat-44090-…-nanoutside.tif` | No (duplicate of D2.8) | not estimable |
+| GEMSDOE31 | 0.2708 | `gemsdoe31-h27-4-solo-d28-…-nan.tif` (D2.8 minus 1 px) | No (duplicate) | not estimable |
+| GEMSDOE32 | 0.2778 | `gemsdoe32-h33-…-e5eb6e7e-zeros.tif` (owner list) or `…-nan.tif` (registry); identical dots | No (duplicate) | not estimable |
+| GEMSDOE33 | 0.2632 | `GEMSDOE33-h33d-analog-tip-stepover-r30-…-nanoutside.tif` | No (duplicate) | not estimable |
+| GEMSDOE36 | 0.2750 | `gemsdoe36-anderson-geothermal-pinn-…-nan.tif` | No (duplicate) | not estimable |
+
+"Duplicate" means: for every pair of the nine files, the larger of the two directional 3 px overlaps is at least 0.9731 (the minimum over the 36 pairs; 36 of 36 pairs flagged by the overlap rule; `evidence/review_cc130eb1/focus_site_verification.json`). Estimated score is "not estimable" because no holdout-validated model exists and no organizer receipt exists. GEMSDOE27's 0.2449 (registry) conflicts with 0.2250 in `registry/focus_unique_2026.json`; this is unresolved.
+
+## Why 0.2778 scored highest (verified in bytes)
+
+- D2.8 (44,090 dots, 0.2600) → H27-4 (40,199 dots, 0.2708) → H33-2-B2 (37,654 dots, 0.2778). Each step deletes exactly the dots within 1 px (3,891 dots) or within 2 px (6,436 dots in total) of the catalogue. Verified with `scripts/verify_gemsdoe32_forensics.py` against the restored `data/labels.tif`.
+- The two GEMSDOE32 files are identical inside the footprint. The `-zeros` file writes 0 outside it and has no NaN. The `-nan` file writes NaN. The official text says "null or nan" (IR-48C4-02).
+- **Can it be beaten by pruning? No.** A 3 px step removes 2,171 more dots, and 100% of the remaining dots lie within 3 px of GEMSDOE32. Under the owner's rule that is a duplicate. A higher score needs a new dot family from an assigned method lane.
+- INFERENCE: deleting catalogue-adjacent dots lowers the false-positive term of the official metric, which is consistent with the reported gain. This is not measured here.
+
+## Hypotheses (re-checked; none run)
+
+H-CC-A (thermal-spring collinearity), H-CC-B (World Stress Map SHmax prior), H-CC-C (seismicity nodal planes; this is the earlier H5, NOT RUN), H-CC-D (SMU heat-flow residual; blocked, node unreachable), and H48-E (catalogue-flank radius; exhausted under the uniqueness rule). Details and ranking: [knowledge/current_status_2026-10-29_48c411be.md](knowledge/current_status_2026-10-29_48c411be.md).
+
+## Machine-readable outputs
+
+- `evidence/review_48c411be/run_card.json`: the protocol run card (negative verdict; no raster; `ok_to_submit: false`).
+- `evidence/review_48c411be/gemsdoe32_forensics.json` and `lattice_bound.json`: computed from pinned bytes.
+- `registry/session_48c411be_addendum.json`: built by `scripts/build_session_addendum.py` (`--check` guards it). The executive summary reads it.
+- `registry/irregularities.json` (IR-48C4-01 to -09) and `registry/review_passes.json` (new pass entry).
+- Tests: `tests/test_session_48c411be.py`.
+
+## Limitations and access needed (owner decisions)
+
+1. The uniqueness rule (literal versus comparison set). This decides whether any full-budget file can be unique.
+2. A method paragraph (lane) to assign.
+3. Authorisation to restore the feature stack from the owner mirror (418 MB).
+4. Organizer text on "bounds" (grid or footprint), and the organizer sample or validator message.
+5. Licence text for the WSM database (CC BY 4.0 is claimed, not read here) and for the SMU, NBMG and INGENIOUS data.
+6. Eligibility under the rules (not verified here; the competitor's obligation).
+
+## Suggested next work
+
+- Once items 1–3 are answered: run a spatially blocked holdout for one new family, with a collar derived from out-of-fold residuals, then the duplicate screen on the surface and on the final dots.
+- Re-try the SMU node, and read the WSM licence before H-CC-B or H-CC-D use.
+- Pin the GEMSDOE32 leaderboard receipt when it exists, and re-pin the file hash.
+
+---
+
+# Previous session — 29 October 2026 (`arena/eebfaae2-gemsdoe31`): fail-closed repository review
+
+**Core values: Maximize P(Win) · Own the Outcome.** Start every session by reading this current decision, `AGENTS.md`, the preserved owner charter below, `registry/current_run.json`, `registry/release_status.json`, `registry/review_passes.json`, and the active scientific preregistration. Do not treat a prior branch's status as current.
+
+**Decision: no new TIFF was generated or approved in this review. Do not submit any download from this repo.** The top focus-site claims are user-reported; all nine top rasters duplicate one another above the stated 70% three-pixel overlap gate. Canonical release H31-CC fails a strict registry duplicate gate. A later-dated H-STEO research TIFF exists but has no HOLDOUT-DTI and only a one-lattice novelty check—not a full registry comparison. It is not globally unique or cleared to submit. The feature stack is absent and the requested single-method lane is not assigned. No new experiment, slot selection, upload, or score projection is authorized.
+
+**Important historical-file warning:** this README preserves older session reports and owner prompts, some of which contain obsolete “OK TO SUBMIT”/selector recommendations or inconsistent “current” banners. Those are historical evidence, not permissions. The current `registry/release_status.json`, current session section above, and `AGENTS.md` govern. Under the current literal registry rule, no file is approved.
+
+- **Executive summary and nine-site table:** [GitHub Pages executive summary](docs/executive-summary.html).
+- **Current review:** [knowledge/repo_review_2026-10-29_arena-eebfaae2.md](knowledge/repo_review_2026-10-29_arena-eebfaae2.md).
+- **Machine-readable negative run card:** [evidence/review_eebfaae2/run_card.json](evidence/review_eebfaae2/run_card.json).
+- **Current technical source of truth:** [`registry/release_status.json`](registry/release_status.json) denies submission; [prior nine-site evidence](evidence/review_cc130eb1/focus_site_verification.json) is clearly identified as inherited, not re-fetched this review.
+- **Score labels:** every prior site value is USER-REPORTED, not ORGANIZER-CONFIRMED. A null candidate holdout result is not an estimated leaderboard score.
+- **Download policy:** existing TIFs are for audit/research only. No file is OK to submit. Automated local format validation does not prove organizer acceptance.
+- **Hypothesis status:** four desk proposals are untested, not viable/promoted. Top candidate validation is blocked by missing data and lane assignment; none of the three-experiment/two-hour budget was spent.
+- **Checks:** after hash-pinned small validation inputs were restored from public owner mirrors (not DrivenData), 262 tests passed; Ruff, compileall, metric, release/protocol verifiers, artifact checks, evidence collection, site generation and link checks passed. The initial three missing-input failures are recorded in the review.
+- **Source/leaderboard limits:** the official leaderboard is not scraped/polled. Three external sources' page fetches failed this turn; one source's API docs succeeded, but no regional data were queried. See the review for exact links and status.
+
+---
 
 ---
 

@@ -40,7 +40,9 @@ The values and file pins are in `registry/session_cc130eb1_decision.json` and `e
 
 ### Why H33-2-B2 is reported at 0.2778
 
-The plausible explanation is that H33 pruned redundant catalogue-adjacent cells from a D2.8/H27-family geometry. Under the reported asymmetric metric (0.2 false-positive weight, 0.8 false-negative weight), deleting low-marginal-credit predictions can improve DTI if their false-positive cost exceeds any lost kernel credit. This is **INFERENCE from archived raster lineage and the metric**, not evidence of private-truth causation. The 0.2778 value remains USER-REPORTED. H33 is prior art, not a unique or submit-ready file; the conflicting 0.3195 and 0.4413 user anchors remain unverified.
+A later hash-pinned byte-forensics audit integrated from `evidence/review_48c411be/gemsdoe32_forensics.json` establishes the raster lineage: H33-2-B2 is exactly the D2.8 raster after removing 6,436 catalogue-adjacent dots (all within 2 px), leaving 37,654 dots from 44,090; its zero and NaN variants have identical in-footprint dots. A 1 px prune exactly matches the H27-4 file (40,199 dots); 1.5 px produces an unregistered 38,998-dot raster; 3 px leaves 35,483 dots, all within 3 px of H33-2-B2. This is **COMPUTED from pinned raster bytes** and does not verify any score.
+
+The plausible performance explanation is that removing low-marginal-credit catalogue-adjacent cells reduced false-positive cost while retaining most triangular-kernel credit. Under the reported asymmetric metric (0.2 false-positive weight, 0.8 false-negative weight), that can improve DTI if saved false-positive cost exceeds lost kernel credit. This is **INFERENCE**, not evidence that those cells were false positives on private truth or that pruning caused the reported value. The 0.2778 remains USER-REPORTED; H33 is prior art, not a unique or submit-ready file. The conflicting 0.3195 and 0.4413 user anchors remain unverified. See [`registry/session_48c411be_addendum.json`](../registry/session_48c411be_addendum.json) for the additional audit record.
 
 ## Archived artifact integrity findings
 

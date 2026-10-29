@@ -308,6 +308,60 @@ def archived_candidate_review(full: bool) -> str:
     )
 
 
+def addendum_panel() -> str:
+    """Session 48c411be addendum (registry/session_48c411be_addendum.json, built by build_session_addendum.py)."""
+    a = load("registry/session_48c411be_addendum.json")
+    if not a:
+        return ""
+    g = a["gemsdoe32"]
+    m = a["mechanism_verified"]
+    ladder = m["radius_ladder_D28"]
+    v3 = m["radius_3px_step_from_GEMSDOE32"]
+    bound = a["uniqueness_counting_bound"]
+    variants = table(
+        ["name in the owner list or registry", "file", "commit", "sha256 (first 16)", "outside the footprint"],
+        [[f"<code>{e(g['owner_list_name'])}</code> (owner list, {fmt(g['user_reported_score'], 4)} USER-REPORTED)",
+          f"<code>{e(g['zeros_file']['path'].rsplit('/', 1)[1])}</code>",
+          f"<code>{e(g['zeros_file']['commit'][:10])}</code>",
+          f"<code>{e(g['zeros_file']['sha256'][:16])}</code>",
+          e(g["zeros_file"]["outside_footprint"])],
+         [f"<code>{e(g['registry_row_name'])}</code> (registry row)",
+          f"<code>{e(g['nan_file']['path'].rsplit('/', 1)[1])}</code>",
+          f"<code>{e(g['nan_file']['commit'][:10])}</code>",
+          f"<code>{e(g['nan_file']['sha256'][:16])}</code>",
+          e(g["nan_file"]["outside_footprint"])]],
+        caption="GEMSDOE32 has two files. Both are verified from pinned GitHub bytes; the dots are identical inside the footprint.")
+    rung = table(
+        ["catalogue-flank radius deleted from D2.8", "dots kept", "matches a repo file", "USER-REPORTED score of that file"],
+        [["0 px (D2.8, GEMSDOE25 / GEMSDOE30 family)", fmt(m["chain_D28_H27_B"]["D28_dots"]), "—", "0.2600"],
+         ["1 px (H27-4, GEMSDOE31 family)", fmt(ladder["kept_by_radius"]["1.0"]), "yes (byte-identical)", "0.2708"],
+         ["1.5 px (not in repo)", fmt(ladder["kept_by_radius"]["1.5"]), "no", "not claimed"],
+         ["2 px (H33-2-B2, GEMSDOE32)", fmt(ladder["kept_by_radius"]["2.0"]), "yes (byte-identical)", "0.2778"],
+         ["3 px (not in repo)", fmt(ladder["kept_by_radius"]["3.0"]),
+          f"no; {fmt(v3['share_within_3px_of_GEMSDOE32'] * 100, 1)}% of its dots lie within 3 px of GEMSDOE32 (duplicate)",
+          "not claimed"]],
+        caption="Each row deletes every D2.8 dot within the stated distance of the restored catalogue (data/labels.tif). Scores are USER-REPORTED.")
+    checks = table(["official or free source", "checked", "result", "class"],
+                   [[f"<a href='{e(c['url'])}'>{e(c['name'])}</a>", "2026-10-29, fetch tool", e(c["result"]), e(c["class"])]
+                    for c in a["official_source_checks"]],
+                   caption="Source checks. A check is a reachability and content check only; it is not an endorsement of any licence.")
+    hyp = table(["id", "idea", "already in the repo?", "status and verdict"],
+                [[e(h["id"]), e(h["name"]), "yes" if h["tried_in_repo"] else "no", e(h["verdict"])]
+                 for h in a["hypothesis_recheck"]],
+                caption="Hypothesis re-check. Nothing here is a score; no holdout was run.")
+    return "\n".join([
+        f"<section><div class='section-head'><div><p class='kicker'>Session 48c411be addendum</p><h2>Why 0.2778 scored highest, verified in bytes</h2></div>"
+        f"<p>{e(a['decision'])} Download permission: {e(a['download_permission'])}. Submission permission: {e(a['submission_permission'])}.</p></div>"
+        f"{variants}{rung}"
+        f"<p class='small'>{e(m['interpretation'])}</p></section>",
+        f"<section><div class='section-head'><div><p class='kicker'>Uniqueness bound</p><h2>Recomputed from the registered control</h2></div>"
+        f"<p>For a {fmt(bound['candidate_dots'])}-dot file, at least {fmt(bound['minimum_overlap_any_same_budget'] * 100, 2)}% of its dots fall within 3 px of the registered spacing-5 control. "
+        f"{fmt(bound['outside_3px_halo_pixels'])} footprint pixels lie outside that 3 px halo. {e(bound['qualification'])}</p></div></section>",
+        f"<section><div class='section-head'><div><p class='kicker'>Hypotheses</p><h2>Re-checked against the repository</h2></div></div>{hyp}</section>",
+        f"<section><div class='section-head'><div><p class='kicker'>Official and free sources</p><h2>Checked on 2026-10-29</h2></div></div>{checks}</section>",
+    ])
+
+
 def session_panel(full: bool) -> str:
     """Current review panel plus the pinned historical nine-site comparison."""
     pointer = load("registry/current_review.json")
@@ -363,6 +417,7 @@ def session_panel(full: bool) -> str:
     )
     return "\n".join([
         head,
+        addendum_panel(),
         archived_candidate_review(full=True),
         f'<section><div class="section-head"><div><p class="kicker">Nine requested sites</p><h2>Per-site executive table</h2></div>'
         f'<p>Scores are USER-REPORTED, not organizer-confirmed. Their file links are for study only.</p></div>{table_html}</section>',
@@ -1556,7 +1611,7 @@ def main() -> None:
     feed_data["current_session_decision"] = load("registry/session_cc130eb1_decision.json")
     current_review_pointer = load("registry/current_review.json")
     if current_review_pointer:
-        feed_data["previous_repository_review"] = load("evidence/review_a668bcb6/run_card.json")
+        feed_data["previous_repository_review"] = load("evidence/review_48c411be/run_card.json")
         feed_data["current_repository_review"] = load(current_review_pointer["run_card"])
     pages[DOCS / "feed.json"] = json.dumps(feed_data, indent=1, allow_nan=False) + "\n"
     pages[DOCS / "feed.html"] = feed_html

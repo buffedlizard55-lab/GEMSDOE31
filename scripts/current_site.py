@@ -40,12 +40,12 @@ def selector_decision_section() -> str:
     u = r["correlation_overlap_vs_registry"]
     pair = h.get("paired_vs_null") or {}
     filename = esc(r["file"].replace("docs/", "", 1))
-    report_link = "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-4d582f3d.md"
+    report_link = "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-eebfaae2.md"
     paired_ci = pair["ci95"]
     return f'''<section id="selector-decision" aria-labelledby="selector-heading">
       <p class="kicker">29 October 2026 repository review · existing H31-CC bytes; no new experiment</p>
       <h2 id="selector-heading">DO NOT SUBMIT — literal registry STOP</h2>
-      <p>29 October follow-up: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/review_2026-10-29_8e29897c.md">nine-site review, hypotheses and limitations</a>.
+      <p>29 October session review: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-eebfaae2.md">nine-site comparison, hypotheses, limitations and verification</a>.
       Recheck without a human inspector using <code>python scripts/audit_download.py</code>:
       exit 2 means verified denial; exit 1 means broken, missing or stale evidence. Neither permits upload.</p>
       <div class="notice notice-danger"><strong>No current artifact is approved.</strong>

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "session": "arena/eebfaae2-gemsdoe31",
+  "review_date_utc": "2026-10-29",
+  "hypothesis": "No candidate hypothesis assigned to this session: the prompt contains no single-method paragraph; ranked untested desk hypotheses are documented in the review.",
+  "mechanism": "No new mechanism was implemented. Existing H31-CC research artifact retained for audit only; no new TIFF generated.",
+  "named_non_fault_process_that_could_mimic_it": "Not evaluated for a candidate. Candidate-specific mimics are listed in the review's hypothesis table: playa/aquifer discharge, dike swarms/topographic grain, induced seismicity/blasts, and lithologic/basin thermal effects.",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "new_candidate": {
+      "status": "NOT RUN THIS SESSION",
+      "dti": null,
+      "ci95": null,
+      "withheld_positive_pixels": null,
+      "evaluator_version": null,
+      "reason": "No assigned lane; feature stack/cache absent; strict any-registry duplicate STOP prevents a new candidate. A null is not an estimated score."
+    },
+    "cited_existing_H31_CC_research_artifact": {
+      "status": "CITED PRIOR RUN, NOT RECOMPUTED THIS SESSION",
+      "dti": 0.047069900074153195,
+      "ci95": [0.03323168323881463, 0.06181643961343269],
+      "withheld_positive_pixels": 60988,
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "source": "evidence/h31cc/run_card.json"
+    }
+  },
+  "experiments": {
+    "budget_max": 3,
+    "hours_max": 2,
+    "run": 0,
+    "hours_used": null
+  },
+  "leakage_canary": {
+    "status": "NOT RUN THIS SESSION",
+    "auc": null,
+    "reason": "No candidate features built or evaluated."
+  },
+  "correlation_overlap_vs_registry": {
+    "candidate_surface": "NOT APPLICABLE: no candidate raster or placement",
+    "candidate_final_dots": "NOT APPLICABLE: no candidate raster or placement",
+    "existing_release_artifact": {
+      "artifact": "gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+      "sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+      "scope": "One hash-pinned spacing-5 registry witness; not an exhaustive registry scan",
+      "spearman_rho": 0.00008201247921201492,
+      "candidate_dots_within_3px_fraction": 0.9961225898974877,
+      "thresholds": {
+        "absolute_rho_stop": 0.9,
+        "overlap_stop": 0.7
+      },
+      "verdict": "DUPLICATE STOP (computed from existing artifact; no new placement)"
+    },
+    "nine_focus_site_pairwise_audit": {
+      "evidence": "evidence/review_cc130eb1/focus_site_verification.json",
+      "computed_in_prior_review_not_rerun": true,
+      "pairs": 36,
+      "overlap_duplicate_pairs": 36,
+      "minimum_overlap": 0.97313
+    }
+  },
+  "raster_sha256": {
+    "new_raster_generated": false,
+    "canonical_release_artifact_reviewed": {
+      "file": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+      "sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44"
+    },
+    "later_dated_existing_research_artifact": {
+      "file": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
+      "sha256": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+      "positive_pixels": 9140,
+      "holdout_dti": null,
+      "full_registry_comparison": false,
+      "scoped_lattice_overlap": 0.0,
+      "permission": "research download only; do not submit"
+    }
+  },
+  "validator_output": {
+    "scope": "Existing H31-CC research artifact; automated local format check only, not organizer acceptance",
+    "no_nan_inside_footprint": true,
+    "values_in_0_1": true,
+    "crs": "EPSG:32611",
+    "shape": [3730, 3292],
+    "transform": [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0],
+    "outside_footprint_nan": "true for the separately validated NaN-outside encoding; zeros file is all-finite with zero outside",
+    "organizer_acceptance": false,
+    "later_dated_H_STEO_local_validation": {
+      "nan_outside": {"pass": true, "hard_failures": []},
+      "all_finite": {"pass": true, "hard_failures": []},
+      "bands": 1,
+      "dtype": "float32",
+      "values_in_0_1": true,
+      "no_nan_inside_footprint": true,
+      "crs": "EPSG:32611",
+      "shape": [3730, 3292],
+      "transform": [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0],
+      "positive_pixels": 9140,
+      "organizer_acceptance": false
+    },
+    "source": "H31-CC verifier and local validate_submission.py output against the hash-pinned owner-mirror sample; not organizer validation"
+  },
+  "submission": {
+    "name": null,
+    "note": "RESEARCH REVIEW ONLY; no new candidate generated. Do not submit any file from this review.",
+    "note_characters": 90,
+    "ok_to_download_new_candidate": false,
+    "existing_research_artifacts_downloadable": true,
+    "ok_to_submit": false,
+    "slot_approved": false
+  },
+  "leaderboard_score_estimate": null,
+  "score_note": "No projection reported. User-reported historical 0.2778 is not organizer-confirmed; holdout DTI is not a leaderboard score.",
+  "verdict": "negative",
+  "promotion": "not authorized; separate selector step required"
+}

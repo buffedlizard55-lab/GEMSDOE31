@@ -1,0 +1,210 @@
+{
+  "date_utc": "2026-10-29",
+  "decision": "No file is cleared to submit. No new TIFF was generated and no experiment was run.",
+  "download_permission": "research download only",
+  "evidence_class": "COMPUTED from pinned bytes; scores are USER-REPORTED",
+  "focus_site_verification_source": "evidence/review_cc130eb1/focus_site_verification.json",
+  "gemsdoe32": {
+    "footprint_pixels": 5167373,
+    "identical_inside_footprint": true,
+    "nan_file": {
+      "commit": "9863c82a7c7dc283c615b711bab941debaff0ec4",
+      "outside_footprint": "NaN",
+      "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
+      "sha256": "baeae3219bba6a19bc8cfe79224e28555c50184b7c1ca65c2a822f54807c77dd"
+    },
+    "owner_list_name": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+    "positive_dots": 37654,
+    "registry_row_name": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
+    "user_reported_score": 0.2778,
+    "zeros_file": {
+      "commit": "c39ee46ea79812d8de7de9c037685a709ba2aa87",
+      "outside_footprint": "every cell written as 0 (no NaN); grid fully finite",
+      "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9"
+    }
+  },
+  "hypothesis_recheck": [
+    {
+      "data_status": "site list not yet obtained",
+      "id": "H-CC-A",
+      "name": "thermal-spring collinearity",
+      "repo_evidence": "term appears only in 29 Oct cc130eb1 artifacts",
+      "tried_in_repo": false,
+      "verdict": "untested; positional error of springs versus the 300 m kernel is the main risk"
+    },
+    {
+      "data_status": "WSM DOI resolves; licence text not read",
+      "id": "H-CC-B",
+      "name": "stress-orientation prior (World Stress Map)",
+      "repo_evidence": "World Stress / SHmax appear only in 29 Oct cc130eb1 artifacts",
+      "tried_in_repo": false,
+      "verdict": "untested; needs the licence read before any use"
+    },
+    {
+      "data_status": "USGS FDSN documented; sandbox query not issued",
+      "id": "H-CC-C",
+      "name": "seismicity nodal-plane alignment",
+      "repo_evidence": "knowledge/2026-10-25_lane_hypotheses.md lists it as H5, NOT RUN (location error far above 300 m)",
+      "tried_in_repo": false,
+      "verdict": "not run; prior note says expected gain is low at 300 m"
+    },
+    {
+      "data_status": "SMU node unreachable; licence unverified",
+      "id": "H-CC-D",
+      "name": "heat-flow residual (SMU database)",
+      "repo_evidence": "heat flow appears in archive notes only",
+      "tried_in_repo": false,
+      "verdict": "blocked until the data source is reachable and licensed"
+    },
+    {
+      "data_status": "all inputs local; holdout needs the feature stack and a lane",
+      "id": "H48-E",
+      "name": "catalogue-flank radius on the D2.8 family (1, 2 px already in repo; 3 px step)",
+      "repo_evidence": "1 px (H27-4, 40,199 dots) and 2 px (H33-2-B2, 37,654 dots) variants exist in the repo; the 3 px step is a 100% duplicate of GEMSDOE32 (not a new family)",
+      "tried_in_repo": true,
+      "verdict": "the ladder cannot be climbed inside the uniqueness rule; a new dot family is required to beat 0.2778"
+    }
+  ],
+  "mechanism_verified": {
+    "chain_D28_H27_B": {
+      "D28_dots": 44090,
+      "H27_4_dots": 40199,
+      "H33_2_B2_dots": 37654,
+      "removed_D28_to_B": 6436,
+      "removed_D28_to_H27_4": 3891,
+      "removed_H27_4_to_B": 2545,
+      "set_inclusion_holds": true
+    },
+    "distances_to_catalogue_px": {
+      "kept_min": 2.23606797749979,
+      "kept_min_is_sqrt5": true,
+      "removed_max": 2.0,
+      "removed_min": 1.0
+    },
+    "dots_on_catalogue_pixels": {
+      "B_dots_on_catalogue": 0,
+      "D28_dots_on_catalogue": 0,
+      "H27_dots_on_catalogue": 0
+    },
+    "interpretation": "INFERENCE: the official metric (alpha 0.2, beta 0.8) penalises dots that are not near the test faults. Removing catalogue-adjacent dots lowers false-positive weight, but also removes true-positive weight if a new fault lies within 300 m of a removed dot. The +0.0178 user-reported gain over D2.8 (0.2600) is consistent with the first effect; it is not measured here.",
+    "radius_3px_step_from_GEMSDOE32": {
+      "dots_remaining": 35483,
+      "dots_removed": 2171,
+      "duplicate_by_70pct_rule": true,
+      "meaning": "Any further pruning step of this family is a duplicate of GEMSDOE32 under the owner's rule.",
+      "share_within_3px_of_GEMSDOE32": 1.0
+    },
+    "radius_ladder_D28": {
+      "kept_by_radius": {
+        "1.0": 40199,
+        "1.5": 38998,
+        "2.0": 37654,
+        "3.0": 35483
+      },
+      "removed_by_radius": {
+        "1.0": 3891,
+        "1.5": 5092,
+        "2.0": 6436,
+        "3.0": 8607
+      },
+      "reproduces_H27_4": true,
+      "reproduces_H33_2_B2": true,
+      "text": "Deleting D2.8 dots within r px of the restored catalogue. r = 1 reproduces the H27-4 file; r = 2 reproduces the H33-2-B2 file (GEMSDOE32); r = 1.5 matches neither."
+    },
+    "two_px_rule": {
+      "claim_holds_exactly": true,
+      "removed_dots_total": 6436,
+      "removed_dots_within_2px": 6436,
+      "text": "Exactly the D2.8 dots within 2 px of the restored catalogue are deleted; no other dot is removed."
+    }
+  },
+  "official_source_checks": [
+    {
+      "class": "OFFICIAL",
+      "name": "DrivenData problem page (metric, submission format)",
+      "result": "reachable; quotes checked: 'data outside the bounds is null or nan'; values 'between 0 and 1'; DTI alpha 0.2, beta 0.8, 300 m triangular kernel",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/"
+    },
+    {
+      "class": "OFFICIAL",
+      "name": "DrivenData data download tab",
+      "result": "login-gated in earlier sessions; not re-requested in this session",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/data/"
+    },
+    {
+      "class": "OFFICIAL",
+      "name": "World Stress Map Database Release 2025 (GFZ DOI)",
+      "result": "resolves to GFZ Data Services record; abstract states 100,842 records and A-C quality flags; the licence text was not read in this session (CC BY 4.0 remains unverified here)",
+      "url": "https://doi.org/10.5880/WSM.2025.001"
+    },
+    {
+      "class": "OFFICIAL",
+      "name": "Nevada Bureau of Mines and Geology site descriptions",
+      "result": "reachable; index of more than 200 geothermal sites; licence not checked",
+      "url": "https://nbmg.unr.edu/geothermal/sitedescriptions.html"
+    },
+    {
+      "class": "OFFICIAL",
+      "name": "SMU Geothermal Laboratory heat-flow database (NGDS node)",
+      "result": "fetch failed on 2026-10-29; UNVERIFIED (not reachable, licence not checked)",
+      "url": "http://search.geothermaldata.org/dataset/115609c8-6f52-49fe-a0af-9d379d516340"
+    },
+    {
+      "class": "OFFICIAL",
+      "name": "USGS earthquake FDSN event service (documentation)",
+      "result": "documentation reachable; no data query was issued from this sandbox",
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/"
+    }
+  ],
+  "prior_nine_site_claims_USER_REPORTED": [
+    {
+      "reported_top_score_USER_REPORTED": 0.2477,
+      "site": "GEMSDOE24"
+    },
+    {
+      "reported_top_score_USER_REPORTED": 0.26,
+      "site": "GEMSDOE25"
+    },
+    {
+      "reported_top_score_USER_REPORTED": 0.2449,
+      "site": "GEMSDOE27"
+    },
+    {
+      "reported_top_score_USER_REPORTED": 0.271,
+      "site": "GEMSDOE28"
+    },
+    {
+      "reported_top_score_USER_REPORTED": 0.26,
+      "site": "GEMSDOE30"
+    },
+    {
+      "reported_top_score_USER_REPORTED": 0.2708,
+      "site": "GEMSDOE31"
+    },
+    {
+      "reported_top_score_USER_REPORTED": 0.2778,
+      "site": "GEMSDOE32"
+    },
+    {
+      "reported_top_score_USER_REPORTED": 0.2632,
+      "site": "GEMSDOE33"
+    },
+    {
+      "reported_top_score_USER_REPORTED": 0.275,
+      "site": "GEMSDOE36"
+    }
+  ],
+  "schema_version": 1,
+  "session": "arena/48c411be-gemsdoe31",
+  "submission_permission": "none (DO NOT SUBMIT)",
+  "uniqueness_counting_bound": {
+    "candidate_dots": 37654,
+    "footprint_pixels": 5167373,
+    "minimum_overlap_any_same_budget": 0.8234184947150369,
+    "outside_3px_halo_pixels": 6649,
+    "qualification": "COMPUTED counting bound for the 37,654-dot budget against the registered spacing-5 control. This is a stop condition, not a bypass target; no exemption is applied.",
+    "registered_control": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "registered_control_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+  }
+}

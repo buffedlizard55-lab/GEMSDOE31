@@ -92,7 +92,7 @@ def test_project_feed_labels_the_new_review_as_current():
     assert feed["latest_review"]["review_id"] == pointer["review_id"]
     assert feed["current_repository_review"]["review_id"] == pointer["review_id"]
     assert feed["current_repository_review"]["overall_verdict"].startswith("DO NOT SUBMIT")
-    assert feed["previous_repository_review"]["review_id"] == "repo-review-2026-10-29-arena-a668bcb6"
+    assert feed["previous_repository_review"]["session"] == "arena/48c411be-gemsdoe31"
 
 
 def test_nine_site_executive_table_offers_pinned_direct_file_downloads():
