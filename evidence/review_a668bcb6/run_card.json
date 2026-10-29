@@ -90,7 +90,7 @@
   "three_passes": [
     "Implementation: fixed false writer approval and canonical-STOP bypass; verified existing bytes.",
     "Bug/edge review: mocked policy/writer regressions; no new TIFF generated; preserved template pins.",
-    "Acceptance: 250 tests, Ruff, compile, metric/marginal proofs, nine current/historical commands, 22-page/552-link site check passed. No new TIFF, fit, slot or current raster-inventory claim."
+    "Acceptance after main PR #65 integration: 255 tests, Ruff, compile, metric/marginal proofs, artifact/release checks and read-only audit denial verified; site regenerated and checked. No new TIFF, fit or slot."
   ],
   "limitations": [
     "Missing assigned method paragraph and literal duplicate STOP block new scientific work.",
@@ -100,7 +100,7 @@
     "Legacy local wrappers guarded; direct historical template serializers remain archival, not authorization paths."
   ],
   "checks": {
-    "pytest": "250 passed",
+    "pytest": "255 passed after integrating main PR #65",
     "ruff": "all checks passed",
     "compileall": "passed: src scripts tests",
     "metric": "24 fast/brute grids; max absolute difference 4.441e-16; 29 kernel offsets",
@@ -114,6 +114,19 @@
     "verify_h31aa_run": "passed; negative",
     "site": "22 pages / 552 local links; all passed",
     "browser_smoke": "not run; static checks only",
-    "existing_tif_zip_changes": "none; git diff contains no .tif/.zip changes"
+    "existing_tif_zip_changes": "none; git diff contains no .tif/.zip changes",
+    "audit_download": "exit 2: VERIFIED_DENIAL; no approval"
+  },
+  "integration": {
+    "main_commit": "703fe7282d10596cedc8e54a68992ce86cc4dd43",
+    "included_prs": [
+      64,
+      65
+    ],
+    "conflicts_resolved": [
+      "README: preserved both session records",
+      "registry/experiments: regenerated inventory"
+    ],
+    "scientific_work_added": false
   }
 }

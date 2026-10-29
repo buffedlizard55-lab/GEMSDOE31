@@ -20,6 +20,19 @@ not organizer-confirmed scores. Maximize P(Win); Own the Outcome: fix false appr
 
 ---
 
+## Parallel review — 29 October 2026 (`arena/8e29897c-gemsdoe31`)
+
+**DO NOT SUBMIT.** No new TIFF or experiment; the verified existing H31-CC artifact fails the literal registry uniqueness rule. No slot used. New leaderboard estimate: unavailable.
+
+- [Executive review: nine-site table, hypotheses, three passes, limitations](knowledge/review_2026-10-29_8e29897c.md)
+- [Machine-readable run card](evidence/download_audit_20261029.json)
+- New autonomous command: `python scripts/audit_download.py` (exit 2 = verified denial; exit 1 = missing/corrupt/stale evidence). Restore small inputs first with `python scripts/verify_current_run.py --restore-small-inputs` if needed.
+- [Existing executive summary and submission guide](docs/executive-summary.html#nine-site-decision)
+
+The complete owner prompt is preserved in this README below and the linked historical operative prompt. This session applies the same charter: unique TIFF required; literal registry STOP before placement; no slot selection; three-experiment/two-hour maximum. The requested single-method paragraph is still absent. No permission to bypass these constraints is inferred. Read the entire charter every session. Maximize P(Win); Own the Outcome.
+
+---
+
 # Current review — 29 October 2026 (`arena/b187d4af-gemsdoe31`)
 
 **DO NOT SUBMIT.** No new TIFF, experiment, selection, or competition slot. Existing H31-CC fails the literal registry overlap rule. No leaderboard estimate is available. [Three-pass review](knowledge/repo_review_2026-10-29_b187d4af.md) · [run card](evidence/review_b187d4af/run_card.json) · [current executive summary](docs/executive-summary.html#focus-sites). The standing owner prompt and core values are preserved below; read the full README and AGENTS.md each session. The request again requires a single method lane but does not specify its paragraph; do not infer authorization from desk hypotheses.
