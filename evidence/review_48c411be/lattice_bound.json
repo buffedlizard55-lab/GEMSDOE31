@@ -1,0 +1,41 @@
+{
+  "budget_dots": 37654,
+  "checks_against_registry": {
+    "control_finite_equals_footprint": true,
+    "coverage_fraction_matches_registry": true,
+    "footprint_pixels_match_registry": true,
+    "min_forced_overlap_matches_registry": true,
+    "uncovered_pixels_match_registry": true
+  },
+  "control": {
+    "dots": 206895,
+    "grid": {
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ]
+    },
+    "path": ".cache/registry-scope/registered-lattice.tif",
+    "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+    "repo": "buffedlizard55-lab/GEMSDOE24",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+  },
+  "coverage_fraction": 0.9987132726822701,
+  "evidence_class": "COMPUTED counting bound; not HOLDOUT-DTI and not a score",
+  "footprint_pixels": 5167373,
+  "forced_minimum_overlap_for_budget": 0.8234184947150369,
+  "pixels_uncovered_by_radius": 6649,
+  "pixels_within_radius_of_control_dots": 5160724,
+  "qualification": "Bound for a candidate with exactly BUDGET dots inside the footprint. It is not a statement that every nonempty raster must overlap; a smaller budget changes the bound. No exemption, no bypass.",
+  "radius_px": 3.0,
+  "schema_version": 1
+}

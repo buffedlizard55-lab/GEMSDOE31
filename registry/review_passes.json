@@ -2040,6 +2040,28 @@
     "Licences for SMU, NBMG and INGENIOUS unverified; eligibility unverified."
    ],
    "delivery_state": "No new TIFF, experiment, candidate, slot, DrivenData access or leaderboard estimate. Current release remains negative."
+  },
+  {
+   "id": "pass-2026-10-29-arena-48c411be-gemsdoe32-forensics-and-uniqueness-bound",
+   "status": "complete-with-open-gates",
+   "verification": {
+    "environment": "Python 3.11 venv from requirements.txt; pytest/ruff/compileall run; scripts/verify_current_run.py --restore-small-inputs run first (labels and sample restored, registered control cached)",
+    "gemsdoe32_bytes": "scripts/verify_gemsdoe32_forensics.py: two GEMSDOE32 variants fetched at pinned commits and hash-checked; GEMSDOE25 D2.8 parent and local H27-4 raster checked; identical inside footprint",
+    "chain": "D2.8 (44,090) contains H27-4 (40,199) contains H33-2-B2 (37,654) by set inclusion; deletions 3,891 and 2,545",
+    "two_px_rule": "exactly the 6,436 D2.8 dots within 2 px of the restored catalogue are deleted (distances 1.0 to 2.0 px); kept dots min distance sqrt(5)",
+    "radius_ladder": "1 px reproduces H27-4 byte-for-byte; 2 px reproduces H33-2-B2; 1.5 px and 3 px are not repo files; 3 px variant is 100% within 3 px of GEMSDOE32",
+    "uniqueness_bound": "scripts/verify_lattice_bound.py recomputes 6,649 uncovered pixels and forced minimum overlap 0.8234 from the cached registered control; checks match registry",
+    "official_sources": "DrivenData problem page re-fetched and quotes verified (NaN outside bounds; values 0 to 1; alpha 0.2, beta 0.8; 300 m kernel); WSM DOI resolves; NBMG index reachable; USGS FDSN docs reachable; SMU node failed",
+    "site": "scripts/build_site.py renders the addendum; scripts/build_session_addendum.py --check guards the register"
+   },
+   "open_gates": [
+    "No method lane assigned; no experiment run (0 of 3).",
+    "Feature stack not restored (owner authorization required under AGENTS.md).",
+    "Literal duplicate rule forces at least 82.34% overlap at the 37,654-dot budget.",
+    "No organizer receipt; every score quoted is USER-REPORTED.",
+    "NaN versus zeros outside the footprint is unresolved (IR-48C4-02)."
+   ],
+   "delivery_state": "No new TIFF generated. No file cleared to submit. DO NOT SUBMIT stands for all nine focus files and the GEMSDOE32 variants."
   }
  ],
  "remaining_work": [
