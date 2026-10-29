@@ -2405,5 +2405,28 @@
   "submission_slots_used": 0,
   "ok_to_submit": false,
   "leaderboard_estimate": null
+ },
+ "session_review_20261029_eebfaae2": {
+  "session": "arena/eebfaae2-gemsdoe31",
+  "date": "2026-10-29",
+  "scope": "Repository review and three-pass cross-check; no scientific lane assigned.",
+  "pass1_implementation": "Read full README/AGENTS plus current run, release status, review history and preregistration. Restored only hash-pinned small public owner-mirror validation inputs; no competition data or full feature stack restored.",
+  "pass2_independent_review": "Initial pytest without small inputs exposed 3 missing-input failures (245 passed, 11 skipped). Restored inputs and reran: 259 passed. Verified protocol/release negative, H31-CC/H31-J/H31-T/H31-AA receipts, no new candidate holdout, and no TIFF generated in this review. Discovered and independently revalidated the later-dated prior H-STEO research TIFF; its card has no HOLDOUT-DTI and only one-lattice novelty evidence, so it remains unapproved. Official-source fetch: USGS FDSN docs succeeded; NBMG, GFZ WSM and SMU fetches failed; no regional data queries.",
+  "pass3_crosscheck": "Ruff and compileall passed; metric check max error 4.441e-16; protocol/release verifiers passed; evidence collection succeeded; site generated 22 pages and 559 local links passed; final test suite 262 passed including three new review-record regression tests. Nine-site scores remain USER-REPORTED; prior pinned pairwise duplicate audit retained with scope disclosure. Updated README and generated-site current-review link.",
+  "experiments": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "ok_to_submit": false,
+  "leaderboard_estimate": null,
+  "review": "knowledge/repo_review_2026-10-29_arena-eebfaae2.md",
+  "run_card": "evidence/review_eebfaae2/run_card.json",
+  "open_gates": [
+   "Feature stack and labels absent; no holdout run.",
+   "No method paragraph/lane assigned.",
+   "Strict any-registry duplicate STOP; no new raster permitted.",
+   "Historical focus-site duplicate audit was not re-fetched this turn.",
+   "No organizer score receipt or submission approval.",
+   "Three candidate source fetches failed; exact coverage/licensing not established."
+  ]
  }
 }
