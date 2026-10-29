@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "session": "arena/a5caa430-gemsdoe31",
+  "date_utc": "2026-10-29",
+  "review_type": "three-pass repository, focus-site, artifact-format and release-safety review; no scientific lane assigned",
+  "review": "knowledge/repo_review_2026-10-29_arena-a5caa430.md",
+  "owner_prompt": "knowledge/owner_prompt_2026-10-29_arena-a5caa430.md",
+  "run_card": "evidence/review_a5caa430/run_card.json",
+  "verification": "evidence/review_a5caa430/verification.json",
+  "focus_site_evidence_register": "registry/session_cc130eb1_decision.json",
+  "focus_site_verification": "evidence/review_cc130eb1/focus_site_verification.json",
+  "decision": "NO FILE IS CLEARED TO SUBMIT. DO NOT UPLOAD A TIFF FROM THIS REPOSITORY.",
+  "download_permission": "Prior H-STEO artifact may be downloaded for research/learning only; not a submission recommendation.",
+  "submission_permission": "none (ok_to_submit=false, slot_approved=false)",
+  "new_tif_generated": false,
+  "experiments_run": 0,
+  "submission_slots_used": 0,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "leaderboard_estimate_for_any_new_file": null,
+  "estimate_reason": "No new candidate was holdout-validated; no method lane was assigned; no organizer score receipt or calibrated cross-family estimator exists. A number would be a projection, not a score.",
+  "live_leaderboard_accessed": false,
+  "focus_site_audit": {
+    "evidence_class": "COMPUTED from pinned GitHub owner-mirror rasters; historical score claims remain USER-REPORTED",
+    "sites": 9,
+    "pairwise_comparisons": 36,
+    "pairs_above_70pct_3px_overlap": 36,
+    "pairs_above_90pct_absolute_spearman": 29,
+    "minimum_pairwise_3px_overlap": 0.97313,
+    "minimum_pairwise_spearman_5px_blocks": 0.849793,
+    "all_hashes_match_pins": true,
+    "all_grids_match_local_template": true,
+    "all_values_in_0_1": true,
+    "scope_limit": "Nine top focus-site files only; this is not an exhaustive global uniqueness assessment for any other candidate."
+  },
+  "prior_research_artifact": {
+    "name": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed",
+    "file_nan": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
+    "file_allfinite": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-allfinite.tif",
+    "sha256_nan": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+    "sha256_allfinite": "fea84032a93b8ba250431f9241200ac4c74a1767a18305757902cc2472f72c86",
+    "positive_cells": 9140,
+    "mechanism_as_recorded": "Dilate catalogue faults by 600 m, then place dots on an offset 7x7 grid within the remaining catalogue halo.",
+    "scientific_novelty_status": "Not established. The recorded operator does not calculate stepovers/relay ramps or use an independent vent/geophysical signature; it is a periodic grid within a dilation of known faults.",
+    "holdout_dti": null,
+    "holdout_status": "Not run; training_features.tif and production feature cache are absent; no current method lane assigned.",
+    "uniqueness_status": "NOT ESTABLISHED against the full registry. This review found no final-dot threshold duplicates against the nine pinned peer rasters; no pre-placement surface check and no full 695-raster comparison are available.",
+    "research_download_only": true,
+    "submission_approved": false,
+    "submission_name_reserved_in_prior_card": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed",
+    "prior_note": "H-STEO stepover zone dots off catalogue 7x7 grid | HOLDOUT-DTI unavailable | research only",
+    "prior_note_length": 90,
+    "nine_focus_final_dot_audit": {
+      "evidence_class": "COMPUTED",
+      "scope": "Final H-STEO dot set against the nine pinned focus-site rasters; not pre-placement and not the 695-raster full registry.",
+      "pairs": 9,
+      "pairs_flagged_by_overlap": 0,
+      "pairs_flagged_by_absolute_rank": 0,
+      "pairs_flagged_by_either": 0,
+      "maximum_overlap": 0.33960612691466086,
+      "maximum_absolute_spearman": 0.08401217194963487,
+      "evidence_file": "evidence/review_a5caa430/hsteo_focus_uniqueness.json"
+    },
+    "unique_status": "NOT ESTABLISHED against the full registry. The current review found no final-dot threshold duplicates against nine pinned focus peers; full 695-raster and pre-placement comparisons are absent."
+  },
+  "hypotheses_ranked": [
+    {
+      "rank": 1,
+      "id": "H-CC-A thermal-manifestation point-pattern alignment",
+      "layers": "DOE GDR-1391 well/spring locations and temperatures; existing local magnetic/gravity lineament orientation",
+      "signature": "Uncertainty-aware local axial point-pattern/collinearity of independent thermal manifestations aligned with a prospective structural corridor, evaluated outside the visible catalogue mask.",
+      "why_missing_from_catalogue": "Hydrothermal discharge may track permeable structures without a mapped surface trace; the signal must be evaluated against visible-catalogue masking to avoid rediscovering known faults.",
+      "difference_from_repo": "The repository already uses GDR-1391 geothermometry/upflow features in tgtd_features.py. The untried part is the spatial orientation/point-pattern statistic, not the use of thermal data itself.",
+      "non_fault_mimic": "Aquifer/playa-margin outflow, drilling-site clusters, uncertain site locations, and selection bias.",
+      "expected_holdout_dti_upside": "Highest relative research priority but highly uncertain; no numeric delta is estimated.",
+      "implementation_cost": "Medium-high.",
+      "official_source": "https://gdr.openei.org/submissions/1391",
+      "access_status": "Prior repository citation only; data files absent from this checkout; current download, coverage, and license not rechecked.",
+      "validated": false
+    },
+    {
+      "rank": 2,
+      "id": "H-CC-B World Stress Map conditioned lineament prior",
+      "layers": "World Stress Map Release 2025 SHmax azimuth/quality plus existing local gradient-tensor strike field.",
+      "signature": "Quality-weighted angular compatibility between local structural lineaments and a stated extensional stress model.",
+      "why_missing_from_catalogue": "A concealed fault may create a weak lineament that is better ranked when its orientation is mechanically plausible; this must be demonstrated on withheld traces.",
+      "difference_from_repo": "Existing code contains strike/gravity/magnetic concordance but no World Stress Map stress-orientation layer.",
+      "non_fault_mimic": "Dike swarms, volcanic grain, survey lineaments, and block-rotated local stress.",
+      "expected_holdout_dti_upside": "Moderate, uncertain; likely a ranking prior rather than an independent 300 m locator; no numeric delta is estimated.",
+      "implementation_cost": "Low-medium after verifying product access and exact-area coverage.",
+      "official_source": "https://dataservices.gfz-potsdam.de/wsm/showshort.php?id=a23de1c9-1f73-11f0-914a-f12b0080820d",
+      "access_status": "Source/licence described in earlier repository notes; not fetched or coverage-checked this session.",
+      "validated": false
+    },
+    {
+      "rank": 3,
+      "id": "H-CC-C ComCat focal-mechanism geometry",
+      "layers": "USGS ComCat moment-tensor events, nodal-plane strike/dip/uncertainty; existing lineament orientation only as context.",
+      "signature": "Spatially coherent focal-plane orientations across a candidate corridor, not event-density peaks alone.",
+      "why_missing_from_catalogue": "Active buried structures can produce mechanisms without a mapped surface trace, but event evidence must be spatially buffered and checked for induced activity.",
+      "difference_from_repo": "The active feature inventory includes earthquake-density context, not an explicit focal-plane-orientation feature.",
+      "non_fault_mimic": "Induced seismicity, quarry blasts, ambiguous nodal-plane selection, and location uncertainty.",
+      "expected_holdout_dti_upside": "Low-medium and likely sparse at the 300 m kernel; no numeric delta is estimated.",
+      "implementation_cost": "Medium-high.",
+      "official_source": "https://earthquake.usgs.gov/fdsnws/event/1/",
+      "access_status": "Official endpoint URL only; not queried this session; event/mechanism coverage and effective location resolution unknown.",
+      "validated": false
+    },
+    {
+      "rank": 4,
+      "id": "H-CC-D SMU heat-flow residual corridors",
+      "layers": "SMU Geothermal Laboratory/NGDS heat-flow point values, uncertainty, and a regional conductive baseline.",
+      "signature": "Local heat-flow residual corridors after accounting for regional conduction and basin effects.",
+      "why_missing_from_catalogue": "Convective flow may indicate permeable faults absent from the public map, but the data may only support regional prospectivity rather than a fault trace.",
+      "difference_from_repo": "No heat-flow residual surface is present in active feature modules.",
+      "non_fault_mimic": "Radiogenic basement, sedimentary thermal blanketing, sparse wells, and interpolation artifacts.",
+      "expected_holdout_dti_upside": "Lowest expected spatially resolved upside; no numeric delta is estimated.",
+      "implementation_cost": "Medium, with license and interpolation checks first.",
+      "official_source": "http://search.geothermaldata.org/dataset/115609c8-6f52-49fe-a0af-9d379d516340",
+      "access_status": "Prior repository citation only; license and current retrieval not verified.",
+      "validated": false
+    }
+  ],
+  "blockers": [
+    "No assigned method paragraph/lane in the current prompt; do not self-assign a scientific experiment.",
+    "data/training_features.tif and the production 19-band feature cache are absent; only pinned small labels/sample inputs were restored for verification.",
+    "The prior H-STEO research artifact lacks full 695-raster and nine-peer pre-placement/final uniqueness evidence and has no HOLDOUT-DTI.",
+    "No organizer score receipt; conflicting 0.3195 and 0.4413 leaderboard claims remain USER-REPORTED; leaderboard deliberately not accessed.",
+    "External hypothesis data products were not fetched this session; exact-area coverage and challenge-compatible licenses are unverified.",
+    "Sample template is an owner mirror, not organizer-authenticated; local format PASS does not guarantee portal acceptance.",
+    "No DrivenData login, current weekly quota, official selector decision, or upload permission is available."
+  ],
+  "irregularities": [
+    "IR-A5CAA430-01: H-STEO was called unique but its card checks only zero overlap against one spacing-5 lattice; full registry uniqueness is not established.",
+    "IR-A5CAA430-02: H-STEO is labelled as stepover/relay-ramp targeting, but its recorded method is a periodic 7x7 grid inside a 600 m dilation of known catalogue faults; it does not measure stepover geometry or independent geothermal/geophysical evidence.",
+    "IR-CC130-01/02: outside-mask convention and owner-mirror sample provenance conflict with the recorded official format description; see registry/irregularities.json.",
+    "IR-CC130-07/09: third-party truth-mask wording and user-reported leaderboard anchors conflict with the recorded official/source evidence; neither is resolved here.",
+    "IR-31-SCORE-2600-D28: the D2.8 0.2600 value is USER-REPORTED and conflicts with the pinned GEMSDOE25 owner-mirror register marking the corresponding artifact unscored; no organizer receipt ties the value to exact bytes.",
+    "IR-31-H27-4-SCORE-CLAIM: the H27-4 0.2708 value is USER-REPORTED and conflicts with a GEMSDOE28 owner-page H27-4 artifact with the same experiment suffix marked unscored; exact byte identity to the user-named file is unverified."
+  ],
+  "official_sources": [
+    {
+      "class": "OFFICIAL",
+      "title": "DrivenData GEMS Prize problem page (metric, label definition, format)",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+      "access_note": "Prior recorded source check only; not fetched this session."
+    },
+    {
+      "class": "OFFICIAL",
+      "title": "GEMS Prize Official Rules (NLR PDF)",
+      "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+      "access_note": "Prior recorded source check only; not fetched this session."
+    },
+    {
+      "class": "OFFICIAL",
+      "title": "DrivenData competition data tab (recorded login-gated)",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/data/",
+      "access_note": "Not accessed in this session."
+    },
+    {
+      "class": "OFFICIAL",
+      "title": "Official DrivenData reference solution",
+      "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+      "access_note": "GitHub source; not used to claim a leaderboard result."
+    },
+    {
+      "class": "OFFICIAL",
+      "title": "USGS GeoDAWN airborne magnetic and radiometric survey",
+      "url": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and",
+      "access_note": "Source-register link only; not fetched this session."
+    },
+    {
+      "class": "OFFICIAL",
+      "title": "INGENIOUS Great Basin compilation, DOE Geothermal Data Repository 1391",
+      "url": "https://gdr.openei.org/submissions/1391",
+      "access_note": "Prior repository provenance only; not fetched this session."
+    },
+    {
+      "class": "REFERENCE",
+      "title": "EPSG:32611 CRS lookup (reference, not a challenge source)",
+      "url": "https://epsg.io/32611",
+      "access_note": "Manual reference only; not fetched this session."
+    },
+    {
+      "class": "OFFICIAL",
+      "title": "DrivenData public leaderboard (static manual-review URL; not accessed)",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+      "access_note": "No scrape, poll, or live score copied."
+    }
+  ],
+  "source_access_note": "Non-GitHub official pages, PDFs, external hypothesis datasets, and the leaderboard were not fetched in this review; linked citations are prior repository register entries for manual follow-up, not fresh source verification.",
+  "review_passes": "registry/review_passes.json",
+  "focus_site_rows": [
+    {
+      "site": "GEMSDOE24",
+      "reported_top_score_USER_REPORTED": 0.2477,
+      "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+      "file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+      "positive_pixels_COMPUTED": 60069,
+      "duplicate_peer_count_COMPUTED": 8,
+      "unique_vs_other_eight_pinned_focus_files": false,
+      "new_file_score_estimate": null,
+      "download_decision": "DOWNLOAD: study/learning only; SUBMIT: NO"
+    },
+    {
+      "site": "GEMSDOE25",
+      "reported_top_score_USER_REPORTED": 0.26,
+      "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+      "file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/2a279dd0d2a4319c1022567876eb4c97553e2d13/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+      "positive_pixels_COMPUTED": 44090,
+      "duplicate_peer_count_COMPUTED": 8,
+      "unique_vs_other_eight_pinned_focus_files": false,
+      "new_file_score_estimate": null,
+      "download_decision": "DOWNLOAD: study/learning only; SUBMIT: NO"
+    },
+    {
+      "site": "GEMSDOE27",
+      "reported_top_score_USER_REPORTED": 0.2449,
+      "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+      "file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+      "positive_pixels_COMPUTED": 61328,
+      "duplicate_peer_count_COMPUTED": 8,
+      "unique_vs_other_eight_pinned_focus_files": false,
+      "new_file_score_estimate": null,
+      "download_decision": "DOWNLOAD: study/learning only; SUBMIT: NO"
+    },
+    {
+      "site": "GEMSDOE28",
+      "reported_top_score_USER_REPORTED": 0.271,
+      "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+      "file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+      "positive_pixels_COMPUTED": 37660,
+      "duplicate_peer_count_COMPUTED": 8,
+      "unique_vs_other_eight_pinned_focus_files": false,
+      "new_file_score_estimate": null,
+      "download_decision": "DOWNLOAD: study/learning only; SUBMIT: NO"
+    },
+    {
+      "site": "GEMSDOE30",
+      "reported_top_score_USER_REPORTED": 0.26,
+      "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+      "file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+      "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+      "positive_pixels_COMPUTED": 44090,
+      "duplicate_peer_count_COMPUTED": 8,
+      "unique_vs_other_eight_pinned_focus_files": false,
+      "new_file_score_estimate": null,
+      "download_decision": "DOWNLOAD: study/learning only; SUBMIT: NO"
+    },
+    {
+      "site": "GEMSDOE31",
+      "reported_top_score_USER_REPORTED": 0.2708,
+      "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+      "file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+      "positive_pixels_COMPUTED": 40199,
+      "duplicate_peer_count_COMPUTED": 8,
+      "unique_vs_other_eight_pinned_focus_files": false,
+      "new_file_score_estimate": null,
+      "download_decision": "DOWNLOAD: study/learning only; SUBMIT: NO"
+    },
+    {
+      "site": "GEMSDOE32",
+      "reported_top_score_USER_REPORTED": 0.2778,
+      "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+      "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
+      "sha256": "baeae3219bba6a19bc8cfe79224e28555c50184b7c1ca65c2a822f54807c77dd",
+      "positive_pixels_COMPUTED": 37654,
+      "duplicate_peer_count_COMPUTED": 8,
+      "unique_vs_other_eight_pinned_focus_files": false,
+      "new_file_score_estimate": null,
+      "download_decision": "DOWNLOAD: study/learning only; SUBMIT: NO"
+    },
+    {
+      "site": "GEMSDOE33",
+      "reported_top_score_USER_REPORTED": 0.2632,
+      "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+      "file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
+      "sha256": "bc3af2a5fcb4b49bc5845a2d7dc3da23daf41ce75e4c64da3337c0c8c93cc12c",
+      "positive_pixels_COMPUTED": 41865,
+      "duplicate_peer_count_COMPUTED": 8,
+      "unique_vs_other_eight_pinned_focus_files": false,
+      "new_file_score_estimate": null,
+      "download_decision": "DOWNLOAD: study/learning only; SUBMIT: NO"
+    },
+    {
+      "site": "GEMSDOE36",
+      "reported_top_score_USER_REPORTED": 0.275,
+      "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+      "file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif",
+      "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/c9ad59ec6f969ed931d089a03044c1567a633e84/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif",
+      "sha256": "96d451d5ffc819fc3834052f22ab66190621f206c0bf8990446082a3363dc2ef",
+      "positive_pixels_COMPUTED": 38854,
+      "duplicate_peer_count_COMPUTED": 8,
+      "unique_vs_other_eight_pinned_focus_files": false,
+      "new_file_score_estimate": null,
+      "download_decision": "DOWNLOAD: study/learning only; SUBMIT: NO"
+    }
+  ],
+  "hsteo_protocol_assessment": {
+    "card_claim": "H-STEO off-catalogue fault stepover and relay-ramp zones",
+    "recorded_operator": "600 m catalogue-fault dilation/halo; binary cells emitted on an offset 7x7-pixel grid with offset (3,3).",
+    "recorded_count": 9140,
+    "independent_stepover_geometry_measured": false,
+    "independent_geothermal_or_geophysical_layer_used": false,
+    "spacing5_lattice_avoidance_claimed": true,
+    "uniqueness_scope": "Only zero dots against one spacing-5 lattice; not the nine peers or full registered raster surfaces.",
+    "interpretation": "Catalogue-buffer lattice. Do not describe it as detected stepovers, independently located unmapped faults, or global uniqueness."
+  },
+  "h33_family_analysis": {
+    "evidence_class": "COMPUTED pixel-set lineage; associated scores are USER-REPORTED, not organizer receipts.",
+    "d28_positive_pixels": 44090,
+    "h27_positive_pixels": 40199,
+    "h33_positive_pixels": 37654,
+    "h33_dots_removed_from_h27": 2545,
+    "h33_added_relative_to_h27": 0,
+    "h33_pixels_on_public_catalogue": 0,
+    "minimum_catalogue_distance_px": 2.236,
+    "user_reported_h33_score": 0.2778,
+    "possible_mechanism": "Catalogue-flank pruning can improve the Tversky score only if removed false-positive mass outweighs lost true-positive credit. Private truth is absent, so the causal contribution is unknown.",
+    "score_above_02778_achievable": "Unknown. No candidate holdout, comparable calibrated projection, or organizer receipt was produced in this review.",
+    "provenance": "docs/data/h33-forensics.json and evidence/prior_lineage_20261025.json"
+  },
+  "cited_current_release": {
+    "artifact": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+    "sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+    "release_verdict": "negative; research-only; do not submit",
+    "holdout_dti": {
+      "evidence_class": "HOLDOUT-DTI",
+      "provenance": "CITED from frozen H31-CC card; not rerun in this review",
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "withheld_positive_count": 60988,
+      "score": 0.047069900074153195,
+      "confidence_interval_95": [
+        0.03323168323881463,
+        0.06181643961343269
+      ],
+      "paired_vs_same_run_null": {
+        "score_delta": -0.009669665602735938,
+        "confidence_interval_95": [
+          -0.02345607786902358,
+          0.0052006781922370095
+        ]
+      }
+    },
+    "final_dot_registered_witness_overlap": {
+      "evidence_class": "COMPUTED",
+      "value": 0.9961225898974877,
+      "scope": "One pinned spacing-5 owner-mirror control, not exhaustive registry coverage"
+    }
+  }
+}

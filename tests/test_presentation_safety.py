@@ -51,5 +51,7 @@ def test_historical_pages_do_not_promote_stale_rbu31_status():
     build_site = load_script('build_site')
     rendered = build_site.shell('' , 'Validation', '', 'Validation', '', '<section>old experiment</section>')
     assert 'Current protocol decision: no file is approved for submission' in rendered
-    assert 'current protocol review' in rendered
+    assert 'active review register' in rendered
+    assert 'data/current-review.json' in rendered
+    assert 'knowledge/2026-10-26_protocol_review_9883b598.md' not in rendered
     assert 'Newest candidate: RBU31' not in rendered

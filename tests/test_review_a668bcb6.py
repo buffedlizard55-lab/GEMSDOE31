@@ -33,7 +33,10 @@ def test_new_review_notice_distinguishes_current_metadata_from_frozen_raster_aud
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     text = module.review_notice()
-    assert "29 October" in text
+    assert "Archived 29 October safety/integrity review" in text
+    assert "arena/a668bcb6" in text
+    assert "Active three-pass review" in text
+    assert "Current nine-site review" not in text
     assert "9 focus repositories" in text
     assert "9 have changed" in text
     assert "does not refresh their raster audit" in text

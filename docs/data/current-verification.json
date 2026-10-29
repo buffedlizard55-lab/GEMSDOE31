@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "session": "arena/a5caa430-gemsdoe31",
+  "date_utc": "2026-10-29",
+  "evidence_class": "COMPUTED local verification results; historical organizer claims remain USER-REPORTED",
+  "decision": "NEGATIVE \u2014 NO FILE IS CLEARED TO SUBMIT",
+  "scope": "Repository, evidence, pinned focus-site artifacts, local format receipts, and static site only. No scientific experiment or new candidate was authorized or run.",
+  "outcome": {
+    "new_tiff_generated": false,
+    "experiments_run": 0,
+    "weekly_slots_used": 0,
+    "uploads_performed": 0,
+    "leaderboard_accessed": false,
+    "ok_to_submit": false,
+    "slot_approved": false,
+    "new_file_score_estimate": null,
+    "new_file_score_estimate_status": "UNAVAILABLE / NOT ESTIMABLE; no assigned method, candidate, comparable holdout, or organizer receipt"
+  },
+  "automated_checks": {
+    "pytest": {
+      "status": "PASS",
+      "command": ".venv/bin/python -m pytest -q",
+      "summary": "265 passed"
+    },
+    "ruff": {
+      "status": "PASS",
+      "command": ".venv/bin/python -m ruff check .",
+      "summary": "All checks passed"
+    },
+    "compileall": {
+      "status": "PASS",
+      "command": ".venv/bin/python -m compileall -q src scripts tests"
+    },
+    "metric_implementation": {
+      "status": "PASS",
+      "command": ".venv/bin/python scripts/check_metric.py",
+      "max_absolute_fast_vs_brute_error_COMPUTED": 4.441e-16,
+      "random_grids": 24,
+      "exact_cases": 2,
+      "triangular_kernel_radius_m": 300,
+      "pooled_alpha": 0.2,
+      "pooled_beta": 0.8
+    },
+    "current_run_integrity": {
+      "status": "VERIFIED_NEGATIVE",
+      "ok_to_submit": false,
+      "raster_sha256": "eff2b18e37378d0f0a2f5c8e22fc68e7c359ee161114502a985135e03dd217f9"
+    },
+    "protocol_review_integrity": {
+      "status": "PASS \u2014 verified negative, research-only",
+      "ok_to_submit": false,
+      "raster_sha256": "c101ceb7237df0890a0f650b4211cc501250b47c1ab9cfeca8ee4cb373eb48d9"
+    },
+    "h31cc_integrity": {
+      "status": "PASS \u2014 verified negative",
+      "ok_to_submit": false,
+      "raster_sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+      "cited_prior_holdout_not_rerun": {
+        "evidence_class": "HOLDOUT-DTI, cited from frozen card",
+        "evaluator_version": "gems57-pooled-hide-v2",
+        "withheld_positive_count": 60988,
+        "dti": 0.047069900074153195,
+        "confidence_interval_95": [
+          0.03323168323881463,
+          0.06181643961343269
+        ]
+      }
+    },
+    "release_status": {
+      "status": "PASS \u2014 negative release check",
+      "ok_to_submit": false,
+      "raster_sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44"
+    },
+    "focus_site_artifacts": {
+      "status": "PASS \u2014 pinned owner-mirror bytes, grids, and ranges verified",
+      "sites": 9,
+      "pairwise_comparisons": 36,
+      "pairs_over_70_percent_3px_overlap": 36,
+      "pairs_over_0_90_absolute_spearman": 29,
+      "all_hashes_match_pins": true,
+      "all_grids_match_template": true,
+      "all_values_in_0_1": true,
+      "scope": "Nine requested focus artifacts only; not a full submission-registry uniqueness result."
+    },
+    "prior_hsteo_final_dot_focus_subset": {
+      "status": "PASS for the computed nine-peer subset; NOT full-registry clearance",
+      "evidence_file": "evidence/review_a5caa430/hsteo_focus_uniqueness.json",
+      "pairs": 9,
+      "pairs_over_70_percent_3px_overlap": 0,
+      "pairs_over_0_90_absolute_spearman": 0,
+      "maximum_3px_overlap_COMPUTED": 0.33960612691466086,
+      "maximum_absolute_5px_block_spearman_COMPUTED": 0.08401217194963487,
+      "full_695_raster_cache_available": false,
+      "preplacement_surface_check_available": false,
+      "submission_permission": "none"
+    },
+    "prior_hsteo_format_only": {
+      "status": "PASS locally against owner-mirror sample; organizer acceptance NOT verified",
+      "nan_variant_receipt": "evidence/review_a5caa430/hsteo_validation_nan.json",
+      "nan_variant_sha256": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+      "all_finite_variant_receipt": "evidence/review_a5caa430/hsteo_validation_allfinite.json",
+      "all_finite_variant_sha256": "fea84032a93b8ba250431f9241200ac4c74a1767a18305757902cc2472f72c86",
+      "organizer_acceptance_verified": false,
+      "research_download_only": true,
+      "ok_to_submit": false
+    },
+    "additional_lane_integrity": {
+      "status": "PASS \u2014 no new approval",
+      "checks": [
+        "verify_h31j.py",
+        "verify_h31t.py",
+        "verify_h31aa_run.py --check"
+      ],
+      "all_slot_approvals_false": true
+    },
+    "download_audit": {
+      "status": "EXPECTED VERIFIED DENIAL",
+      "command": "scripts/audit_download.py",
+      "exit_code": 2,
+      "ok_to_submit": false
+    },
+    "static_site": {
+      "status": "PASS",
+      "build_command": ".venv/bin/python scripts/build_site.py",
+      "check_command": ".venv/bin/python scripts/check_site.py",
+      "pages": 22,
+      "generated_data_files": 7,
+      "local_links": 596,
+      "checks": [
+        "no broken local links",
+        "no placeholder tokens",
+        "current negative review leads the HTML feed",
+        "download is explicitly research-only / DO NOT SUBMIT"
+      ]
+    }
+  },
+  "score_provenance": {
+    "historical_focus_site_claims": "USER-REPORTED; not organizer-confirmed by exact-file receipts in this review",
+    "leaderboard_anchors_0_3195_and_0_4413": "USER-REPORTED, conflicting, not verified; leaderboard was not accessed",
+    "h33_0_2778": "USER-REPORTED; geometry lineage does not establish score causality",
+    "new_candidate_score": null
+  },
+  "blocking_conditions": [
+    "No assigned single method paragraph/lane; no scientific run authorized.",
+    "Training feature raster and production feature cache are absent from this checkout.",
+    "Prior H-STEO lacks HOLDOUT-DTI, pre-placement surface evidence, and full 695-raster uniqueness coverage.",
+    "Only a nine-peer final-dot subset audit is available for H-STEO; subset results do not grant submission permission.",
+    "External hypothesis products, licenses, and exact-footprint coverage were not verified in this session.",
+    "Local H-STEO format receipts compare against an owner-mirror template; organizer acceptance is unverified.",
+    "No account/slot authorization or exact-file organizer score receipt is available."
+  ],
+  "source_access": {
+    "pinned_github_owner_mirror_rasters_reverified": true,
+    "non_github_sources_fetched": false,
+    "leaderboard_accessed": false,
+    "private_submission_page_accessed": false,
+    "hypothesis_data_downloaded": false
+  },
+  "next_action": "Wait for an explicitly assigned method paragraph and authorized full data/cache. Do not generate a TIFF, select a slot, or upload until every preregistered scientific, leakage, uniqueness, format, and promotion gate is satisfied."
+}

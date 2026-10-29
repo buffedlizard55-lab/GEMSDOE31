@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-10-25",
+  "generated_utc": "2026-10-29",
   "items": [
     {
       "id": "IR-31-SCORE-2600-D28",
@@ -720,6 +720,33 @@
         "registry/session_cc130eb1_decision.json"
       ],
       "action": "Label every anchor USER-REPORTED. Obtain organizer receipts before any claim."
+    },
+    {
+      "id": "IR-A5CAA430-01",
+      "severity": "high",
+      "status": "open-stop-condition",
+      "summary": "The prior H-STEO card says it is unique because it has zero support on one spacing-5 lattice; the prior card did not compare the full raster registry or a pre-placement surface.",
+      "evidence": [
+        "The prior run card reports only zero dots on one spacing-5 lattice and says the full 695-raster comparison was unavailable.",
+        "This review computed final-dot comparisons against nine pinned focus-site rasters: 0/9 exceeded either threshold, with maximum 3-px overlap 0.339606 and maximum absolute 5-px block Spearman 0.084012; see evidence/review_a5caa430/hsteo_focus_uniqueness.json.",
+        "The full 695-raster cache and pre-placement surface receipt are absent; no HOLDOUT-DTI is recorded."
+      ],
+      "impact": "Nine-peer final-dot evidence does not establish global uniqueness, pre-placement compliance, geological efficacy, or organizer acceptance. The unqualified “unique” claim exceeds the available evidence.",
+      "action": "Label the H-STEO artifact research-only; disclose the nine-peer subset result and the missing full-registry/pre-placement checks. Do not upload, copy, rename, or promote it."
+    },
+    {
+      "id": "IR-A5CAA430-02",
+      "severity": "high",
+      "status": "open-stop-condition",
+      "summary": "The prior H-STEO card describes a stepover/relay-ramp geological detector, but its recorded raster operation is a regular 7x7 grid placed in the 600 m dilation halo of already-known catalogue faults; the only uniqueness receipt is zero support on one spacing-5 lattice.",
+      "evidence": [
+        "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-format-check.json records a 600 m fault dilation, 7x7 pixel spacing, offset (3,3), 9,140 dots, and zero dots on the one spacing-5 lattice.",
+        "The prior run card explicitly says the offset grid was chosen to avoid that lattice; it reports no HOLDOUT-DTI, no full 695-raster comparison, and ok_to_submit=false.",
+        "This review independently passed both encodings through scripts/validate_submission.py against the owner-mirror sample; those checks are format-only.",
+        "A separate current-review audit found no overlap/rank threshold duplicate against the nine pinned focus peers, but that subset result does not validate the stepover label or full registry uniqueness."
+      ],
+      "impact": "The label overstates the measured geology and global uniqueness. Catalogue-proximity by construction is not independent evidence of an unmapped fault; lattice avoidance is not the required full surface/final-dot uniqueness test.",
+      "action": "Retain files for research only and disclose the method accurately. Do not upload, copy, rename, re-encode, or use this raster as an approved candidate. Require an assigned method, independent geology, whole-segment HOLDOUT-DTI, and the full registry gates before any new artifact."
     }
   ]
 }

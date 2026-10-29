@@ -1,6 +1,83 @@
-# Current session — 29 October 2026 (`arena/cc130eb1-gemsdoe31`): nine-site executive review
+# Active session — 29 October 2026 (`arena/a5caa430-gemsdoe31`)
 
-**Core values: Maximize P(Win) · Own the Outcome.** Read this section, `AGENTS.md`, and the complete owner prompt below at every session start.
+**Core values: Maximize P(Win) · Own the Outcome.** This is the active session charter and current status front door. It supersedes the archived summaries below where they disagree. Read the complete `README.md` and `AGENTS.md`, then this operative prompt, `registry/release_status.json`, `registry/current_review.json`, `registry/current_run.json`, `registry/review_passes.json`, and the frozen MAGREST preregistration at the start of each session.
+
+**Decision: NO FILE IS CLEARED TO SUBMIT. No current artifact is approved. DO NOT UPLOAD A TIFF FROM THIS REPOSITORY. No human sign-off can override a failed gate.** No TIFF or experiment was created in this review; no holdout was run, no submission slot selected or used, and no leaderboard accessed. The prior H-STEO GeoTIFF is available for research only; its uniqueness against the full registry is not established, it has no HOLDOUT-DTI, and its method label overstates what its grid-in-catalogue-buffer operation measures.
+
+- **Current review:** [three-pass repository and evidence review](knowledge/repo_review_2026-10-29_arena-a5caa430.md)
+- **Executive summary / site:** [docs/executive-summary.html](docs/executive-summary.html) · [site overview](docs/index.html)
+- **Machine-readable status:** [registry/current_review.json](registry/current_review.json) · [run card](evidence/review_a5caa430/run_card.json) · [automated verification](evidence/review_a5caa430/verification.json)
+- **Research-only prior file:** [H-STEO NaN-outside TIFF — DO NOT SUBMIT](docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif). Local format validation passed against an owner-mirror sample; a separate final-dot audit found no threshold duplicate among the nine pinned peer sites. Full-registry/pre-placement uniqueness, science, holdout efficacy, and organizer acceptance are not established.
+- **Evidence limits:** all nine historical scores are USER-REPORTED; a new-file score estimate is unavailable. No assigned method paragraph or training feature stack exists in this checkout. External source links are cited for manual review; non-GitHub sources and the leaderboard were not fetched in this session.
+
+## Read first every session
+
+The full operative prompt below is included in the README so the durable charter is not dependent on a previous conversation. The Markdown copy at [`knowledge/owner_prompt_2026-10-29_arena-a5caa430.md`](knowledge/owner_prompt_2026-10-29_arena-a5caa430.md) is its separately versioned source. Older branch IDs and release panels below are archived history, not current permissions.
+
+## Current owner prompt (complete operating brief)
+
+### Operative owner prompt — 29 October 2026 (`arena/a5caa430-gemsdoe31`)
+
+This is a structured restatement of the current request, not a verbatim transcript of its repeated historical score lists. The original long-form request remains in the conversation; this file and the README carry the durable operating requirements for later sessions. At each session start, read this file, the entire `README.md`, `AGENTS.md`, `registry/release_status.json`, `registry/current_run.json`, `registry/review_passes.json`, and the frozen MAGREST preregistration before making changes.
+
+## Objective and values
+
+Build a rigorous, reproducible, auditable project for the DOE GEMS fault-mapping competition. Work toward a competitive valid submission, but do not claim a competition score, geological discovery, uniqueness, or organizer acceptance without the evidence that supports it. Keep Arena's core values central:
+
+- **Maximize P(Win)**: choose evidence-backed work that increases the chance of a valid, high-performing entry; do not trade scientific or submission integrity for an optimistic claim.
+- **Own the Outcome**: report failures, fix verified defects, preserve negative evidence, and make every release decision reproducible without a human inspector.
+
+The scientific target is faults absent from the public USGS/INGENIOUS catalogue—not geothermal favorability by itself. Preserve official-source links, evidence classes, data provenance, irregularities, limitations, and a useful static project-status feed. Never build a DrivenData leaderboard scraper/poller or automated uploader.
+
+## Required focus-site review
+
+Review the highest reported files from **GEMSDOE24, GEMSDOE25, GEMSDOE27, GEMSDOE28, GEMSDOE30, GEMSDOE31, GEMSDOE32, GEMSDOE33, and GEMSDOE36**. The executive summary must identify, for every site:
+
+1. A pinned file link for study (not an upload recommendation).
+2. The reported result and its provenance class.
+3. A new-file score estimate only if supported by a validated, comparable method; otherwise write **unavailable / not estimable**, not a projection.
+4. Computed uniqueness against the other focus sites, with the scope and rule stated.
+5. Explicit download and submission permissions.
+
+Analyze the GEMSDOE32 H33-2-B2 `0.2778` claim from exact artifact lineage, the official metric description recorded in the source register, and known limitations. Keep geometry separate from score causality. The user-supplied `0.3195` and `0.4413` leaderboard claims conflict and are not organizer receipts. Do not access or monitor the leaderboard; provide only its static manual-review URL.
+
+## Hypothesis research before any experiment
+
+Before implementing a scientific method, nominate and rank three to five hypotheses not already tested in this repository. For each state:
+
+- exact input layer(s) and any required free, official external data;
+- the physical signature/transform;
+- why it could detect a fault missing from the existing catalogue rather than merely recover a known fault;
+- what is genuinely new relative to code already present (including prior thermal, gravity, magnetic, seismicity, strain, and LiDAR work);
+- the named non-fault mimic and principal resolution/leakage risks;
+- qualitative expected holdout-DTI upside and implementation cost (no fabricated numeric gain); and
+- whether the required source/product, coverage, license, and access were actually checked.
+
+A source URL alone does not establish that a dataset is freely downloadable, licensed for the challenge, or sufficiently resolved. If access or license is unverified, mark the idea blocked rather than viable.
+
+## Parallel-run protocol (binding)
+
+1. **Lane:** work only in the explicitly assigned single method paragraph. Do not self-assign a lane if the paragraph is absent. Before placement and on final dots, compare against the complete scoped registry. Stop and record a duplicate if absolute rank correlation exceeds `0.90` or more than `70%` of candidate dots are within `3 px` of any one registry raster. No registry/control exemptions or density workarounds.
+2. **Reuse:** use the pinned shared template's cached feature stack, `evaluate_holdout.py`, and `submission_writer.py`; do not fork the evaluator. Hide whole fault segments with an evidence-based buffer; build catalogue-derived features only from visible faults; mask visible faults pixel-exactly; score pooled DTI with alpha `0.2`, beta `0.8`, and the `300 m` triangular kernel.
+3. **Provenance:** label every number with its evidence class. A holdout result is **HOLDOUT-DTI** plus evaluator version, withheld-positive count, and 95% CI. A competition score is **ORGANIZER-CONFIRMED** only when copied from an exact-file submission receipt. A model projection is never reported as a score.
+4. **Leakage:** test each feature alone against the holdout before trusting results. AUC above `0.90` is leakage until disproven.
+5. **Run card:** record hypothesis, mechanism, a named non-fault mimic, HOLDOUT-DTI and CI (or null with reason), pre-placement/final registry correlation and overlap, raster SHA-256, automated validator output (no NaN inside footprint, values in `[0,1]`, CRS/shape/transform), submission name and note (maximum 140 characters), and verdict `promote` or `negative`. Negative results are deliverables.
+6. **Budget and promotion:** stop after three experiments or two hours, whichever comes first. A weekly slot is not used unless the candidate beats the same-run incumbent on the blocked holdout and passes the separate selector/confirmation process. Do not pick a slot in a research lane.
+
+## Deliverables, verification, and access
+
+Keep a clean GitHub Pages site with a prominent download/status decision and an executive-summary submission guide. A local validator must re-read output bytes and check one-band float32, exact sample-template CRS/shape/transform, finite footprint values in `[0,1]`, and the correct outside-footprint convention. A format pass alone never grants scientific, uniqueness, eligibility, or upload approval. State whether an artifact is research-download-only or actually cleared; do not label prior bytes as a new submission.
+
+Use free, official/primary sources where available and link them for manual review. Mark what was fetched in the current environment versus what is only a prior repository citation. DrivenData private data is login-gated in the recorded evidence; no credentials are available in this task. No upload, account action, or leaderboard inspection is authorized here.
+
+Run three cumulative passes: (1) implement and verify; (2) independently review for bugs, omissions, assumptions, leakage, provenance, and edge cases; (3) cross-check the complete request and rerun final checks. Record all passes, current blockers, exact verification outcomes, and next steps. Work only on the fixed active Arena branch supplied for this session; open and merge a PR only with verifiable GitHub status.
+
+
+---
+
+# Archived review — 29 October 2026 (`arena/cc130eb1-gemsdoe31`): nine-site executive review
+
+**Archived section; superseded by the active session block above.** Its register, scores, and review remain historical evidence; do not treat its branch or status as current.
 
 **Decision: no file is cleared to submit, and this session does not submit anything.** No new TIFF was generated, no experiment ran, no slot was approved, and no leaderboard score is claimed. The nine requested sites' top files duplicate each other (minimum pairwise overlap 0.9731 at 3 px; minimum Spearman 0.8498), so none is unique. Their download links are for study only.
 
@@ -59,11 +136,11 @@ See the status record `knowledge/current_status_2026-10-29_cc130eb1.md` for the 
 
 ---
 
-# Current repository review — 29 October 2026 (`arena/4d582f3d-gemsdoe31`)
+# Archived repository review — 29 October 2026 (`arena/4d582f3d-gemsdoe31`)
 
-# Current Project Charter — 2026-10-29 (`arena/3b306c34-gemsdoe31`)
+# Archived Project Charter — 2026-10-29 (`arena/3b306c34-gemsdoe31`)
 
-**Read this section at the start of every project session.** It defines the active task, success criteria, and constraints.
+**Archived charter; not active.** The active requirements are at the top of this README; this section is preserved for historical context only.
 
 ## Active Task
 
@@ -114,7 +191,7 @@ Desk-only hypotheses requiring validation on the spatially-blocked holdout befor
 - EPSG:32611: https://epsg.io/32611
 - Tversky index: https://en.wikipedia.org/wiki/Tversky_index
 
-## Current State
+## Historical State Snapshot
 
 - Nine focus-site best claims: GEMSDOE24 (0.2477), GEMSDOE25 (0.2600), GEMSDOE27 (0.2449), GEMSDOE28 (0.2710), GEMSDOE30 (0.2600), GEMSDOE31 (0.2708), GEMSDOE32 (0.2778 ← highest), GEMSDOE33 (0.2632), GEMSDOE36 (0.2750)
 - All nine are USER-REPORTED, not organizer-confirmed. None is unique vs registry.
@@ -123,7 +200,7 @@ Desk-only hypotheses requiring validation on the spatially-blocked holdout befor
 
 ---
 
-# Current repository review — 29 October 2026 (`arena/75534796-gemsdoe31`)
+# Archived repository review — 29 October 2026 (`arena/75534796-gemsdoe31`)
 
 **DO NOT SUBMIT. No TIFF was generated or approved in this session.** No method paragraph, no training feature stack, and the literal any-registry uniqueness gate is still negative. No score estimate exists for any new file. H33 `0.2778` and the other nine-site scores are USER-REPORTED. Leaderboard anchors in the request conflict (0.3195 vs 0.4413) and are unverified. Read `knowledge/repo_review_2026-10-29_arena-75534796.md` for the run card, blockers, irregularities (including a receipt-downgrade bug fixed here), and next steps.
 
@@ -183,7 +260,7 @@ This dated review supersedes earlier README banners as the latest review on this
 
 ---
 
-# Current session — 28 October 2026 (`arena/41e3ba3f-gemsdoe31`)
+# Archived session — 28 October 2026 (`arena/41e3ba3f-gemsdoe31`)
 
 **DO NOT SUBMIT.** This review generated no TIFF, ran no experiment, selected no candidate or weekly slot, and made no DrivenData contact. The latest existing scientific artifact is H31-CC from the previous session. It remains research-only: cited HOLDOUT-DTI 0.0471 [0.0332, 0.0618], paired difference versus same-run NULL −0.0097 [−0.0235, +0.0052], and COMPUTED final overlap 99.6123% with the registered spacing-5 witness. New-file leaderboard estimate: unavailable.
 
@@ -212,7 +289,7 @@ This pass also corrected a provenance-labeling bug in the generated executive ta
 
 ---
 
-# Current Arena review — 2026-10-27 (`arena/b3d80ae9-gemsdoe31`)
+# Archived Arena review — 2026-10-27 (`arena/b3d80ae9-gemsdoe31`)
 
 **No new TIFF or experiment was made; no current file is approved to submit.** The requested single-method paragraph is absent, the full production feature cache is absent, and the binding broad-registry gate remains negative. No slot was selected or used. All pasted historical scores are USER-REPORTED; no new-candidate leaderboard estimate is justified.
 
@@ -308,7 +385,7 @@ Own the Outcome: automated denial is a valid deliverable; no human inspector is 
 >
 > ---
 >
-# Current release review — 26 October 2026 (bf9d261d)
+# Archived release review — 26 October 2026 (bf9d261d)
 
 **OK TO DOWNLOAD FOR RESEARCH: YES. OK TO SUBMIT: NO. No new TIFF is delivered in this review.**
 The literal any-registry STOP remains binding. Do not copy or rename a historical file as a new submission.
@@ -1872,7 +1949,7 @@ Go ahead and create a pull request and then merge the pull request onto the main
 
 # Owner prompt — current review, 28 October 2026 (`arena/41e3ba3f-gemsdoe31`)
 
-This is the operative session charter, a concise restatement of the owner’s current request and standing corrections. It supplements (and does not replace) the preserved full charter in [`owner_prompt_2026-10-28_bb6d6287.md`](https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/owner_prompt_2026-10-28_bb6d6287.md). Read the entire `README.md` and `AGENTS.md` at the start of each project session.
+This was the operative session charter for an earlier branch, preserved as historical context; it is superseded by the active brief at the top of this README. It supplements (and does not replace) the preserved full charter in [`owner_prompt_2026-10-28_bb6d6287.md`](https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/owner_prompt_2026-10-28_bb6d6287.md). Read the entire `README.md` and `AGENTS.md` at the start of each project session.
 
 ## Requested work
 
@@ -1906,7 +1983,7 @@ These are historical **USER-REPORTED** values, not organizer receipts or live le
 
 The full pinned artifact paths, source commits, hashes, per-site overlap, and evidence qualifications are in `registry/focus_review.json` and the generated nine-site table. The H33 record finds catalogue-flank pruning in a raster lineage; hidden-truth score contribution remains unknown.
 
-## Current repository state at the start of this review
+## Repository state at the start of the archived review
 
 - Latest scientific artifact is the prior-session H31-CC research TIFF, not a candidate produced by this session. Its cited HOLDOUT-DTI is 0.0470699 [0.0332317, 0.0618164], with paired difference versus same-run NULL −0.0096697 [−0.0234561, +0.0052007]; its leaderboard estimate is unavailable. The spacing-5 final-dot overlap is recorded as a literal STOP.
 - Before this review, the canonical `registry/release_status.json` still described the older H31-X review while the generated page front door showed H31-CC. Resolve the status/surface mismatch without changing the negative release decision or rewriting historical run cards.

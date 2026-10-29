@@ -70,8 +70,8 @@ def shell(prefix: str, title: str, description: str, current: str, hero: str, bo
         prefix_notice = (
             f'<div class="notice"><strong>Current protocol decision: no file is approved for submission.</strong> '
             f'This page includes historical experiment results; see the <a href="{prefix}executive-summary.html">'
-            "executive summary</a> and the <a href=\"https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/2026-10-26_protocol_review_9883b598.md\">"
-            "current protocol review</a> for the active no-submit decision. Historical proxy values are not current leaderboard scores.</div>"
+            f"executive summary</a> and the machine-readable <a href=\"{prefix}data/current-review.json\">"
+            "active review register</a> for the no-submit decision. Historical proxy values are not current leaderboard scores.</div>"
         )
         body = prefix_notice + body
     nav = "".join(
@@ -257,50 +257,147 @@ def submission_receipts() -> list[dict]:
 # --------------------------------------------------------------------------------------- pages
 
 def session_panel(full: bool) -> str:
-    """Decision panel from registry/session_cc130eb1_decision.json (built by build_session_register.py)."""
-    d = load("registry/session_cc130eb1_decision.json")
+    """Current decision and nine-site review, rendered from the active review register."""
+    d = load("registry/current_review.json")
     if not d:
-        return ""
+        return '<div class="notice notice-danger"><strong>No active review register; do not submit.</strong></div>'
+
     rows = []
-    for r in d["focus_site_rows"]:
-        partners = r["count_other_focus_sites_flagged"]
+    for r in d.get("focus_site_rows", []):
+        score = fmt(r.get("reported_top_score_USER_REPORTED"), 4)
+        score = f"{score} <span class=\"small\">USER-REPORTED; no organizer receipt</span>"
         rows.append([
             f"<code>{e(r['site'])}</code>",
-            f"{fmt(r['reported_top_score_USER_REPORTED'])} <span class=\"small\">USER-REPORTED, no receipt</span>",
-            f"<a href=\"{e(r['source_url'])}\">{e(r['file'])}</a> <span class=\"small\">(GitHub, pinned commit)</span>",
-            "<span class=\"badge badge-red\">DO NOT SUBMIT</span> download for study only",
-            f"{partners} of 8 other focus files (overlap &gt; 0.70)",
+            score,
+            f"<a href=\"{e(r['source_url'])}\" target=\"_blank\" rel=\"noopener\">{e(r['file'])}</a>",
+            "8 of 8 other pinned focus files flagged by 3 px overlap",
             "<strong>No</strong>",
-            "not estimable (no holdout-validated model, no receipt)",
+            "unavailable / not estimable",
+            "<strong>DOWNLOAD:</strong> study/learning only · <span class=\"badge badge-red\">SUBMIT: NO</span>",
         ])
-    table_html = table(["site", "reported top score", "file to download (research only)", "download / submit",
-                        "duplicates", "unique?", "estimated score for a new file"], rows,
-                       caption="Nine requested sites: the top file of each site, verified by SHA-256 and pixel comparison.")
-    lines = "".join(f"<li>{e(item)}</li>" for item in d["blockers"])
-    sources = "".join(f"<li><a href=\"{e(src['url'])}\">{e(src['title'])}</a> <span class=\"small\">[{e(src['class'])}, fetched {e(src['fetched'])}]</span></li>"
-                      for src in d["official_sources"])
-    head = (f"<div class=\"notice notice-danger\"><strong>Decision (2026-10-29, arena/cc130eb1): no file is cleared to submit.</strong> "
-            f"No new TIFF was generated, no experiment was run, and no score is claimed. "
-            f"Every nine-site file duplicates the others (minimum pairwise overlap {d['min_pairwise_max_overlap']:.3f}), so none is unique. "
-            f"Download links are for study only. DO NOT SUBMIT.</div>")
+    focus_table = table(
+        ["site", "reported top score", "pinned file to download (prior art)", "duplicate scope", "unique?",
+         "new-file estimate", "permission"],
+        rows,
+        caption="Nine highest reported files from the requested focus set. All scores are USER-REPORTED; the new-file estimate is unavailable.",
+    )
+
+    artifact = d.get("prior_research_artifact", {})
+    hsteo = d.get("hsteo_protocol_assessment", {})
+    release = d.get("cited_current_release", {})
+    release_holdout = release.get("holdout_dti", {})
+    release_overlap = release.get("final_dot_registered_witness_overlap", {})
+    peer_audit = artifact.get("nine_focus_final_dot_audit", {})
+    release_path = Path(release.get("artifact", "")).name
+    artifact_path = Path(artifact.get("file_nan", "")).name
+    artifact_href = f"downloads/{e(artifact_path)}" if artifact_path else "#"
+    report_href = "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/arena/a5caa430-gemsdoe31/knowledge/repo_review_2026-10-29_arena-a5caa430.md"
+    register_link = "data/current-review.json"
+    card_link = "data/current-run-card.json"
+    verification_link = "data/current-verification.json"
+    peer_audit_link = "data/hsteo-focus-uniqueness.json"
+    head = (
+        f'<div class="notice notice-danger"><strong>Decision ({e(d.get("date_utc", ""))}, {e(d.get("session", ""))}): '
+        'NO FILE IS CLEARED TO SUBMIT.</strong> No TIFF or experiment was created in this review; no holdout was run, '
+        'no score is claimed, and no weekly slot was used. The prior H-STEO artifact is research-download-only; '
+        'its full-registry uniqueness and holdout efficacy are not established. <strong>DO NOT SUBMIT.</strong></div>'
+    )
     if not full:
-        return head + ("<p class=\"small\">Full executive table, hypotheses, irregularities and official sources: "
-                       "<a href=\"executive-summary.html\">executive summary</a>.</p>")
-    hyp_rows = [[str(h["rank"]), e(h["id"]), e(h["signature"]), e(h["non_fault_mimic"]), e(h["cost"]),
-                 "not validated (blocked)"] for h in d["hypotheses_ranked"]]
-    irr = "".join(f"<li>{e(item)}</li>" for item in d["irregularities"])
+        return head + (
+            '<p class="small">'
+            f'<a href="executive-summary.html">Full executive summary: nine-site table, H33 analysis, ranked hypotheses, limits and source links</a> · '
+            f'<a href="{e(register_link)}">Current review JSON</a> · '
+            f'<a href="{e(card_link)}">Run card</a> · '
+            f'<a href="{e(verification_link)}">Automated verification</a> · '
+            f'<a href="executive-summary.html#selector-decision">Current H31-CC negative release audit</a> · '
+            f'<a href="{e(artifact_href)}" download>Prior H-STEO TIFF for research only — DO NOT SUBMIT</a>'
+            '</p>'
+        )
+
+    h33 = d.get("h33_family_analysis", {})
+    hyp_rows = []
+    for h in d.get("hypotheses_ranked", []):
+        source = f'<a href="{e(h["official_source"])}" target="_blank" rel="noopener">official source</a>'
+        hyp_rows.append([
+            str(h.get("rank", "")),
+            e(h.get("id", "")),
+            e(h.get("layers", "")),
+            e(h.get("signature", "")),
+            e(h.get("why_missing_from_catalogue", "")),
+            e(h.get("difference_from_repo", "")),
+            e(h.get("non_fault_mimic", "")),
+            e(h.get("expected_holdout_dti_upside", "")),
+            e(h.get("implementation_cost", "")),
+            source + f'<br><span class="small">{e(h.get("access_status", ""))}</span>',
+            '<strong>NOT VALIDATED</strong>',
+        ])
+    blockers = "".join(f"<li>{e(item)}</li>" for item in d.get("blockers", []))
+    irregularities = "".join(f"<li>{e(item)}</li>" for item in d.get("irregularities", []))
+    sources = "".join(
+        f'<li><a href="{e(src["url"])}" target="_blank" rel="noopener">{e(src["title"])}</a> '
+        f'<span class="small">[{e(src.get("class", ""))}; {e(src.get("access_note", "not freshly fetched"))}]</span></li>'
+        for src in d.get("official_sources", [])
+    )
+    hyp_table = table(
+        ["rank", "hypothesis", "layer(s)", "physical signature", "why it may reveal a missing fault", "repo novelty boundary",
+         "named non-fault mimic", "qualitative upside", "cost", "source/access", "holdout status"],
+        hyp_rows,
+    )
+    h33_text = (
+        f"The computed pixel lineage is D2.8 {fmt(h33.get('d28_positive_pixels'), 0)} → H27 "
+        f"{fmt(h33.get('h27_positive_pixels'), 0)} → H33 {fmt(h33.get('h33_positive_pixels'), 0)} dots; "
+        f"H33 removes {fmt(h33.get('h33_dots_removed_from_h27'), 0)} H27 dots and adds "
+        f"{fmt(h33.get('h33_added_relative_to_h27'), 0)}. The reported H33 result "
+        f"{fmt(h33.get('user_reported_h33_score'), 4)} is USER-REPORTED, not organizer-confirmed. "
+        f"{e(h33.get('possible_mechanism', ''))} "
+        f"Whether a score above 0.2778 is achievable is {e(h33.get('score_above_02778_achievable', 'Unknown'))}"
+    )
+    artifact_note = artifact.get("prior_note", "")
+    release_panel = (
+        '<section id="selector-decision"><div class="section-head"><div><p class="kicker">Binding release register</p><h2>H31-CC remains a prior negative research run</h2></div>'
+        '<p>This session did not rerun its holdout and did not create or approve this file.</p></div>'
+        f'<p><a href="downloads/{e(release_path)}">H31-CC research TIFF</a> · <a href="downloads/h31cc-run-card.json">frozen run card</a></p>'
+        f'<p><strong>Cited HOLDOUT-DTI:</strong> {release_holdout.get("score", float("nan")):.4f} '
+        f'({e(release_holdout.get("evaluator_version", ""))}; {fmt(release_holdout.get("withheld_positive_count"), 0)} withheld; '
+        f'95% CI [{release_holdout.get("confidence_interval_95", [float("nan"), float("nan")])[0]:.4f}, '
+        f'{release_holdout.get("confidence_interval_95", [float("nan"), float("nan")])[1]:.4f}]). '
+        f'<strong>COMPUTED final-dot overlap:</strong> {100*release_overlap.get("value", 0):.2f}% against one registered witness '
+        f'({e(release_overlap.get("scope", "scope not exhaustive"))}). Verdict remains negative; not a full-registry pass.</p></section>'
+    )
     return "\n".join([
         head,
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Nine requested sites</p><h2>Per-site executive table</h2></div>"
-        f"<p>Scores are USER-REPORTED. They are not organizer-confirmed and are shown only so the duplicate audit can be read.</p></div>{table_html}</section>",
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Untested hypotheses</p><h2>Ranked, none validated</h2></div>"
-        f"<p>Validation on a spatially blocked holdout is blocked: the feature stack is not restored and no lane is assigned.</p></div>"
-        f"{table(['rank', 'id', 'signature', 'non-fault mimic', 'cost', 'status'], hyp_rows)}</section>",
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Limitations</p><h2>Blockers and needed access</h2></div></div><ul>{lines}</ul></section>",
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Irregularities</p><h2>Flagged, not resolved</h2></div></div><ul>{irr}</ul></section>",
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Official and free data sources</p><h2>Links checked on 2026-10-29</h2></div></div><ul>{sources}</ul></section>",
-        "<p class=\"small\">Register: <a href=\"https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/session_cc130eb1_decision.json\">registry/session_cc130eb1_decision.json</a> · "
-        "review: <a href=\"https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-cc130eb1.md\">knowledge/repo_review_2026-10-29_arena-cc130eb1.md</a></p>",
+        release_panel,
+        '<section><div class="section-head"><div><p class="kicker">Evidence-backed prior art</p><h2>Nine-site executive table</h2></div>'
+        '<p>Every row links the pinned file for learning. Scores are USER-REPORTED; all 36 pairwise overlaps exceed 70% at 3 px, and all nine files have 8/8 peers flagged. No new-file score estimate is supportable.</p></div>'
+        + focus_table,
+        '<section><div class="section-head"><div><p class="kicker">H33-2-B2 explanation</p><h2>Geometry is measured; score causality is not</h2></div>'
+        '<p>Official metric and exact file lineage are distinguished from inference.</p></div>'
+        f'<p>{h33_text}</p><p><a href="data/h33-forensics.json">Pixel-lineage audit (JSON)</a>. The conditional Tversky algebra in the full review is illustrative only; private-truth terms are unavailable.</p></section>',
+        '<section><div class="section-head"><div><p class="kicker">Research candidates</p><h2>Four ranked, distinct desk hypotheses — none validated</h2></div>'
+        '<p>Upside is qualitative, not a score projection; no numeric delta is estimated. No experiment was authorized or run; the training feature stack and full cache are absent. The lead thermal candidate is a point-pattern transform only: the repository already uses GDR-1391 geothermometry.</p></div>'
+        + hyp_table,
+        '<section><div class="section-head"><div><p class="kicker">Prior H-STEO artifact</p><h2>Download for research only — not an approved TIF</h2></div>'
+        f'<p>The file is not a submission recommendation. Recorded operation: {e(hsteo.get("recorded_operator", "catalogue-buffer grid"))} It does not measure stepovers or provide independent evidence of missing faults. The prior card reports {fmt(hsteo.get("recorded_count"), 0)} dots; its one-lattice avoidance is not full-registry uniqueness.</p></div>'
+        f'<p><a class="button button-primary" href="{e(artifact_href)}" download>Download prior H-STEO research TIFF — DO NOT SUBMIT</a> '
+        f'<a class="button button-light" href="{e(card_link)}">Current run card (JSON)</a> '
+        f'<a class="button button-light" href="data/hsteo-validation-nan.json">Automated NaN format check</a> '
+        f'<a class="button button-light" href="data/hsteo-validation-allfinite.json">All-finite format check</a> '
+        f'<a class="button button-light" href="{e(register_link)}">Current register (JSON)</a></p>'
+        f'<p><strong>SHA-256:</strong> <code>{e(artifact.get("sha256_nan", ""))}</code><br>'
+        f'<strong>Prior card name (not approved):</strong> <code>{e(artifact.get("submission_name_reserved_in_prior_card", ""))}</code><br>'
+        f'<strong>Prior note (not approved):</strong> <code>{e(artifact_note)}</code><br>'
+        '<strong>Download:</strong> research/learning only. <strong>Submit/upload:</strong> NO. No new name/note was reserved for this review.</p>'
+        f'<p>Format checks passed only against the local OWNER-MIRROR template; organizer acceptance was not verified. The artifact has no HOLDOUT-DTI. The prior card checked one lattice; this review’s final-dot comparison to the nine pinned peers found {fmt(peer_audit.get("pairs_flagged_by_either"), 0)}/9 threshold duplicates, max overlap {fmt(peer_audit.get("maximum_overlap"), 6)}, and max |Spearman| {fmt(peer_audit.get("maximum_absolute_spearman"), 6)}. '
+        f'<a href="{e(peer_audit_link)}">Nine-peer audit (COMPUTED JSON)</a>. This subset does not establish a full-registry result: pre-placement surface coverage and the 695-raster final comparison remain unavailable.</p></section>',
+        '<section><div class="section-head"><div><p class="kicker">Limitations and needed access</p><h2>Blockers</h2></div></div>'
+        f'<ul>{blockers}</ul></section>',
+        '<section><div class="section-head"><div><p class="kicker">Irregularities</p><h2>Open release and provenance issues</h2></div></div>'
+        f'<ul>{irregularities}</ul></section>',
+        '<section><div class="section-head"><div><p class="kicker">Official and primary sources</p><h2>Manual-review links and access status</h2></div></div>'
+        f'<p>{e(d.get("source_access_note", ""))}</p><ul>{sources}</ul></section>',
+        f'<p class="small">Detailed review: <a href="{e(report_href)}">knowledge/repo_review_2026-10-29_arena-a5caa430.md</a> · '
+        f'<a href="{e(register_link)}">current_review.json</a> · <a href="{e(card_link)}">run_card.json</a> · '
+        f'<a href="{e(verification_link)}">verification.json</a></p>',
     ])
 
 
@@ -310,8 +407,8 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
         hero, body = current_site.overview(current)
         body = session_panel(full=False) + body
         body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
-        desc = ("No file is cleared to submit under the binding literal registry STOP; download newly generated "
-                "H31-AA (2026-10-27) or prior lanes for research only. Automated gates, no human inspector.")
+        desc = ("Current review: no file is cleared to submit. No TIFF or experiment was created; the prior H-STEO "
+                "artifact is research-only with full-registry uniqueness and holdout efficacy not established.")
         return shell("", "Overview", desc,
                      "Overview", hero, body, "Maximize P(Win) · Own the Outcome · negative results preserved.")
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
@@ -442,11 +539,15 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
 def build_executive_summary(sub: dict, buf: dict, receipts: list[dict]) -> str:
     current = load("registry/current_run.json")
     if current:
-        hero = page_hero("Download + submission guide", "No file is cleared to submit — research downloads only.",
-                         "Every candidate (including newly generated H31-AA, 2026-10-27), its unique name, portal note, "
-                         "labelled HOLDOUT-DTI / USER-REPORTED values, and gate-by-gate automated verdicts are audited below.")
-        return shell("", "Executive summary", "Nine-site decision (2026-10-29), per-site table, untested hypotheses, limitations and official sources; New H31-AA research TIFF, exact automated validation status, and the portal workflow.",
-                     "Executive summary", hero, session_panel(full=True) + current_site.executive(current))
+        hero = page_hero("Current repository review · 29 October 2026", "No file is cleared to submit.",
+                         "This review created no TIFF, ran no experiment, and selected no weekly slot. Historical scores are USER-REPORTED; the new-file estimate is unavailable. Prior rasters below are study-only, not upload recommendations.")
+        archived_notice = (
+            '<div class="notice"><strong>Historical panels below are prior-session evidence only.</strong> '
+            'They do not override the active review above or grant current upload permission.</div>'
+        )
+        body = session_panel(full=True) + archived_notice + current_site.executive(current)
+        return shell("", "Executive summary", "Current no-submit decision, nine pinned focus-site files, score provenance, H33 lineage, ranked desk hypotheses and access limits.",
+                     "Executive summary", hero, body)
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
     research = next(f for f in sub["files"] if f["name"] == sub["best_research_candidate"]["name"])
     variants = table(
@@ -1035,11 +1136,14 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
     feed["current_release_status"] = release
     feed["open_items"] = release["failed_or_unknown_gates"]
     feed["source_access"] = "See dated source receipts; no live leaderboard, official receipt or current quota verified."
+    feed["current_review_verification"] = load("evidence/review_a5caa430/verification.json")
     payload = json.dumps(feed, indent=1, allow_nan=False) + "\n"
     rows = [[e(k), f"<code>{e(json.dumps(v))}</code>"] for section, values in feed.items()
             if isinstance(values, dict) and section not in ("sources", "automation")
             for k, v in values.items()]
-    body = f"""    <section>
+    current_review_front_door = session_panel(full=False)
+    body = f"""    {current_review_front_door}
+    <section>
       <div class="section-head">
         <div><p class="kicker">Machine-readable</p><h2>Current state of the project</h2></div>
         <p>Regenerated from the register and evidence files, so it cannot drift from the measurements. Also published as <a href="feed.json">feed.json</a>.</p>
@@ -1429,11 +1533,28 @@ def main() -> None:
         pages[DOCS / "experiments" / f"{exp['slug']}.html"] = build_experiment_page(exp)
     feed_json, feed_html = build_feed(submissions, buffer_derivation, union, arms, sources)
     feed_data = json.loads(feed_json)
-    feed_data["current_protocol_review"] = load("evidence/review_9883b598/run_card.json")
-    feed_data["current_selector_decision"] = load("registry/selector_decision_20261026.json")
-    feed_data["current_h31aa_run"] = load("evidence/h31aa/run_card.json")
-    feed_data["current_session_decision"] = load("registry/session_cc130eb1_decision.json")
-    feed_data["current_repository_review"] = load("evidence/review_a668bcb6/run_card.json")
+    feed_data["archived_protocol_review_9883b598"] = load("evidence/review_9883b598/run_card.json")
+    feed_data["archived_selector_decision_20261026"] = load("registry/selector_decision_20261026.json")
+    feed_data["archived_h31aa_run"] = load("evidence/h31aa/run_card.json")
+    feed_data["current_session_decision"] = load("registry/current_review.json")
+    feed_data["current_hsteo_nine_peer_uniqueness_audit"] = load("evidence/review_a5caa430/hsteo_focus_uniqueness.json")
+    feed_data["previous_focus_site_register"] = load("registry/session_cc130eb1_decision.json")
+    feed_data["current_review_run_card"] = load("evidence/review_a5caa430/run_card.json")
+    feed_data["previous_repository_review"] = load("evidence/review_a668bcb6/run_card.json")
+    pages[DOCS / "data" / "current-review.json"] = json.dumps(load("registry/current_review.json"), indent=2, allow_nan=False) + "\n"
+    pages[DOCS / "data" / "current-run-card.json"] = json.dumps(load("evidence/review_a5caa430/run_card.json"), indent=2, allow_nan=False) + "\n"
+    pages[DOCS / "data" / "current-verification.json"] = json.dumps(
+        load("evidence/review_a5caa430/verification.json"), indent=2, allow_nan=False
+    ) + "\n"
+    pages[DOCS / "data" / "hsteo-focus-uniqueness.json"] = json.dumps(
+        load("evidence/review_a5caa430/hsteo_focus_uniqueness.json"), indent=2, allow_nan=False
+    ) + "\n"
+    pages[DOCS / "data" / "hsteo-validation-nan.json"] = json.dumps(
+        load("evidence/review_a5caa430/hsteo_validation_nan.json"), indent=2, allow_nan=False
+    ) + "\n"
+    pages[DOCS / "data" / "hsteo-validation-allfinite.json"] = json.dumps(
+        load("evidence/review_a5caa430/hsteo_validation_allfinite.json"), indent=2, allow_nan=False
+    ) + "\n"
     pages[DOCS / "feed.json"] = json.dumps(feed_data, indent=1, allow_nan=False) + "\n"
     pages[DOCS / "feed.html"] = feed_html
 
@@ -1441,7 +1562,8 @@ def main() -> None:
         path.write_text(text)
     (DOCS / ".nojekyll").write_text("")
     html_pages = sorted(p for p in DOCS.rglob("*.html"))
-    print(f"wrote {len(html_pages)} pages and {len(pages) - len(html_pages)} data file(s) under {DOCS.relative_to(ROOT)}")
+    data_files = sum(path.suffix != ".html" for path in pages)
+    print(f"wrote {len(html_pages)} pages and {data_files} data file(s) under {DOCS.relative_to(ROOT)}")
     for p in html_pages:
         print("  ", p.relative_to(ROOT))
 

@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "session": "arena/a5caa430-gemsdoe31",
+  "date_utc": "2026-10-29",
+  "run_type": "repository/evidence review only; no scientific model run",
+  "report": "knowledge/repo_review_2026-10-29_arena-a5caa430.md",
+  "decision": "NEGATIVE — DO NOT PROMOTE, UPLOAD, OR USE A SUBMISSION SLOT",
+  "hypothesis": {
+    "current_experiment": null,
+    "status": "NOT RUN: no assigned method paragraph/lane; required feature stack absent.",
+    "ranked_desk_leader_only": "H-CC-A: uncertainty-aware thermal-manifestation point-pattern/orientation statistic over independent GDR-1391 well/spring sites aligned with existing local lineaments, tested outside a visible-catalogue buffer. This is a desk hypothesis, not an implemented or validated candidate.",
+    "novelty_caveat": "src/gemsdoe31/tgtd_features.py already uses GDR-1391 geothermometry/upflow. Only the spatial point-pattern/orientation transform could be new; this review did not implement or verify that transform."
+  },
+  "mimic": {
+    "for_ranked_desk_leader": "Aquifer or playa-margin discharge, well/drilling selection clusters, positional uncertainty, and data-selection bias can mimic structurally aligned thermal manifestations.",
+    "for_existing_hsteo_artifact": "Known-fault proximity by construction; alluvial-fan toes, volcanic-flow margins, erosional drainage, and drilling/survey selection can mimic fault-related patterns.",
+    "mimic_tested": false,
+    "reason": "No candidate feature stack or holdout inputs available."
+  },
+  "holdout": {
+    "current_review_candidate": {
+      "status": "NOT RUN",
+      "metric_label": "HOLDOUT-DTI",
+      "score": null,
+      "evaluator_version": null,
+      "withheld_positive_count": null,
+      "confidence_interval_95": null,
+      "reason": "No new candidate; data/training_features.tif and full feature cache absent; no assigned method lane."
+    },
+    "cited_existing_h31cc_evidence_only": {
+      "status": "CITED PRIOR FROZEN RUN; NOT RERUN IN THIS REVIEW",
+      "metric_label": "HOLDOUT-DTI",
+      "score": 0.047069900074153195,
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "withheld_positive_count": 60988,
+      "confidence_interval_95": [
+        0.03323168323881463,
+        0.06181643961343269
+      ],
+      "source": "registry/release_status.json and H31-CC frozen run card",
+      "does_not_validate": "H-STEO or any new hypothesis"
+    }
+  },
+  "registry_comparison": {
+    "candidate_preplacement_full_surface_check": "NOT RUN — no current candidate; prior H-STEO pre-placement surface report is absent.",
+    "candidate_final_dots_check": "NOT RUN against the full registry — no current candidate. Prior H-STEO final dots received a separate nine-peer audit only.",
+    "hsteo_prior_card_check": "Prior card: one spacing-5 lattice witness only; zero dots on that witness. Not full-registry uniqueness.",
+    "full_registry_cache_available": false,
+    "full_registry_size_as_recorded_in_prior_protocol": 695,
+    "nine_focus_site_audit": {
+      "scope": "Pinned focus-site files only; not a global uniqueness result for H-STEO or another candidate.",
+      "sites": 9,
+      "pairs": 36,
+      "pairs_over_70pct_3px_overlap": 36,
+      "pairs_over_90pct_absolute_spearman": 29,
+      "minimum_3px_overlap": 0.97313,
+      "minimum_spearman_5px_blocks": 0.849793,
+      "metric_class": "COMPUTED from pinned peer rasters; all site score claims USER-REPORTED"
+    },
+    "hsteo_nine_peer_final_dot_audit": {
+      "evidence_class": "COMPUTED",
+      "scope": "Prior H-STEO final dots vs 9 pinned focus-site peer rasters only.",
+      "pairs": [
+        {
+          "site": "GEMSDOE24",
+          "peer_file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+          "hsteo_candidate_dots_within_3px_of_peer": 2943,
+          "hsteo_candidate_dot_count": 9140,
+          "directed_overlap_fraction_COMPUTED": 0.32199124726477024,
+          "spearman_5px_block_density_COMPUTED": 0.07855884758830732,
+          "abs_spearman_over_0_90": false,
+          "overlap_over_0_70": false,
+          "duplicate_by_any_threshold": false
+        },
+        {
+          "site": "GEMSDOE25",
+          "peer_file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+          "hsteo_candidate_dots_within_3px_of_peer": 2842,
+          "hsteo_candidate_dot_count": 9140,
+          "directed_overlap_fraction_COMPUTED": 0.3109409190371991,
+          "spearman_5px_block_density_COMPUTED": 0.07543388815592081,
+          "abs_spearman_over_0_90": false,
+          "overlap_over_0_70": false,
+          "duplicate_by_any_threshold": false
+        },
+        {
+          "site": "GEMSDOE27",
+          "peer_file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+          "hsteo_candidate_dots_within_3px_of_peer": 3104,
+          "hsteo_candidate_dot_count": 9140,
+          "directed_overlap_fraction_COMPUTED": 0.33960612691466086,
+          "spearman_5px_block_density_COMPUTED": 0.08401217194963487,
+          "abs_spearman_over_0_90": false,
+          "overlap_over_0_70": false,
+          "duplicate_by_any_threshold": false
+        },
+        {
+          "site": "GEMSDOE28",
+          "peer_file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+          "hsteo_candidate_dots_within_3px_of_peer": 2197,
+          "hsteo_candidate_dot_count": 9140,
+          "directed_overlap_fraction_COMPUTED": 0.24037199124726477,
+          "spearman_5px_block_density_COMPUTED": 0.043386494455942504,
+          "abs_spearman_over_0_90": false,
+          "overlap_over_0_70": false,
+          "duplicate_by_any_threshold": false
+        },
+        {
+          "site": "GEMSDOE30",
+          "peer_file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+          "hsteo_candidate_dots_within_3px_of_peer": 2842,
+          "hsteo_candidate_dot_count": 9140,
+          "directed_overlap_fraction_COMPUTED": 0.3109409190371991,
+          "spearman_5px_block_density_COMPUTED": 0.07543388815592081,
+          "abs_spearman_over_0_90": false,
+          "overlap_over_0_70": false,
+          "duplicate_by_any_threshold": false
+        },
+        {
+          "site": "GEMSDOE31",
+          "peer_file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+          "hsteo_candidate_dots_within_3px_of_peer": 2256,
+          "hsteo_candidate_dot_count": 9140,
+          "directed_overlap_fraction_COMPUTED": 0.24682713347921226,
+          "spearman_5px_block_density_COMPUTED": 0.044770554381373624,
+          "abs_spearman_over_0_90": false,
+          "overlap_over_0_70": false,
+          "duplicate_by_any_threshold": false
+        },
+        {
+          "site": "GEMSDOE32",
+          "peer_file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
+          "hsteo_candidate_dots_within_3px_of_peer": 1787,
+          "hsteo_candidate_dot_count": 9140,
+          "directed_overlap_fraction_COMPUTED": 0.19551422319474837,
+          "spearman_5px_block_density_COMPUTED": 0.01949672071896905,
+          "abs_spearman_over_0_90": false,
+          "overlap_over_0_70": false,
+          "duplicate_by_any_threshold": false
+        },
+        {
+          "site": "GEMSDOE33",
+          "peer_file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
+          "hsteo_candidate_dots_within_3px_of_peer": 2469,
+          "hsteo_candidate_dot_count": 9140,
+          "directed_overlap_fraction_COMPUTED": 0.2701312910284464,
+          "spearman_5px_block_density_COMPUTED": 0.057098598123918,
+          "abs_spearman_over_0_90": false,
+          "overlap_over_0_70": false,
+          "duplicate_by_any_threshold": false
+        },
+        {
+          "site": "GEMSDOE36",
+          "peer_file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif",
+          "hsteo_candidate_dots_within_3px_of_peer": 1831,
+          "hsteo_candidate_dot_count": 9140,
+          "directed_overlap_fraction_COMPUTED": 0.20032822757111599,
+          "spearman_5px_block_density_COMPUTED": 0.020063067750512562,
+          "abs_spearman_over_0_90": false,
+          "overlap_over_0_70": false,
+          "duplicate_by_any_threshold": false
+        }
+      ],
+      "pairs_over_70pct_3px_overlap": 0,
+      "pairs_over_90pct_absolute_spearman": 0,
+      "maximum_3px_overlap": 0.33960612691466086,
+      "maximum_absolute_spearman_5px_blocks": 0.08401217194963487,
+      "not_established": "Pre-placement comparison and full 695-raster registry comparison."
+    }
+  },
+  "prior_research_artifact_not_promoted": {
+    "name": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed",
+    "tiff_nan_path": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
+    "tiff_nan_sha256": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+    "tiff_allfinite_path": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-allfinite.tif",
+    "tiff_allfinite_sha256": "fea84032a93b8ba250431f9241200ac4c74a1767a18305757902cc2472f72c86",
+    "recorded_operation": "600 m dilation around known catalogue faults plus an offset 7x7 grid inside the dilation halo; no explicit stepover/relay-ramp geometry or independent thermal evidence is calculated.",
+    "holdout_dti": null,
+    "unique": null,
+    "unique_established": false,
+    "unique_status": "NOT ESTABLISHED for full registry. No threshold duplicates in the current review’s final-dot comparison to nine pinned peers; missing pre-placement/full-registry comparisons.",
+    "ok_to_download_for_research": true,
+    "ok_to_submit": false
+  },
+  "candidate_score_estimate": {
+    "value": null,
+    "label": "PROJECTION NOT AVAILABLE; NO SCORE CLAIM",
+    "basis": "No holdout run and no organizer-confirmed calibration/receipt. Conflicting 0.3195 and 0.4413 anchors remain USER-REPORTED."
+  },
+  "hash": {
+    "new_candidate_sha256": null,
+    "meaning": "No new candidate TIFF generated in this session.",
+    "prior_research_tiffs": {
+      "nan_outside": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+      "all_finite": "fea84032a93b8ba250431f9241200ac4c74a1767a18305757902cc2472f72c86"
+    }
+  },
+  "validator": {
+    "script": "scripts/validate_submission.py",
+    "result": "FORMAT PASS ONLY for both prior H-STEO variants against local owner-mirror sample_submission.tif; organizer acceptance not verified.",
+    "format": "single-band float32; EPSG:32611; shape 3730x3292; transform [100, 0, 243350, 0, -100, 4508550]; footprint values finite in [0,1]",
+    "nan_outside_variant": "NaN outside owner-mirror footprint; format checks pass.",
+    "all_finite_variant": "zero outside owner-mirror footprint; local check passes but differs from the recorded official NaN-outside convention.",
+    "sample_provenance": "OWNER-MIRROR, not organizer-authenticated.",
+    "organizer_acceptance_verified": false,
+    "current_release_audit": "H31-CC verified negative; H31-J, H31-T, and H31-AA integrity checks passed without new approval.",
+    "review_integrity_checks": "verify_current_run, verify_protocol_review, verify_h31cc_run, build_release_status --check, verify_focus_sites, verify_h31j, verify_h31t, verify_h31aa_run, validate_submission, and audit_download completed as recorded in evidence/review_a5caa430/verification.json. audit_download exit 2 is the expected verified denial."
+  },
+  "submission_note": {
+    "new_submission_name": null,
+    "new_submission_note": null,
+    "reason": "No candidate is approved; do not reserve a slot or prepare an upload note for this run.",
+    "prior_card_name_not_approved": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed",
+    "prior_card_note_not_approved": "H-STEO stepover zone dots off catalogue 7x7 grid | HOLDOUT-DTI unavailable | research only"
+  },
+  "promotion": {
+    "promote": false,
+    "negative_verdict": true,
+    "ok_to_submit": false,
+    "slot_approved": false,
+    "upload_performed": false,
+    "slot_used": false,
+    "reason": "Missing assigned lane, training feature stack, candidate HOLDOUT-DTI, full-registry uniqueness, external-source validation, and organizer receipt."
+  },
+  "resource_budget": {
+    "experiments_run": 0,
+    "maximum_experiments": 3,
+    "elapsed_scientific_experiment_hours": 0,
+    "maximum_hours": 2
+  },
+  "source_access": {
+    "non_github_official_sources_fetched": false,
+    "leaderboard_accessed": false,
+    "data_tab_accessed": false,
+    "external_hypothesis_data_downloaded": false,
+    "notes": "Official source links are listed in the review and current_review.json; non-GitHub sources were not fetched under this session's outbound access restrictions."
+  },
+  "verdict": "NEGATIVE — HOLD/RESEARCH ONLY; NO FILE IS CLEARED TO SUBMIT"
+}

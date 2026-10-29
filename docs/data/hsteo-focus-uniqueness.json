@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "candidate": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
+  "candidate_sha256": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+  "evidence_class": "COMPUTED final-dot audit against nine pinned focus-site GitHub rasters previously hash/grid/range reverified; not a full registry comparison.",
+  "method": "For each peer, fraction of H-STEO positive cells with a peer positive cell at Euclidean distance <=3 px; absolute Spearman correlation of 5-px block dot-count densities on the sample-template finite footprint.",
+  "thresholds": {
+    "overlap_strictly_greater_than": 0.7,
+    "absolute_spearman_strictly_greater_than": 0.9,
+    "distance_px": 3.0
+  },
+  "preplacement_surface_check": "UNAVAILABLE; prior artifact card contains only a single lattice check, not full peer surfaces.",
+  "registry_comparison_scope": "9 focus-site files only; 695-raster full cache absent. This audit cannot establish full-registry uniqueness or upload permission.",
+  "pairs": [
+    {
+      "site": "GEMSDOE24",
+      "peer_file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "hsteo_candidate_dots_within_3px_of_peer": 2943,
+      "hsteo_candidate_dot_count": 9140,
+      "directed_overlap_fraction_COMPUTED": 0.32199124726477024,
+      "spearman_5px_block_density_COMPUTED": 0.07855884758830732,
+      "abs_spearman_over_0_90": false,
+      "overlap_over_0_70": false,
+      "duplicate_by_any_threshold": false
+    },
+    {
+      "site": "GEMSDOE25",
+      "peer_file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "hsteo_candidate_dots_within_3px_of_peer": 2842,
+      "hsteo_candidate_dot_count": 9140,
+      "directed_overlap_fraction_COMPUTED": 0.3109409190371991,
+      "spearman_5px_block_density_COMPUTED": 0.07543388815592081,
+      "abs_spearman_over_0_90": false,
+      "overlap_over_0_70": false,
+      "duplicate_by_any_threshold": false
+    },
+    {
+      "site": "GEMSDOE27",
+      "peer_file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "hsteo_candidate_dots_within_3px_of_peer": 3104,
+      "hsteo_candidate_dot_count": 9140,
+      "directed_overlap_fraction_COMPUTED": 0.33960612691466086,
+      "spearman_5px_block_density_COMPUTED": 0.08401217194963487,
+      "abs_spearman_over_0_90": false,
+      "overlap_over_0_70": false,
+      "duplicate_by_any_threshold": false
+    },
+    {
+      "site": "GEMSDOE28",
+      "peer_file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "hsteo_candidate_dots_within_3px_of_peer": 2197,
+      "hsteo_candidate_dot_count": 9140,
+      "directed_overlap_fraction_COMPUTED": 0.24037199124726477,
+      "spearman_5px_block_density_COMPUTED": 0.043386494455942504,
+      "abs_spearman_over_0_90": false,
+      "overlap_over_0_70": false,
+      "duplicate_by_any_threshold": false
+    },
+    {
+      "site": "GEMSDOE30",
+      "peer_file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+      "hsteo_candidate_dots_within_3px_of_peer": 2842,
+      "hsteo_candidate_dot_count": 9140,
+      "directed_overlap_fraction_COMPUTED": 0.3109409190371991,
+      "spearman_5px_block_density_COMPUTED": 0.07543388815592081,
+      "abs_spearman_over_0_90": false,
+      "overlap_over_0_70": false,
+      "duplicate_by_any_threshold": false
+    },
+    {
+      "site": "GEMSDOE31",
+      "peer_file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "hsteo_candidate_dots_within_3px_of_peer": 2256,
+      "hsteo_candidate_dot_count": 9140,
+      "directed_overlap_fraction_COMPUTED": 0.24682713347921226,
+      "spearman_5px_block_density_COMPUTED": 0.044770554381373624,
+      "abs_spearman_over_0_90": false,
+      "overlap_over_0_70": false,
+      "duplicate_by_any_threshold": false
+    },
+    {
+      "site": "GEMSDOE32",
+      "peer_file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
+      "hsteo_candidate_dots_within_3px_of_peer": 1787,
+      "hsteo_candidate_dot_count": 9140,
+      "directed_overlap_fraction_COMPUTED": 0.19551422319474837,
+      "spearman_5px_block_density_COMPUTED": 0.01949672071896905,
+      "abs_spearman_over_0_90": false,
+      "overlap_over_0_70": false,
+      "duplicate_by_any_threshold": false
+    },
+    {
+      "site": "GEMSDOE33",
+      "peer_file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
+      "hsteo_candidate_dots_within_3px_of_peer": 2469,
+      "hsteo_candidate_dot_count": 9140,
+      "directed_overlap_fraction_COMPUTED": 0.2701312910284464,
+      "spearman_5px_block_density_COMPUTED": 0.057098598123918,
+      "abs_spearman_over_0_90": false,
+      "overlap_over_0_70": false,
+      "duplicate_by_any_threshold": false
+    },
+    {
+      "site": "GEMSDOE36",
+      "peer_file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif",
+      "hsteo_candidate_dots_within_3px_of_peer": 1831,
+      "hsteo_candidate_dot_count": 9140,
+      "directed_overlap_fraction_COMPUTED": 0.20032822757111599,
+      "spearman_5px_block_density_COMPUTED": 0.020063067750512562,
+      "abs_spearman_over_0_90": false,
+      "overlap_over_0_70": false,
+      "duplicate_by_any_threshold": false
+    }
+  ],
+  "pairs_flagged_by_overlap": 0,
+  "pairs_flagged_by_absolute_rank": 0,
+  "pairs_flagged_by_either": 0,
+  "maximum_overlap": 0.33960612691466086,
+  "maximum_absolute_spearman": 0.08401217194963487,
+  "approval_effect": "No effect; artifact remains research-only with no HOLDOUT-DTI and no exhaustive uniqueness receipt."
+}

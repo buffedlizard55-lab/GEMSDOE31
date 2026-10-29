@@ -2040,6 +2040,104 @@
     "Licences for SMU, NBMG and INGENIOUS unverified; eligibility unverified."
    ],
    "delivery_state": "No new TIFF, experiment, candidate, slot, DrivenData access or leaderboard estimate. Current release remains negative."
+  },
+  {
+   "id": "pass-2026-10-29-arena-a5caa430-1-repository-evidence-verification",
+   "status": "complete-negative; no scientific method assigned",
+   "scope": [
+    "read the active README charter, AGENTS.md, release registers, prior evidence and current request before editing",
+    "verify the nine pinned focus-site artifacts and compare the nine peer fields under the recorded overlap/rank rules",
+    "revalidate both prior H-STEO TIFF encodings locally, and compare its final dots against the nine pinned focus peers only",
+    "publish the active nine-site executive summary, H33 lineage analysis, ranked hypotheses, current negative run card and static status/feed updates",
+    "write a consolidated machine-readable verification receipt and rebuild the evidence inventory"
+   ],
+   "verification": {
+    "pytest": "265 passed",
+    "ruff": "all checks passed",
+    "compileall": "passed for src/, scripts/, and tests/",
+    "metric": "max |DTI_fast - DTI_brute| = 4.441e-16 over 24 grids; two exact cases passed",
+    "focus_sites": "9 pinned files reverified; 36 pairs; 36 exceeded the 70% 3-px overlap threshold and 29 exceeded absolute Spearman 0.90; not full-registry coverage",
+    "hsteo_focus_subset": "0/9 final-dot pairs exceeded either threshold; max overlap 0.3396061269; max |Spearman| 0.0840121719; no full 695-raster or pre-placement clearance",
+    "hsteo_format": "both local format-only rechecks passed against the owner-mirror sample; organizer acceptance remains unverified",
+    "integrity": "current-run, protocol-review, H31-CC, release-status, focus-site, H31-J, H31-T and H31-AA verifiers completed with negative/research-only outcomes; audit_download exit 2 was the expected verified denial",
+    "evidence_inventory": "263 artifacts inventoried; zero legacy cache files copied; 14 submission records registered",
+    "site": "22 pages, 596 local links, seven generated data files; scripts/check_site.py passed after the final inventory refresh"
+   },
+   "open_gates": [
+    "no assigned method paragraph/lane; no scientific experiment or new TIFF authorized",
+    "training feature raster and production feature cache absent from this checkout",
+    "prior H-STEO lacks full-registry/pre-placement uniqueness evidence and HOLDOUT-DTI",
+    "no exact-file organizer score receipt, account/slot authorization or official acceptance",
+    "external hypothesis data sources, exact-area coverage and challenge-compatible licenses not rechecked"
+   ],
+   "review": "knowledge/repo_review_2026-10-29_arena-a5caa430.md",
+   "run_card": "evidence/review_a5caa430/run_card.json",
+   "verification_receipt": "evidence/review_a5caa430/verification.json",
+   "new_experiments": 0,
+   "new_tif_generated": false,
+   "submission_slots_used": 0,
+   "ok_to_submit": false,
+   "leaderboard_estimate": null
+  },
+  {
+   "id": "pass-2026-10-29-arena-a5caa430-2-independent-provenance-and-safety-review",
+   "status": "complete-with-blockers-preserved",
+   "checks": [
+    "cross-checked H33-2-B2 exact pixel lineage (D2.8 to H27 to H33) and retained the 0.2778 value as USER-REPORTED; geometry does not prove private-truth score causality",
+    "checked the D2.8 0.2600 and H27-4 0.2708 claim conflicts against pinned owner-mirror records; retained both as unverified",
+    "verified that 0.3195 and 0.4413 remain conflicting USER-REPORTED anchors and that no leaderboard access occurred",
+    "reviewed H-STEO method against its receipt: a 600 m catalogue dilation plus offset 7x7 grid is not measured stepover geometry or an independent discovery layer",
+    "reviewed source/access wording, access limits, README front door, current site feed, machine-readable receipts and active irregularity numbering"
+   ],
+   "findings_fixed": [
+    "added a computed nine-pinned-peer H-STEO final-dot audit while keeping full-registry and pre-placement status explicitly NOT ESTABLISHED",
+    "added automated JSON exports and visible site links for current verification, H-STEO format checks and the peer-subset receipt",
+    "made the current negative review precede legacy feed recommendations; renamed archived feed keys and safety notice",
+    "updated archived-notice and active-site safety assertions; restored truthful archived wording without preserving a stale current-session recommendation",
+    "sorted the two new irregularity records numerically and checked for duplicate IDs"
+   ],
+   "remaining_risks": [
+    "all historical focus-site and leaderboard values are not organizer-confirmed by exact-file receipts",
+    "the new-file score estimate is unavailable, not a projection",
+    "the nine-peer H-STEO result is not full-registry uniqueness or promotion evidence",
+    "no hypothesis source was freshly checked for exact-area coverage or challenge license"
+   ],
+   "historical_scope": false
+  },
+  {
+   "id": "pass-2026-10-29-arena-a5caa430-3-whole-request-and-site-crosscheck",
+   "status": "complete-with-open-scientific-and-delivery-gates",
+   "criteria": [
+    {
+     "criterion": "nine requested sites: pinned file, score provenance, new-file estimate, uniqueness scope and download/submission permission",
+     "status": "complete in the executive summary and machine register; all claims are USER-REPORTED; new estimate unavailable; focus-peer results are subset-scoped; study only/do not submit"
+    },
+    {
+     "criterion": "H33-2-B2 0.2778 claim and geometry-versus-causality caveat",
+     "status": "complete; exact pixel pruning is COMPUTED; score and private truth remain unverified; no causal claim is made"
+    },
+    {
+     "criterion": "three to five ranked geological hypotheses with mechanisms, novelty, mimics, qualitative upside, cost, sources and access",
+     "status": "four ranked desk-only hypotheses documented; external products are explicitly not freshly accessed or validated"
+    },
+    {
+     "criterion": "assigned method, shared cache/evaluator, leakage checks, holdout and promotion",
+     "status": "blocked; no assigned method paragraph or production feature stack; no experiment, holdout, TIFF, slot or upload"
+    },
+    {
+     "criterion": "current automated checks and static site",
+     "status": "265 tests, Ruff, compileall, metric check and final 22-page/596-link site check passed"
+    },
+    {
+     "criterion": "GitHub delivery status",
+     "status": "gh pr list --head arena/a5caa430-gemsdoe31 returned no PR at the check; no PR was created or merged in this review"
+    }
+   ],
+   "delivery_state": "No experiment, TIFF, upload, slot use, PR or merge. GitHub PR status was checked; no pull request was associated with this head at the time of review.",
+   "review": "knowledge/repo_review_2026-10-29_arena-a5caa430.md",
+   "run_card": "evidence/review_a5caa430/run_card.json",
+   "verification_receipt": "evidence/review_a5caa430/verification.json",
+   "historical_scope": false
   }
  ],
  "remaining_work": [
@@ -2053,9 +2151,9 @@
  ],
  "current_run": "registry/current_run.json",
  "current_three_passes": [
-  "bf9d261d-pass-1-2026-10-26",
-  "bf9d261d-pass-2-2026-10-26",
-  "bf9d261d-pass-3-2026-10-26"
+  "pass-2026-10-29-arena-a5caa430-1-repository-evidence-verification",
+  "pass-2026-10-29-arena-a5caa430-2-independent-provenance-and-safety-review",
+  "pass-2026-10-29-arena-a5caa430-3-whole-request-and-site-crosscheck"
  ],
  "release_decision": "DO NOT SUBMIT — literal registry STOP",
  "rbu31_session_2026_10_25": {
@@ -2127,8 +2225,8 @@
  },
  "historical_release_decision_pre_bf9d261d": "2026-10-26 (3ce68fc7): uniform selector promotes H31-X as primary (G1-G6 pass under the selector's frozen rules); H31-T/H31-J/H31-M remain gated alternates; H31-X lane card itself verdict=negative under its stricter top-K G5 (disclosed). Owner uploads manually; 0 slots spent here.",
  "current_release_status": "registry/release_status.json",
- "current_scientific_run": "evidence/h31cc/run_card.json (latest prior-session scientific artifact; no new scientific run in arena/41e3ba3f)",
- "current_run_scope": "registry/current_run.json is the historical MAGREST scientific receipt, not current release permission",
+ "current_scientific_run": "evidence/h31cc/run_card.json (latest prior scientific artifact; no new scientific run in arena/a5caa430-gemsdoe31)",
+ "current_run_scope": "registry/current_run.json is the historical MAGREST scientific receipt, not current release permission; arena/a5caa430-gemsdoe31 performed repository/evidence review only.",
  "previous_current_three_passes": [
   "arena-review-pass-1-2026-10-26",
   "arena-review-pass-2-2026-10-26",
@@ -2383,5 +2481,25 @@
   "submission_slots_used": 0,
   "ok_to_submit": false,
   "leaderboard_estimate": null
+ },
+ "session_review_20261029_a5caa430": {
+  "session": "arena/a5caa430-gemsdoe31",
+  "date": "2026-10-29",
+  "lane": "Repository/evidence review only; no scientific method assigned",
+  "passes": [
+   "pass-2026-10-29-arena-a5caa430-1-repository-evidence-verification",
+   "pass-2026-10-29-arena-a5caa430-2-independent-provenance-and-safety-review",
+   "pass-2026-10-29-arena-a5caa430-3-whole-request-and-site-crosscheck"
+  ],
+  "review": "knowledge/repo_review_2026-10-29_arena-a5caa430.md",
+  "run_card": "evidence/review_a5caa430/run_card.json",
+  "verification": "evidence/review_a5caa430/verification.json",
+  "new_experiments": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "ok_to_submit": false,
+  "leaderboard_estimate": null,
+  "decision": "NO FILE IS CLEARED TO SUBMIT; prior H-STEO remains research-download-only",
+  "delivery_status": "No PR was listed for this head at the final GitHub status query; no PR was created or merged in this review."
  }
 }
