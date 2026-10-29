@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Shared submission GeoTIFF writer and automated multi-gate validator (GEMSDOE31).
+"""Legacy research GeoTIFF writer and local format validator (GEMSDOE31).
+
+Canonical STOP blocks packaging. A format pass never grants upload permission.
 
 Reuses ``scripts/build_submission.py`` and ``src/gemsdoe31/submission.py`` without private forks.
 Writes:
-* ``<outdir>/<name>-nan.tif``       (official null/NaN outside footprint convention)
+* ``<outdir>/<name>-nan.tif``       (historically recorded NaN-outside footprint convention; not organizer-authenticated)
 * ``<outdir>/<name>-allfinite.tif`` (defensive zero-outside convention)
 * ``<outdir>/<name>-nan.zip``       (single-GeoTIFF zip archive)
 * ``<outdir>/<name>-format-check.json`` (full machine-verified format & gate receipt)
@@ -25,6 +27,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_submission import footprint_mask, write_variants  # noqa: E402
 from gemsdoe31.submission import sha256_file, validate_submission  # noqa: E402
+from gemsdoe31.packaging_policy import require_research_packaging, research_only_permissions  # noqa: E402
 from scipy.ndimage import distance_transform_edt  # noqa: E402
 
 
@@ -40,6 +43,7 @@ def write_validated_submission_variants(
     """Write ``-nan.tif``, ``-allfinite.tif``, ``-nan.zip`` enforcing B>2 px collar & strict validation."""
     if len(note) > 140:
         raise ValueError(f"Submission note exceeds 140 characters ({len(note)}): {note!r}")
+    require_research_packaging(ROOT)
     footprint = footprint_mask(template_path)
     with rasterio.open(labels_path) as src:
         catalogue = (src.read(1) == 1) & footprint
@@ -58,7 +62,7 @@ def write_validated_submission_variants(
         "submission_name": submission_name,
         "submission_note": note,
         "submission_note_length": len(note),
-        "ok_to_download_and_submit": bool(rep_nan["ok_to_upload_format_only"] and rep_fin["ok_to_upload_format_only"]),
+        **research_only_permissions(),
         "primary_nan_variant": {
             "path": str(paths["nan"]),
             "zip_path": str(paths["zip"]),
@@ -100,6 +104,7 @@ def emit_and_validate_submission(
     """Write ``-nan.tif``, ``-allfinite.tif``, ``-nan.zip`` and verify every format & range invariant."""
     if len(note) > 140:
         raise ValueError(f"Submission note exceeds 140 characters ({len(note)} chars): {note!r}")
+    require_research_packaging(ROOT)
     footprint = footprint_mask(template_path)
     if dots_mask.shape != footprint.shape:
         raise ValueError(f"dots_mask shape {dots_mask.shape} != template {footprint.shape}")
@@ -132,9 +137,10 @@ def emit_and_validate_submission(
         },
         "validation": {"nan": val_nan, "allfinite": val_fin},
         "automated_gates": gate_summary,
+        **research_only_permissions(),
         "warnings": [
             "Format validation is local and automated. It cannot prove live DrivenData organizer acceptance.",
-            "Promotion to an actual weekly DrivenData slot remains a separate human selector step within the 3/week cap.",
+            "Promotion requires separate selector authorization and a verified current weekly cap; neither is granted by this writer.",
         ],
     }
     receipt_path = stem.with_name(stem.name + "-format-check.json")
@@ -153,6 +159,7 @@ def main() -> int:
     parser.add_argument("--gates-json", type=Path, default=None)
     args = parser.parse_args()
 
+    require_research_packaging(ROOT)
     arr = np.load(args.mask_npy, allow_pickle=False)
     dots = np.nan_to_num(arr, nan=0.0) > 0.5
     gates = json.loads(args.gates_json.read_text()) if args.gates_json and args.gates_json.is_file() else None

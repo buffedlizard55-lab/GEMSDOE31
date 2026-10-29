@@ -1,4 +1,26 @@
-# Current review — 29 October 2026 (`arena/8e29897c-gemsdoe31`)
+# Current review — 29 October 2026 (`arena/a668bcb6-gemsdoe31`)
+
+**DO NOT SUBMIT. No new TIFF, geological experiment, selector choice or weekly slot in this review.**
+The legacy writer incorrectly equated local format validity with upload permission; that bug is fixed.
+Legacy packaging now fails closed against the canonical release STOP before output writes.
+Existing TIFFs and scientific cards are unchanged. The latest H31-CC research file still fails the literal
+registered-control overlap rule; no new-file leaderboard estimate is justified.
+
+- [Executive summary / nine-site file table / submission guide](docs/executive-summary.html#nine-site-decision)
+- [Current three-pass review, ranked unfit hypotheses, verified sources, limitations and next steps](knowledge/repo_review_2026-10-29_a668bcb6.md)
+- [Session JSON run card](evidence/review_a668bcb6/run_card.json) · [canonical release status](registry/release_status.json)
+- [Current prompt restatement](knowledge/owner_prompt_2026-10-29_a668bcb6.md); the full earlier normalized owner prompt remains below. Read both and AGENTS.md each session.
+
+**Freshness:** all nine GitHub repository HEADs were checked and differ from their pinned historical artifact
+revisions; current rasters/scores were not re-audited. The organizer reference README was actually fetched
+and permits CPU-only execution (GPU is faster, not mandatory for that reference).
+[Timestamped source receipt](evidence/review_a668bcb6/source_access.json).
+Supplied GEMSDOE92 0.2784 exceeds H33's 0.2778 outside the nine-site focus; both are USER-REPORTED,
+not organizer-confirmed scores. Maximize P(Win); Own the Outcome: fix false approvals, do not consume a slot on a failed gate.
+
+---
+
+## Parallel review — 29 October 2026 (`arena/8e29897c-gemsdoe31`)
 
 **DO NOT SUBMIT.** No new TIFF or experiment; the verified existing H31-CC artifact fails the literal registry uniqueness rule. No slot used. New leaderboard estimate: unavailable.
 

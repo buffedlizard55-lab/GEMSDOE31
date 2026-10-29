@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "review_id": "repo-review-2026-10-29-arena-a668bcb6",
+  "branch": "arena/a668bcb6-gemsdoe31",
+  "date": "2026-10-29",
+  "review_scope": "Legacy-writer safety fixes and existing-artifact integrity review, not a scientific lane or selector.",
+  "experiments_run": 0,
+  "new_tif_generated": false,
+  "candidate_selected": false,
+  "submission_slots_used": 0,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "ok_to_download_for_research": true,
+  "leaderboard_estimate": null,
+  "verdict": "negative",
+  "hypothesis": "Catalogue-missing normal faults under basin fill sit on basement-depth steps where surface slope is below 4 degrees, corroborated by a gravity horizontal gradient and positive dilatation.",
+  "hypothesis_provenance": "CITED existing H31-CC hypothesis; no method assigned or fit in this review",
+  "mechanism": "CC3: rank(grad depth_to_base_surf, sigma 2px) geometric-mean rank(|iso_grav_anom_hg|), gated to det_elev_slope<4 and geod_dilaterate>0; Poisson 2.8px, 37654 budget, >2px from visible catalogue.",
+  "non_fault_mimic": "depositional isopach pinch-out, lithologic density contact, gravity terrain residual, playa compaction",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "arm": "CC3",
+    "withheld_positive_pixels": 60988,
+    "dti": 0.047069900074153195,
+    "ci95": [
+      0.03323168323881463,
+      0.06181643961343269
+    ],
+    "tpw": 2673.22811538755,
+    "fpw": 37338.42075323,
+    "fnw": 58314.77188461243,
+    "paired_vs_null": {
+      "evidence_class": "HOLDOUT-DTI",
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "delta": -0.009669665602735938,
+      "ci95": [
+        -0.02345607786902358,
+        0.0052006781922370095
+      ],
+      "withheld_positive_pixels": 60988
+    },
+    "best_comparable_control": "NULL",
+    "provenance": "CITED frozen H31-CC card; not retrained or reevaluated in this review"
+  },
+  "correlation_overlap_vs_registry": {
+    "surface": {
+      "max_abs_rho": 0.13191868045209426,
+      "max_overlap": 0.3199660062675944,
+      "lattice_overlap": 0.9961225898974877,
+      "coverage_complete": false,
+      "provenance": "CITED from frozen H31-CC card; not replayed in this integrity review"
+    },
+    "final": {
+      "max_abs_rho": 7.680769e-05,
+      "max_overlap": 0.9961225898974877,
+      "lattice_overlap": 0.9961225898974877,
+      "lattice_dot_spearman_rho": -7.680769e-05,
+      "coverage_complete": false,
+      "provenance": "COMPUTED from final TIFF dots versus one hash-pinned registered owner-mirror control; not an exhaustive registry pass"
+    }
+  },
+  "registry_scope": "Final existing TIFF compared to one hash-pinned registered witness; sufficient STOP, not exhaustive. Surface metrics cited, not rerun.",
+  "raster_sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+  "raster_file": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+  "raster_provenance": "Existing research bytes; no new TIFF.",
+  "validator": {
+    "scope": "Read-back of existing all-finite TIFF using verify_h31cc_run.py --check against owner-mirror sample",
+    "format_pass": true,
+    "nan_inside_footprint": 0,
+    "range": [
+      0,
+      1
+    ],
+    "single_band_float32": true,
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "shape_crs_transform_match": true,
+    "organizer_acceptance_verified": false
+  },
+  "submission_name": "gems31-h31cc-basement-step-37654d-20261028",
+  "note": "RESEARCH ONLY: existing H31-CC audit; legacy false-approval fixed; no new TIFF, experiment or slot; literal registry STOP.",
+  "release_status": "registry/release_status.json",
+  "review_report": "knowledge/repo_review_2026-10-29_a668bcb6.md",
+  "source_access": "evidence/review_a668bcb6/source_access.json",
+  "operative_prompt": "knowledge/owner_prompt_2026-10-29_a668bcb6.md",
+  "three_passes": [
+    "Implementation: fixed false writer approval and canonical-STOP bypass; verified existing bytes.",
+    "Bug/edge review: mocked policy/writer regressions; no new TIFF generated; preserved template pins.",
+    "Acceptance after main PR #65 integration: 255 tests, Ruff, compile, metric/marginal proofs, artifact/release checks and read-only audit denial verified; site regenerated and checked. No new TIFF, fit or slot."
+  ],
+  "limitations": [
+    "Missing assigned method paragraph and literal duplicate STOP block new scientific work.",
+    "Production feature stack/cache absent; only small pinned validation inputs restored.",
+    "No current exhaustive remote raster/receipt audit or calibrated leaderboard estimate.",
+    "Non-GitHub official pages outside host allowlist were not fetched.",
+    "Legacy local wrappers guarded; direct historical template serializers remain archival, not authorization paths."
+  ],
+  "checks": {
+    "pytest": "255 passed after integrating main PR #65",
+    "ruff": "all checks passed",
+    "compileall": "passed: src scripts tests",
+    "metric": "24 fast/brute grids; max absolute difference 4.441e-16; 29 kernel offsets",
+    "marginal_dti": "10000 finite-change sign checks passed",
+    "verify_current_run": "passed; historical negative",
+    "verify_protocol_review": "passed; negative",
+    "verify_h31cc_run": "passed; negative research only; final overlap reproduced",
+    "build_release_status": "passed; existing H31-CC status unchanged",
+    "verify_h31j": "passed; not slot-approved",
+    "verify_h31t": "passed; not slot-approved",
+    "verify_h31aa_run": "passed; negative",
+    "site": "22 pages / 552 local links; all passed",
+    "browser_smoke": "not run; static checks only",
+    "existing_tif_zip_changes": "none; git diff contains no .tif/.zip changes",
+    "audit_download": "exit 2: VERIFIED_DENIAL; no approval"
+  },
+  "integration": {
+    "main_commit": "703fe7282d10596cedc8e54a68992ce86cc4dd43",
+    "included_prs": [
+      64,
+      65
+    ],
+    "conflicts_resolved": [
+      "README: preserved both session records",
+      "registry/experiments: regenerated inventory"
+    ],
+    "scientific_work_added": false
+  }
+}

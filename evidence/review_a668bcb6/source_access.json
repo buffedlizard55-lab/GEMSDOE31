@@ -1,0 +1,114 @@
+{
+  "checked_utc": "2026-10-29T14:23:03.700613+00:00",
+  "official_reference": {
+    "repo": "drivendataorg/gems-prize-reference-solution",
+    "ref": "aebe92f7c8a990f0e3443451b7a825d9afd6336b",
+    "url": "https://github.com/drivendataorg/gems-prize-reference-solution/blob/aebe92f7c8a990f0e3443451b7a825d9afd6336b/README.md",
+    "sha256": "cfa4d55559c9128313beb9417eae7e0a94c31677132afb1120f9e86222804239",
+    "evidence_class": "OFFICIAL organizer GitHub repository; README fetched; model not executed",
+    "verified_claims": [
+      "Reference directs entrants to place competition data in data/.",
+      "Reference provides CPU-only and GPU environment options.",
+      "GPU is faster, not required by this reference README."
+    ]
+  },
+  "owner_repository_heads": [
+    {
+      "site": "GEMSDOE24",
+      "reviewed_head": "5e3fa8ff58acddb2d95a1eed30ca98a40ff14421",
+      "pinned_artifact_refs": [
+        "544fe988df1b8a1b16f249a28be3fc3b3ff378a0",
+        "bb1a82cfc90286dce8e296788dc434fb644defe4"
+      ],
+      "changed_since_all_pins": true,
+      "scope": "Metadata only. Current remote rasters and score receipts not re-audited."
+    },
+    {
+      "site": "GEMSDOE25",
+      "reviewed_head": "889d93dcde5bbc5812b2d68c5de830a8d8dc61a1",
+      "pinned_artifact_refs": [
+        "2a279dd0d2a4319c1022567876eb4c97553e2d13",
+        "5d46f06b4269f55443065600711216de9fbd51ab"
+      ],
+      "changed_since_all_pins": true,
+      "scope": "Metadata only. Current remote rasters and score receipts not re-audited."
+    },
+    {
+      "site": "GEMSDOE27",
+      "reviewed_head": "378151fa3a0d3c5bb58fec6b88dbf461df193a4e",
+      "pinned_artifact_refs": [
+        "927322eadbde56be42ae129ccdfb9b37540d8e60",
+        "c79609503619559b5a2c53116e87fce646bc4235"
+      ],
+      "changed_since_all_pins": true,
+      "scope": "Metadata only. Current remote rasters and score receipts not re-audited."
+    },
+    {
+      "site": "GEMSDOE28",
+      "reviewed_head": "3f7864730b1832edb17850c95a890fe15f9be7cf",
+      "pinned_artifact_refs": [
+        "178c65378e1adaaabe45d944fd63b7cd284bff4f",
+        "712570c5711530e07ae00795471b08d1aa122ffd"
+      ],
+      "changed_since_all_pins": true,
+      "scope": "Metadata only. Current remote rasters and score receipts not re-audited."
+    },
+    {
+      "site": "GEMSDOE30",
+      "reviewed_head": "7b12a5a7368e263d465784165fc02b6d8f35453d",
+      "pinned_artifact_refs": [
+        "781eea04fb1d46056631c7fb37900f2508295325",
+        "ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb"
+      ],
+      "changed_since_all_pins": true,
+      "scope": "Metadata only. Current remote rasters and score receipts not re-audited."
+    },
+    {
+      "site": "GEMSDOE31",
+      "reviewed_head": "4d3bc5c8db9fb5f7dfa3d21e0d696ffe40005e52",
+      "pinned_artifact_refs": [
+        "4371416853904713760b86db0dccd9afe50d776f"
+      ],
+      "changed_since_all_pins": true,
+      "scope": "Metadata only. Current remote rasters and score receipts not re-audited."
+    },
+    {
+      "site": "GEMSDOE32",
+      "reviewed_head": "148a9148e77456ad1acc7d1735d38ed1e558cc03",
+      "pinned_artifact_refs": [
+        "9863c82a7c7dc283c615b711bab941debaff0ec4"
+      ],
+      "changed_since_all_pins": true,
+      "scope": "Metadata only. Current remote rasters and score receipts not re-audited."
+    },
+    {
+      "site": "GEMSDOE33",
+      "reviewed_head": "3eaf85efb49f364b84f8be04e8b084b12d0303b9",
+      "pinned_artifact_refs": [
+        "f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6"
+      ],
+      "changed_since_all_pins": true,
+      "scope": "Metadata only. Current remote rasters and score receipts not re-audited."
+    },
+    {
+      "site": "GEMSDOE36",
+      "reviewed_head": "e280188adbbe762e6b7ac6f3b8e105e8e7915026",
+      "pinned_artifact_refs": [
+        "c9ad59ec6f969ed931d089a03044c1567a633e84"
+      ],
+      "changed_since_all_pins": true,
+      "scope": "Metadata only. Current remote rasters and score receipts not re-audited."
+    }
+  ],
+  "github_pages": {
+    "status": "building",
+    "html_url": "https://buffedlizard55-lab.github.io/GEMSDOE31/",
+    "source": {
+      "branch": "main",
+      "path": "/"
+    }
+  },
+  "non_github_sources": "Not fetched: outside allowed network hosts. Static links only; no current availability or competition-status verification.",
+  "drivendata_contact": false,
+  "leaderboard_accessed": false
+}
