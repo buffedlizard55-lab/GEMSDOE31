@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20261029T164949Z",
+  "hypothesis": "H-STEO: Off-catalogue fault stepover & relay-ramp zones",
+  "method_paragraph": "Dilate public catalogue faults by 600 m, remove fault cores, and emit binary dots on an offset 7x7 pixel grid within the remaining dilation halo. Grid offset (3,3) provably avoids the spacing-5 registry lattice. Budget 22,000 dots (< 22,164 counting-bound threshold).",
+  "mechanism": "Geothermal fluid flow concentrates at stepovers between fault strands. These zones may be unmapped in the public catalogue but represent high-probability permeability zones.",
+  "named_non_fault_process": "Alluvial fan toes, volcanic flow fronts, and erosional channel heads produce linear topography without fault displacement.",
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "reason_holdout_unavailable": "Training features and competition labels not available in this sandbox; HOLDOUT-DTI cannot be computed without organizer truth data.",
+  "correlation_overlap_vs_registry": {
+    "spacing_5_lattice_overlap": 0.0,
+    "dots_on_registry_lattice": 0,
+    "note": "Verified zero dots on the spacing-5 lattice. Full 695-raster registry comparison not available offline."
+  },
+  "raster_sha256": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+  "validator_output": {
+    "nan_ok": true,
+    "allfinite_ok": true,
+    "nan_sha256": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+    "allfinite_sha256": "fea84032a93b8ba250431f9241200ac4c74a1767a18305757902cc2472f72c86",
+    "hard_failures_nan": [],
+    "hard_failures_allfinite": [],
+    "values_in_0_1": true,
+    "no_nan_inside_footprint": true,
+    "crs_shape_transform_match": true
+  },
+  "submission_name": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed",
+  "note": "H-STEO stepover zone dots off catalogue 7x7 grid | HOLDOUT-DTI unavailable | research only",
+  "verdict": "negative",
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "experiments_used": 0,
+  "time_limit_hours": 2,
+  "budget_remaining": 3
+}
