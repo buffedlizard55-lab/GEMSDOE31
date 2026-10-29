@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20261029T164949Z",
+  "method": "H-STEO Off-catalogue fault stepover & relay-ramp zone targeting",
+  "hypothesis": "Geothermal upwelling concentrates at fault stepovers/relay ramps between parallel strands; these zones are often below public mapping thresholds and absent from the catalogue.",
+  "mechanism": "Dilate catalogue faults by 600 m, remove fault cores, place binary dots on an offset 7x7 grid within the halo grid cells.",
+  "named_non_fault_process": "Alluvial fan deposition, volcanic flow toes, and erosional gullies can create linear topography unrelated to faults.",
+  "grid": {
+    "shape": [
+      3730,
+      3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ]
+  },
+  "parameters": {
+    "dilation_radius_px": 6,
+    "dot_spacing_px": 7,
+    "dot_offset_row": 3,
+    "dot_offset_col": 3,
+    "max_dots": 22000
+  },
+  "counts": {
+    "catalogue_fault_px": 60988,
+    "stepover_zone_px": 465907,
+    "dots_selected": 9140,
+    "dots_on_catalogue": 0,
+    "dots_off_catalogue": 9140,
+    "dots_on_registry_lattice": 0
+  },
+  "uniqueness": {
+    "avoids_spacing_5_lattice": true,
+    "below_counting_bound_threshold": true,
+    "grid_pattern": "offset 7x7 with offset (3,3)"
+  },
+  "files": {
+    "nan": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
+    "allfinite": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-allfinite.tif",
+    "zip": "/home/user/GEMSDOE31/docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.zip"
+  },
+  "sha256": {
+    "nan": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+    "allfinite": "fea84032a93b8ba250431f9241200ac4c74a1767a18305757902cc2472f72c86"
+  },
+  "bytes": {
+    "nan": 116805,
+    "allfinite": 74185
+  },
+  "validation": {
+    "nan": true,
+    "allfinite": true
+  },
+  "hard_failures": {
+    "nan": [],
+    "allfinite": []
+  },
+  "submission_name": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed",
+  "note": "H-STEO stepover zone dots off catalogue 7x7 grid | HOLDOUT-DTI unavailable | research only",
+  "note_length": 90,
+  "status": {
+    "ok_to_download_for_research": true,
+    "ok_to_submit": false,
+    "slot_approved": false,
+    "organizer_acceptance_verified": false,
+    "reason": "Canonical release gate not satisfied: no method lane assigned; uniqueness gate requires surface+final evidence; no organizer receipt."
+  }
+}
