@@ -82,7 +82,7 @@
       "status": "open-stop-condition",
       "summary": "H31-A pilot draw 10 failed its paired metric gate, and the residual semivariogram point fits did not reach 95% of the fitted partial sill within observed lag support.",
       "evidence": [
-        "Mean paired catalogue-gap \u0394DTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
+        "Mean paired catalogue-gap ΔDTI -0.0040088545; candidate positive in 1/4 blocks versus required >+0.001 mean and at least 3/4 positive blocks.",
         "Furthest populated 500 m lag-bin center 13.75 km; provisional point-fit range about 24.964 km; fitted-sill fraction at support 0.808 for both arms.",
         "No component-bootstrap confidence interval was produced because the point fit was unstable; operational range and final buffer are unknown."
       ],
@@ -146,7 +146,7 @@
       "id": "IR-31-RUNNER-BRANCH-GUARD",
       "severity": "medium",
       "status": "resolved",
-      "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session\u2019s fixed arena/01a1050e-gemsdoe31 branch.",
+      "summary": "AGENTS.md and the H31 runner required the prior session branch arena/01a104a9-gemsdoe31, which would reject this session’s fixed arena/01a1050e-gemsdoe31 branch.",
       "evidence": [
         "Before correction, AGENTS.md and scripts/run_h31.py hard-coded arena/01a104a9-gemsdoe31.",
         "Developer session branch is arena/01a1050e-gemsdoe31."
@@ -177,7 +177,7 @@
         "src/gems32/hypotheses33.py compute_h33_2_flank_sweep derives d_cat from labels when not supplied and removes base cells using d_cat.",
         "src/gems32/holdout.py load_holdout_context hides components for the scoring context, but evaluate_candidate_holdout receives a prebuilt static candidate mask."
       ],
-      "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project\u2019s preregistered rules. Bias direction is not assumed.",
+      "impact": "The internal fold result is not an independent hide-and-recover estimate for a catalogue-based deletion method under this project’s preregistered rules. Bias direction is not assumed.",
       "action": "Do not use the owner-mirror H33 holdout result to promote this method. Any future catalogue-based processing must be rebuilt per fold from visible segments, mask visible faults pixel-exactly, and be tested under the registered evaluator."
     },
     {
@@ -624,6 +624,102 @@
         "evidence/review_bf9d261d/source_checks.json"
       ],
       "action": "Site/report disclose snapshot age. One registered witness proves STOP, but no full current uniqueness pass or live score ranking claimed."
+    },
+    {
+      "id": "IR-CC130-01",
+      "severity": "high",
+      "status": "open-format-risk",
+      "summary": "Official text requires data outside the bounds to be null or nan; repo -zeros files write 0 outside the 5,167,373-pixel footprint.",
+      "evidence": [
+        "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+        "registry/session_cc130eb1_decision.json"
+      ],
+      "action": "Do not upload any -zeros file without organizer confirmation of the format; the NaN convention is the one the official text and the organizer sample use."
+    },
+    {
+      "id": "IR-CC130-02",
+      "severity": "medium",
+      "status": "open-sample-mismatch",
+      "summary": "Owner-mirror data/sample_submission.tif has 60,988 pixels equal to 1; the official page says the sample predicts total fault absence.",
+      "evidence": [
+        "data/sample_submission.tif (owner mirror, not organizer-authenticated)",
+        "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/"
+      ],
+      "action": "Obtain the organizer sample; do not rely on the mirror as the organizer template."
+    },
+    {
+      "id": "IR-CC130-03",
+      "severity": "medium",
+      "status": "open-duplicate-bytes",
+      "summary": "GEMSDOE25 and GEMSDOE30 top files have identical pixel values, NaN masks and grids (0.2600 each) but different bytes; GEMSDOE30 filename tag 91eae1ca equals the first 8 hex digits of GEMSDOE25's SHA-256.",
+      "evidence": [
+        "evidence/review_cc130eb1/focus_site_verification.json"
+      ],
+      "action": "Report as duplicate prior art; no action on sites."
+    },
+    {
+      "id": "IR-CC130-04",
+      "severity": "high",
+      "status": "confirmed-one-dot-family",
+      "summary": "All nine focus top files duplicate each other: minimum pairwise overlap 0.9731 (either direction) and minimum Spearman 0.8498 over 36 pairs.",
+      "evidence": [
+        "evidence/review_cc130eb1/focus_site_verification.json",
+        "registry/session_cc130eb1_decision.json"
+      ],
+      "action": "No file among the nine is unique; none is a download-to-submit candidate."
+    },
+    {
+      "id": "IR-CC130-05",
+      "severity": "medium",
+      "status": "open-front-door-mismatch",
+      "summary": "scripts/build_site.py reads registry/current_run.json (historical MAGREST) for the front page and executive summary; AGENTS.md names registry/release_status.json (H31-CC) as canonical.",
+      "evidence": [
+        "scripts/build_site.py",
+        "AGENTS.md"
+      ],
+      "action": "Fix the generator to read the canonical release status (separate change; not made in this session)."
+    },
+    {
+      "id": "IR-CC130-06",
+      "severity": "medium",
+      "status": "mitigated-gate-quirk",
+      "summary": "gate.py sets chance-adjusted overlap to 0 when chance equals 1.0, so an identical dense raster can pass the adjusted rule.",
+      "evidence": [
+        "src/gemsdoe31/gate.py",
+        "scripts/verify_focus_sites.py"
+      ],
+      "action": "Conservative raw-overlap flag added in the verifier; gate.py not changed; owner to decide."
+    },
+    {
+      "id": "IR-CC130-07",
+      "severity": "high",
+      "status": "open-truth-definition-conflict",
+      "summary": "Official page says the test set is new faults not in the USGS database; a third-party README says catalogue pixels are masked out of evaluation.",
+      "evidence": [
+        "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+        "https://github.com/Svyable/GEMS-CONTEST"
+      ],
+      "action": "Obtain organizer text. The pruning explanation depends on it."
+    },
+    {
+      "id": "IR-CC130-08",
+      "severity": "low",
+      "status": "mitigated-access",
+      "summary": "The shell cannot reach drivendata.org or most data hosts; official pages were read with the fetch tool.",
+      "evidence": [
+        "knowledge/repo_review_2026-10-29_arena-cc130eb1.md"
+      ],
+      "action": "Use fetch_page for official pages; record quotes in the register."
+    },
+    {
+      "id": "IR-CC130-09",
+      "severity": "medium",
+      "status": "open-leaderboard-anchor-conflict",
+      "summary": "0.3195 and 0.4413 conflict and have no receipt; a sibling README attributes 0.3195 to GEMSDOE49 with a different file name; GEMSDOE92 (0.2784, USER-REPORTED) is above the nine-site maximum.",
+      "evidence": [
+        "registry/session_cc130eb1_decision.json"
+      ],
+      "action": "Label every anchor USER-REPORTED. Obtain organizer receipts before any claim."
     }
   ]
 }

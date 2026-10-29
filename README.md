@@ -1,3 +1,66 @@
+# Current session — 29 October 2026 (`arena/cc130eb1-gemsdoe31`): nine-site executive review
+
+**Core values: Maximize P(Win) · Own the Outcome.** Read this section, `AGENTS.md`, and the complete owner prompt below at every session start.
+
+**Decision: no file is cleared to submit, and this session does not submit anything.** No new TIFF was generated, no experiment ran, no slot was approved, and no leaderboard score is claimed. The nine requested sites' top files duplicate each other (minimum pairwise overlap 0.9731 at 3 px; minimum Spearman 0.8498), so none is unique. Their download links are for study only.
+
+## Owner prompt for this session (structured restatement)
+
+This is a restatement of the requested work, not a verbatim copy. The requirements below are the acceptance criteria.
+
+1. Review the repository and produce an executive summary for GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36. Include a table giving the file to download, an estimated score, and whether each file is unique against the other GEMDOE sites.
+2. Generate a unique, downloadable TIF submission. It must be obvious whether it is OK to download and submit, it must pass the "Predicted values must be in range [0, 1]" validator, and it must carry a name and a short note. Explain why H33-2-B2 (GEMSDOE32, 0.2778) scored highest, and whether a score above 0.2778 is achievable. Leaderboard references 0.4413 and 0.3195 conflict and are user-reported.
+3. Create an executive-summary subpage and a GitHub Pages-friendly site, update the README with this prompt and the Core Values, and add an explicit limitations and needed-access list and free official data sources with links.
+4. Generate three to five untested geological hypotheses, rank them, and validate the top candidate on a spatially blocked holdout before any submission slot.
+5. Create a pull request and merge to `main`. List remaining work and limitations.
+6. Constant rules: no hallucinations, line-by-line verification, official links, flag irregularities, no manual input, multi-pass review.
+
+**Standing rules, as applied here.** Do not copy a previous submission except for learning. Label numbers HOLDOUT-DTI or ORGANIZER-CONFIRMED, and do not claim a score without an organizer receipt. Stay in one method lane, and stop at a rank correlation above 0.90 or more than 70% of dots within 3 px of one registry raster. Budget: stop after 3 experiments or 2 hours, and do not select submissions. Never scrape or poll the DrivenData leaderboard, use only its static official link, and never auto-submit or upload.
+
+## Outcome of this session
+
+- **Executive summary (per-site table, hypotheses, irregularities, limitations, official sources):** [docs/executive-summary.html](docs/executive-summary.html). The page is generated from the register by `scripts/build_site.py`, so it cannot drift from the evidence.
+- **Register:** [registry/session_cc130eb1_decision.json](registry/session_cc130eb1_decision.json) (built by `scripts/build_session_register.py` from verified JSON only).
+- **Review:** [knowledge/repo_review_2026-10-29_arena-cc130eb1.md](knowledge/repo_review_2026-10-29_arena-cc130eb1.md). It covers the nine-site table, the 0.2778 explanation (with its inferences labelled), the official facts, and the irregularities.
+- **Hypotheses:** [knowledge/hypotheses_2026-10-29_arena-cc130eb1.md](knowledge/hypotheses_2026-10-29_arena-cc130eb1.md). Four ranked candidates, all untested and blocked.
+- **Run card (negative):** [evidence/review_cc130eb1/run_card.json](evidence/review_cc130eb1/run_card.json). Verification: [evidence/review_cc130eb1/focus_site_verification.json](evidence/review_cc130eb1/focus_site_verification.json). Scripts: `scripts/verify_focus_sites.py` and `tests/test_focus_sites.py`.
+
+## Why 0.2778 scored highest (user-reported; not organizer-confirmed)
+
+The official DTI is `TPw / (TPw + 0.2·FPw + 0.8·FNw + ε)`, and the test set is new faults not in the USGS database (official problem page). Dots on mapped faults therefore add false-positive cost. The repository's record shows H33 removed 2,545 catalogue-adjacent dots and added none. Across the nine files, reported score is anticorrelated with dot count (Spearman −0.983, n = 9). This explains the pattern; it is not proof. Whether a file above 0.2778 is achievable is unknown: no candidate has a validated holdout DTI.
+
+## Limitations and needed access
+
+- **Data not restored:** the feature stack and labels are not in this checkout. The competition data tab is login-gated. Restoring the owner mirror needs owner authorization under the current STOP.
+- **No method paragraph:** no method lane is assigned, so no experiment is authorized.
+- **Literal duplicate STOP:** the registered spacing-5 lattice covers 99.87% of the 37,654-dot footprint, so any raster at that density has at least 82.3% overlap with it. This is a hard stop, not a bypass target.
+- **No organizer receipts:** every score quoted is USER-REPORTED. The rules say public-leaderboard scores may differ from final scores.
+- **Format conflict:** the official text requires outside-bounds values to be null or nan. The repository's `-zeros` files do not comply on that point (IR-CC130-01). The owner-mirror sample uses NaN outside but has 60,988 positive pixels, although the official page describes it as predicting total absence (IR-CC130-02). Both need organizer confirmation.
+- **Truth definition conflict:** the official page says the test set is new faults. A third-party README says catalogue pixels are masked out. This matters for the pruning explanation and needs organizer text (IR-CC130-07).
+- **Front-door mismatch:** the site generator reads the historical MAGREST card (`registry/current_run.json`), while AGENTS.md names `registry/release_status.json` (H31-CC) as canonical (IR-CC130-05).
+- **Gate quirk:** `gate.py` sets chance-adjusted overlap to zero when the other raster covers all random points. A conservative raw-overlap flag was added to the verifier; the gate itself is unchanged (IR-CC130-06).
+- **Unverified licences and eligibility:** external data is allowed only if licensed for use in the challenge and shareable with the sponsor for evaluation (problem page). The SMU heat-flow database, NBMG and INGENIOUS licences have not been checked. Eligibility under rules §1.3 (for example US citizenship or permanent residence) is the registered competitor's obligation and is not verified here. Calendar deadlines are not in the fetched rules text (§1.2 defers to gems.drivendata.org).
+- **Sandbox network:** `drivendata.org` is reachable only through the fetch tool. The shell cannot reach it, nor Dropbox, OpenEI or GitHub Pages.
+
+## Free official data sources (checked 2026-10-29)
+
+- DrivenData GEMS Prize problem page (metric, submission format, labels): https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/
+- GEMS Prize Official Rules (NLR, September 2026): https://docs.nlr.gov/docs/fy26osti/96647.pdf
+- DrivenData reference solution (alpha 0.2, beta 0.8 in the training loss): https://github.com/drivendataorg/gems-prize-reference-solution
+- INGENIOUS Great Basin Regional Dataset Compilation, source of the training fault labels (DOI): https://doi.org/10.15121/1881483
+- World Stress Map Database Release 2025 (GFZ, CC BY 4.0): https://dataservices.gfz-potsdam.de/wsm/showshort.php?id=a23de1c9-1f73-11f0-914a-f12b0080820d
+- Nevada Bureau of Mines and Geology geothermal site descriptions: https://nbmg.unr.edu/geothermal/sitedescriptions.html
+- SMU Geothermal Laboratory heat-flow database, NGDS node (licence not verified): http://search.geothermaldata.org/dataset/115609c8-6f52-49fe-a0af-9d379d516340
+- USGS earthquake FDSN event service: https://earthquake.usgs.gov/fdsnws/event/1/
+
+## Checks run this session
+
+See the status record `knowledge/current_status_2026-10-29_cc130eb1.md` for the full check set and results.
+
+---
+
+# Current repository review — 29 October 2026 (`arena/4d582f3d-gemsdoe31`)
+
 # Current Project Charter — 2026-10-29 (`arena/3b306c34-gemsdoe31`)
 
 **Read this section at the start of every project session.** It defines the active task, success criteria, and constraints.

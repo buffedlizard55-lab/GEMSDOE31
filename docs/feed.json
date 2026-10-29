@@ -2307,6 +2307,555 @@
    "exp3": "evidence/h31aa/exp3.json"
   }
  },
+ "current_session_decision": {
+  "schema_version": 1,
+  "dot_count_vs_reported_score_spearman": -0.9832,
+  "dot_count_vs_reported_score_note": "n=9, USER-REPORTED scores; a pattern in the claims, not a measured effect.",
+  "session": "arena/cc130eb1-gemsdoe31",
+  "date_utc": "2026-10-29",
+  "decision": "NO FILE IS APPROVED. DO NOT SUBMIT ANY TIFF FROM THIS SITE.",
+  "download_permission": "research/learning only; not a submission",
+  "submission_permission": "none (ok_to_submit=false, slot_approved=false)",
+  "new_tif_generated": false,
+  "experiments_run": 0,
+  "leaderboard_estimate_for_any_file": null,
+  "estimate_reason": "No holdout-validated model: the feature stack is not restored, no method paragraph assigns a lane, and the literal any-registry duplicate STOP stands. An estimate would be a projection, which the repository never reports as a score.",
+  "user_reported_anchors": {
+   "0.2778": "GEMSDOE32 top focus file (USER-REPORTED, no organizer receipt)",
+   "0.3195": "conflicting anchor (USER-REPORTED, no receipt)",
+   "0.4413": "conflicting anchor (USER-REPORTED, no receipt; a sibling repo attributes 0.3195 to GEMSDOE49 with a different file name)",
+   "0.2784": "GEMSDOE92 gemsdoe92-lbmc1-35801dots-20261027-89a660f6-zeros (USER-REPORTED) is higher than the 0.2778 focus-site maximum; it is outside the nine requested sites and is not verified"
+  },
+  "best_focus_site_reported": {
+   "site": "GEMSDOE32",
+   "score": 0.2778
+  },
+  "focus_site_rows": [
+   {
+    "site": "GEMSDOE24",
+    "reported_top_score_USER_REPORTED": 0.2477,
+    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+    "file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/544fe988df1b8a1b16f249a28be3fc3b3ff378a0/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+    "sha256_registry": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+    "sha256_recomputed": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+    "sha256_match": true,
+    "positive_pixels": 60069,
+    "grid_matches_template": true,
+    "values_in_0_1": true,
+    "nan_outside_footprint": true,
+    "closest_other_focus_file": {
+     "other_site": "GEMSDOE25",
+     "max_overlap_either_direction": 1.0,
+     "max_raw_overlap_either_direction": 1.0,
+     "spearman_5px_blocks": 0.945116
+    },
+    "other_focus_sites_flagged_duplicate_by_overlap": [
+     "GEMSDOE25",
+     "GEMSDOE27",
+     "GEMSDOE28",
+     "GEMSDOE30",
+     "GEMSDOE31",
+     "GEMSDOE32",
+     "GEMSDOE33",
+     "GEMSDOE36"
+    ],
+    "count_other_focus_sites_flagged": 8,
+    "unique_vs_other_focus_sites": false,
+    "new_file_score_estimate": "NOT ESTIMABLE (no holdout-validated model; no organizer receipt)",
+    "download_decision": "DO NOT SUBMIT \u2014 prior art / learning only"
+   },
+   {
+    "site": "GEMSDOE25",
+    "reported_top_score_USER_REPORTED": 0.26,
+    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+    "file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE25/blob/2a279dd0d2a4319c1022567876eb4c97553e2d13/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+    "sha256_registry": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+    "sha256_recomputed": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+    "sha256_match": true,
+    "positive_pixels": 44090,
+    "grid_matches_template": true,
+    "values_in_0_1": true,
+    "nan_outside_footprint": true,
+    "closest_other_focus_file": {
+     "other_site": "GEMSDOE24",
+     "max_overlap_either_direction": 1.0,
+     "max_raw_overlap_either_direction": 1.0,
+     "spearman_5px_blocks": 0.945116
+    },
+    "other_focus_sites_flagged_duplicate_by_overlap": [
+     "GEMSDOE24",
+     "GEMSDOE27",
+     "GEMSDOE28",
+     "GEMSDOE30",
+     "GEMSDOE31",
+     "GEMSDOE32",
+     "GEMSDOE33",
+     "GEMSDOE36"
+    ],
+    "count_other_focus_sites_flagged": 8,
+    "unique_vs_other_focus_sites": false,
+    "new_file_score_estimate": "NOT ESTIMABLE (no holdout-validated model; no organizer receipt)",
+    "download_decision": "DO NOT SUBMIT \u2014 prior art / learning only"
+   },
+   {
+    "site": "GEMSDOE27",
+    "reported_top_score_USER_REPORTED": 0.2449,
+    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+    "file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE27/blob/c79609503619559b5a2c53116e87fce646bc4235/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+    "sha256_registry": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+    "sha256_recomputed": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+    "sha256_match": true,
+    "positive_pixels": 61328,
+    "grid_matches_template": true,
+    "values_in_0_1": true,
+    "nan_outside_footprint": true,
+    "closest_other_focus_file": {
+     "other_site": "GEMSDOE24",
+     "max_overlap_either_direction": 1.0,
+     "max_raw_overlap_either_direction": 1.0,
+     "spearman_5px_blocks": 0.986749
+    },
+    "other_focus_sites_flagged_duplicate_by_overlap": [
+     "GEMSDOE24",
+     "GEMSDOE25",
+     "GEMSDOE28",
+     "GEMSDOE30",
+     "GEMSDOE31",
+     "GEMSDOE32",
+     "GEMSDOE33",
+     "GEMSDOE36"
+    ],
+    "count_other_focus_sites_flagged": 8,
+    "unique_vs_other_focus_sites": false,
+    "new_file_score_estimate": "NOT ESTIMABLE (no holdout-validated model; no organizer receipt)",
+    "download_decision": "DO NOT SUBMIT \u2014 prior art / learning only"
+   },
+   {
+    "site": "GEMSDOE28",
+    "reported_top_score_USER_REPORTED": 0.271,
+    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+    "file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE28/blob/178c65378e1adaaabe45d944fd63b7cd284bff4f/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+    "sha256_registry": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+    "sha256_recomputed": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+    "sha256_match": true,
+    "positive_pixels": 37660,
+    "grid_matches_template": true,
+    "values_in_0_1": true,
+    "nan_outside_footprint": true,
+    "closest_other_focus_file": {
+     "other_site": "GEMSDOE24",
+     "max_overlap_either_direction": 1.0,
+     "max_raw_overlap_either_direction": 1.0,
+     "spearman_5px_blocks": 0.894261
+    },
+    "other_focus_sites_flagged_duplicate_by_overlap": [
+     "GEMSDOE24",
+     "GEMSDOE25",
+     "GEMSDOE27",
+     "GEMSDOE30",
+     "GEMSDOE31",
+     "GEMSDOE32",
+     "GEMSDOE33",
+     "GEMSDOE36"
+    ],
+    "count_other_focus_sites_flagged": 8,
+    "unique_vs_other_focus_sites": false,
+    "new_file_score_estimate": "NOT ESTIMABLE (no holdout-validated model; no organizer receipt)",
+    "download_decision": "DO NOT SUBMIT \u2014 prior art / learning only"
+   },
+   {
+    "site": "GEMSDOE30",
+    "reported_top_score_USER_REPORTED": 0.26,
+    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+    "file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE30/blob/ccc5e4e35b76d2fbe66c25782d9a3c805d796dbb/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+    "sha256_registry": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+    "sha256_recomputed": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+    "sha256_match": true,
+    "positive_pixels": 44090,
+    "grid_matches_template": true,
+    "values_in_0_1": true,
+    "nan_outside_footprint": true,
+    "closest_other_focus_file": {
+     "other_site": "GEMSDOE24",
+     "max_overlap_either_direction": 1.0,
+     "max_raw_overlap_either_direction": 1.0,
+     "spearman_5px_blocks": 0.945116
+    },
+    "other_focus_sites_flagged_duplicate_by_overlap": [
+     "GEMSDOE24",
+     "GEMSDOE25",
+     "GEMSDOE27",
+     "GEMSDOE28",
+     "GEMSDOE31",
+     "GEMSDOE32",
+     "GEMSDOE33",
+     "GEMSDOE36"
+    ],
+    "count_other_focus_sites_flagged": 8,
+    "unique_vs_other_focus_sites": false,
+    "new_file_score_estimate": "NOT ESTIMABLE (no holdout-validated model; no organizer receipt)",
+    "download_decision": "DO NOT SUBMIT \u2014 prior art / learning only"
+   },
+   {
+    "site": "GEMSDOE31",
+    "reported_top_score_USER_REPORTED": 0.2708,
+    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+    "file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/4371416853904713760b86db0dccd9afe50d776f/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+    "sha256_registry": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+    "sha256_recomputed": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+    "sha256_match": true,
+    "positive_pixels": 40199,
+    "grid_matches_template": true,
+    "values_in_0_1": true,
+    "nan_outside_footprint": true,
+    "closest_other_focus_file": {
+     "other_site": "GEMSDOE24",
+     "max_overlap_either_direction": 1.0,
+     "max_raw_overlap_either_direction": 1.0,
+     "spearman_5px_blocks": 0.905926
+    },
+    "other_focus_sites_flagged_duplicate_by_overlap": [
+     "GEMSDOE24",
+     "GEMSDOE25",
+     "GEMSDOE27",
+     "GEMSDOE28",
+     "GEMSDOE30",
+     "GEMSDOE32",
+     "GEMSDOE33",
+     "GEMSDOE36"
+    ],
+    "count_other_focus_sites_flagged": 8,
+    "unique_vs_other_focus_sites": false,
+    "new_file_score_estimate": "NOT ESTIMABLE (no holdout-validated model; no organizer receipt)",
+    "download_decision": "DO NOT SUBMIT \u2014 prior art / learning only"
+   },
+   {
+    "site": "GEMSDOE32",
+    "reported_top_score_USER_REPORTED": 0.2778,
+    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+    "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE32/blob/9863c82a7c7dc283c615b711bab941debaff0ec4/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
+    "sha256_registry": "baeae3219bba6a19bc8cfe79224e28555c50184b7c1ca65c2a822f54807c77dd",
+    "sha256_recomputed": "baeae3219bba6a19bc8cfe79224e28555c50184b7c1ca65c2a822f54807c77dd",
+    "sha256_match": true,
+    "positive_pixels": 37654,
+    "grid_matches_template": true,
+    "values_in_0_1": true,
+    "nan_outside_footprint": true,
+    "closest_other_focus_file": {
+     "other_site": "GEMSDOE24",
+     "max_overlap_either_direction": 1.0,
+     "max_raw_overlap_either_direction": 1.0,
+     "spearman_5px_blocks": 0.873165
+    },
+    "other_focus_sites_flagged_duplicate_by_overlap": [
+     "GEMSDOE24",
+     "GEMSDOE25",
+     "GEMSDOE27",
+     "GEMSDOE28",
+     "GEMSDOE30",
+     "GEMSDOE31",
+     "GEMSDOE33",
+     "GEMSDOE36"
+    ],
+    "count_other_focus_sites_flagged": 8,
+    "unique_vs_other_focus_sites": false,
+    "new_file_score_estimate": "NOT ESTIMABLE (no holdout-validated model; no organizer receipt)",
+    "download_decision": "DO NOT SUBMIT \u2014 prior art / learning only"
+   },
+   {
+    "site": "GEMSDOE33",
+    "reported_top_score_USER_REPORTED": 0.2632,
+    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+    "file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE33/blob/f618cc54773bd9b4d6c2b3ebf78103a05cc10cb6/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
+    "sha256_registry": "bc3af2a5fcb4b49bc5845a2d7dc3da23daf41ce75e4c64da3337c0c8c93cc12c",
+    "sha256_recomputed": "bc3af2a5fcb4b49bc5845a2d7dc3da23daf41ce75e4c64da3337c0c8c93cc12c",
+    "sha256_match": true,
+    "positive_pixels": 41865,
+    "grid_matches_template": true,
+    "values_in_0_1": true,
+    "nan_outside_footprint": true,
+    "closest_other_focus_file": {
+     "other_site": "GEMSDOE32",
+     "max_overlap_either_direction": 0.999841,
+     "max_raw_overlap_either_direction": 0.999841,
+     "spearman_5px_blocks": 0.930834
+    },
+    "other_focus_sites_flagged_duplicate_by_overlap": [
+     "GEMSDOE24",
+     "GEMSDOE25",
+     "GEMSDOE27",
+     "GEMSDOE28",
+     "GEMSDOE30",
+     "GEMSDOE31",
+     "GEMSDOE32",
+     "GEMSDOE36"
+    ],
+    "count_other_focus_sites_flagged": 8,
+    "unique_vs_other_focus_sites": false,
+    "new_file_score_estimate": "NOT ESTIMABLE (no holdout-validated model; no organizer receipt)",
+    "download_decision": "DO NOT SUBMIT \u2014 prior art / learning only"
+   },
+   {
+    "site": "GEMSDOE36",
+    "reported_top_score_USER_REPORTED": 0.275,
+    "score_evidence_class": "USER-REPORTED; NOT ORGANIZER-CONFIRMED",
+    "file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif",
+    "source_url": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/c9ad59ec6f969ed931d089a03044c1567a633e84/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif",
+    "sha256_registry": "96d451d5ffc819fc3834052f22ab66190621f206c0bf8990446082a3363dc2ef",
+    "sha256_recomputed": "96d451d5ffc819fc3834052f22ab66190621f206c0bf8990446082a3363dc2ef",
+    "sha256_match": true,
+    "positive_pixels": 38854,
+    "grid_matches_template": true,
+    "values_in_0_1": true,
+    "nan_outside_footprint": true,
+    "closest_other_focus_file": {
+     "other_site": "GEMSDOE32",
+     "max_overlap_either_direction": 1.0,
+     "max_raw_overlap_either_direction": 1.0,
+     "spearman_5px_blocks": 0.985002
+    },
+    "other_focus_sites_flagged_duplicate_by_overlap": [
+     "GEMSDOE24",
+     "GEMSDOE25",
+     "GEMSDOE27",
+     "GEMSDOE28",
+     "GEMSDOE30",
+     "GEMSDOE31",
+     "GEMSDOE32",
+     "GEMSDOE33"
+    ],
+    "count_other_focus_sites_flagged": 8,
+    "unique_vs_other_focus_sites": false,
+    "new_file_score_estimate": "NOT ESTIMABLE (no holdout-validated model; no organizer receipt)",
+    "download_decision": "DO NOT SUBMIT \u2014 prior art / learning only"
+   }
+  ],
+  "all_nine_pairwise_duplicate_by_overlap": true,
+  "pairs_total": 36,
+  "pairs_duplicate_by_overlap": 36,
+  "pairs_duplicate_by_rank": 29,
+  "min_pairwise_max_overlap": 0.97313,
+  "min_pairwise_spearman": 0.849793,
+  "h33_family_ladder": [
+   {
+    "file_family": "D2.8 (GEMSDOE30/25 identical pixels)",
+    "positive_pixels": 44090,
+    "reported_USER_REPORTED": 0.26
+   },
+   {
+    "file_family": "H27-4 (GEMSDOE31/28/33 family)",
+    "positive_pixels": 40199,
+    "reported_USER_REPORTED": 0.2708
+   },
+   {
+    "file_family": "H33-2-B2 (GEMSDOE32)",
+    "positive_pixels": 37654,
+    "reported_USER_REPORTED": 0.2778
+   }
+  ],
+  "h33_forensic": {
+   "h33_on_catalogue_pixels": 0,
+   "h33_pixels_removed_vs_h27": 2545,
+   "h33_pixels_added_vs_h27": 0,
+   "h33_min_catalogue_distance_px": 2.23606797749979,
+   "source": "docs/data/h33-forensics.json"
+  },
+  "blockers": [
+   "No method paragraph: the protocol says 'your lane is the single method paragraph below', but none follows, so no scientific lane can be assigned (AGENTS.md: 'No new method paragraph is present').",
+   "Literal any-registry duplicate rule: the registered spacing-5 lattice covers 99.87% of the 37,654-dot footprint, so the 37,654-dot budget is forced to a duplicate STOP (counting bound 82.34%).",
+   "Feature stack and labels are not restored in this checkout; the competition data is login-gated.",
+   "Organizer receipts are absent; no score can be confirmed."
+  ],
+  "irregularities": [
+   "IR-CC130-01 Official text says data outside the bounds must be null or nan; the repo's -zeros files write 0 outside the 5,167,373-pixel footprint. The organizer-sample mirror uses NaN outside. Zeros files are therefore a format risk and must not be uploaded without organizer confirmation.",
+   "IR-CC130-02 The owner-mirror data/sample_submission.tif has 60,988 pixels equal to 1, but the official page says the sample predicts total fault absence (all zero). The mirror is not organizer-authenticated.",
+   "IR-CC130-03 GEMSDOE25 and GEMSDOE30 top files have identical pixel values, NaN masks and grids, reported as 0.2600 each; byte hashes differ. GEMSDOE30's filename tag 91eae1ca equals the first eight hex digits of GEMSDOE25's SHA-256.",
+   "IR-CC130-04 All nine focus top files are one dot family: minimum pairwise overlap 0.973 (either direction) and minimum Spearman 0.85 across all 36 pairs.",
+   "IR-CC130-05 Front-page and executive summary generators read registry/current_run.json (historical MAGREST), while AGENTS.md names registry/release_status.json (H31-CC) as canonical.",
+   "IR-CC130-06 The repo's gate sets chance-adjusted overlap to 0 when the other raster covers 100% of random points, so an identical dense raster can pass the overlap rule; the conservative raw rule was added.",
+   "IR-CC130-07 Conflicting truth definitions: the official page says the test set is NEW faults not in the USGS database; a third-party README says catalogue pixels are masked. Unverified; needs organizer text.",
+   "IR-CC130-08 The DTI definition was re-read from the official problem page; the shell could not reach drivendata.org, so the page was read through the fetch tool. The repo's metric.py matches the page.",
+   "IR-CC130-09 Leaderboard anchors 0.3195 and 0.4413 conflict and have no receipt; GEMSDOE92 at 0.2784 is higher than the nine-site maximum and is USER-REPORTED only."
+  ],
+  "official_sources": [
+   {
+    "id": "dd-problem-page",
+    "class": "OFFICIAL",
+    "title": "DrivenData GEMS Prize problem description (page 967)",
+    "quote_normalisation": "Math glyphs (for example alpha, beta, TPw) are normalised to plain text; wording is unchanged. Verified against a re-fetch on 2026-10-29.",
+    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+    "fetched": "2026-10-29",
+    "quotes": [
+     "the sponsors have compiled a set of newly identified faults in the GeoDAWN region that are not included in the existing USGS fault database. These new faults have been manually labeled by fault experts and comprise the test dataset for the competition.",
+     "Competitors must choose a single submission for scoring across both rounds before the deadline, without knowing their private test set performance.",
+     "For this competition, we set \u03b1=0.2 and \u03b2=0.8, which reduces the penalty for false positive predictions and increases the penalty for false negative predictions.",
+     "Participants are allowed to use any additional data sources, provided that the participants possess a license that permits the data to be used in this challenge and shared with the sponsor for evaluation purposes.",
+     "The labels for this challenge come from the USGS quaternary fault maps and from INGENIOUS.",
+     "Your submission has the same bounds as the training data, and data outside the bounds is null or nan.",
+     "Your submission contains a single layer with datatype of 32-bit float (float32) with values between 0 and 1 indicating the confidence or probability of fault presence",
+     "A sample submission that predicts total fault absence is provided for your reference on the data download page."
+    ]
+   },
+   {
+    "id": "nlr-official-rules",
+    "class": "OFFICIAL",
+    "title": "GEMS Prize Official Rules, September 2026 (NLR, docs.nlr.gov/docs/fy26osti/96647.pdf)",
+    "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+    "fetched": "2026-10-29",
+    "quotes": [
+     "Participants will submit a single entry, which will be evaluated in two prize phases using a distance-weighted Tversky index.",
+     "You can make multiple submissions, subject to the limits specified on the competition website (three submissions per week).",
+     "Scores displayed on the public leaderboard while the competition is running may not be the same as the final scores on the private leaderboard at the end of the competition.",
+     "The labels for this prize come from the USGS Quaternary Fault and Fold Database and from a set of newly identified faults labeled by geology experts at the National Laboratory of the Rockies (NLR) and USGS."
+    ]
+   },
+   {
+    "id": "nlr-rules-sections-3-3-to-3-6",
+    "class": "OFFICIAL",
+    "title": "GEMS Prize Official Rules, \u00a73.3\u2013\u00a73.6 and Appendix A.1 (same PDF)",
+    "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+    "fetched": "2026-10-29",
+    "quotes": [
+     "you may submit more than one set of predictions for automated scoring on the competition platform up to three per week, as specified on the competition website. By the submission deadline, you must select only one set of predictions to use as your final submission for the final evaluation and ranking.",
+     "The competitor\u2019s score on the public test dataset will be shown on the public leaderboard.",
+     "The competitor\u2019s score on the private test dataset will be used for the first prize round when the competition closes.",
+     "you must make your decision without knowledge of your scores on the private test set.",
+     "The training labels contain existing fault data at 100-m resolution where positively labeled pixels indicate fault presence. These labels were obtained from the INGENIOUS project\u2019s Great Basin Regional Dataset Compilation.",
+     "by 5:00 p.m. ET on the prize submission deadline date before the prize\u2019s phase submission period closes."
+    ],
+    "note": "The exact calendar deadline is not in the fetched text; the rules defer to the competition website (not verified)."
+   },
+   {
+    "id": "ingenious-great-basin-compilation",
+    "class": "OFFICIAL-DATA-PROVIDER",
+    "title": "INGENIOUS Great Basin Regional Dataset Compilation (Geothermal Data Repository, DOI 10.15121/1881483)",
+    "url": "https://doi.org/10.15121/1881483",
+    "fetched": "2026-10-29 (cited in the rules \u00a73.3 footnote 4; DOI not re-downloaded)",
+    "quotes": [],
+    "note": "Source of the training fault labels per the rules; licence not checked in this session."
+   },
+   {
+    "id": "organizer-reference-solution",
+    "class": "OFFICIAL",
+    "title": "DrivenData reference solution (GitHub), notebook alpha/beta cells",
+    "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+    "fetched": "2026-10-29",
+    "quotes": [
+     "alpha = 0.2  # weight for false positives in Tversky loss",
+     "beta = 0.8  # weight for false negatives in Tversky loss"
+    ],
+    "note": "Training loss only; the reference notebook does not implement the scoring evaluator."
+   },
+   {
+    "id": "gfz-wsm-2025",
+    "class": "OFFICIAL-DATA-PROVIDER",
+    "title": "World Stress Map Database Release 2025 (GFZ Data Services, DOI 10.5880/WSM.2025.001)",
+    "url": "https://dataservices.gfz-potsdam.de/wsm/showshort.php?id=a23de1c9-1f73-11f0-914a-f12b0080820d",
+    "fetched": "2026-10-29 (search result snippet; not re-downloaded)",
+    "quotes": [
+     "The WSM database release 2025 contains 100,842 data records within the Earth\u2019s crust.",
+     "License: CC BY 4.0"
+    ]
+   },
+   {
+    "id": "nbmg-thermal-sites",
+    "class": "OFFICIAL-STATE-SURVEY",
+    "title": "Nevada Bureau of Mines and Geology: geothermal site descriptions",
+    "url": "https://nbmg.unr.edu/geothermal/sitedescriptions.html",
+    "fetched": "2026-10-29 (search result snippet; not re-downloaded)",
+    "summary": "Per-site descriptions for named Nevada hot springs, thermal wells and geothermal areas (paraphrase, not a quote).",
+    "quotes": []
+   },
+   {
+    "id": "nbmg-positional-accuracy",
+    "class": "OFFICIAL-STATE-SURVEY",
+    "title": "NGDS geochemical data for Nevada (GRC paper, NBMG)",
+    "url": "https://publications.mygeoenergynow.org/grc/1030316.pdf",
+    "fetched": "2026-10-29 (search result snippet; not re-downloaded)",
+    "quotes": [
+     "permitted wells file ... accurate to the quarter-quarter section"
+    ]
+   },
+   {
+    "id": "smu-heat-flow",
+    "class": "PUBLIC-DATABASE",
+    "title": "SMU Geothermal Laboratory Heat Flow Database (NGDS node)",
+    "url": "http://search.geothermaldata.org/dataset/115609c8-6f52-49fe-a0af-9d379d516340",
+    "fetched": "2026-10-29 (search result snippet; licence NOT verified)",
+    "quotes": [
+     "Heat flow values for the U.S. derived from temperature gradient and thermal conductivity data."
+    ]
+   },
+   {
+    "id": "gems-contest-secondary",
+    "class": "SECONDARY-UNVERIFIED",
+    "title": "Svyable/GEMS-CONTEST README (third-party repository; claims organizer clarification)",
+    "url": "https://github.com/Svyable/GEMS-CONTEST",
+    "fetched": "2026-10-29 (search result snippet)",
+    "quotes": [
+     "pixels corresponding to the existing USGS/INGENIOUS faults are masked out of evaluation"
+    ],
+    "note": "Conflicts with the official problem page's truth definition. Not used for any decision."
+   }
+  ],
+  "hypotheses_ranked": [
+   {
+    "rank": 1,
+    "id": "H-CC-A thermal-spring collinearity",
+    "layers": "NBMG hot-spring and thermal-well inventory (positions, temperatures)",
+    "signature": "three or more thermal sites within 300 m of a common line whose azimuth agrees with the regional fault trend",
+    "why_missing_from_catalogue": "springs and wells can localise on permeable faults that have no mapped trace (to be tested, not assumed)",
+    "difference_from_repo": "no spring-alignment statistic exists; repo uses groundwater and conductivity context",
+    "non_fault_mimic": "aquifer or playa-margin outflow; cluster of drill sites; mislocated wells",
+    "cost": "medium; positions only to quarter-quarter section, comparable to the 300 m kernel",
+    "validated": false
+   },
+   {
+    "rank": 2,
+    "id": "H-CC-B stress-orientation prior (World Stress Map)",
+    "layers": "WSM 2025 SHmax azimuth and quality A-C records; repo gradient-tensor strike field",
+    "signature": "agreement between local lineament azimuth and the SHmax-derived fault orientation",
+    "why_missing_from_catalogue": "buried faults with the regional orientation are the ones an azimuth prior can rank up (to be measured)",
+    "difference_from_repo": "no WSM layer or stress-orientation weight in the repo (zero keyword hits)",
+    "non_fault_mimic": "dike swarms and topographic grain aligned with stress",
+    "cost": "low to medium; CC BY 4.0 data",
+    "validated": false
+   },
+   {
+    "rank": 3,
+    "id": "H-CC-C seismicity nodal-plane alignment (re-scoped H5)",
+    "layers": "USGS ComCat events with moment-tensor nodal planes",
+    "signature": "clusters of focal-plane strikes consistent with a fault segment absent from the catalogue",
+    "why_missing_from_catalogue": "seismogenic faults are often unmapped",
+    "difference_from_repo": "repo H5 was not run; the repo's own limit is km-scale location error",
+    "non_fault_mimic": "induced seismicity from geothermal production; quarry blasts",
+    "cost": "medium-high; expected gain low at 300 m",
+    "validated": false
+   },
+   {
+    "rank": 4,
+    "id": "H-CC-D heat-flow residual (SMU database)",
+    "layers": "SMU Geothermal Laboratory heat-flow database (licence to verify)",
+    "signature": "heat-flow residual against a regional conduction model",
+    "why_missing_from_catalogue": "thermal upflow can mark faults, but well spacing is coarse",
+    "difference_from_repo": "heat-flow appears only in archive notes, not as a feature",
+    "non_fault_mimic": "radiogenic granite; sedimentary-basin thermal blanketing",
+    "cost": "medium; the expected gain at 300 m is the weakest of the four",
+    "validated": false
+   }
+  ],
+  "validation_status": "No candidate was validated. Holdout validation requires the restored feature stack and an assigned lane, both unavailable in this session.",
+  "run_card": "evidence/review_cc130eb1/run_card.json",
+  "verification": "evidence/review_cc130eb1/focus_site_verification.json"
+ },
  "current_repository_review": {
   "schema_version": 1,
   "review_id": "repo-review-2026-10-29-arena-a668bcb6",
