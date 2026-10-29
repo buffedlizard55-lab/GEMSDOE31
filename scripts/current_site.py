@@ -1430,7 +1430,7 @@ def h31n_decision_banner() -> str:
 
 def overview(card):
     hero = '''<section class="hero"><div class="wrap hero-grid"><div>
-      <p class="eyebrow">DOE GEMS Prize · 28 October 2026 · release audit</p>
+      <p class="eyebrow">DOE GEMS Prize · 29 October 2026 · safety review</p>
       <h1>DO NOT SUBMIT.<br>The latest research TIFF failed its score and registry gates.</h1>
       <p class="hero-lede">H31-CC is the latest research artifact; it was generated in the previous scientific session.
       This review rechecked existing bytes only—no new experiment, TIFF, or slot. Its same-run paired HOLDOUT-DTI
@@ -1439,7 +1439,7 @@ def overview(card):
       <a class="button" href="executive-summary.html#selector-decision">Current release decision</a></div>
       </div><aside class="hero-side"><strong>DO NOT SUBMIT</strong><p>No current artifact is approved.
       No human sign-off can override a failed gate. The all-finite file avoids a NaN range error; that is not permission to upload.</p></aside></div></section>'''
-    return hero, h31cc_front_door() + _overview_body(card, hero_rbu=False)
+    return hero, review_notice() + h31cc_front_door() + _overview_body(card, hero_rbu=False)
 
 
 def _overview_body(card, *, hero_rbu: bool):
@@ -1604,7 +1604,18 @@ def _focus_unique_2026_html() -> str:
 
 
 def review_notice():
-    return '<div class="notice"><strong>29 October repository review: no new experiment or TIFF.</strong> The cited paired HOLDOUT-DTI remains negative, and the measured registered-lattice overlap keeps the literal STOP binding. Every research download remains unapproved for upload. <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-4d582f3d.md">Current review, nine-site comparison, limitations and next steps</a>.</div>'
+    source = json.loads((ROOT / "evidence/review_a668bcb6/source_access.json").read_text())
+    heads = source["owner_repository_heads"]
+    changed = sum(h["changed_since_all_pins"] for h in heads)
+    return f'''<div class="notice"><strong>29 October repository and safety review: no new TIFF or experiment; DO NOT SUBMIT.</strong>
+      Legacy packaging now fails closed against canonical lane and uniqueness evidence before output writes; format-only
+      validation cannot grant upload approval. GitHub HEAD metadata was checked for 9 focus repositories; {changed} have changed
+      since their pinned artifact revisions. This does not refresh their raster audit, historical scores, organizer receipts or leaderboard state.
+      The official reference README CPU finding applies to that baseline only. Historical HOLDOUT-DTI remains cited, not rerun;
+      research downloads remain unapproved for upload.
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-4d582f3d.md">Current nine-site review and hypotheses</a> ·
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_a668bcb6.md">Safety review</a> ·
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/review_a668bcb6/source_access.json">Source-access receipt</a>.</div>'''
 
 
 def executive(card):

@@ -9,6 +9,7 @@ Variants produced for every candidate:
                              evaluate the whole array instead of the masked footprint.
 * ``<name>-nan.zip``       — a single-file archive holding the ``-nan`` GeoTIFF.
 
+Current canonical STOP or incomplete authorization blocks new packaging.
 Every variant is re-validated with ``src/gemsdoe31/submission.py`` and a receipt is written next to it.
 """
 
@@ -28,6 +29,7 @@ from rasterio.transform import Affine
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from gemsdoe31.submission import validate_submission  # noqa: E402
+from gemsdoe31.packaging_policy import require_research_packaging  # noqa: E402
 
 EXPECTED_TRANSFORM = Affine(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)
 PROFILE = {
@@ -62,6 +64,8 @@ def write_variants(dots: np.ndarray, footprint: np.ndarray, out_stem: Path, *, n
     active = strength[footprint]
     if not np.isfinite(active).all() or (active < 0).any() or (active > 1).any():
         raise ValueError("predictions must already be finite in [0,1]; no clipping or repair")
+    # Input errors remain explicit; authorization is checked before any output write.
+    require_research_packaging(ROOT)
     out_stem.parent.mkdir(parents=True, exist_ok=True)
     inside = np.where(dots, strength, 0.0).astype(np.float32)
     nan_variant = np.where(footprint, inside, np.nan).astype(np.float32)
@@ -93,6 +97,7 @@ def main() -> None:
     parser.add_argument("--name", required=True, help="submission name (used in file names and metadata)")
     parser.add_argument("--note", default="", help="the comment to paste into the portal's Note box")
     args = parser.parse_args()
+    require_research_packaging(ROOT)
 
     template = Path(args.template) if Path(args.template).is_absolute() else (ROOT / args.template)
     labels_path = (

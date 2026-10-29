@@ -1,17 +1,10 @@
-# Current review/permission front door (2026-10-29; active Arena branch is supplied by session instructions)
+# Current safety and release front door (2026-10-29; active Arena branch is supplied by session instructions)
 
-Read `registry/release_status.json` and `knowledge/repo_review_2026-10-29_arena-4d582f3d.md` first.
-No file is approved. The canonical status audits the latest existing H31-CC research bytes; its scientific
-HOLDOUT-DTI and pre-placement metrics are cited from the frozen prior card, not rerun in the repository review.
-The final-dot overlap against one registered owner-mirror witness is independently rechecked.
-`registry/current_run.json` remains the historical MAGREST record, not the latest research artifact or release
-permission. Restore only pinned small inputs for read-only verification; do not restore the feature stack or run a new
-experiment under the missing-method paragraph / literal registry STOP. For a one-command read-only current release audit, run
-`python scripts/audit_download.py` (exit 2 is a verified denial; exit 1 means evidence is missing/corrupt/stale; neither is approval).
-Run `python scripts/verify_h31cc_run.py --check` and `python scripts/build_release_status.py --check`. Never use the legacy `submission_gate.py` diagnostic to approve
-a slot. Preserve historical run cards; do not interpret their promotion flags as current authorization. See
-`evidence/review_4d582f3d/run_card.json` for this review's negative run card. The former 2026-10-26 status is
-preserved at `evidence/release_status/release-status-2026-10-26-bf9d261d.json`.
+Read `registry/release_status.json`, `knowledge/repo_review_2026-10-29_arena-4d582f3d.md`, and the complete README first. The canonical status still audits the existing H31-CC TIFF; no current file is approved. Its HOLDOUT-DTI and pre-placement metrics are cited from the frozen prior card, while one registered owner-mirror final-dot witness independently reproduces STOP. `registry/current_run.json` remains historical MAGREST.
+
+The parallel safety review hardened local legacy packaging: `scripts/build_submission.py` and both local `scripts/submission_writer.py` wrappers now deny writes unless canonical status records a literal-true assigned method lane and complete, consistent passing surface/final uniqueness evidence. There are no override switches. A local format pass, caller-supplied diagnostics, or historical run card cannot grant upload/slot approval. Pinned `vendor/gems57` tools remain unchanged; do not use old runners that serialize directly through them to bypass the current STOP. No new method paragraph is present.
+
+`python scripts/audit_download.py` is read-only (exit 2 = verified denial, exit 1 = missing/corrupt/stale evidence; neither is approval). Restore only pinned small inputs for verification; do not restore the feature stack or run an experiment under the missing-method paragraph / literal registry STOP. Run `python scripts/verify_h31cc_run.py --check` and `python scripts/build_release_status.py --check`. Never use legacy `submission_gate.py` as approval. Preserve historical run cards. See `evidence/review_4d582f3d/run_card.json` and `evidence/review_a668bcb6/run_card.json`.
 
 # GEMSDOE31 agent instructions
 

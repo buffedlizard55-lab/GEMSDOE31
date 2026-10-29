@@ -78,7 +78,7 @@ Confirmed the focus table must be read as historical claims, not a live feed; si
 
 ### Pass 3 — final reproducibility and consistency
 
-- `python -m pytest -q`: **224 passed** after integrating the parallel fail-closed selector-policy and read-only audit regression tests.
+- `python -m pytest -q`: **255 passed** after integrating the parallel fail-closed selector-policy, read-only audit, and packaging-guard regression tests.
 - Ruff: **passed**.
 - `compileall`: **passed**.
 - `check_metric.py`: maximum absolute fast/brute DTI error **4.441e-16** over 24 grids; triangular-kernel neighborhood contains 29 offsets at 100 m cells.
@@ -87,7 +87,7 @@ Confirmed the focus table must be read as historical claims, not a live feed; si
 - `verify_h31cc_run.py --check`: H31-CC **VERIFIED_NEGATIVE_RESEARCH_ONLY**, final registered witness overlap 99.6123%, leaderboard estimate null.
 - `scripts/audit_download.py`: exit code **2 as designed**, with `status=VERIFIED_DENIAL`, `ok_to_submit=false`, and `leaderboard_estimate=null`; it is a read-only verifier, not a generator or approval path.
 - `build_release_status.py --check`: passed; release remains negative, no upload approval.
-- `collect_evidence.py`: 253 artifacts inventoried; 14 submission artifacts registered after integrating the parallel-session audit artifacts.
+- `collect_evidence.py`: 256 artifacts inventoried; 14 submission artifacts registered after integrating the parallel-session safety/audit artifacts.
 - `build_site.py`: 22 pages generated; `check_site.py`: 22 pages / 552 local links passed.
 
 The evidence collection step refreshes a timestamp in `docs/downloads/readiness.json`; that generated timestamp-only diff was discarded, since it is not the subject of this review. The site and code outputs are clean and consistent with the existing negative status.

@@ -3,6 +3,31 @@
 **DO NOT SUBMIT. No new TIFF, experiment, slot selection, or leaderboard contact in this review.** The cited H31-CC research artifact fails the literal registry overlap gate; its format checks do not imply submission approval. No new-file leaderboard estimate is supported. Historical nine-site claims remain USER-REPORTED, not organizer receipts.
 
 - [This branch's three-pass review, nine-site decision table, ranked desk hypotheses and next steps](knowledge/repo_review_2026-10-29_arena-4d582f3d.md) · [negative run card](evidence/review_4d582f3d/run_card.json)
+- [Current release status](registry/release_status.json) · [nine-site evidence register](registry/focus_review.json)
+- Parallel 29 October reviews: [arena/a668bcb6 — legacy packaging safety, source metadata and updated next steps](knowledge/repo_review_2026-10-29_a668bcb6.md) · [arena/8e29897c](knowledge/review_2026-10-29_8e29897c.md) · [arena/b187d4af](knowledge/repo_review_2026-10-29_b187d4af.md)
+- Run `python scripts/audit_download.py` for a read-only denial audit (exit 2 = verified denial; exit 1 = missing/corrupt/stale evidence). Legacy packaging wrappers now fail closed before writes unless canonical lane and two-stage uniqueness evidence pass; no current artifact meets that policy.
+- All nine pinned historical top entries have >70% computed 3-px support overlap with H33; they are prior art, not upload choices. H33 `0.2778` is USER-REPORTED and private-truth causation is unknown. Three candidate hypotheses are desk-only; the promised method paragraph and full feature cache are absent, so none was validated.
+- After integrating the parallel fail-closed selector guard, read-only audit, and packaging guard: 255 tests, Ruff, compileall, metric and site checks passed; no TIFF is OK to submit.
+
+Read the complete README, including the preserved owner prompt, and `AGENTS.md` at every project session start.
+
+---
+
+## Parallel repository review — 29 October 2026 (`arena/a668bcb6-gemsdoe31`)
+
+**DO NOT SUBMIT. No new TIFF or scientific experiment.** The legacy writer previously treated format validity as upload permission; local packaging now fails closed against the canonical STOP before writing. Existing TIFFs and scientific cards are unchanged. The latest H31-CC research file still fails the literal registered-control overlap gate; no new-file leaderboard estimate is justified.
+
+- [Three-pass review, source qualifications, limitations and next steps](knowledge/repo_review_2026-10-29_a668bcb6.md) · [machine run card](evidence/review_a668bcb6/run_card.json) · [dated source access evidence](evidence/review_a668bcb6/source_access.json)
+- The review checked GitHub HEAD metadata only for nine repositories; changed HEADs do not refresh raster bytes, scores, receipts or leaderboard state. The official reference README CPU finding concerns the organizer baseline only, not competition training in general.
+- Supplied GEMSDOE92 0.2784 and H33 0.2778 remain USER-REPORTED, not organizer-confirmed.
+
+---
+
+## Parallel repository review — 29 October 2026 (`arena/8e29897c-gemsdoe31`)
+
+**DO NOT SUBMIT. No new TIFF, experiment, slot selection, or leaderboard contact in this review.** The cited H31-CC research artifact fails the literal registry overlap gate; its format checks do not imply submission approval. No new-file leaderboard estimate is supported. Historical nine-site claims remain USER-REPORTED, not organizer receipts.
+
+- [This branch's three-pass review, nine-site decision table, ranked desk hypotheses and next steps](knowledge/repo_review_2026-10-29_arena-4d582f3d.md) · [negative run card](evidence/review_4d582f3d/run_card.json)
 - Parallel reviews: [arena/b187d4af](knowledge/repo_review_2026-10-29_b187d4af.md) · [arena/8e29897c](knowledge/review_2026-10-29_8e29897c.md) · [download audit card](evidence/download_audit_20261029.json)
 - [Current release status](registry/release_status.json) · [nine-site evidence register](registry/focus_review.json)
 - All nine pinned historical top entries have >70% computed 3-px support overlap with H33; they are prior art, not upload choices. The H33 `0.2778` value is USER-REPORTED and its private-truth cause is unknown.
