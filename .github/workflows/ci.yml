@@ -27,6 +27,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           python scripts/verify_current_run.py --restore-small-inputs
+          python scripts/audit_archived_candidates.py --check
           python scripts/verify_protocol_review.py
           python scripts/verify_h31cc_run.py --check
           python scripts/build_release_status.py --check

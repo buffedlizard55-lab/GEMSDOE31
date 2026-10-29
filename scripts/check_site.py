@@ -192,7 +192,26 @@ def main() -> None:
             fail("current release review identifier is stale")
         if release.get("experiments_run_in_this_review") != 0 or release.get("new_tif_generated_in_this_review") is not False:
             fail("current release review incorrectly claims new scientific work")
+        review_pointer = json.loads((ROOT / "registry/current_review.json").read_text())
+        review_card = json.loads((ROOT / review_pointer["run_card"]).read_text())
+        latest = feed_data.get("latest_review", {})
+        current_repository_review = feed_data.get("current_repository_review", {})
+        final_overlap = review_card["correlation_overlap_vs_registry"]["preplacement_and_final"]["final_dots"]["overlap_within_3px"]
+        if current_repository_review.get("review_id") != review_pointer["review_id"]:
+            fail("feed current_repository_review is stale or inconsistent with current review pointer")
+        if latest.get("review_id") != review_pointer["review_id"] or latest.get("experiments_run") != 0 or latest.get("new_tif_generated") is not False:
+            fail("feed latest_review is missing or inconsistent with the current archive review")
+        if latest.get("hsteo_archive", {}).get("final_overlap_3px") != final_overlap or final_overlap <= 0.70:
+            fail("feed latest_review does not publish the measured H-STEO literal overlap STOP")
+        if latest.get("csdu_archive", {}).get("actual_template_format_valid") is not False:
+            fail("feed latest_review does not record the CSDU actual-template format failure")
+        if latest.get("leaderboard_estimate_for_new_file") is not None:
+            fail("feed latest_review invents a new-file leaderboard estimate")
         for name, text in (("index", index), ("executive", executive)):
+            if "99.945%" not in text or "CSDU" not in text or "2,610,312" not in text:
+                fail(f"{name}: current H-STEO/CSDU archived-artifact decision is not prominent")
+            if "evidence/review_9f242e65/run_card.json" not in text:
+                fail(f"{name}: current archive audit run card link is missing")
             if "current-release-status.json" not in text or Path(release["file"]).name not in text:
                 fail(f"{name}: current release artifact/receipt missing")
             if "h31cc-verification.json" not in text:

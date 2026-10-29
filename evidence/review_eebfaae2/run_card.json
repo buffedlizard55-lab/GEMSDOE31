@@ -23,7 +23,7 @@
       "evaluator_version": "gems57-pooled-hide-v2",
       "source": "evidence/h31cc/run_card.json"
     }
-  }, 
+  },
   "experiments": {
     "budget_max": 3,
     "hours_max": 2,

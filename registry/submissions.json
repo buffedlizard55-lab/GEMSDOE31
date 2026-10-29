@@ -11,6 +11,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -22,6 +23,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -33,6 +35,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -44,6 +47,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -55,6 +59,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -66,6 +71,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -77,6 +83,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -88,6 +95,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -99,6 +107,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -106,44 +115,52 @@
    "name": "gemsdoe31-csdu-stepover-8cf9dc27-allfinite.tif",
    "sha256": "bc3681c49fef1df1610cba81cd1064d22f17c28a1812ac9ac233858925e3ea73",
    "bytes": 66550,
-   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "role": "Existing CSDU prototype generated on synthetic ellipse footprint and all-zero labels; invalid on actual template.",
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
-   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+   "release_disposition": "INVALID \u00b7 actual-template checks fail; 1,899/4,000 positives outside footprint; do not submit",
+   "warning": "Archived uniqueness-by-construction claim was unsupported; actual-template format fails and registry uniqueness was not tested.",
+   "audit_run_card": "evidence/review_9f242e65/run_card.json"
   },
   {
    "file": "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
    "name": "gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
    "sha256": "774c7c5aa3784d7c52dc67870e1cc8b0e0a34d1697092ad9f3b08c33dcaf2546",
    "bytes": 104818,
-   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "role": "Existing CSDU prototype generated on synthetic ellipse footprint and all-zero labels; invalid on actual template.",
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
-   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+   "release_disposition": "INVALID \u00b7 actual-template checks fail; 1,899/4,000 positives outside footprint; do not submit",
+   "warning": "Archived uniqueness-by-construction claim was unsupported; actual-template format fails and registry uniqueness was not tested.",
+   "audit_run_card": "evidence/review_9f242e65/run_card.json"
   },
   {
    "file": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-allfinite.tif",
    "name": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-allfinite.tif",
    "sha256": "fea84032a93b8ba250431f9241200ac4c74a1767a18305757902cc2472f72c86",
    "bytes": 74185,
-   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "role": "Existing H-STEO archive; format-valid only and stopped by the literal registered 3-px overlap gate.",
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
-   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+   "release_disposition": "DO NOT SUBMIT \u00b7 9,135/9,140 dots (99.945%) within 3 px of one registered witness; no exhaustive registry pass or HOLDOUT-DTI",
+   "warning": "Zero exact lattice intersections are not a 3-px uniqueness pass; the literal >70% STOP applies.",
+   "audit_run_card": "evidence/review_9f242e65/run_card.json"
   },
   {
    "file": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
    "name": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
    "sha256": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
    "bytes": 116805,
-   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "role": "Existing H-STEO archive; format-valid only and stopped by the literal registered 3-px overlap gate.",
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
-   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+   "release_disposition": "DO NOT SUBMIT \u00b7 9,135/9,140 dots (99.945%) within 3 px of one registered witness; no exhaustive registry pass or HOLDOUT-DTI",
+   "warning": "Zero exact lattice intersections are not a 3-px uniqueness pass; the literal >70% STOP applies.",
+   "audit_run_card": "evidence/review_9f242e65/run_card.json"
   },
   {
    "file": "docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
@@ -154,6 +171,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -165,6 +183,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -176,6 +195,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -187,6 +207,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -198,6 +219,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -209,6 +231,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -220,6 +243,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -231,6 +255,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -242,6 +267,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -253,6 +279,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -264,6 +291,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -275,6 +303,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -286,6 +315,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -297,6 +327,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -308,6 +339,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -319,6 +351,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -330,6 +363,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -341,6 +375,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -352,6 +387,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -363,6 +399,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -374,6 +411,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -385,6 +423,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -396,6 +435,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
@@ -407,6 +447,7 @@
    "slot_approved": false,
    "ok_to_submit": false,
    "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "release_disposition": "Archived research \u00b7 NOT approved",
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   }
  ],

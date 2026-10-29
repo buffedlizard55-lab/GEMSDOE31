@@ -1,10 +1,10 @@
-# Current safety and release front door (2026-10-29; active Arena branch is supplied by session instructions)
+# Current safety and release front door — 29 October 2026 (`arena/9f242e65-gemsdoe31`)
 
-Read `registry/release_status.json`, `knowledge/repo_review_2026-10-29_arena-4d582f3d.md`, and the complete README first. The canonical status still audits the existing H31-CC TIFF; no current file is approved. Its HOLDOUT-DTI and pre-placement metrics are cited from the frozen prior card, while one registered owner-mirror final-dot witness independently reproduces STOP. `registry/current_run.json` remains historical MAGREST.
+Read the current README block, `knowledge/owner_prompt_2026-10-29_arena-9f242e65.md`, `registry/release_status.json`, `registry/current_review.json`, `registry/current_run.json`, `registry/review_passes.json`, and the current run card before work. The canonical release remains negative (`ok_to_submit=false`); no single-method paragraph is assigned. The production feature stack/cache is not restored. Do not fit, rebuild cache, create another TIFF, select a slot, or contact/submit to DrivenData.
 
-The parallel safety review hardened local legacy packaging: `scripts/build_submission.py` and both local `scripts/submission_writer.py` wrappers now deny writes unless canonical status records a literal-true assigned method lane and complete, consistent passing surface/final uniqueness evidence. There are no override switches. A local format pass, caller-supplied diagnostics, or historical run card cannot grant upload/slot approval. Pinned `vendor/gems57` tools remain unchanged; do not use old runners that serialize directly through them to bypass the current STOP. No new method paragraph is present.
+The read-only archive audit at `evidence/review_9f242e65/run_card.json` finds: (a) existing H-STEO is format-valid only but 99.945% of final dots lie within 3 px of one hash-pinned registered raster, so the literal >70% gate STOPs it; (b) existing CSDU was made with a synthetic ellipse and all-zero labels and fails actual-template validation. These are pre-existing archive artifacts, not current experiments. The original direct generators are disabled no-write stubs. Verify with `.venv/bin/python scripts/audit_archived_candidates.py --check`; restore only pinned small validation inputs if absent. This one-witness audit is sufficient for STOP but is not an exhaustive 695-raster comparison.
 
-`python scripts/audit_download.py` is read-only (exit 2 = verified denial, exit 1 = missing/corrupt/stale evidence; neither is approval). Restore only pinned small inputs for verification; do not restore the feature stack or run an experiment under the missing-method paragraph / literal registry STOP. Run `python scripts/verify_h31cc_run.py --check` and `python scripts/build_release_status.py --check`. Never use legacy `submission_gate.py` as approval. Preserve historical run cards. See `evidence/review_4d582f3d/run_card.json` and `evidence/review_a668bcb6/run_card.json`.
+`registry/current_run.json` remains historical MAGREST, while `registry/release_status.json` is the canonical release permission. Preserve historical receipts and keep the active review and project decision distinct. Do not infer current approval from older banners, selector cards, format receipts, or mirrored score claims. The previous fail-closed wrappers in `scripts/build_submission.py` and `scripts/submission_writer.py` remain in force; pinned `vendor/gems57` tools remain unchanged.
 
 # GEMSDOE31 agent instructions
 
@@ -37,8 +37,9 @@ Before changing this repository, read the entire `README.md` (including the pres
 - Keep large input rasters and regenerable caches out of Git. Pin hashes and provenance in `registry/`.
 - Run the full local check set before any PR: `python -m pytest -q`, `python -m ruff check .`,
   `python -m compileall -q src scripts tests`, `python scripts/check_metric.py`,
-  `python scripts/verify_current_run.py --restore-small-inputs`, `python scripts/verify_protocol_review.py`,
-  `python scripts/verify_h31cc_run.py --check`, `python scripts/build_release_status.py --check`,
+  `python scripts/verify_current_run.py --restore-small-inputs`, `python scripts/audit_archived_candidates.py --check`,
+  `python scripts/verify_protocol_review.py`, `python scripts/verify_h31cc_run.py --check`,
+  `python scripts/build_release_status.py --check`,
   `python scripts/collect_evidence.py`, `python scripts/build_site.py`, and `python scripts/check_site.py`.
   The verifier re-reads TIFF/ZIP bytes and reproduces pooled DTI/CI and denial gates without a human inspector.
   `scripts/recheck_magrest.py` repeats only the original nine-download-tree comparison and requires the ignored `.cache/magrest/responses.npy`; it does not test the broad 695-raster registry. On a clean checkout that cache is unavailable and must not be recreated after the registered STOP. `scripts/verify_current_run.py --restore-small-inputs` instead re-derives the served raster's literal overlap STOP against the pinned registered counterexample.
