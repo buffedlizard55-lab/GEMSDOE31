@@ -1,0 +1,213 @@
+{
+  "status": "VERIFIED_DENIAL",
+  "hypothesis": "Catalogue-missing normal faults under basin fill sit on basement-depth steps where surface slope is below 4 degrees, corroborated by a gravity horizontal gradient and positive dilatation.",
+  "mechanism": "CC3: rank(grad depth_to_base_surf, sigma 2px) geometric-mean rank(|iso_grav_anom_hg|), gated to det_elev_slope<4 and geod_dilaterate>0; Poisson 2.8px, 37654 budget, >2px from visible catalogue.",
+  "non_fault_mimic": "depositional isopach pinch-out, lithologic density contact, gravity terrain residual, playa compaction",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "arm": "CC3",
+    "withheld_positive_pixels": 60988,
+    "dti": 0.047069900074153195,
+    "ci95": [
+      0.03323168323881463,
+      0.06181643961343269
+    ],
+    "tpw": 2673.22811538755,
+    "fpw": 37338.42075323,
+    "fnw": 58314.77188461243,
+    "paired_vs_null": {
+      "evidence_class": "HOLDOUT-DTI",
+      "evaluator_version": "gems57-pooled-hide-v2",
+      "delta": -0.009669665602735938,
+      "ci95": [
+        -0.02345607786902358,
+        0.0052006781922370095
+      ],
+      "withheld_positive_pixels": 60988
+    },
+    "best_comparable_control": "NULL"
+  },
+  "holdout_provenance": "CITED from frozen H31-CC run card; not rerun in this integrity review",
+  "correlation_overlap_vs_registry": {
+    "surface": {
+      "max_abs_rho": 0.13191868045209426,
+      "max_overlap": 0.3199660062675944,
+      "lattice_overlap": 0.9961225898974877,
+      "coverage_complete": false,
+      "provenance": "CITED from frozen H31-CC card; not replayed in this integrity review"
+    },
+    "final": {
+      "max_abs_rho": 7.680769e-05,
+      "max_overlap": 0.9961225898974877,
+      "lattice_overlap": 0.9961225898974877,
+      "lattice_dot_spearman_rho": -7.680769e-05,
+      "coverage_complete": false,
+      "provenance": "COMPUTED from final TIFF dots versus one hash-pinned registered owner-mirror control; not an exhaustive registry pass"
+    }
+  },
+  "raster_sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+  "validator": {
+    "file": "gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+    "bytes": 116314,
+    "sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+    "ok_to_upload_format_only": true,
+    "organizer_acceptance_verified": false,
+    "hard_failures": [],
+    "grid": {
+      "shape": [
+        3730,
+        3292
+      ],
+      "crs": "EPSG:32611",
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "bounds": [
+        243350.0,
+        4135550.0,
+        572550.0,
+        4508550.0
+      ],
+      "dtype": [
+        "float32"
+      ],
+      "bands": 1,
+      "template_footprint_pixels": 5167373,
+      "positive_pixels_inside": 37654,
+      "nodata_tag": null
+    },
+    "checks": {
+      "template_single_band": {
+        "pass_": true,
+        "detail": "count=1",
+        "hard": true
+      },
+      "template_epsg_32611": {
+        "pass_": true,
+        "detail": "EPSG:32611",
+        "hard": true
+      },
+      "template_float32": {
+        "pass_": true,
+        "detail": "dtypes=('float32',)",
+        "hard": true
+      },
+      "template_has_finite_footprint": {
+        "pass_": true,
+        "detail": "5,167,373 finite pixels",
+        "hard": true
+      },
+      "template_expected_shape": {
+        "pass_": true,
+        "detail": "(3730, 3292) (expected (3730, 3292))",
+        "hard": true
+      },
+      "template_expected_transform": {
+        "pass_": true,
+        "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) (expected (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0))",
+        "hard": true
+      },
+      "template_expected_footprint": {
+        "pass_": true,
+        "detail": "5,167,373 (expected 5,167,373)",
+        "hard": true
+      },
+      "template_expected_outside": {
+        "pass_": true,
+        "detail": "7,111,787 (expected 7,111,787)",
+        "hard": true
+      },
+      "single_band": {
+        "pass_": true,
+        "detail": "count=1",
+        "hard": true
+      },
+      "dtype_float32": {
+        "pass_": true,
+        "detail": "dtypes=('float32',)",
+        "hard": true
+      },
+      "shape_matches_template": {
+        "pass_": true,
+        "detail": "(3730, 3292) vs (3730, 3292)",
+        "hard": true
+      },
+      "crs_matches_template": {
+        "pass_": true,
+        "detail": "EPSG:32611 vs EPSG:32611",
+        "hard": true
+      },
+      "transform_matches_template": {
+        "pass_": true,
+        "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0) vs (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+        "hard": true
+      },
+      "footprint_all_finite": {
+        "pass_": true,
+        "detail": "0 NaN/Inf inside 5,167,373 template cells",
+        "hard": true
+      },
+      "footprint_values_in_0_1": {
+        "pass_": true,
+        "detail": "min=0.0; max=1.0; required finite [0,1]",
+        "hard": true
+      },
+      "no_infinite_pixels": {
+        "pass_": true,
+        "detail": "0 infinite values",
+        "hard": true
+      },
+      "outside_footprint_nan": {
+        "pass_": true,
+        "detail": "not required under the all-finite convention; 0 outside pixels are NaN",
+        "hard": false
+      },
+      "nan_mask_matches_template": {
+        "pass_": true,
+        "detail": "not required under the all-finite convention",
+        "hard": false
+      },
+      "allfinite_values_in_0_1": {
+        "pass_": true,
+        "detail": "finite=True; min=0.0; max=1.0",
+        "hard": true
+      },
+      "outside_footprint_zero": {
+        "pass_": true,
+        "detail": "0 nonzero values outside footprint",
+        "hard": true
+      },
+      "output_epsg_32611": {
+        "pass_": true,
+        "detail": "EPSG:32611",
+        "hard": true
+      },
+      "output_100m_pixels": {
+        "pass_": true,
+        "detail": "xres=100, yres=-100",
+        "hard": true
+      },
+      "nodata_tag_nan_or_none": {
+        "pass_": true,
+        "detail": "nodata=None",
+        "hard": false
+      }
+    }
+  },
+  "existing_research_file": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+  "submission_name": "gems31-h31cc-basement-step-37654d-20261028",
+  "note": "RESEARCH ONLY: H31-CC; negative screen and literal lattice STOP. No new experiment, TIFF, or weekly slot in this review.",
+  "leaderboard_estimate": null,
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "experiments_run": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "verdict": "negative"
+}
