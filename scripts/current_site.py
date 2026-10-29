@@ -1388,16 +1388,17 @@ def h31n_decision_banner() -> str:
     h33_txt = f"{100 * h33_ov:.1f}%" if isinstance(h33_ov, float) else "—"
     subset = h33.get("h33_is_subset_of_d28")
     subset_txt = "yes, exact" if subset is True else ("no" if subset is False else "not measured")
-    csdu_path = ROOT / "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-run-card.json"
-    csdu_html = ""
-    if csdu_path.is_file():
-        csdu = json.loads(csdu_path.read_text())
-        csdu_html = (
-            f"<li>Concurrent CSDU file <code>{esc(csdu.get('submission_name', ''))}</code> "
-            f"is also research-only (ok_to_submit={esc(str(bool(csdu.get('ok_to_submit'))).lower())}, "
-            f"slot_approved={esc(str(bool(csdu.get('slot_approved'))).lower())}). "
-            "This lane did not re-score it.</li>"
-        )
+    current_review = json.loads((ROOT / "registry/current_review.json").read_text())
+    archive_audit = json.loads((ROOT / current_review["run_card"]).read_text())
+    csdu = archive_audit["csdu_artifact"]
+    csdu_counts = csdu["original_template_and_labels"]
+    csdu_html = (
+        f"<li>Archived CSDU file <code>{esc(csdu['submission_name'])}</code> is an INVALID synthetic-grid prototype, "
+        f"not merely a research-only candidate: {csdu_counts['positive_pixels_outside_actual_template_footprint']:,}/4,000 dots "
+        f"are outside the actual template footprint; the NaN twin has "
+        f"{csdu_counts['nan_pixels_inside_actual_template_footprint']:,} missing values inside. Both actual-template format "
+        "conventions fail. See the current archive audit; do not submit or regenerate.</li>"
+    )
     conflicts = card.get("label_conflicts") or []
     conflict_html = "".join(
         f"<li><strong>{esc(item.get('id', 'flag'))}:</strong> {esc(item.get('summary', ''))}</li>"
@@ -1604,18 +1605,20 @@ def _focus_unique_2026_html() -> str:
 
 
 def review_notice():
-    source = json.loads((ROOT / "evidence/review_a668bcb6/source_access.json").read_text())
-    heads = source["owner_repository_heads"]
-    changed = sum(h["changed_since_all_pins"] for h in heads)
-    return f'''<div class="notice"><strong>29 October repository and safety review: no new TIFF or experiment; DO NOT SUBMIT.</strong>
-      Legacy packaging now fails closed against canonical lane and uniqueness evidence before output writes; format-only
-      validation cannot grant upload approval. GitHub HEAD metadata was checked for 9 focus repositories; {changed} have changed
-      since their pinned artifact revisions. This does not refresh their raster audit, historical scores, organizer receipts or leaderboard state.
-      The official reference README CPU finding applies to that baseline only. Historical HOLDOUT-DTI remains cited, not rerun;
-      research downloads remain unapproved for upload.
-      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-4d582f3d.md">Current nine-site review and hypotheses</a> ·
-      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_a668bcb6.md">Safety review</a> ·
-      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/review_a668bcb6/source_access.json">Source-access receipt</a>.</div>'''
+    pointer = json.loads((ROOT / "registry/current_review.json").read_text())
+    card = json.loads((ROOT / pointer["run_card"]).read_text())
+    final = card["correlation_overlap_vs_registry"]["preplacement_and_final"]["final_dots"]
+    csdu = card["csdu_artifact"]["original_template_and_labels"]
+    report = "../" + pointer["report"]
+    run_card = "../" + pointer["run_card"]
+    return f'''<div class="notice notice-danger"><strong>29 October active review, arena/9f242e65: DO NOT SUBMIT.</strong>
+      No new experiment or TIFF was produced. Existing H-STEO is format-valid only but {100*final["overlap_within_3px"]:.3f}%
+      of its final dots fall within 3 px of one registered control; the registry scan is not exhaustive. Existing CSDU
+      is a synthetic-grid prototype: {csdu["positive_pixels_outside_actual_template_footprint"]:,} of 4,000 dots are outside
+      the actual footprint and its NaN twin has {csdu["nan_pixels_inside_actual_template_footprint"]:,} missing cells inside.
+      No holdout, organizer receipt, or new-file leaderboard estimate exists.
+      <a href="{report}">Current review</a> · <a href="{run_card}">Byte-backed audit card</a> ·
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-4d582f3d.md">Prior nine-site review</a>.</div>'''
 
 
 def executive(card):
@@ -1672,15 +1675,18 @@ python scripts/validate_submission.py &lt;candidate.tif&gt; --template data/samp
 
 def parallel_archives():
     sub = json.loads((ROOT / "registry/submissions.json").read_text())
-    rows = "".join(f'<tr><td><a href="{esc(r["file"].removeprefix("docs/"))}">{esc(r["name"])}</a></td>'
-                   f'<td><code>{esc(r["sha256"])}</code></td><td>Archived research · NOT approved</td></tr>'
-                   for r in sub.get("parallel_archived_files", []))
-    return f'''<section><div class="section-head"><div><p class="kicker">Concurrent work preserved</p><h2>Other sessions are not a new experiment here</h2></div>
-      <p>AS-1, TGJ31, H31-B and H31-E artifacts retain their source bytes and original receipts. Their different instruments are not ranked against MAGREST.</p></div>
-      <div class="notice"><strong>No approval is imported from an archived card.</strong>The H31-B card's original promote flag is not reproduced or endorsed by this run, and is not selector authority. AS-1/TGJ31 negative records are retained. Main merge #12 removed earlier merged files; this integration restored their source/evidence/TIFF history without another fit or candidate.</div>
-      <div class="table-wrap"><table><thead><tr><th>Archived TIFF</th><th>SHA-256 · computed from bytes</th><th>Current authority</th></tr></thead><tbody>{rows}</tbody></table></div>
-      <p class="small">Restoration manifest: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/parallel_history_preservation_20261025.json">exact source commits and hashes</a>.
-      The old workflow, extra HTML page and obsolete active-homepage assertion are archived rather than re-enabled. The current site remains 20 pages.</p></section>'''
+    rows = "".join(
+        f'<tr><td><a href="{esc(r["file"].removeprefix("docs/"))}">{esc(r["name"])}</a>'
+        f'<div class="small">{esc(r.get("role", "archived artifact"))}</div></td>'
+        f'<td><code>{esc(r["sha256"])}</code></td>'
+        f'<td>{esc(r.get("release_disposition", "Archived research · NOT approved"))}</td></tr>'
+        for r in sub.get("parallel_archived_files", [])
+    )
+    return f'''<section><div class="section-head"><div><p class="kicker">Concurrent work preserved</p><h2>Archived files are not current candidates</h2></div>
+      <p>Every file stays available for audit, but its own evidence—not a generic archived label—controls how it may be used.</p></div>
+      <div class="notice notice-danger"><strong>Current archive findings:</strong> H-STEO is format-valid only and fails the literal 3-px overlap rule (99.945% of final dots near one registered witness); CSDU was generated on a synthetic footprint/labels and fails the actual template. No archived artifact is approved for submission. See <a href="../evidence/review_9f242e65/run_card.json">the byte-backed audit card</a>.</div>
+      <div class="table-wrap"><table><thead><tr><th>Archived TIFF</th><th>SHA-256 · computed from bytes</th><th>Current authority / defect</th></tr></thead><tbody>{rows}</tbody></table></div>
+      <p class="small">Archival source history remains in the repository; these files were not regenerated or uploaded in this review.</p></section>'''
 
 
 def research(card, screen, focus, lineage):

@@ -1,4 +1,47 @@
-# Current session — 29 October 2026 (`arena/cc130eb1-gemsdoe31`): nine-site executive review
+# Current review and project charter — 29 October 2026 (`arena/9f242e65-gemsdoe31`)
+
+**Core values: Maximize P(Win) · Own the Outcome.**
+
+**Decision: DO NOT SUBMIT.** The current binding release card is `registry/release_status.json` (`ok_to_submit=false`, `slot_approved=false`). `registry/current_run.json` is a historical MAGREST record, not current permission. The active Arena brief is summarized in [`knowledge/owner_prompt_2026-10-29_arena-9f242e65.md`](knowledge/owner_prompt_2026-10-29_arena-9f242e65.md); the full findings are in [`knowledge/repo_review_2026-10-29_arena-9f242e65.md`](knowledge/repo_review_2026-10-29_arena-9f242e65.md).
+
+## Active task and hard limits
+
+Compare GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36; keep the per-site file, evidence-qualified reported value, uniqueness and new-file estimate clear; explain the reported GEMSDOE32 H33-2-B2 0.2778 without asserting private-truth causation; and propose 3–5 distinct ranked geological leads with non-fault mimics, cost and source-access status. Keep the automated GeoTIFF validator, manual submission guide, evidence-qualified feed, source links and three-pass review current. Scores remain USER-REPORTED without organizer receipts. Do not present a holdout, proxy, projection, or user claim as a competition score. No calibrated new-file estimate exists.
+
+**No assigned method paragraph appears in the active prompt. Do not invent a lane, run a fit/holdout, rebuild production cache, create another TIFF, use a slot, or upload.** If a later prompt expressly authorizes an experiment, reuse pinned `vendor/gems57` tools unchanged; hide whole fault segments with a buffer; derive catalogue features only from visible faults and mask visible faults exactly; use pooled DTI alpha 0.2, beta 0.8 and a 300 m triangular kernel; test each feature alone and treat AUC >0.90 as leakage until explained; record evaluator version, withheld positives and 95% CI; stop after three experiments or two hours; promotion remains a separate selector decision.
+
+Before placement and on final dots, the literal registry rule is binding: if any registered raster has |rank correlation| >0.90 or >70% of candidate dots within 3 px, STOP. Do not evade a STOP by changing density. A single hash-pinned witness is enough to stop, but is not an exhaustive uniqueness scan. Do not scrape/poll DrivenData, contact the organizer, or submit automatically. Stay on `arena/9f242e65-gemsdoe31`; any PR/merge status must be verified.
+
+## Current archive audit — no experiment and no new TIFF
+
+- **H-STEO is not unique or submit-ready.** Its existing 9,140-dot TIFF passes local format checks against an owner-mirror template, but 9,135/9,140 dots (99.945%) are within 3 px of one hash-pinned registered spacing-5 raster. Reconstructed pre-placement support overlap is 99.965%. Its tiny rank correlations do not override the literal overlap STOP. The 7×7 offset did not itself avoid exact 5×5 intersections; 394 raw grid intersections were explicitly removed. Its method is a dilated catalogue mask, not an independently measured stepover feature. Research-only file: [all-finite TIFF](docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-allfinite.tif); **DO NOT SUBMIT**.
+- **CSDU is invalid on the real submission footprint.** Its old generator used a synthetic ellipse and all-zero labels. Against the actual pinned template, 1,899/4,000 positive cells are outside the footprint; the NaN twin has 2,610,312 missing cells inside it. Both format conventions fail. No registry uniqueness pass was made. Keep the old bytes only as a forensic record; do not repair, regenerate or submit.
+- Neither artifact has a HOLDOUT-DTI result, 95% CI, or defensible leaderboard estimate. No new file was generated in this review; no slot was used.
+- The independent control is one hash-pinned member of a 695-raster owner-mirror registry. Its byte identity is proven to that mirror only. No full registry pass or organizer-authenticated source is claimed.
+
+Machine card: [`evidence/review_9f242e65/run_card.json`](evidence/review_9f242e65/run_card.json). Read-only audit: `python scripts/audit_archived_candidates.py --check`. The legacy H-STEO and CSDU generators are disabled no-write stubs.
+
+## Nine-site comparison and H33 explanation
+
+The pinned comparison covers all nine requested sites. All nine historical values remain USER-REPORTED; no organizer receipt was found. The 36 pairwise top-file comparisons all exceed 70% 3-px overlap (minimum 0.97313), so none is unique against the other eight focus artifacts. The exact file names, pinned commits, values, and qualification are in [`registry/session_cc130eb1_decision.json`](registry/session_cc130eb1_decision.json), [`evidence/review_cc130eb1/focus_site_verification.json`](evidence/review_cc130eb1/focus_site_verification.json), and the new [review table](knowledge/repo_review_2026-10-29_arena-9f242e65.md).
+
+The plausible reason for H33-2-B2’s reported 0.2778 is pruning redundant catalogue-adjacent predictions, which may reduce false-positive cost under the reported 0.2/0.8 asymmetric metric while preserving much of the triangular-kernel credit. This is **INFERENCE**, not proof of performance on private truth. H33 remains prior art; 0.2778 is not organizer-confirmed. User-supplied 0.3195 and 0.4413 anchors conflict and are unverified.
+
+## Ranked geological leads and source access
+
+Four desk leads are recorded in [`knowledge/hypotheses_2026-10-29_arena-9f242e65.md`](knowledge/hypotheses_2026-10-29_arena-9f242e65.md): thermal-site/structural-axis alignment; World Stress Map orientation; focal-mechanism nodal-plane alignment; heat-flow residual. The ranking is qualitative, not a numerical DTI projection. No external product was downloaded or re-verified in this review, and none is presently viable. The note names non-fault mimics, local novelty search, implementation cost and source-access gates.
+
+Manual source links are maintained for the competition problem/rules, organizer reference solution, INGENIOUS, World Stress Map, NBMG, SMU heat flow, USGS ComCat and static leaderboard. No web page or leaderboard was freshly fetched this session. The leaderboard link is for manual review only; do not scrape or poll.
+
+## Verification and recurring review rules
+
+This session uses `.venv` with `requirements.txt`; use `.venv/bin/python`, not system Python, for geospatial checks. `scripts/audit_archived_candidates.py` replays the existing H-STEO mask, validates both variants of H-STEO and CSDU against the exact pinned template, and writes no TIFF. `scripts/generate_unique_submission.py` and `scripts/run_unique_stepover_submission.py` now fail before any output. Keep `registry/review_passes.json` accurate about the three passes actually run. The review log and source/score distinctions are maintained in the linked report and registers.
+
+Historical sections below are preserved for traceability. Their branch names, status banners, selector claims and generated artifacts describe prior snapshots and do not supersede this current no-submit decision. In particular, `docs/downloads/readiness.json` is a generated historical file receipt, not current permission.
+
+---
+
+# Previous session — 29 October 2026 (`arena/cc130eb1-gemsdoe31`): nine-site executive review
 
 **Core values: Maximize P(Win) · Own the Outcome.** Read this section, `AGENTS.md`, and the complete owner prompt below at every session start.
 
@@ -118,7 +161,7 @@ Desk-only hypotheses requiring validation on the spatially-blocked holdout befor
 
 - Nine focus-site best claims: GEMSDOE24 (0.2477), GEMSDOE25 (0.2600), GEMSDOE27 (0.2449), GEMSDOE28 (0.2710), GEMSDOE30 (0.2600), GEMSDOE31 (0.2708), GEMSDOE32 (0.2778 ← highest), GEMSDOE33 (0.2632), GEMSDOE36 (0.2750)
 - All nine are USER-REPORTED, not organizer-confirmed. None is unique vs registry.
-- New unique TIF generated: gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed (9,140 dots, off-catalogue stepover zones, 0 dots on spacing-5 registry lattice, format-validated, ok_to_submit=False pending gate clearance)
+- Historical H-STEO artifact (9,140 dots): the old card reported zero exact spacing-5 lattice intersections after a filter. The current review recomputes 99.945% final 3-px overlap against one registered control; this is a literal STOP, not unique or submit-ready. See `evidence/review_9f242e65/run_card.json`.
 - No current file is cleared for submission under the literal registry protocol.
 
 ---
@@ -504,7 +547,7 @@ Concurrent review #47 (also NO SUBMIT; preserved):
 >
 > **PGR31 (concurrent lane already on main): research download only, do not submit.** `gemsdoe31-pgr31-poisson-pseudograv-37654-20261026`. Its own card reports HOLDOUT-DTI 0.0764 versus base-38 0.0761 on 2,778 withheld positives, paired interval including zero. Not re-scored here.
 >
-> **CSDU (concurrent lane already on main): research download only, do not submit.** `gemsdoe31-csdu-stepover-8cf9dc27`, 4,000 dots, `slot_approved = false`. Its holdout was not verified in this lane.
+> **CSDU archive: invalid synthetic prototype, do not submit.** `gemsdoe31-csdu-stepover-8cf9dc27` was generated with a synthetic ellipse footprint and all-zero labels; the actual-template checks fail (1,899/4,000 dots outside the real footprint; 2,610,312 NaNs inside the NaN twin). See `evidence/review_9f242e65/run_card.json`.
 >
 > **XFCOH31 (2026-10-26, prior lane): unique GeoTIFF generated and validated. OK TO DOWNLOAD FOR RESEARCH — DO NOT SUBMIT (holdout-negative).**
 > Download: [gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-zeros.tif) · [run card](docs/downloads/gems31-xfcoh31-xfield-coherence-37654-20261026-run-card.json) · [decision page](docs/xfcoh31.html) · [executive summary](knowledge/2026-10-26_xfcoh31_executive_summary.md)

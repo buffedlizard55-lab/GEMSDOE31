@@ -588,15 +588,45 @@ def submissions_register() -> dict:
                 best_research = record
     registered = {r[k] for r in files for k in ("file_nan", "file_allfinite") if r.get(k)}
     parallel = []
+    archive_audit_path = ROOT / "evidence/review_9f242e65/run_card.json"
+    archive_audit = json.loads(archive_audit_path.read_text()) if archive_audit_path.is_file() else None
+    hsteo_audit = (archive_audit or {}).get("hsteo_artifact", {})
+    hsteo_final = (((archive_audit or {}).get("correlation_overlap_vs_registry", {})
+                    .get("preplacement_and_final", {}).get("final_dots", {})))
+    csdu_audit = (archive_audit or {}).get("csdu_artifact", {})
+    csdu_counts = csdu_audit.get("original_template_and_labels", {})
     for tif in sorted((ROOT / "docs/downloads").rglob("*.tif")):
         rel = tif.relative_to(ROOT).as_posix()
         if rel in registered:
             continue
-        parallel.append(dict(file=rel, name=tif.name, sha256=sha256(tif), bytes=tif.stat().st_size,
+        record = dict(file=rel, name=tif.name, sha256=sha256(tif), bytes=tif.stat().st_size,
             role="Archived parallel-session research; not reproduced or endorsed by this run",
             slot_approved=False, ok_to_submit=False,
             evidence_class="COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
-            warning="Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."))
+            release_disposition="Archived research · NOT approved",
+            warning="Any archived promote flag is not current selector approval; no comparable same-instrument win is established here.")
+        if "gemsdoe31-h-steo-offcatalogue-stepper-" in rel and hsteo_audit:
+            record.update(
+                role="Existing H-STEO archive; format-valid only and stopped by the literal registered 3-px overlap gate.",
+                release_disposition=(
+                    f"DO NOT SUBMIT · {hsteo_final['within_3px_of_registered_control']:,}/"
+                    f"{hsteo_final['candidate_support_pixels']:,} dots ({100*hsteo_final['overlap_within_3px']:.3f}%) "
+                    "within 3 px of one registered witness; no exhaustive registry pass or HOLDOUT-DTI"
+                ),
+                warning="Zero exact lattice intersections are not a 3-px uniqueness pass; the literal >70% STOP applies.",
+                audit_run_card="evidence/review_9f242e65/run_card.json",
+            )
+        elif "gemsdoe31-csdu-stepover-" in rel and csdu_audit:
+            record.update(
+                role="Existing CSDU prototype generated on synthetic ellipse footprint and all-zero labels; invalid on actual template.",
+                release_disposition=(
+                    f"INVALID · actual-template checks fail; {csdu_counts['positive_pixels_outside_actual_template_footprint']:,}/"
+                    f"{csdu_counts['positive_pixels_in_saved_file']:,} positives outside footprint; do not submit"
+                ),
+                warning="Archived uniqueness-by-construction claim was unsupported; actual-template format fails and registry uniqueness was not tested.",
+                audit_run_card="evidence/review_9f242e65/run_card.json",
+            )
+        parallel.append(record)
     return {
         "schema_version": 2,
         "generated_utc": "2026-10-25",

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "review_id": "review-arena-9f242e65",
+  "branch": "arena/9f242e65-gemsdoe31",
+  "date_utc": "2026-10-29",
+  "scope": "Read-only re-audit of the pre-existing H-STEO and CSDU archive artifacts, plus the nine-site executive comparison and project charter.",
+  "decision": "DO NOT SUBMIT",
+  "experiments_run": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "leaderboard_estimate_for_new_file": null,
+  "release_permission_source": "registry/release_status.json",
+  "release_permission": {
+    "ok_to_submit": false,
+    "slot_approved": false,
+    "method_lane_assigned": false
+  },
+  "run_card": "evidence/review_9f242e65/run_card.json",
+  "report": "knowledge/repo_review_2026-10-29_arena-9f242e65.md",
+  "hypotheses": "knowledge/hypotheses_2026-10-29_arena-9f242e65.md",
+  "owner_brief": "knowledge/owner_prompt_2026-10-29_arena-9f242e65.md",
+  "nine_site_register": "registry/session_cc130eb1_decision.json",
+  "ranked_desk_hypotheses": [
+    {
+      "rank": 1,
+      "id": "Thermal-site / structural-axis alignment",
+      "expected_dti_gain": "Medium potential; very high uncertainty; no numerical estimate",
+      "implementation_cost": "Medium-high",
+      "status": "Not viable yet: machine-readable point data and terms not verified"
+    },
+    {
+      "rank": 2,
+      "id": "World Stress Map orientation prior",
+      "expected_dti_gain": "Low-medium potential; may re-rank rather than add detections; no numerical estimate",
+      "implementation_cost": "Medium",
+      "status": "Not viable yet: no files or coverage retrieved in this session"
+    },
+    {
+      "rank": 3,
+      "id": "Focal-mechanism nodal-plane alignment",
+      "expected_dti_gain": "Low at 300 m; event density and error unmeasured; no numerical estimate",
+      "implementation_cost": "Medium-high",
+      "status": "Not viable yet: ComCat events and mechanism coverage not checked"
+    },
+    {
+      "rank": 4,
+      "id": "Heat-flow residual",
+      "expected_dti_gain": "Very low at 300 m; likely spatially smeared; no numerical estimate",
+      "implementation_cost": "High",
+      "status": "Not viable: source availability and license remain unverified"
+    }
+  ],
+  "blockers": [
+    "No assigned single-method paragraph; no new experiment or lane is authorized.",
+    "Production feature stack/cache and private truth are not available for a valid holdout or single-feature leakage canary.",
+    "H-STEO fails the literal >70% 3-px rule against one hash-pinned member of the 695-raster registry; this is a sufficient STOP, not an exhaustive scan.",
+    "CSDU uses a synthetic grid and labels and fails both actual-template format conventions.",
+    "External layer products, current quotas and official score receipts were not re-verified in this session.",
+    "No calibrated cross-family model supports a new-file leaderboard estimate."
+  ],
+  "qualification": "This is a repository-review pointer, not a release authorization. Scores remain USER-REPORTED; the current archive audit uses OWNER-MIRROR inputs; no ORGANIZER-CONFIRMED score or acceptance is recorded."
+}

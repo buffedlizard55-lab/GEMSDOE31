@@ -256,51 +256,126 @@ def submission_receipts() -> list[dict]:
 
 # --------------------------------------------------------------------------------------- pages
 
+def archived_candidate_review(full: bool) -> str:
+    """Current, data-derived disposition of the two already-existing archive families."""
+    pointer = load("registry/current_review.json", {})
+    card = load(pointer.get("run_card", "")) if pointer else None
+    if not card:
+        return ""
+    h = card["hsteo_artifact"]
+    c = card["csdu_artifact"]
+    final = card["correlation_overlap_vs_registry"]["preplacement_and_final"]["final_dots"]
+    surface = card["correlation_overlap_vs_registry"]["preplacement_and_final"]["surface"]
+    csdu_counts = c["original_template_and_labels"]
+    h_link = h["files"]["all_finite"].replace("docs/", "", 1)
+    h_zip = h["files"]["nan_zip"].replace("docs/", "", 1)
+    card_link = "../" + pointer["run_card"]
+    if not full:
+        return (
+            '<div class="notice notice-danger"><strong>Archived candidates are not submissions.</strong> '
+            f"H-STEO is format-valid only but fails the literal overlap gate: {100*final['overlap_within_3px']:.3f}% "
+            f"of its final dots are within 3 px of one registered control. CSDU is a synthetic-grid prototype "
+            f"and fails the actual template ({csdu_counts['positive_pixels_outside_actual_template_footprint']:,} "
+            "positive cells outside the real footprint). No holdout or new-file score estimate exists. "
+            f"<a href=\"{card_link}\">Read the byte-backed audit card</a>.</div>"
+        )
+    rows = [
+        [
+            "<strong>H-STEO</strong><div class=\"small\">existing archive; not generated in this review</div>",
+            f"{final['candidate_support_pixels']:,} dots; {final['within_3px_of_registered_control']:,} "
+            f"({100*final['overlap_within_3px']:.3f}%) within 3 px. Pre-placement support: "
+            f"{100*surface['overlap_within_3px']:.3f}%. Rank correlation is below 0.01; overlap still triggers STOP.",
+            "<span class=\"badge badge-red\">FORMAT ONLY · DO NOT SUBMIT</span>",
+            f"<a href=\"{e(h_link)}\" download>Research-only all-finite TIFF</a> · "
+            f"<a href=\"{e(h_zip)}\" download>NaN TIFF ZIP</a>",
+        ],
+        [
+            "<strong>CSDU</strong><div class=\"small\">synthetic footprint and all-zero labels</div>",
+            f"{csdu_counts['positive_pixels_outside_actual_template_footprint']:,}/4,000 positives outside the real footprint; "
+            f"{csdu_counts['nan_pixels_inside_actual_template_footprint']:,} NaNs inside it. Both actual-template conventions fail; uniqueness not tested.",
+            "<span class=\"badge badge-red\">INVALID GRID · DO NOT SUBMIT</span>",
+            "Archived bytes retained for forensic review; no submission download offered here.",
+        ],
+    ]
+    detailed = table(["archived artifact", "computed checks", "decision", "access"], rows)
+    return (
+        '<section id="archived-candidate-audit"><div class="section-head">'
+        '<div><p class="kicker">Current archive audit</p><h2>Two old TIFF families; neither is approved</h2></div>'
+        '<p>Read-only review on pinned owner-mirror inputs. One registered witness among 695 is sufficient for a STOP; '
+        'this is not an exhaustive registry scan. No experiment, new TIFF, slot, or upload occurred.</p></div>'
+        f"{detailed}<p class=\"small\">Full run card: <a href=\"{card_link}\">{e(pointer['run_card'])}</a> · "
+        f"method and score caveats: <a href=\"../{e(pointer['report'])}\">repository review</a>.</p></section>"
+    )
+
+
 def session_panel(full: bool) -> str:
-    """Decision panel from registry/session_cc130eb1_decision.json (built by build_session_register.py)."""
-    d = load("registry/session_cc130eb1_decision.json")
-    if not d:
+    """Current review panel plus the pinned historical nine-site comparison."""
+    pointer = load("registry/current_review.json")
+    d = load(pointer["nine_site_register"]) if pointer else None
+    if not d or not pointer:
         return ""
     rows = []
     for r in d["focus_site_rows"]:
         partners = r["count_other_focus_sites_flagged"]
+        download_url = r["source_url"].replace("/blob/", "/raw/", 1)
         rows.append([
             f"<code>{e(r['site'])}</code>",
             f"{fmt(r['reported_top_score_USER_REPORTED'])} <span class=\"small\">USER-REPORTED, no receipt</span>",
-            f"<a href=\"{e(r['source_url'])}\">{e(r['file'])}</a> <span class=\"small\">(GitHub, pinned commit)</span>",
+            f"<a href=\"{e(r['source_url'])}\">{e(r['file'])}</a> <span class=\"small\">(inspect, pinned commit)</span><br>"
+            f"<a href=\"{e(download_url)}\">Direct file download</a>",
             "<span class=\"badge badge-red\">DO NOT SUBMIT</span> download for study only",
             f"{partners} of 8 other focus files (overlap &gt; 0.70)",
             "<strong>No</strong>",
-            "not estimable (no holdout-validated model, no receipt)",
+            "unavailable (no calibrated estimate)",
         ])
-    table_html = table(["site", "reported top score", "file to download (research only)", "download / submit",
-                        "duplicates", "unique?", "estimated score for a new file"], rows,
-                       caption="Nine requested sites: the top file of each site, verified by SHA-256 and pixel comparison.")
-    lines = "".join(f"<li>{e(item)}</li>" for item in d["blockers"])
-    sources = "".join(f"<li><a href=\"{e(src['url'])}\">{e(src['title'])}</a> <span class=\"small\">[{e(src['class'])}, fetched {e(src['fetched'])}]</span></li>"
-                      for src in d["official_sources"])
-    head = (f"<div class=\"notice notice-danger\"><strong>Decision (2026-10-29, arena/cc130eb1): no file is cleared to submit.</strong> "
-            f"No new TIFF was generated, no experiment was run, and no score is claimed. "
-            f"Every nine-site file duplicates the others (minimum pairwise overlap {d['min_pairwise_max_overlap']:.3f}), so none is unique. "
-            f"Download links are for study only. DO NOT SUBMIT.</div>")
+    table_html = table(["site", "reported top score", "file to inspect (research only)", "download / submit",
+                        "duplicates", "unique?", "new-file estimate"], rows,
+                       caption="Pinned nine-site audit from the previous review; not re-fetched in this supplemental archive audit.")
+    head = (
+        '<div class="notice notice-danger"><strong>Current review (2026-10-29, arena/9f242e65): DO NOT SUBMIT.</strong> '
+        'No new TIFF, experiment, score claim, slot selection, or DrivenData contact occurred. The archived H-STEO '
+        'fails the literal 3-px uniqueness rule and CSDU is invalid on the actual template. Historical nine-site '
+        'scores remain USER-REPORTED, not organizer-confirmed; a new-file estimate is unavailable. '
+        f"<a href=\"../{e(pointer['report'])}\">Full review</a>.</div>"
+    )
     if not full:
-        return head + ("<p class=\"small\">Full executive table, hypotheses, irregularities and official sources: "
-                       "<a href=\"executive-summary.html\">executive summary</a>.</p>")
-    hyp_rows = [[str(h["rank"]), e(h["id"]), e(h["signature"]), e(h["non_fault_mimic"]), e(h["cost"]),
-                 "not validated (blocked)"] for h in d["hypotheses_ranked"]]
-    irr = "".join(f"<li>{e(item)}</li>" for item in d["irregularities"])
+        return head + archived_candidate_review(full=False) + (
+            '<p class="small">Nine-site executive table, ranked desk hypotheses, source links, and audited archive files: '
+            '<a href="executive-summary.html">executive summary</a>.</p>'
+        )
+
+    hyp_rows = [[str(h["rank"]), e(h["id"]), e(h["expected_dti_gain"]),
+                 e(h["implementation_cost"]), e(h["status"])]
+                for h in pointer["ranked_desk_hypotheses"]]
+    blockers = pointer["blockers"]
+    lines = "".join(f"<li>{e(item)}</li>" for item in blockers)
+    irr = [
+        "H-STEO's exact zero lattice-cell count does not satisfy the 3-px overlap limit; measured final overlap is 99.945%.",
+        "CSDU's original run card describes synthetic labels/template; both actual-template conventions fail.",
+        "The current prompt has no assigned method paragraph; no experiment was run.",
+    ]
+    irr.extend(d.get("irregularities", []))
+    irr_html = "".join(f"<li>{e(item)}</li>" for item in irr)
+    sources = "".join(
+        f"<li><a href=\"{e(src['url'])}\">{e(src['title'])}</a> "
+        f"<span class=\"small\">[{e(src['class'])}; recorded fetch {e(src['fetched'])} in prior register, not refreshed here]</span></li>"
+        for src in d["official_sources"]
+    )
     return "\n".join([
         head,
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Nine requested sites</p><h2>Per-site executive table</h2></div>"
-        f"<p>Scores are USER-REPORTED. They are not organizer-confirmed and are shown only so the duplicate audit can be read.</p></div>{table_html}</section>",
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Untested hypotheses</p><h2>Ranked, none validated</h2></div>"
-        f"<p>Validation on a spatially blocked holdout is blocked: the feature stack is not restored and no lane is assigned.</p></div>"
-        f"{table(['rank', 'id', 'signature', 'non-fault mimic', 'cost', 'status'], hyp_rows)}</section>",
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Limitations</p><h2>Blockers and needed access</h2></div></div><ul>{lines}</ul></section>",
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Irregularities</p><h2>Flagged, not resolved</h2></div></div><ul>{irr}</ul></section>",
-        f"<section><div class=\"section-head\"><div><p class=\"kicker\">Official and free data sources</p><h2>Links checked on 2026-10-29</h2></div></div><ul>{sources}</ul></section>",
-        "<p class=\"small\">Register: <a href=\"https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/session_cc130eb1_decision.json\">registry/session_cc130eb1_decision.json</a> · "
-        "review: <a href=\"https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-cc130eb1.md\">knowledge/repo_review_2026-10-29_arena-cc130eb1.md</a></p>",
+        archived_candidate_review(full=True),
+        f'<section><div class="section-head"><div><p class="kicker">Nine requested sites</p><h2>Per-site executive table</h2></div>'
+        f'<p>Scores are USER-REPORTED, not organizer-confirmed. Their file links are for study only.</p></div>{table_html}</section>',
+        f'<section><div class="section-head"><div><p class="kicker">Untested hypotheses</p><h2>Ranked qualitative leads; none viable or validated</h2></div>'
+        f'<p>Expected gain is a desk ranking, not a DTI forecast. External products were not obtained or re-verified.</p></div>'
+        f"{table(['rank', 'hypothesis', 'qualitative expected DTI gain', 'implementation cost', 'source/validation status'], hyp_rows)}</section>",
+        f'<section><div class="section-head"><div><p class="kicker">Limitations</p><h2>Blockers and needed access</h2></div></div><ul>{lines}</ul></section>',
+        f'<section><div class="section-head"><div><p class="kicker">Irregularities</p><h2>Flagged, not resolved</h2></div></div><ul>{irr_html}</ul></section>',
+        f'<section><div class="section-head"><div><p class="kicker">Manual source links</p><h2>Prior-receipt links, not freshly fetched here</h2></div></div><ul>{sources}</ul></section>',
+        f'<p class="small">Current run card: <a href="../{e(pointer["run_card"])}">{e(pointer["run_card"])}</a> · '
+        f'Owner brief: <a href="../{e(pointer["owner_brief"])}">{e(pointer["owner_brief"])}</a> · '
+        f'Hypotheses: <a href="../{e(pointer["hypotheses"])}">{e(pointer["hypotheses"])}</a> · '
+        'historical focus register: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/registry/session_cc130eb1_decision.json">registry/session_cc130eb1_decision.json</a></p>',
     ])
 
 
@@ -310,8 +385,8 @@ def build_index(sub: dict, buf: dict, union: dict, arms: dict) -> str:
         hero, body = current_site.overview(current)
         body = session_panel(full=False) + body
         body += '<p class="small"><a href="register/index.html">Historical reference TIFFs</a> remain audit-only, never a new submission.</p>'
-        desc = ("No file is cleared to submit under the binding literal registry STOP; download newly generated "
-                "H31-AA (2026-10-27) or prior lanes for research only. Automated gates, no human inspector.")
+        desc = ("No file is cleared to submit under the binding literal registry STOP; existing research archives "
+                "are marked with their measured defects and are not approved for upload. Automated gates; no human inspector.")
         return shell("", "Overview", desc,
                      "Overview", hero, body, "Maximize P(Win) · Own the Outcome · negative results preserved.")
     primary = next(f for f in sub["files"] if f["id"] == "primary-h27-4-solo-d28")
@@ -1033,8 +1108,54 @@ def build_feed(sub: dict, buf: dict, union: dict, arms: dict, sources: dict) -> 
     feed["historical_generated_utc"] = feed.pop("generated_utc", None)
     feed["review_date"] = release["review_date"]
     feed["current_release_status"] = release
-    feed["open_items"] = release["failed_or_unknown_gates"]
+    feed["open_items"] = list(release["failed_or_unknown_gates"])
     feed["source_access"] = "See dated source receipts; no live leaderboard, official receipt or current quota verified."
+    current_review = load("registry/current_review.json")
+    if current_review:
+        review_card = load(current_review["run_card"])
+        if review_card is None:
+            raise ValueError("current review run card is missing")
+        stages = review_card["correlation_overlap_vs_registry"]["preplacement_and_final"]
+        hsteo = review_card["hsteo_artifact"]
+        csdu = review_card["csdu_artifact"]
+        csdu_counts = csdu["original_template_and_labels"]
+        feed["latest_review"] = {
+            "review_id": current_review["review_id"],
+            "branch": current_review["branch"],
+            "date_utc": current_review["date_utc"],
+            "decision": current_review["decision"],
+            "source": current_review["run_card"],
+            "report": current_review["report"],
+            "experiments_run": current_review["experiments_run"],
+            "new_tif_generated": current_review["new_tif_generated"],
+            "submission_slots_used": current_review["submission_slots_used"],
+            "leaderboard_estimate_for_new_file": current_review["leaderboard_estimate_for_new_file"],
+            "hsteo_archive": {
+                "name": hsteo["submission_name"],
+                "file": hsteo["files"]["all_finite"],
+                "raster_sha256": hsteo["sha256"]["all_finite"],
+                "format_valid_against_pinned_owner_mirror": hsteo["format_valid_against_pinned_template"],
+                "preplacement_surface_overlap_3px": stages["surface"]["overlap_within_3px"],
+                "final_overlap_3px": stages["final_dots"]["overlap_within_3px"],
+                "registry_coverage_complete": review_card["correlation_overlap_vs_registry"]["coverage_complete"],
+                "ok_to_submit": hsteo["ok_to_submit"],
+                "verdict": hsteo["verdict"],
+            },
+            "csdu_archive": {
+                "name": csdu["submission_name"],
+                "actual_template_format_valid": csdu["format_valid_against_actual_pinned_template"],
+                "positive_pixels_outside_actual_footprint": csdu_counts["positive_pixels_outside_actual_template_footprint"],
+                "nan_pixels_inside_actual_footprint": csdu_counts["nan_pixels_inside_actual_template_footprint"],
+                "registry_uniqueness": csdu["registry_uniqueness"],
+                "ok_to_submit": csdu["ok_to_submit"],
+                "verdict": csdu["verdict"],
+            },
+        }
+        feed["open_items"].extend([
+            "H-STEO existing TIFF fails the literal 3-px registry overlap gate; a single registered witness suffices for STOP, and the scan is not exhaustive.",
+            "CSDU existing TIFFs were built on synthetic footprint/labels and fail validation against the pinned actual template.",
+            "No new-file leaderboard estimate, holdout result, or organizer-confirmed score exists for this review.",
+        ])
     payload = json.dumps(feed, indent=1, allow_nan=False) + "\n"
     rows = [[e(k), f"<code>{e(json.dumps(v))}</code>"] for section, values in feed.items()
             if isinstance(values, dict) and section not in ("sources", "automation")
@@ -1433,7 +1554,10 @@ def main() -> None:
     feed_data["current_selector_decision"] = load("registry/selector_decision_20261026.json")
     feed_data["current_h31aa_run"] = load("evidence/h31aa/run_card.json")
     feed_data["current_session_decision"] = load("registry/session_cc130eb1_decision.json")
-    feed_data["current_repository_review"] = load("evidence/review_a668bcb6/run_card.json")
+    current_review_pointer = load("registry/current_review.json")
+    if current_review_pointer:
+        feed_data["previous_repository_review"] = load("evidence/review_a668bcb6/run_card.json")
+        feed_data["current_repository_review"] = load(current_review_pointer["run_card"])
     pages[DOCS / "feed.json"] = json.dumps(feed_data, indent=1, allow_nan=False) + "\n"
     pages[DOCS / "feed.html"] = feed_html
 

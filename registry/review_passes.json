@@ -2040,6 +2040,27 @@
     "Licences for SMU, NBMG and INGENIOUS unverified; eligibility unverified."
    ],
    "delivery_state": "No new TIFF, experiment, candidate, slot, DrivenData access or leaderboard estimate. Current release remains negative."
+  },
+  {
+   "id": "pass-2026-10-29-arena-9f242e65-1-implementation-and-evidence",
+   "status": "complete-with-open-gates",
+   "scope": "Current repository review only; no experiment or submission authorization.",
+   "result": "Read-only archive audit reproduced H-STEO geometry and validated both existing artifact families against pinned real template; generators disabled fail-closed.",
+   "historical_scope": false
+  },
+  {
+   "id": "pass-2026-10-29-arena-9f242e65-2-independent-defect-and-gate-review",
+   "status": "complete-with-open-gates",
+   "scope": "Current repository review only; no experiment or submission authorization.",
+   "result": "Confirmed literal 3-px STOP and synthetic CSDU failures; corrected release/feed list aliasing and stale current-review feed pointer, and added direct pinned download links; no scientific lane or exception inferred.",
+   "historical_scope": false
+  },
+  {
+   "id": "pass-2026-10-29-arena-9f242e65-3-whole-request-and-ci-recheck",
+   "status": "complete-with-open-gates",
+   "scope": "Current repository review only; no experiment or submission authorization.",
+   "result": "Final CI-equivalent run passed: 264 tests, lint, compile, all current integrity verifiers, metric/marginal proofs, evidence collection (259 artifacts / 14 submissions), 22-page/570-link site checks and tracked-input exclusion. Release remains negative; no experiment or slot.",
+   "historical_scope": false
   }
  ],
  "remaining_work": [
@@ -2264,6 +2285,30 @@
    "submission_slots_used": 0,
    "ok_to_submit": false,
    "leaderboard_estimate": null
+  },
+  {
+   "session": "arena/9f242e65-gemsdoe31",
+   "date": "2026-10-29",
+   "lane": "Read-only H-STEO/CSDU archive-integrity review and site/evidence integration; no scientific method assigned",
+   "pass1_implement": "Read the active README/AGENTS charter, current release and review registers, prior nine-site audit, archived H-STEO/CSDU outputs and generator code. Added a reproducible byte-backed archive audit and run card, fail-closed legacy generator stubs, archive dispositions in the evidence register, current-review pointer, executive report, ranked hypotheses, and site/feed integration. No experiment, model fit, holdout, new TIFF, submission slot, upload, leaderboard access or external web page fetch.",
+   "pass2_independent_review": "Replayed the existing H-STEO mask exactly; confirmed the 9,135/9,140 (99.9453%) final-dot overlap with one pinned registered control triggers the literal >70% 3-px STOP despite low rank correlation; confirmed CSDU synthetic labels/footprint lead to 1,899 positives outside and hard actual-template failures. Reviewed exact-vs-buffered lattice semantics, stale generator claims, note lengths, release/permission language and feed isolation. Fixed undefined sha256 call, release/feed list aliasing, stale current_repository_review feed pointer, and stale site-notice assertions; added/updated regression coverage. Updated the nine-site table to provide direct pinned-file download links alongside inspect links.",
+   "pass3_whole_request_and_ci": "Final CI-equivalent run passed: 264 pytest tests, Ruff, compileall, archived-audit reproducibility check, current/protocol/H31-CC/release/H31-J/H31-T/H31-AA verifiers, independent metric algebra and 10,000-case marginal-DTI proof. Evidence collection inventoried 259 artifacts and 14 submission files; deterministic site build/check passed for 22 pages and 570 local links; git ls-files found no .cache, data, work or .venv files. current-run verification and site regeneration rewrote docs/downloads/readiness.json only in generated_utc; that timestamp-only diff was discarded after checks. No experiment, new TIFF, slot, upload, leaderboard access or score estimate.",
+   "artifacts": [
+    "knowledge/repo_review_2026-10-29_arena-9f242e65.md",
+    "knowledge/hypotheses_2026-10-29_arena-9f242e65.md",
+    "knowledge/owner_prompt_2026-10-29_arena-9f242e65.md",
+    "evidence/review_9f242e65/run_card.json",
+    "registry/current_review.json",
+    "scripts/audit_archived_candidates.py",
+    "tests/test_archived_candidate_audit.py"
+   ],
+   "new_experiments": 0,
+   "new_tif_generated": false,
+   "submission_slots_used": 0,
+   "ok_to_submit": false,
+   "leaderboard_estimate": null,
+   "decision": "DO NOT SUBMIT. H-STEO fails the literal 3-px uniqueness gate; CSDU is invalid on the actual template; no new file is approved.",
+   "qualification": "Owner-mirror evidence only; no organizer-confirmed score or acceptance. The one registered counterexample establishes STOP, not exhaustive global uniqueness."
   }
  ],
  "session_review_20261027_3b1ed545": {
@@ -2383,5 +2428,29 @@
   "submission_slots_used": 0,
   "ok_to_submit": false,
   "leaderboard_estimate": null
+ },
+ "session_review_20261029_9f242e65": {
+  "session": "arena/9f242e65-gemsdoe31",
+  "date": "2026-10-29",
+  "lane": "Read-only H-STEO/CSDU archive-integrity review and site/evidence integration; no scientific method assigned",
+  "pass1_implement": "Read the active README/AGENTS charter, current release and review registers, prior nine-site audit, archived H-STEO/CSDU outputs and generator code. Added a reproducible byte-backed archive audit and run card, fail-closed legacy generator stubs, archive dispositions in the evidence register, current-review pointer, executive report, ranked hypotheses, and site/feed integration. No experiment, model fit, holdout, new TIFF, submission slot, upload, leaderboard access or external web page fetch.",
+  "pass2_independent_review": "Replayed the existing H-STEO mask exactly; confirmed the 9,135/9,140 (99.9453%) final-dot overlap with one pinned registered control triggers the literal >70% 3-px STOP despite low rank correlation; confirmed CSDU synthetic labels/footprint lead to 1,899 positives outside and hard actual-template failures. Reviewed exact-vs-buffered lattice semantics, stale generator claims, note lengths, release/permission language and feed isolation. Fixed undefined sha256 call, release/feed list aliasing, stale current_repository_review feed pointer, and stale site-notice assertions; added/updated regression coverage. Updated the nine-site table to provide direct pinned-file download links alongside inspect links.",
+  "pass3_whole_request_and_ci": "Final CI-equivalent run passed: 264 pytest tests, Ruff, compileall, archived-audit reproducibility check, current/protocol/H31-CC/release/H31-J/H31-T/H31-AA verifiers, independent metric algebra and 10,000-case marginal-DTI proof. Evidence collection inventoried 259 artifacts and 14 submission files; deterministic site build/check passed for 22 pages and 570 local links; git ls-files found no .cache, data, work or .venv files. current-run verification and site regeneration rewrote docs/downloads/readiness.json only in generated_utc; that timestamp-only diff was discarded after checks. No experiment, new TIFF, slot, upload, leaderboard access or score estimate.",
+  "artifacts": [
+   "knowledge/repo_review_2026-10-29_arena-9f242e65.md",
+   "knowledge/hypotheses_2026-10-29_arena-9f242e65.md",
+   "knowledge/owner_prompt_2026-10-29_arena-9f242e65.md",
+   "evidence/review_9f242e65/run_card.json",
+   "registry/current_review.json",
+   "scripts/audit_archived_candidates.py",
+   "tests/test_archived_candidate_audit.py"
+  ],
+  "new_experiments": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "ok_to_submit": false,
+  "leaderboard_estimate": null,
+  "decision": "DO NOT SUBMIT. H-STEO fails the literal 3-px uniqueness gate; CSDU is invalid on the actual template; no new file is approved.",
+  "qualification": "Owner-mirror evidence only; no organizer-confirmed score or acceptance. The one registered counterexample establishes STOP, not exhaustive global uniqueness."
  }
 }

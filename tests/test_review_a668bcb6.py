@@ -28,17 +28,18 @@ def test_source_receipt_has_nine_distinct_focus_heads_and_hashed_official_bytes(
     assert "drivendataorg/gems-prize-reference-solution" in official["url"]
 
 
-def test_new_review_notice_distinguishes_current_metadata_from_frozen_raster_audit():
+def test_current_review_notice_reports_archive_findings_without_overclaiming_scope():
     spec = importlib.util.spec_from_file_location("current_site", ROOT / "scripts/current_site.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     text = module.review_notice()
-    assert "29 October" in text
-    assert "9 focus repositories" in text
-    assert "9 have changed" in text
-    assert "does not refresh their raster audit" in text
+    assert "29 October active review, arena/9f242e65" in text
     assert "DO NOT SUBMIT" in text
-    assert "Historical HOLDOUT-DTI remains cited, not rerun" in text
+    assert "99.945%" in text
+    assert "one registered control" in text
+    assert "not exhaustive" in text
+    assert "2,610,312" in text
+    assert "No holdout, organizer receipt, or new-file leaderboard estimate exists" in text
 
 
 def test_review_card_does_not_claim_new_tiff_holdout_or_permission():

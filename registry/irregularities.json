@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-10-25",
+  "generated_utc": "2026-10-29",
   "items": [
     {
       "id": "IR-31-SCORE-2600-D28",
@@ -720,6 +720,45 @@
         "registry/session_cc130eb1_decision.json"
       ],
       "action": "Label every anchor USER-REPORTED. Obtain organizer receipts before any claim."
+    },
+    {
+      "id": "IR-31-HSTEO-3PX-REGISTER-STOP",
+      "severity": "high",
+      "status": "open-stop-condition",
+      "summary": "The archived H-STEO file has zero exact common pixels with one spacing-5 lattice only after explicitly filtering 394 collisions, but 9,135 of 9,140 final dots (99.9453%) lie within the required 3-px halo of that one hash-pinned registered control. Its pre-placement mask overlap is 99.9650%.",
+      "evidence": [
+        "evidence/review_9f242e65/run_card.json replays the 465,907-pixel catalogue dilation/erosion mask and exactly reproduces all 9,140 final TIFF dots.",
+        "Registered counterexample: GEMSDOE24@07345ea0604953d7efb858d9cfbc21e20c7aca0b inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif; SHA-256 b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2; it is one hash-pinned raster in a 695-raster owner-mirror manifest.",
+        "H-STEO pixel and 5-px block Spearman values are small, but the literal overlap rule is independently failed; no exhaustive registry scan or global uniqueness proof is claimed.",
+        "Original saved field spacing_5_lattice_overlap=0.0 means exact-cell intersection after filtering, not 3-px support overlap. The 7x7 offset alone does not avoid a 5x5 lattice."
+      ],
+      "impact": "The literal duplicate gate blocks the artifact despite format validity and low rank correlation. No holdout DTI or new-file score estimate exists.",
+      "action": "Keep H-STEO research-only and do not regenerate or change density. Its direct generator is disabled. Require an assigned method and a fresh complete pre-placement registry gate before any future lane."
+    },
+    {
+      "id": "IR-31-CSDU-SYNTHETIC-FOOTPRINT",
+      "severity": "high",
+      "status": "open-stop-condition",
+      "summary": "The archived CSDU generator used a synthetic ellipse footprint and an all-zero labels raster, not the pinned competition sample and public catalogue. The 4,000-dot TIFF family fails actual-template checks.",
+      "evidence": [
+        "evidence/review_9f242e65/run_card.json records the historical generator source SHA-256 112fd0441b618916247eb4b5473f081616e6373df9cf85e9ce2450730dd5c293 and revalidates the existing bytes against the pinned actual template.",
+        "COMPUTED: 1,899/4,000 positive cells lie outside the actual footprint; the NaN twin has 2,610,312 missing cells inside the true footprint; both all-finite and NaN-outside conventions fail.",
+        "The historical zero catalogue-overlap claim was computed using synthetic all-zero labels. No registry uniqueness comparison was run."
+      ],
+      "impact": "The artifact is not a valid competition-grid candidate; its original format and uniqueness claims cannot support download-for-submission or a score estimate.",
+      "action": "Retain existing bytes for forensic traceability only. Do not repair, regenerate or submit. Its direct generator is disabled."
+    },
+    {
+      "id": "IR-31-ARCHIVED-GENERATOR-WRITE-BYPASS",
+      "severity": "medium",
+      "status": "resolved-with-stop",
+      "summary": "Two archived candidate scripts could generate TIFFs without the current release gate; the CSDU runner also generated synthetic rather than competition inputs.",
+      "evidence": [
+        "Pre-audit H-STEO runner SHA-256 bafbd6469e25724f53b021d3d93e49ca233aec279c3f3557d52e5040b4ee4ad0; pre-audit CSDU runner SHA-256 112fd0441b618916247eb4b5473f081616e6373df9cf85e9ce2450730dd5c293.",
+        "Current scripts/generate_unique_submission.py and scripts/run_unique_stepover_submission.py are no-write stubs and regression tests assert they fail before any TIFF changes."
+      ],
+      "impact": "Without a guard, an old runner could bypass the current duplicate/no-lane STOP and write another archive artifact.",
+      "action": "Keep the no-write stubs and tests. Any future experiment must use a newly assigned method, current canonical permissions and the shared evaluator/writer."
     }
   ]
 }
