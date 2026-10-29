@@ -2247,5 +2247,29 @@
    "included_review": "PR #62 / arena/fcbbeea8-gemsdoe31",
    "scientific_work_added": false
   }
+ },
+ "sessions_20261029_8e29897c": {
+  "date": "2026-10-29",
+  "branch": "arena/8e29897c-gemsdoe31",
+  "decision": "DO NOT SUBMIT — literal registry STOP",
+  "passes": [
+   {
+    "pass": 1,
+    "result": "Fresh existing-byte validation and duplicate STOP reproduced; read-only audit command implemented."
+   },
+   {
+    "pass": 2,
+    "result": "Fixed intermediate/canonical status comparison and JSON tuple normalization; added five fail-closed regression tests."
+   },
+   {
+    "pass": 3,
+    "result": "219 tests passed; lint, compile, independent metric, marginal algebra and 22-page/552-link site checks passed. No fit or slot. Final checks rerun after site/review edits."
+   }
+  ],
+  "experiments": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "review": "knowledge/review_2026-10-29_8e29897c.md",
+  "run_card": "evidence/download_audit_20261029.json"
  }
 }

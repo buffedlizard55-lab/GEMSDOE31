@@ -1,3 +1,16 @@
+# Current review — 29 October 2026 (`arena/8e29897c-gemsdoe31`)
+
+**DO NOT SUBMIT.** No new TIFF or experiment; the verified existing H31-CC artifact fails the literal registry uniqueness rule. No slot used. New leaderboard estimate: unavailable.
+
+- [Executive review: nine-site table, hypotheses, three passes, limitations](knowledge/review_2026-10-29_8e29897c.md)
+- [Machine-readable run card](evidence/download_audit_20261029.json)
+- New autonomous command: `python scripts/audit_download.py` (exit 2 = verified denial; exit 1 = missing/corrupt/stale evidence). Restore small inputs first with `python scripts/verify_current_run.py --restore-small-inputs` if needed.
+- [Existing executive summary and submission guide](docs/executive-summary.html#nine-site-decision)
+
+The complete owner prompt is preserved in this README below and the linked historical operative prompt. This session applies the same charter: unique TIFF required; literal registry STOP before placement; no slot selection; three-experiment/two-hour maximum. The requested single-method paragraph is still absent. No permission to bypass these constraints is inferred. Read the entire charter every session. Maximize P(Win); Own the Outcome.
+
+---
+
 # Current session — 28 October 2026 (`arena/41e3ba3f-gemsdoe31`)
 
 **DO NOT SUBMIT.** This review generated no TIFF, ran no experiment, selected no candidate or weekly slot, and made no DrivenData contact. The latest existing scientific artifact is H31-CC from the previous session. It remains research-only: cited HOLDOUT-DTI 0.0471 [0.0332, 0.0618], paired difference versus same-run NULL −0.0097 [−0.0235, +0.0052], and COMPUTED final overlap 99.6123% with the registered spacing-5 witness. New-file leaderboard estimate: unavailable.
