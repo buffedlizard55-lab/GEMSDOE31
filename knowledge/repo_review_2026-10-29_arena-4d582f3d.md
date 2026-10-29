@@ -74,11 +74,11 @@ Read the complete repository README (including the preserved owner prompt), `AGE
 
 ### Pass 2 — find bugs, missing requirements and assumptions
 
-Confirmed the focus table must be read as historical claims, not a live feed; site results do not confer uniqueness or approval. Checked the H33 explanation against the forensic record and kept causation qualified as inference. Confirmed the H31-CC integrity report distinguishes format success from uniqueness/science failure and that a single witness suffices for denial but not global coverage. The production cache and the assigned method paragraph remain absent. `verify_current_run.py --restore-small-inputs` returned research-download true / submission false. No external source was freshly fetched.
+Confirmed the focus table must be read as historical claims, not a live feed; site results do not confer uniqueness or approval. Checked the H33 explanation against the forensic record and kept causation qualified as inference. Confirmed the H31-CC integrity report distinguishes format success from uniqueness/science failure and that a single witness suffices for denial but not global coverage. During conflict resolution, integrated and reviewed the parallel 29 October change to `selector_permission`: malformed/contradictory uniqueness states now fail closed, with regression tests; no actual release was approved by the old condition. The production cache and assigned method paragraph remain absent. `verify_current_run.py --restore-small-inputs` returned research-download true / submission false. No external source was freshly fetched.
 
 ### Pass 3 — final reproducibility and consistency
 
-- `python -m pytest -q`: **214 passed**.
+- `python -m pytest -q`: **219 passed** after integrating the parallel fail-closed selector-policy regression tests.
 - Ruff: **passed**.
 - `compileall`: **passed**.
 - `check_metric.py`: maximum absolute fast/brute DTI error **4.441e-16** over 24 grids; triangular-kernel neighborhood contains 29 offsets at 100 m cells.

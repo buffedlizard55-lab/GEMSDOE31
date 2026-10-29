@@ -2,13 +2,17 @@
 
 **DO NOT SUBMIT. No new TIFF, experiment, slot selection, or leaderboard contact in this review.** The cited H31-CC research artifact fails the literal registry overlap gate; its format checks do not imply submission approval. No new-file leaderboard estimate is supported. Historical nine-site claims remain USER-REPORTED, not organizer receipts.
 
-- [Three-pass repository review, nine-site decision table, ranked desk hypotheses and next steps](knowledge/repo_review_2026-10-29_arena-4d582f3d.md)
-- [Machine-readable negative run card](evidence/review_4d582f3d/run_card.json) · [current release status](registry/release_status.json) · [nine-site evidence register](registry/focus_review.json)
+- [This branch's three-pass review, nine-site decision table, ranked desk hypotheses and next steps](knowledge/repo_review_2026-10-29_arena-4d582f3d.md) · [negative run card](evidence/review_4d582f3d/run_card.json)
+- [Parallel 29 October review from `arena/b187d4af-gemsdoe31`](knowledge/repo_review_2026-10-29_b187d4af.md) · [parallel run card](evidence/review_b187d4af/run_card.json)
+- [Current release status](registry/release_status.json) · [nine-site evidence register](registry/focus_review.json)
 - All nine pinned historical top entries have >70% computed 3-px support overlap with H33; they are prior art, not upload choices. The H33 `0.2778` value is USER-REPORTED and its private-truth cause is unknown.
 - Three candidate hypotheses are desk-only. The promised method paragraph is absent, the full feature cache is absent, and no candidate was validated. No current TIFF is OK to submit.
-- Automated checks: 214 tests passed; Ruff, compileall, metric, current/protocol/H31-CC verifiers, release-status check and 22-page/552-link site check passed. The generated timestamp-only readiness diff was discarded.
+- After integrating the parallel fail-closed selector guard: 219 tests passed; Ruff, compileall, metric, current/protocol/H31-CC verifiers, release-status check and 22-page/552-link site check passed. The generated timestamp-only readiness diff was discarded.
 
-This dated review supersedes earlier README banners as the latest repository review; historical cards remain preserved. Read the complete README, including the preserved owner prompt, and `AGENTS.md` at every project session start.
+This dated review supersedes earlier README banners as the latest review on this branch; historical and parallel-session records remain preserved. Read the complete README, including the preserved owner prompt, and `AGENTS.md` at every project session start.
+
+---
+
 
 ---
 

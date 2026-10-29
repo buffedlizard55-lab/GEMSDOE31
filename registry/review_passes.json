@@ -2184,18 +2184,21 @@
    "date": "2026-10-29",
    "lane": "repository review only; no scientific lane assigned",
    "pass1_implement": "Read full README and preserved prompt, AGENTS, release status, historical current_run, review-pass register, pinned focus evidence, H31-CC receipts, sources and site generator. Restored only pinned small validation inputs and witness. Added three-pass review and negative run card; no scientific code or TIFF changed.",
-   "pass2_review": "Confirmed all nine historical high-water claims are USER-REPORTED; pinned pairwise 3-px overlaps against H33 all exceed 70%, which makes them prior-art references under the stated gate but is not exhaustive global uniqueness. H33 causal explanation remains inference. Current H31-CC fails the literal gate; production cache and assigned method paragraph are absent. No leaderboard or non-GitHub source was fetched.",
-   "pass3_recheck": "214 pytest passed; Ruff, compileall, metric check, current-run/protocol/H31-CC verifiers, release check, evidence collection, 22-page site build and 552-local-link check passed. Readiness timestamp-only diff discarded. No holdout experiment, TIFF, slot, upload, or score estimate.",
+   "pass2_review": "Confirmed all nine historical high-water claims are USER-REPORTED; pinned pairwise 3-px overlaps against H33 all exceed 70%, which makes them prior-art references under the stated gate but is not exhaustive global uniqueness. H33 causal explanation remains inference. Reviewed the integrated fail-closed selector helper/tests; current H31-CC fails the literal gate; production cache and assigned method paragraph are absent. No leaderboard or non-GitHub source was fetched.",
+   "pass3_recheck": "219 pytest passed after integrating the parallel fail-closed selector-policy change; Ruff, compileall, metric check, current-run/protocol/H31-CC verifiers, release check, evidence collection, 22-page site build and 552-local-link check passed. Readiness timestamp-only diff discarded. No holdout experiment, TIFF, slot, upload, or score estimate.",
    "artifacts": [
     "knowledge/repo_review_2026-10-29_arena-4d582f3d.md",
-    "evidence/review_4d582f3d/run_card.json"
+    "evidence/review_4d582f3d/run_card.json",
+    "knowledge/repo_review_2026-10-29_b187d4af.md",
+    "evidence/review_b187d4af/run_card.json"
    ],
    "new_experiments": 0,
    "new_tif_generated": false,
    "submission_slots_used": 0,
    "ok_to_submit": false,
    "leaderboard_estimate": null,
-   "decision": "No TIFF is approved. Existing H31-CC remains research-only and stopped by the literal registered-raster overlap gate; new candidate hypotheses are desk-only and unvalidated."
+   "decision": "No TIFF is approved. Existing H31-CC remains research-only and stopped by the literal registered-raster overlap gate; new candidate hypotheses are desk-only and unvalidated.",
+   "integration_note": "Merged origin/main PR #64 into this branch to resolve GitHub PR conflict; preserved parallel review and hardened selector_permission against malformed or contradictory uniqueness evidence."
   }
  ],
  "session_review_20261027_3b1ed545": {
@@ -2265,5 +2268,16 @@
    "included_review": "PR #62 / arena/fcbbeea8-gemsdoe31",
    "scientific_work_added": false
   }
+ },
+ "session_review_20261029_b187d4af": {
+  "pass_1": "Audited repository and restored only pinned small inputs; independent H31-CC verification confirms negative release.",
+  "pass_2": "Fixed selector helper accepting contradictory/missing failure lists; malformed stages fail closed, with tests.",
+  "pass_3": "219 tests, ruff, compileall, metric, release verifiers, evidence collection and 22-page/552-link site checks passed.",
+  "new_experiments": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "ok_to_submit": false,
+  "review": "knowledge/repo_review_2026-10-29_b187d4af.md",
+  "run_card": "evidence/review_b187d4af/run_card.json"
  }
 }

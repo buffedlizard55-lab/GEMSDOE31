@@ -18,8 +18,12 @@ Undefined rank correlation is not evidence of uniqueness.
 """
     failures = []
     duplicate = False
+    if not isinstance(stages, dict):
+        stages = {}
     for name in ("surface", "final"):
-        stage = stages.get(name, {})
+        stage = stages.get(name)
+        if not isinstance(stage, dict):
+            stage = {}
         for key, limit in (("max_abs_rho", .90), ("max_overlap", .70)):
             value = stage.get(key)
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
@@ -38,7 +42,10 @@ def selector_permission(*, uniqueness: dict, scientific_gates: dict,
                         selector_authorized: bool, weekly_cap_verified: bool) -> bool:
     """No soft/projection override and no truthy-string approvals."""
     required = {"format", "canary", "same_run_best", "fresh_confirmation", "discovery_proxy", "provenance"}
+    if not isinstance(uniqueness, dict) or not isinstance(scientific_gates, dict):
+        return False
     return (uniqueness.get("pass_") is True and uniqueness.get("duplicate") is False
+            and uniqueness.get("failures") == []
             and required <= scientific_gates.keys()
             and all(v is True for v in scientific_gates.values())
             and selector_authorized is True and weekly_cap_verified is True)
