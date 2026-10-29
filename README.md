@@ -1,4 +1,24 @@
-# Current session — 29 October 2026 (`arena/cc130eb1-gemsdoe31`): nine-site executive review
+# Current session — 29 October 2026 (`arena/eebfaae2-gemsdoe31`): fail-closed repository review
+
+**Core values: Maximize P(Win) · Own the Outcome.** Start every session by reading this current decision, `AGENTS.md`, the preserved owner charter below, `registry/current_run.json`, `registry/release_status.json`, `registry/review_passes.json`, and the active scientific preregistration. Do not treat a prior branch's status as current.
+
+**Decision: no new TIFF was generated or approved in this review. Do not submit any download from this repo.** The top focus-site claims are user-reported; all nine top rasters duplicate one another above the stated 70% three-pixel overlap gate. Canonical release H31-CC fails a strict registry duplicate gate. A later-dated H-STEO research TIFF exists but has no HOLDOUT-DTI and only a one-lattice novelty check—not a full registry comparison. It is not globally unique or cleared to submit. The feature stack is absent and the requested single-method lane is not assigned. No new experiment, slot selection, upload, or score projection is authorized.
+
+**Important historical-file warning:** this README preserves older session reports and owner prompts, some of which contain obsolete “OK TO SUBMIT”/selector recommendations or inconsistent “current” banners. Those are historical evidence, not permissions. The current `registry/release_status.json`, current session section above, and `AGENTS.md` govern. Under the current literal registry rule, no file is approved.
+
+- **Executive summary and nine-site table:** [GitHub Pages executive summary](docs/executive-summary.html).
+- **Current review:** [knowledge/repo_review_2026-10-29_arena-eebfaae2.md](knowledge/repo_review_2026-10-29_arena-eebfaae2.md).
+- **Machine-readable negative run card:** [evidence/review_eebfaae2/run_card.json](evidence/review_eebfaae2/run_card.json).
+- **Current technical source of truth:** [`registry/release_status.json`](registry/release_status.json) denies submission; [prior nine-site evidence](evidence/review_cc130eb1/focus_site_verification.json) is clearly identified as inherited, not re-fetched this review.
+- **Score labels:** every prior site value is USER-REPORTED, not ORGANIZER-CONFIRMED. A null candidate holdout result is not an estimated leaderboard score.
+- **Download policy:** existing TIFs are for audit/research only. No file is OK to submit. Automated local format validation does not prove organizer acceptance.
+- **Hypothesis status:** four desk proposals are untested, not viable/promoted. Top candidate validation is blocked by missing data and lane assignment; none of the three-experiment/two-hour budget was spent.
+- **Checks:** after hash-pinned small validation inputs were restored from public owner mirrors (not DrivenData), 262 tests passed; Ruff, compileall, metric, release/protocol verifiers, artifact checks, evidence collection, site generation and link checks passed. The initial three missing-input failures are recorded in the review.
+- **Source/leaderboard limits:** the official leaderboard is not scraped/polled. Three external sources' page fetches failed this turn; one source's API docs succeeded, but no regional data were queried. See the review for exact links and status.
+
+---
+
+# Prior session — 29 October 2026 (`arena/cc130eb1-gemsdoe31`): nine-site executive review
 
 **Core values: Maximize P(Win) · Own the Outcome.** Read this section, `AGENTS.md`, and the complete owner prompt below at every session start.
 
@@ -59,9 +79,9 @@ See the status record `knowledge/current_status_2026-10-29_cc130eb1.md` for the 
 
 ---
 
-# Current repository review — 29 October 2026 (`arena/4d582f3d-gemsdoe31`)
+# Archived repository review — 29 October 2026 (`arena/4d582f3d-gemsdoe31`)
 
-# Current Project Charter — 2026-10-29 (`arena/3b306c34-gemsdoe31`)
+# Preserved Project Charter — 2026-10-29 (`arena/3b306c34-gemsdoe31`; historical, superseded by current session above)
 
 **Read this section at the start of every project session.** It defines the active task, success criteria, and constraints.
 
@@ -114,11 +134,11 @@ Desk-only hypotheses requiring validation on the spatially-blocked holdout befor
 - EPSG:32611: https://epsg.io/32611
 - Tversky index: https://en.wikipedia.org/wiki/Tversky_index
 
-## Current State
+## State recorded in the 4d582f3d review (historical; superseded)
 
-- Nine focus-site best claims: GEMSDOE24 (0.2477), GEMSDOE25 (0.2600), GEMSDOE27 (0.2449), GEMSDOE28 (0.2710), GEMSDOE30 (0.2600), GEMSDOE31 (0.2708), GEMSDOE32 (0.2778 ← highest), GEMSDOE33 (0.2632), GEMSDOE36 (0.2750)
-- All nine are USER-REPORTED, not organizer-confirmed. None is unique vs registry.
-- New unique TIF generated: gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed (9,140 dots, off-catalogue stepover zones, 0 dots on spacing-5 registry lattice, format-validated, ok_to_submit=False pending gate clearance)
+- Nine focus-site values below are USER-REPORTED, not organizer-confirmed. The pinned audit reported all nine as pairwise duplicates under its 3-px rule.
+- A historical H-STEO research TIFF is present: `gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed` (9,140 positive pixels). The card records `ok_to_submit=false`; it reports zero overlap with one spacing-5 lattice only, explicitly says the broader 695-raster check was unavailable, and contains no HOLDOUT-DTI. Its offset grid is deliberately chosen to avoid that lattice; that is not evidence of global uniqueness or efficacy, and must not be treated as submission approval.
+- Later independent local validation against the owner-mirror sample confirms format only: one float32 band, EPSG:32611, exact 3730×3292 shape/100 m transform, footprint finite in [0,1]; NaN-outside and all-finite encodings both pass their respective local conventions. This does not establish scientific validity, uniqueness, or organizer acceptance.
 - No current file is cleared for submission under the literal registry protocol.
 
 ---
