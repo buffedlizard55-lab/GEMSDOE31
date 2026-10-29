@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "session": "arena/cc130eb1-gemsdoe31",
+  "date_utc": "2026-10-29",
+  "review_type": "repository review, duplicate audit of the nine requested focus sites, and desk hypotheses",
+  "budget": {
+    "experiments_max": 3,
+    "experiments_run": 0,
+    "hours_max": 2,
+    "hours_used_approx": null,
+    "hours_note": "Not measured; no timing evidence was recorded in this session."
+  },
+  "hypothesis": "No new hypothesis was tested. Four desk hypotheses (H-CC-A to H-CC-D in registry/session_cc130eb1_decision.json) are listed for a future assigned lane.",
+  "mechanism": "Not applicable: no candidate raster was built. The explanation of the 0.2778 focus-site file is INFERENCE from the official metric definition and the repository's H27->H33 pruning record.",
+  "non_fault_mimic": "For each desk hypothesis, see its non_fault_mimic field in the decision register; none was tested.",
+  "holdout_dti": {
+    "status": "NOT RUN",
+    "evidence_class": "HOLDOUT-DTI",
+    "reason": "The feature stack is not restored, no method paragraph assigns a lane, and the literal any-registry duplicate STOP stands.",
+    "dti": null,
+    "ci95": null,
+    "withheld_positive_pixels": null,
+    "evaluator_version": null
+  },
+  "leakage_canary": {
+    "status": "NOT RUN",
+    "reason": "No feature stack; no features were fitted."
+  },
+  "correlation_overlap_vs_registry": {
+    "scope": "Nine focus-site top files, pairwise (36 pairs), re-fetched at pinned commits. Not a comparison against the 716-raster registry (registry/raster_registry.json), which was not re-run in this session.",
+    "evidence_class": "COMPUTED",
+    "overlap_rule": "share of candidate dots within 3 px of any dot of the other raster (gate.py rule), raw and chance-adjusted",
+    "pairs_duplicate_by_overlap": 36,
+    "pairs_total": 36,
+    "min_pairwise_max_overlap_either_direction": 0.97313,
+    "pairs_duplicate_by_rank": 29,
+    "min_pairwise_spearman_5px_blocks": 0.849793,
+    "source": "evidence/review_cc130eb1/focus_site_verification.json"
+  },
+  "raster_sha256": {
+    "new_raster_generated": false,
+    "note": "No new TIFF was generated, so no new hash exists. The nine verified focus files are listed with registry and recomputed SHA-256 in focus_site_verification.json; all nine match."
+  },
+  "validator_output": {
+    "scope": "Existing focus-site files only (format check, not an organizer acceptance test)",
+    "all_sha256_match": true,
+    "all_grid_match_template": true,
+    "all_values_in_0_1": true,
+    "nan_outside_footprint": "all nine (7,111,787 NaN pixels each; no NaN inside the 5,167,373-pixel footprint)",
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "organizer_acceptance_verified": false
+  },
+  "submission": {
+    "name": null,
+    "note": null,
+    "portal_note_chars": null,
+    "reason": "No submission is proposed."
+  },
+  "estimated_leaderboard_score": null,
+  "estimate_reason": "No projection is reported as a score. USER-REPORTED values have no organizer receipt.",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "promote": false,
+  "tests": [
+    "tests/test_focus_sites.py"
+  ],
+  "official_sources": "registry/session_cc130eb1_decision.json#official_sources"
+}
