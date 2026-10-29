@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "review_id": "20261029-arena-4d582f3d",
+  "lane": null,
+  "hypothesis": "No scientific hypothesis was assigned or tested: the current prompt lacks its referenced method paragraph and the binding registry gate is negative.",
+  "mechanism": "No feature computation, holdout fit, surface emission, raster generation, or selector action in this review. Desk-only future hypotheses are documented in knowledge/repo_review_2026-10-29_arena-4d582f3d.md.",
+  "named_non_fault_process": "No new mechanism tested; named mimics for each desk-only candidate are recorded in the review. H31-CC's historical named mimics remain depositional isopach pinch-out, lithologic density contact, gravity terrain residual, and playa compaction.",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "value": null,
+    "ci95": null,
+    "evaluator_version": null,
+    "withheld_positive_pixels": null,
+    "status": "No holdout run in this review. H31-CC historical result is cited only: gems57-pooled-hide-v2, 60,988 withheld positives, 0.0470699001, 95% CI [0.0332316832, 0.0618164396]; paired vs same-run NULL -0.0096696656, CI [-0.0234560779, 0.0052006782]."
+  },
+  "correlation_overlap_vs_registry": {
+    "new_candidate": null,
+    "surface": null,
+    "final": {
+      "evidence_class": "COMPUTED, prior artifact recheck",
+      "artifact": "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+      "registered_witness": "GEMSDOE24 spacing-5 owner-mirror raster, pinned per registry/release_status.json",
+      "spearman_rho": -0.00007680769,
+      "overlap_within_3px": 0.9961225898974877,
+      "decision": "STOP; exceeds 0.70. Not exhaustive registry coverage."
+    },
+    "budget_bound": {
+      "evidence_class": "COMPUTED counting bound, not a score",
+      "dots": 37654,
+      "minimum_overlap": 0.8234184947150369,
+      "qualification": "Specific to the 37,654-dot budget; does not prove every nonempty raster must fail."
+    }
+  },
+  "raster_sha256": null,
+  "validator": {
+    "new_raster_generated": false,
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match": null,
+    "status": "Not applicable; no new candidate raster. Existing H31-CC format-only validation is independently recorded in registry/release_status.json and is not upload approval."
+  },
+  "submission_name": null,
+  "submission_note": null,
+  "verdict": "negative",
+  "ok_to_download_for_research": false,
+  "ok_to_submit": false,
+  "slot_approved": false,
+  "experiments_run": 0,
+  "new_tif_generated": false,
+  "submission_slots_used": 0,
+  "leaderboard_estimate": null,
+  "limitations": [
+    "No lane paragraph supplied; no lane assigned.",
+    "Production feature cache/full data absent; only hash-pinned small validation inputs restored.",
+    "No organizer score receipt; owner-supplied leaderboard values are unverified.",
+    "No new candidate holdout or raster; no score estimate is supportable.",
+    "Current literal registry policy blocks the existing H31-CC artifact."
+  ]
+}

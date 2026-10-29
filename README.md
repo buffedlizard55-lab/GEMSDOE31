@@ -1,41 +1,53 @@
-# Current review — 29 October 2026 (`arena/a668bcb6-gemsdoe31`)
+# Current repository review — 29 October 2026 (`arena/4d582f3d-gemsdoe31`)
 
-**DO NOT SUBMIT. No new TIFF, geological experiment, selector choice or weekly slot in this review.**
-The legacy writer incorrectly equated local format validity with upload permission; that bug is fixed.
-Legacy packaging now fails closed against the canonical release STOP before output writes.
-Existing TIFFs and scientific cards are unchanged. The latest H31-CC research file still fails the literal
-registered-control overlap rule; no new-file leaderboard estimate is justified.
+**DO NOT SUBMIT. No new TIFF, experiment, slot selection, or leaderboard contact in this review.** The cited H31-CC research artifact fails the literal registry overlap gate; its format checks do not imply submission approval. No new-file leaderboard estimate is supported. Historical nine-site claims remain USER-REPORTED, not organizer receipts.
 
-- [Executive summary / nine-site file table / submission guide](docs/executive-summary.html#nine-site-decision)
-- [Current three-pass review, ranked unfit hypotheses, verified sources, limitations and next steps](knowledge/repo_review_2026-10-29_a668bcb6.md)
-- [Session JSON run card](evidence/review_a668bcb6/run_card.json) · [canonical release status](registry/release_status.json)
-- [Current prompt restatement](knowledge/owner_prompt_2026-10-29_a668bcb6.md); the full earlier normalized owner prompt remains below. Read both and AGENTS.md each session.
+- [This branch's three-pass review, nine-site decision table, ranked desk hypotheses and next steps](knowledge/repo_review_2026-10-29_arena-4d582f3d.md) · [negative run card](evidence/review_4d582f3d/run_card.json)
+- [Current release status](registry/release_status.json) · [nine-site evidence register](registry/focus_review.json)
+- Parallel 29 October reviews: [arena/a668bcb6 — legacy packaging safety, source metadata and updated next steps](knowledge/repo_review_2026-10-29_a668bcb6.md) · [arena/8e29897c](knowledge/review_2026-10-29_8e29897c.md) · [arena/b187d4af](knowledge/repo_review_2026-10-29_b187d4af.md)
+- Run `python scripts/audit_download.py` for a read-only denial audit (exit 2 = verified denial; exit 1 = missing/corrupt/stale evidence). Legacy packaging wrappers now fail closed before writes unless canonical lane and two-stage uniqueness evidence pass; no current artifact meets that policy.
+- All nine pinned historical top entries have >70% computed 3-px support overlap with H33; they are prior art, not upload choices. H33 `0.2778` is USER-REPORTED and private-truth causation is unknown. Three candidate hypotheses are desk-only; the promised method paragraph and full feature cache are absent, so none was validated.
+- After integrating the parallel fail-closed selector guard, read-only audit, and packaging guard: 255 tests, Ruff, compileall, metric and site checks passed; no TIFF is OK to submit.
 
-**Freshness:** all nine GitHub repository HEADs were checked and differ from their pinned historical artifact
-revisions; current rasters/scores were not re-audited. The organizer reference README was actually fetched
-and permits CPU-only execution (GPU is faster, not mandatory for that reference).
-[Timestamped source receipt](evidence/review_a668bcb6/source_access.json).
-Supplied GEMSDOE92 0.2784 exceeds H33's 0.2778 outside the nine-site focus; both are USER-REPORTED,
-not organizer-confirmed scores. Maximize P(Win); Own the Outcome: fix false approvals, do not consume a slot on a failed gate.
+Read the complete README, including the preserved owner prompt, and `AGENTS.md` at every project session start.
 
 ---
 
-## Parallel review — 29 October 2026 (`arena/8e29897c-gemsdoe31`)
+## Parallel repository review — 29 October 2026 (`arena/a668bcb6-gemsdoe31`)
+
+**DO NOT SUBMIT. No new TIFF or scientific experiment.** The legacy writer previously treated format validity as upload permission; local packaging now fails closed against the canonical STOP before writing. Existing TIFFs and scientific cards are unchanged. The latest H31-CC research file still fails the literal registered-control overlap gate; no new-file leaderboard estimate is justified.
+
+- [Three-pass review, source qualifications, limitations and next steps](knowledge/repo_review_2026-10-29_a668bcb6.md) · [machine run card](evidence/review_a668bcb6/run_card.json) · [dated source access evidence](evidence/review_a668bcb6/source_access.json)
+- The review checked GitHub HEAD metadata only for nine repositories; changed HEADs do not refresh raster bytes, scores, receipts or leaderboard state. The official reference README CPU finding concerns the organizer baseline only, not competition training in general.
+- Supplied GEMSDOE92 0.2784 and H33 0.2778 remain USER-REPORTED, not organizer-confirmed.
+
+---
+
+## Parallel repository review — 29 October 2026 (`arena/8e29897c-gemsdoe31`)
+
+**DO NOT SUBMIT. No new TIFF, experiment, slot selection, or leaderboard contact in this review.** The cited H31-CC research artifact fails the literal registry overlap gate; its format checks do not imply submission approval. No new-file leaderboard estimate is supported. Historical nine-site claims remain USER-REPORTED, not organizer receipts.
+
+- [This branch's three-pass review, nine-site decision table, ranked desk hypotheses and next steps](knowledge/repo_review_2026-10-29_arena-4d582f3d.md) · [negative run card](evidence/review_4d582f3d/run_card.json)
+- Parallel reviews: [arena/b187d4af](knowledge/repo_review_2026-10-29_b187d4af.md) · [arena/8e29897c](knowledge/review_2026-10-29_8e29897c.md) · [download audit card](evidence/download_audit_20261029.json)
+- [Current release status](registry/release_status.json) · [nine-site evidence register](registry/focus_review.json)
+- All nine pinned historical top entries have >70% computed 3-px support overlap with H33; they are prior art, not upload choices. The H33 `0.2778` value is USER-REPORTED and its private-truth cause is unknown.
+- Three candidate hypotheses are desk-only. The promised method paragraph is absent, the full feature cache is absent, and no candidate was validated. No current TIFF is OK to submit.
+- After integrating the parallel fail-closed selector guard and read-only audit: 224 tests passed; Ruff, compileall, metric, current/protocol/H31-CC verifiers, release-status check and 22-page/552-link site check passed. The generated timestamp-only readiness diff was discarded for this review; the merged main audit record remains preserved.
+
+This dated review supersedes earlier README banners as the latest review on this branch; historical and parallel-session records remain preserved. Read the complete README, including the preserved owner prompt, and `AGENTS.md` at every project session start.
+
+---
+
+# Parallel repository review — 29 October 2026 (`arena/8e29897c-gemsdoe31`)
 
 **DO NOT SUBMIT.** No new TIFF or experiment; the verified existing H31-CC artifact fails the literal registry uniqueness rule. No slot used. New leaderboard estimate: unavailable.
 
-- [Executive review: nine-site table, hypotheses, three passes, limitations](knowledge/review_2026-10-29_8e29897c.md)
-- [Machine-readable run card](evidence/download_audit_20261029.json)
-- New autonomous command: `python scripts/audit_download.py` (exit 2 = verified denial; exit 1 = missing/corrupt/stale evidence). Restore small inputs first with `python scripts/verify_current_run.py --restore-small-inputs` if needed.
-- [Existing executive summary and submission guide](docs/executive-summary.html#nine-site-decision)
-
-The complete owner prompt is preserved in this README below and the linked historical operative prompt. This session applies the same charter: unique TIFF required; literal registry STOP before placement; no slot selection; three-experiment/two-hour maximum. The requested single-method paragraph is still absent. No permission to bypass these constraints is inferred. Read the entire charter every session. Maximize P(Win); Own the Outcome.
+- [Three-pass review](knowledge/review_2026-10-29_8e29897c.md) · [machine-readable run card](evidence/download_audit_20261029.json)
+- Read-only audit command: `python scripts/audit_download.py` (exit 2 = verified denial; exit 1 = missing/corrupt/stale evidence). Restore only pinned small inputs first if necessary.
 
 ---
 
-# Current review — 29 October 2026 (`arena/b187d4af-gemsdoe31`)
 
-**DO NOT SUBMIT.** No new TIFF, experiment, selection, or competition slot. Existing H31-CC fails the literal registry overlap rule. No leaderboard estimate is available. [Three-pass review](knowledge/repo_review_2026-10-29_b187d4af.md) · [run card](evidence/review_b187d4af/run_card.json) · [current executive summary](docs/executive-summary.html#focus-sites). The standing owner prompt and core values are preserved below; read the full README and AGENTS.md each session. The request again requires a single method lane but does not specify its paragraph; do not infer authorization from desk hypotheses.
 
 ---
 

@@ -40,10 +40,10 @@ def selector_decision_section() -> str:
     u = r["correlation_overlap_vs_registry"]
     pair = h.get("paired_vs_null") or {}
     filename = esc(r["file"].replace("docs/", "", 1))
-    report_link = "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-28_arena-41e3ba3f.md"
+    report_link = "https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-4d582f3d.md"
     paired_ci = pair["ci95"]
     return f'''<section id="selector-decision" aria-labelledby="selector-heading">
-      <p class="kicker">Current release audit · 28 October 2026 · existing H31-CC bytes; no new experiment</p>
+      <p class="kicker">29 October 2026 repository review · existing H31-CC bytes; no new experiment</p>
       <h2 id="selector-heading">DO NOT SUBMIT — literal registry STOP</h2>
       <p>29 October follow-up: <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/review_2026-10-29_8e29897c.md">nine-site review, hypotheses and limitations</a>.
       Recheck without a human inspector using <code>python scripts/audit_download.py</code>:
@@ -1607,16 +1607,15 @@ def review_notice():
     source = json.loads((ROOT / "evidence/review_a668bcb6/source_access.json").read_text())
     heads = source["owner_repository_heads"]
     changed = sum(h["changed_since_all_pins"] for h in heads)
-    return f'''<div class="notice"><strong>29 October safety review: no new TIFF or experiment; DO NOT SUBMIT.</strong>
-      Legacy packaging now fails closed on the canonical STOP. Local writer receipts can no longer turn
-      a format pass into submission approval. Existing TIFF bytes and scientific cards are unchanged.
-      <strong>Source freshness:</strong> GitHub HEAD metadata checked for {len(heads)} focus repositories;
-      {changed} have changed since their pinned artifact revisions. This does not refresh their raster audit,
-      historical scores, organizer receipts or the leaderboard.
-      The official reference README confirms a CPU-only option; a GPU is faster, not mandatory for that reference.
-      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_a668bcb6.md">Three-pass review, ranked hypotheses, limitations and next steps</a> ·
-      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/review_a668bcb6/source_access.json">Dated source evidence</a>.
-      Historical HOLDOUT-DTI remains cited, not rerun; research downloads remain unapproved for upload.</div>'''
+    return f'''<div class="notice"><strong>29 October repository and safety review: no new TIFF or experiment; DO NOT SUBMIT.</strong>
+      Legacy packaging now fails closed against canonical lane and uniqueness evidence before output writes; format-only
+      validation cannot grant upload approval. GitHub HEAD metadata was checked for 9 focus repositories; {changed} have changed
+      since their pinned artifact revisions. This does not refresh their raster audit, historical scores, organizer receipts or leaderboard state.
+      The official reference README CPU finding applies to that baseline only. Historical HOLDOUT-DTI remains cited, not rerun;
+      research downloads remain unapproved for upload.
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_arena-4d582f3d.md">Current nine-site review and hypotheses</a> ·
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/knowledge/repo_review_2026-10-29_a668bcb6.md">Safety review</a> ·
+      <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/main/evidence/review_a668bcb6/source_access.json">Source-access receipt</a>.</div>'''
 
 
 def executive(card):
