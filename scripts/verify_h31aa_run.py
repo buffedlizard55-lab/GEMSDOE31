@@ -114,6 +114,15 @@ def verify(root: Path = ROOT, *, check_only: bool = False) -> dict:
         checks["format_receipt"] = str(fmt_path.relative_to(root))
     else:
         checks["grid_and_range_verified"] = "skipped (data/sample_submission.tif not restored)"
+        # Never silently downgrade a committed receipt: a write-mode run without the
+        # template must not replace a previously recorded passing grid check.
+        _prev = root / "evidence/h31aa/verification_receipt.json"
+        if not check_only and _prev.is_file():
+            if json.loads(_prev.read_text()).get("checks", {}).get("grid_and_range_verified") is True:
+                raise ValueError(
+                    "Refusing to overwrite a passing H31-AA receipt without data/sample_submission.tif; "
+                    "restore the pinned small inputs and rerun."
+                )
 
     canary = json.loads((root / "evidence/h31aa/canary.json").read_text())
     if not canary["all_pass"] or max(r["max_two_sided_auc"] for r in canary["rows"]) > 0.90:

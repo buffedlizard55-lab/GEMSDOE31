@@ -1997,6 +1997,29 @@
    "delivery_state": "No new TIFF, experiment, candidate, slot, DrivenData access, or leaderboard estimate; current release remains negative."
   },
   {
+   "id": "pass-2026-10-29-arena-75534796-1-repo-review-and-gate-check",
+   "status": "complete-with-open-gates",
+   "verification": {
+    "pytest": "256 passed after adding one regression test (255 before); first run had 2 unexplained failures in test_h31j and test_h31s that did not reproduce",
+    "ruff": "all checks passed",
+    "compileall": "passed for src, scripts, tests",
+    "metric": "check_metric.py passed (closed-form DTI cases 1.0 and 1/3)",
+    "protocol_review": "verify_protocol_review.py passed; negative verdict as recorded",
+    "release_status": "build_release_status.py --check passed; no file approved",
+    "site": "check_site.py passed: 22 pages, 552 local links",
+    "audit_download": "exit 2 = verified denial (expected)",
+    "restored_inputs": "data/sample_submission.tif and data/labels.tif restored and hash-matched; training_features.tif absent",
+    "external_hosts": "drivendata.org, docs.nlr.gov, usgs.gov, gdr.openei.org unreachable (curl 000); github.com HTTP 200"
+   },
+   "open_gates": [
+    "Literal any-registry uniqueness STOP stands; owner decision required.",
+    "No assigned single-method paragraph; no lane assigned.",
+    "training_features.tif (418,912,844 bytes) absent; no holdout runnable.",
+    "No organizer receipt or weekly-slot status; no leaderboard estimate."
+   ],
+   "delivery_state": "Fix: verify_h31aa_run.py write mode refuses to downgrade a passing receipt without the template (regression test added). No new TIFF, experiment, candidate, slot, DrivenData access, or leaderboard estimate."
+  },
+  {
    "id": "pass-2026-10-29-arena-cc130eb1-nine-site-executive-review",
    "status": "complete-with-open-gates",
    "verification": {

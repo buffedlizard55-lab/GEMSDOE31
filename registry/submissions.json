@@ -124,6 +124,28 @@
    "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
   },
   {
+   "file": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-allfinite.tif",
+   "name": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-allfinite.tif",
+   "sha256": "fea84032a93b8ba250431f9241200ac4c74a1767a18305757902cc2472f72c86",
+   "bytes": 74185,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
+   "file": "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
+   "name": "gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
+   "sha256": "aadbcd5398fccfc402c8358c5b87ba0d922b6eeb90f4932b5bbdf4fde0e18e89",
+   "bytes": 116805,
+   "role": "Archived parallel-session research; not reproduced or endorsed by this run",
+   "slot_approved": false,
+   "ok_to_submit": false,
+   "evidence_class": "COMPUTED byte hash only; scientific receipts belong to their separate original sessions",
+   "warning": "Any archived promote flag is not current selector approval; no comparable same-instrument win is established here."
+  },
+  {
    "file": "docs/downloads/gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
    "name": "gemsdoe31-h3-lidar-scarp-unique-50k-20261025-allfinite.tif",
    "sha256": "7906d5744a8456f09cb17193f4a3f7169a893d3c5ccddcb75b1c28fdb68e662a",

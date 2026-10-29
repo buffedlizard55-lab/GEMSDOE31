@@ -61,6 +61,77 @@ See the status record `knowledge/current_status_2026-10-29_cc130eb1.md` for the 
 
 # Current repository review — 29 October 2026 (`arena/4d582f3d-gemsdoe31`)
 
+# Current Project Charter — 2026-10-29 (`arena/3b306c34-gemsdoe31`)
+
+**Read this section at the start of every project session.** It defines the active task, success criteria, and constraints.
+
+## Active Task
+
+Generate a UNIQUE TIF submission for the DOE GEMS competition (GEMSDOE) that scores higher than 0.2778 (the best focus-site claim, GEMSDOE32 H33-2-B2, USER-REPORTED, not organizer-confirmed). The current live leaderboard high is reported as 0.4413 (with conflicting claim 0.3195).
+
+## Focus Sites
+
+GEMSDOE24, GEMSDOE25, GEMSDOE27, GEMSDOE28, GEMSDOE30, GEMSDOE31, GEMSDOE32, GEMSDOE33, GEMSDOE36.
+
+## Deliverables
+
+1. **Executive summary on every focus site** — clear and obvious which submission is best, with a table listing: file to download, estimated score, and whether it is unique versus the other GEMSDOE sites.
+2. **Unique TIF submission** — MUST be unique, not a copy of any previous submission. It must be obvious whether it is OK to download and submit the generated TIF.
+3. **Easy download** — a single-click download link for the submission TIF.
+4. **Submission format** — single-band GeoTIFF, EPSG:32611, exact shape/transform match, float32, values in [0,1].
+5. **Submission name and note** — unique name and short comment (<= 140 characters) for the portal.
+6. **Update this README** with the current prompt as a recurring project charter.
+7. **Create PR and merge** onto main.
+
+## Hypotheses to Test (3-5 candidates, not yet tried)
+
+Desk-only hypotheses requiring validation on the spatially-blocked holdout before any weekly submission slot is used:
+
+1. **Basement-depth step edge (depth_to_base_surf gradient)** — faults displace basement; sharp changes in depth_to_base_surf indicate unmapped faults. Layer: DEM-derived basement surface. Signature: edge-detection on depth_to_base_surf. Differs from existing: targets basement displacement, not surface expression.
+2. **Gravity horizontal gradient + dilatation** — geothermal faults create density contrasts. Layer: iso_grav_anom_hg and geod_dilaterate. Signature: horizontal gradient magnitude gated on positive dilatation. Differs from existing: combines gravity gradient with dilatation, not used as a joint gate in prior arms.
+3. **Magnetic tilt derivative zero-crossings** — structural boundaries from magnetic data. Layer: tmi (total magnetic intensity). Signature: tilt derivative zero-crossing lines. Differs from existing: no prior arm used magnetic tilt derivatives.
+4. **Radiometric potassium-thorium anomaly ratio** — hydrothermal alteration changes K/Th ratios. Layer: radiometric bands. Signature: K/Th ratio anomaly along fracture zones. Differs from existing: radiometric not used as a primary fault detector in prior arms.
+5. **LiDAR antislope scarp + radiometric fusion** — combined surface and subsurface evidence. Layers: lidar_scarp_features + geodawn_rad. Signature: joint probability of antislope scarp and radiometric anomaly. Differs from existing: fusion approach not yet implemented.
+
+## Constraints (Must Follow)
+
+- MUST GENERATE A UNIQUE TIF SUBMISSION. DO NOT COPY A PREVIOUS SUBMISSION.
+- IT MUST BE OBVIOUS WHETHER IT IS OK TO DOWNLOAD AND SUBMIT THE GENERATED TIF.
+- Inspection must be automated through the project, not by a human inspector.
+- All footprint values must be in [0, 1] (fixes the "Predicted values must be in range [0, 1]" portal error).
+- Values outside the footprint must be NaN (official convention) or zeros (all-finite convention).
+- Label every number as HOLDOUT-DTI or ORGANIZER-CONFIRMED. A projection is never written as a score.
+- If raster rank-correlation with any registry raster exceeds 0.90, or >70% of dots fall within 3 px of one registry raster's dots → duplicate STOP.
+- No submission slot may be used unless the candidate beats the same-run incumbent on a buffered spatial holdout.
+
+## Competition Links
+
+- Competition: https://www.drivendata.org/competitions/306/competition-doe-gems/
+- Leaderboard: https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/
+- Data (login required): https://www.drivendata.org/competitions/306/competition-doe-gems/data/
+- Reference solution: https://github.com/drivendataorg/gems-prize-reference-solution
+- Official rules PDF: https://docs.nlr.gov/docs/fy26osti/96647.pdf
+- EPSG:32611: https://epsg.io/32611
+- Tversky index: https://en.wikipedia.org/wiki/Tversky_index
+
+## Current State
+
+- Nine focus-site best claims: GEMSDOE24 (0.2477), GEMSDOE25 (0.2600), GEMSDOE27 (0.2449), GEMSDOE28 (0.2710), GEMSDOE30 (0.2600), GEMSDOE31 (0.2708), GEMSDOE32 (0.2778 ← highest), GEMSDOE33 (0.2632), GEMSDOE36 (0.2750)
+- All nine are USER-REPORTED, not organizer-confirmed. None is unique vs registry.
+- New unique TIF generated: gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed (9,140 dots, off-catalogue stepover zones, 0 dots on spacing-5 registry lattice, format-validated, ok_to_submit=False pending gate clearance)
+- No current file is cleared for submission under the literal registry protocol.
+
+---
+
+# Current repository review — 29 October 2026 (`arena/75534796-gemsdoe31`)
+
+**DO NOT SUBMIT. No TIFF was generated or approved in this session.** No method paragraph, no training feature stack, and the literal any-registry uniqueness gate is still negative. No score estimate exists for any new file. H33 `0.2778` and the other nine-site scores are USER-REPORTED. Leaderboard anchors in the request conflict (0.3195 vs 0.4413) and are unverified. Read `knowledge/repo_review_2026-10-29_arena-75534796.md` for the run card, blockers, irregularities (including a receipt-downgrade bug fixed here), and next steps.
+
+- [This session's review and run card](knowledge/repo_review_2026-10-29_arena-75534796.md)
+- Read-only denial audit: `python scripts/audit_download.py` (exit 2 = verified denial; this is expected).
+
+---
+
 **DO NOT SUBMIT. No new TIFF, experiment, slot selection, or leaderboard contact in this review.** The cited H31-CC research artifact fails the literal registry overlap gate; its format checks do not imply submission approval. No new-file leaderboard estimate is supported. Historical nine-site claims remain USER-REPORTED, not organizer receipts.
 
 - [This branch's three-pass review, nine-site decision table, ranked desk hypotheses and next steps](knowledge/repo_review_2026-10-29_arena-4d582f3d.md) · [negative run card](evidence/review_4d582f3d/run_card.json)
