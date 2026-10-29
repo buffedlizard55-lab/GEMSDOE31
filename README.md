@@ -11,6 +11,12 @@ The complete owner prompt is preserved in this README below and the linked histo
 
 ---
 
+# Current review — 29 October 2026 (`arena/b187d4af-gemsdoe31`)
+
+**DO NOT SUBMIT.** No new TIFF, experiment, selection, or competition slot. Existing H31-CC fails the literal registry overlap rule. No leaderboard estimate is available. [Three-pass review](knowledge/repo_review_2026-10-29_b187d4af.md) · [run card](evidence/review_b187d4af/run_card.json) · [current executive summary](docs/executive-summary.html#focus-sites). The standing owner prompt and core values are preserved below; read the full README and AGENTS.md each session. The request again requires a single method lane but does not specify its paragraph; do not infer authorization from desk hypotheses.
+
+---
+
 # Current session — 28 October 2026 (`arena/41e3ba3f-gemsdoe31`)
 
 **DO NOT SUBMIT.** This review generated no TIFF, ran no experiment, selected no candidate or weekly slot, and made no DrivenData contact. The latest existing scientific artifact is H31-CC from the previous session. It remains research-only: cited HOLDOUT-DTI 0.0471 [0.0332, 0.0618], paired difference versus same-run NULL −0.0097 [−0.0235, +0.0052], and COMPUTED final overlap 99.6123% with the registered spacing-5 witness. New-file leaderboard estimate: unavailable.

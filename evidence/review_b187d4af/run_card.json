@@ -1,0 +1,18 @@
+{
+  "review_id": "2026-10-29-arena-b187d4af",
+  "review_scope": "Existing H31-CC artifact verification and fail-closed policy audit; no new lane or experiment",
+  "hypothesis": "Previously tested H31-CC: buried normal faults may coincide with basement-depth steps and gravity gradients in gently sloping, dilating terrain.",
+  "mechanism": "Depth-to-basement gradient combined with gravity horizontal gradient, gated by low slope and positive dilatation; prior run, not reproduced here.",
+  "non_fault_mimic": "Depositional pinch-out or lithologic density contact",
+  "holdout_dti": {"evidence_class": "HOLDOUT-DTI; cited prior H31-CC card, not rerun", "evaluator_version": "gems57-pooled-hide-v2", "withheld_positive_pixels": 60988, "dti": 0.047069900074153195, "ci95": [0.03323168323881463, 0.06181643961343269]},
+  "correlation_overlap_vs_registry": {"surface": "Cited only: max absolute rho 0.13191868 for tested peers; registry coverage incomplete; not recomputed", "final": "Recomputed against one registered spacing-5 witness: overlap 0.9961225898974877, binary Spearman -0.00007680769; not a complete registry scan"},
+  "raster_sha256": "0e82a9e8b80052d0bc61e8f550b2ac5204d012ab1f53fb2208051f285f10ad44",
+  "validator": "Reverified existing all-finite H31-CC TIFF: single float32 band; no NaN inside footprint; [0,1]; CRS, shape, transform match pinned owner-mirror sample. Not an organizer acceptance receipt.",
+  "submission_name": "gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+  "note": "H31-CC basement step; research only; duplicate STOP; do not submit",
+  "leaderboard_estimate": null,
+  "new_tif_generated": false,
+  "experiments_run": 0,
+  "slot_approved": false,
+  "verdict": "negative"
+}
